@@ -1,4 +1,5 @@
 2007-02-03 Adicionando projeto ao SVN
+
 2005-03-17 Atenção: Evitar que FrameLayer::runUp seja maior que o FPS, o que pode causar flicker mais constante.
 2005-03-14 Bug: Detectado bug ao rodar demo dentro do kde, o fps aparece alto, apesar do movimento ficar lento.
 
