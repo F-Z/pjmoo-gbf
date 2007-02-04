@@ -1,0 +1,33 @@
+format 24
+
+classcanvas 128080 class_ref 130640 // TopSystemGaleria
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  xyz 23 39 2000
+classcanvas 128208 class_ref 137040 // TopSystemRecorde
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  xyz 457 24 2005
+classcanvas 128336 class_ref 137168 // TopSystemRecordeLista
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  xyz 250 262 2000
+fragment 128720 "TopSystem - Sistema de Recordes"
+  xyzwh 5 4 1994 606 461
+note 128976 "tamanho=10
+Constante \"Temporaria\""
+  color green  xyzwh 271 27 2005 141 48
+relationcanvas 128464 relation_ref 141392 // <directional aggregation by value>
+  geometry VH
+  from ref 128336 z 1999 to point 326 107
+  line 129744 z 1999 to ref 128208
+  role_a_pos 408 91 3000 no_role_b
+  multiplicity_a_pos 434 116 3000 no_multiplicity_b
+relationcanvas 128592 relation_ref 141264 // <directional aggregation by value>
+  geometry VH
+  from ref 128080 z 1999 to point 84 353
+  line 129616 z 1999 to ref 128336
+  role_a_pos 220 337 3000 no_role_b
+  multiplicity_a_pos 233 362 3000 no_multiplicity_b
+line 129104 -_-_
+  from ref 128976 z 1999 to ref 128720
+line 129232 -_-_
+  from ref 128976 z 2004 to ref 128208
+end
