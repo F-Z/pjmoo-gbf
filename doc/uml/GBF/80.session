@@ -1,9 +1,0 @@
-window_sizes 1024 721 354 664 520 127
-windows_style
-selected 
-  package_ref 128080 // Framework GBF
-open
-  
-  package_ref 128080 // Framework GBF
-end
-end
