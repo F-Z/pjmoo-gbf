@@ -23,7 +23,8 @@
 //    Usado principalmente para obter informações como data e hora
 //
 
-class UtilDate {
+class UtilDate
+{
   public:
     //Retorna Dia da semana, mês, dia do mês, hora e ano
     static char * getInfo();

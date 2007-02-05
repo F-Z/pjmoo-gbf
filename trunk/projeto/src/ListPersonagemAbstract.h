@@ -23,7 +23,8 @@
 //    Classe para criação de gerenciadores de personagens
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores de personagens
-class ListPersonagemAbstract : public ObjectManager {
+class ListPersonagemAbstract : public ObjectManager
+{
   public:
     //Construtor 
     ListPersonagemAbstract();

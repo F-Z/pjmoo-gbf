@@ -16,7 +16,8 @@
 
 #include "SpriteAbstract.h"
 
-class SpritePersonagem : public SpriteAbstract {
+class SpritePersonagem : public SpriteAbstract
+{
   public:
     //Destrutor 
     virtual ~SpritePersonagem();

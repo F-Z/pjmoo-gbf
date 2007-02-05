@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2006 David de Almeida Ferreira
+////    Copyright (C) 2004-2007 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -22,15 +22,15 @@ void TimerSystemCronometroAbstract::resetar()
 //Executa este método quando o estado é CRONOMETRO_INICIAR
 void TimerSystemCronometroAbstract::iniciar() 
 {
-//    resetar();
+    //resetar();
     setExecutar();
     execTempoInicial();
 }
 //Executa este método quando o estado é CRONOMETRO_CONTINUAR
 void TimerSystemCronometroAbstract::continuar() 
 {
-    setExecutar();	
-    execTempoInicial(); 
+    setExecutar();
+    execTempoInicial();
 }
 //Inicia o contado de tempo
 void TimerSystemCronometroAbstract::execTempoInicial() 
@@ -111,7 +111,7 @@ void TimerSystemCronometroAbstract::processar()
             break;
         case CRONOMETRO_INICIAR:
                 iniciar();
-            break;            
+            break;
         case CRONOMETRO_PAUSAR:
                 //sem implementacao
             break;
@@ -119,9 +119,9 @@ void TimerSystemCronometroAbstract::processar()
                 //sem implementacao
             break;
         case CRONOMETRO_RESETAR:
-        default:            
+        default:
                 resetar();
-            break;            
+            break;
     }
 }
 //Retorna a contagem de tempo corrente

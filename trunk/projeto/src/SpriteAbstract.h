@@ -28,10 +28,10 @@ enum DIRECAO {
   DR_BAIXODIREITA,
   DR_BAIXOESQUERDA,
   DR_CIMAESQUERDA
-
 };
 //Definição de Status
-struct DIRECAO_STATUS {
+struct DIRECAO_STATUS
+{
     bool cima;
 
     bool direita;
@@ -49,7 +49,8 @@ struct DIRECAO_STATUS {
     bool cimaesquerda;
 
 };
-class SpriteAbstract : protected SpriteInterface {
+class SpriteAbstract : protected SpriteInterface
+{
   public:
     //Destrutor
     virtual ~SpriteAbstract();

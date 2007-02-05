@@ -17,7 +17,8 @@
 #include "FrameLayerMundo.h"
 #include "GBF_define.h"
 
-class FrameLayerCamera {
+class FrameLayerCamera
+{
   public:
     //Destrutor
     virtual ~FrameLayerCamera();

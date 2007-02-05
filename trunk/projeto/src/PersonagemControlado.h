@@ -24,7 +24,8 @@
 // 
 ////TODO: Estudar a possibilidade para unificar PersonagemAutomatico e
 //// PersonagemControlado pois hoje já não existe mais diferença
-class PersonagemControlado : public PersonagemAbstract {
+class PersonagemControlado : public PersonagemAbstract
+{
   public:
     //Construtor 
     PersonagemControlado();

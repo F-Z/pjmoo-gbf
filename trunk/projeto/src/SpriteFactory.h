@@ -19,7 +19,8 @@
 #include "FrameLayer.h"
 #include "GraphicSystemImageBuffer.h"
 
-class SpriteFactory {
+class SpriteFactory
+{
   public:
     //Destrutor
     virtual ~SpriteFactory();

@@ -44,7 +44,8 @@ enum JOYSTICK_BOTAO {
 //    Classe para controle do joystick
 //Motivação:
 //    Prover o controle de eventos por meio do Joystick
-class InputSystemJoystick {
+class InputSystemJoystick
+{
   public:
     //Destrutor
     virtual ~InputSystemJoystick();

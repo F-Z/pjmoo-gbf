@@ -23,7 +23,8 @@
 
 //Classe para Gerenciamento de FrameLayer
 
-class FrameLayerManager {
+class FrameLayerManager
+{
   public:
     //Destrutor
     virtual ~FrameLayerManager();

@@ -2,14 +2,14 @@
 #define _GBF_H
 
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2006 David de Almeida Ferreira
-////    
+////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
 ////    License as published by the Free Software Foundation; either
 ////    version 2 of the License, or (at your option) any later version.
-////    
-////    David Ferreira (F-Z)
+////
+////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
 ////////////////////////////////////////////////////////////////////////
@@ -29,14 +29,13 @@
 #include "SoundSystemInterfaceManager.h"
 #include "UserInterfaceTexto.h"
 
-//*
-// * \class GBF
-// * \brief Classe Central do Framework
-// * \author David de Almeida Ferreira
-// * \date Criado em 24/10/2004
-// * \warning nenhum
+//Descrição: 
+//     Classe central do framework
+//Motivação:
+//     Prover de forma unificada a inicialização e configuração básica do framework
 // 
-class GBF {
+class GBF
+{
   public:
     //Construtor
     GBF();
@@ -45,7 +44,7 @@ class GBF {
     virtual ~GBF();
 
     //Informação sobre o Autor e o Título da Aplicação.
-    //Usado para arquivo de log e título da janela
+    //Obs.: Usado para arquivo de log e título da janela
     void setTitulo(std::string titulo, std::string autor);
 
     //Inicializa o Sistema, e configura o modo gráfico
@@ -60,11 +59,9 @@ class GBF {
     void pausar();
 
     //Mostra o Contador de FPS
-    //Obs.: Desabilitado
     void setFPS(bool show);
 
     //Informa se o mostrador de FPS está ativo
-    //Obs.: Desabilitado
     bool isFPS();
 
     //Informa o caminho do diretório base da aplicação corrente
@@ -103,10 +100,10 @@ class GBF {
     
     void controleInterno();
 
-    //* Prepara o Ambiente para ser inicializado 
+    //Prepara o Ambiente para ser inicializado 
     void carregar();
 
-    //* Define o Título para Janela 
+    //Define o Título para Janela 
     void setTitulo(std::string titulo);
 
 };

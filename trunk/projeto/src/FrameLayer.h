@@ -22,7 +22,8 @@
 #include "FrameLayerMundo.h"
 
 //Classe para Desenho de TileMaps
-class FrameLayer : public SpriteInterface {
+class FrameLayer : public SpriteInterface
+{
   public:
     FrameLayerCamera camera;
 

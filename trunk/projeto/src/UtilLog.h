@@ -65,6 +65,5 @@ class UtilLog
 
     static void escrever(const char * texto, ...);
 
-
 };
 #endif

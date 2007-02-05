@@ -66,6 +66,5 @@ class WriteSystemBitmap : public GraphicSystemImage
     void checkar();
 
   friend class WriteSystemManager;
-
 };
 #endif

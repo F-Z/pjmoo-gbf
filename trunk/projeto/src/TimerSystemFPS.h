@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2006 David de Almeida Ferreira
+////    Copyright (C) 2004-2007 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -23,18 +23,21 @@
 //    Fornecer um mecanismo para controlar a  velocidade de processamento da aplicação
 class TimerSystemFPS {
   public:
+    //Construtor
     TimerSystemFPS();
 
+    //Destrutor
     virtual ~TimerSystemFPS();
 
     void processar();
 
+    //Deve ser chamado antes do loop principal do jogo
     void start();
 
-    //* Aumenta a frequencia do FPS
+    //Aumenta a frequencia do FPS
     void aumentar();
 
-    //* Diminui a frequencia do FPS
+    //Diminui a frequencia do FPS
     void diminuir();
 
 

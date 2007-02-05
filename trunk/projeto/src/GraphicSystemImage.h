@@ -20,7 +20,8 @@
 #include "GBF_define.h"
 
 //Definição de area
-struct Area {
+struct Area
+{
     int top;
 
     int left;
@@ -30,7 +31,8 @@ struct Area {
     int right;
 
 };
-class GraphicSystemImage {
+class GraphicSystemImage
+{
   public:
     //Construtor
     GraphicSystemImage();

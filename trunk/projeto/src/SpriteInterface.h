@@ -17,7 +17,8 @@
 #include "GraphicSystemImageBuffer.h"
 #include "GBF_define.h"
 
-class SpriteInterface {
+class SpriteInterface
+{
   public:
     //Destrutor
     virtual ~SpriteInterface();

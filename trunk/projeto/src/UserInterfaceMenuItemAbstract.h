@@ -43,6 +43,5 @@ class UserInterfaceMenuItemAbstract
   protected:
     bool isAtivo();
 
-
 };
 #endif

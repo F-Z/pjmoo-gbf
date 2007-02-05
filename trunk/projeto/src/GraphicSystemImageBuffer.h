@@ -19,7 +19,8 @@
 
 #include "GBF_define.h"
 
-class GraphicSystemImageBuffer : public GraphicSystemImage {
+class GraphicSystemImageBuffer : public GraphicSystemImage
+{
   public:
     //Construtor
     GraphicSystemImageBuffer();

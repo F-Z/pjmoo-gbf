@@ -23,7 +23,8 @@
 // * \date 15/04/2005
 // * \warning Classe Singleton
 
-class GraphicSystemScreen {
+class GraphicSystemScreen
+{
   public:
     //Destrutor
     virtual ~GraphicSystemScreen();

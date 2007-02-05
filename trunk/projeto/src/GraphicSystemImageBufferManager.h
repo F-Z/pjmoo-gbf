@@ -20,7 +20,8 @@
 #include <map>
 
 
-class GraphicSystemImageBufferManager {
+class GraphicSystemImageBufferManager
+{
   public:
     //Destrutor
     virtual ~GraphicSystemImageBufferManager();

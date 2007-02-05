@@ -16,7 +16,8 @@
 
 #include "GBF_define.h"
 
-class FrameLayerMundo {
+class FrameLayerMundo
+{
   public:
     //Destrutor
     virtual ~FrameLayerMundo();

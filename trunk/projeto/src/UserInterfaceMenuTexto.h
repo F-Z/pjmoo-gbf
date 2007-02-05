@@ -41,6 +41,5 @@ class UserInterfaceMenuTexto : public UserInterfaceMenuAbstract
 
     GraphicSystemGFX * gsGFX;
 
-
 };
 #endif

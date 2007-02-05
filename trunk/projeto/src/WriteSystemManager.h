@@ -72,6 +72,5 @@ class WriteSystemManager
   public:
     UserInterfaceTexto * uiTexto;
 
-
 };
 #endif

@@ -19,7 +19,8 @@
 #include "GBF_define.h"
 #include "GraphicSystemScreen.h"
 
-class GraphicSystemGFX {
+class GraphicSystemGFX
+{
   public:
     //Destrutor 
     virtual ~GraphicSystemGFX();
