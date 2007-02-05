@@ -18,7 +18,8 @@
 #include "GBF_define.h"
 
 //Informações da Configuração de Vídeo 
-struct VideoConfig {
+struct VideoConfig
+{
     int w;
 
     int h;
@@ -28,7 +29,8 @@ struct VideoConfig {
     bool full;
 
 };
-class GraphicSystemMode {
+class GraphicSystemMode
+{
   public:
     //Construtor 
     GraphicSystemMode();

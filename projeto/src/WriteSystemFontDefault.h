@@ -38,6 +38,5 @@ class WriteSystemFontDefault
 
     static std::string stac;
 
-
 };
 #endif

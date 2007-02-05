@@ -20,7 +20,8 @@
 //    Classe para criação de gerenciadores
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores
-class ObjectManager {
+class ObjectManager
+{
   public:
     //Construtor 
     ObjectManager();

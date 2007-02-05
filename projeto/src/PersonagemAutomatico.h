@@ -21,7 +21,8 @@
 //    Classe para criação de personagens do jogo (npc, pc)
 //Motivação:
 //    Fornecer uma interface padrão para criação de personagens do jogo 
-class PersonagemAutomatico : public PersonagemAbstract {
+class PersonagemAutomatico : public PersonagemAbstract
+{
   public:
     //Construtor 
     PersonagemAutomatico();

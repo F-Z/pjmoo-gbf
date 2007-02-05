@@ -28,7 +28,8 @@
 //    Classe para entrada de novo recorde.
 //Motivação:
 //    Possibilitar que o jogador informe seu nome e entre na galeria de recordes
-class UserInterfaceRecorde {
+class UserInterfaceRecorde
+{
   private:
     TopSystemRecorde recorde;
 

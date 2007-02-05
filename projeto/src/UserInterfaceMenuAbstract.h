@@ -93,6 +93,5 @@ class UserInterfaceMenuAbstract
 
     RGB corFundo;
 
-
 };
 #endif

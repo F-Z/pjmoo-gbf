@@ -23,7 +23,8 @@
 //    Estrutura para representação de uma particula
 //Motivação:
 //    Permitir representar uma unidade com caracteristicas e ciclo de vida próprios
-struct Particula {
+struct Particula
+{
     PontoVirtual velocidade;
 
     PontoVirtual posicao;

@@ -21,7 +21,8 @@
 //    precisam de ponto flutuante.
 //Motivo:
 //    Usado para conversões entre sistemas de cores
-struct RGBf {
+struct RGBf
+{
     float r;
 
     float g;
@@ -33,7 +34,8 @@ struct RGBf {
 //    Estrutura para representar cores no sistema HSV (Hue,Saturation,Value).
 //Motivação:
 //    O sistema de cor HSV é mais próximo do entendimento humano
-struct HSV {
+struct HSV
+{
     float h;
 
     float s;
@@ -45,7 +47,8 @@ struct HSV {
 //    Estrutura para representar cores no sistema RGB (Red, Green, Blue).
 //Motivação:
 //    O sistema RGB é um sistema de cor nativo para computadores
-struct RGB {
+struct RGB
+{
     int r;
 
     int g;
@@ -74,7 +77,6 @@ class UtilColor
 
     //Retorna o maior valor 
     static int maior(int valor1, int valor2);
-
 
 };
 #endif

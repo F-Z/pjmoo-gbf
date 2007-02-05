@@ -20,7 +20,8 @@
 //    Classe para criação de gerenciadores de personagens do Jogador
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores de personagens do Jogador
-class ListPersonagemJogadorAbstract : public ListPersonagemAbstract {
+class ListPersonagemJogadorAbstract : public ListPersonagemAbstract
+{
   public:
     //Destrutor 
     virtual ~ListPersonagemJogadorAbstract();

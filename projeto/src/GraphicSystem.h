@@ -28,7 +28,8 @@
 // * \date  24/10/2004
 // * \warning Classe Singleton    
 
-class GraphicSystem {
+class GraphicSystem
+{
   public:
     //Destrutor 
     virtual ~GraphicSystem();

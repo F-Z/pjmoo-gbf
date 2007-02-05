@@ -48,6 +48,5 @@ class UserInterfaceMenuItemTexto : public UserInterfaceMenuItemAbstract
 
     virtual Dimensao getDimensaoLetra();
 
-
 };
 #endif

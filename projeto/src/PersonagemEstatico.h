@@ -17,7 +17,8 @@
 #include "PersonagemAbstract.h"
 #include "InputSystem.h"
 
-class PersonagemEstatico : public PersonagemAbstract {
+class PersonagemEstatico : public PersonagemAbstract
+{
   public:
     PersonagemEstatico();
 

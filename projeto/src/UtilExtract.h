@@ -22,7 +22,8 @@
 //Motivação:
 //    Descobrir caminhos de pastas
 //    Extrair o nome de aplicativos
-class UtilExtract {
+class UtilExtract
+{
   public:
     //Extrai o caminho do diretório base 
     static std::string extractPath(char * fullPath);

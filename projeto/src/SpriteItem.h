@@ -17,7 +17,8 @@
 #include "SpriteAbstract.h"
 #include "GBF_define.h"
 
-class SpriteItem : public SpriteAbstract {
+class SpriteItem : public SpriteAbstract
+{
   public:
     //Destrutor 
     virtual ~SpriteItem();

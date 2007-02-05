@@ -22,7 +22,8 @@
 //    Fornecer uma interface padrão para criação de gerenciadores de personagens NPC
 //
 // 
-class ListPersonagemAutomaticoAbstract : public ListPersonagemAbstract {
+class ListPersonagemAutomaticoAbstract : public ListPersonagemAbstract
+{
   public:
     //Destrutor 
     virtual ~ListPersonagemAutomaticoAbstract();

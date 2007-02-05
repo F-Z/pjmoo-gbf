@@ -23,7 +23,8 @@
 #include "InputSystem.h"
 
 //Definição de TypeDelay
-struct TypeDelay {
+struct TypeDelay
+{
     float acao;
 
     float tiroA;
@@ -41,7 +42,8 @@ struct TypeDelay {
 //    Fornecer uma interface padrão para criação de personagens 
 //
 // 
-class PersonagemAbstract {
+class PersonagemAbstract
+{
   protected:
     bool ativo;
 

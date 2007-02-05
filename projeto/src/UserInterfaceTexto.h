@@ -94,6 +94,5 @@ class UserInterfaceTexto
   private:
     UserInterfaceTexto();
 
-
 };
 #endif
