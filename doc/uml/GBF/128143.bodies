@@ -1,0 +1,20 @@
+class UserInterfaceMenuTextoTransparente
+!!!128399.cpp!!!	desenhar() : void
+    if (!item.empty()){
+        Dimensao dimensao = item[0]->getDimensaoLetra();
+        int offsetY=(dimensao.w/4);
+        int totalVertical   = (int(item.size()) * espacoVertical)+offsetY;
+        int totalHorizontal = (maiorPalavra) * dimensao.w;
+        int meioHorizontal  = totalHorizontal/2;
+
+        Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
+
+        int pontoY=t.y+offsetY;
+        for (unsigned int i=0; i<item.size(); i++){
+            if (item[i]!=NULL){
+                int dtmp=item[i]->getQuantidadeLetras();
+                item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
+            }
+            pontoY+=espacoVertical;
+        }
+    }

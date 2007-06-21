@@ -1,11 +1,11 @@
 @echo off
 @cls
-set DISTRO=X:\Desenvolvimento\Cpp\PJMOO\distro
+set DISTRO=C:\Projeto\pjmoo\distro
 
-echo Copiando Headers (.h)
-@copy /Y src\*.h "%DISTRO%"\include\GBF\*.h
+echo Preparando arquivos para o repositorio de distribuição...
 
-echo Copiando Biblioteca libGBF.a
+echo Copiando: Biblioteca libGBF.a
 @copy /Y bin\win32\release\libGBF.a "%DISTRO%"\lib\win32\release\libGBF.a
 
-
+echo Copiando: Headers (.h)
+@copy /Y src\*.h "%DISTRO%"\include\GBF\*.h
