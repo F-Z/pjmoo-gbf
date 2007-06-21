@@ -69,3 +69,7 @@ class SoundSystemMusicManager
     }
 !!!172368.cpp!!!	SoundSystemMusicManager(inout status : SoundSystemStatus)
     UtilLog::subSistema("Instanciando SoundSystemMusicManager");
+!!!128353.cpp!!!	setVolume(inout nome : std::string, in volume : int) : void
+    if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
+        objetomap[nome]->setVolume(volume);
+    }

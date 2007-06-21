@@ -68,6 +68,11 @@ class SoundSystemMusicManager : public SoundSystemInterfaceManager {
     //Construtor
     SoundSystemMusicManager(SoundSystemStatus * status);
 
+
+  public:
+    //Configura o volume do som
+    virtual void setVolume(std::string nome, int volume);
+
   friend class SoundSystem;
 };
 #endif

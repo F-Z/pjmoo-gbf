@@ -112,3 +112,10 @@ void SoundSystemMusicManager::stop(const std::string & nome)
 SoundSystemMusicManager::SoundSystemMusicManager(SoundSystemStatus * status):SoundSystemInterfaceManager(status){
     UtilLog::subSistema("Instanciando SoundSystemMusicManager");
 }
+//Configura o volume do som
+void SoundSystemMusicManager::setVolume(std::string nome, int volume) 
+{
+    if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
+        objetomap[nome]->setVolume(volume);
+    }
+}

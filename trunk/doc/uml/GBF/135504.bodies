@@ -68,13 +68,13 @@ class SoundSystemFxManager
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         Mix_SetPanning(objetomap[nome]->play(),E,D);
     }
-!!!168784.cpp!!!	setVolume(in nome : std::string, in volume : int) : void
+!!!168912.cpp!!!	setLimite(in left : int, in right : int) : void
+    area_left=left;
+    area_right=right;
+!!!128481.cpp!!!	setVolume(inout nome : std::string, in volume : int) : void
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         //Mix_Pause(objetomap[NOME]->play());
         objetomap[nome]->setVolume(volume);
     }
-!!!168912.cpp!!!	setLimite(in left : int, in right : int) : void
-    area_left=left;
-    area_right=right;
 !!!169040.cpp!!!	SoundSystemFxManager(inout status : SoundSystemStatus)
     UtilLog::subSistema("Instanciando SoundSystemFxManager");
