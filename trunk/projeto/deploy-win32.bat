@@ -1,6 +1,6 @@
 @echo off
 @cls
-set MINGW=C:\SDK\Cpp\CodeBlocks
+set MINGW=C:\SDK\CodeBlocks
 
 echo Copiando Headers (.h)
 @copy /Y src\*.h "%MINGW%"\include\GBF\*.h
