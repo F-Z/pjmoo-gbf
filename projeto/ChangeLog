@@ -1,9 +1,0 @@
-Modificando funcao para:
-create(int left, int top, int largura, int altura, GraphicSystemImageBuffer* gsiBuffer);
-
-renomeando frame frameAtual
-frame_total frameTotla
-frame_rate frameRate
-
-float frame -> int frameAtual
-
