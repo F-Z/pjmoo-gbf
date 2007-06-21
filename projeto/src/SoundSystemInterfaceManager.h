@@ -46,6 +46,10 @@ class SoundSystemInterfaceManager {
     //Continua a tocar o som
     virtual void resume() = 0;
 
+    //Configura o volume do som
+    //Obs.: Valor do volume de 0 ate 128
+    virtual void setVolume(std::string nome, int volume) = 0;
+
     //Informa PathBase para leitura de arquivos
     static void setPathBase(std::string path);
 

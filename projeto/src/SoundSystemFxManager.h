@@ -52,11 +52,12 @@ class SoundSystemFxManager : public SoundSystemInterfaceManager {
     //Toca um efeito sonoro detectando em qual caixa está mais próximo
     void playPanEffect(std::string nome, int posicao);
 
-    //Configura o volume do efeito sonoro
-    void setVolume(std::string nome, int volume);
-
     //Determina a área para calculo de efeito sonoro
     void setLimite(int left, int right);
+
+    //Configura o volume do efeito sonoro
+    //Obs.: Valor do volume de 0 ate 128
+    virtual void setVolume(std::string nome, int volume);
 
 
   private:

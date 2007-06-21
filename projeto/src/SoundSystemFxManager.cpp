@@ -106,19 +106,20 @@ void SoundSystemFxManager::playPanEffect(std::string nome, int posicao)
         Mix_SetPanning(objetomap[nome]->play(),E,D);
     }
 }
+//Determina a área para calculo de efeito sonoro
+void SoundSystemFxManager::setLimite(int left, int right) 
+{
+    area_left=left;
+    area_right=right;
+}
 //Configura o volume do efeito sonoro
+//Obs.: Valor do volume de 0 ate 128
 void SoundSystemFxManager::setVolume(std::string nome, int volume) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         //Mix_Pause(objetomap[NOME]->play());
         objetomap[nome]->setVolume(volume);
     }
-}
-//Determina a área para calculo de efeito sonoro
-void SoundSystemFxManager::setLimite(int left, int right) 
-{
-    area_left=left;
-    area_right=right;
 }
 //Construtor
 SoundSystemFxManager::SoundSystemFxManager(SoundSystemStatus * status):SoundSystemInterfaceManager(status){

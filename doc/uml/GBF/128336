@@ -1,51 +1,53 @@
-format 29
+format 38
 "SoundSystem" // Framework GBF::SoundSystem
-  revision 2
-  modified_by 46 "david"
+  revision 4
+  modified_by 122 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 128336 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
-    class 129744 "SoundSystem"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 129744 "SoundSystem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -125,7 +127,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 138192 // musicManager (<unidirectional association>)
-	  b parent class_ref 135376 // SoundSystemMusicManager
+	  b multiplicity "" parent class_ref 135376 // SoundSystemMusicManager
       end
 
       classrelation 138320 // fxManager (<unidirectional association>)
@@ -134,7 +136,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 138320 // fxManager (<unidirectional association>)
-	  b parent class_ref 135504 // SoundSystemFxManager
+	  b multiplicity "" parent class_ref 135504 // SoundSystemFxManager
       end
 
       classrelation 138448 // status (<unidirectional association>)
@@ -143,7 +145,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 138448 // status (<unidirectional association>)
-	  b parent class_ref 135632 // SoundSystemStatus
+	  b multiplicity "" parent class_ref 135632 // SoundSystemStatus
       end
 
       operation 166992 "SoundSystem"
@@ -165,14 +167,14 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 138576 // instance (<unidirectional association>)
-	  b parent class_ref 129744 // SoundSystem
+	  b multiplicity "" parent class_ref 129744 // SoundSystem
       end
 
       classrelation 147664 // <dependency>
 	relation 147664 -_->
 	  a protected
 	    classrelation_ref 147664 // <dependency>
-	  b parent class_ref 135248 // SoundSystemCanal
+	  b multiplicity "" parent class_ref 135248 // SoundSystemCanal
       end
 
       classrelation 147920 // <dependency>
@@ -181,7 +183,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 147920 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
 
       classrelation 150480 // <dependency>
@@ -190,12 +192,12 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150480 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
     class 135248 "SoundSystemCanal"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
 };
@@ -225,7 +227,9 @@ Motivação:
       end
     end
 
-    class 135376 "SoundSystemMusicManager"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 135376 "SoundSystemMusicManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -392,12 +396,27 @@ ${body}}"
 	comment "Construtor"
       end
 
+      operation 128353 "setVolume"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param inout name "nome" explicit_type "std::string"
+	  param in name "volume" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Configura o volume do som"
+      end
+
       classrelation 139344 // <generalisation>
 	relation 139344 ---|>
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 139344 // <generalisation>
-	  b parent class_ref 135888 // SoundSystemInterfaceManager
+	  b multiplicity "" parent class_ref 135888 // SoundSystemInterfaceManager
       end
 
       classrelation 139472 // <dependency>
@@ -406,11 +425,13 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 139472 // <dependency>
-	  b parent class_ref 129744 // SoundSystem
+	  b multiplicity "" parent class_ref 129744 // SoundSystem
       end
     end
 
-    class 135504 "SoundSystemFxManager"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 135504 "SoundSystemFxManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -535,21 +556,6 @@ ${body}}"
 	comment "Toca um efeito sonoro detectando em qual caixa está mais próximo"
       end
 
-      operation 168784 "setVolume"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "nome" explicit_type "std::string"
-	  param in name "volume" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Configura o volume do efeito sonoro"
-      end
-
       operation 168912 "setLimite"
 	public explicit_return_type "void"
 	nparams 2
@@ -563,6 +569,22 @@ ${body}}"
 	
 	
 	comment "Determina a área para calculo de efeito sonoro"
+      end
+
+      operation 128481 "setVolume"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param inout name "nome" explicit_type "std::string"
+	  param in name "volume" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Configura o volume do efeito sonoro
+Obs.: Valor do volume de 0 ate 128"
       end
 
       operation 169040 "SoundSystemFxManager"
@@ -607,7 +629,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 138832 // <generalisation>
-	  b parent class_ref 135888 // SoundSystemInterfaceManager
+	  b multiplicity "" parent class_ref 135888 // SoundSystemInterfaceManager
       end
 
       classrelation 138960 // <dependency>
@@ -616,11 +638,13 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 138960 // <dependency>
-	  b parent class_ref 129744 // SoundSystem
+	  b multiplicity "" parent class_ref 129744 // SoundSystem
       end
     end
 
-    class 135632 "SoundSystemStatus"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 135632 "SoundSystemStatus"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -746,11 +770,13 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 139600 // instance (<unidirectional association>)
-	  b parent class_ref 135632 // SoundSystemStatus
+	  b multiplicity "" parent class_ref 135632 // SoundSystemStatus
       end
     end
 
-    class 135760 "SoundSystemFx"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 135760 "SoundSystemFx"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -845,11 +871,13 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 138704 // <dependency>
-	  b parent class_ref 135504 // SoundSystemFxManager
+	  b multiplicity "" parent class_ref 135504 // SoundSystemFxManager
       end
     end
 
-    class 136016 "SoundSystemMusic"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 136016 "SoundSystemMusic"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -985,12 +1013,12 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 139216 // <dependency>
-	  b parent class_ref 135376 // SoundSystemMusicManager
+	  b multiplicity "" parent class_ref 135376 // SoundSystemMusicManager
       end
     end
 
     class 135888 "SoundSystemInterfaceManager"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -1084,6 +1112,19 @@ ${body}}"
 	comment "Continua a tocar o som"
       end
 
+      operation 128097 "setVolume"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param inout name "nome" explicit_type "std::string"
+	  param in name "volume" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	comment "Configura o volume do som
+Obs.: Valor do volume de 0 ate 128"
+      end
+
       operation 170064 "setPathBase"
 	class_operation public explicit_return_type "void"
 	nparams 1
@@ -1103,7 +1144,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 139088 // status (<unidirectional association>)
-	  b parent class_ref 135632 // SoundSystemStatus
+	  b multiplicity "" parent class_ref 135632 // SoundSystemStatus
       end
 
       attribute 139728 "pathBase"
@@ -1120,14 +1161,14 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148048 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
     end
   end
 
   deploymentview 129488 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 133968 "SoundSystem"
       stereotype "source"
