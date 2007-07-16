@@ -14,42 +14,52 @@
 #include "TimerSystemFPS.h"
 
 //Construtor
-TimerSystemFPS::TimerSystemFPS() 
+TimerSystemFPS::TimerSystemFPS()
 {
     UtilLog::sistema("Instanciando FPS");
     framestart =0.0f;
     fpsMax     =30;
 }
 //Destrutor
-TimerSystemFPS::~TimerSystemFPS() 
+TimerSystemFPS::~TimerSystemFPS()
 {
     UtilLog::sistema("Removendo FPS[%i]",fpsMax);
 }
-void TimerSystemFPS::processar() 
+void TimerSystemFPS::processar()
 {
-    SDL_Delay(getDelay());
-    framestart += fpsMax;
+//    SDL_Delay(getDelay());
+//    framestart += fpsMax;
+    while( (SDL_GetTicks() - framestart) < 1000 / fpsMax )
+    {
+        //wait...
+        //se tempo atual menos o tempo inicial for menor que
+        // 1000/30, faz com que entre em espera
+        //até que se complete o tempo
+    }
+
+    framestart = SDL_GetTicks();
 }
 //Deve ser chamado antes do loop principal do jogo
-void TimerSystemFPS::start() 
+void TimerSystemFPS::start()
 {
     UtilLog::tracer("Inicializando FPS");
-    framestart = SDL_GetTicks() + fpsMax;
+    //framestart = SDL_GetTicks() + fpsMax;
+    framestart = SDL_GetTicks();
 }
 //Aumenta a frequencia do FPS
-void TimerSystemFPS::aumentar() 
+void TimerSystemFPS::aumentar()
 {
     fpsMax++;
 }
 //Diminui a frequencia do FPS
-void TimerSystemFPS::diminuir() 
+void TimerSystemFPS::diminuir()
 {
     fpsMax--;
     if (fpsMax<=30){
         fpsMax=30;
     }
 }
-Uint32 TimerSystemFPS::getDelay() 
+Uint32 TimerSystemFPS::getDelay()
 {
     Uint32 now = SDL_GetTicks();
 
