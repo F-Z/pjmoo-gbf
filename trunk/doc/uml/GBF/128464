@@ -1,51 +1,53 @@
-format 29
+format 38
 "TimerSystem" // Framework GBF::TimerSystem
-  revision 4
-  modified_by 46 "david"
+  revision 5
+  modified_by 11 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
   cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
   cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
   classview 128464 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
-    class 130896 "TimerSystemCronometroDecrescente"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 130896 "TimerSystemCronometroDecrescente"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -62,7 +64,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 141136 // <generalisation>
-	  b parent class_ref 136912 // TimerSystemCronometroAbstract
+	  b multiplicity "" parent class_ref 136912 // TimerSystemCronometroAbstract
       end
 
       operation 180688 "executar"
@@ -105,7 +107,9 @@ ${body}}"
       end
     end
 
-    class 130512 "TimerSystemCronometroCrescente"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 130512 "TimerSystemCronometroCrescente"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -122,7 +126,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 141008 // <generalisation>
-	  b parent class_ref 136912 // TimerSystemCronometroAbstract
+	  b multiplicity "" parent class_ref 136912 // TimerSystemCronometroAbstract
       end
 
       operation 179920 "executar"
@@ -165,7 +169,9 @@ ${body}}"
       end
     end
 
-    class 129872 "TimerSystemFPS"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 129872 "TimerSystemFPS"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -254,18 +260,6 @@ ${body}}"
 	comment "Diminui a frequencia do FPS"
       end
 
-      operation 182224 "getDelay"
-	protected explicit_return_type "Uint32"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-      end
-
       attribute 145360 "framestart"
 	private explicit_type "double"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -288,7 +282,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 147408 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
 
       classrelation 149840 // <dependency>
@@ -297,12 +291,12 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149840 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
     class 136784 "EnumCronometro"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}};
 "
@@ -365,7 +359,7 @@ Motivação:
     end
 
     class 136656 "EnumTempo"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
 };
@@ -406,7 +400,7 @@ Motivação:
     end
 
     class 136912 "TimerSystemCronometroAbstract"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -465,7 +459,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 140880 // eCronometro (<directional aggregation by value>)
-	  b parent class_ref 136784 // EnumCronometro
+	  b multiplicity "" parent class_ref 136784 // EnumCronometro
       end
 
       operation 177616 "executar"
@@ -705,7 +699,7 @@ ${body}}"
 	relation 147024 -_->
 	  a protected
 	    classrelation_ref 147024 // <dependency>
-	  b parent class_ref 136656 // EnumTempo
+	  b multiplicity "" parent class_ref 136656 // EnumTempo
       end
 
       classrelation 149968 // <dependency>
@@ -714,14 +708,14 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149968 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
   end
 
   deploymentview 128848 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 136016 "TimerSystemCronometroAbstract"
       stereotype "source"
