@@ -1,52 +1,52 @@
-format 29
+format 38
 "Sprite" // Framework GBF::Sprite
-  revision 12
-  modified_by 46 "david"
+  revision 13
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 128976 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
     class 136272 "DIRECAO"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}};
 "
@@ -113,7 +113,7 @@ ${items}};
     end
 
     class 136144 "DIRECAO_STATUS"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -189,7 +189,9 @@ ${inlines}
       end
     end
 
-    class 134736 "SpritePersonagem"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 134736 "SpritePersonagem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -203,7 +205,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 140496 // <generalisation>
-	  b parent class_ref 136400 // SpriteAbstract
+	  b multiplicity "" parent class_ref 136400 // SpriteAbstract
       end
 
       operation 176720 "~SpritePersonagem"
@@ -303,7 +305,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 140624 // direcao (<directional aggregation by value>)
-	  b parent class_ref 136272 // DIRECAO
+	  b multiplicity "" parent class_ref 136272 // DIRECAO
       end
 
       attribute 143440 "qtdDirecao"
@@ -315,7 +317,9 @@ ${body}}"
       end
     end
 
-    class 136528 "SpriteItem"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 136528 "SpriteItem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -329,7 +333,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 140240 // <generalisation>
-	  b parent class_ref 136400 // SpriteAbstract
+	  b multiplicity "" parent class_ref 136400 // SpriteAbstract
       end
 
       operation 176208 "~SpriteItem"
@@ -386,7 +390,9 @@ ${body}}"
       end
     end
 
-    class 128208 "SpriteInterface"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128208 "SpriteInterface"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -444,7 +450,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 140112 // imagem (<directional aggregation>)
-	  b parent class_ref 132048 // GraphicSystemImageBuffer
+	  b multiplicity "" parent class_ref 132048 // GraphicSystemImageBuffer
       end
 
       attribute 142416 "frameAtual"
@@ -517,11 +523,13 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149712 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
-    class 136400 "SpriteAbstract"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 136400 "SpriteAbstract"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -722,7 +730,7 @@ ${body}}"
 	relation 148304 -_->
 	  a protected
 	    classrelation_ref 148304 // <dependency>
-	  b parent class_ref 136144 // DIRECAO_STATUS
+	  b multiplicity "" parent class_ref 136144 // DIRECAO_STATUS
       end
 
       classrelation 139728 // <generalisation>
@@ -730,18 +738,20 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 139728 // <generalisation>
-	  b parent class_ref 128208 // SpriteInterface
+	  b multiplicity "" parent class_ref 128208 // SpriteInterface
       end
 
       classrelation 148432 // <dependency>
 	relation 148432 -_->
 	  a protected
 	    classrelation_ref 148432 // <dependency>
-	  b parent class_ref 136272 // DIRECAO
+	  b multiplicity "" parent class_ref 136272 // DIRECAO
       end
     end
 
-    class 128336 "FrameLayerCamera"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128336 "FrameLayerCamera"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -974,7 +984,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128848 // ponto (<directional aggregation by value>)
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
 
       classrelation 128976 // mundo (<directional aggregation by value>)
@@ -983,7 +993,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128976 // mundo (<directional aggregation by value>)
-	  b parent class_ref 128592 // FrameLayerMundo
+	  b multiplicity "" parent class_ref 128592 // FrameLayerMundo
       end
 
       operation 132048 "limiteUp"
@@ -1039,7 +1049,9 @@ ${body}}"
       end
     end
 
-    class 128080 "FrameLayer"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128080 "FrameLayer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1054,7 +1066,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128080 // <generalisation>
-	  b parent class_ref 128208 // SpriteInterface
+	  b multiplicity "" parent class_ref 128208 // SpriteInterface
       end
 
       classrelation 128208 // camera (<directional aggregation by value>)
@@ -1063,7 +1075,7 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128208 // camera (<directional aggregation by value>)
-	  b parent class_ref 128336 // FrameLayerCamera
+	  b multiplicity "" parent class_ref 128336 // FrameLayerCamera
       end
 
       operation 128080 "FrameLayer"
@@ -1287,7 +1299,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128336 // screen_dimensao (<directional aggregation by value>)
-	  b parent class_ref 128464 // Area
+	  b multiplicity "" parent class_ref 128464 // Area
       end
 
       classrelation 128464 // mundo (<directional aggregation by value>)
@@ -1296,7 +1308,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128464 // mundo (<directional aggregation by value>)
-	  b parent class_ref 128592 // FrameLayerMundo
+	  b multiplicity "" parent class_ref 128592 // FrameLayerMundo
       end
 
       classrelation 128592 // <dependency>
@@ -1305,11 +1317,13 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 128592 // <dependency>
-	  b parent class_ref 128720 // FrameLayerManager
+	  b multiplicity "" parent class_ref 128720 // FrameLayerManager
       end
     end
 
-    class 128592 "FrameLayerMundo"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128592 "FrameLayerMundo"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1500,7 +1514,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129232 // quantidadeTiles (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
 
       classrelation 129360 // areaVisivel (<directional aggregation by value>)
@@ -1509,7 +1523,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129360 // areaVisivel (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
 
       classrelation 129488 // tile (<directional aggregation by value>)
@@ -1518,11 +1532,13 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129488 // tile (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
     end
 
-    class 128720 "FrameLayerManager"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128720 "FrameLayerManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1606,7 +1622,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129104 // instance (<unidirectional association>)
-	  b parent class_ref 128720 // FrameLayerManager
+	  b multiplicity "" parent class_ref 128720 // FrameLayerManager
       end
 
       attribute 128208 "objetomap"
@@ -1623,11 +1639,13 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143696 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
     end
 
-    class 128848 "SpriteFactory"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128848 "SpriteFactory"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1721,7 +1739,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 139856 // gsiBuffer (<unidirectional association>)
-	  b parent class_ref 132048 // GraphicSystemImageBuffer
+	  b multiplicity "" parent class_ref 132048 // GraphicSystemImageBuffer
       end
 
       classrelation 148816 // <dependency>
@@ -1730,7 +1748,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148816 // <dependency>
-	  b parent class_ref 136528 // SpriteItem
+	  b multiplicity "" parent class_ref 136528 // SpriteItem
       end
 
       classrelation 148944 // <dependency>
@@ -1739,7 +1757,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148944 // <dependency>
-	  b parent class_ref 134736 // SpritePersonagem
+	  b multiplicity "" parent class_ref 134736 // SpritePersonagem
       end
 
       classrelation 149200 // <dependency>
@@ -1748,14 +1766,14 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149200 // <dependency>
-	  b parent class_ref 128080 // FrameLayer
+	  b multiplicity "" parent class_ref 128080 // FrameLayer
       end
     end
   end
 
   deploymentview 128592 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 128464 "FrameLayerMundo"
       stereotype "source"

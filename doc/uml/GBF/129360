@@ -1,52 +1,52 @@
-format 29
+format 38
 "Personagem" // Framework GBF::Personagem
-  revision 5
-  modified_by 35 "david"
+  revision 6
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 129360 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
     class 133456 "ObjectManager"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -140,7 +140,7 @@ ${body}}"
     end
 
     class 134608 "TypeDelay"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -192,7 +192,9 @@ ${inlines}
       end
     end
 
-    class 133840 "ListPersonagemJogadorAbstract"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 133840 "ListPersonagemJogadorAbstract"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -210,7 +212,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 135760 // <generalisation>
-	  b parent class_ref 133328 // ListPersonagemAbstract
+	  b multiplicity "" parent class_ref 133328 // ListPersonagemAbstract
       end
 
       operation 159824 "~ListPersonagemJogadorAbstract"
@@ -240,7 +242,9 @@ ${body}}"
       end
     end
 
-    class 133712 "ListPersonagemAutomaticoAbstract"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 133712 "ListPersonagemAutomaticoAbstract"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -260,7 +264,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 135632 // <generalisation>
-	  b parent class_ref 133328 // ListPersonagemAbstract
+	  b multiplicity "" parent class_ref 133328 // ListPersonagemAbstract
       end
 
       operation 159568 "~ListPersonagemAutomaticoAbstract"
@@ -291,7 +295,7 @@ ${body}}"
     end
 
     class 133328 "ListPersonagemAbstract"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -310,7 +314,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 135376 // <generalisation>
-	  b parent class_ref 133456 // ObjectManager
+	  b multiplicity "" parent class_ref 133456 // ObjectManager
       end
 
       operation 157904 "ListPersonagemAbstract"
@@ -485,12 +489,12 @@ ${body}}"
 	  a role_name "lista" multiplicity "" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};"
 	    classrelation_ref 135504 // lista (<directional aggregation by value>)
-	  b parent class_ref 133584 // PersonagemAbstract
+	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
       end
     end
 
     class 133584 "PersonagemAbstract"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -537,7 +541,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<std::string,${type}*> ${name}${value};
 "
 	    classrelation_ref 152144 // sprites (<unidirectional association>)
-	  b parent class_ref 134736 // SpritePersonagem
+	  b multiplicity "" parent class_ref 134736 // SpritePersonagem
       end
 
       classrelation 137424 // delay (<directional aggregation by value>)
@@ -546,7 +550,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 137424 // delay (<directional aggregation by value>)
-	  b parent class_ref 134608 // TypeDelay
+	  b multiplicity "" parent class_ref 134608 // TypeDelay
       end
 
       classrelation 137552 // posicao (<directional aggregation by value>)
@@ -555,7 +559,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 137552 // posicao (<directional aggregation by value>)
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
 
       attribute 138832 "IDcontagem"
@@ -573,7 +577,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 137296 // dimensao (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
 
       operation 163408 "~PersonagemAbstract"
@@ -798,14 +802,14 @@ ${body}}"
 	relation 137680 -_->
 	  stereotype "friend"
 	  a protected
-	    cpp default "Generated"
+	    cpp default "${type}"
 	    classrelation_ref 137680 // <dependency>
-	  b parent class_ref 133328 // ListPersonagemAbstract
+	  b multiplicity "" parent class_ref 133328 // ListPersonagemAbstract
       end
     end
 
     class 134864 "PersonagemAutomatico"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -824,7 +828,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 137808 // <generalisation>
-	  b parent class_ref 133584 // PersonagemAbstract
+	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
       end
 
       operation 165200 "PersonagemAutomatico"
@@ -865,7 +869,9 @@ ${body}}"
       end
     end
 
-    class 135120 "PersonagemEstatico"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 135120 "PersonagemEstatico"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -879,7 +885,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 138064 // <generalisation>
-	  b parent class_ref 133584 // PersonagemAbstract
+	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
       end
 
       operation 166224 "PersonagemEstatico"
@@ -922,7 +928,7 @@ ${body}}"
     end
 
     class 134992 "PersonagemControlado"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -944,7 +950,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 137936 // <generalisation>
-	  b parent class_ref 133584 // PersonagemAbstract
+	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
       end
 
       operation 165712 "PersonagemControlado"
@@ -988,7 +994,7 @@ ${body}}"
 
   deploymentview 129104 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 132432 "ListPersonagemJogadorAbstract"
       stereotype "source"

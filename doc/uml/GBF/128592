@@ -1,51 +1,53 @@
-format 29
+format 38
 "InputSystem" // Framework GBF::InputSystem
-  revision 6
-  modified_by 46 "david"
+  revision 7
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 128592 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
-    class 132688 "InputSystemJoystick"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 132688 "InputSystemJoystick"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -240,7 +242,7 @@ Obs.: Não funciona (não use)"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 134096 // axe_horizontal (<directional aggregation by value>)
-	  b parent class_ref 132816 // JOYSTICK_AXE
+	  b multiplicity "" parent class_ref 132816 // JOYSTICK_AXE
       end
 
       classrelation 134224 // axe_vertical (<directional aggregation by value>)
@@ -249,7 +251,7 @@ Obs.: Não funciona (não use)"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 134224 // axe_vertical (<directional aggregation by value>)
-	  b parent class_ref 132816 // JOYSTICK_AXE
+	  b multiplicity "" parent class_ref 132816 // JOYSTICK_AXE
       end
 
       classrelation 134352 // <dependency>
@@ -258,14 +260,14 @@ Obs.: Não funciona (não use)"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 134352 // <dependency>
-	  b parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       classrelation 146128 // <dependency>
 	relation 146128 -_->
 	  a protected
 	    classrelation_ref 146128 // <dependency>
-	  b parent class_ref 132944 // JOYSTICK_BOTAO
+	  b multiplicity "" parent class_ref 132944 // JOYSTICK_BOTAO
       end
 
       classrelation 146896 // <dependency>
@@ -274,7 +276,7 @@ Obs.: Não funciona (não use)"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 146896 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
 
       classrelation 150096 // <dependency>
@@ -283,11 +285,13 @@ Obs.: Não funciona (não use)"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150096 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
-    class 133200 "InputSystemMouseCursor"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 133200 "InputSystemMouseCursor"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -305,7 +309,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 134992 // <generalisation>
-	  b parent class_ref 131920 // GraphicSystemImage
+	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
       end
 
       operation 157392 "~InputSystemMouseCursor"
@@ -373,7 +377,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 135120 // ponto (<directional aggregation by value>)
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
 
       classrelation 135248 // <dependency>
@@ -382,11 +386,13 @@ Motivação:
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 135248 // <dependency>
-	  b parent class_ref 132560 // InputSystemMouse
+	  b multiplicity "" parent class_ref 132560 // InputSystemMouse
       end
     end
 
-    class 132560 "InputSystemMouse"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 132560 "InputSystemMouse"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -565,7 +571,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 134608 // cursor (<unidirectional association>)
-	  b parent class_ref 133200 // InputSystemMouseCursor
+	  b multiplicity "" parent class_ref 133200 // InputSystemMouseCursor
       end
 
       operation 157136 "InputSystemMouse"
@@ -600,7 +606,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 134736 // ponto (<directional aggregation by value>)
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
 
       attribute 137168 "botao"
@@ -625,18 +631,20 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 134864 // <dependency>
-	  b parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       classrelation 146256 // <dependency>
 	relation 146256 -_->
 	  a protected
 	    classrelation_ref 146256 // <dependency>
-	  b parent class_ref 133072 // MOUSE_BOTAO
+	  b multiplicity "" parent class_ref 133072 // MOUSE_BOTAO
       end
     end
 
-    class 132432 "InputSystemKeyboard"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 132432 "InputSystemKeyboard"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -729,7 +737,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 134480 // <dependency>
-	  b parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       classrelation 145360 // <dependency>
@@ -738,7 +746,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 145360 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
 
       classrelation 150224 // <dependency>
@@ -747,12 +755,12 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150224 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
     class 133072 "MOUSE_BOTAO"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
 };
@@ -795,7 +803,7 @@ Motivação:
     end
 
     class 132944 "JOYSTICK_BOTAO"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
 };
@@ -838,7 +846,7 @@ Motivação:
     end
 
     class 132816 "JOYSTICK_AXE"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
 };
@@ -887,7 +895,9 @@ Motivação:
       end
     end
 
-    class 129488 "InputSystem"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 129488 "InputSystem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -1010,7 +1020,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 133584 // teclado (<unidirectional association>)
-	  b parent class_ref 132432 // InputSystemKeyboard
+	  b multiplicity "" parent class_ref 132432 // InputSystemKeyboard
       end
 
       classrelation 133712 // mouse (<unidirectional association>)
@@ -1019,7 +1029,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 133712 // mouse (<unidirectional association>)
-	  b parent class_ref 132560 // InputSystemMouse
+	  b multiplicity "" parent class_ref 132560 // InputSystemMouse
       end
 
       classrelation 133840 // joystick (<unidirectional association>)
@@ -1028,7 +1038,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 133840 // joystick (<unidirectional association>)
-	  b parent class_ref 132688 // InputSystemJoystick
+	  b multiplicity "" parent class_ref 132688 // InputSystemJoystick
       end
 
       classrelation 133968 // instance (<unidirectional association>)
@@ -1037,7 +1047,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 133968 // instance (<unidirectional association>)
-	  b parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       attribute 134992 "evento"
@@ -1076,14 +1086,14 @@ Obs.: Inicializa os Sistemas de Input (Teclado, Mouse, Joystick)"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150352 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
   end
 
   deploymentview 128976 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 131152 "InputSystem"
       stereotype "source"

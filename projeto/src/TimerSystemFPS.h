@@ -41,10 +41,6 @@ class TimerSystemFPS {
     void diminuir();
 
 
-  protected:
-    Uint32 getDelay();
-
-
   private:
     double framestart;
 

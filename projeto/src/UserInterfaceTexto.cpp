@@ -15,6 +15,7 @@
 
 UserInterfaceTexto * UserInterfaceTexto::instance =NULL;
 
+//Caminho padrão de localização dos arquivos
 std::string UserInterfaceTexto::pathBase;
 
 //Configura um idioma

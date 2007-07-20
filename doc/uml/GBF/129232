@@ -1,51 +1,53 @@
-format 29
+format 38
 "Util" // Framework GBF::Util
-  revision 6
-  modified_by 50 "david"
+  revision 7
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 129232 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
-    class 137680 "UtilDate"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 137680 "UtilDate"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -74,7 +76,9 @@ ${body}}
       end
     end
 
-    class 137808 "UtilExtract"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 137808 "UtilExtract"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -117,7 +121,9 @@ ${body}}
       end
     end
 
-    class 137936 "UtilLog"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 137936 "UtilLog"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -328,19 +334,21 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 145488 // <dependency>
-	  b parent class_ref 137680 // UtilDate
+	  b multiplicity "" parent class_ref 137680 // UtilDate
       end
 
       classrelation 151376 // <dependency>
 	relation 151376 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 151376 // <dependency>
-	  b parent class_ref 137808 // UtilExtract
+	  b multiplicity "" parent class_ref 137808 // UtilExtract
       end
     end
 
-    class 137552 "UtilColor"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 137552 "UtilColor"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -415,30 +423,30 @@ ${body}}
       classrelation 150992 // <dependency>
 	relation 150992 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 150992 // <dependency>
-	  b parent class_ref 137296 // RGB
+	  b multiplicity "" parent class_ref 137296 // RGB
       end
 
       classrelation 151120 // <dependency>
 	relation 151120 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 151120 // <dependency>
-	  b parent class_ref 134096 // HSV
+	  b multiplicity "" parent class_ref 134096 // HSV
       end
 
       classrelation 151248 // <dependency>
 	relation 151248 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 151248 // <dependency>
-	  b parent class_ref 137424 // RGBf
+	  b multiplicity "" parent class_ref 137424 // RGBf
       end
     end
 
     class 137424 "RGBf"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -479,7 +487,7 @@ Motivo:
     end
 
     class 137296 "RGB"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -519,7 +527,7 @@ Motivação:
     end
 
     class 134096 "HSV"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -561,7 +569,7 @@ Motivação:
 
   deploymentview 128336 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 137680 "UtilExtract"
       stereotype "source"
