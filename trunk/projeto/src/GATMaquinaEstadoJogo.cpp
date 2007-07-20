@@ -14,19 +14,19 @@
 #include "GATMaquinaEstadoJogo.h"
 
 //Construtor
-GATMaquinaEstadoJogo::GATMaquinaEstadoJogo()
+GATMaquinaEstadoJogo::GATMaquinaEstadoJogo() 
 {
     setJogoInicio();
 }
 //Destrutor
-GATMaquinaEstadoJogo::~GATMaquinaEstadoJogo()
+GATMaquinaEstadoJogo::~GATMaquinaEstadoJogo() 
 {
 }
-GATEstadoJogo GATMaquinaEstadoJogo::processarEstadoJogo()
+GATEstadoJogo GATMaquinaEstadoJogo::processarEstadoJogo() 
 {
     return estado;
 }
-void GATMaquinaEstadoJogo::loopJogo()
+void GATMaquinaEstadoJogo::loopJogo() 
 {
     switch(processarEstadoJogo()){
         case GAT_EJ_EXECUTANDO:
@@ -56,25 +56,23 @@ void GATMaquinaEstadoJogo::loopJogo()
             break;
     }
 }
-void GATMaquinaEstadoJogo::setJogoNovo()
+void GATMaquinaEstadoJogo::setJogoNovo() 
 {
-//removido em 16/06/2007 solicitação pelo FZPong
-//    if ((estado==GAT_EJ_INICIO)||((estado!=GAT_EJ_NOVO)&&(isTempoEspera()))){
-    if ((estado==GAT_EJ_INICIO)||(estado!=GAT_EJ_NOVO)){
+    if ((estado==GAT_EJ_INICIO)||((estado!=GAT_EJ_NOVO)&&(isTempoEspera()))){
         estado=GAT_EJ_NOVO;
         gatilhoJogoNovo();
-//        reiniciarTempo();
+        reiniciarTempo();
     }
 }
-void GATMaquinaEstadoJogo::setJogoExecutando()
+void GATMaquinaEstadoJogo::setJogoExecutando() 
 {
     if ((estado!=GAT_EJ_EXECUTANDO)&&(isTempoEspera())){
         gatilhoJogoExecutando();
-        estado=GAT_EJ_EXECUTANDO;
+        estado=GAT_EJ_EXECUTANDO;        
 		reiniciarTempo();
     }
 }
-void GATMaquinaEstadoJogo::setJogoPause()
+void GATMaquinaEstadoJogo::setJogoPause() 
 {
     if ((estado!=GAT_EJ_PAUSE)&&(isTempoEspera())){
         //gatilhoJogoExecutando();
@@ -82,7 +80,7 @@ void GATMaquinaEstadoJogo::setJogoPause()
         reiniciarTempo();
     }
 }
-void GATMaquinaEstadoJogo::setJogoFaseCarregar()
+void GATMaquinaEstadoJogo::setJogoFaseCarregar() 
 {
     if ((estado!=GAT_EJ_FASE_CARREGAR)&&(isTempoEspera())){
         if (gatilhoJogoFaseCarregar()){
@@ -91,51 +89,49 @@ void GATMaquinaEstadoJogo::setJogoFaseCarregar()
         }
     }
 }
-void GATMaquinaEstadoJogo::setJogoFaseFinalizada()
+void GATMaquinaEstadoJogo::setJogoFaseFinalizada() 
 {
     if (estado!=GAT_EJ_FASE_FINALIZADA){
         estado=GAT_EJ_FASE_FINALIZADA;
         gatilhoJogoFaseFinalizada();
-//        reiniciarTempo();
+        reiniciarTempo();
     }
 }
-void GATMaquinaEstadoJogo::setJogoGameOver()
+void GATMaquinaEstadoJogo::setJogoGameOver() 
 {
-//removido em 16/06/2007 solicitação pelo FZPong
-//    if ((estado!=GAT_EJ_GAMEOVER)&&(isTempoEspera())){
-    if (estado!=GAT_EJ_GAMEOVER){
+    if ((estado!=GAT_EJ_GAMEOVER)&&(isTempoEspera())){
         //gatilhoJogoExecutando();
         estado=GAT_EJ_GAMEOVER;
-        //reiniciarTempo();
+        reiniciarTempo();
     }
 }
-void GATMaquinaEstadoJogo::setJogoZerado()
+void GATMaquinaEstadoJogo::setJogoZerado() 
 {
     if (estado!=GAT_EJ_ZERADO){
         //gatilhoJogoExecutando();
         estado=GAT_EJ_ZERADO;
-//        reiniciarTempo();
+        reiniciarTempo();
     }
 }
-void GATMaquinaEstadoJogo::gatilhoJogoNovo()
+void GATMaquinaEstadoJogo::gatilhoJogoNovo() 
 {
     //opicional implementação de acordo com a necessidade
 }
-void GATMaquinaEstadoJogo::gatilhoJogoExecutando()
+void GATMaquinaEstadoJogo::gatilhoJogoExecutando() 
 {
     //opicional implementação de acordo com a necessidade
 }
-bool GATMaquinaEstadoJogo::gatilhoJogoFaseCarregar()
-{
-    //opicional implementação de acordo com a necessidade
-    return true;
-}
-bool GATMaquinaEstadoJogo::gatilhoJogoFaseFinalizada()
+bool GATMaquinaEstadoJogo::gatilhoJogoFaseCarregar() 
 {
     //opicional implementação de acordo com a necessidade
     return true;
 }
-void GATMaquinaEstadoJogo::setJogoInicio()
+bool GATMaquinaEstadoJogo::gatilhoJogoFaseFinalizada() 
+{
+    //opicional implementação de acordo com a necessidade
+    return true;
+}
+void GATMaquinaEstadoJogo::setJogoInicio() 
 {
     estado=GAT_EJ_INICIO;
 }

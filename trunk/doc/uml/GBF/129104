@@ -1,52 +1,52 @@
-format 29
+format 38
 "ParticleSystem" // Framework GBF::ParticleSystem
-  revision 2
-  modified_by 112 "david"
+  revision 3
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 129104 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
     class 133968 "Particula"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -66,7 +66,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 135888 // velocidade (<directional aggregation by value>)
-	  b parent class_ref 131792 // PontoVirtual
+	  b multiplicity "" parent class_ref 131792 // PontoVirtual
       end
 
       classrelation 136016 // posicao (<directional aggregation by value>)
@@ -75,7 +75,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 136016 // posicao (<directional aggregation by value>)
-	  b parent class_ref 131792 // PontoVirtual
+	  b multiplicity "" parent class_ref 131792 // PontoVirtual
       end
 
       attribute 137424 "energia"
@@ -92,7 +92,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 136144 // cor (<directional aggregation by value>)
-	  b parent class_ref 134096 // HSV
+	  b multiplicity "" parent class_ref 134096 // HSV
       end
 
       attribute 137552 "ativa"
@@ -105,7 +105,7 @@ Motivação:
     end
 
     class 134224 "ParticleSystemEfeito"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -212,7 +212,7 @@ ${body}}"
 	  a role_name "lista" multiplicity "" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};"
 	    classrelation_ref 136272 // lista (<directional aggregation by value>)
-	  b parent class_ref 133968 // Particula
+	  b multiplicity "" parent class_ref 133968 // Particula
       end
 
       classrelation 136400 // graphicSystem (<unidirectional association>)
@@ -221,7 +221,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 136400 // graphicSystem (<unidirectional association>)
-	  b parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystem
       end
 
       classrelation 149328 // <dependency>
@@ -230,18 +230,20 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149328 // <dependency>
-	  b parent class_ref 137552 // UtilColor
+	  b multiplicity "" parent class_ref 137552 // UtilColor
       end
 
       classrelation 149456 // <dependency>
 	relation 149456 -_->
 	  a protected
 	    classrelation_ref 149456 // <dependency>
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
     end
 
-    class 134352 "ParticleSystemEfeitoEsferico"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 134352 "ParticleSystemEfeitoEsferico"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -258,7 +260,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 136528 // <generalisation>
-	  b parent class_ref 134224 // ParticleSystemEfeito
+	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
       end
 
       operation 161872 "ParticleSystemEfeitoEsferico"
@@ -315,11 +317,13 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 136656 // origem (<directional aggregation by value>)
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
     end
 
-    class 134480 "ParticleSystemManager"cpp_decl "${comment}${template}class ${name}${inherit} {
+    class 134480 "ParticleSystemManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
 "
@@ -441,7 +445,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 136784 // instance (<unidirectional association>)
-	  b parent class_ref 134480 // ParticleSystemManager
+	  b multiplicity "" parent class_ref 134480 // ParticleSystemManager
       end
 
       classrelation 136912 // lista (<directional aggregation by value>)
@@ -450,7 +454,7 @@ ${body}}"
 	  a role_name "lista" multiplicity "" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};"
 	    classrelation_ref 136912 // lista (<directional aggregation by value>)
-	  b parent class_ref 134224 // ParticleSystemEfeito
+	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
       end
 
       operation 163280 "removerMorto"
@@ -470,7 +474,7 @@ ${body}}"
 
   deploymentview 129744 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 132816 "ParticleSystemEfeito"
       stereotype "source"

@@ -1,7 +1,7 @@
 format 38
 "GBF"
-  revision 4
-  modified_by 89 "david"
+  revision 5
+  modified_by 59 "david"
 
   artifact_default_description "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira
@@ -49,10 +49,10 @@ format 38
 
   mark_for_import
   
-  cpp_h_dir "p:/Desenvolvimento/Cpp/PJMOO/source/gbf/src/"
-  cpp_src_dir "p:/Desenvolvimento/Cpp/PJMOO/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   ncouples 1
-  key "html dir" value "/home/desenvolvimento/sites/pjmoo/doc/gbf/"
+  key "html dir" value "/home/desenvolvimento/pjmoo-gbf/trunk/doc/site-api/"
   comment "Gamework's Brazilian Framework
 
 Framework para jogos multiplataforma

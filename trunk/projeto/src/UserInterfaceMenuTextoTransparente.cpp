@@ -13,13 +13,13 @@
 
 #include "UserInterfaceMenuTextoTransparente.h"
 
-UserInterfaceMenuTextoTransparente::UserInterfaceMenuTextoTransparente(InputSystem * input):UserInterfaceMenuTexto(input)
+UserInterfaceMenuTextoTransparente::UserInterfaceMenuTextoTransparente(InputSystem * input):UserInterfaceMenuTexto(input) 
 {
 }
-UserInterfaceMenuTextoTransparente::~UserInterfaceMenuTextoTransparente()
+UserInterfaceMenuTextoTransparente::~UserInterfaceMenuTextoTransparente() 
 {
 }
-void UserInterfaceMenuTextoTransparente::desenhar()
+void UserInterfaceMenuTextoTransparente::desenhar() 
 {
     if (!item.empty()){
         Dimensao dimensao = item[0]->getDimensaoLetra();

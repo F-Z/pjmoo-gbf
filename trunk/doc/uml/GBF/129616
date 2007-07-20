@@ -1,52 +1,52 @@
-format 29
+format 38
 "UserInterface" // Framework GBF::UserInterface
-  revision 10
-  modified_by 126 "david"
+  revision 11
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 129616 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
     class 140496 "EnumAlinhamento"
-       stereotype "enum"
+      visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}};
 "
@@ -85,7 +85,9 @@ ${items}};
       end
     end
 
-    class 140368 "UserInterfaceMenuItemTexto"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 140368 "UserInterfaceMenuItemTexto"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -120,7 +122,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 155088 // tempo (<directional aggregation by value>)
-	  b parent class_ref 130512 // TimerSystemCronometroCrescente
+	  b multiplicity "" parent class_ref 130512 // TimerSystemCronometroCrescente
       end
 
       classrelation 154960 // wsManager (<unidirectional association>)
@@ -129,7 +131,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 154960 // wsManager (<unidirectional association>)
-	  b parent class_ref 129616 // WriteSystemManager
+	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
       end
 
       operation 208592 "UserInterfaceMenuItemTexto"
@@ -201,11 +203,13 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 154832 // <generalisation>
-	  b parent class_ref 140112 // UserInterfaceMenuItemAbstract
+	  b multiplicity "" parent class_ref 140112 // UserInterfaceMenuItemAbstract
       end
     end
 
-    class 128143 "UserInterfaceMenuTextoTransparente"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 128143 "UserInterfaceMenuTextoTransparente"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -219,7 +223,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128143 // <generalisation>
-	  b parent class_ref 140240 // UserInterfaceMenuTexto
+	  b multiplicity "" parent class_ref 140240 // UserInterfaceMenuTexto
       end
 
       operation 128143 "UserInterfaceMenuTextoTransparente"
@@ -260,7 +264,9 @@ ${body}}"
       end
     end
 
-    class 140240 "UserInterfaceMenuTexto"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 140240 "UserInterfaceMenuTexto"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -278,7 +284,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 154704 // <generalisation>
-	  b parent class_ref 139984 // UserInterfaceMenuAbstract
+	  b multiplicity "" parent class_ref 139984 // UserInterfaceMenuAbstract
       end
 
       operation 209744 "UserInterfaceMenuTexto"
@@ -360,12 +366,12 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 155600 // gsGFX (<unidirectional association>)
-	  b parent class_ref 131152 // GraphicSystemGFX
+	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
       end
     end
 
     class 140112 "UserInterfaceMenuItemAbstract"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -467,7 +473,7 @@ ${body}}"
     end
 
     class 139984 "UserInterfaceMenuAbstract"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -512,7 +518,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
 	    classrelation_ref 154576 // item (<unidirectional association>)
-	  b parent class_ref 140112 // UserInterfaceMenuItemAbstract
+	  b multiplicity "" parent class_ref 140112 // UserInterfaceMenuItemAbstract
       end
 
       classrelation 155216 // delayNavegacao (<directional aggregation by value>)
@@ -521,7 +527,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 155216 // delayNavegacao (<directional aggregation by value>)
-	  b parent class_ref 130896 // TimerSystemCronometroDecrescente
+	  b multiplicity "" parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
       classrelation 155472 // input (<unidirectional association>)
@@ -530,7 +536,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 155472 // input (<unidirectional association>)
-	  b parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       operation 207696 "UserInterfaceMenuAbstract"
@@ -747,7 +753,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 155984 // eAlinhamento (<directional aggregation by value>)
-	  b parent class_ref 140496 // EnumAlinhamento
+	  b multiplicity "" parent class_ref 140496 // EnumAlinhamento
       end
 
       attribute 158544 "corBorda"
@@ -767,7 +773,9 @@ ${body}}"
       end
     end
 
-    class 138576 "UserInterfaceTexto"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 138576 "UserInterfaceTexto"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -815,7 +823,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151504 // instance (<unidirectional association>)
-	  b parent class_ref 138576 // UserInterfaceTexto
+	  b multiplicity "" parent class_ref 138576 // UserInterfaceTexto
       end
 
       attribute 151760 "arquivo"
@@ -1041,11 +1049,13 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 151632 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
     end
 
-    class 131024 "UserInterfaceRecorde"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 131024 "UserInterfaceRecorde"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1064,7 +1074,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 141520 // recorde (<directional aggregation by value>)
-	  b parent class_ref 137040 // TopSystemRecorde
+	  b multiplicity "" parent class_ref 137040 // TopSystemRecorde
       end
 
       classrelation 141648 // input (<unidirectional association>)
@@ -1073,7 +1083,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 141648 // input (<unidirectional association>)
-	  b parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       classrelation 141776 // wsManager (<unidirectional association>)
@@ -1082,7 +1092,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 141776 // wsManager (<unidirectional association>)
-	  b parent class_ref 129616 // WriteSystemManager
+	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
       end
 
       classrelation 141904 // gsGFX (<unidirectional association>)
@@ -1091,7 +1101,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 141904 // gsGFX (<unidirectional association>)
-	  b parent class_ref 131152 // GraphicSystemGFX
+	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
       end
 
       classrelation 142032 // tempoNavegacao (<directional aggregation by value>)
@@ -1100,7 +1110,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142032 // tempoNavegacao (<directional aggregation by value>)
-	  b parent class_ref 130896 // TimerSystemCronometroDecrescente
+	  b multiplicity "" parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
       classrelation 142160 // tempoBlink (<directional aggregation by value>)
@@ -1109,7 +1119,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142160 // tempoBlink (<directional aggregation by value>)
-	  b parent class_ref 130512 // TimerSystemCronometroCrescente
+	  b multiplicity "" parent class_ref 130512 // TimerSystemCronometroCrescente
       end
 
       classrelation 142288 // posicao (<directional aggregation by value>)
@@ -1118,7 +1128,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142288 // posicao (<directional aggregation by value>)
-	  b parent class_ref 128976 // Ponto
+	  b multiplicity "" parent class_ref 128976 // Ponto
       end
 
       classrelation 142416 // dimensaoFonteLabel (<directional aggregation by value>)
@@ -1127,7 +1137,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142416 // dimensaoFonteLabel (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
 
       classrelation 142544 // dimensaoFonteTeclado (<directional aggregation by value>)
@@ -1136,7 +1146,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142544 // dimensaoFonteTeclado (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
 
       classrelation 142672 // caixaTeclado (<directional aggregation by value>)
@@ -1145,7 +1155,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142672 // caixaTeclado (<directional aggregation by value>)
-	  b parent class_ref 129104 // Dimensao
+	  b multiplicity "" parent class_ref 129104 // Dimensao
       end
 
       attribute 147280 "totalTeclasTeclado"
@@ -1462,7 +1472,7 @@ ${body}}"
 
   deploymentview 128208 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 136912 "UserInterfaceRecorde"
       stereotype "source"

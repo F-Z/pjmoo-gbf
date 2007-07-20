@@ -1,52 +1,52 @@
-format 29
+format 38
 "GraphicSystem" // Framework GBF::GraphicSystem
-  revision 7
-  modified_by 50 "david"
+  revision 8
+  modified_by 59 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default shadow default
+  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
-  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
-   write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //component diagram settings
-  package_name_in_tab default show_context default auto_label_position default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //deployment diagram settings
-  package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
   draw_component_as_icon default show_component_req_prov default show_component_rea default
   //state diagram settings
-  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
   show_activities default region_horizontally default drawing_language default
   //activity diagram settings
-  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo/source/gbf/src/"
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 128848 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
-    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default shadow default
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
-     write_horizontally default package_name_in_tab default show_context default auto_label_position default shadow default
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default shadow default
+    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
     //state diagram settings
-    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default shadow default
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
     //class settings
     //activity diagram settings
-    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default shadow default
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
     class 128464 "Area"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -91,7 +91,7 @@ ${inlines}
     end
 
     class 132304 "VideoConfig"
-       stereotype "struct"
+      visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
 {
 ${members}};
@@ -135,7 +135,9 @@ ${inlines}
       end
     end
 
-    class 131152 "GraphicSystemGFX"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 131152 "GraphicSystemGFX"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -386,7 +388,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 131920 // instance (<unidirectional association>)
-	  b parent class_ref 131152 // GraphicSystemGFX
+	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
       end
 
       operation 146768 "inicializar"
@@ -431,7 +433,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 132048 // color (<directional aggregation by value>)
-	  b parent class_ref 131536 // Cor
+	  b multiplicity "" parent class_ref 131536 // Cor
       end
 
       classrelation 132176 // gsScreen (<unidirectional association>)
@@ -440,7 +442,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 132176 // gsScreen (<unidirectional association>)
-	  b parent class_ref 131408 // GraphicSystemScreen
+	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
       end
 
       operation 147024 "setGraphicSystemScreen"
@@ -480,13 +482,15 @@ ${body}}"
 	relation 132304 -_->
 	  stereotype "friend"
 	  a protected
-	    cpp default "Generated"
+	    cpp default "${type}"
 	    classrelation_ref 132304 // <dependency>
-	  b parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystem
       end
     end
 
-    class 131280 "GraphicSystemMode"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 131280 "GraphicSystemMode"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -606,7 +610,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 133328 // config (<directional aggregation by value>)
-	  b parent class_ref 132304 // VideoConfig
+	  b multiplicity "" parent class_ref 132304 // VideoConfig
       end
 
       attribute 134736 "screen"
@@ -623,7 +627,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148176 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
 
       classrelation 150608 // <dependency>
@@ -632,11 +636,13 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150608 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
-    class 131408 "GraphicSystemScreen"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 131408 "GraphicSystemScreen"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -758,9 +764,9 @@ ${body}}"
 	relation 133456 -_->
 	  stereotype "friend"
 	  a protected
-	    cpp default "Generated"
+	    cpp default "${type}"
 	    classrelation_ref 133456 // <dependency>
-	  b parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystem
       end
 
       classrelation 146512 // <dependency>
@@ -769,7 +775,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 146512 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
 
       classrelation 150864 // <dependency>
@@ -778,12 +784,12 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150864 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
     class 131920 "GraphicSystemImage"
-      abstract 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -898,7 +904,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 132432 // gsScreen (<unidirectional association>)
-	  b parent class_ref 131408 // GraphicSystemScreen
+	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
       end
 
       attribute 133456 "imagem"
@@ -977,25 +983,25 @@ ${body}}
 	relation 132560 -_->
 	  stereotype "friend"
 	  a protected
-	    cpp default "Generated"
+	    cpp default "${type}"
 	    classrelation_ref 132560 // <dependency>
-	  b parent class_ref 129232 // GBF
+	  b multiplicity "" parent class_ref 129232 // GBF
       end
 
       classrelation 132688 // <dependency>
 	relation 132688 -_->
 	  stereotype "friend"
 	  a protected
-	    cpp default "Generated"
+	    cpp default "${type}"
 	    classrelation_ref 132688 // <dependency>
-	  b parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystem
       end
 
       classrelation 147536 // <dependency>
 	relation 147536 -_->
 	  a protected
 	    classrelation_ref 147536 // <dependency>
-	  b parent class_ref 128464 // Area
+	  b multiplicity "" parent class_ref 128464 // Area
       end
 
       classrelation 150736 // <dependency>
@@ -1004,11 +1010,13 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150736 // <dependency>
-	  b parent class_ref 138448 // SDL
+	  b multiplicity "" parent class_ref 138448 // SDL
       end
     end
 
-    class 132176 "GraphicSystemImageBufferManager"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 132176 "GraphicSystemImageBufferManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1106,7 +1114,7 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 133200 // instance (<unidirectional association>)
-	  b parent class_ref 132176 // GraphicSystemImageBufferManager
+	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
       end
 
       attribute 133968 "objetomap"
@@ -1139,7 +1147,9 @@ ${body}}"
       end
     end
 
-    class 132048 "GraphicSystemImageBuffer"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 132048 "GraphicSystemImageBuffer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1153,7 +1163,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 132816 // <generalisation>
-	  b parent class_ref 131920 // GraphicSystemImage
+	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
       end
 
       operation 148688 "GraphicSystemImageBuffer"
@@ -1246,13 +1256,15 @@ ${body}}"
 	relation 133072 -_->
 	  stereotype "friend"
 	  a protected
-	    cpp default "Generated"
+	    cpp default "${type}"
 	    classrelation_ref 133072 // <dependency>
-	  b parent class_ref 132176 // GraphicSystemImageBufferManager
+	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
       end
     end
 
-    class 129360 "GraphicSystem"cpp_decl "${comment}${template}class ${name}${inherit}
+    class 129360 "GraphicSystem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
@@ -1351,7 +1363,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 131408 // gsGFX (<unidirectional association>)
-	  b parent class_ref 131152 // GraphicSystemGFX
+	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
       end
 
       classrelation 131536 // gsMode (<unidirectional association>)
@@ -1360,7 +1372,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 131536 // gsMode (<unidirectional association>)
-	  b parent class_ref 131280 // GraphicSystemMode
+	  b multiplicity "" parent class_ref 131280 // GraphicSystemMode
       end
 
       classrelation 131664 // gsScreen (<unidirectional association>)
@@ -1369,7 +1381,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 131664 // gsScreen (<unidirectional association>)
-	  b parent class_ref 131408 // GraphicSystemScreen
+	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
       end
 
       classrelation 131792 // instance (<unidirectional association>)
@@ -1378,7 +1390,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 131792 // instance (<unidirectional association>)
-	  b parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystem
       end
 
       operation 144720 "GraphicSystem"
@@ -1400,14 +1412,14 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148560 // <dependency>
-	  b parent class_ref 131920 // GraphicSystemImage
+	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
       end
     end
   end
 
   deploymentview 129616 "Deploy"
     //deployment diagram settings
-    package_name_in_tab default show_context default write_horizontally default auto_label_position default shadow default
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
     artifact 129616 "GraphicSystem"
       stereotype "source"
