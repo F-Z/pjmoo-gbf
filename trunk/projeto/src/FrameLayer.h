@@ -57,8 +57,11 @@ class FrameLayer : public SpriteInterface
     //Inicializa tiles de forma aleatória
     void iniciarRandomico(int range);
 
-    //Iniciar ordenado
-    void iniciarOrdenado(int quantidade);
+    //Iniciar ordenado até o quadro informado
+    void iniciarOrdenado(int quadroMaximo);
+
+    //Iniciar preenchendo apenas com o quadro informado
+    void iniciarCom(int quadro);
 
     //Porcentagem percorrida do Scroll Vertical
     int getPorcentagemScrollVertical();
