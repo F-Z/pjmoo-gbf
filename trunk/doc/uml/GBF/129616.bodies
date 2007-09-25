@@ -68,3 +68,9 @@ class WriteSystemManager
 !!!191056.cpp!!!	WriteSystemManager()
     UtilLog::subSistema("Instanciando WriteSystemManager");
     uiTexto = UserInterfaceTexto::getInstance();
+!!!128247.cpp!!!	getLarguraLinha(in nome : string, in chave : string) : int
+    if (objetomap[fonte]){
+        return objetomap[fonte]->getLarguraLinha(uiTexto->getTexto(chave).c_str());
+    } else {
+        return 0;
+    }

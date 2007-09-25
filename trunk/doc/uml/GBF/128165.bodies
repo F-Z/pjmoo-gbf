@@ -1,0 +1,9 @@
+class UserInterfaceComponente
+!!!128549.cpp!!!	UserInterfaceComponente()
+    if (wsManager==NULL){
+        wsManager = WriteSystemManager::getInstance();
+    }
+
+    if (uiTexto==NULL){
+        uiTexto = UserInterfaceTexto::getInstance();
+    }

@@ -53,12 +53,16 @@ class GBF
     //Carregando Fontes Padrões
     UtilLog::tracer("Carregando Fontes Padrões para FonteManager");
     writeSystem->carregar(WriteSystemFontDefault::console,getPath()+"data//kernel//fonte//console.png");
+    //remover as outras fontes, deixar apenas console como padrão
     writeSystem->carregar(WriteSystemFontDefault::pumpdemi,getPath()+"data//kernel//fonte//pumpdemi.png");
     writeSystem->carregar(WriteSystemFontDefault::fixedsys,getPath()+"data//kernel//fonte//fixedsys.png");
     writeSystem->carregar(WriteSystemFontDefault::arial,getPath()+"data//kernel//fonte//arial.png");
     writeSystem->carregar(WriteSystemFontDefault::comic,getPath()+"data//kernel//fonte//comicsans.png");
     writeSystem->carregar(WriteSystemFontDefault::high,getPath()+"data//kernel//fonte//highlight.png");
     writeSystem->carregar(WriteSystemFontDefault::stac,getPath()+"data//kernel//fonte//staccato.png");
+
+    UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
+    GraphicSystemImageBufferManager::getInstance()->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->uiTexto->detectarIdioma();

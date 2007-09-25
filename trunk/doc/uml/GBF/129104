@@ -1,7 +1,7 @@
 format 38
 "ParticleSystem" // Framework GBF::ParticleSystem
-  revision 3
-  modified_by 59 "david"
+  revision 6
+  modified_by 121 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -45,6 +45,213 @@ format 38
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
+    class 128186 "ParticleSystemPixel"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 128338 "ParticleSystemPixel"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+      end
+
+      operation 128466 "~ParticleSystemPixel"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+      end
+
+      operation 161488 "desenhar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Desenha todas as unidades"
+      end
+
+      operation 161232 "setQuantidade"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "quantidade" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Configura a quantidade de unidades que serão criadas"
+      end
+
+      operation 161360 "isTerminou"
+	cpp_virtual public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Indica se todas as unidades já terminaram o ciclo de vida"
+      end
+
+      classrelation 128058 // <generalisation>
+	relation 128058 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128058 // <generalisation>
+	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
+      end
+
+      classrelation 128442 // lista (<directional aggregation by value>)
+	relation 128442 *-->
+	  stereotype "std::deque"
+	  a role_name "lista" multiplicity "*" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 128442 // lista (<directional aggregation by value>)
+	  b multiplicity "" parent class_ref 133968 // Particula
+      end
+
+      classrelation 128338 // graphicSystem (<unidirectional association>)
+	relation 128338 --->
+	  a role_name "graphicSystem" multiplicity "" init_value "=NULL" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128338 // graphicSystem (<unidirectional association>)
+	  b multiplicity "" parent class_ref 129360 // GraphicSystem
+      end
+
+      classrelation 128082 // <dependency>
+	relation 128082 -_->
+	  a default
+	    cpp default "#include in header"
+	    classrelation_ref 128082 // <dependency>
+	  b multiplicity "" parent class_ref 137552 // UtilColor
+      end
+
+      classrelation 128210 // <dependency>
+	relation 128210 -_->
+	  a default
+	    cpp default "#include in header"
+	    classrelation_ref 128210 // <dependency>
+	  b multiplicity "" parent class_ref 128976 // Ponto
+      end
+    end
+
+    class 128058 "ParticleSystemSprite"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 128082 "ParticleSystemSprite"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+      end
+
+      operation 128210 "~ParticleSystemSprite"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+      end
+
+      operation 128442 "desenhar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Desenha todas as unidades"
+      end
+
+      operation 128186 "isTerminou"
+	cpp_virtual public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+      end
+
+      classrelation 128186 // <generalisation>
+	relation 128186 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128186 // <generalisation>
+	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
+      end
+
+      classrelation 128698 // lista (<directional aggregation>)
+	relation 128698 o-->
+	  stereotype "std::deque"
+	  a role_name "lista" multiplicity "*" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
+"
+	    classrelation_ref 128698 // lista (<directional aggregation>)
+	  b multiplicity "" parent class_ref 136400 // SpriteAbstract
+      end
+
+      classrelation 128466 // gsImageBufferManager (<unidirectional association>)
+	relation 128466 --->
+	  a role_name "gsImageBufferManager" multiplicity "" init_value "=NULL" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128466 // gsImageBufferManager (<unidirectional association>)
+	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
+      end
+    end
+
     class 133968 "Particula"
       visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
@@ -144,41 +351,11 @@ ${body}}"
 	comment "Destrutor"
       end
 
-      operation 161232 "setQuantidade"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "quantidade" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Configura a quantidade de unidades que serão criadas"
-      end
-
-      operation 161360 "isTerminou"
-	cpp_virtual public explicit_return_type "bool"
+      operation 128314 "desenhar"
+	abstract cpp_virtual public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Indica se todas as unidades já terminaram o ciclo de vida"
-      end
-
-      operation 161488 "desenhar"
-	cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
 	
 	
 	comment "Desenha todas as unidades"
@@ -206,38 +383,13 @@ ${body}}"
 	comment "Executa as unidades do sistema"
       end
 
-      classrelation 136272 // lista (<directional aggregation by value>)
-	relation 136272 *-->
-	  stereotype "std::deque"
-	  a role_name "lista" multiplicity "" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};"
-	    classrelation_ref 136272 // lista (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 133968 // Particula
-      end
-
-      classrelation 136400 // graphicSystem (<unidirectional association>)
-	relation 136400 --->
-	  a role_name "graphicSystem" multiplicity "" init_value "= NULL" class_relation protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+      operation 128058 "isTerminou"
+	abstract cpp_virtual public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
-	    classrelation_ref 136400 // graphicSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129360 // GraphicSystem
-      end
-
-      classrelation 149328 // <dependency>
-	relation 149328 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 149328 // <dependency>
-	  b multiplicity "" parent class_ref 137552 // UtilColor
-      end
-
-      classrelation 149456 // <dependency>
-	relation 149456 -_->
-	  a protected
-	    classrelation_ref 149456 // <dependency>
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	
+	
       end
     end
 
@@ -255,14 +407,6 @@ ${inlines}
     Classe abstrata que permite agrupamente de particulas esfericas
 Motivação:
     Permitir gerenciar um grupo de unidades com movimento esferico"
-      classrelation 136528 // <generalisation>
-	relation 136528 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 136528 // <generalisation>
-	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
-      end
-
       operation 161872 "ParticleSystemEfeitoEsferico"
 	public explicit_return_type ""
 	nparams 0
@@ -318,6 +462,14 @@ ${body}}"
 "
 	    classrelation_ref 136656 // origem (<directional aggregation by value>)
 	  b multiplicity "" parent class_ref 128976 // Ponto
+      end
+
+      classrelation 128314 // <generalisation>
+	relation 128314 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128314 // <generalisation>
+	  b multiplicity "" parent class_ref 128186 // ParticleSystemPixel
       end
     end
 
@@ -495,7 +647,6 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 133968 // Particula
 	class_ref 134224 // ParticleSystemEfeito
       end
       comment "//    GBF - Gamework's Brazilian Framework
@@ -569,6 +720,79 @@ ${members}
 ${namespace_end}"
       associated_classes
 	class_ref 134480 // ParticleSystemManager
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128058 "ParticleSystemSprite"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128058 // ParticleSystemSprite
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128186 "ParticleSystemPixel"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 133968 // Particula
+	class_ref 128186 // ParticleSystemPixel
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira

@@ -1,0 +1,17 @@
+class UserInterfaceVisual
+!!!130341.cpp!!!	UserInterfaceVisual()
+    if (gsGFX==NULL){
+        gsGFX = GraphicSystemGFX::getInstance();
+    }
+
+!!!130469.cpp!!!	UserInterfaceVisual(in base : UserInterfaceVisual)
+    posicao  = base.posicao;
+    dimensao = base.dimensao;
+    corBorda = base.corBorda;
+!!!130725.cpp!!!	setCorBorda(in r : CorPaleta, in g : CorPaleta, in b : CorPaleta) : void
+    corBorda.r=r;
+    corBorda.g=g;
+    corBorda.b=b;
+!!!130853.cpp!!!	aplicar(in posicao : Ponto, in dimensao : Dimensao) : void
+    this->dimensao=dimensao;
+    this->posicao=posicao;

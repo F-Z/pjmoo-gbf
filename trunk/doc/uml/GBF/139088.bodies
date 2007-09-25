@@ -38,10 +38,11 @@ class GATMaquinaEstadoJogo
         reiniciarTempo();
     }
 !!!197456.cpp!!!	setJogoExecutando() : void
-    if ((estado!=GAT_EJ_EXECUTANDO)&&(isTempoEspera())){
+//    if ((estado!=GAT_EJ_EXECUTANDO)&&(isTempoEspera())){
+    if (estado!=GAT_EJ_EXECUTANDO){
         gatilhoJogoExecutando();
-        estado=GAT_EJ_EXECUTANDO;        
-		reiniciarTempo();
+        estado=GAT_EJ_EXECUTANDO;
+//      reiniciarTempo();
     }
 !!!197584.cpp!!!	setJogoPause() : void
     if ((estado!=GAT_EJ_PAUSE)&&(isTempoEspera())){

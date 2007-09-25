@@ -175,16 +175,23 @@ class FrameLayer
     }
 
     camera.setMundo(mundo);
-!!!129360.cpp!!!	iniciarOrdenado(in quantidade : int) : void
+!!!129360.cpp!!!	iniciarOrdenado(in quadroMaximo : int) : void
     Dimensao tilesMundo   = mundo.getTiles();
 
     int contador=0;
     for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
         mapa[i]=contador;
         contador++;
-        if (contador>quantidade){
+        if (contador>quadroMaximo){
             contador=0;
         }
+    }
+    camera.setMundo(mundo);
+!!!128118.cpp!!!	iniciarCom(in quadro : int) : void
+    Dimensao tilesMundo   = mundo.getTiles();
+
+    for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
+        mapa[i]=quadro;
     }
     camera.setMundo(mundo);
 !!!129488.cpp!!!	getPorcentagemScrollVertical() : int

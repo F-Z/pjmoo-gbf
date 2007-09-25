@@ -1,0 +1,30 @@
+class UserInterfaceObjetoTexto
+!!!128805.cpp!!!	UserInterfaceObjetoTexto()
+    entreLinhas=ENTRELINHA_UMA_MEIA;
+!!!129061.cpp!!!	setFonte(in fonte : string) : void
+    this->fonte=fonte;
+
+//    dimensaoLetra=wsManager->getFonte(fonte)->getDimensao();
+//    espacoEntreLinhas=int(dimensaoLetra.w*estiloEntreLinhas);
+!!!129189.cpp!!!	getFonte() : string
+    return fonte;
+!!!129317.cpp!!!	setChaveTexto(in chaveTexto : string) : void
+    this->chaveTexto=chaveTexto;
+!!!129445.cpp!!!	getChaveTexto() : string
+    return chaveTexto;
+!!!129573.cpp!!!	setDimensaoLetra(in dimensao : Dimensao) : void
+    dimensaoLetra=dimensao;
+    espacoEntreLinhas=int(dimensaoLetra.w*entreLinhas);
+!!!129701.cpp!!!	getDimensaoLetra() : Dimensao
+    return dimensaoLetra;
+!!!129829.cpp!!!	setEntreLinha(in estiloEntreLinhas : float) : void
+    if ((estiloEntreLinhas==ENTRELINHA_SIMPLES)||(estiloEntreLinhas==ENTRELINHA_UMA_MEIA)||
+       (estiloEntreLinhas==ENTRELINHA_DUPLA)){
+        entreLinhas=estiloEntreLinhas;
+    }
+!!!129957.cpp!!!	getEspacoEntreLinhas() : int
+    return espacoEntreLinhas;
+!!!130085.cpp!!!	setAlinhamento(in alinhamento : UserInterfaceTextoAlinhamento) : void
+    this->alinhamento=alinhamento;
+!!!130213.cpp!!!	getAlinhamento() : UserInterfaceTextoAlinhamento
+    return alinhamento;
