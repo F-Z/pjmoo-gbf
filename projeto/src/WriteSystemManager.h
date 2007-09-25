@@ -55,6 +55,9 @@ class WriteSystemManager
     //Remove uma fonte (WriteSystemFontBitmap)
     void apagar(std::string nome);
 
+    //Retorna em Pixel o tamanho total da linha
+    int getLarguraLinha(const std::string fonte, const std::string chave);
+
 
   protected:
     std::map<std::string,WriteSystemBitmap*> objetomap;
