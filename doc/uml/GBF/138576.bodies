@@ -1,4 +1,14 @@
 class UserInterfaceTexto
+!!!191312.cpp!!!	~UserInterfaceTexto()
+    UtilLog::sistema("Removendo UserInterfaceTexto");
+!!!192080.cpp!!!	getInstance() : UserInterfaceTexto
+    if (instance == NULL){
+        instance = new UserInterfaceTexto();
+    }
+
+    return instance;
+!!!192208.cpp!!!	setPathBase(inout path : std::string) : void
+    pathBase=path+"data//etc//";
 !!!192464.cpp!!!	setIdioma(in codigo : std::string) : bool
     bool achou = false;
     UtilLog::tracer("UserInterfaceTexto::setIdioma(%s)",codigo.c_str());
@@ -9,14 +19,14 @@ class UserInterfaceTexto
     }
 
     if ((achou)&&(!arquivo.empty())){
-        atualizar();      
+        atualizar();
     }
-    
+
     return achou;
 !!!192592.cpp!!!	getIdioma() : std::string
     return idiomaPrefixo;
 !!!192720.cpp!!!	detectarIdioma() : void
-#ifdef GNU_LINUX
+#ifdef __gnu_linux__
 //Descobrindo o idioma do usuário no GNU/LINUX
     const char* idioma    = getenv("LC_ALL");
     const char* idiomaAux = getenv("LANG");
@@ -44,16 +54,13 @@ class UserInterfaceTexto
         setIdioma("DEFAULT");
     }
 #endif
-!!!191312.cpp!!!	~UserInterfaceTexto()
-    UtilLog::sistema("Removendo UserInterfaceTexto");
 !!!191440.cpp!!!	atualizar() : bool
     char str[256];
     bool retorno = false;
     std::string fullpath=pathBase+"mensagem//"+getIdioma()+"."+arquivo;
-    
+
     if (!arquivo.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
-    
         UtilLog::tracer("UserInterfaceTexto Carregando Idioma(%s)=%s",getIdioma().c_str(),fullpath.c_str());
         if (arquivoTexto!=NULL){
             while(!arquivoTexto.eof()){
@@ -62,32 +69,27 @@ class UserInterfaceTexto
             }
             arquivoTexto.close();
             retorno = true;
-        }   
+        }
     }
     if (retorno){
         UtilLog::comentario("[Ok]");
     } else {
         UtilLog::comentario("[Falhou]");
-    }      
+    }
+
     return retorno;
 !!!193232.cpp!!!	setArquivo(in arquivo : std::string) : void
    this->arquivo=arquivo;
 !!!191824.cpp!!!	size() : int
     return mapaTexto.size();
-!!!192080.cpp!!!	getInstance() : UserInterfaceTexto
-    if (instance == NULL){
-        instance = new UserInterfaceTexto();
-    }
-
-    return instance;
 !!!191568.cpp!!!	getTexto(in chave : std::string) : std::string
     if (mapaTexto.find(chave)!=mapaTexto.end()){
         return mapaTexto[chave];
     } else {
         return "ERRO";
     }
-!!!192208.cpp!!!	setPathBase(inout path : std::string) : void
-    pathBase=path+"data//etc//";
+!!!128121.cpp!!!	isChaveTexto(in chave : std::string) : bool
+    return mapaTexto.find(chave)!=mapaTexto.end();
 !!!191696.cpp!!!	parser(inout info : char) : void
     int i = 0;
     std::string linha = info;

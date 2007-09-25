@@ -1,7 +1,7 @@
 format 38
 "GBF"
-  revision 5
-  modified_by 59 "david"
+  revision 8
+  modified_by 41 "david"
 
   artifact_default_description "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira
@@ -14,6 +14,7 @@ format 38
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 //        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
 //////////////////////////////////////////////////////////////////////
 "
 
@@ -64,7 +65,7 @@ Uso de:
 * CodeBlocks (IDE GCC para Win/Linux)
 
 Diversos:
-Gimp, OpenOffice, CódigoLivre, CVS
+Gimp, OpenOffice, CódigoLivre, SourceForge, CVS, Subversion
 
 "
   package_ref 128080 // Framework GBF

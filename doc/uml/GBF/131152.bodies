@@ -5,6 +5,9 @@ class GraphicSystemGFX
 !!!144976.cpp!!!	getInstance() : GraphicSystemGFX
     if (instance == NULL){
         instance = new GraphicSystemGFX();
+        if (instance == NULL){
+            UtilLog::subSistema("GraphicSystemGFX nao instanciado");
+        }
     }
 
     return instance;

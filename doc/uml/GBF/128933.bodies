@@ -1,0 +1,15 @@
+class UserInterfaceVisualSolido
+!!!132261.cpp!!!	UserInterfaceVisualSolido(in base : UserInterfaceVisualSolido)
+    corFundo=base.corFundo;
+!!!132517.cpp!!!	setCorFundo(in r : CorPaleta, in g : CorPaleta, in b : CorPaleta) : void
+    corFundo.r=r;
+    corFundo.g=g;
+    corFundo.b=b;
+!!!132645.cpp!!!	desenhar() : void
+    gsGFX->setColor(corFundo.r,corFundo.g,corFundo.b);
+    gsGFX->retanguloPreenchido(posicao.x,posicao.y,dimensao.w,dimensao.h);
+
+    gsGFX->setColor(corBorda.r,corBorda.g,corBorda.b);
+    gsGFX->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
+!!!132773.cpp!!!	clone() : UserInterfaceVisual
+   return new UserInterfaceVisualSolido(*this);

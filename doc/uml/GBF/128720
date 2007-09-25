@@ -1,7 +1,7 @@
 format 38
 "WriteSystem" // Framework GBF::WriteSystem
-  revision 5
-  modified_by 59 "david"
+  revision 6
+  modified_by 119 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -183,6 +183,21 @@ ${body}}"
 	comment "Remove uma fonte (WriteSystemFontBitmap)"
       end
 
+      operation 128247 "getLarguraLinha"
+	public explicit_return_type "int"
+	nparams 2
+	  param in name "fonte" explicit_type "string"
+	  param in name "chave" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} ${p0}, const ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} ${p0}, const ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Retorna em Pixel o tamanho total da linha"
+      end
+
       attribute 151120 "objetomap"
 	protected explicit_type "std::map<std::string,WriteSystemBitmap*>"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -349,6 +364,20 @@ ${body}}"
 	
 	
 	comment "Desenha o texto na tela"
+      end
+
+      operation 128119 "getLarguraLinha"
+	protected explicit_return_type "int"
+	nparams 1
+	  param in name "palavra" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Retorna em pixel o tamanho da linha"
       end
 
       attribute 150096 "largura"

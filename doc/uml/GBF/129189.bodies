@@ -1,0 +1,21 @@
+class UserInterfaceWindowTitulo
+!!!134693.cpp!!!	UserInterfaceWindowTitulo()
+    titulo.setAlinhamento(TEXTO_CENTRALIZADO);
+!!!134949.cpp!!!	desenharConteudo() : void
+    UserInterfaceWindow::desenharConteudo();
+
+    int posicaoTextoHorizontal = 0;
+
+    if (titulo.getAlinhamento()==TEXTO_CENTRALIZADO){
+        int auxiliar = wsManager->getLarguraLinha(titulo.getFonte(),titulo.getChaveTexto());
+        posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
+    } else {
+        posicaoTextoHorizontal = posicao.x+titulo.getDimensaoLetra().w;
+    }
+
+    wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicao.y,titulo.getChaveTexto());
+
+!!!135077.cpp!!!	inicializar() : void
+    UserInterfaceWindow::inicializar();
+    titulo.setDimensaoLetra(wsManager->getFonte(titulo.getFonte())->getDimensao());
+    espacoAntesTexto=int(titulo.getDimensaoLetra().h*titulo.ENTRELINHA_UMA_MEIA);

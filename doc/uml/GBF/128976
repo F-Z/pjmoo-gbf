@@ -1,7 +1,7 @@
 format 38
 "Sprite" // Framework GBF::Sprite
-  revision 13
-  modified_by 59 "david"
+  revision 15
+  modified_by 118 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -1222,7 +1222,7 @@ ${body}}"
       operation 129360 "iniciarOrdenado"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "quantidade" explicit_type "int"
+	  param in name "quadroMaximo" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
@@ -1230,7 +1230,21 @@ ${body}}"
 ${body}}"
 	
 	
-	comment "Iniciar ordenado"
+	comment "Iniciar ordenado até o quadro informado"
+      end
+
+      operation 128118 "iniciarCom"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "quadro" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Iniciar preenchendo apenas com o quadro informado"
       end
 
       operation 129488 "getPorcentagemScrollVertical"
