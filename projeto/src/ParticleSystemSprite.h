@@ -11,31 +11,31 @@
 ////        http://pjmoo.codigolivre.org.br
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _PARTICLESYSTEMEFEITO_H
-#define _PARTICLESYSTEMEFEITO_H
+#ifndef _PARTICLESYSTEMSPRITE_H
+#define _PARTICLESYSTEMSPRITE_H
 
-//Descrição: 
-//    Classe abstrata que permite agrupamente de particulas
-//Motivação:
-//    Permitir gerenciar um grupo de unidades com ciclo de vida semelhantes
-class ParticleSystemEfeito {
+#include "ParticleSystemEfeito.h"
+#include <deque>
+#include "SpriteAbstract.h"
+#include "GraphicSystemImageBufferManager.h"
+
+class ParticleSystemSprite : public ParticleSystemEfeito
+{
   public:
-    //Construtor
-    ParticleSystemEfeito();
+    ParticleSystemSprite();
 
-    //Destrutor
-    virtual ~ParticleSystemEfeito();
+    virtual ~ParticleSystemSprite();
 
     //Desenha todas as unidades
-    virtual void desenhar() = 0;
+    virtual void desenhar();
 
-    //Inicializa o sistema de particulas
-    virtual void criar(int x, int y) = 0;
+    virtual bool isTerminou();
 
-    //Executa as unidades do sistema
-    virtual void executar() = 0;
 
-    virtual bool isTerminou() = 0;
+  protected:
+    std::deque<SpriteAbstract *> lista;
+
+    static GraphicSystemImageBufferManager * gsImageBufferManager;
 
 };
 #endif
