@@ -219,8 +219,8 @@ void FrameLayer::iniciarRandomico(int range)
 
     camera.setMundo(mundo);
 }
-//Iniciar ordenado
-void FrameLayer::iniciarOrdenado(int quantidade) 
+//Iniciar ordenado até o quadro informado
+void FrameLayer::iniciarOrdenado(int quadroMaximo) 
 {
     Dimensao tilesMundo   = mundo.getTiles();
 
@@ -228,9 +228,19 @@ void FrameLayer::iniciarOrdenado(int quantidade)
     for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
         mapa[i]=contador;
         contador++;
-        if (contador>quantidade){
+        if (contador>quadroMaximo){
             contador=0;
         }
+    }
+    camera.setMundo(mundo);
+}
+//Iniciar preenchendo apenas com o quadro informado
+void FrameLayer::iniciarCom(int quadro) 
+{
+    Dimensao tilesMundo   = mundo.getTiles();
+
+    for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
+        mapa[i]=quadro;
     }
     camera.setMundo(mundo);
 }
