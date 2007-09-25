@@ -14,7 +14,7 @@
 #ifndef _USERINTERFACETEXTO_H
 #define _USERINTERFACETEXTO_H
 
-#ifndef GNU_LINUX
+#ifndef __gnu_linux__
 #include <windows.h>
 #endif
 
@@ -57,6 +57,12 @@ class UserInterfaceTexto
 
 
   public:
+    ~UserInterfaceTexto();
+
+    static UserInterfaceTexto * getInstance();
+    //Configura o caminho do arquivo de  mensagens
+    static void setPathBase(std::string & path);
+
     //Configura um idioma
     //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
     bool setIdioma(const std::string & codigo);
@@ -66,19 +72,16 @@ class UserInterfaceTexto
     //Seleciona o idioma automaticamente de acordo com o ambiente
     void detectarIdioma();
 
-    ~UserInterfaceTexto();
-
     bool atualizar();
 
     void setArquivo(const std::string & arquivo);
 
     int size();
 
-    static UserInterfaceTexto * getInstance();
     std::string getTexto(const std::string & chave);
 
-    //Configura o caminho do arquivo de  mensagens
-    static void setPathBase(std::string & path);
+    //Retorna se existe a chave de texto
+    bool isChaveTexto(const std::string & chave);
 
 
   protected:
