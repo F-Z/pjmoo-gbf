@@ -136,7 +136,7 @@ bool UserInterfaceTexto::isChaveTexto(const std::string & chave)
 {
     return mapaTexto.find(chave)!=mapaTexto.end();
 }
-void UserInterfaceTexto::parser(char & info) 
+void UserInterfaceTexto::parser(char * info) 
 {
     int i = 0;
     std::string linha = info;
@@ -169,7 +169,7 @@ void UserInterfaceTexto::carregarIdioma()
         }
     }
 }
-void UserInterfaceTexto::parserIdioma(char & info) 
+void UserInterfaceTexto::parserIdioma(char * info) 
 {
     int i = 0;
     std::string linha = info;
