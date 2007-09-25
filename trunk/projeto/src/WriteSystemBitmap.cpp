@@ -95,6 +95,20 @@ void WriteSystemBitmap::escrever(const char * PALAVRA, int X, int Y)
         posicao.x=posicao.x+largura[l];
     }
 }
+//Retorna em pixel o tamanho da linha
+int WriteSystemBitmap::getLarguraLinha(const char * palavra) 
+{
+    int tamanhoPixel=0;
+    int t=strlen(palavra);
+    unsigned char l;
+
+    for (int i=0; i<t; i++){
+        l=palavra[i];
+        tamanhoPixel=tamanhoPixel+largura[l];
+    }
+
+    return tamanhoPixel;
+}
 //Construtor
 WriteSystemBitmap::WriteSystemBitmap() 
 {

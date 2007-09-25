@@ -105,6 +105,15 @@ void WriteSystemManager::apagar(std::string nome)
         objetomap.erase(nome);
     }
 }
+//Retorna em Pixel o tamanho total da linha
+int WriteSystemManager::getLarguraLinha(const std::string fonte, const std::string chave) 
+{
+    if (objetomap[fonte]){
+        return objetomap[fonte]->getLarguraLinha(uiTexto->getTexto(chave).c_str());
+    } else {
+        return 0;
+    }
+}
 //Construtor
 WriteSystemManager::WriteSystemManager() 
 {
