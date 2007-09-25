@@ -20,9 +20,8 @@ std::string UserInterfaceTexto::pathBase;
 
 UserInterfaceTexto::~UserInterfaceTexto()
 {
-      UtilLog::sistema("Removendo UserInterfaceTexto");
+    UtilLog::sistema("Removendo UserInterfaceTexto");
 }
-
 UserInterfaceTexto * UserInterfaceTexto::getInstance()
 {
     if (instance == NULL){
@@ -34,12 +33,11 @@ UserInterfaceTexto * UserInterfaceTexto::getInstance()
 //Configura o caminho do arquivo de  mensagens
 void UserInterfaceTexto::setPathBase(std::string & path)
 {
-      pathBase=path+"data//etc//";
+    pathBase=path+"data//etc//";
 }
-
 //Configura um idioma
 //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
-bool UserInterfaceTexto::setIdioma(const std::string & codigo)
+bool UserInterfaceTexto::setIdioma(const std::string & codigo) 
 {
     bool achou = false;
     UtilLog::tracer("UserInterfaceTexto::setIdioma(%s)",codigo.c_str());
@@ -55,13 +53,12 @@ bool UserInterfaceTexto::setIdioma(const std::string & codigo)
 
     return achou;
 }
-std::string UserInterfaceTexto::getIdioma()
+std::string UserInterfaceTexto::getIdioma() 
 {
-      return idiomaPrefixo;
+    return idiomaPrefixo;
 }
-
 //Seleciona o idioma automaticamente de acordo com o ambiente
-void UserInterfaceTexto::detectarIdioma()
+void UserInterfaceTexto::detectarIdioma() 
 {
 #ifdef __gnu_linux__
 //Descobrindo o idioma do usuário no GNU/LINUX
@@ -86,122 +83,114 @@ void UserInterfaceTexto::detectarIdioma()
     char idioma[6];
     int id = GetUserDefaultLangID();
     sprintf(idioma,"%d",id & 0x3ff);
-
+    
     if (!setIdioma(idioma)){
         setIdioma("DEFAULT");
     }
 #endif
 }
-bool UserInterfaceTexto::atualizar()
+bool UserInterfaceTexto::atualizar() 
 {
-      char str[256];
-      bool retorno = false;
-      std::string fullpath=pathBase+"mensagem//"+getIdioma()+"."+arquivo;
+    char str[256];
+    bool retorno = false;
+    std::string fullpath=pathBase+"mensagem//"+getIdioma()+"."+arquivo;
 
-      if (!arquivo.empty()){
-          std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
+    if (!arquivo.empty()){
+        std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
+        UtilLog::tracer("UserInterfaceTexto Carregando Idioma(%s)=%s",getIdioma().c_str(),fullpath.c_str());
+        if (arquivoTexto!=NULL){
+            while(!arquivoTexto.eof()){
+                arquivoTexto.getline(str,256);
+                parser(str);
+            }
+            arquivoTexto.close();
+            retorno = true;
+        }
+    }
+    if (retorno){
+        UtilLog::comentario("[Ok]");
+    } else {
+        UtilLog::comentario("[Falhou]");
+    }
 
-          UtilLog::tracer("UserInterfaceTexto Carregando Idioma(%s)=%s",getIdioma().c_str(),fullpath.c_str());
-          if (arquivoTexto!=NULL){
-              while(!arquivoTexto.eof()){
-                  arquivoTexto.getline(str,256);
-                  parser(str);
-              }
-              arquivoTexto.close();
-              retorno = true;
-          }
-      }
-      if (retorno){
-          UtilLog::comentario("[Ok]");
-      } else {
-          UtilLog::comentario("[Falhou]");
-      }
-      return retorno;
+    return retorno;
 }
-
-void UserInterfaceTexto::setArquivo(const std::string & arquivo)
+void UserInterfaceTexto::setArquivo(const std::string & arquivo) 
 {
-     this->arquivo=arquivo;
+   this->arquivo=arquivo;
 }
-
-int UserInterfaceTexto::size()
+int UserInterfaceTexto::size() 
 {
-      return mapaTexto.size();
+    return mapaTexto.size();
 }
-
-std::string UserInterfaceTexto::getTexto(const std::string & chave)
+std::string UserInterfaceTexto::getTexto(const std::string & chave) 
 {
-      if (mapaTexto.find(chave)!=mapaTexto.end()){
-          return mapaTexto[chave];
-      } else {
-          return "ERRO";
-      }
+    if (mapaTexto.find(chave)!=mapaTexto.end()){
+        return mapaTexto[chave];
+    } else {
+        return "ERRO";
+    }
 }
-
 //Retorna se existe a chave de texto
-bool UserInterfaceTexto::isChaveTexto(const std::string & chave)
+bool UserInterfaceTexto::isChaveTexto(const std::string & chave) 
 {
     return mapaTexto.find(chave)!=mapaTexto.end();
 }
-void UserInterfaceTexto::parser(char * info)
+void UserInterfaceTexto::parser(char & info) 
 {
-      int i = 0;
-      std::string linha = info;
-      int tamanho = linha.length();
+    int i = 0;
+    std::string linha = info;
+    int tamanho = linha.length();
 
-      for (i=0;i<tamanho;i++){
-          if (linha[0]=='#'){
-              break;
-          } else if (linha[i]=='=') {
-              break;
-          }
-      }
-      if ((i>0)&&((i+1)<tamanho)){
-          mapaTexto[linha.substr(0,i)]=linha.substr(i+1,tamanho);
-      }
+    for (i=0;i<tamanho;i++){
+        if (linha[0]=='#'){
+            break;
+        } else if (linha[i]=='=') {
+            break;
+        }
+    }
+    if ((i>0)&&((i+1)<tamanho)){
+        mapaTexto[linha.substr(0,i)]=linha.substr(i+1,tamanho);
+    }
 }
-
-void UserInterfaceTexto::carregarIdioma()
+void UserInterfaceTexto::carregarIdioma() 
 {
-      char str[256];
-      std::string fullpath=pathBase+"idioma.cfg";
-      if (arquivo.empty()){
-          std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
-          UtilLog::tracer("Carregando Configuração de Idiomas=%s",fullpath.c_str());
-          if (arquivoTexto!=NULL){
-              while(!arquivoTexto.eof()){
-                  arquivoTexto.getline(str,256);
-                  parserIdioma(str);
-              }
-              arquivoTexto.close();
-          }
-      }
+    char str[256];
+    std::string fullpath=pathBase+"idioma.cfg";
+    if (arquivo.empty()){
+        std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
+        UtilLog::tracer("Carregando Configuração de Idiomas=%s",fullpath.c_str());
+        if (arquivoTexto!=NULL){
+            while(!arquivoTexto.eof()){
+                arquivoTexto.getline(str,256);
+                parserIdioma(str);
+            }
+            arquivoTexto.close();
+        }
+    }
 }
-
-void UserInterfaceTexto::parserIdioma(char * info)
+void UserInterfaceTexto::parserIdioma(char & info) 
 {
-      int i = 0;
-      std::string linha = info;
-      int tamanho = linha.length();
+    int i = 0;
+    std::string linha = info;
+    int tamanho = linha.length();
 
-      for (i=0;i<tamanho;i++){
-          if (linha[0]=='#'){
-              break;
-          } else if (linha[i]=='=') {
-              break;
-          }
-      }
-      if ((i>0)&&((i+1)<tamanho)){
-          idiomaSuportado[linha.substr(0,i)]=linha.substr(i+1,tamanho);
-          UtilLog::tracer("IdiomaSuportado[%s]=%s",linha.substr(0,i).c_str(),linha.substr(i+1,tamanho).c_str());
-      }
+    for (i=0;i<tamanho;i++){
+        if (linha[0]=='#'){
+            break;
+        } else if (linha[i]=='=') {
+            break;
+        }
+    }
+    if ((i>0)&&((i+1)<tamanho)){
+        idiomaSuportado[linha.substr(0,i)]=linha.substr(i+1,tamanho);
+        UtilLog::tracer("IdiomaSuportado[%s]=%s",linha.substr(0,i).c_str(),linha.substr(i+1,tamanho).c_str());
+    }
 }
-
-void UserInterfaceTexto::limpar()
+void UserInterfaceTexto::limpar() 
 {
 }
-
-UserInterfaceTexto::UserInterfaceTexto()
+UserInterfaceTexto::UserInterfaceTexto() 
 {
       UtilLog::subSistema("Instanciando UserInterfaceTexto");
       carregarIdioma();
