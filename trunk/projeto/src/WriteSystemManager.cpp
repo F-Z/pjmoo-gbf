@@ -13,6 +13,9 @@
 
 #include "WriteSystemManager.h"
 
+//Constante para representar a fonte padrão do GBF
+const std::string WriteSystemManager::defaultFont ="default";
+
 //Destrutor
 WriteSystemManager::~WriteSystemManager() 
 {
@@ -35,12 +38,12 @@ WriteSystemManager::~WriteSystemManager()
 //Obs.: Ideal para casos em que se deseja manipulações avançadas
 WriteSystemBitmap * WriteSystemManager::getFonte(std::string nome) 
 {
-   if (objetomap.find(nome)!=objetomap.end()){
-      return objetomap[nome];
-   } else {
-      return objetomap["console"];
-      //DAFs gerar log de erro
-   }
+    if (objetomap.find(nome)!=objetomap.end()){
+        return objetomap[nome];
+    } else {
+        UtilLog::tracer("WriteSystemManager::getFonte(%s) - [* ERRO *]",nome.c_str());
+        return objetomap[WriteSystemManager::defaultFont];
+    }
 }
 //Pega uma Instância de FonteManager
 //Obs.: Esta classe é Singleton
