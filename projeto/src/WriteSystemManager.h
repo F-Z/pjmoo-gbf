@@ -14,12 +14,11 @@
 #ifndef _WRITESYSTEMMANAGER_H
 #define _WRITESYSTEMMANAGER_H
 
-#include "WriteSystemBitmap.h"
 #include <string>
 
+#include "WriteSystemBitmap.h"
 #include <map>
 
-#include "WriteSystemFontDefault.h"
 #include "UserInterfaceTexto.h"
 
 //Descrição: 
@@ -29,6 +28,9 @@
 class WriteSystemManager
 {
   public:
+    //Constante para representar a fonte padrão do GBF
+    static const std::string defaultFont;
+
     //Destrutor
     virtual ~WriteSystemManager();
 

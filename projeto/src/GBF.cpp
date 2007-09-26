@@ -14,7 +14,7 @@
 #include "GBF.h"
 
 //Construtor
-GBF::GBF()
+GBF::GBF() 
 {
     numscreenshot = 0;
     pathBase      = "";
@@ -22,7 +22,7 @@ GBF::GBF()
     setDefaultPath(true);
 }
 //Destrutor
-GBF::~GBF()
+GBF::~GBF() 
 {
     UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
     UtilLog::cabecalho("Descarregando Framework");
@@ -44,7 +44,7 @@ GBF::~GBF()
 }
 //Informação sobre o Autor e o Título da Aplicação.
 //Obs.: Usado para arquivo de log e título da janela
-void GBF::setTitulo(std::string titulo, std::string autor)
+void GBF::setTitulo(std::string titulo, std::string autor) 
 {
     UtilLog::setAutor(autor);
     UtilLog::setProjeto(titulo);
@@ -52,7 +52,7 @@ void GBF::setTitulo(std::string titulo, std::string autor)
     setTitulo(titulo);
 }
 //Inicializa o Sistema, e configura o modo gráfico
-void GBF::iniciar(int width, int height, int bpp_color, bool full)
+void GBF::iniciar(int width, int height, int bpp_color, bool full) 
 {
     UtilLog::cabecalho("Inicializando Framework");
     UtilLog::tracer("Inicializando ModoGráfico");
@@ -77,19 +77,14 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
     soundSystem->iniciar(22050,AUDIO_S16SYS,CANAL_STEREO,2048,16);
 
     //Carregando Fontes Padrões
-    UtilLog::tracer("Carregando Fontes Padrões para FonteManager");
-    writeSystem->carregar(WriteSystemFontDefault::console,getPath()+"data//kernel//fonte//console.png");
-//    writeSystem->carregar(WriteSystemFontDefault::pumpdemi,getPath()+"data//kernel//fonte//pumpdemi.png");
-//    writeSystem->carregar(WriteSystemFontDefault::fixedsys,getPath()+"data//kernel//fonte//fixedsys.png");
-//    writeSystem->carregar(WriteSystemFontDefault::arial,getPath()+"data//kernel//fonte//arial.png");
-//    writeSystem->carregar(WriteSystemFontDefault::comic,getPath()+"data//kernel//fonte//comicsans.png");
-//    writeSystem->carregar(WriteSystemFontDefault::high,getPath()+"data//kernel//fonte//highlight.png");
-//    writeSystem->carregar(WriteSystemFontDefault::stac,getPath()+"data//kernel//fonte//staccato.png");
+    UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
+    writeSystem->carregar(WriteSystemManager::defaultFont,getPath()+"data//kernel//fonte//default.png");
+
+    UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
+    GraphicSystemImageBufferManager::getInstance()->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->uiTexto->detectarIdioma();
-
-    GraphicSystemImageBufferManager::getInstance()->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //FPSTimer primeira chamada
     fpsSystem->start();
@@ -99,7 +94,7 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
 //desenha na tela o conteúdo do backbuffer
 //Obs.: Deve ser usado na interação do loop principal do jogo
-void GBF::atualizar()
+void GBF::atualizar() 
 {
     try {
         fpsSystem->processar();
@@ -120,21 +115,21 @@ void GBF::atualizar()
     }
 }
 //Pausa o Sistema
-void GBF::pausar()
+void GBF::pausar() 
 {
 }
 //Mostra o Contador de FPS
-void GBF::setFPS(bool show)
+void GBF::setFPS(bool show) 
 {
     fps=show;
 }
 //Informa se o mostrador de FPS está ativo
-bool GBF::isFPS()
+bool GBF::isFPS() 
 {
     return fps;
 }
 //Informa o caminho do diretório base da aplicação corrente
-void GBF::setPath(char * fullPath)
+void GBF::setPath(char * fullPath) 
 {
     pathBase=UtilExtract::extractPath(fullPath);
 
@@ -146,20 +141,20 @@ void GBF::setPath(char * fullPath)
     }
 }
 //Retorna o diretório base da aplicação corrente
-std::string GBF::getPath()
+std::string GBF::getPath() 
 {
     return pathBase;
 }
-bool GBF::isDefaultPath()
+bool GBF::isDefaultPath() 
 {
     return defaultPath;
 }
-void GBF::setDefaultPath(bool ativo)
+void GBF::setDefaultPath(bool ativo) 
 {
     defaultPath=ativo;
 }
 //Controle para ações internas
-void GBF::controleInterno()
+void GBF::controleInterno() 
 {
     //F10 = Alterna entre modo de controle exclusivo
     if (inputSystem->teclado->isKey(SDLK_F10)){
@@ -182,8 +177,8 @@ void GBF::controleInterno()
     }
 
 }
-//Prepara o Ambiente para ser inicializado
-void GBF::carregar()
+//Prepara o Ambiente para ser inicializado 
+void GBF::carregar() 
 {
     //Inicializando Log
     UtilLog::iniciar();
@@ -211,8 +206,8 @@ void GBF::carregar()
 
     UtilLog::cabecalho("Carregamento Completo do Framework");
 }
-//Define o Título para Janela
-void GBF::setTitulo(std::string titulo)
+//Define o Título para Janela 
+void GBF::setTitulo(std::string titulo) 
 {
     SDL_WM_SetCaption(titulo.c_str(),NULL);
 }
