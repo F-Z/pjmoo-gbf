@@ -93,11 +93,11 @@ bool UserInterfaceTexto::atualizar()
 {
     char str[256];
     bool retorno = false;
-    std::string fullpath=pathBase+"mensagem//"+getIdioma()+"."+arquivo;
+    std::string fullpath=pathBase+"texto//"+getIdioma()+"."+arquivo;
 
     if (!arquivo.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
-        UtilLog::tracer("UserInterfaceTexto Carregando Idioma(%s)=%s",getIdioma().c_str(),fullpath.c_str());
+
         if (arquivoTexto!=NULL){
             while(!arquivoTexto.eof()){
                 arquivoTexto.getline(str,256);
@@ -107,10 +107,8 @@ bool UserInterfaceTexto::atualizar()
             retorno = true;
         }
     }
-    if (retorno){
-        UtilLog::comentario("[Ok]");
-    } else {
-        UtilLog::comentario("[Falhou]");
+    if (!retorno){
+        UtilLog::tracer("UserInterfaceTexto::atualizar() %s - [* ERRO *]",fullpath.c_str());
     }
 
     return retorno;
