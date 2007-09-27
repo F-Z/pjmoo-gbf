@@ -1,5 +1,9 @@
 format 38
 
+classcanvas 128033 class_ref 129061 // UserInterfaceWindow
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 25 321 3015
+  end
 classcanvas 128080 class_ref 129232 // GBF
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_attributes
@@ -64,7 +68,6 @@ classcanvas 129232 class_ref 129872 // TimerSystemFPS
     operation_ref 181840 // start
     operation_ref 181968 // aumentar
     operation_ref 182096 // diminuir
-    operation_ref 182224 // getDelay
   xyz 352 408 3005
   end
 classcanvas 130000 class_ref 129360 // GraphicSystem
@@ -180,16 +183,16 @@ classcanvas 141776 class_ref 138576 // UserInterfaceTexto
     attribute_ref 151760 // arquivo
     attribute_ref 151376 // pathBase
   hidden_operations
+    operation_ref 191312 // ~UserInterfaceTexto
+    operation_ref 192080 // getInstance
+    operation_ref 192208 // setPathBase
     operation_ref 192464 // setIdioma
     operation_ref 192592 // getIdioma
     operation_ref 192720 // detectarIdioma
-    operation_ref 191312 // ~UserInterfaceTexto
     operation_ref 191440 // atualizar
     operation_ref 193232 // setArquivo
     operation_ref 191824 // size
-    operation_ref 192080 // getInstance
     operation_ref 191568 // getTexto
-    operation_ref 192208 // setPathBase
     operation_ref 191696 // parser
     operation_ref 193360 // carregarIdioma
     operation_ref 193488 // parserIdioma
@@ -227,10 +230,14 @@ relationcanvas 128037 relation_ref 152016 // <unidirectional association>
   line 128293 z 3004 to ref 141776
   role_a_pos 552 314 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
+relationcanvas 128161 relation_ref 128289 // <dependency>
+  from ref 128080 z 1999 to ref 128033
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
 relationcanvas 128336 relation_ref 144848 // <dependency>
   geometry VHr
-  from ref 128080 z 1999 to point 228 191
-  line 141136 z 1999 stereotype "<<use>>" xyz 209 90 3000 to ref 128208
+  from ref 128080 z 1999 to point 237 191
+  line 141136 z 1999 stereotype "<<use>>" xyz 215 90 3000 to ref 128208
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128592 relation_ref 133968 // <unidirectional association>
@@ -242,23 +249,23 @@ relationcanvas 128592 relation_ref 133968 // <unidirectional association>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128976 relation_ref 129744 // <unidirectional association>
   geometry VHr
-  from ref 128080 z 1999 to point 74 191
+  from ref 128080 z 1999 to point 77 191
   line 141648 z 1999 to ref 128464
-  role_a_pos 86 215 3000 no_role_b
+  role_a_pos 89 215 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129104 relation_ref 145104 // <dependency>
   geometry HVH
-  from ref 128080 z 1999 to point 184 191
-  line 139472 z 1999 to point 184 251
+  from ref 128080 z 1999 to point 187 191
+  line 139472 z 1999 to point 187 251
   line 139600 z 1999 to ref 128464
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129360 relation_ref 130128 // <unidirectional association>
   geometry VHV
-  from ref 128080 z 1999 to point 273 307
-  line 139984 z 1999 to point 396 307
+  from ref 128080 z 1999 to point 273 308
+  line 139984 z 1999 to point 410 308
   line 140112 z 1999 to ref 129232
-  role_a_pos 408 391 3000 no_role_b
+  role_a_pos 422 389 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130128 relation_ref 131792 // <unidirectional association>
   from ref 130000 z 1999 to point 328 8
@@ -270,9 +277,9 @@ relationcanvas 130128 relation_ref 131792 // <unidirectional association>
 relationcanvas 130512 relation_ref 129616 // <unidirectional association>
   geometry VHV
   from ref 128080 z 1999 to point 273 115
-  line 141264 z 1999 to point 328 115
+  line 141264 z 1999 to point 335 115
   line 141392 z 1999 to ref 130000
-  role_a_pos 340 68 3000 no_role_b
+  role_a_pos 347 68 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130768 relation_ref 143952 // <dependency>
   from ref 128080 z 1999 stereotype "<<use>>" xyz 277 336 3000 to ref 130640
@@ -294,9 +301,9 @@ relationcanvas 131152 relation_ref 143312 // <unidirectional association>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 131536 relation_ref 129872 // <unidirectional association>
   geometry VHr
-  from ref 128080 z 1999 to point 105 190
+  from ref 128080 z 1999 to point 124 191
   line 141008 z 1999 to ref 131024
-  role_a_pos 117 101 3000 no_role_b
+  role_a_pos 136 124 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 131792 relation_ref 129104 // <unidirectional association>
   from ref 131664 z 1999 to point 620 117
@@ -327,8 +334,8 @@ relationcanvas 133072 relation_ref 148048 // <dependency>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 133200 relation_ref 144976 // <dependency>
   geometry VHr
-  from ref 128080 z 1999 to point 197 191
-  line 140240 z 1999 stereotype "<<use>>" xyz 160 332 3000 to ref 132944
+  from ref 128080 z 1999 to point 207 191
+  line 140240 z 1999 stereotype "<<use>>" xyz 166 332 3000 to ref 132944
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 133456 relation_ref 138576 // <unidirectional association>
@@ -347,9 +354,9 @@ relationcanvas 133840 relation_ref 147920 // <dependency>
 relationcanvas 133968 relation_ref 130000 // <unidirectional association>
   geometry VHV unfixed
   from ref 128080 z 1999 to point 273 300
-  line 139728 z 1999 to point 85 300
+  line 139728 z 1999 to point 96 300
   line 139856 z 1999 to ref 133328
-  role_a_pos 97 406 3000 no_role_b
+  role_a_pos 108 404 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 138064 relation_ref 144464 // <dependency>
   geometry HVH
@@ -373,12 +380,12 @@ relationcanvas 142288 relation_ref 151632 // <dependency>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 142544 relation_ref 151760 // <dependency>
   geometry HV
-  from ref 128080 z 1999 stereotype "<<use>>" xyz 403 194 3000 to point 550 191
+  from ref 128080 z 1999 stereotype "<<use>>" xyz 407 194 3000 to point 558 191
   line 142800 z 1999 to ref 141776
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 143312 relation_ref 152144 // <unidirectional association>
   from ref 128080 z 1999 stereotype "<<std::map>>" xyz 313 220 3000 to ref 143184
-  role_a_pos 349 244 3000 no_role_b
-  multiplicity_a_pos 386 237 3000 no_multiplicity_b
+  role_a_pos 353 242 3000 no_role_b
+  multiplicity_a_pos 368 267 3000 no_multiplicity_b
 end

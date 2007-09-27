@@ -1,7 +1,7 @@
 format 38
 "UserInterface" // Framework GBF::UserInterface
-  revision 16
-  modified_by 41 "david"
+  revision 20
+  modified_by 10 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -574,19 +574,7 @@ ${body}}
 "
 	
 	
-      end
-
-      operation 130469 "UserInterfaceVisual"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "base" type class_ref 128549 // UserInterfaceVisual
-	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}${throw}{
-${body}}
-"
-	
-	
+	comment "Construtor"
       end
 
       operation 130597 "~UserInterfaceVisual"
@@ -599,6 +587,7 @@ ${body}}
 "
 	
 	
+	comment "Destrutor"
       end
 
       operation 130725 "setCorBorda"
@@ -676,13 +665,12 @@ ${body}}"
 	idl_decl ""
       end
 
-      attribute 130085 "gsGFX"
-	class_attribute protected explicit_type "GraphicSystemGFX"
-	init_value "=NULL"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
+      classrelation 128345 // <generalisation>
+	relation 128345 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128345 // <generalisation>
+	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
       end
     end
 
@@ -710,25 +698,12 @@ ${inlines}
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
-${body}}
-"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
 	
 	
-      end
-
-      operation 132261 "UserInterfaceVisualSolido"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "base" type class_ref 128933 // UserInterfaceVisualSolido
-	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}:UserInterfaceVisual(base) 
-${throw}{
-${body}}
-"
-	
-	
+	comment "Construtor"
       end
 
       operation 132389 "~UserInterfaceVisualSolido"
@@ -736,11 +711,12 @@ ${body}}
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
-${body}}
-"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
 	
 	
+	comment "Destrutor"
       end
 
       operation 132517 "setCorFundo"
@@ -773,7 +749,7 @@ ${body}}"
 	comment "Desenha o EstiloVisual do Componente"
       end
 
-      operation 132773 "clone"
+      operation 128010 "clone"
 	cpp_virtual public return_type class_ref 128549 // UserInterfaceVisual
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -783,6 +759,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Retorna uma copia do objeto"
       end
 
       attribute 130981 "corFundo"
@@ -823,20 +800,7 @@ ${body}}
 "
 	
 	
-      end
-
-      operation 131365 "UserInterfaceVisualImagem"
-	public explicit_return_type ""
-	nparams 1
-	  param in name "base" type class_ref 128805 // UserInterfaceVisualImagem
-	cpp_decl "    ${comment}${inline}${name}${(}const ${t0} & ${p0}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}const ${t0} & ${p0}${)}:UserInterfaceVisual(base) 
-${throw}{
-${body}}
-"
-	
-	
+	comment "Construtor"
       end
 
       operation 131493 "~UserInterfaceVisualImagem"
@@ -844,11 +808,12 @@ ${body}}
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
-${body}}
-"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
 	
 	
+	comment "Destrutor"
       end
 
       operation 131621 "aplicar"
@@ -858,9 +823,7 @@ ${body}}
 	  param in name "dimensao" explicit_type "Dimensao"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "//Aplica o efeito visual
-
-${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
 	
@@ -893,6 +856,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Retorna uma copia do objeto"
       end
 
       operation 132005 "setTipoBackground"
@@ -919,15 +883,6 @@ ${body}}"
 	idl_decl ""
       end
 
-      attribute 130853 "gsImageBufferManager"
-	class_attribute protected explicit_type "GraphicSystemImageBufferManager"
-	init_value "=NULL"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
       classrelation 128549 // tipoBackground (<directional aggregation by value>)
 	relation 128549 *-->
 	  a role_name "tipoBackground" multiplicity "" protected
@@ -940,7 +895,7 @@ ${body}}"
       classrelation 128041 // <dependency>
 	relation 128041 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 128041 // <dependency>
 	  b multiplicity "" parent class_ref 128848 // SpriteFactory
       end
@@ -1640,13 +1595,13 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 155472 // input (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystemCore
       end
 
       operation 207696 "UserInterfaceMenuAbstract"
 	public explicit_return_type ""
 	nparams 1
-	  param in name "input" type class_ref 129488 // InputSystem
+	  param in name "input" type class_ref 129488 // InputSystemCore
 	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${t0} * ${p0}${)}${volatile}${throw} 
@@ -1899,7 +1854,7 @@ ${inlines}
       operation 128143 "UserInterfaceMenuTextoTransparente"
 	public explicit_return_type ""
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 129488 // InputSystemCore
 	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${t0} * ${p0}${)}:UserInterfaceMenuTexto(${p0})${volatile}${throw} 
@@ -1960,7 +1915,7 @@ Motivação:
       operation 209744 "UserInterfaceMenuTexto"
 	public explicit_return_type ""
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 129488 // InputSystemCore
 	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${t0} * ${p0}${)}:UserInterfaceMenuAbstract(${p0})${volatile}${throw} 
@@ -2030,13 +1985,12 @@ ${body}}"
 	
       end
 
-      classrelation 155600 // gsGFX (<unidirectional association>)
-	relation 155600 --->
-	  a role_name "gsGFX" multiplicity "1" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 155600 // gsGFX (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
+      classrelation 128217 // <generalisation>
+	relation 128217 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128217 // <generalisation>
+	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
       end
     end
 
@@ -2321,7 +2275,6 @@ ${body}}"
 	    classrelation_ref 151632 // <dependency>
 	  b multiplicity "" parent class_ref 137936 // UtilLog
       end
-
     end
 
     class 131024 "UserInterfaceRecorde"
@@ -2354,7 +2307,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 141648 // input (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystemCore
       end
 
       classrelation 141776 // wsManager (<unidirectional association>)
@@ -2582,7 +2535,7 @@ ${body}}"
       operation 185296 "setInput"
 	public explicit_return_type "void"
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 129488 // InputSystemCore
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}

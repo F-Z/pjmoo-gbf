@@ -1,20 +1,16 @@
 class UserInterfaceVisualImagem
 !!!131237.cpp!!!	UserInterfaceVisualImagem()
-    if (gsImageBufferManager==NULL){
-        gsImageBufferManager = GraphicSystemImageBufferManager::getInstance();
-    }
     tipoBackground=BACKGROUND_LINES;
-!!!131365.cpp!!!	UserInterfaceVisualImagem(in base : UserInterfaceVisualImagem)
-    background=base.background;
+
+    SpriteFactory *spriteFactory = new SpriteFactory(graphicSystem->imageBufferManager->getImageBuffer("gbf-window-background"));
+    background = spriteFactory->criarFrameLayer(0,0,10,10);
+    delete(spriteFactory);
 !!!131493.cpp!!!	~UserInterfaceVisualImagem()
-    if (background!=NULL){
+    if (background){
         delete(background);
     }
 !!!131621.cpp!!!	aplicar(in posicao : Ponto, in dimensao : Dimensao) : void
     UserInterfaceVisual::aplicar(posicao,dimensao);
-    SpriteFactory *spriteFactory = new SpriteFactory(gsImageBufferManager->getImageBuffer("gbf-window-background"));
-    background = spriteFactory->criarFrameLayer(0,0,10,10);
-    delete(spriteFactory);
 
     if (background!=NULL){
         background->setFrame(posicao.x,posicao.y,dimensao.w,dimensao.h);
@@ -26,9 +22,13 @@ class UserInterfaceVisualImagem
     if (background!=NULL){
         background->desenhar();
     }
-    gsGFX->setColor(corBorda.r,corBorda.g,corBorda.b);
-    gsGFX->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
+    graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
+    graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
 !!!131877.cpp!!!	clone() : UserInterfaceVisual
-   return new UserInterfaceVisualImagem(*this);
+    UserInterfaceVisualImagem * uivImagem = new UserInterfaceVisualImagem();
+    uivImagem->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
+    uivImagem->setTipoBackground(tipoBackground);
+
+    return uivImagem;
 !!!132005.cpp!!!	setTipoBackground(in tipo : UserInterfaceVisualTipoBackground) : void
     tipoBackground=tipo;

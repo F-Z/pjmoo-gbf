@@ -10,9 +10,9 @@ class GBF
 
     delete(fpsSystem);
     delete(writeSystem);
-    delete(GraphicSystemImageBufferManager::getInstance());
+//    delete(GraphicSystemImageBufferManager::getInstance());
     delete(FrameLayerManager::getInstance());
-    delete(graphicSystem);
+    delete(graphicSystemCore);
     //delete(GraphicSystemScreen::getInstance());
     delete(soundSystem);
     delete(inputSystem);
@@ -36,14 +36,14 @@ class GBF
     config.h     = height;
     config.color = bpp_color;
     config.full  = full;
-    graphicSystem->gsMode->setConfig(config);
+    graphicSystemCore->gsMode.setConfig(config);
 
     if (config.full){
-        graphicSystem->gsMode->setModeFullScreen();
+        graphicSystemCore->gsMode.setModeFullScreen();
     } else {
-        graphicSystem->gsMode->setModeWindowScreen();
+        graphicSystemCore->gsMode.setModeWindowScreen();
     }
-    graphicSystem->sincronizar();
+    graphicSystemCore->sincronizar();
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
@@ -51,21 +51,17 @@ class GBF
     soundSystem->iniciar(22050,AUDIO_S16SYS,CANAL_STEREO,2048,16);
 
     //Carregando Fontes Padrões
-    UtilLog::tracer("Carregando Fontes Padrões para FonteManager");
-    writeSystem->carregar(WriteSystemFontDefault::console,getPath()+"data//kernel//fonte//console.png");
-    //remover as outras fontes, deixar apenas console como padrão
-    writeSystem->carregar(WriteSystemFontDefault::pumpdemi,getPath()+"data//kernel//fonte//pumpdemi.png");
-    writeSystem->carregar(WriteSystemFontDefault::fixedsys,getPath()+"data//kernel//fonte//fixedsys.png");
-    writeSystem->carregar(WriteSystemFontDefault::arial,getPath()+"data//kernel//fonte//arial.png");
-    writeSystem->carregar(WriteSystemFontDefault::comic,getPath()+"data//kernel//fonte//comicsans.png");
-    writeSystem->carregar(WriteSystemFontDefault::high,getPath()+"data//kernel//fonte//highlight.png");
-    writeSystem->carregar(WriteSystemFontDefault::stac,getPath()+"data//kernel//fonte//staccato.png");
+    UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
+    writeSystem->carregar(WriteSystemManager::defaultFont,getPath()+"data//kernel//fonte//default.png");
 
     UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
-    GraphicSystemImageBufferManager::getInstance()->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
+    graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->uiTexto->detectarIdioma();
+
+    //Configurando o dispositivo de entrada para UserInterface
+    UserInterfaceWindow::setInputSystem(inputSystem);
 
     //FPSTimer primeira chamada
     fpsSystem->start();
@@ -83,7 +79,7 @@ class GBF
         */
         controleInterno();
         inputSystem->processar();
-        graphicSystem->flip();
+        graphicSystemCore->flip();
     } catch(...){
         UtilLog::tracer("SDL: %s", SDL_GetError());
         UtilLog::tracer("SDL_Image: %s", IMG_GetError());
@@ -114,7 +110,7 @@ class GBF
         inputSystem->alternarControleExclusivo();
     //F11 = Alterna entre modo tela Cheia e Janela
     } else if (inputSystem->teclado->isKey(SDLK_F11)){
-        if (SDL_WM_ToggleFullScreen(graphicSystem->gsMode->getScreen())==0){
+        if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
             //UtilLog::getInstance()->inicializando("GBF :: Aviso");
             //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
         }
@@ -123,12 +119,11 @@ class GBF
         char tela[255];
         numscreenshot++;
         sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
-        graphicSystem->salvarScreenShot(tela);
+        graphicSystemCore->salvarScreenShot(tela);
     //F5 = Tira o Som
     } else if (inputSystem->teclado->isKey(SDLK_F5)){
         //audio.Mute();
     }
-
 !!!136784.cpp!!!	carregar() : void
     //Inicializando Log
     UtilLog::iniciar();
@@ -141,8 +136,7 @@ class GBF
     fpsSystem = new TimerSystemFPS();
 
     //Inicializando Video
-    graphicSystem = GraphicSystem::getInstance();
-    GraphicSystemImageBufferManager::getInstance();
+    graphicSystemCore = new GraphicSystemCore();
     FrameLayerManager::getInstance();
 
     //Inicializando Gerenciador de Fontes

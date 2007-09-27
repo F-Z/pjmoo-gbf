@@ -1,6 +1,7 @@
 class FrameLayer
 !!!128080.cpp!!!	FrameLayer()
     automatico=false;
+    mapa=NULL;
 !!!128208.cpp!!!	~FrameLayer()
     delete[] mapa;
 !!!128336.cpp!!!	desenhar() : void
@@ -151,6 +152,9 @@ class FrameLayer
 !!!128720.cpp!!!	setTiles(in largura : int, in altura : int) : void
     mundo.setTiles(largura,altura);
 
+    if (mapa!=NULL){
+        delete[] mapa;
+    }
     mapa = new int[largura*altura];
 !!!128848.cpp!!!	setPixelTile(in largura : int, in altura : int) : void
     mundo.setPixelTile(largura,altura);

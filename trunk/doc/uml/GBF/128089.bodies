@@ -1,0 +1,3 @@
+class GraphicSystemUtility
+!!!128089.cpp!!!	setGraphicSystem(in instance : GraphicSystem) : void
+    graphicSystem = instance;

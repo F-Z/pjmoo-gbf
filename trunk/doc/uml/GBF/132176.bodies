@@ -15,11 +15,6 @@ class GraphicSystemImageBufferManager
         UtilLog::comentario("[Ok]");
     }
     objetomap.clear();
-!!!149584.cpp!!!	getInstance() : GraphicSystemImageBufferManager
-    if (instance == NULL){
-        instance = new GraphicSystemImageBufferManager();		
-    }
-    return instance;
 !!!149712.cpp!!!	getImageBuffer(in nome : std::string) : GraphicSystemImageBuffer
     if (objetomap.find(nome)!=objetomap.end()){
         return objetomap[nome];

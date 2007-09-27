@@ -1,7 +1,7 @@
 format 38
 "WriteSystem" // Framework GBF::WriteSystem
-  revision 6
-  modified_by 119 "david"
+  revision 7
+  modified_by 57 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -60,6 +60,16 @@ ${inlines}
     Classe para gerenciamento do sistema de fontes (letras).
 Motivação:
     Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita"
+      attribute 150224 "defaultFont"
+	class_attribute const_attribute public explicit_type "std::string"
+	init_value "=\"default\""
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	idl_decl ""
+	comment "Constante para representar a fonte padrão do GBF"
+      end
+
       operation 190288 "~WriteSystemManager"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
@@ -226,15 +236,6 @@ ${body}}"
 "
 	    classrelation_ref 143312 // instance (<unidirectional association>)
 	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
-      end
-
-      classrelation 144720 // <dependency>
-	relation 144720 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 144720 // <dependency>
-	  b multiplicity "" parent class_ref 138192 // WriteSystemFontDefault
       end
 
       classrelation 152016 // uiTexto (<unidirectional association>)
@@ -442,84 +443,6 @@ ${body}}"
       end
     end
 
-    class 138192 "WriteSystemFontDefault"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit}
-{
-${members}};
-${inlines}
-"
-      java_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Descrição: 
-    Classe com as fontes padrões.
-Motivação:
-    Permitir a escrita de textos na tela com fontes padrões"
-      attribute 150224 "console"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"console\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 150352 "pumpdemi"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"pumpdemi\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 150480 "fixedsys"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"fixedsys\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 150608 "arial"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"arial\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 150736 "comic"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"comic\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 150864 "high"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"high\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 150992 "stac"
-	class_attribute public explicit_type "std::string"
-	init_value "= \"stac\""
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-    end
   end
 
   deploymentview 128464 "Deploy"
@@ -617,7 +540,6 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 138192 // WriteSystemFontDefault
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira

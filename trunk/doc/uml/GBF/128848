@@ -1,7 +1,7 @@
 format 38
 "GraphicSystem" // Framework GBF::GraphicSystem
-  revision 10
-  modified_by 75 "david"
+  revision 15
+  modified_by 40 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -45,6 +45,274 @@ format 38
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
+    class 128089 "GraphicSystemUtility"
+      abstract visibility package stereotype "interface"
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl "${comment}${public}interface ${name}${extends} {
+${members}}
+"
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 128089 // graphicSystem (<unidirectional association>)
+	relation 128089 --->
+	  a role_name "graphicSystem" multiplicity "1" init_value "=NULL" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128089 // graphicSystem (<unidirectional association>)
+	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+      end
+
+      operation 128089 "setGraphicSystem"
+	class_operation private explicit_return_type "void"
+	nparams 1
+	  param in name "instance" type class_ref 128113 // GraphicSystem
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+      end
+
+      classrelation 128729 // <dependency>
+	relation 128729 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "${type}"
+	    classrelation_ref 128729 // <dependency>
+	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+      end
+    end
+
+    class 128113 "GraphicSystem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128241 // imageBufferManager (<unidirectional association>)
+	relation 128113 --->
+	  a role_name "imageBufferManager" multiplicity "1" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128241 // imageBufferManager (<unidirectional association>)
+	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
+      end
+
+      classrelation 128369 // gfx (<unidirectional association>)
+	relation 128241 --->
+	  a role_name "gfx" multiplicity "1" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128369 // gfx (<unidirectional association>)
+	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
+      end
+
+      operation 128113 "GraphicSystem"
+	protected explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+      end
+
+      operation 128241 "~GraphicSystem"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+      end
+
+      classrelation 128881 // instance (<unidirectional association>)
+	relation 128753 --->
+	  a role_name "instance" multiplicity "1" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128881 // instance (<unidirectional association>)
+	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+      end
+
+      operation 128369 "getInstance"
+	class_operation public return_type class_ref 128113 // GraphicSystem
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+      end
+    end
+
+    class 131408 "GraphicSystemScreen"
+      visibility protected 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "*
+ * \\class GraphicSystemScreen
+ * \\brief Representação do Buffer de Vídeo
+ * \\date 15/04/2005
+ * \\warning Classe Singleton
+"
+      operation 151376 "~GraphicSystemScreen"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 151504 "blitSurface"
+	public explicit_return_type "void"
+	nparams 3
+	  param inout name "origem" explicit_type "SDL_Surface"
+	  param inout name "area" explicit_type "SDL_Rect"
+	  param inout name "posicao" explicit_type "SDL_Rect"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Desenha uma surface na surface de vídeo"
+      end
+
+      operation 151632 "getScreen"
+	public explicit_return_type "SDL_Surface"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Retorna ponteiro para a surface de vídeo "
+      end
+
+      operation 151760 "travar"
+	public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Trava a surface para desenhar"
+      end
+
+      operation 151888 "destravar"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Destrava a surface para desenhar"
+      end
+
+      operation 152016 "GraphicSystemScreen"
+	private explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	comment "Construtor "
+      end
+
+      attribute 134864 "pScreen"
+	private explicit_type "SDL_Surface"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	idl_decl ""
+      end
+
+      operation 152144 "setScreen"
+	private explicit_return_type "void"
+	nparams 1
+	  param inout name "surface" explicit_type "SDL_Surface"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Informa qual a surface a ser usada e a configuração"
+      end
+
+      classrelation 133456 // <dependency>
+	relation 133456 -_->
+	  stereotype "friend"
+	  a protected
+	    cpp default "${type}"
+	    classrelation_ref 133456 // <dependency>
+	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+      end
+
+      classrelation 146512 // <dependency>
+	relation 146512 -_->
+	  a protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 146512 // <dependency>
+	  b multiplicity "" parent class_ref 137936 // UtilLog
+      end
+
+      classrelation 150864 // <dependency>
+	relation 150864 -_->
+	  a protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 150864 // <dependency>
+	  b multiplicity "" parent class_ref 138448 // SDL
+      end
+    end
+
     class 128464 "Area"
       visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
@@ -157,18 +425,6 @@ ${body}}"
 	
 	
 	comment "Destrutor "
-      end
-
-      operation 144976 "getInstance"
-	class_operation public return_type class_ref 131152 // GraphicSystemGFX
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-${body}}"
-	
-	
-	comment "Retorna um objeto de GraphicSystemGFX (Singleton) "
       end
 
       operation 145104 "setColor"
@@ -382,15 +638,6 @@ ${body}}"
 	comment "Desenha cruzamentos com fechamento na parte inferior (rever utilidade)"
       end
 
-      classrelation 131920 // instance (<unidirectional association>)
-	relation 131920 --->
-	  a role_name "instance" multiplicity "" init_value "=NULL" class_relation protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 131920 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
-      end
-
       operation 146768 "inicializar"
 	protected explicit_return_type "void"
 	nparams 0
@@ -484,7 +731,42 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 132304 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+      end
+
+      classrelation 128753 // <dependency>
+	relation 128625 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "${type}"
+	    classrelation_ref 128753 // <dependency>
+	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+      end
+
+      operation 128148 "travar"
+	public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Realiza um lock na surface"
+      end
+
+      operation 128276 "destravar"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Realiza um unlock na surface"
       end
     end
 
@@ -638,9 +920,13 @@ ${body}}"
 	    classrelation_ref 150608 // <dependency>
 	  b multiplicity "" parent class_ref 138448 // SDL
       end
+
+      classrelation 128113 // <aggregation by value>
+	relation_ref 131536 // <aggregation by value>
+      end
     end
 
-    class 131408 "GraphicSystemScreen"
+    class 129360 "GraphicSystemCore"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
@@ -651,13 +937,34 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
-      comment "*
- * \\class GraphicSystemScreen
- * \\brief Representação do Buffer de Vídeo
- * \\date 15/04/2005
- * \\warning Classe Singleton
+      operation 144336 "clear"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
-      operation 151376 "~GraphicSystemScreen"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Limpa a tela "
+      end
+
+      operation 144592 "salvarScreenShot"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "arquivo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Salva uma imagem da tela "
+      end
+
+      operation 143952 "~GraphicSystemCore"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -667,52 +974,10 @@ ${inlines}
 ${body}}"
 	
 	
-	comment "Destrutor"
+	comment "Destrutor "
       end
 
-      operation 151504 "blitSurface"
-	public explicit_return_type "void"
-	nparams 3
-	  param inout name "origem" explicit_type "SDL_Surface"
-	  param inout name "area" explicit_type "SDL_Rect"
-	  param inout name "posicao" explicit_type "SDL_Rect"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Desenha uma surface na surface de vídeo"
-      end
-
-      operation 151632 "getScreen"
-	public explicit_return_type "SDL_Surface"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Retorna ponteiro para a surface de vídeo "
-      end
-
-      operation 151760 "travar"
-	public explicit_return_type "bool"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Trava a surface para desenhar"
-      end
-
-      operation 151888 "destravar"
+      operation 144208 "sincronizar"
 	public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -722,10 +987,41 @@ ${body}}"
 ${body}}"
 	
 	
-	comment "Destrava a surface para desenhar"
       end
 
-      operation 152016 "GraphicSystemScreen"
+      operation 144464 "flip"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Realiza o flip(troca) entre os buffers de vídeo "
+      end
+
+      classrelation 131536 // gsMode (<aggregation by value>)
+	relation 131536 *---
+	  a role_name "gsMode" multiplicity "" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 131536 // gsMode (<aggregation by value>)
+	  b role_name "" multiplicity "" protected
+	    classrelation_ref 128113 // <aggregation by value>
+      end
+
+      classrelation 131664 // gsScreen (<unidirectional association>)
+	relation 131664 --->
+	  a role_name "gsScreen" multiplicity "" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 131664 // gsScreen (<unidirectional association>)
+	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
+      end
+
+      operation 144720 "GraphicSystemCore"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -735,56 +1031,42 @@ ${body}}"
 ${body}}"
 	
 	
-	comment "Construtor "
+	comment "Inicializa SubSistema de suporte a Video "
       end
 
-      attribute 134864 "pScreen"
-	private explicit_type "SDL_Surface"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+      classrelation 148560 // <dependency>
+	relation 148560 -_->
+	  a protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	java_decl ""
-	idl_decl ""
+	    classrelation_ref 148560 // <dependency>
+	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
       end
 
-      operation 152144 "setScreen"
-	private explicit_return_type "void"
-	nparams 1
-	  param inout name "surface" explicit_type "SDL_Surface"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+      classrelation 129009 // graphicSystem (<directional aggregation>)
+	relation 128881 o-->
+	  a role_name "graphicSystem" multiplicity "1" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Informa qual a surface a ser usada e a configuração"
+	    classrelation_ref 129009 // graphicSystem (<directional aggregation>)
+	  b multiplicity "" parent class_ref 128113 // GraphicSystem
       end
 
-      classrelation 133456 // <dependency>
-	relation 133456 -_->
+      classrelation 129137 // <dependency>
+	relation 129009 -_->
 	  stereotype "friend"
-	  a protected
+	  a package
 	    cpp default "${type}"
-	    classrelation_ref 133456 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystem
+	    classrelation_ref 129137 // <dependency>
+	  b multiplicity "" parent class_ref 129232 // GBF
       end
 
-      classrelation 146512 // <dependency>
-	relation 146512 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 146512 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
-      end
-
-      classrelation 150864 // <dependency>
-	relation 150864 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 150864 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+      classrelation 128601 // <dependency>
+	relation 128601 -_->
+	  a default
+	    cpp default "#include in header"
+	    classrelation_ref 128601 // <dependency>
+	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
       end
     end
 
@@ -898,15 +1180,6 @@ ${body}}"
 	comment "Comentada pois no código original não parecia ser usada, já que não era implementada..."
       end
 
-      classrelation 132432 // gsScreen (<unidirectional association>)
-	relation 132432 --->
-	  a role_name "gsScreen" multiplicity "" init_value "= NULL" class_relation protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 132432 // gsScreen (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
-      end
-
       attribute 133456 "imagem"
 	protected explicit_type "SDL_Surface"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
@@ -994,7 +1267,7 @@ ${body}}
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 132688 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystem
+	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
       end
 
       classrelation 147536 // <dependency>
@@ -1011,6 +1284,15 @@ ${body}}
 "
 	    classrelation_ref 150736 // <dependency>
 	  b multiplicity "" parent class_ref 138448 // SDL
+      end
+
+      classrelation 129265 // gsScreen (<directional aggregation>)
+	relation 129137 o-->
+	  a role_name "gsScreen" multiplicity "1" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129265 // gsScreen (<directional aggregation>)
+	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
       end
     end
 
@@ -1036,19 +1318,6 @@ ${body}}"
 	
 	
 	comment "Destrutor"
-      end
-
-      operation 149584 "getInstance"
-	class_operation public return_type class_ref 132176 // GraphicSystemImageBufferManager
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-${body}}
-"
-	
-	
-	comment " Retorna uma instancia de GraphicSystemImageBufferManager"
       end
 
       operation 149712 "getImageBuffer"
@@ -1108,15 +1377,6 @@ ${body}}
 	comment " Informa PathBase para leitura de arquivos"
       end
 
-      classrelation 133200 // instance (<unidirectional association>)
-	relation 133200 --->
-	  a role_name "instance" multiplicity "" class_relation protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 133200 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
-      end
-
       attribute 133968 "objetomap"
 	protected explicit_type "std::map<std::string,GraphicSystemImageBuffer*>"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -1144,6 +1404,15 @@ ${body}}"
 "
 	java_decl ""
 	idl_decl ""
+      end
+
+      classrelation 128625 // <dependency>
+	relation 128497 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "${type}"
+	    classrelation_ref 128625 // <dependency>
+	  b multiplicity "" parent class_ref 128113 // GraphicSystem
       end
     end
 
@@ -1261,167 +1530,13 @@ ${body}}"
 	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
       end
     end
-
-    class 129360 "GraphicSystem"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit}
-{
-${members}};
-${inlines}
-"
-      java_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "*
- * \\class GraphicSystem
- * \\brief Classe para inicialização e controle do vídeo
- * \\author David de Almeida Ferreira
- * \\date  24/10/2004
- * \\warning Classe Singleton    
-"
-      operation 143952 "~GraphicSystem"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	comment "Destrutor "
-      end
-
-      operation 144080 "getInstance"
-	class_operation public return_type class_ref 129360 // GraphicSystem
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
-${body}}"
-	
-	
-	comment "Retorna um objeto de GraphicSystem (Singleton) "
-      end
-
-      operation 144208 "sincronizar"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-      end
-
-      operation 144336 "clear"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Limpa a tela "
-      end
-
-      operation 144464 "flip"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Realiza o flip(troca) entre os buffers de vídeo "
-      end
-
-      operation 144592 "salvarScreenShot"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "arquivo" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Salva uma imagem da tela "
-      end
-
-      classrelation 131408 // gsGFX (<unidirectional association>)
-	relation 131408 --->
-	  a role_name "gsGFX" multiplicity "" public
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 131408 // gsGFX (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
-      end
-
-      classrelation 131536 // gsMode (<unidirectional association>)
-	relation 131536 --->
-	  a role_name "gsMode" multiplicity "" public
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 131536 // gsMode (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131280 // GraphicSystemMode
-      end
-
-      classrelation 131664 // gsScreen (<unidirectional association>)
-	relation 131664 --->
-	  a role_name "gsScreen" multiplicity "" public
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 131664 // gsScreen (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
-      end
-
-      classrelation 131792 // instance (<unidirectional association>)
-	relation 131792 --->
-	  a role_name "instance" multiplicity "" init_value "=NULL" class_relation protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 131792 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129360 // GraphicSystem
-      end
-
-      operation 144720 "GraphicSystem"
-	private explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	comment "Inicializa SubSistema de suporte a Video "
-      end
-
-      classrelation 148560 // <dependency>
-	relation 148560 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 148560 // <dependency>
-	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
-      end
-    end
   end
 
   deploymentview 129616 "Deploy"
     //deployment diagram settings
     package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
-    artifact 129616 "GraphicSystem"
+    artifact 129616 "GraphicSystemCore"
       stereotype "source"
       cpp_h "#ifndef _${NAME}_H
 #define _${NAME}_H
@@ -1440,7 +1555,7 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 129360 // GraphicSystem
+	class_ref 129360 // GraphicSystemCore
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira
@@ -1673,6 +1788,80 @@ ${namespace_end}"
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 //        http://pjmoo.codigolivre.org.br
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128113 "GraphicSystem"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128113 // GraphicSystem
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128089 "GraphicSystemUtility"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128089 // GraphicSystemUtility
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
 //////////////////////////////////////////////////////////////////////
 "
     end

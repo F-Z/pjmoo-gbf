@@ -1,0 +1,17 @@
+class GraphicSystem
+!!!128113.cpp!!!	GraphicSystem()
+    imageBufferManager = new GraphicSystemImageBufferManager();
+    gfx = new GraphicSystemGFX();
+!!!128241.cpp!!!	~GraphicSystem()
+    if (imageBufferManager){
+        delete(imageBufferManager);
+    }
+    if (gfx){
+        delete(gfx);
+    }
+!!!128369.cpp!!!	getInstance() : GraphicSystem
+    if (instance == NULL){
+        instance = new GraphicSystem();
+    }
+
+    return instance;

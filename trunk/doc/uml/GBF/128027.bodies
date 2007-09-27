@@ -1,0 +1,3 @@
+class InputSystemUtility
+!!!128027.cpp!!!	setInputSystem(in system : InputSystem)
+    inputSystem=system;

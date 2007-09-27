@@ -1,0 +1,129 @@
+format 38
+
+classcanvas 128040 class_ref 128089 // GraphicSystemUtility
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 581 479 3005
+  end
+classcanvas 128113 class_ref 131280 // GraphicSystemMode
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 13 6 2000
+  end
+classcanvas 128241 class_ref 131408 // GraphicSystemScreen
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 388 19 2000
+  end
+classcanvas 128625 class_ref 129360 // GraphicSystemCore
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 139 229 3005
+  end
+classcanvas 130033 class_ref 131152 // GraphicSystemGFX
+  draw_all_relations default hide_attributes yes hide_operations no show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 398 306 3005
+  end
+classcanvas 131313 class_ref 132176 // GraphicSystemImageBufferManager
+  draw_all_relations default hide_attributes no hide_operations no show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 109 552 2004
+  end
+classcanvas 131953 class_ref 131920 // GraphicSystemImage
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 630 158 3010
+  end
+classcanvas 132465 class_ref 132048 // GraphicSystemImageBuffer
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 608 621 2004
+  end
+classcanvas 132977 class_ref 128113 // GraphicSystem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 152 426 3010
+  end
+classcanvas 136433 class_ref 129232 // GBF
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 15 275 3010
+  end
+relationcanvas 128753 relation_ref 131536 // <aggregation by value>
+  from ref 128625 z 1999 to ref 128113
+  role_a_pos 155 183 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128881 relation_ref 131664 // <unidirectional association>
+  from ref 128625 z 1999 to ref 128241
+  role_a_pos 329 129 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129649 relation_ref 133456 // <dependency>
+  geometry VHr
+  from ref 128241 z 1999 stereotype "<<friend>>" xyz 265 95 3000 to point 210 94
+  line 131185 z 1999 to ref 128625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130545 relation_ref 132176 // <unidirectional association>
+  from ref 130033 z 1999 to ref 128241
+  role_a_pos 478 180 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130673 relation_ref 132304 // <dependency>
+  from ref 130033 z 1999 stereotype "<<friend>>" xyz 305 381 3000 to ref 128625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132209 relation_ref 132688 // <dependency>
+  from ref 131953 z 1999 to point 520 267
+  line 135793 z 1999 stereotype "<<friend>>" xyz 408 279 3000 to ref 128625
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132337 relation_ref 148560 // <dependency>
+  from ref 128625 z 1999 to point 515 320
+  line 135921 z 1999 to ref 131953
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132593 relation_ref 132816 // <generalisation>
+  from ref 132465 z 1999 to ref 131953
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132721 relation_ref 133072 // <dependency>
+  geometry VHr
+  from ref 132465 z 1999 stereotype "<<friend>>" xyz 386 685 3000 to point 231 683
+  line 134897 z 1999 to ref 131313
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 133105 relation_ref 128113 // <unidirectional association>
+  geometry VHV
+  from ref 132977 z 2003 to point 211 527
+  line 135409 z 2003 to point 231 527
+  line 135537 z 2003 to ref 131313
+  role_a_pos 243 533 3000 no_role_b
+  multiplicity_a_pos 216 533 3000 no_multiplicity_b
+relationcanvas 133361 relation_ref 128241 // <unidirectional association>
+  from ref 132977 z 3004 to ref 130033
+  role_a_pos 370 457 3000 no_role_b
+  multiplicity_a_pos 380 482 3000 no_multiplicity_b
+relationcanvas 133745 relation_ref 128497 // <dependency>
+  from ref 131313 z 2003 stereotype "<<friend>>" xyz 184 527 3000 to ref 132977
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134001 relation_ref 128625 // <dependency>
+  from ref 130033 z 3004 stereotype "<<friend>>" xyz 387 508 3000 to point 420 508
+  line 134257 z 3004 to ref 132977
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134385 relation_ref 128753 // <unidirectional association>
+  from ref 132977 z 1999 to point 105 474
+  line 134641 z 1999 to point 100 444
+  line 136305 z 1999 to point 125 449
+  line 134513 z 1999 to ref 132977
+  role_a_pos 96 437 3000 no_role_b
+  multiplicity_a_pos 134 462 3000 no_multiplicity_b
+relationcanvas 136049 relation_ref 128881 // <directional aggregation>
+  from ref 128625 z 3004 to ref 132977
+  role_a_pos 222 407 3000 no_role_b
+  multiplicity_a_pos 195 407 3000 no_multiplicity_b
+relationcanvas 136561 relation_ref 129009 // <dependency>
+  from ref 128625 z 3004 to point 102 214
+  line 136817 z 3004 stereotype "<<friend>>" xyz 64 241 3000 to ref 136433
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 136689 relation_ref 129616 // <unidirectional association>
+  from ref 136433 z 3004 to ref 128625
+  role_a_pos 25 275 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 136945 relation_ref 129137 // <directional aggregation>
+  from ref 131953 z 1999 to ref 128241
+  role_a_pos 556 148 3000 no_role_b
+  multiplicity_a_pos 556 173 3000 no_multiplicity_b
+end

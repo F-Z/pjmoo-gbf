@@ -1,26 +1,22 @@
 class ParticleSystemPixel
-!!!128338.cpp!!!	ParticleSystemPixel()
-    if (graphicSystem==NULL){
-        graphicSystem = GraphicSystem::getInstance();
-    }
 !!!128466.cpp!!!	~ParticleSystemPixel()
     lista.clear();
 !!!161488.cpp!!!	desenhar() : void
     Ponto ponto;
     if (!lista.empty()){
         RGB tcor;
-        graphicSystem->gsGFX->setColor(255,255,255);
-        graphicSystem->gsScreen->travar();
+        graphicSystem->gfx->setColor(255,255,255);
+        graphicSystem->gfx->travar();
         for (unsigned int i=0; i<lista.size(); i++){
             if (lista[i].ativa){
                 tcor = UtilColor::forRGB(lista[i].cor);
-                graphicSystem->gsGFX->setColor(tcor.r,tcor.g,tcor.b);
+                graphicSystem->gfx->setColor(tcor.r,tcor.g,tcor.b);
                 ponto.x=int(lista[i].posicao.x);
                 ponto.y=int(lista[i].posicao.y);
-                graphicSystem->gsGFX->putPixel(ponto.x,ponto.y);
+                graphicSystem->gfx->putPixel(ponto.x,ponto.y);
             }
         }
-        graphicSystem->gsScreen->destravar();
+        graphicSystem->gfx->destravar();
     }
 !!!161232.cpp!!!	setQuantidade(in quantidade : int) : void
     for (int i=0; i<quantidade; i++){
