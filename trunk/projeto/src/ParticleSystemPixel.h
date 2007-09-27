@@ -18,7 +18,6 @@
 #include "UtilColor.h"
 #include "ParticleSystemEfeito.h"
 #include <deque>
-#include "GraphicSystem.h"
 
 //Descrição:
 //    Estrutura para representação de uma particula
@@ -56,8 +55,6 @@ class ParticleSystemPixel : public ParticleSystemEfeito
 
   protected:
     std::deque<Particula> lista;
-
-    static GraphicSystem * graphicSystem;
 
 };
 #endif

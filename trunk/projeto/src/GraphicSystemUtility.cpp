@@ -12,29 +12,11 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "GraphicSystem.h"
+#include "GraphicSystemUtility.h"
 
-GraphicSystem::GraphicSystem() 
-{
-    imageBufferManager = new GraphicSystemImageBufferManager();
-    gfx = new GraphicSystemGFX();
-}
-GraphicSystem::~GraphicSystem() 
-{
-    if (imageBufferManager){
-        delete(imageBufferManager);
-    }
-    if (gfx){
-        delete(gfx);
-    }
-}
-GraphicSystem * GraphicSystem::instance;
+GraphicSystem * GraphicSystemUtility::graphicSystem =NULL;
 
-GraphicSystem * GraphicSystem::getInstance()
+void GraphicSystemUtility::setGraphicSystem(GraphicSystem * instance)
 {
-    if (instance == NULL){
-        instance = new GraphicSystem();
-    }
-
-    return instance;
+    graphicSystem = instance;
 }

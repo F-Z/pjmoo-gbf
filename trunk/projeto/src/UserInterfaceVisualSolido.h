@@ -22,10 +22,10 @@
 class UserInterfaceVisualSolido : public UserInterfaceVisual
 {
   public:
+    //Construtor
     UserInterfaceVisualSolido();
 
-    UserInterfaceVisualSolido(const UserInterfaceVisualSolido & base);
-
+    //Destrutor
     virtual ~UserInterfaceVisualSolido();
 
     void setCorFundo(const CorPaleta & r, const CorPaleta & g, const CorPaleta & b);
@@ -33,6 +33,7 @@ class UserInterfaceVisualSolido : public UserInterfaceVisual
     //Desenha o EstiloVisual do Componente
     virtual void desenhar();
 
+    //Retorna uma copia do objeto
     virtual UserInterfaceVisual * clone();
 
 

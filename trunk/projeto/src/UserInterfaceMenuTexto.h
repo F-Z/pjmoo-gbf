@@ -16,13 +16,13 @@
 
 #include "UserInterfaceMenuAbstract.h"
 #include "InputSystem.h"
-#include "GraphicSystemGFX.h"
+#include "GraphicSystemUtility.h"
 
 //Descrição: 
 //    Implementação da Classe MenuAbstract
 //Motivação:
 //    Fornecer um classe básica para criação de menus em texto
-class UserInterfaceMenuTexto : public UserInterfaceMenuAbstract
+class UserInterfaceMenuTexto : public UserInterfaceMenuAbstract, public GraphicSystemUtility
 {
   public:
     UserInterfaceMenuTexto(InputSystem * input);
@@ -38,8 +38,6 @@ class UserInterfaceMenuTexto : public UserInterfaceMenuAbstract
     virtual void itemAvancar();
 
     virtual void itemAnterior();
-
-    GraphicSystemGFX * gsGFX;
 
 };
 #endif

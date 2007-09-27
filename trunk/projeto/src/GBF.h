@@ -16,7 +16,7 @@
 
 #include <string>
 
-#include "GraphicSystem.h"
+#include "GraphicSystemCore.h"
 #include "InputSystem.h"
 #include "WriteSystemManager.h"
 #include "SoundSystem.h"
@@ -28,6 +28,7 @@
 #include "UtilExtract.h"
 #include "SoundSystemInterfaceManager.h"
 #include "UserInterfaceTexto.h"
+#include "UserInterfaceWindow.h"
 
 //Descrição: 
 //     Classe central do framework
@@ -74,7 +75,8 @@ class GBF
 
     void setDefaultPath(bool ativo);
 
-    GraphicSystem * graphicSystem;
+    //GraphicSystemCore, núcleo do sistema gráfico
+    GraphicSystemCore * graphicSystemCore;
 
     InputSystem * inputSystem;
 

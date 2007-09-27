@@ -18,7 +18,6 @@
 #include "UserInterfaceVisual.h"
 #include "GBF_define.h"
 #include "FrameLayer.h"
-#include "GraphicSystemImageBufferManager.h"
 #include "SpriteFactory.h"
 
 enum UserInterfaceVisualTipoBackground {
@@ -31,10 +30,10 @@ enum UserInterfaceVisualTipoBackground {
 class UserInterfaceVisualImagem : public UserInterfaceVisual
 {
   public:
+    //Construtor
     UserInterfaceVisualImagem();
 
-    UserInterfaceVisualImagem(const UserInterfaceVisualImagem & base);
-
+    //Destrutor
     virtual ~UserInterfaceVisualImagem();
 
     //Aplica o efeito visual
@@ -43,6 +42,7 @@ class UserInterfaceVisualImagem : public UserInterfaceVisual
     //Desenha o EstiloVisual do Componente
     virtual void desenhar();
 
+    //Retorna uma copia do objeto
     virtual UserInterfaceVisual * clone();
 
     //Define o estilo de background a ser utilizado
@@ -51,8 +51,6 @@ class UserInterfaceVisualImagem : public UserInterfaceVisual
 
   protected:
     FrameLayer * background;
-
-    static GraphicSystemImageBufferManager * gsImageBufferManager;
 
     UserInterfaceVisualTipoBackground tipoBackground;
 

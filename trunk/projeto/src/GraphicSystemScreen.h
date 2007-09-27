@@ -51,6 +51,6 @@ class GraphicSystemScreen
     //Informa qual a surface a ser usada e a configuração
     void setScreen(SDL_Surface * surface);
 
-  friend class GraphicSystem;
+  friend class GraphicSystemCore;
 };
 #endif

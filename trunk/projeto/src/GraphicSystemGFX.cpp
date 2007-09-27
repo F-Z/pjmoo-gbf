@@ -19,15 +19,6 @@ GraphicSystemGFX::~GraphicSystemGFX()
     UtilLog::subSistema("Removendo GraphicSystemGFX");
     pScreen = NULL;
 }
-//Retorna um objeto de GraphicSystemGFX (Singleton) 
-GraphicSystemGFX * GraphicSystemGFX::getInstance()
-{
-    if (instance == NULL){
-        instance = new GraphicSystemGFX();
-    }
-
-    return instance;
-}
 //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
 void GraphicSystemGFX::setColor(CorPaleta R, CorPaleta G, CorPaleta B) 
 {
@@ -230,8 +221,6 @@ void GraphicSystemGFX::gradeInferior(int X, int Y, int W, int H)
     linha(X+W,Y,X+W,Y+H);
     linha(X,Y+H,X+W,Y+H);
 }
-GraphicSystemGFX * GraphicSystemGFX::instance =NULL;
-
 //Inicializa informações básicas
 void GraphicSystemGFX::inicializar() 
 {
@@ -260,4 +249,14 @@ GraphicSystemGFX::GraphicSystemGFX()
 {
     UtilLog::subSistema("Instanciando GraphicSystemGFX");
     pScreen = NULL;
+}
+//Realiza um lock na surface
+bool GraphicSystemGFX::travar() 
+{
+    return gsScreen->travar();
+}
+//Realiza um unlock na surface
+void GraphicSystemGFX::destravar() 
+{
+    gsScreen->destravar();
 }

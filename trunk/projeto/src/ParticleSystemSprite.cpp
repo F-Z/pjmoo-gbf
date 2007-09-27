@@ -15,9 +15,6 @@
 
 ParticleSystemSprite::ParticleSystemSprite() 
 {
-    if (gsImageBufferManager==NULL){
-        gsImageBufferManager = GraphicSystemImageBufferManager::getInstance();
-    }
 }
 ParticleSystemSprite::~ParticleSystemSprite() 
 {
@@ -57,5 +54,3 @@ bool ParticleSystemSprite::isTerminou()
 
 
 }
-GraphicSystemImageBufferManager * ParticleSystemSprite::gsImageBufferManager =NULL;
-
