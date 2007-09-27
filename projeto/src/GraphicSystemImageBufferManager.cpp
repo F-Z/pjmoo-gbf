@@ -32,15 +32,6 @@ GraphicSystemImageBufferManager::~GraphicSystemImageBufferManager()
     }
     objetomap.clear();
 }
-// Retorna uma instancia de GraphicSystemImageBufferManager
-GraphicSystemImageBufferManager * GraphicSystemImageBufferManager::getInstance()
-{
-    if (instance == NULL){
-        instance = new GraphicSystemImageBufferManager();		
-    }
-    return instance;
-}
-
 // Retorna GraphicSystemImageBufferManager para manipulação
 GraphicSystemImageBuffer * GraphicSystemImageBufferManager::getImageBuffer(std::string nome) 
 {
@@ -81,8 +72,6 @@ void GraphicSystemImageBufferManager::setPathBase(std::string path)
 {
     pathBase=path;
 }
-
-GraphicSystemImageBufferManager * GraphicSystemImageBufferManager::instance;
 
 //Construtor
 GraphicSystemImageBufferManager::GraphicSystemImageBufferManager() 

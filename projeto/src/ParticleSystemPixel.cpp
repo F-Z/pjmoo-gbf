@@ -15,9 +15,6 @@
 
 ParticleSystemPixel::ParticleSystemPixel() 
 {
-    if (graphicSystem==NULL){
-        graphicSystem = GraphicSystem::getInstance();
-    }
 }
 ParticleSystemPixel::~ParticleSystemPixel() 
 {
@@ -29,18 +26,18 @@ void ParticleSystemPixel::desenhar()
     Ponto ponto;
     if (!lista.empty()){
         RGB tcor;
-        graphicSystem->gsGFX->setColor(255,255,255);
-        graphicSystem->gsScreen->travar();
+        graphicSystem->gfx->setColor(255,255,255);
+        graphicSystem->gfx->travar();
         for (unsigned int i=0; i<lista.size(); i++){
             if (lista[i].ativa){
                 tcor = UtilColor::forRGB(lista[i].cor);
-                graphicSystem->gsGFX->setColor(tcor.r,tcor.g,tcor.b);
+                graphicSystem->gfx->setColor(tcor.r,tcor.g,tcor.b);
                 ponto.x=int(lista[i].posicao.x);
                 ponto.y=int(lista[i].posicao.y);
-                graphicSystem->gsGFX->putPixel(ponto.x,ponto.y);
+                graphicSystem->gfx->putPixel(ponto.x,ponto.y);
             }
         }
-        graphicSystem->gsScreen->destravar();
+        graphicSystem->gfx->destravar();
     }
 }
 //Configura a quantidade de unidades que serão criadas
@@ -74,5 +71,3 @@ bool ParticleSystemPixel::isTerminou()
     }
     return true;
 }
-GraphicSystem * ParticleSystemPixel::graphicSystem =NULL;
-

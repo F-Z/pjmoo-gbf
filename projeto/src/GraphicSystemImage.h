@@ -54,8 +54,6 @@ class GraphicSystemImage
 
 
   protected:
-    static GraphicSystemScreen * gsScreen;
-
     SDL_Surface * imagem;
 
     static double time;
@@ -74,6 +72,10 @@ class GraphicSystemImage
     static void setTimer(double TEMPO);
 
   friend class GBF;
-  friend class GraphicSystem;
+  friend class GraphicSystemCore;
+
+  protected:
+    static GraphicSystemScreen * gsScreen;
+
 };
 #endif

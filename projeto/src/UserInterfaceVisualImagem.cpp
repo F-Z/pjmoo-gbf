@@ -14,33 +14,26 @@
 
 #include "UserInterfaceVisualImagem.h"
 
+//Construtor
 UserInterfaceVisualImagem::UserInterfaceVisualImagem(){
-    if (gsImageBufferManager==NULL){
-        gsImageBufferManager = GraphicSystemImageBufferManager::getInstance();
-    }
     tipoBackground=BACKGROUND_LINES;
+
+    SpriteFactory *spriteFactory = new SpriteFactory(graphicSystem->imageBufferManager->getImageBuffer("gbf-window-background"));
+    background = spriteFactory->criarFrameLayer(0,0,10,10);
+    delete(spriteFactory);
 }
 
-UserInterfaceVisualImagem::UserInterfaceVisualImagem(const UserInterfaceVisualImagem & base):UserInterfaceVisual(base) 
+//Destrutor
+UserInterfaceVisualImagem::~UserInterfaceVisualImagem() 
 {
-    background=base.background;
-}
-
-UserInterfaceVisualImagem::~UserInterfaceVisualImagem(){
-    if (background!=NULL){
+    if (background){
         delete(background);
     }
 }
-
-//Aplica o efeito visual
-
 //Aplica o efeito visual
 void UserInterfaceVisualImagem::aplicar(const Ponto & posicao, const Dimensao & dimensao) 
 {
     UserInterfaceVisual::aplicar(posicao,dimensao);
-    SpriteFactory *spriteFactory = new SpriteFactory(gsImageBufferManager->getImageBuffer("gbf-window-background"));
-    background = spriteFactory->criarFrameLayer(0,0,10,10);
-    delete(spriteFactory);
 
     if (background!=NULL){
         background->setFrame(posicao.x,posicao.y,dimensao.w,dimensao.h);
@@ -57,12 +50,17 @@ void UserInterfaceVisualImagem::desenhar()
     if (background!=NULL){
         background->desenhar();
     }
-    gsGFX->setColor(corBorda.r,corBorda.g,corBorda.b);
-    gsGFX->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
+    graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
+    graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
 }
+//Retorna uma copia do objeto
 UserInterfaceVisual * UserInterfaceVisualImagem::clone() 
 {
-   return new UserInterfaceVisualImagem(*this);
+    UserInterfaceVisualImagem * uivImagem = new UserInterfaceVisualImagem();
+    uivImagem->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
+    uivImagem->setTipoBackground(tipoBackground);
+
+    return uivImagem;
 }
 //Define o estilo de background a ser utilizado
 
@@ -71,5 +69,3 @@ void UserInterfaceVisualImagem::setTipoBackground(UserInterfaceVisualTipoBackgro
 {
     tipoBackground=tipo;
 }
-GraphicSystemImageBufferManager * UserInterfaceVisualImagem::gsImageBufferManager =NULL;
-

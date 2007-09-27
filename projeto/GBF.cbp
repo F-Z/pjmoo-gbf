@@ -5,6 +5,7 @@
 		<Option title="GBF Framework" />
 		<Option pch_mode="0" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="GraphicSystem/;UserInterface/;" />
 		<Build>
 			<Target title="linux - release">
 				<Option output="bin/linux/release/libGBF.a" prefix_auto="0" extension_auto="0" />
@@ -104,20 +105,60 @@
 		<Unit filename="src/GBF.cpp" />
 		<Unit filename="src/GBF.h" />
 		<Unit filename="src/GBF_define.h" />
-		<Unit filename="src/GraphicSystem.cpp" />
-		<Unit filename="src/GraphicSystem.h" />
-		<Unit filename="src/GraphicSystemGFX.cpp" />
-		<Unit filename="src/GraphicSystemGFX.h" />
-		<Unit filename="src/GraphicSystemImage.cpp" />
-		<Unit filename="src/GraphicSystemImage.h" />
-		<Unit filename="src/GraphicSystemImageBuffer.cpp" />
-		<Unit filename="src/GraphicSystemImageBuffer.h" />
-		<Unit filename="src/GraphicSystemImageBufferManager.cpp" />
-		<Unit filename="src/GraphicSystemImageBufferManager.h" />
-		<Unit filename="src/GraphicSystemMode.cpp" />
-		<Unit filename="src/GraphicSystemMode.h" />
-		<Unit filename="src/GraphicSystemScreen.cpp" />
-		<Unit filename="src/GraphicSystemScreen.h" />
+		<Unit filename="src/GraphicSystem.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystem.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemCore.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemCore.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemGFX.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemGFX.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemImage.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemImage.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemImageBuffer.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemImageBuffer.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemImageBufferManager.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemImageBufferManager.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemMode.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemMode.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemScreen.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemScreen.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemUtility.cpp">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
+		<Unit filename="src/GraphicSystemUtility.h">
+			<Option virtualFolder="GraphicSystem/" />
+		</Unit>
 		<Unit filename="src/InputSystem.cpp" />
 		<Unit filename="src/InputSystem.h" />
 		<Unit filename="src/InputSystemJoystick.cpp" />
@@ -213,13 +254,23 @@
 		<Unit filename="src/UserInterfaceRecorde.h" />
 		<Unit filename="src/UserInterfaceTexto.cpp" />
 		<Unit filename="src/UserInterfaceTexto.h" />
-		<Unit filename="src/UserInterfaceVisual.cpp" />
-		<Unit filename="src/UserInterfaceVisual.h" />
-		<Unit filename="src/UserInterfaceVisualImagem.cpp" />
-		<Unit filename="src/UserInterfaceVisualImagem.h" />
+		<Unit filename="src/UserInterfaceVisual.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceVisual.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceVisualImagem.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceVisualImagem.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/UserInterfaceVisualSolido.cpp" />
 		<Unit filename="src/UserInterfaceVisualSolido.h" />
-		<Unit filename="src/UserInterfaceWindow.cpp" />
+		<Unit filename="src/UserInterfaceWindow.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/UserInterfaceWindow.h" />
 		<Unit filename="src/UserInterfaceWindowTitulo.cpp" />
 		<Unit filename="src/UserInterfaceWindowTitulo.h" />
@@ -233,8 +284,6 @@
 		<Unit filename="src/UtilLog.h" />
 		<Unit filename="src/WriteSystemBitmap.cpp" />
 		<Unit filename="src/WriteSystemBitmap.h" />
-		<Unit filename="src/WriteSystemFontDefault.cpp" />
-		<Unit filename="src/WriteSystemFontDefault.h" />
 		<Unit filename="src/WriteSystemManager.cpp" />
 		<Unit filename="src/WriteSystemManager.h" />
 		<Extensions>

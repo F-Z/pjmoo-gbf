@@ -14,7 +14,7 @@
 #include "GBF.h"
 
 //Construtor
-GBF::GBF() 
+GBF::GBF()
 {
     numscreenshot = 0;
     pathBase      = "";
@@ -22,16 +22,16 @@ GBF::GBF()
     setDefaultPath(true);
 }
 //Destrutor
-GBF::~GBF() 
+GBF::~GBF()
 {
     UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
     UtilLog::cabecalho("Descarregando Framework");
 
     delete(fpsSystem);
     delete(writeSystem);
-    delete(GraphicSystemImageBufferManager::getInstance());
+//    delete(GraphicSystemImageBufferManager::getInstance());
     delete(FrameLayerManager::getInstance());
-    delete(graphicSystem);
+    delete(graphicSystemCore);
     //delete(GraphicSystemScreen::getInstance());
     delete(soundSystem);
     delete(inputSystem);
@@ -44,7 +44,7 @@ GBF::~GBF()
 }
 //Informação sobre o Autor e o Título da Aplicação.
 //Obs.: Usado para arquivo de log e título da janela
-void GBF::setTitulo(std::string titulo, std::string autor) 
+void GBF::setTitulo(std::string titulo, std::string autor)
 {
     UtilLog::setAutor(autor);
     UtilLog::setProjeto(titulo);
@@ -52,7 +52,7 @@ void GBF::setTitulo(std::string titulo, std::string autor)
     setTitulo(titulo);
 }
 //Inicializa o Sistema, e configura o modo gráfico
-void GBF::iniciar(int width, int height, int bpp_color, bool full) 
+void GBF::iniciar(int width, int height, int bpp_color, bool full)
 {
     UtilLog::cabecalho("Inicializando Framework");
     UtilLog::tracer("Inicializando ModoGráfico");
@@ -62,14 +62,14 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
     config.h     = height;
     config.color = bpp_color;
     config.full  = full;
-    graphicSystem->gsMode->setConfig(config);
+    graphicSystemCore->gsMode.setConfig(config);
 
     if (config.full){
-        graphicSystem->gsMode->setModeFullScreen();
+        graphicSystemCore->gsMode.setModeFullScreen();
     } else {
-        graphicSystem->gsMode->setModeWindowScreen();
+        graphicSystemCore->gsMode.setModeWindowScreen();
     }
-    graphicSystem->sincronizar();
+    graphicSystemCore->sincronizar();
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
@@ -81,10 +81,13 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
     writeSystem->carregar(WriteSystemManager::defaultFont,getPath()+"data//kernel//fonte//default.png");
 
     UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
-    GraphicSystemImageBufferManager::getInstance()->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
+    graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->uiTexto->detectarIdioma();
+
+    //Configurando o dispositivo de entrada para UserInterface
+//    UserInterfaceWindow::setInputSystem(inputSystem);
 
     //FPSTimer primeira chamada
     fpsSystem->start();
@@ -94,7 +97,7 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
 //desenha na tela o conteúdo do backbuffer
 //Obs.: Deve ser usado na interação do loop principal do jogo
-void GBF::atualizar() 
+void GBF::atualizar()
 {
     try {
         fpsSystem->processar();
@@ -107,7 +110,7 @@ void GBF::atualizar()
         */
         controleInterno();
         inputSystem->processar();
-        graphicSystem->flip();
+        graphicSystemCore->flip();
     } catch(...){
         UtilLog::tracer("SDL: %s", SDL_GetError());
         UtilLog::tracer("SDL_Image: %s", IMG_GetError());
@@ -115,21 +118,21 @@ void GBF::atualizar()
     }
 }
 //Pausa o Sistema
-void GBF::pausar() 
+void GBF::pausar()
 {
 }
 //Mostra o Contador de FPS
-void GBF::setFPS(bool show) 
+void GBF::setFPS(bool show)
 {
     fps=show;
 }
 //Informa se o mostrador de FPS está ativo
-bool GBF::isFPS() 
+bool GBF::isFPS()
 {
     return fps;
 }
 //Informa o caminho do diretório base da aplicação corrente
-void GBF::setPath(char * fullPath) 
+void GBF::setPath(char * fullPath)
 {
     pathBase=UtilExtract::extractPath(fullPath);
 
@@ -141,27 +144,27 @@ void GBF::setPath(char * fullPath)
     }
 }
 //Retorna o diretório base da aplicação corrente
-std::string GBF::getPath() 
+std::string GBF::getPath()
 {
     return pathBase;
 }
-bool GBF::isDefaultPath() 
+bool GBF::isDefaultPath()
 {
     return defaultPath;
 }
-void GBF::setDefaultPath(bool ativo) 
+void GBF::setDefaultPath(bool ativo)
 {
     defaultPath=ativo;
 }
 //Controle para ações internas
-void GBF::controleInterno() 
+void GBF::controleInterno()
 {
     //F10 = Alterna entre modo de controle exclusivo
     if (inputSystem->teclado->isKey(SDLK_F10)){
         inputSystem->alternarControleExclusivo();
     //F11 = Alterna entre modo tela Cheia e Janela
     } else if (inputSystem->teclado->isKey(SDLK_F11)){
-        if (SDL_WM_ToggleFullScreen(graphicSystem->gsMode->getScreen())==0){
+        if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
             //UtilLog::getInstance()->inicializando("GBF :: Aviso");
             //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
         }
@@ -170,15 +173,14 @@ void GBF::controleInterno()
         char tela[255];
         numscreenshot++;
         sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
-        graphicSystem->salvarScreenShot(tela);
+        graphicSystemCore->salvarScreenShot(tela);
     //F5 = Tira o Som
     } else if (inputSystem->teclado->isKey(SDLK_F5)){
         //audio.Mute();
     }
-
 }
-//Prepara o Ambiente para ser inicializado 
-void GBF::carregar() 
+//Prepara o Ambiente para ser inicializado
+void GBF::carregar()
 {
     //Inicializando Log
     UtilLog::iniciar();
@@ -191,8 +193,7 @@ void GBF::carregar()
     fpsSystem = new TimerSystemFPS();
 
     //Inicializando Video
-    graphicSystem = GraphicSystem::getInstance();
-    GraphicSystemImageBufferManager::getInstance();
+    graphicSystemCore = new GraphicSystemCore();
     FrameLayerManager::getInstance();
 
     //Inicializando Gerenciador de Fontes
@@ -206,8 +207,8 @@ void GBF::carregar()
 
     UtilLog::cabecalho("Carregamento Completo do Framework");
 }
-//Define o Título para Janela 
-void GBF::setTitulo(std::string titulo) 
+//Define o Título para Janela
+void GBF::setTitulo(std::string titulo)
 {
     SDL_WM_SetCaption(titulo.c_str(),NULL);
 }

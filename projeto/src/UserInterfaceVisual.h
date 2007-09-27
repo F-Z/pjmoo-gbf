@@ -17,15 +17,15 @@
 
 #include "GBF_define.h"
 #include "UtilColor.h"
-#include "GraphicSystemGFX.h"
+#include "GraphicSystemUtility.h"
 
-class UserInterfaceVisual
+class UserInterfaceVisual : public GraphicSystemUtility
 {
   public:
+    //Construtor
     UserInterfaceVisual();
 
-    UserInterfaceVisual(const UserInterfaceVisual & base);
-
+    //Destrutor
     virtual ~UserInterfaceVisual();
 
     void setCorBorda(const CorPaleta & r, const CorPaleta & g, const CorPaleta & b);
@@ -45,8 +45,6 @@ class UserInterfaceVisual
     Ponto posicao;
 
     Dimensao dimensao;
-
-    static GraphicSystemGFX * gsGFX;
 
 };
 #endif

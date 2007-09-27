@@ -14,19 +14,11 @@
 
 #include "UserInterfaceVisual.h"
 
+//Construtor
 UserInterfaceVisual::UserInterfaceVisual(){
-    if (gsGFX==NULL){
-        gsGFX = GraphicSystemGFX::getInstance();
-    }
-
 }
 
-UserInterfaceVisual::UserInterfaceVisual(const UserInterfaceVisual & base){
-    posicao  = base.posicao;
-    dimensao = base.dimensao;
-    corBorda = base.corBorda;
-}
-
+//Destrutor
 UserInterfaceVisual::~UserInterfaceVisual(){
 }
 
@@ -44,5 +36,3 @@ void UserInterfaceVisual::aplicar(const Ponto & posicao, const Dimensao & dimens
     this->dimensao=dimensao;
     this->posicao=posicao;
 }
-GraphicSystemGFX * UserInterfaceVisual::gsGFX =NULL;
-

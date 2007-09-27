@@ -14,17 +14,14 @@
 
 #include "UserInterfaceVisualSolido.h"
 
-UserInterfaceVisualSolido::UserInterfaceVisualSolido(){
-}
-
-UserInterfaceVisualSolido::UserInterfaceVisualSolido(const UserInterfaceVisualSolido & base):UserInterfaceVisual(base) 
+//Construtor
+UserInterfaceVisualSolido::UserInterfaceVisualSolido() 
 {
-    corFundo=base.corFundo;
 }
-
-UserInterfaceVisualSolido::~UserInterfaceVisualSolido(){
+//Destrutor
+UserInterfaceVisualSolido::~UserInterfaceVisualSolido() 
+{
 }
-
 void UserInterfaceVisualSolido::setCorFundo(const CorPaleta & r, const CorPaleta & g, const CorPaleta & b) 
 {
     corFundo.r=r;
@@ -36,13 +33,18 @@ void UserInterfaceVisualSolido::setCorFundo(const CorPaleta & r, const CorPaleta
 //Desenha o EstiloVisual do Componente
 void UserInterfaceVisualSolido::desenhar() 
 {
-    gsGFX->setColor(corFundo.r,corFundo.g,corFundo.b);
-    gsGFX->retanguloPreenchido(posicao.x,posicao.y,dimensao.w,dimensao.h);
+    graphicSystem->gfx->setColor(corFundo.r,corFundo.g,corFundo.b);
+    graphicSystem->gfx->retanguloPreenchido(posicao.x,posicao.y,dimensao.w,dimensao.h);
 
-    gsGFX->setColor(corBorda.r,corBorda.g,corBorda.b);
-    gsGFX->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
+    graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
+    graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
 }
+//Retorna uma copia do objeto
 UserInterfaceVisual * UserInterfaceVisualSolido::clone() 
 {
-   return new UserInterfaceVisualSolido(*this);
+    UserInterfaceVisualSolido * uivSolido = new UserInterfaceVisualSolido();
+    uivSolido->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
+    uivSolido->setCorFundo(corFundo.r,corFundo.g,corFundo.b);
+
+    return uivSolido;
 }

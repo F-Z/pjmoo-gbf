@@ -17,7 +17,6 @@
 #include "ParticleSystemEfeito.h"
 #include <deque>
 #include "SpriteAbstract.h"
-#include "GraphicSystemImageBufferManager.h"
 
 class ParticleSystemSprite : public ParticleSystemEfeito
 {
@@ -34,8 +33,6 @@ class ParticleSystemSprite : public ParticleSystemEfeito
 
   protected:
     std::deque<SpriteAbstract *> lista;
-
-    static GraphicSystemImageBufferManager * gsImageBufferManager;
 
 };
 #endif
