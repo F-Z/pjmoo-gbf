@@ -17,6 +17,7 @@
 FrameLayer::FrameLayer() 
 {
     automatico=false;
+    mapa=NULL;
 }
 //Destrutor
 FrameLayer::~FrameLayer() 
@@ -182,6 +183,9 @@ void FrameLayer::setTiles(int largura, int altura)
 {
     mundo.setTiles(largura,altura);
 
+    if (mapa!=NULL){
+        delete[] mapa;
+    }
     mapa = new int[largura*altura];
 }
 //Informa o tamanho em pixels dos tiles usados no layer
