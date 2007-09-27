@@ -1,7 +1,7 @@
 format 38
 "GBF" // Framework GBF::GBF
-  revision 7
-  modified_by 42 "david"
+  revision 12
+  modified_by 89 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -337,13 +337,14 @@ ${body}}"
 	
       end
 
-      classrelation 129616 // graphicSystem (<unidirectional association>)
+      classrelation 129616 // graphicSystemCore (<unidirectional association>)
 	relation 129616 --->
-	  a role_name "graphicSystem" multiplicity "" public
+	  a role_name "graphicSystemCore" multiplicity "" public
+	    comment "GraphicSystemCore, núcleo do sistema gráfico"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 129616 // graphicSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129360 // GraphicSystem
+	    classrelation_ref 129616 // graphicSystemCore (<unidirectional association>)
+	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
       end
 
       classrelation 129744 // inputSystem (<unidirectional association>)
@@ -530,6 +531,14 @@ ${body}}"
 	    cpp default "#include in header"
 	    classrelation_ref 151760 // <dependency>
 	  b multiplicity "" parent class_ref 138576 // UserInterfaceTexto
+      end
+
+      classrelation 128289 // <dependency>
+	relation 128289 -_->
+	  a default
+	    cpp default "#include in header"
+	    classrelation_ref 128289 // <dependency>
+	  b multiplicity "" parent class_ref 129061 // UserInterfaceWindow
       end
     end
   end

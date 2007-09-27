@@ -19,32 +19,7 @@ classcanvas 128080 class_ref 129616 // WriteSystemManager
   end
 classcanvas 128592 class_ref 138064 // WriteSystemBitmap
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  hidden_attributes
-    attribute_ref 150096 // largura
-  hidden_operations
-    operation_ref 189136 // ~WriteSystemBitmap
-    operation_ref 189264 // carregarArquivo
-    operation_ref 189392 // setDimensao
-    operation_ref 189520 // getLargura
-    operation_ref 189648 // getAltura
-    operation_ref 189776 // getDimensao
-    operation_ref 189904 // escrever
-    operation_ref 128119 // getLarguraLinha
-    operation_ref 190032 // WriteSystemBitmap
-    operation_ref 190160 // checkar
-  xyz 13 199 3005
-  end
-classcanvas 128848 class_ref 138192 // WriteSystemFontDefault
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  hidden_attributes
-    attribute_ref 150224 // console
-    attribute_ref 150352 // pumpdemi
-    attribute_ref 150480 // fixedsys
-    attribute_ref 150608 // arial
-    attribute_ref 150736 // comic
-    attribute_ref 150864 // high
-    attribute_ref 150992 // stac
-  xyz 362 212 2000
+  xyz 23 193 3005
   end
 fragment 129104 "WriteSystem - Sistema de Escrita"
   xyzwh 5 11 1994 509 251
@@ -76,14 +51,8 @@ relationcanvas 128208 relation_ref 143312 // <unidirectional association>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128720 relation_ref 143184 // <dependency>
   geometry VH
-  from ref 128592 z 1999 to point 82 111
-  line 132560 z 1999 stereotype "<<friend>>" xyz 132 163 3000 to ref 128080
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 128976 relation_ref 144720 // <dependency>
-  geometry HV
-  from ref 128080 z 1999 to point 448 111
-  line 129872 z 1999 to ref 128848
+  from ref 128592 z 1999 to point 94 111
+  line 132560 z 1999 stereotype "<<friend>>" xyz 138 163 3000 to ref 128080
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130128 relation_ref 151504 // <unidirectional association>

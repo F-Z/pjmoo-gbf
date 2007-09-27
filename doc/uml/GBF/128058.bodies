@@ -1,0 +1,32 @@
+class ParticleSystemSprite
+!!!128210.cpp!!!	~ParticleSystemSprite()
+    for (unsigned int i=0; i<lista.size(); i++){
+        try {
+            if (lista[i]){
+                delete lista[i];
+                lista[i]=NULL;
+            }
+        } catch (...){
+        }
+    }
+    lista.clear();
+!!!128442.cpp!!!	desenhar() : void
+    if (!lista.empty()){
+        for (unsigned int i=0; i<lista.size(); i++){
+            if (!lista[i]->isAnimacaoFim()){
+                lista[i]->desenhar();
+            }
+        }
+    }
+
+!!!128186.cpp!!!	isTerminou() : bool
+    if (!lista.empty()){
+        for (unsigned int i=0; i<lista.size();i++){
+            if (!lista[i]->isAnimacaoFim()){
+                return false;
+            }
+        }
+    }
+    return true;
+
+

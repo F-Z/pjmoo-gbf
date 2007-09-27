@@ -2,15 +2,6 @@ class GraphicSystemGFX
 !!!144848.cpp!!!	~GraphicSystemGFX()
     UtilLog::subSistema("Removendo GraphicSystemGFX");
     pScreen = NULL;
-!!!144976.cpp!!!	getInstance() : GraphicSystemGFX
-    if (instance == NULL){
-        instance = new GraphicSystemGFX();
-        if (instance == NULL){
-            UtilLog::subSistema("GraphicSystemGFX nao instanciado");
-        }
-    }
-
-    return instance;
 !!!145104.cpp!!!	setColor(in R : CorPaleta, in G : CorPaleta, in B : CorPaleta) : void
     color = SDL_MapRGB(pScreen->format,R,G,B);
 !!!145232.cpp!!!	setColor(in cor : Cor) : void
@@ -220,3 +211,7 @@ class GraphicSystemGFX
 !!!147152.cpp!!!	GraphicSystemGFX()
     UtilLog::subSistema("Instanciando GraphicSystemGFX");
     pScreen = NULL;
+!!!128148.cpp!!!	travar() : bool
+    return gsScreen->travar();
+!!!128276.cpp!!!	destravar() : void
+    gsScreen->destravar();

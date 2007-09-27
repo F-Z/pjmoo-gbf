@@ -1,7 +1,7 @@
 format 38
 "InputSystem" // Framework GBF::InputSystem
-  revision 7
-  modified_by 59 "david"
+  revision 8
+  modified_by 27 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -45,6 +45,82 @@ format 38
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
     
+    class 128027 "InputSystemUtility"
+      visibility package stereotype "interface"
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl "${comment}${public}interface ${name}${extends} {
+${members}}
+"
+      idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      
+      classrelation 128795 // inputSystem (<unidirectional association>)
+	relation 128795 --->
+	  a role_name "inputSystem" multiplicity "1" init_value "=NULL" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128795 // inputSystem (<unidirectional association>)
+	  b multiplicity "" parent class_ref 128155 // InputSystem
+      end
+
+      operation 128027 "setInputSystem"
+	class_operation public explicit_return_type ""
+	nparams 1
+	  param in name "system" type class_ref 128155 // InputSystem
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+      end
+    end
+
+    class 128155 "InputSystem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128027 // joystick (<unidirectional association>)
+	relation 128027 --->
+	  a role_name "joystick" multiplicity "" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128027 // joystick (<unidirectional association>)
+	  b multiplicity "" parent class_ref 132688 // InputSystemJoystick
+      end
+
+      classrelation 128155 // teclado (<unidirectional association>)
+	relation 128155 --->
+	  a role_name "teclado" multiplicity "" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128155 // teclado (<unidirectional association>)
+	  b multiplicity "" parent class_ref 132432 // InputSystemKeyboard
+      end
+
+      classrelation 128283 // mouse (<unidirectional association>)
+	relation 128283 --->
+	  a role_name "mouse" multiplicity "" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128283 // mouse (<unidirectional association>)
+	  b multiplicity "" parent class_ref 132560 // InputSystemMouse
+      end
+    end
+
     class 132688 "InputSystemJoystick"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -254,15 +330,6 @@ Obs.: Não funciona (não use)"
 	  b multiplicity "" parent class_ref 132816 // JOYSTICK_AXE
       end
 
-      classrelation 134352 // <dependency>
-	relation 134352 -_->
-	  stereotype "friend"
-	  a protected
-	    cpp default "${type}"
-	    classrelation_ref 134352 // <dependency>
-	  b multiplicity "" parent class_ref 129488 // InputSystem
-      end
-
       classrelation 146128 // <dependency>
 	relation 146128 -_->
 	  a protected
@@ -286,6 +353,15 @@ Obs.: Não funciona (não use)"
 "
 	    classrelation_ref 150096 // <dependency>
 	  b multiplicity "" parent class_ref 138448 // SDL
+      end
+
+      classrelation 128411 // <dependency>
+	relation 128411 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "#include in source"
+	    classrelation_ref 128411 // <dependency>
+	  b multiplicity "" parent class_ref 128155 // InputSystem
       end
     end
 
@@ -625,20 +701,20 @@ ${body}}"
 	idl_decl ""
       end
 
-      classrelation 134864 // <dependency>
-	relation 134864 -_->
-	  stereotype "friend"
-	  a protected
-	    cpp default "${type}"
-	    classrelation_ref 134864 // <dependency>
-	  b multiplicity "" parent class_ref 129488 // InputSystem
-      end
-
       classrelation 146256 // <dependency>
 	relation 146256 -_->
 	  a protected
 	    classrelation_ref 146256 // <dependency>
 	  b multiplicity "" parent class_ref 133072 // MOUSE_BOTAO
+      end
+
+      classrelation 128667 // <dependency>
+	relation 128667 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "#include in source"
+	    classrelation_ref 128667 // <dependency>
+	  b multiplicity "" parent class_ref 128155 // InputSystem
       end
     end
 
@@ -731,15 +807,6 @@ ${body}}"
 	idl_decl ""
       end
 
-      classrelation 134480 // <dependency>
-	relation 134480 -_->
-	  stereotype "friend"
-	  a protected
-	    cpp default "${type}"
-	    classrelation_ref 134480 // <dependency>
-	  b multiplicity "" parent class_ref 129488 // InputSystem
-      end
-
       classrelation 145360 // <dependency>
 	relation 145360 -_->
 	  a protected
@@ -756,6 +823,15 @@ ${body}}"
 "
 	    classrelation_ref 150224 // <dependency>
 	  b multiplicity "" parent class_ref 138448 // SDL
+      end
+
+      classrelation 128539 // <dependency>
+	relation 128539 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "#include in source"
+	    classrelation_ref 128539 // <dependency>
+	  b multiplicity "" parent class_ref 128155 // InputSystem
       end
     end
 
@@ -895,7 +971,7 @@ Motivação:
       end
     end
 
-    class 129488 "InputSystem"
+    class 129488 "InputSystemCore"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -910,7 +986,7 @@ ${inlines}
 Motivação:
     Gerenciar o uso dos eventos do usuário
 "
-      operation 152272 "~InputSystem"
+      operation 152272 "~InputSystemCore"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -924,7 +1000,7 @@ ${body}}"
       end
 
       operation 152400 "getInstance"
-	class_operation public return_type class_ref 129488 // InputSystem
+	class_operation public return_type class_ref 129488 // InputSystemCore
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1047,7 +1123,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 133968 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystem
+	  b multiplicity "" parent class_ref 129488 // InputSystemCore
       end
 
       attribute 134992 "evento"
@@ -1058,7 +1134,7 @@ ${body}}"
 	idl_decl ""
       end
 
-      operation 153296 "InputSystem"
+      operation 153296 "InputSystemCore"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -1114,7 +1190,7 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 129488 // InputSystem
+	class_ref 129488 // InputSystemCore
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira
