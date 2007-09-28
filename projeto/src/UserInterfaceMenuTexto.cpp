@@ -13,9 +13,11 @@
 
 #include "UserInterfaceMenuTexto.h"
 
-UserInterfaceMenuTexto::UserInterfaceMenuTexto(InputSystem * input):UserInterfaceMenuAbstract(input) 
+//Construtor
+UserInterfaceMenuTexto::UserInterfaceMenuTexto() 
 {
 }
+//Destrutor
 UserInterfaceMenuTexto::~UserInterfaceMenuTexto() 
 {
 }
@@ -48,17 +50,17 @@ void UserInterfaceMenuTexto::desenhar()
 bool UserInterfaceMenuTexto::navegar() 
 {
     bool navegou = false;
-    
-    if ((input->teclado->isKey(SDLK_UP))||(input->joystick->isAxeUp())){
+
+    if ((inputSystem->teclado->isKey(SDLK_UP))||(inputSystem->joystick->isAxeUp())){
         itemAnterior();
         delayNavegacao.setResetar();
         navegou=true;
-    } else if ((input->teclado->isKey(SDLK_DOWN))||(input->joystick->isAxeDown())){
+    } else if ((inputSystem->teclado->isKey(SDLK_DOWN))||(inputSystem->joystick->isAxeDown())){
         itemAvancar();
         delayNavegacao.setResetar();
         navegou=true;
     }
-    
+
     return navegou;
 }
 void UserInterfaceMenuTexto::itemAvancar() 

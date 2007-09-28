@@ -14,13 +14,11 @@
 #include "UserInterfaceMenuAbstract.h"
 
 //Construtor
-UserInterfaceMenuAbstract::UserInterfaceMenuAbstract(InputSystem * input) 
+UserInterfaceMenuAbstract::UserInterfaceMenuAbstract() 
 {
-    this->input=input;
-    
     itemSelecionado=0;
     maiorPalavra=0;
-    
+
     delayNavegacao.setTempoOriginal(2);
     delayNavegacao.setUnidade(TEMPO_CENTESIMO);
     delayNavegacao.setResetar();
@@ -99,13 +97,13 @@ void UserInterfaceMenuAbstract::adicionar(UserInterfaceMenuItemAbstract * item)
 int UserInterfaceMenuAbstract::confirmarSelecao() 
 {
     int selecionado = -1;
-    
-    if (((input->teclado->isKey(SDLK_RETURN))||(input->joystick->isButtonA()))&&
+
+    if (((inputSystem->teclado->isKey(SDLK_RETURN))||(inputSystem->joystick->isButtonA()))&&
         (delayNavegacao.isTerminou())){
         delayNavegacao.setResetar();
         selecionado=itemSelecionado;
     }
-    
+
     return selecionado;
 }
 Ponto UserInterfaceMenuAbstract::calcularAlinhamento(int caixaLargura, int caixaAltura) 

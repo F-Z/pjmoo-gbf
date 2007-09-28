@@ -15,7 +15,6 @@
 #define _USERINTERFACEMENUTEXTO_H
 
 #include "UserInterfaceMenuAbstract.h"
-#include "InputSystem.h"
 #include "GraphicSystemUtility.h"
 
 //Descrição: 
@@ -25,8 +24,10 @@
 class UserInterfaceMenuTexto : public UserInterfaceMenuAbstract, public GraphicSystemUtility
 {
   public:
-    UserInterfaceMenuTexto(InputSystem * input);
+    //Construtor
+    UserInterfaceMenuTexto();
 
+    //Destrutor
     virtual ~UserInterfaceMenuTexto();
 
 

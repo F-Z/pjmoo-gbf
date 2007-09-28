@@ -104,6 +104,3 @@ class InputSystemJoystick
 			axe_vertical=AXE_UP;
 		}
 	}
-!!!154832.cpp!!!	limparEstado() : void
-
-//não funciona

@@ -1,7 +1,7 @@
 format 38
 "UserInterface" // Framework GBF::UserInterface
-  revision 20
-  modified_by 10 "david"
+  revision 21
+  modified_by 56 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -219,22 +219,6 @@ ${body}}
 	comment "Destrutor"
       end
 
-      operation 133157 "setInputSystem"
-	class_operation public explicit_return_type "void"
-	nparams 1
-	  param inout name "input" explicit_type "InputSystem"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "//Configura o dispositivo de Input
-
-${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Configura o dispositivo de Input"
-      end
-
       operation 133285 "executar"
 	cpp_virtual public explicit_return_type "void"
 	nparams 0
@@ -299,9 +283,7 @@ ${body}}"
 	  param inout name "visual" type class_ref 128549 // UserInterfaceVisual
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "//Estilo Visual a ser Aplicado no Componente
-
-${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
 	
@@ -463,13 +445,12 @@ ${body}}"
 	idl_decl ""
       end
 
-      attribute 131749 "input"
-	class_attribute protected explicit_type "InputSystem"
-	init_value "=NULL"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
+      classrelation 129080 // <generalisation>
+	relation 129080 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129080 // <generalisation>
+	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
       end
     end
 
@@ -1589,22 +1570,12 @@ Motivação:
 	  b multiplicity "" parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
-      classrelation 155472 // input (<unidirectional association>)
-	relation 155472 --->
-	  a role_name "input" multiplicity "1" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 155472 // input (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystemCore
-      end
-
       operation 207696 "UserInterfaceMenuAbstract"
 	public explicit_return_type ""
-	nparams 1
-	  param in name "input" type class_ref 129488 // InputSystemCore
-	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${)}${volatile}${throw};
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${t0} * ${p0}${)}${volatile}${throw} 
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
 	
@@ -1830,6 +1801,14 @@ ${body}}"
 	java_decl ""
 	idl_decl ""
       end
+
+      classrelation 128824 // <generalisation>
+	relation 128824 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128824 // <generalisation>
+	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
+      end
     end
 
     class 128143 "UserInterfaceMenuTextoTransparente"
@@ -1853,15 +1832,15 @@ ${inlines}
 
       operation 128143 "UserInterfaceMenuTextoTransparente"
 	public explicit_return_type ""
-	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystemCore
-	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${)}${volatile}${throw};
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${t0} * ${p0}${)}:UserInterfaceMenuTexto(${p0})${volatile}${throw} 
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
 	
 	
+	comment "Construtor"
       end
 
       operation 128271 "~UserInterfaceMenuTextoTransparente"
@@ -1874,6 +1853,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Destrutor"
       end
 
       operation 128399 "desenhar"
@@ -1914,15 +1894,15 @@ Motivação:
 
       operation 209744 "UserInterfaceMenuTexto"
 	public explicit_return_type ""
-	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystemCore
-	cpp_decl "    ${comment}${inline}${name}${(}${t0} * ${p0}${)}${volatile}${throw};
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${t0} * ${p0}${)}:UserInterfaceMenuAbstract(${p0})${volatile}${throw} 
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
 	
 	
+	comment "Construtor"
       end
 
       operation 209872 "~UserInterfaceMenuTexto"
@@ -1935,6 +1915,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Destrutor"
       end
 
       operation 209488 "desenhar"
@@ -2301,15 +2282,6 @@ Motivação:
 	  b multiplicity "" parent class_ref 137040 // TopSystemRecorde
       end
 
-      classrelation 141648 // input (<unidirectional association>)
-	relation 141648 --->
-	  a role_name "input" multiplicity "" private
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 141648 // input (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystemCore
-      end
-
       classrelation 141776 // wsManager (<unidirectional association>)
 	relation 141776 --->
 	  a role_name "wsManager" multiplicity "" private
@@ -2532,20 +2504,6 @@ ${body}}"
 	comment "Define a fonte a ser usada pelo label"
       end
 
-      operation 185296 "setInput"
-	public explicit_return_type "void"
-	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystemCore
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Adiciona referência para o Sistema de Entrada / InputSystem"
-      end
-
       operation 212304 "setGFX"
 	public explicit_return_type "void"
 	nparams 1
@@ -2690,6 +2648,14 @@ ${body}}"
 	
 	
 	comment "Efetua o controle sobre a navegação do cursor"
+      end
+
+      classrelation 128952 // <generalisation>
+	relation 128952 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128952 // <generalisation>
+	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
       end
     end
   end

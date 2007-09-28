@@ -43,7 +43,7 @@ class GAT
         interpretadorGlobal();
     }
 !!!205520.cpp!!!	interpretadorGlobal() : void
-    if (frameworkGBF->inputSystem->teclado->isKey(SDLK_ESCAPE)){
+    if (frameworkGBF->inputSystemCore->inputSystem->teclado->isKey(SDLK_ESCAPE)){
         setMenu();
     }
 //TODO: Criar mecanismo para aumetar/diminuir ciclo do FPS  
@@ -76,20 +76,26 @@ class GAT
     frameworkGBF->atualizar();
 !!!128006.cpp!!!	apresentacao() : void
     setMenu();
-!!!206544.cpp!!!	setMenu() : bool
-    bool mudou = false;
-
-    if (GATMaquinaEstadoGeral::setMenu()){
-        setMenuInicio();
-        mudou=true;
-    }
-
-    return mudou;
+!!!128134.cpp!!!	topGaleriaNovo() : void
+    setMenu();
+!!!128262.cpp!!!	topGaleriaSalvar() : void
+    setMenu();
+!!!128390.cpp!!!	topGaleriaExibir() : void
+    setMenu();
 !!!206672.cpp!!!	setJogo() : bool
     bool mudou = false;
 
     if (GATMaquinaEstadoGeral::setJogo()){
         setJogoInicio();
+        mudou=true;
+    }
+
+    return mudou;
+!!!206544.cpp!!!	setMenu() : bool
+    bool mudou = false;
+
+    if (GATMaquinaEstadoGeral::setMenu()){
+        setMenuInicio();
         mudou=true;
     }
 
@@ -135,9 +141,3 @@ class GAT
     loopTopGaleria();
 !!!206160.cpp!!!	sair() : void
     looping=false;
-!!!128134.cpp!!!	topGaleriaNovo() : void
-    setMenu();
-!!!128262.cpp!!!	topGaleriaSalvar() : void
-    setMenu();
-!!!128390.cpp!!!	topGaleriaExibir() : void
-    setMenu();

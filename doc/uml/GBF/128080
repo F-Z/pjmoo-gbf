@@ -1,7 +1,7 @@
 format 38
 "Framework GBF" // Framework GBF
-  revision 27
-  modified_by 27 "david"
+  revision 28
+  modified_by 56 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -509,7 +509,7 @@ format 38
       size A4
     end
 
-    classdiagram 128113 "Diagram2"
+    classdiagram 128113 "GraphicSystem"
       draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A4
     end
@@ -522,6 +522,12 @@ format 38
     end
 
     classdiagram 128027 "InputSystem"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
+    end
+
+    classdiagram 128056 "InputSystem - Dependencia"
+      stereotype "dependencia"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A4
     end

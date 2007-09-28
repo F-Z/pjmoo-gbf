@@ -25,17 +25,17 @@ class UserInterfaceMenuTexto
     }
 !!!210512.cpp!!!	navegar() : bool
     bool navegou = false;
-    
-    if ((input->teclado->isKey(SDLK_UP))||(input->joystick->isAxeUp())){
+
+    if ((inputSystem->teclado->isKey(SDLK_UP))||(inputSystem->joystick->isAxeUp())){
         itemAnterior();
         delayNavegacao.setResetar();
         navegou=true;
-    } else if ((input->teclado->isKey(SDLK_DOWN))||(input->joystick->isAxeDown())){
+    } else if ((inputSystem->teclado->isKey(SDLK_DOWN))||(inputSystem->joystick->isAxeDown())){
         itemAvancar();
         delayNavegacao.setResetar();
         navegou=true;
     }
-    
+
     return navegou;
 !!!210128.cpp!!!	itemAvancar() : void
     itemSelecionado++;

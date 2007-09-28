@@ -161,11 +161,3 @@ void InputSystemJoystick::processar()
   	}
 }
 
-//Limpa o estado das teclas
-//Obs.: Não funciona (não use)
-void InputSystemJoystick::limparEstado() 
-{
-  
-  //não funciona
-}
-

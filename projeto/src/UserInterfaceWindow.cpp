@@ -40,14 +40,6 @@ UserInterfaceWindow::~UserInterfaceWindow(){
     }
 }
 
-//Configura o dispositivo de Input
-
-//Configura o dispositivo de Input
-void UserInterfaceWindow::setInputSystem(InputSystem * input)
-
-{
-    UserInterfaceWindow::input=input;
-}
 void UserInterfaceWindow::executar() 
 {
     tempoEspera.processar();
@@ -82,8 +74,6 @@ void UserInterfaceWindow::inicializar()
     }
 }
 //Estilo Visual a ser Aplicado no Componente
-
-//Estilo Visual a ser Aplicado no Componente
 void UserInterfaceWindow::setVisual(UserInterfaceVisual * visual) 
 {
     this->visual=visual;
@@ -96,7 +86,7 @@ int UserInterfaceWindow::confirmarSelecao()
 {
     int selecionado = -1;
 
-    if (((input->teclado->isKey(botao->getTecla()))||(input->joystick->isButtonA()))&&
+    if (((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))&&
         (tempoEspera.isTerminou())){
         tempoEspera.setResetar();
         selecionado=BOTAO_OK;
@@ -173,5 +163,3 @@ void UserInterfaceWindow::desenharBotao()
         botao->desenhar(pontoAux);
     }
 }
-InputSystem * UserInterfaceWindow::input =NULL;
-

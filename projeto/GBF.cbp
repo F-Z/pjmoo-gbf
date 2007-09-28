@@ -5,7 +5,7 @@
 		<Option title="GBF Framework" />
 		<Option pch_mode="0" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="GraphicSystem/;UserInterface/;" />
+		<Option virtualFolders="GraphicSystem/;UserInterface/;InputSystem/;" />
 		<Build>
 			<Target title="linux - release">
 				<Option output="bin/linux/release/libGBF.a" prefix_auto="0" extension_auto="0" />
@@ -159,16 +159,48 @@
 		<Unit filename="src/GraphicSystemUtility.h">
 			<Option virtualFolder="GraphicSystem/" />
 		</Unit>
-		<Unit filename="src/InputSystem.cpp" />
-		<Unit filename="src/InputSystem.h" />
-		<Unit filename="src/InputSystemJoystick.cpp" />
-		<Unit filename="src/InputSystemJoystick.h" />
-		<Unit filename="src/InputSystemKeyboard.cpp" />
-		<Unit filename="src/InputSystemKeyboard.h" />
-		<Unit filename="src/InputSystemMouse.cpp" />
-		<Unit filename="src/InputSystemMouse.h" />
-		<Unit filename="src/InputSystemMouseCursor.cpp" />
-		<Unit filename="src/InputSystemMouseCursor.h" />
+		<Unit filename="src/InputSystem.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystem.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemCore.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemCore.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemJoystick.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemJoystick.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemKeyboard.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemKeyboard.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemMouse.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemMouse.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemMouseCursor.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemMouseCursor.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemUtility.cpp">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
+		<Unit filename="src/InputSystemUtility.h">
+			<Option virtualFolder="InputSystem/" />
+		</Unit>
 		<Unit filename="src/ListPersonagemAbstract.cpp" />
 		<Unit filename="src/ListPersonagemAbstract.h" />
 		<Unit filename="src/ListPersonagemAutomaticoAbstract.cpp" />
@@ -266,8 +298,12 @@
 		<Unit filename="src/UserInterfaceVisualImagem.h">
 			<Option virtualFolder="UserInterface/" />
 		</Unit>
-		<Unit filename="src/UserInterfaceVisualSolido.cpp" />
-		<Unit filename="src/UserInterfaceVisualSolido.h" />
+		<Unit filename="src/UserInterfaceVisualSolido.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceVisualSolido.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/UserInterfaceWindow.cpp">
 			<Option virtualFolder="UserInterface/" />
 		</Unit>

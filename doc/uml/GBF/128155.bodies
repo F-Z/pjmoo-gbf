@@ -1,0 +1,26 @@
+class InputSystem
+!!!128184.cpp!!!	~InputSystem()
+    if (teclado){
+        delete(teclado);
+    }
+
+    if (joystick){
+        delete(joystick);
+    }
+
+    if (mouse){
+        delete(mouse);
+    }
+!!!152400.cpp!!!	getInstance() : InputSystem
+    if (instance == NULL){
+        instance = new InputSystem();
+    }
+    return instance;
+!!!128056.cpp!!!	InputSystem()
+    teclado  = new InputSystemKeyboard();
+    mouse    = new InputSystemMouse();
+    joystick = new InputSystemJoystick();
+!!!128440.cpp!!!	processar() : void
+    joystick->processar();
+    teclado->processar();
+    mouse->processar();

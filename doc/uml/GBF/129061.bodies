@@ -13,8 +13,6 @@ class UserInterfaceWindow
     if (botao!=NULL){
         delete(botao);
     }
-!!!133157.cpp!!!	setInputSystem(inout input : InputSystem) : void
-    UserInterfaceWindow::input=input;
 !!!133285.cpp!!!	executar() : void
     tempoEspera.processar();
 
@@ -41,7 +39,7 @@ class UserInterfaceWindow
 !!!134053.cpp!!!	confirmarSelecao() : int
     int selecionado = -1;
 
-    if (((input->teclado->isKey(botao->getTecla()))||(input->joystick->isButtonA()))&&
+    if (((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))&&
         (tempoEspera.isTerminou())){
         tempoEspera.setResetar();
         selecionado=BOTAO_OK;

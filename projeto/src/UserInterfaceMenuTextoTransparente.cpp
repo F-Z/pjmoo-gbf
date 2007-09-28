@@ -13,9 +13,11 @@
 
 #include "UserInterfaceMenuTextoTransparente.h"
 
-UserInterfaceMenuTextoTransparente::UserInterfaceMenuTextoTransparente(InputSystem * input):UserInterfaceMenuTexto(input) 
+//Construtor
+UserInterfaceMenuTextoTransparente::UserInterfaceMenuTextoTransparente() 
 {
 }
+//Destrutor
 UserInterfaceMenuTextoTransparente::~UserInterfaceMenuTextoTransparente() 
 {
 }

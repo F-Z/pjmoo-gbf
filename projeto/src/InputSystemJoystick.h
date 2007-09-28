@@ -82,10 +82,6 @@ class InputSystemJoystick
     //Processa os eventos do joystick
     void processar();
 
-    //Limpa o estado das teclas
-    //Obs.: Não funciona (não use)
-    void limparEstado();
-
     SDL_Joystick * joystick;
 
     JOYSTICK_AXE axe_horizontal;

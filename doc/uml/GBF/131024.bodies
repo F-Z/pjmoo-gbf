@@ -50,8 +50,6 @@ class UserInterfaceRecorde
 !!!185424.cpp!!!	setFonteLabel(in fonte : std::string) : void
     fonteLabel=fonte;
     dimensaoFonteLabel=wsManager->getFonte(fonteLabel)->getDimensao();
-!!!185296.cpp!!!	setInput(inout input : InputSystem) : void
-    this->input=input;
 !!!212304.cpp!!!	setGFX(inout gfx : GraphicSystemGFX) : void
     gsGFX=gfx;
 !!!212432.cpp!!!	setWriteManager(inout write : WriteSystemManager) : void
@@ -79,7 +77,7 @@ class UserInterfaceRecorde
     desenharMiniTeclado();
 !!!186192.cpp!!!	confirmar() : bool
     bool salva = false;
-    if ((input->teclado->isKey(SDLK_RETURN))|| (input->joystick->isButtonA())){
+    if ((inputSystem->teclado->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())){
         if ((tecladoSelecao>=0)&&(tecladoSelecao<totalTeclasTeclado)){
             recorde.nome[nomePosicao]=miniTeclado[tecladoSelecao];
             nomePosicao++;
@@ -94,6 +92,7 @@ class UserInterfaceRecorde
         }
         tempoNavegacao.setResetar();
     }
+
     if (nomePosicao<0){
         nomePosicao=0;
     } else if (nomePosicao>9){
@@ -148,20 +147,20 @@ class UserInterfaceRecorde
     wsManager->escrever(fonteTeclado, posicao.x+20 , posicao.y-50,"%s"  ,recorde.nome);
     wsManager->escrever(fonteTeclado, posicao.x+270, posicao.y-50,"%08d",recorde.pontos);
 !!!186064.cpp!!!	navegar() : void
-    if ((input->teclado->isKey(SDLK_LEFT))||(input->joystick->isAxeLeft())){
+    if ((inputSystem->teclado->isKey(SDLK_LEFT))||(inputSystem->joystick->isAxeLeft())){
             tecladoSelecao--;
             tempoNavegacao.setResetar();
-    } else if ((input->teclado->isKey(SDLK_RIGHT))||(input->joystick->isAxeRight())){
+    } else if ((inputSystem->teclado->isKey(SDLK_RIGHT))||(inputSystem->joystick->isAxeRight())){
             tecladoSelecao++;
             tempoNavegacao.setResetar();
-    } else if ((input->teclado->isKey(SDLK_DOWN))||(input->joystick->isAxeDown())){
+    } else if ((inputSystem->teclado->isKey(SDLK_DOWN))||(inputSystem->joystick->isAxeDown())){
             if (tecladoSelecao<40){
                 tecladoSelecao+=10;
             } else {//if (tecladoSelecao>=totalTeclasTeclado){
                 tecladoSelecao++;
             }
             tempoNavegacao.setResetar();
-    } else if ((input->teclado->isKey(SDLK_UP))||(input->joystick->isAxeUp())){
+    } else if ((inputSystem->teclado->isKey(SDLK_UP))||(inputSystem->joystick->isAxeUp())){
             if ((tecladoSelecao>=10)&&(tecladoSelecao<totalTeclasTeclado)){
                 tecladoSelecao-=10;
             } else {

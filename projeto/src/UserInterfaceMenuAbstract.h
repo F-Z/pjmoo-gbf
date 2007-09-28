@@ -18,15 +18,15 @@
 #include <deque>
 #include "UserInterfaceMenuItemAbstract.h"
 #include "TimerSystemCronometroDecrescente.h"
-#include "InputSystem.h"
 #include "UserInterface.h"
 #include "UtilColor.h"
+#include "InputSystemUtility.h"
 
 //Descrição: 
 //    Classe para criação de menus
 //Motivação:
 //    Fornecer uma interface padrão para criação de menus
-class UserInterfaceMenuAbstract
+class UserInterfaceMenuAbstract : public InputSystemUtility
 {
   protected:
     Ponto posicao;
@@ -39,12 +39,10 @@ class UserInterfaceMenuAbstract
 
     TimerSystemCronometroDecrescente delayNavegacao;
 
-    InputSystem * input;
-
 
   public:
     //Construtor
-    UserInterfaceMenuAbstract(InputSystem * input);
+    UserInterfaceMenuAbstract();
 
     //Destrutor
     virtual ~UserInterfaceMenuAbstract();

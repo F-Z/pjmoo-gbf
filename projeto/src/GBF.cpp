@@ -14,7 +14,7 @@
 #include "GBF.h"
 
 //Construtor
-GBF::GBF()
+GBF::GBF() 
 {
     numscreenshot = 0;
     pathBase      = "";
@@ -22,7 +22,7 @@ GBF::GBF()
     setDefaultPath(true);
 }
 //Destrutor
-GBF::~GBF()
+GBF::~GBF() 
 {
     UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
     UtilLog::cabecalho("Descarregando Framework");
@@ -34,7 +34,7 @@ GBF::~GBF()
     delete(graphicSystemCore);
     //delete(GraphicSystemScreen::getInstance());
     delete(soundSystem);
-    delete(inputSystem);
+    delete(inputSystemCore);
 
     UtilLog::sistema("Removendo SDL");
     SDL_Quit();
@@ -44,7 +44,7 @@ GBF::~GBF()
 }
 //Informação sobre o Autor e o Título da Aplicação.
 //Obs.: Usado para arquivo de log e título da janela
-void GBF::setTitulo(std::string titulo, std::string autor)
+void GBF::setTitulo(std::string titulo, std::string autor) 
 {
     UtilLog::setAutor(autor);
     UtilLog::setProjeto(titulo);
@@ -52,7 +52,7 @@ void GBF::setTitulo(std::string titulo, std::string autor)
     setTitulo(titulo);
 }
 //Inicializa o Sistema, e configura o modo gráfico
-void GBF::iniciar(int width, int height, int bpp_color, bool full)
+void GBF::iniciar(int width, int height, int bpp_color, bool full) 
 {
     UtilLog::cabecalho("Inicializando Framework");
     UtilLog::tracer("Inicializando ModoGráfico");
@@ -70,6 +70,7 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
         graphicSystemCore->gsMode.setModeWindowScreen();
     }
     graphicSystemCore->sincronizar();
+    inputSystemCore->iniciar();
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
@@ -86,9 +87,6 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->uiTexto->detectarIdioma();
 
-    //Configurando o dispositivo de entrada para UserInterface
-//    UserInterfaceWindow::setInputSystem(inputSystem);
-
     //FPSTimer primeira chamada
     fpsSystem->start();
 
@@ -97,7 +95,7 @@ void GBF::iniciar(int width, int height, int bpp_color, bool full)
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
 //desenha na tela o conteúdo do backbuffer
 //Obs.: Deve ser usado na interação do loop principal do jogo
-void GBF::atualizar()
+void GBF::atualizar() 
 {
     try {
         fpsSystem->processar();
@@ -109,7 +107,7 @@ void GBF::atualizar()
         }
         */
         controleInterno();
-        inputSystem->processar();
+        inputSystemCore->processar();
         graphicSystemCore->flip();
     } catch(...){
         UtilLog::tracer("SDL: %s", SDL_GetError());
@@ -118,21 +116,21 @@ void GBF::atualizar()
     }
 }
 //Pausa o Sistema
-void GBF::pausar()
+void GBF::pausar() 
 {
 }
 //Mostra o Contador de FPS
-void GBF::setFPS(bool show)
+void GBF::setFPS(bool show) 
 {
     fps=show;
 }
 //Informa se o mostrador de FPS está ativo
-bool GBF::isFPS()
+bool GBF::isFPS() 
 {
     return fps;
 }
 //Informa o caminho do diretório base da aplicação corrente
-void GBF::setPath(char * fullPath)
+void GBF::setPath(char * fullPath) 
 {
     pathBase=UtilExtract::extractPath(fullPath);
 
@@ -144,43 +142,43 @@ void GBF::setPath(char * fullPath)
     }
 }
 //Retorna o diretório base da aplicação corrente
-std::string GBF::getPath()
+std::string GBF::getPath() 
 {
     return pathBase;
 }
-bool GBF::isDefaultPath()
+bool GBF::isDefaultPath() 
 {
     return defaultPath;
 }
-void GBF::setDefaultPath(bool ativo)
+void GBF::setDefaultPath(bool ativo) 
 {
     defaultPath=ativo;
 }
 //Controle para ações internas
-void GBF::controleInterno()
+void GBF::controleInterno() 
 {
     //F10 = Alterna entre modo de controle exclusivo
-    if (inputSystem->teclado->isKey(SDLK_F10)){
-        inputSystem->alternarControleExclusivo();
+    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){
+        inputSystemCore->alternarControleExclusivo();
     //F11 = Alterna entre modo tela Cheia e Janela
-    } else if (inputSystem->teclado->isKey(SDLK_F11)){
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)){
         if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
             //UtilLog::getInstance()->inicializando("GBF :: Aviso");
             //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
         }
     //F12 = Salva um screen do jogo
-    } else if (inputSystem->teclado->isKey(SDLK_F12)){
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)){
         char tela[255];
         numscreenshot++;
         sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
         graphicSystemCore->salvarScreenShot(tela);
     //F5 = Tira o Som
-    } else if (inputSystem->teclado->isKey(SDLK_F5)){
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)){
         //audio.Mute();
     }
 }
-//Prepara o Ambiente para ser inicializado
-void GBF::carregar()
+//Prepara o Ambiente para ser inicializado 
+void GBF::carregar() 
 {
     //Inicializando Log
     UtilLog::iniciar();
@@ -200,15 +198,15 @@ void GBF::carregar()
     writeSystem = WriteSystemManager::getInstance();
 
     //Inicializando Input
-    inputSystem = InputSystem::getInstance();
+    inputSystemCore = new InputSystemCore();
 
     //Inicializando Audio
     soundSystem = SoundSystem::getInstance();
 
     UtilLog::cabecalho("Carregamento Completo do Framework");
 }
-//Define o Título para Janela
-void GBF::setTitulo(std::string titulo)
+//Define o Título para Janela 
+void GBF::setTitulo(std::string titulo) 
 {
     SDL_WM_SetCaption(titulo.c_str(),NULL);
 }
