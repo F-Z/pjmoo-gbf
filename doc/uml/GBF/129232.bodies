@@ -43,7 +43,8 @@ class GBF
     } else {
         graphicSystemCore->gsMode.setModeWindowScreen();
     }
-    graphicSystemCore->sincronizar();
+
+    graphicSystemCore->iniciar();
     inputSystemCore->iniciar();
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");

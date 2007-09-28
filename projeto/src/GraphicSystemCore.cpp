@@ -12,6 +12,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include "GraphicSystemCore.h"
+#include "GraphicSystemUtility.h"
 
 //Limpa a tela 
 void GraphicSystemCore::clear() 
@@ -34,7 +35,7 @@ GraphicSystemCore::~GraphicSystemCore()
 
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
-void GraphicSystemCore::sincronizar() 
+void GraphicSystemCore::iniciar() 
 {
     gsScreen->setScreen(gsMode.getScreen());
 
