@@ -20,7 +20,8 @@
 #include "GraphicSystemScreen.h"
 #include "GraphicSystemImage.h"
 #include "GraphicSystem.h"
-#include "GraphicSystemUtility.h"
+
+class GraphicSystemUtility;
 
 class GraphicSystemCore
 {
@@ -34,7 +35,7 @@ class GraphicSystemCore
     //Destrutor 
     virtual ~GraphicSystemCore();
 
-    void sincronizar();
+    void iniciar();
 
     //Realiza o flip(troca) entre os buffers de vídeo 
     void flip();
