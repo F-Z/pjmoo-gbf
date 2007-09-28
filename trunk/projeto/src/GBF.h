@@ -17,7 +17,7 @@
 #include <string>
 
 #include "GraphicSystemCore.h"
-#include "InputSystem.h"
+#include "InputSystemCore.h"
 #include "WriteSystemManager.h"
 #include "SoundSystem.h"
 #include "TimerSystemFPS.h"
@@ -78,7 +78,7 @@ class GBF
     //GraphicSystemCore, núcleo do sistema gráfico
     GraphicSystemCore * graphicSystemCore;
 
-    InputSystem * inputSystem;
+    InputSystemCore * inputSystemCore;
 
     WriteSystemManager * writeSystem;
 

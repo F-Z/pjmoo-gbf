@@ -1,7 +1,7 @@
 format 38
 "GBF" // Framework GBF::GBF
-  revision 12
-  modified_by 89 "david"
+  revision 13
+  modified_by 56 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -347,13 +347,13 @@ ${body}}"
 	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
       end
 
-      classrelation 129744 // inputSystem (<unidirectional association>)
+      classrelation 129744 // inputSystemCore (<unidirectional association>)
 	relation 129744 --->
-	  a role_name "inputSystem" multiplicity "" public
+	  a role_name "inputSystemCore" multiplicity "1" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 129744 // inputSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystem
+	    classrelation_ref 129744 // inputSystemCore (<unidirectional association>)
+	  b multiplicity "" parent class_ref 129488 // InputSystemCore
       end
 
       classrelation 129872 // writeSystem (<unidirectional association>)
@@ -513,15 +513,6 @@ ${body}}"
 "
 	    classrelation_ref 144976 // <dependency>
 	  b multiplicity "" parent class_ref 135888 // SoundSystemInterfaceManager
-      end
-
-      classrelation 145104 // <dependency>
-	relation 145104 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 145104 // <dependency>
-	  b multiplicity "" parent class_ref 129488 // InputSystem
       end
 
       classrelation 151760 // <dependency>

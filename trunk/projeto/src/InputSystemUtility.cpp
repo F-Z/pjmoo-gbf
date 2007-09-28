@@ -12,39 +12,11 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _INPUTSYSTEM_H
-#define _INPUTSYSTEM_H
+#include "InputSystemUtility.h"
 
-#include "InputSystemJoystick.h"
-#include "InputSystemKeyboard.h"
-#include "InputSystemMouse.h"
+InputSystem * InputSystemUtility::inputSystem =NULL;
 
-class InputSystem
+void InputSystemUtility::setInputSystem(InputSystem * instance)
 {
-  public:
-    InputSystemJoystick * joystick;
-
-    InputSystemKeyboard * teclado;
-
-    InputSystemMouse * mouse;
-
-    //Destrutor
-    ~InputSystem();
-
-    //Retorna uma instancia de InputSystem
-    static InputSystem * getInstance();
-
-
-  protected:
-    static InputSystem * instance;
-
-    InputSystem();
-
-
-  private:
-    //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
-
-  friend class InputSystemCore;
-};
-#endif
+    inputSystem=instance;
+}

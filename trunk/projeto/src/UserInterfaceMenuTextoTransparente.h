@@ -15,13 +15,14 @@
 #define _USERINTERFACEMENUTEXTOTRANSPARENTE_H
 
 #include "UserInterfaceMenuTexto.h"
-#include "InputSystem.h"
 
 class UserInterfaceMenuTextoTransparente : public UserInterfaceMenuTexto
 {
   public:
-    UserInterfaceMenuTextoTransparente(InputSystem * input);
+    //Construtor
+    UserInterfaceMenuTextoTransparente();
 
+    //Destrutor
     virtual ~UserInterfaceMenuTextoTransparente();
 
 

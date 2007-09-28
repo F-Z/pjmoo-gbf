@@ -1,3 +1,3 @@
 class InputSystemUtility
-!!!128027.cpp!!!	setInputSystem(in system : InputSystem)
-    inputSystem=system;
+!!!128027.cpp!!!	setInputSystem(in instance : InputSystem) : void
+    inputSystem=instance;

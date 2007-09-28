@@ -15,7 +15,7 @@ class GBF
     delete(graphicSystemCore);
     //delete(GraphicSystemScreen::getInstance());
     delete(soundSystem);
-    delete(inputSystem);
+    delete(inputSystemCore);
 
     UtilLog::sistema("Removendo SDL");
     SDL_Quit();
@@ -44,6 +44,7 @@ class GBF
         graphicSystemCore->gsMode.setModeWindowScreen();
     }
     graphicSystemCore->sincronizar();
+    inputSystemCore->iniciar();
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
@@ -60,9 +61,6 @@ class GBF
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->uiTexto->detectarIdioma();
 
-    //Configurando o dispositivo de entrada para UserInterface
-    UserInterfaceWindow::setInputSystem(inputSystem);
-
     //FPSTimer primeira chamada
     fpsSystem->start();
 
@@ -78,7 +76,7 @@ class GBF
         }
         */
         controleInterno();
-        inputSystem->processar();
+        inputSystemCore->processar();
         graphicSystemCore->flip();
     } catch(...){
         UtilLog::tracer("SDL: %s", SDL_GetError());
@@ -106,22 +104,22 @@ class GBF
     defaultPath=ativo;
 !!!136528.cpp!!!	controleInterno() : void
     //F10 = Alterna entre modo de controle exclusivo
-    if (inputSystem->teclado->isKey(SDLK_F10)){
-        inputSystem->alternarControleExclusivo();
+    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){
+        inputSystemCore->alternarControleExclusivo();
     //F11 = Alterna entre modo tela Cheia e Janela
-    } else if (inputSystem->teclado->isKey(SDLK_F11)){
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)){
         if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
             //UtilLog::getInstance()->inicializando("GBF :: Aviso");
             //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
         }
     //F12 = Salva um screen do jogo
-    } else if (inputSystem->teclado->isKey(SDLK_F12)){
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)){
         char tela[255];
         numscreenshot++;
         sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
         graphicSystemCore->salvarScreenShot(tela);
     //F5 = Tira o Som
-    } else if (inputSystem->teclado->isKey(SDLK_F5)){
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)){
         //audio.Mute();
     }
 !!!136784.cpp!!!	carregar() : void
@@ -143,7 +141,7 @@ class GBF
     writeSystem = WriteSystemManager::getInstance();
 
     //Inicializando Input
-    inputSystem = InputSystem::getInstance();
+    inputSystemCore = new InputSystemCore();
 
     //Inicializando Audio
     soundSystem = SoundSystem::getInstance();

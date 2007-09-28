@@ -68,7 +68,7 @@ void GAT::executar()
 }
 void GAT::interpretadorGlobal() 
 {
-    if (frameworkGBF->inputSystem->teclado->isKey(SDLK_ESCAPE)){
+    if (frameworkGBF->inputSystemCore->inputSystem->teclado->isKey(SDLK_ESCAPE)){
         setMenu();
     }
 //TODO: Criar mecanismo para aumetar/diminuir ciclo do FPS  

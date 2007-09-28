@@ -16,14 +16,14 @@
 #define _USERINTERFACEWINDOW_H
 
 #include "UserInterfaceComponente.h"
-#include "InputSystem.h"
 #include "UserInterfaceVisual.h"
 #include "UserInterfaceBotao.h"
 #include "GBF_define.h"
 #include "UserInterfaceObjetoTexto.h"
 #include "TimerSystemCronometroDecrescente.h"
+#include "InputSystemUtility.h"
 
-class UserInterfaceWindow : public UserInterfaceComponente
+class UserInterfaceWindow : public UserInterfaceComponente, public InputSystemUtility
 {
   public:
     static const int BOTAO_OK;
@@ -33,9 +33,6 @@ class UserInterfaceWindow : public UserInterfaceComponente
 
     //Destrutor
     virtual ~UserInterfaceWindow();
-
-    //Configura o dispositivo de Input
-    static void setInputSystem(InputSystem * input);
 
     virtual void executar();
 
@@ -87,8 +84,6 @@ class UserInterfaceWindow : public UserInterfaceComponente
     UserInterfaceBotao * botao;
 
     TimerSystemCronometroDecrescente tempoEspera;
-
-    static InputSystem * input;
 
 };
 #endif
