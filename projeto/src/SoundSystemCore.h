@@ -44,10 +44,10 @@ class SoundSystemCore {
     //Configura sistema sonoro para parar o som
     void setMute(bool mute);
 
-
-  protected:
     SoundSystem * soundSystem;
 
+
+  protected:
     SoundSystemStatus * status;
 
 

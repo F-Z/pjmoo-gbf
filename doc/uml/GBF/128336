@@ -1,7 +1,7 @@
 format 38
 "SoundSystem" // Framework GBF::SoundSystem
-  revision 7
-  modified_by 118 "david"
+  revision 9
+  modified_by 120 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -85,7 +85,7 @@ ${body}}"
 	relation 129910 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 130038 // <dependency>
 	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
       end
@@ -141,7 +141,7 @@ ${body}}"
 
       classrelation 128374 // fxManager (<directional aggregation>)
 	relation 128374 o-->
-	  a role_name "fxManager" multiplicity "1" protected
+	  a role_name "fxManager" multiplicity "1" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128374 // fxManager (<directional aggregation>)
@@ -159,7 +159,7 @@ ${body}}"
 
       classrelation 128246 // musicManager (<directional aggregation>)
 	relation 128246 o-->
-	  a role_name "musicManager" multiplicity "1" protected
+	  a role_name "musicManager" multiplicity "1" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128246 // musicManager (<directional aggregation>)
@@ -242,7 +242,7 @@ ${body}}"
 
       classrelation 128502 // soundSystem (<directional aggregation>)
 	relation 128502 o-->
-	  a role_name "soundSystem" multiplicity "1" protected
+	  a role_name "soundSystem" multiplicity "1" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128502 // soundSystem (<directional aggregation>)
@@ -308,7 +308,7 @@ ${body}}"
       classrelation 129910 // <dependency>
 	relation 129782 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 129910 // <dependency>
 	  b multiplicity "" parent class_ref 128246 // SoundSystemUtility
       end
