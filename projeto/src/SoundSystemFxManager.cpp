@@ -122,6 +122,7 @@ void SoundSystemFxManager::setVolume(std::string nome, int volume)
     }
 }
 //Construtor
-SoundSystemFxManager::SoundSystemFxManager(SoundSystemStatus * status):SoundSystemInterfaceManager(status){
+SoundSystemFxManager::SoundSystemFxManager() 
+{
     UtilLog::subSistema("Instanciando SoundSystemFxManager");
 }

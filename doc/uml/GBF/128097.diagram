@@ -1,39 +1,153 @@
 format 38
 
-classcanvas 128097 class_ref 135504 // SoundSystemFxManager
+classcanvas 128118 class_ref 129744 // SoundSystemCore
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 525 111 2000
+  xyz 379 650 2004
   end
-classcanvas 128225 class_ref 135376 // SoundSystemMusicManager
+classcanvas 128630 class_ref 135248 // SoundSystemCanal
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 29 124 2000
+  xyz 393 839 2004
   end
-classcanvas 128353 class_ref 136016 // SoundSystemMusic
+classcanvas 128886 class_ref 135376 // SoundSystemMusicManager
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 222 396 2004
+  xyz 17 261 3005
   end
-classcanvas 128609 class_ref 135760 // SoundSystemFx
+classcanvas 129270 class_ref 135504 // SoundSystemFxManager
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 391 399 2004
+  xyz 638 246 3010
   end
-classcanvas 128865 class_ref 135888 // SoundSystemInterfaceManager
+classcanvas 129654 class_ref 135632 // SoundSystemStatus
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 275 8 2005
+  xyz 244 340 3015
   end
-relationcanvas 128481 relation_ref 139216 // <dependency>
-  from ref 128353 z 1999 stereotype "<<friend>>" xyz 186 376 3000 to ref 128225
+classcanvas 130294 class_ref 135760 // SoundSystemFx
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 488 496 2004
+  end
+classcanvas 130550 class_ref 136016 // SoundSystemMusic
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 12 3 3005
+  end
+classcanvas 130806 class_ref 135888 // SoundSystemInterfaceManager
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 386 81 3010
+  end
+classcanvas 131318 class_ref 128118 // SoundSystem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 201 892 2000
+  end
+classcanvas 134134 class_ref 128246 // SoundSystemUtility
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 181 1044 2000
+  end
+classcanvas 137334 class_ref 129232 // GBF
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 633 782 2004
+  end
+relationcanvas 128758 relation_ref 147664 // <dependency>
+  geometry HV
+  from ref 128118 z 1999 to point 459 696
+  line 136182 z 1999 to ref 128630
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
-relationcanvas 128737 relation_ref 138704 // <dependency>
-  from ref 128609 z 1999 stereotype "<<friend>>" xyz 476 376 3000 to ref 128097
+relationcanvas 130166 relation_ref 138448 // <directional aggregation>
+  geometry VHr
+  from ref 128118 z 1999 to point 316 696
+  line 135926 z 1999 to ref 129654
+  role_a_pos 334 499 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130422 relation_ref 138704 // <dependency>
+  geometry VH
+  from ref 130294 z 1999 stereotype "<<friend>>" xyz 516 432 3000 to point 549 369
+  line 138230 z 1999 to ref 129270
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
-relationcanvas 128993 relation_ref 138832 // <generalisation>
-  from ref 128097 z 1999 to ref 128865
+relationcanvas 130678 relation_ref 139216 // <dependency>
+  from ref 130550 z 1999 stereotype "<<friend>>" xyz 63 218 3000 to ref 128886
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
-relationcanvas 129121 relation_ref 139344 // <generalisation>
-  from ref 128225 z 1999 to ref 128865
+relationcanvas 131062 relation_ref 139344 // <generalisation>
+  geometry VH
+  from ref 128886 z 1999 to point 111 179
+  line 136950 z 1999 to ref 130806
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131190 relation_ref 138832 // <generalisation>
+  geometry HVr
+  from ref 129270 z 1999 to point 721 180
+  line 137078 z 1999 to ref 130806
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131446 relation_ref 128118 // <unidirectional association>
+  from ref 131318 z 1999 to point 156 970
+  line 133878 z 1999 to point 150 940
+  line 131574 z 1999 to ref 131318
+  role_a_pos 131 915 3000 no_role_b
+  multiplicity_a_pos 173 941 3000 no_multiplicity_b
+relationcanvas 131702 relation_ref 128246 // <directional aggregation>
+  geometry VHr
+  from ref 131318 z 1999 to point 111 929
+  line 135670 z 1999 to ref 128886
+  role_a_pos 132 499 3000 no_role_b
+  multiplicity_a_pos 91 499 3000 no_multiplicity_b
+relationcanvas 131830 relation_ref 128374 // <directional aggregation>
+  geometry HV
+  from ref 131318 z 1999 to point 721 929
+  line 135798 z 1999 to ref 129270
+  role_a_pos 741 501 3000 no_role_b
+  multiplicity_a_pos 701 501 3000 no_multiplicity_b
+relationcanvas 134006 relation_ref 128502 // <directional aggregation>
+  geometry VHr
+  from ref 128118 z 1999 to point 256 696
+  line 137974 z 1999 to ref 131318
+  role_a_pos 274 872 3000 no_role_b
+  multiplicity_a_pos 236 872 3000 no_multiplicity_b
+relationcanvas 134262 relation_ref 128630 // <unidirectional association>
+  from ref 134134 z 1999 to ref 131318
+  role_a_pos 265 979 3000 no_role_b
+  multiplicity_a_pos 238 979 3000 no_multiplicity_b
+relationcanvas 134390 relation_ref 128758 // <directional aggregation>
+  from ref 130806 z 3009 to ref 129654
+  role_a_pos 391 321 3000 no_role_b
+  multiplicity_a_pos 353 321 3000 no_multiplicity_b
+relationcanvas 134902 relation_ref 129014 // <dependency>
+  from ref 130806 z 2003 stereotype "<<friend>>" xyz 430 464 3000 to ref 128118
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 135030 relation_ref 129142 // <dependency>
+  from ref 131318 z 1999 stereotype "<<friend>>" xyz 313 818 3000 to ref 128118
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 137206 relation_ref 129270 // <dependency>
+  from ref 129654 z 2003 stereotype "<<friend>>" xyz 354 568 3000 to ref 128118
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 137462 relation_ref 130000 // <unidirectional association>
+  geometry HVr
+  from ref 137334 z 1999 to point 653 696
+  line 138870 z 1999 to ref 128118
+  role_a_pos 527 680 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 138358 relation_ref 129398 // <dependency>
+  from ref 128118 z 2003 stereotype "<<friend>>" xyz 546 761 3000 to ref 137334
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 138998 relation_ref 129526 // <dependency>
+  from ref 128886 z 1999 stereotype "<<friend>>" xyz 160 691 3000 to ref 131318
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 139126 relation_ref 129654 // <dependency>
+  from ref 129270 z 1999 to point 794 999
+  line 139766 z 1999 stereotype "<<friend>>" xyz 526 968 3000 to ref 131318
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 140022 relation_ref 129782 // <dependency>
+  from ref 128118 z 1999 to ref 134134
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 140150 relation_ref 129910 // <dependency>
+  from ref 134134 z 1999 stereotype "<<friend>>" xyz 332 1071 3000 to point 406 1068
+  line 140278 z 1999 to ref 128118
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

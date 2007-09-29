@@ -1,0 +1,17 @@
+class SoundSystem
+!!!128374.cpp!!!	~SoundSystem()
+    if (musicManager){
+        delete(musicManager);
+    }
+    if (fxManager){
+        delete(fxManager);
+    }
+!!!166608.cpp!!!	getInstance() : SoundSystem
+    if (instance == NULL){
+        instance = new SoundSystem();
+    }
+
+    return instance;
+!!!128246.cpp!!!	SoundSystem()
+    musicManager = new SoundSystemMusicManager();
+    fxManager    = new SoundSystemFxManager();

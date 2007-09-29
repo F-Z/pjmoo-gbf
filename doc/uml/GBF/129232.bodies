@@ -1,9 +1,4 @@
 class GBF
-!!!134992.cpp!!!	GBF()
-    numscreenshot = 0;
-    pathBase      = "";
-    fps           = true;
-    setDefaultPath(true);
 !!!135120.cpp!!!	~GBF()
     UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
     UtilLog::cabecalho("Descarregando Framework");
@@ -13,8 +8,7 @@ class GBF
 //    delete(GraphicSystemImageBufferManager::getInstance());
     delete(FrameLayerManager::getInstance());
     delete(graphicSystemCore);
-    //delete(GraphicSystemScreen::getInstance());
-    delete(soundSystem);
+    delete(soundSystemCore);
     delete(inputSystemCore);
 
     UtilLog::sistema("Removendo SDL");
@@ -22,11 +16,31 @@ class GBF
 
     UtilLog::cabecalho("Descarregando Completo do Framework");
     UtilLog::finalizar();
-!!!135248.cpp!!!	setTitulo(in titulo : std::string, in autor : std::string) : void
-    UtilLog::setAutor(autor);
-    UtilLog::setProjeto(titulo);
-    carregar();
-    setTitulo(titulo);
+!!!134992.cpp!!!	GBF()
+    numscreenshot = 0;
+    pathBase      = "";
+    fps           = true;
+    setDefaultPath(true);
+!!!135504.cpp!!!	atualizar() : void
+    try {
+        fpsSystem->processar();
+        /*
+        if (isFPS()){
+            writeSystem->getFonte("console")->setAlpha(180);
+            writeSystem->escrever("console",5,0,"FPS: %i",fpsSystem->getFPS());
+            writeSystem->getFonte("console")->setAlpha(255);
+        }
+        */
+        controleInterno();
+        inputSystemCore->processar();
+        graphicSystemCore->flip();
+    } catch(...){
+        UtilLog::tracer("SDL: %s", SDL_GetError());
+        UtilLog::tracer("SDL_Image: %s", IMG_GetError());
+        UtilLog::tracer("SDL_Mixer: %s", Mix_GetError());
+    }
+!!!136144.cpp!!!	getPath() : std::string
+    return pathBase;
 !!!135376.cpp!!!	iniciar(in width : int, in height : int, in bpp_color : int, in full : bool) : void
     UtilLog::cabecalho("Inicializando Framework");
     UtilLog::tracer("Inicializando ModoGráfico");
@@ -46,11 +60,9 @@ class GBF
 
     graphicSystemCore->iniciar();
     inputSystemCore->iniciar();
+    soundSystemCore->iniciar(22050,AUDIO_S16SYS,CANAL_STEREO,2048,16);
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
-
-    //Inicializando Sistema de Audio
-    soundSystem->iniciar(22050,AUDIO_S16SYS,CANAL_STEREO,2048,16);
 
     //Carregando Fontes Padrões
     UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
@@ -66,28 +78,14 @@ class GBF
     fpsSystem->start();
 
     UtilLog::cabecalho("Iniciando Ambiente para Escopo do Jogo");
-!!!135504.cpp!!!	atualizar() : void
-    try {
-        fpsSystem->processar();
-        /*
-        if (isFPS()){
-            writeSystem->getFonte("console")->setAlpha(180);
-            writeSystem->escrever("console",5,0,"FPS: %i",fpsSystem->getFPS());
-            writeSystem->getFonte("console")->setAlpha(255);
-        }
-        */
-        controleInterno();
-        inputSystemCore->processar();
-        graphicSystemCore->flip();
-    } catch(...){
-        UtilLog::tracer("SDL: %s", SDL_GetError());
-        UtilLog::tracer("SDL_Image: %s", IMG_GetError());
-        UtilLog::tracer("SDL_Mixer: %s", Mix_GetError());
-    }
-!!!135760.cpp!!!	setFPS(in show : bool) : void
-    fps=show;
+!!!136272.cpp!!!	isDefaultPath() : bool
+    return defaultPath;
 !!!135888.cpp!!!	isFPS() : bool
     return fps;
+!!!136400.cpp!!!	setDefaultPath(in ativo : bool) : void
+    defaultPath=ativo;
+!!!135760.cpp!!!	setFPS(in show : bool) : void
+    fps=show;
 !!!136016.cpp!!!	setPath(inout fullPath : char) : void
     pathBase=UtilExtract::extractPath(fullPath);
 
@@ -97,32 +95,11 @@ class GBF
         SoundSystemInterfaceManager::setPathBase(pathBase);
         UserInterfaceTexto::setPathBase(pathBase);
     }
-!!!136144.cpp!!!	getPath() : std::string
-    return pathBase;
-!!!136272.cpp!!!	isDefaultPath() : bool
-    return defaultPath;
-!!!136400.cpp!!!	setDefaultPath(in ativo : bool) : void
-    defaultPath=ativo;
-!!!136528.cpp!!!	controleInterno() : void
-    //F10 = Alterna entre modo de controle exclusivo
-    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){
-        inputSystemCore->alternarControleExclusivo();
-    //F11 = Alterna entre modo tela Cheia e Janela
-    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)){
-        if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
-            //UtilLog::getInstance()->inicializando("GBF :: Aviso");
-            //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
-        }
-    //F12 = Salva um screen do jogo
-    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)){
-        char tela[255];
-        numscreenshot++;
-        sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
-        graphicSystemCore->salvarScreenShot(tela);
-    //F5 = Tira o Som
-    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)){
-        //audio.Mute();
-    }
+!!!135248.cpp!!!	setTitulo(in titulo : std::string, in autor : std::string) : void
+    UtilLog::setAutor(autor);
+    UtilLog::setProjeto(titulo);
+    carregar();
+    setTitulo(titulo);
 !!!136784.cpp!!!	carregar() : void
     //Inicializando Log
     UtilLog::iniciar();
@@ -145,8 +122,28 @@ class GBF
     inputSystemCore = new InputSystemCore();
 
     //Inicializando Audio
-    soundSystem = SoundSystem::getInstance();
+    soundSystemCore = new SoundSystemCore();
 
     UtilLog::cabecalho("Carregamento Completo do Framework");
+!!!136528.cpp!!!	controleInterno() : void
+    //F10 = Alterna entre modo de controle exclusivo
+    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){
+        inputSystemCore->alternarControleExclusivo();
+    //F11 = Alterna entre modo tela Cheia e Janela
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)){
+        if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
+            //UtilLog::getInstance()->inicializando("GBF :: Aviso");
+            //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
+        }
+    //F12 = Salva um screen do jogo
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)){
+        char tela[255];
+        numscreenshot++;
+        sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
+        graphicSystemCore->salvarScreenShot(tela);
+    //F5 = Tira o Som
+    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)){
+        //audio.Mute();
+    }
 !!!136656.cpp!!!	setTitulo(in titulo : std::string) : void
     SDL_WM_SetCaption(titulo.c_str(),NULL);

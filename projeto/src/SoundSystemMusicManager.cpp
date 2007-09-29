@@ -17,9 +17,9 @@
 SoundSystemMusicManager::~SoundSystemMusicManager() 
 {
     UtilLog::subSistema("Removendo SoundSystemMusicManager");
+    Mix_HaltMusic();
     std::map<std::string,SoundSystemMusic*>::iterator it;
 
-    Mix_HaltMusic();
     for (it=objetomap.begin();it!=objetomap.end(); it++){
         try {
             UtilLog::tracer("SoundMusic=%s",((*it).first).c_str());
@@ -32,11 +32,13 @@ SoundSystemMusicManager::~SoundSystemMusicManager()
     }
     objetomap.clear();
 }
-//Toca uma música
-void SoundSystemMusicManager::play(std::string nome) 
+//Remove uma música do gerenciador
+void SoundSystemMusicManager::apagar(std::string nome) 
 {
-    if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
-        objetomap[nome]->play();
+    if (objetomap[nome]){
+        delete(objetomap[nome]);
+        objetomap[nome]=NULL;
+        objetomap.erase(nome);
     }
 }
 //Carregar um arquivo de música para o gerenciador
@@ -56,15 +58,6 @@ void SoundSystemMusicManager::carregar(std::string nome, std::string arquivo)
         UtilLog::comentario("[Falhou]");
     }
 }
-//Remove uma música do gerenciador
-void SoundSystemMusicManager::apagar(std::string nome) 
-{
-    if (objetomap[nome]){
-        delete(objetomap[nome]);
-        objetomap[nome]=NULL;
-        objetomap.erase(nome);
-    }
-}
 //Pausa a música
 void SoundSystemMusicManager::pause() 
 {
@@ -73,21 +66,11 @@ void SoundSystemMusicManager::pause()
     	Mix_PauseMusic();
     }
 }
-//Continuar a tocar a música
-void SoundSystemMusicManager::resume() 
-{
-    if (status->isAtivo()){
-        Mix_ResumeMusic();
-    }
-}
-//Toca uma música uma certa quantidade de vezes
-void SoundSystemMusicManager::playLoop(const std::string & nome, int vezes) 
+//Toca uma música
+void SoundSystemMusicManager::play(std::string nome) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
-        if (musicaTocando!=nome){
-            objetomap[nome]->playLoop(vezes);
-            musicaTocando=nome;
-        }
+        objetomap[nome]->play();
     }
 }
 //Toca uma música de repetitiva
@@ -100,6 +83,30 @@ void SoundSystemMusicManager::playInfinity(const std::string & nome)
         }
     }
 }
+//Toca uma música uma certa quantidade de vezes
+void SoundSystemMusicManager::playLoop(const std::string & nome, int vezes) 
+{
+    if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
+        if (musicaTocando!=nome){
+            objetomap[nome]->playLoop(vezes);
+            musicaTocando=nome;
+        }
+    }
+}
+//Continuar a tocar a música
+void SoundSystemMusicManager::resume() 
+{
+    if (status->isAtivo()){
+        Mix_ResumeMusic();
+    }
+}
+//Configura o volume do som
+void SoundSystemMusicManager::setVolume(std::string nome, int volume) 
+{
+    if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
+        objetomap[nome]->setVolume(volume);
+    }
+}
 //Para uma música
 void SoundSystemMusicManager::stop(const std::string & nome) 
 {
@@ -109,13 +116,7 @@ void SoundSystemMusicManager::stop(const std::string & nome)
     }
 }
 //Construtor
-SoundSystemMusicManager::SoundSystemMusicManager(SoundSystemStatus * status):SoundSystemInterfaceManager(status){
-    UtilLog::subSistema("Instanciando SoundSystemMusicManager");
-}
-//Configura o volume do som
-void SoundSystemMusicManager::setVolume(std::string nome, int volume) 
+SoundSystemMusicManager::SoundSystemMusicManager() 
 {
-    if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
-        objetomap[nome]->setVolume(volume);
-    }
+    UtilLog::subSistema("Instanciando SoundSystemMusicManager");
 }

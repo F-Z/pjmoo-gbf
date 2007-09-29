@@ -1,5 +1,21 @@
-class SoundSystemCore
-!!!166480.cpp!!!	~SoundSystemCore()
+////    GBF - Gamework's Brazilian Framework
+////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////
+////    This library is free software; you can redistribute it and/or
+////    modify it under the terms of the GNU Library General Public
+////    License as published by the Free Software Foundation; either
+////    version 2 of the License, or (at your option) any later version.
+////
+////    David de Almeida Ferreira (F-Z)
+////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+////        http://pjmoo.codigolivre.org.br
+////////////////////////////////////////////////////////////////////////
+
+#include "SoundSystemCore.h"
+
+//Destrutor
+SoundSystemCore::~SoundSystemCore() 
+{
     UtilLog::sistema("Removendo SoundSystem");
 
     delete(soundSystem);
@@ -7,7 +23,10 @@ class SoundSystemCore
 
     Mix_CloseAudio();
     SDL_QuitSubSystem(SDL_INIT_AUDIO);
-!!!166736.cpp!!!	iniciar(in frequencia : int = 22050, in formato : Uint16 = AUDIO_S16SYS, in canal : SoundSystemCanal = CANAL_STEREO, in cache : Uint16 = 2048, in quantidadeCanais : int = 16) : void
+}
+//Inicializa o sistema de som
+void SoundSystemCore::iniciar(int frequencia, Uint16 formato, SoundSystemCanal canal, Uint16 cache, int quantidadeCanais) 
+{
     bool hardware = false;
 
     if (status->isAtivo()) {
@@ -27,11 +46,17 @@ class SoundSystemCore
 
     soundSystem = SoundSystem::getInstance();
     SoundSystemUtility::setSoundSystem(soundSystem);
-!!!166864.cpp!!!	setMute(in mute : bool) : void
+}
+//Configura sistema sonoro para parar o som
+void SoundSystemCore::setMute(bool mute) 
+{
     if (status->isAtivo()){
         status->setMute(mute);
     }
-!!!166992.cpp!!!	SoundSystemCore()
+}
+//Construtor
+SoundSystemCore::SoundSystemCore() 
+{
     UtilLog::sistema("Instanciando SoundSystem");
     bool hardware = false;
 
@@ -45,3 +70,4 @@ class SoundSystemCore
     status->setAtivo(hardware);
 
 
+}

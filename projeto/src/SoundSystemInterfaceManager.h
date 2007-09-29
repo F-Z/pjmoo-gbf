@@ -14,9 +14,9 @@
 #ifndef _SOUNDSYSTEMINTERFACEMANAGER_H
 #define _SOUNDSYSTEMINTERFACEMANAGER_H
 
-#include "SoundSystemStatus.h"
 #include <string>
 
+#include "SoundSystemStatus.h"
 #include "UtilLog.h"
 
 //Descrição: 
@@ -25,23 +25,23 @@
 //    Fornecer uma interface padrão para gerenciamento de som
 class SoundSystemInterfaceManager {
   public:
-    //Construtor
-    SoundSystemInterfaceManager(SoundSystemStatus * status);
-
     //Destrutor
     virtual ~SoundSystemInterfaceManager();
 
-    //Toca um som
-    virtual void play(std::string nome) = 0;
-
-    //Carrega no manager o arquivo de som
-    virtual void carregar(std::string nome, std::string arquivo) = 0;
+    //Construtor
+    SoundSystemInterfaceManager();
 
     //Apaga o arquivo de som do gerenciador
     virtual void apagar(std::string nome) = 0;
 
+    //Carrega no manager o arquivo de som
+    virtual void carregar(std::string nome, std::string arquivo) = 0;
+
     //Pausa o sistema de som
     virtual void pause() = 0;
+
+    //Toca um som
+    virtual void play(std::string nome) = 0;
 
     //Continua a tocar o som
     virtual void resume() = 0;
@@ -54,10 +54,15 @@ class SoundSystemInterfaceManager {
     static void setPathBase(std::string path);
 
 
-  protected:
-    SoundSystemStatus * status;
+  private:
+    static void setStatus(SoundSystemStatus * instance);
 
+
+  protected:
     static std::string pathBase;
 
+    static SoundSystemStatus * status;
+
+  friend class SoundSystemCore;
 };
 #endif

@@ -9,58 +9,36 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef _SOUNDSYSTEM_H
 #define _SOUNDSYSTEM_H
 
-#include "SoundSystemMusicManager.h"
 #include "SoundSystemFxManager.h"
-#include "SoundSystemStatus.h"
-#include "UtilLog.h"
-#include "GBF_define.h"
+#include "SoundSystemMusicManager.h"
 
-//Descrição: 
-//    Valores para indicação dos canais de audio
-//Motivação:
-//    Fornecer um conjunto de valores para configuração do modo de audio
-enum SoundSystemCanal {
-  CANAL_MONO = 1,
-  CANAL_STEREO =2
-
-};
-//Descrição: 
-//    Classe para inicialização e gerenciamento do sistema de som
-//Motivação:
-//    Gerenciar o uso do sistema de som
-class SoundSystem {
+class SoundSystem
+{
   public:
     //Destrutor
-    virtual ~SoundSystem();
+    ~SoundSystem();
 
     //Retorna uma instância de SoundSystem
     static SoundSystem * getInstance();
 
-    //Inicializa o sistema de som
-    void iniciar(int frequencia, Uint16 formato, SoundSystemCanal canal, Uint16 cache, int quantidadeCanais);
 
-    //Configura sistema sonoro para parar o som
-    void setMute(bool mute);
-
-    SoundSystemMusicManager * musicManager;
-
-    SoundSystemFxManager * fxManager;
+  private:
+    SoundSystem();
 
 
   protected:
-    SoundSystemStatus * status;
-
-
-  private:
-    //Construtor
-    SoundSystem();
+    SoundSystemFxManager * fxManager;
 
     static SoundSystem * instance;
 
+    SoundSystemMusicManager * musicManager;
+
+  friend class SoundSystemCore;
 };
 #endif

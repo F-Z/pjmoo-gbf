@@ -5,7 +5,7 @@
 		<Option title="GBF Framework" />
 		<Option pch_mode="0" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="GraphicSystem/;UserInterface/;InputSystem/;" />
+		<Option virtualFolders="GraphicSystem/;UserInterface/;InputSystem/;SoundSystem/;GBFCore/;ParticleSystem/;" />
 		<Build>
 			<Target title="linux - release">
 				<Option output="bin/linux/release/libGBF.a" prefix_auto="0" extension_auto="0" />
@@ -102,9 +102,15 @@
 		<Unit filename="src/GATMaquinaEstadoMenu.h" />
 		<Unit filename="src/GATMaquinaEstadoTopGaleria.cpp" />
 		<Unit filename="src/GATMaquinaEstadoTopGaleria.h" />
-		<Unit filename="src/GBF.cpp" />
-		<Unit filename="src/GBF.h" />
-		<Unit filename="src/GBF_define.h" />
+		<Unit filename="src/GBF.cpp">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/GBF.h">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/GBF_define.h">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
 		<Unit filename="src/GraphicSystem.cpp">
 			<Option virtualFolder="GraphicSystem/" />
 		</Unit>
@@ -209,16 +215,36 @@
 		<Unit filename="src/ListPersonagemJogadorAbstract.h" />
 		<Unit filename="src/ObjectManager.cpp" />
 		<Unit filename="src/ObjectManager.h" />
-		<Unit filename="src/ParticleSystemEfeito.cpp" />
-		<Unit filename="src/ParticleSystemEfeito.h" />
-		<Unit filename="src/ParticleSystemEfeitoEsferico.cpp" />
-		<Unit filename="src/ParticleSystemEfeitoEsferico.h" />
-		<Unit filename="src/ParticleSystemManager.cpp" />
-		<Unit filename="src/ParticleSystemManager.h" />
-		<Unit filename="src/ParticleSystemPixel.cpp" />
-		<Unit filename="src/ParticleSystemPixel.h" />
-		<Unit filename="src/ParticleSystemSprite.cpp" />
-		<Unit filename="src/ParticleSystemSprite.h" />
+		<Unit filename="src/ParticleSystemEfeito.cpp">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemEfeito.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemEfeitoEsferico.cpp">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemEfeitoEsferico.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemManager.cpp">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemManager.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemPixel.cpp">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemPixel.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemSprite.cpp">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
+		<Unit filename="src/ParticleSystemSprite.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
 		<Unit filename="src/PersonagemAbstract.cpp" />
 		<Unit filename="src/PersonagemAbstract.h" />
 		<Unit filename="src/PersonagemAutomatico.cpp" />
@@ -227,20 +253,60 @@
 		<Unit filename="src/PersonagemControlado.h" />
 		<Unit filename="src/PersonagemEstatico.cpp" />
 		<Unit filename="src/PersonagemEstatico.h" />
-		<Unit filename="src/SoundSystem.cpp" />
-		<Unit filename="src/SoundSystem.h" />
-		<Unit filename="src/SoundSystemFx.cpp" />
-		<Unit filename="src/SoundSystemFx.h" />
-		<Unit filename="src/SoundSystemFxManager.cpp" />
-		<Unit filename="src/SoundSystemFxManager.h" />
-		<Unit filename="src/SoundSystemInterfaceManager.cpp" />
-		<Unit filename="src/SoundSystemInterfaceManager.h" />
-		<Unit filename="src/SoundSystemMusic.cpp" />
-		<Unit filename="src/SoundSystemMusic.h" />
-		<Unit filename="src/SoundSystemMusicManager.cpp" />
-		<Unit filename="src/SoundSystemMusicManager.h" />
-		<Unit filename="src/SoundSystemStatus.cpp" />
-		<Unit filename="src/SoundSystemStatus.h" />
+		<Unit filename="src/SoundSystem.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystem.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemCore.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemCore.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemFx.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemFx.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemFxManager.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemFxManager.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemInterfaceManager.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemInterfaceManager.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemMusic.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemMusic.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemMusicManager.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemMusicManager.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemStatus.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemStatus.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemUtility.cpp">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
+		<Unit filename="src/SoundSystemUtility.h">
+			<Option virtualFolder="SoundSystem/" />
+		</Unit>
 		<Unit filename="src/SpriteAbstract.cpp" />
 		<Unit filename="src/SpriteAbstract.h" />
 		<Unit filename="src/SpriteFactory.cpp" />
