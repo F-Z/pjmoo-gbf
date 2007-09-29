@@ -1,7 +1,7 @@
 format 38
 "GBF" // Framework GBF::GBF
-  revision 14
-  modified_by 48 "david"
+  revision 15
+  modified_by 118 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -171,172 +171,6 @@ ${inlines}
 Motivação:
      Prover de forma unificada a inicialização e configuração básica do framework
  "
-      operation 134992 "GBF"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	comment "Construtor"
-      end
-
-      operation 135120 "~GBF"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	comment "Destrutor"
-      end
-
-      operation 135248 "setTitulo"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "titulo" explicit_type "std::string"
-	  param in name "autor" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Informação sobre o Autor e o Título da Aplicação.
-Obs.: Usado para arquivo de log e título da janela"
-      end
-
-      operation 135376 "iniciar"
-	public explicit_return_type "void"
-	nparams 4
-	  param in name "width" explicit_type "int"
-	  param in name "height" explicit_type "int"
-	  param in name "bpp_color" explicit_type "int"
-	  param in name "full" explicit_type "bool"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Inicializa o Sistema, e configura o modo gráfico"
-      end
-
-      operation 135504 "atualizar"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
-desenha na tela o conteúdo do backbuffer
-Obs.: Deve ser usado na interação do loop principal do jogo"
-      end
-
-      operation 135632 "pausar"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Pausa o Sistema"
-      end
-
-      operation 135760 "setFPS"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "show" explicit_type "bool"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Mostra o Contador de FPS"
-      end
-
-      operation 135888 "isFPS"
-	public explicit_return_type "bool"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Informa se o mostrador de FPS está ativo"
-      end
-
-      operation 136016 "setPath"
-	public explicit_return_type "void"
-	nparams 1
-	  param inout name "fullPath" explicit_type "char"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Informa o caminho do diretório base da aplicação corrente"
-      end
-
-      operation 136144 "getPath"
-	public explicit_return_type "std::string"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Retorna o diretório base da aplicação corrente"
-      end
-
-      operation 136272 "isDefaultPath"
-	public explicit_return_type "bool"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-      end
-
-      operation 136400 "setDefaultPath"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "ativo" explicit_type "bool"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-      end
-
       classrelation 129616 // graphicSystemCore (<unidirectional association>)
 	relation 129616 --->
 	  a role_name "graphicSystemCore" multiplicity "" public
@@ -356,6 +190,15 @@ ${body}}"
 	  b multiplicity "" parent class_ref 129488 // InputSystemCore
       end
 
+      classrelation 130000 // soundSystemCore (<unidirectional association>)
+	relation 130000 --->
+	  a role_name "soundSystemCore" multiplicity "" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 130000 // soundSystemCore (<unidirectional association>)
+	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
+      end
+
       classrelation 129872 // writeSystem (<unidirectional association>)
 	relation 129872 --->
 	  a role_name "writeSystem" multiplicity "" public
@@ -365,16 +208,213 @@ ${body}}"
 	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
       end
 
-      classrelation 130000 // soundSystem (<unidirectional association>)
-	relation 130000 --->
-	  a role_name "soundSystem" multiplicity "" public
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+      operation 135120 "~GBF"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
-	    classrelation_ref 130000 // soundSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129744 // SoundSystem
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	comment "Destrutor"
       end
 
-      attribute 128336 "fps"
+      operation 134992 "GBF"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	comment "Construtor"
+      end
+
+      operation 135504 "atualizar"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
+desenha na tela o conteúdo do backbuffer
+Obs.: Deve ser usado na interação do loop principal do jogo"
+      end
+
+      operation 136144 "getPath"
+	public explicit_return_type "std::string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Retorna o diretório base da aplicação corrente"
+      end
+
+      operation 135376 "iniciar"
+	public explicit_return_type "void"
+	nparams 4
+	  param in name "width" explicit_type "int"
+	  param in name "height" explicit_type "int"
+	  param in name "bpp_color" explicit_type "int"
+	  param in name "full" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Inicializa o Sistema, e configura o modo gráfico"
+      end
+
+      operation 136272 "isDefaultPath"
+	public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+      end
+
+      operation 135888 "isFPS"
+	public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Informa se o mostrador de FPS está ativo"
+      end
+
+      operation 135632 "pausar"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Pausa o Sistema"
+      end
+
+      operation 136400 "setDefaultPath"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "ativo" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+      end
+
+      operation 135760 "setFPS"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "show" explicit_type "bool"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Mostra o Contador de FPS"
+      end
+
+      operation 136016 "setPath"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "fullPath" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Informa o caminho do diretório base da aplicação corrente"
+      end
+
+      operation 135248 "setTitulo"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "titulo" explicit_type "std::string"
+	  param in name "autor" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Informação sobre o Autor e o Título da Aplicação.
+Obs.: Usado para arquivo de log e título da janela"
+      end
+
+      operation 136784 "carregar"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Prepara o Ambiente para ser inicializado "
+      end
+
+      operation 136528 "controleInterno"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Controle para ações internas"
+      end
+
+      operation 136656 "setTitulo"
+	protected explicit_return_type "void"
+	nparams 1
+	  param in name "titulo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Define o Título para Janela "
+      end
+
+      attribute 128720 "defaultPath"
 	private explicit_type "bool"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -382,23 +422,7 @@ ${body}}"
 	idl_decl ""
       end
 
-      attribute 128464 "numscreenshot"
-	private explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 128592 "pathBase"
-	private explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	idl_decl ""
-      end
-
-      attribute 128720 "defaultPath"
+      attribute 128336 "fps"
 	private explicit_type "bool"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
@@ -415,44 +439,20 @@ ${body}}"
 	  b multiplicity "" parent class_ref 129872 // TimerSystemFPS
       end
 
-      operation 136528 "controleInterno"
-	protected explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+      attribute 128464 "numscreenshot"
+	private explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Controle para ações internas"
+	java_decl ""
+	idl_decl ""
       end
 
-      operation 136784 "carregar"
-	protected explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+      attribute 128592 "pathBase"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Prepara o Ambiente para ser inicializado "
-      end
-
-      operation 136656 "setTitulo"
-	protected explicit_return_type "void"
-	nparams 1
-	  param in name "titulo" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	comment "Define o Título para Janela "
+	java_decl ""
+	idl_decl ""
       end
 
       classrelation 143952 // <dependency>

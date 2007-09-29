@@ -18,15 +18,6 @@ SoundSystemStatus::~SoundSystemStatus()
 {
 
 }
-//Retorna uma instância de SoundSystemStatus
-SoundSystemStatus * SoundSystemStatus::getInstance()
-{
-    if (instance == NULL){
-        instance = new SoundSystemStatus();
-    }
-
-    return instance;
-}
 //Verifica se sistema de som está funcionando
 bool SoundSystemStatus::isAtivo() 
 {
@@ -38,13 +29,6 @@ bool SoundSystemStatus::isMute()
 {
     return mute;
 }
-//Configura o sistema de som
-void SoundSystemStatus::setMute(bool mute) 
-{
-    if (ativo){
-        this->mute=mute;
-    }
-}
 //Configurar se o sistema de som está funcionando
 void SoundSystemStatus::setAtivo(bool ativo) 
 {
@@ -54,11 +38,16 @@ void SoundSystemStatus::setAtivo(bool ativo)
         mute=true;
     }
 }
+//Configura o sistema de som
+void SoundSystemStatus::setMute(bool mute) 
+{
+    if (ativo){
+        this->mute=mute;
+    }
+}
 //Construtor
 SoundSystemStatus::SoundSystemStatus() 
 {
     ativo = false;
     mute  = false;
 }
-SoundSystemStatus * SoundSystemStatus::instance = NULL;
-

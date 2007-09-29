@@ -13,26 +13,30 @@
 
 #include "SoundSystemInterfaceManager.h"
 
-//Construtor
-SoundSystemInterfaceManager::SoundSystemInterfaceManager(SoundSystemStatus * status) 
+//Destrutor
+SoundSystemInterfaceManager::~SoundSystemInterfaceManager() 
 {
-    this->status=status;
-
+    status = NULL;
+}
+//Construtor
+SoundSystemInterfaceManager::SoundSystemInterfaceManager() 
+{
     if (status->isAtivo()){
         //UtilLog::getInstance()->status("[Ok]");
     } else {
         //UtilLog::getInstance()->status("[Falhou]");
     }
 }
-//Destrutor
-SoundSystemInterfaceManager::~SoundSystemInterfaceManager() 
-{
-    status = NULL;
-}
 //Informa PathBase para leitura de arquivos
 void SoundSystemInterfaceManager::setPathBase(std::string path)
 {
     pathBase=path;
 }
+void SoundSystemInterfaceManager::setStatus(SoundSystemStatus * instance)
+{
+    status = instance;
+}
 std::string SoundSystemInterfaceManager::pathBase;
+
+SoundSystemStatus * SoundSystemInterfaceManager::status =NULL;
 

@@ -12,31 +12,11 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "SoundSystem.h"
+#include "SoundSystemUtility.h"
 
-//Destrutor
-SoundSystem::~SoundSystem() 
-{
-    if (musicManager){
-        delete(musicManager);
-    }
-    if (fxManager){
-        delete(fxManager);
-    }
-}
-//Retorna uma instância de SoundSystem
-SoundSystem * SoundSystem::getInstance()
-{
-    if (instance == NULL){
-        instance = new SoundSystem();
-    }
+SoundSystem * SoundSystemUtility::soundSystem =NULL;
 
-    return instance;
-}
-SoundSystem::SoundSystem() 
+void SoundSystemUtility::setSoundSystem(SoundSystem * instance)
 {
-    musicManager = new SoundSystemMusicManager();
-    fxManager    = new SoundSystemFxManager();
+    soundSystem=instance;
 }
-SoundSystem * SoundSystem::instance;
-

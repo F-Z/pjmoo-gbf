@@ -1,9 +1,9 @@
 class SoundSystemMusicManager
 !!!171216.cpp!!!	~SoundSystemMusicManager()
     UtilLog::subSistema("Removendo SoundSystemMusicManager");
+    Mix_HaltMusic();
     std::map<std::string,SoundSystemMusic*>::iterator it;
 
-    Mix_HaltMusic();
     for (it=objetomap.begin();it!=objetomap.end(); it++){
         try {
             UtilLog::tracer("SoundMusic=%s",((*it).first).c_str());

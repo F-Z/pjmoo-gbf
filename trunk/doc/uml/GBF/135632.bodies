@@ -1,12 +1,6 @@
 class SoundSystemStatus
 !!!172496.cpp!!!	~SoundSystemStatus()
 
-!!!172624.cpp!!!	getInstance() : SoundSystemStatus
-    if (instance == NULL){
-        instance = new SoundSystemStatus();
-    }
-
-    return instance;
 !!!172752.cpp!!!	isAtivo() : bool
 
     return ativo;

@@ -16,7 +16,6 @@
 
 #include <string>
 
-#include "SoundSystemStatus.h"
 #include <map>
 
 #include "SoundSystemFx.h"
@@ -62,7 +61,7 @@ class SoundSystemFxManager : public SoundSystemInterfaceManager {
 
   private:
     //Construtor
-    SoundSystemFxManager(SoundSystemStatus * status);
+    SoundSystemFxManager();
 
 
   protected:

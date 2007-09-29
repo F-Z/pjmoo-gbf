@@ -23,11 +23,6 @@ SoundSystemFx::~SoundSystemFx()
     }
 //	UtilLog::getInstance()->status("[SoundFx Removido(a)]");   
 }
-//Toca Efeto sonoro
-int SoundSystemFx::play() 
-{
-    return Mix_PlayChannel(-1,efeito,0);
-}
 //Lê arquivo de efeito sonoro
 bool SoundSystemFx::carregarArquivo(std::string arquivo) 
 {
@@ -39,6 +34,11 @@ bool SoundSystemFx::carregarArquivo(std::string arquivo)
 //        UtilLog::getInstance()->comentario("arquivo=%s [Falhou]",arquivo.c_str());    
 		return false;   
 	}
+}
+//Toca Efeto sonoro
+int SoundSystemFx::play() 
+{
+    return Mix_PlayChannel(-1,efeito,0);
 }
 //Configura o volume do efeito, 
 //Obs.: Valor de 0 ate 128

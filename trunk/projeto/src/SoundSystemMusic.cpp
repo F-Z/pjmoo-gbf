@@ -20,23 +20,6 @@ SoundSystemMusic::~SoundSystemMusic()
     musica = NULL;
     //UtilLog::getInstance()->status("[SoundMusic Removido(a)]");
 }
-//Toca Música de Fundo
-void SoundSystemMusic::play() 
-{
-    Mix_PlayMusic(musica, 0);
-}
-//Toca Música de Fundo várias vezes
-void SoundSystemMusic::playLoop(int vezes) 
-{
-
-	Mix_PlayMusic(musica, vezes);
-
-}
-//Toca Música de Fundo de forma infinita
-void SoundSystemMusic::playInfinity() 
-{
-    playLoop(-1);
-}
 //Lê arquivo de música
 bool SoundSystemMusic::carregarArquivo(std::string arquivo) 
 {
@@ -47,6 +30,23 @@ bool SoundSystemMusic::carregarArquivo(std::string arquivo)
     } else {
         return false;
     }
+}
+//Toca Música de Fundo
+void SoundSystemMusic::play() 
+{
+    Mix_PlayMusic(musica, 0);
+}
+//Toca Música de Fundo de forma infinita
+void SoundSystemMusic::playInfinity() 
+{
+    playLoop(-1);
+}
+//Toca Música de Fundo várias vezes
+void SoundSystemMusic::playLoop(int vezes) 
+{
+
+	Mix_PlayMusic(musica, vezes);
+
 }
 //Configura o volume da música
 //Obs.: Valor de 0 ate 128 
