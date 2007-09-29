@@ -1,7 +1,7 @@
 format 38
 "UserInterface" // Framework GBF::UserInterface
-  revision 21
-  modified_by 56 "david"
+  revision 23
+  modified_by 82 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -194,11 +194,9 @@ ${inlines}
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "//Construtor
-
-${comment}${inline}${class}::${name}${(}${)}${throw}{
-${body}}
-"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
 	
 	
 	comment "Construtor"
@@ -430,7 +428,7 @@ ${body}}"
 
       classrelation 129317 // botao (<unidirectional association>)
 	relation 129317 --->
-	  a role_name "botao" multiplicity "" protected
+	  a role_name "botao" multiplicity "" init_value "=NULL" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129317 // botao (<unidirectional association>)
