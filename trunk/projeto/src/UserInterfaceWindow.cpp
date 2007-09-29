@@ -17,25 +17,24 @@
 const int UserInterfaceWindow::BOTAO_OK =1;
 
 //Construtor
-
-//Construtor
-UserInterfaceWindow::UserInterfaceWindow(){
+UserInterfaceWindow::UserInterfaceWindow() 
+{
     espacoAntesTexto=0;
+    botao = NULL;
     textoAlinhamento=TEXTO_NORMAL;
 
     tempoEspera.setTempoOriginal(1);
     tempoEspera.setUnidade(TEMPO_MEIO);
     tempoEspera.setResetar();
 }
-
 //Destrutor
 
 //Destrutor
 UserInterfaceWindow::~UserInterfaceWindow(){
-    if (visual!=NULL){
+    if (visual){
         delete(visual);
     }
-    if (botao!=NULL){
+    if (botao){
         delete(botao);
     }
 }
@@ -86,8 +85,9 @@ int UserInterfaceWindow::confirmarSelecao()
 {
     int selecionado = -1;
 
-    if (((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))&&
-        (tempoEspera.isTerminou())){
+    if (((botao==NULL)
+        ||(((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))))
+        &&(tempoEspera.isTerminou())){
         tempoEspera.setResetar();
         selecionado=BOTAO_OK;
     }
