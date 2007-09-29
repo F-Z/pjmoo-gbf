@@ -32,11 +32,15 @@ class SoundSystem
     SoundSystem();
 
 
-  protected:
+  public:
     SoundSystemFxManager * fxManager;
 
+
+  protected:
     static SoundSystem * instance;
 
+
+  public:
     SoundSystemMusicManager * musicManager;
 
   friend class SoundSystemCore;
