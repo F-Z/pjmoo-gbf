@@ -2,6 +2,7 @@ format 38
 
 classcanvas 128601 class_ref 132176 // GraphicSystemImageBufferManager
   draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
   xyz 14 36 3005
   end
 classcanvas 129497 class_ref 134224 // ParticleSystemEfeito
@@ -14,23 +15,27 @@ classcanvas 129812 class_ref 140240 // UserInterfaceMenuTexto
   end
 classcanvas 129881 class_ref 128089 // GraphicSystemUtility
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
   xyz 446 203 2000
   end
 classcanvas 129940 class_ref 131152 // GraphicSystemGFX
   draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
   xyz 22 274 2004
   end
 classcanvas 130196 class_ref 128113 // GraphicSystem
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
   xyz 230 146 3005
   end
 classcanvas 130521 class_ref 129360 // GraphicSystemCore
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
   xyz 581 7 2000
   end
 classcanvas 131092 class_ref 128549 // UserInterfaceVisual
   draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 558 315 2000
+  xyz 559 318 2000
   end
 relationcanvas 128048 relation_ref 128048 // <dependency>
   from ref 130521 z 1999 to ref 129881
@@ -55,7 +60,7 @@ relationcanvas 130009 relation_ref 128089 // <unidirectional association>
   from ref 129881 z 1999 to point 397 234
   line 130088 z 1999 to point 397 184
   line 130216 z 1999 to ref 130196
-  role_a_pos 384 168 3000 no_role_b
+  role_a_pos 362 168 3000 no_role_b
   multiplicity_a_pos 362 193 3000 no_multiplicity_b
 relationcanvas 130137 relation_ref 128217 // <generalisation>
   geometry HV
@@ -65,8 +70,8 @@ relationcanvas 130137 relation_ref 128217 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130265 relation_ref 128345 // <generalisation>
   geometry VHV
-  from ref 131092 z 1999 to point 621 290
-  line 129064 z 1999 to point 514 290
+  from ref 131092 z 1999 to point 622 291
+  line 129064 z 1999 to point 514 291
   line 129192 z 1999 to ref 129881
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b

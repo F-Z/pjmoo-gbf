@@ -13,9 +13,11 @@
 
 #include "ParticleSystemSprite.h"
 
+//Construtor
 ParticleSystemSprite::ParticleSystemSprite() 
 {
 }
+//Destrutor
 ParticleSystemSprite::~ParticleSystemSprite() 
 {
     for (unsigned int i=0; i<lista.size(); i++){
@@ -34,23 +36,21 @@ void ParticleSystemSprite::desenhar()
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size(); i++){
-            if (!lista[i]->isAnimacaoFim()){
+            if (!lista[i]->animacao.isInicio()){
                 lista[i]->desenhar();
             }
         }
     }
-
 }
+//Verifica se terminou a animação de todos os sprites
 bool ParticleSystemSprite::isTerminou() 
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size();i++){
-            if (!lista[i]->isAnimacaoFim()){
+            if (!lista[i]->animacao.isFim()){
                 return false;
             }
         }
     }
     return true;
-
-
 }

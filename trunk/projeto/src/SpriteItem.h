@@ -12,19 +12,19 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "SpriteAbstract.h"
-#include "GBF_define.h"
+#include "Sprite.h"
 
-class SpriteItem : public SpriteAbstract
+//Depreciado - observar para remover classe - utilize agora apenas Sprite ou SpritePersonagem
+class SpriteItem : public Sprite
 {
   public:
     //Destrutor 
     virtual ~SpriteItem();
 
-    void setPosicao(Ponto ponto);
-
+    //Depreciado - observar para remover metodo
     virtual void desenhar(int x, int y);
 
     //Construtor 

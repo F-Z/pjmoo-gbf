@@ -9,6 +9,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "SpriteItem.h"
@@ -18,18 +19,15 @@ SpriteItem::~SpriteItem()
 {
 
 }
-void SpriteItem::setPosicao(Ponto ponto) 
-{
-    SpriteAbstract::setPosicao(ponto.x,ponto.y);
-}
+//Depreciado - observar para remover metodo
 void SpriteItem::desenhar(int x, int y) 
 {
-    quadro.x= (0)* (tamanho.w * frameTotal);
+    animacao.ajustarCorte(0,tamanho.w);
 
-    SpriteAbstract::desenhar(x,y);
+    Sprite::desenhar(x,y);
 }
 //Construtor 
 SpriteItem::SpriteItem() 
 {
-    automatico=false;
+
 }

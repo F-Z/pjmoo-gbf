@@ -16,23 +16,26 @@
 
 #include "ParticleSystemEfeito.h"
 #include <deque>
-#include "SpriteAbstract.h"
+#include "Sprite.h"
 
 class ParticleSystemSprite : public ParticleSystemEfeito
 {
   public:
+    //Construtor
     ParticleSystemSprite();
 
+    //Destrutor
     virtual ~ParticleSystemSprite();
 
     //Desenha todas as unidades
     virtual void desenhar();
 
+    //Verifica se terminou a animação de todos os sprites
     virtual bool isTerminou();
 
 
   protected:
-    std::deque<SpriteAbstract *> lista;
+    std::deque<Sprite *> lista;
 
 };
 #endif

@@ -9,16 +9,17 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "SpritePersonagem.h"
 
-//Destrutor 
-SpritePersonagem::~SpritePersonagem() 
+//Destrutor
+SpritePersonagem::~SpritePersonagem()
 {
 
 }
-void SpritePersonagem::setDirecao(DIRECAO DIR) 
+void SpritePersonagem::setDirecao(SpriteDirecao DIR)
 {
     switch (qtdDirecao){
         case 8:
@@ -55,31 +56,31 @@ void SpritePersonagem::setDirecao(DIRECAO DIR)
             break;
     }
 
-    animarManual();
+    animacao.processarManual();
 }
-void SpritePersonagem::setQtdDirecoes(int QTD) 
+void SpritePersonagem::setQtdDirecoes(int QTD)
 {
     qtdDirecao=QTD;
 }
-void SpritePersonagem::desenhar(int x, int y) 
+void SpritePersonagem::desenhar(int x, int y)
 {
-    quadro.x= (direcao) * (tamanho.w * frameTotal);
+    animacao.ajustarCorte(direcao,tamanho.w);
 
-    SpriteAbstract::desenhar(x,y);
+    Sprite::desenhar(x,y);
 }
-//Retorna a quantidade de direções que o personagem possui 
-int SpritePersonagem::getQtdDirecoes() 
+//Retorna a quantidade de direções que o personagem possui
+int SpritePersonagem::getQtdDirecoes()
 {
     return qtdDirecao;
 }
-DIRECAO SpritePersonagem::getDirecao() 
+SpriteDirecao SpritePersonagem::getDirecao()
 {
     return direcao;
 }
 //Construtor
-SpritePersonagem::SpritePersonagem() 
+SpritePersonagem::SpritePersonagem()
 {
     direcao=DR_CIMA;
-    automatico=false;
     qtdDirecao=4;
+    animacao.setAutomatico(true);
 }

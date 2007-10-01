@@ -12,10 +12,11 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "FrameLayerMundo.h"
 #include "GBF_define.h"
+#include "FrameLayerMundo.h"
 
 class FrameLayerCamera
 {
@@ -23,40 +24,20 @@ class FrameLayerCamera
     //Destrutor
     virtual ~FrameLayerCamera();
 
-    //Construtor
-    FrameLayerCamera();
-
-    void setMundo(FrameLayerMundo mundo);
-
-    //Mostra o posicionamento da camera no mapa 
-    void show();
-
-    //Posiciona a Camera em um ponto do Mapa 
-    void setPosicao(int X, int Y);
-
-    //Posiciona a Camera no inicio do mapa 
-    void setTop();
-
-    //Posiciona a Camera no Final do mapa 
-    void setBottom();
-
     //Retorna a Posição Atual da Camera 
     Ponto getPosicao();
-
-    //Verifica se a Camera está no limite superior do mapa
-    bool isTop();
 
     //Verifica se a Camera está no limite inferior do mapa 
     bool isBottom();
 
-    //Verifica se a Camera está no limite direito do mapa 
-    bool isRight();
-
     //Verifica se a Camera está no limite esquerdo do mapa 
     bool isLeft();
 
-    //Movimenta camera para Cima 
-    void runUp(int deslocamento);
+    //Verifica se a Camera está no limite direito do mapa 
+    bool isRight();
+
+    //Verifica se a Camera está no limite superior do mapa
+    bool isTop();
 
     //Movimenta camera para Baixo 
     void runDown(int deslocamento);
@@ -67,11 +48,22 @@ class FrameLayerCamera
     //Movimenta camera para Direita 
     void runRight(int deslocamento);
 
+    //Movimenta camera para Cima 
+    void runUp(int deslocamento);
 
-  private:
-    Ponto ponto;
+    //Posiciona a Camera no Final do mapa 
+    void setBottom();
 
-    FrameLayerMundo mundo;
+    void setMundo(FrameLayerMundo * mundo);
+
+    //Posiciona a Camera em um ponto do Mapa 
+    void setPosicao(int X, int Y);
+
+    //Posiciona a Camera no inicio do mapa 
+    void setTop();
+
+    //Mostra o posicionamento da camera no mapa 
+    void show();
 
 
   protected:
@@ -86,6 +78,16 @@ class FrameLayerCamera
 
     //Não permite que a camera ultrapasse o limite do mapa pelo lado direito 
     void limiteRight();
+
+
+  private:
+    FrameLayerMundo * mundo;
+
+    Ponto ponto;
+
+  friend class FrameLayer;
+    //Construtor
+    FrameLayerCamera();
 
 };
 #endif

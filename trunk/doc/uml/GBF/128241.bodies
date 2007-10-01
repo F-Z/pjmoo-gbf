@@ -1,0 +1,57 @@
+class Animacao
+!!!128497.cpp!!!	Animacao()
+    automatico = false;
+
+    frame.atual = 0;
+    frame.total = 0;
+
+    repeticao.atual = 0;
+    repeticao.total = 0;
+!!!128376.cpp!!!	ajustarCorte(in direcao : int, in largura : int) : void
+    areaCorte.x = (direcao) * (largura * frame.total);
+!!!174800.cpp!!!	isFim() : bool
+//verificar se deve-se utilizar 'repeticao.total
+//    if ((frame.atual==frame.total-1) && (repetica.atual==repeticao.total)){
+    if (frame.atual==frame.total-1){
+        return true;
+    } else {
+        return false;
+    }
+!!!174672.cpp!!!	isInicio() : bool
+    if (frame.atual==0){
+        return true;
+    } else {
+        return false;
+    }
+!!!128248.cpp!!!	getQuadro() : SDL_Rect
+    return areaCorte;
+!!!128753.cpp!!!	processar() : int
+    if (automatico){
+        animar();
+    }
+
+    return frame.atual;
+!!!173904.cpp!!!	processarManual() : void
+    animar();
+!!!128504.cpp!!!	setAreaCorte(in area : SDL_Rect) : void
+    areaCorte=area;
+!!!173648.cpp!!!	setAutomatico(in automatico : bool) : void
+    this->automatico=automatico;
+!!!128625.cpp!!!	setFrame(in quantidade : int, in taxaRepeticao : int) : void
+    frame.total     = quantidade;
+    repeticao.total = taxaRepeticao;
+!!!174928.cpp!!!	setInicio() : void
+    repeticao.atual = 0;
+    frame.atual     = 0;
+!!!173776.cpp!!!	animar() : int
+    repeticao.atual++;
+
+    if (repeticao.atual>repeticao.total){
+        frame.atual++;
+        if (frame.atual>=frame.total){
+            frame.atual = 0;
+        }
+        repeticao.atual = 0;
+    }
+
+    return frame.atual;

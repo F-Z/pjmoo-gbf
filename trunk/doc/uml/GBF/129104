@@ -1,7 +1,7 @@
 format 38
 "ParticleSystem" // Framework GBF::ParticleSystem
-  revision 8
-  modified_by 89 "david"
+  revision 9
+  modified_by 85 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -176,6 +176,7 @@ ${inlines}
 ${body}}"
 	
 	
+	comment "Construtor"
       end
 
       operation 128210 "~ParticleSystemSprite"
@@ -188,6 +189,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Destrutor"
       end
 
       operation 128442 "desenhar"
@@ -213,6 +215,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Verifica se terminou a animação de todos os sprites"
       end
 
       classrelation 128186 // <generalisation>
@@ -230,7 +233,8 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
 	    classrelation_ref 128698 // lista (<directional aggregation>)
-	  b multiplicity "" parent class_ref 136400 // SpriteAbstract
+	  b multiplicity "" parent class_ref 136400 // Sprite
+	  association_type class_ref 136400 // Sprite
       end
     end
 
