@@ -1,7 +1,7 @@
 class SpritePersonagem
 !!!176720.cpp!!!	~SpritePersonagem()
 
-!!!176848.cpp!!!	setDirecao(in DIR : DIRECAO) : void
+!!!176848.cpp!!!	setDirecao(in DIR : SpriteDirecao) : void
     switch (qtdDirecao){
         case 8:
         case 4:
@@ -37,18 +37,17 @@ class SpritePersonagem
             break;
     }
 
-    animarManual();
+    animacao.processarManual();
 !!!176976.cpp!!!	setQtdDirecoes(in QTD : int) : void
     qtdDirecao=QTD;
 !!!177104.cpp!!!	desenhar(in x : int, in y : int) : void
-    quadro.x= (direcao) * (tamanho.w * frameTotal);
+    animacao.ajustarCorte(direcao,tamanho.w);
 
-    SpriteAbstract::desenhar(x,y);
+    Sprite::desenhar(x,y);
 !!!177232.cpp!!!	getQtdDirecoes() : int
     return qtdDirecao;
-!!!177360.cpp!!!	getDirecao() : DIRECAO
+!!!177360.cpp!!!	getDirecao() : SpriteDirecao
     return direcao;
 !!!177488.cpp!!!	SpritePersonagem()
     direcao=DR_CIMA;
-    automatico=false;
     qtdDirecao=4;

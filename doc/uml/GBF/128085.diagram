@@ -1,0 +1,81 @@
+format 38
+
+classcanvas 128085 class_ref 136400 // Sprite
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
+  xyz 232 97 2000
+  end
+classcanvas 128213 class_ref 128058 // ParticleSystemSprite
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 7 219 2004
+  end
+classcanvas 129493 class_ref 128080 // FrameLayer
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
+  xyz 399 207 2005
+  end
+classcanvas 129621 class_ref 136528 // SpriteItem
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
+  xyz 147 308 2004
+  end
+classcanvas 129877 class_ref 134736 // SpritePersonagem
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color gray
+  xyz 259 307 2005
+  end
+classcanvas 130133 class_ref 128208 // SpriteInterface
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  color lightgray
+  xyz 301 15 3005
+  end
+classcanvas 131925 class_ref 133584 // PersonagemAbstract
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 217 437 2004
+  end
+relationcanvas 128341 relation_ref 128698 // <directional aggregation>
+  geometry VH
+  from ref 128213 z 1999 stereotype "<<std::deque>>" xyz 37 167 3000 to point 81 114
+  line 128981 z 1999 to ref 128085
+  role_a_pos 199 98 3000 no_role_b
+  multiplicity_a_pos 216 123 3000 no_multiplicity_b
+relationcanvas 129749 relation_ref 140240 // <generalisation>
+  geometry VHV
+  from ref 129621 z 1999 to point 186 219
+  line 130773 z 1999 to point 256 219
+  line 130901 z 1999 to ref 128085
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130005 relation_ref 140496 // <generalisation>
+  geometry VHV
+  from ref 129877 z 1999 to point 323 219
+  line 130517 z 1999 to point 256 219
+  line 130645 z 1999 to ref 128085
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130261 relation_ref 139728 // <generalisation>
+  geometry VHV
+  from ref 128085 z 1999 to point 256 82
+  line 131413 z 1999 to point 356 82
+  line 131541 z 1999 to ref 130133
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130389 relation_ref 128080 // <generalisation>
+  geometry VHV
+  from ref 129493 z 1999 to point 441 137
+  line 131157 z 1999 to point 356 137
+  line 131285 z 1999 to ref 130133
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 132053 relation_ref 152144 // <unidirectional association>
+  geometry VHV
+  from ref 131925 z 1999 stereotype "<<std::map>>" xyz 244 413 3000 to point 283 389
+  line 132181 z 1999 to point 323 389
+  line 132309 z 1999 to ref 129877
+  role_a_pos 335 352 3000 no_role_b
+  multiplicity_a_pos 297 352 3000 no_multiplicity_b
+line 128469 -_-_ geometry HVH
+  from ref 128341 z 1998 to point 155 165
+  line 131669 z 1998 to point 155 114
+  line 131797 z 1998 to ref 128085
+end

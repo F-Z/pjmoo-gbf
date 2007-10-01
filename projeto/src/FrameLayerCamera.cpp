@@ -9,6 +9,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "FrameLayerCamera.h"
@@ -16,71 +17,17 @@
 //Destrutor
 FrameLayerCamera::~FrameLayerCamera() 
 {
-
-}
-//Construtor
-FrameLayerCamera::FrameLayerCamera() 
-{
-    setTop();
-}
-void FrameLayerCamera::setMundo(FrameLayerMundo mundo) 
-{
-    this->mundo=mundo;
-}
-//Mostra o posicionamento da camera no mapa 
-void FrameLayerCamera::show() 
-{
-/*
-    GraphicSystemGFX *gfx = GraphicSystemGFX::getInstance();
-    gfx->setColor(0,255,0);
-    gfx->circulo(ponto.x,ponto.y,10);
-*/
-}
-//Posiciona a Camera em um ponto do Mapa 
-void FrameLayerCamera::setPosicao(int X, int Y) 
-{
-    ponto.x=X;
-    ponto.y=Y;
-}
-//Posiciona a Camera no inicio do mapa 
-void FrameLayerCamera::setTop() 
-{
-    ponto.x=0;
-    ponto.y=0;
-}
-//Posiciona a Camera no Final do mapa 
-void FrameLayerCamera::setBottom() 
-{
-    ponto.x=0;
-    ponto.y=(mundo.getTilesVertical() - mundo.getTilesHorizontal()) * (mundo.getPixelTileVertical());
+    mundo=NULL;
 }
 //Retorna a Posição Atual da Camera 
 Ponto FrameLayerCamera::getPosicao() 
 {
     return ponto;
 }
-//Verifica se a Camera está no limite superior do mapa
-bool FrameLayerCamera::isTop() 
-{
-    if (ponto.y<=0){
-        return true;
-    } else {
-        return false;
-    }
-}
 //Verifica se a Camera está no limite inferior do mapa 
 bool FrameLayerCamera::isBottom() 
 {
-    if (ponto.y>=(mundo.getTilesVertical() * mundo.getPixelTileVertical() - mundo.getPixelVisivelVertical())){
-        return true;
-    } else {
-        return false;
-    }
-}
-//Verifica se a Camera está no limite direito do mapa 
-bool FrameLayerCamera::isRight() 
-{
-    if (ponto.x>=(mundo.getTilesHorizontal() * mundo.getPixelTileHorizontal() - mundo.getPixelVisivelVertical())){
+    if (ponto.y>=(mundo->getTilesVertical() * mundo->getPixelTileVertical() - mundo->getPixelVisivelVertical())){
         return true;
     } else {
         return false;
@@ -95,11 +42,23 @@ bool FrameLayerCamera::isLeft()
         return false;
     }
 }
-//Movimenta camera para Cima 
-void FrameLayerCamera::runUp(int deslocamento) 
+//Verifica se a Camera está no limite direito do mapa 
+bool FrameLayerCamera::isRight() 
 {
-    ponto.y-=deslocamento;
-    limiteUp();
+    if (ponto.x>=(mundo->getTilesHorizontal() * mundo->getPixelTileHorizontal() - mundo->getPixelVisivelVertical())){
+        return true;
+    } else {
+        return false;
+    }
+}
+//Verifica se a Camera está no limite superior do mapa
+bool FrameLayerCamera::isTop() 
+{
+    if (ponto.y<=0){
+        return true;
+    } else {
+        return false;
+    }
 }
 //Movimenta camera para Baixo 
 void FrameLayerCamera::runDown(int deslocamento) 
@@ -119,6 +78,43 @@ void FrameLayerCamera::runRight(int deslocamento)
     ponto.x+=deslocamento;
     limiteRight();
 }
+//Movimenta camera para Cima 
+void FrameLayerCamera::runUp(int deslocamento) 
+{
+    ponto.y-=deslocamento;
+    limiteUp();
+}
+//Posiciona a Camera no Final do mapa 
+void FrameLayerCamera::setBottom() 
+{
+    ponto.x=0;
+    ponto.y=(mundo->getTilesVertical() - mundo->getTilesHorizontal()) * (mundo->getPixelTileVertical());
+}
+void FrameLayerCamera::setMundo(FrameLayerMundo * mundo) 
+{
+    this->mundo=mundo;
+}
+//Posiciona a Camera em um ponto do Mapa 
+void FrameLayerCamera::setPosicao(int X, int Y) 
+{
+    ponto.x=X;
+    ponto.y=Y;
+}
+//Posiciona a Camera no inicio do mapa 
+void FrameLayerCamera::setTop() 
+{
+    ponto.x=0;
+    ponto.y=0;
+}
+//Mostra o posicionamento da camera no mapa 
+void FrameLayerCamera::show() 
+{
+/*
+    GraphicSystemGFX *gfx = GraphicSystemGFX::getInstance();
+    gfx->setColor(0,255,0);
+    gfx->circulo(ponto.x,ponto.y,10);
+*/
+}
 //Não permite que a camera ultrapasse o limite do mapa pelo lado superior 
 void FrameLayerCamera::limiteUp() 
 {
@@ -129,7 +125,7 @@ void FrameLayerCamera::limiteUp()
 //Não permite que a camera ultrapasse o limite do mapa pelo lado inferior 
 void FrameLayerCamera::limiteDown() 
 {
-    int limite = (mundo.getTilesVertical() * mundo.getPixelTileVertical()) - mundo.getPixelVisivelVertical();
+    int limite = (mundo->getTilesVertical() * mundo->getPixelTileVertical()) - mundo->getPixelVisivelVertical();
     if (ponto.y>=limite){
         ponto.y =limite;
     }
@@ -144,8 +140,13 @@ void FrameLayerCamera::limiteLeft()
 //Não permite que a camera ultrapasse o limite do mapa pelo lado direito 
 void FrameLayerCamera::limiteRight() 
 {
-    int limite = (mundo.getTilesHorizontal() * mundo.getPixelTileHorizontal()) - mundo.getPixelVisivelHorizontal();
+    int limite = (mundo->getTilesHorizontal() * mundo->getPixelTileHorizontal()) - mundo->getPixelVisivelHorizontal();
     if (ponto.x>=limite){
         ponto.x =limite;
     }
+}
+//Construtor
+FrameLayerCamera::FrameLayerCamera() 
+{
+    setTop();
 }

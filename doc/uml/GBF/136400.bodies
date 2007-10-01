@@ -1,81 +1,40 @@
-class SpriteAbstract
-!!!173392.cpp!!!	~SpriteAbstract()
-
-!!!173520.cpp!!!	setPosicao(in x : int, in y : int) : void
-    posicao.x=x;
-    posicao.y=y;
-!!!173648.cpp!!!	setAutomatico(in AUTOMATICO : bool) : void
-    automatico=AUTOMATICO;
-!!!173776.cpp!!!	animar() : int
-    frameAtual++;
-    if (frameAtual>frameRate){
-        frameAtual=0;
-        frameRateAtual++;
-        if (frameRateAtual>=frameTotal){
-            frameRateAtual=0;
-        } else if (frameRateAtual < 0){
-            frameRateAtual=0;
-        }
-    }
-    return frameRateAtual;
-!!!173904.cpp!!!	animarManual() : void
-    animar();
+class Sprite
 !!!174032.cpp!!!	criar(in left : int, in top : int, in largura : int, in altura : int, in quantitadeQuadro : int, in repeticaoQuadro : int, inout gsiBuffer : GraphicSystemImageBuffer) : void
+    //chama o metodo criar da classe superclasse - SpriteInterface
     SpriteInterface::criar(left, top, largura, altura, gsiBuffer);
-    frameTotal = quantitadeQuadro;
-    frameRate  = repeticaoQuadro;
+    //configura as informações de animação
+    animacao.setFrame(quantitadeQuadro,repeticaoQuadro);
 !!!174160.cpp!!!	desenhar(in x : int, in y : int) : void
     posicao.x=x;
     posicao.y=y;
-    SDL_Rect t=tamanho;
-    t.x+=quadro.x;
+    SDL_Rect pontoCorte=tamanho;
+    pontoCorte.x+=animacao.getQuadro().x;
 
-    if (automatico){
-        animar();
-    }
-
-    imagem->desenhar(posicao,t,frameRateAtual);
-!!!174288.cpp!!!	desenhar() : void
+    imagem->desenhar(posicao,pontoCorte,animacao.processar());
+!!!128085.cpp!!!	desenhar() : void
     desenhar(posicao.x,posicao.y);
-!!!174416.cpp!!!	isColisao(inout SPRITECOLISAO : SpriteAbstract) : bool
-    if ((posicao.x + tamanho.w >= SPRITECOLISAO->posicao.x)&&
-        (posicao.x <= SPRITECOLISAO->posicao.x + SPRITECOLISAO->tamanho.w)&&
-        (posicao.y + tamanho.h >= SPRITECOLISAO->posicao.y)&&
-        (posicao.y <= SPRITECOLISAO->posicao.y + SPRITECOLISAO->tamanho.h)){
-            //FILE* fp = fopen("sprite.log", "a");
-            //if (!fp){ return false; }
-            //fprintf(fp,"( %i + %i >= %i)\r\n",posicao.x,tamanho.w,SPRITECOLISAO->posicao.x);
-            //fprintf(fp,"(%i <= %i + %i)\r\n",posicao.x , SPRITECOLISAO->posicao.x , SPRITECOLISAO->tamanho.w);
-            //fprintf(fp,"(%i + %i >= %i)\r\n",posicao.y , tamanho.h , SPRITECOLISAO->posicao.y);
-            //fprintf(fp,"(%i <= %i + %i)\r\n",posicao.y , SPRITECOLISAO->posicao.y, SPRITECOLISAO->tamanho.h);
-            //fclose(fp);
-            return true;
-    } else {
-        return false;
-    }
 !!!174544.cpp!!!	getTamanho() : Dimensao
     Dimensao dimensao;
     dimensao.w=tamanho.w;
     dimensao.h=tamanho.h;
 
     return  dimensao;
-!!!174672.cpp!!!	isAnimacaoInicio() : bool
-    if (frameAtual==0){
-        return true;
+!!!174416.cpp!!!	isColisao(in spriteColisao : Sprite) : bool
+    if ((posicao.x + tamanho.w >= spriteColisao->posicao.x)&&
+        (posicao.x <= spriteColisao->posicao.x + spriteColisao->tamanho.w)&&
+        (posicao.y + tamanho.h >= spriteColisao->posicao.y)&&
+        (posicao.y <= spriteColisao->posicao.y + spriteColisao->tamanho.h)){
+            return true;
     } else {
         return false;
     }
-!!!174800.cpp!!!	isAnimacaoFim() : bool
-    if (frameRateAtual==frameTotal-1){
-        return true;
-    } else {
-        return false;
-    }
-!!!174928.cpp!!!	setAnimacaoInicio() : void
-
-    frameRateAtual=0;
-!!!175056.cpp!!!	SpriteAbstract()
+!!!176336.cpp!!!	setPosicao(in ponto : Ponto) : void
+    setPosicao(ponto.x,ponto.y);
+!!!173520.cpp!!!	setPosicao(in x : int, in y : int) : void
+    posicao.x=x;
+    posicao.y=y;
+!!!175056.cpp!!!	Sprite()
     tamanho.x = tamanho.y = tamanho.h = tamanho.w = 0;
     posicao.x = posicao.y = posicao.h = posicao.w = 0;
 
-    automatico = true;
+    animacao.setAutomatico(true);

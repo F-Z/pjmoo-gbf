@@ -1,19 +1,21 @@
-format 29
+format 38
 
 classcanvas 128080 class_ref 133840 // ListPersonagemJogadorAbstract
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 159824 // ~ListPersonagemJogadorAbstract
     operation_ref 159952 // ListPersonagemJogadorAbstract
-  xyz 297 38 2000
+  xyz 317 38 2000
+  end
 classcanvas 128208 class_ref 133712 // ListPersonagemAutomaticoAbstract
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 159568 // ~ListPersonagemAutomaticoAbstract
     operation_ref 159696 // ListPersonagemAutomaticoAbstract
-  xyz 22 38 2000
+  xyz 31 38 2000
+  end
 classcanvas 128336 class_ref 133328 // ListPersonagemAbstract
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 157904 // ListPersonagemAbstract
     operation_ref 158032 // ~ListPersonagemAbstract
@@ -29,8 +31,9 @@ classcanvas 128336 class_ref 133328 // ListPersonagemAbstract
     operation_ref 159312 // executar
     operation_ref 159440 // ordenar
   xyz 186 117 2005
+  end
 classcanvas 128720 class_ref 133584 // PersonagemAbstract
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_attributes
     attribute_ref 138448 // ativo
     attribute_ref 138576 // vivo
@@ -55,32 +58,36 @@ classcanvas 128720 class_ref 133584 // PersonagemAbstract
     operation_ref 194128 // getSprite
     operation_ref 164944 // PersonagemAbstract
   xyz 359 192 3005
+  end
 classcanvas 129104 class_ref 134864 // PersonagemAutomatico
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 165200 // PersonagemAutomatico
     operation_ref 165328 // ~PersonagemAutomatico
     operation_ref 165584 // acao
   xyz 466 259 2000
+  end
 classcanvas 129360 class_ref 135120 // PersonagemEstatico
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 166224 // PersonagemEstatico
     operation_ref 166352 // ~PersonagemEstatico
     operation_ref 193616 // acao
   xyz 365 309 2005
+  end
 classcanvas 129616 class_ref 134992 // PersonagemControlado
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 165712 // PersonagemControlado
     operation_ref 165840 // ~PersonagemControlado
     operation_ref 166096 // acao
   xyz 232 259 2000
+  end
 fragment 130640 "Personagem - Base para Personagens"
   xyzwh 13 9 1994 603 362
 end
 classcanvas 130768 class_ref 133456 // ObjectManager
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_operations
     operation_ref 160080 // ObjectManager
     operation_ref 160208 // ~ObjectManager
@@ -90,15 +97,16 @@ classcanvas 130768 class_ref 133456 // ObjectManager
     operation_ref 160720 // acao
     operation_ref 160848 // ordenar
   xyz 30 120 2000
+  end
 relationcanvas 128464 relation_ref 135760 // <generalisation>
   geometry VHr
-  from ref 128080 z 1999 to point 249 54
+  from ref 128080 z 1999 to point 263 55
   line 132304 z 1999 to ref 128336
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128592 relation_ref 135632 // <generalisation>
   geometry HV
-  from ref 128208 z 1999 to point 249 54
+  from ref 128208 z 1999 to point 263 55
   line 132176 z 1999 to ref 128336
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b

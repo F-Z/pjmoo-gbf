@@ -5,7 +5,7 @@
 		<Option title="GBF Framework" />
 		<Option pch_mode="0" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="GraphicSystem/;UserInterface/;InputSystem/;SoundSystem/;GBFCore/;ParticleSystem/;" />
+		<Option virtualFolders="GraphicSystem/;UserInterface/;InputSystem/;SoundSystem/;GBFCore/;ParticleSystem/;Sprite/;" />
 		<Build>
 			<Target title="linux - release">
 				<Option output="bin/linux/release/libGBF.a" prefix_auto="0" extension_auto="0" />
@@ -82,14 +82,30 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Unit filename="src/FrameLayer.cpp" />
-		<Unit filename="src/FrameLayer.h" />
-		<Unit filename="src/FrameLayerCamera.cpp" />
-		<Unit filename="src/FrameLayerCamera.h" />
-		<Unit filename="src/FrameLayerManager.cpp" />
-		<Unit filename="src/FrameLayerManager.h" />
-		<Unit filename="src/FrameLayerMundo.cpp" />
-		<Unit filename="src/FrameLayerMundo.h" />
+		<Unit filename="src/FrameLayer.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayer.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayerCamera.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayerCamera.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayerManager.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayerManager.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayerMundo.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/FrameLayerMundo.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
 		<Unit filename="src/GAT.cpp" />
 		<Unit filename="src/GAT.h" />
 		<Unit filename="src/GATMaquinaEstado.cpp" />
@@ -307,16 +323,36 @@
 		<Unit filename="src/SoundSystemUtility.h">
 			<Option virtualFolder="SoundSystem/" />
 		</Unit>
-		<Unit filename="src/SpriteAbstract.cpp" />
-		<Unit filename="src/SpriteAbstract.h" />
-		<Unit filename="src/SpriteFactory.cpp" />
-		<Unit filename="src/SpriteFactory.h" />
-		<Unit filename="src/SpriteInterface.cpp" />
-		<Unit filename="src/SpriteInterface.h" />
-		<Unit filename="src/SpriteItem.cpp" />
-		<Unit filename="src/SpriteItem.h" />
-		<Unit filename="src/SpritePersonagem.cpp" />
-		<Unit filename="src/SpritePersonagem.h" />
+		<Unit filename="src/Sprite.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/Sprite.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpriteFactory.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpriteFactory.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpriteInterface.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpriteInterface.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpriteItem.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpriteItem.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpritePersonagem.cpp">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
+		<Unit filename="src/SpritePersonagem.h">
+			<Option virtualFolder="Sprite/" />
+		</Unit>
 		<Unit filename="src/TimerSystemCronometroAbstract.cpp" />
 		<Unit filename="src/TimerSystemCronometroAbstract.h" />
 		<Unit filename="src/TimerSystemCronometroCrescente.cpp" />

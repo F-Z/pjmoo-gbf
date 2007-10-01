@@ -13,20 +13,17 @@ class ParticleSystemSprite
 !!!128442.cpp!!!	desenhar() : void
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size(); i++){
-            if (!lista[i]->isAnimacaoFim()){
+            if (!lista[i]->animacao.isInicio()){
                 lista[i]->desenhar();
             }
         }
     }
-
 !!!128186.cpp!!!	isTerminou() : bool
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size();i++){
-            if (!lista[i]->isAnimacaoFim()){
+            if (!lista[i]->animacao.isFim()){
                 return false;
             }
         }
     }
     return true;
-
-

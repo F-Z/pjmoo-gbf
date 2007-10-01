@@ -1,6 +1,5 @@
 class FrameLayer
 !!!128080.cpp!!!	FrameLayer()
-    automatico=false;
     mapa=NULL;
 !!!128208.cpp!!!	~FrameLayer()
     delete[] mapa;
@@ -86,6 +85,85 @@ class FrameLayer
         corte.y=tamanho.y;
         corte.h=tamanho.h;
     }
+!!!128976.cpp!!!	getArea() : Area
+    return screen_dimensao;
+!!!129744.cpp!!!	getDistanciaScrollVertical() : int
+    Ponto ponto = camera.getPosicao();
+
+    return ponto.y;
+!!!129616.cpp!!!	getPorcentagemScrollHorizontal() : int
+    return 0;
+!!!129488.cpp!!!	getPorcentagemScrollVertical() : int
+    Dimensao tilesMundo = mundo.getTiles();
+    Ponto ponto         = camera.getPosicao();
+
+    int total = tilesMundo.h * mundo.getPixelTileVertical();
+    total = 100-int((100*ponto.y)/total);
+    return total;
+!!!129872.cpp!!!	getTotalScrollVertical() : int
+    Dimensao tilesMundo = mundo.getTiles();
+    Ponto ponto         = camera.getPosicao();
+
+    return int(tilesMundo.h * mundo.getPixelTileVertical());
+!!!129104.cpp!!!	iniciarArquivo(in arquivo : std::string) : void
+    FILE *handleArquivo;
+    handleArquivo = fopen(arquivo.c_str(),"rb");
+    Dimensao tilesMundo = mundo.getTiles();
+
+    if (handleArquivo){
+        fread(mapa,sizeof(mapa),(tilesMundo.w*tilesMundo.h), handleArquivo);
+    }
+    fclose(handleArquivo);
+
+    camera.setMundo(&mundo);
+!!!128118.cpp!!!	iniciarCom(in quadro : int) : void
+    Dimensao tilesMundo   = mundo.getTiles();
+    int total = tilesMundo.w*tilesMundo.h;
+
+    for (int i=0; i<total; i++){
+        mapa[i]=quadro;
+    }
+
+    camera.setMundo(&mundo);
+!!!129360.cpp!!!	iniciarOrdenado(in quadroMaximo : int) : void
+    Dimensao tilesMundo   = mundo.getTiles();
+    int total = tilesMundo.w*tilesMundo.h;
+    int contador=0;
+
+    for (int i=0; i<total; i++){
+        mapa[i]=contador;
+        contador++;
+        if (contador>quadroMaximo){
+            contador=0;
+        }
+    }
+
+    camera.setMundo(&mundo);
+!!!129232.cpp!!!	iniciarRandomico(in range : int = 0) : void
+    Dimensao tilesMundo = mundo.getTiles();
+    int total = tilesMundo.w*tilesMundo.h;
+
+    for (int i=0; i<total; i++){
+        mapa[i]=rand()%range;
+    }
+
+    camera.setMundo(&mundo);
+!!!128592.cpp!!!	setFrame(in left : int, in top : int, in largura : int, in altura : int) : void
+    screen_dimensao.top    = top;
+    screen_dimensao.left   = left;
+    screen_dimensao.bottom = top  + altura;
+    screen_dimensao.right  = left + largura;
+
+    mundo.setPixelVisivel(largura,altura);
+!!!128720.cpp!!!	setTiles(in largura : int, in altura : int) : void
+    mundo.setTiles(largura,altura);
+
+    if (mapa!=NULL){
+        delete[] mapa;
+    }
+    mapa = new int[largura*altura];
+!!!128848.cpp!!!	setPixelTile(in largura : int, in altura : int) : void
+    mundo.setPixelTile(largura,altura);
 !!!128464.cpp!!!	showGrade() : void
 /*
     int offset_x, offset_y;
@@ -142,77 +220,3 @@ class FrameLayer
         linha_x+=tamanho.w;
     }
 */
-!!!128592.cpp!!!	setFrame(in left : int, in top : int, in largura : int, in altura : int) : void
-    screen_dimensao.top    = top;
-    screen_dimensao.left   = left;
-    screen_dimensao.bottom = top  + altura;
-    screen_dimensao.right  = left + largura;
-
-    mundo.setPixelVisivel(largura,altura);
-!!!128720.cpp!!!	setTiles(in largura : int, in altura : int) : void
-    mundo.setTiles(largura,altura);
-
-    if (mapa!=NULL){
-        delete[] mapa;
-    }
-    mapa = new int[largura*altura];
-!!!128848.cpp!!!	setPixelTile(in largura : int, in altura : int) : void
-    mundo.setPixelTile(largura,altura);
-!!!128976.cpp!!!	getArea() : Area
-    return screen_dimensao;
-!!!129104.cpp!!!	iniciarArquivo(in arquivo : std::string) : void
-    FILE *handleArquivo;
-    handleArquivo = fopen(arquivo.c_str(),"rb");
-    Dimensao tilesMundo = mundo.getTiles();
-
-    if (handleArquivo){
-    fread(mapa,sizeof(mapa),(tilesMundo.w*tilesMundo.h), handleArquivo);
-    }
-    fclose(handleArquivo);
-
-    camera.setMundo(mundo);
-!!!129232.cpp!!!	iniciarRandomico(in range : int = 0) : void
-    Dimensao tilesMundo = mundo.getTiles();
-
-    for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
-        mapa[i]=rand()%range;
-    }
-
-    camera.setMundo(mundo);
-!!!129360.cpp!!!	iniciarOrdenado(in quadroMaximo : int) : void
-    Dimensao tilesMundo   = mundo.getTiles();
-
-    int contador=0;
-    for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
-        mapa[i]=contador;
-        contador++;
-        if (contador>quadroMaximo){
-            contador=0;
-        }
-    }
-    camera.setMundo(mundo);
-!!!128118.cpp!!!	iniciarCom(in quadro : int) : void
-    Dimensao tilesMundo   = mundo.getTiles();
-
-    for (int i=0; i<(tilesMundo.w*tilesMundo.h); i++){
-        mapa[i]=quadro;
-    }
-    camera.setMundo(mundo);
-!!!129488.cpp!!!	getPorcentagemScrollVertical() : int
-    Dimensao tilesMundo = mundo.getTiles();
-    Ponto ponto         = camera.getPosicao();
-
-    int total = tilesMundo.h * mundo.getPixelTileVertical();
-    total = 100-int((100*ponto.y)/total);
-    return total;
-!!!129616.cpp!!!	getPorcentagemScrollHorizontal() : int
-    return 0;
-!!!129744.cpp!!!	getDistanciaScrollVertical() : int
-    Ponto ponto = camera.getPosicao();
-
-    return ponto.y;
-!!!129872.cpp!!!	getTotalScrollVertical() : int
-    Dimensao tilesMundo = mundo.getTiles();
-    Ponto ponto         = camera.getPosicao();
-
-    return int(tilesMundo.h * mundo.getPixelTileVertical());

@@ -2,7 +2,7 @@ format 38
 
 classcanvas 128118 class_ref 128246 // SoundSystemUtility
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 312 223 2000
+  xyz 312 235 2000
   end
 classcanvas 128246 class_ref 128118 // SoundSystem
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -28,8 +28,8 @@ relationcanvas 128374 relation_ref 128118 // <unidirectional association>
   multiplicity_a_pos 158 148 3000 no_multiplicity_b
 relationcanvas 128758 relation_ref 128630 // <unidirectional association>
   from ref 128118 z 1999 to ref 128246
-  role_a_pos 300 176 3000 no_role_b
-  multiplicity_a_pos 300 201 3000 no_multiplicity_b
+  role_a_pos 294 177 3000 no_role_b
+  multiplicity_a_pos 294 202 3000 no_multiplicity_b
 relationcanvas 129014 relation_ref 128502 // <directional aggregation>
   geometry HVH
   from ref 128886 z 1999 to point 363 37
@@ -43,8 +43,8 @@ relationcanvas 129142 relation_ref 129782 // <dependency>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129270 relation_ref 129910 // <dependency>
   geometry HV
-  from ref 128118 z 1999 to point 504 254
-  line 130806 z 1999 stereotype "<<friend>>" xyz 473 157 3000 to ref 128886
+  from ref 128118 z 1999 to point 504 266
+  line 130806 z 1999 stereotype "<<friend>>" xyz 473 163 3000 to ref 128886
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129398 relation_ref 129142 // <dependency>

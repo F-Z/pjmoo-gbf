@@ -9,6 +9,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "FrameLayerMundo.h"
@@ -17,14 +18,29 @@
 FrameLayerMundo::~FrameLayerMundo() 
 {
 }
-//Construtor
-FrameLayerMundo::FrameLayerMundo() 
+Dimensao FrameLayerMundo::getPixelTile() 
 {
+    return tile;
 }
-void FrameLayerMundo::setTiles(int largura, int altura) 
+int FrameLayerMundo::getPixelTileHorizontal() 
 {
-    quantidadeTiles.w=largura;
-    quantidadeTiles.h=altura;
+    return tile.w;
+}
+int FrameLayerMundo::getPixelTileVertical() 
+{
+    return tile.h;
+}
+Dimensao FrameLayerMundo::getPixelVisivel() 
+{
+    return areaVisivel;
+}
+int FrameLayerMundo::getPixelVisivelHorizontal() 
+{
+    return areaVisivel.w;
+}
+int FrameLayerMundo::getPixelVisivelVertical() 
+{
+    return areaVisivel.h;
 }
 Dimensao FrameLayerMundo::getTiles() 
 {
@@ -43,32 +59,17 @@ void FrameLayerMundo::setPixelTile(int largura, int altura)
     tile.w=largura;
     tile.h=altura;
 }
-Dimensao FrameLayerMundo::getPixelTile() 
-{
-    return tile;
-}
-int FrameLayerMundo::getPixelTileHorizontal() 
-{
-    return tile.w;
-}
-int FrameLayerMundo::getPixelTileVertical() 
-{
-    return tile.h;
-}
 void FrameLayerMundo::setPixelVisivel(int largura, int altura) 
 {
     areaVisivel.w=largura;
     areaVisivel.h=altura;
 }
-Dimensao FrameLayerMundo::getPixelVisivel() 
+void FrameLayerMundo::setTiles(int largura, int altura) 
 {
-    return areaVisivel;
+    quantidadeTiles.w=largura;
+    quantidadeTiles.h=altura;
 }
-int FrameLayerMundo::getPixelVisivelHorizontal() 
+//Construtor
+FrameLayerMundo::FrameLayerMundo() 
 {
-    return areaVisivel.w;
-}
-int FrameLayerMundo::getPixelVisivelVertical() 
-{
-    return areaVisivel.h;
 }
