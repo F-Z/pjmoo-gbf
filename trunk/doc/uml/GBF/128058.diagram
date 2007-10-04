@@ -35,10 +35,10 @@ classcanvas 130490 class_ref 134096 // HSV
   color gray
   xyz 38 320 3010
   end
-classcanvas 132282 class_ref 136400 // SpriteAbstract
+classcanvas 132282 class_ref 136400 // Sprite
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color gray
-  xyz 586 271 2005
+  xyz 614 234 2005
   end
 relationcanvas 128314 relation_ref 136784 // <unidirectional association>
   from ref 128186 z 1999 to point 521 10
@@ -81,7 +81,7 @@ relationcanvas 131130 relation_ref 128442 // <directional aggregation by value>
   role_a_pos 127 194 3000 no_role_b
   multiplicity_a_pos 127 219 3000 no_multiplicity_b
 relationcanvas 132666 relation_ref 128698 // <directional aggregation>
-  from ref 129338 z 1999 stereotype "<<std::deque>>" xyz 503 331 3000 to ref 132282
-  role_a_pos 553 343 3000 no_role_b
-  multiplicity_a_pos 570 368 3000 no_multiplicity_b
+  from ref 129338 z 1999 stereotype "<<std::deque>>" xyz 517 310 3000 to ref 132282
+  role_a_pos 581 291 3000 no_role_b
+  multiplicity_a_pos 598 316 3000 no_multiplicity_b
 end
