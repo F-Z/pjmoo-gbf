@@ -14,11 +14,11 @@
 #include "ParticleSystemSprite.h"
 
 //Construtor
-ParticleSystemSprite::ParticleSystemSprite() 
+ParticleSystemSprite::ParticleSystemSprite()
 {
 }
 //Destrutor
-ParticleSystemSprite::~ParticleSystemSprite() 
+ParticleSystemSprite::~ParticleSystemSprite()
 {
     for (unsigned int i=0; i<lista.size(); i++){
         try {
@@ -32,18 +32,18 @@ ParticleSystemSprite::~ParticleSystemSprite()
     lista.clear();
 }
 //Desenha todas as unidades
-void ParticleSystemSprite::desenhar() 
+void ParticleSystemSprite::desenhar()
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size(); i++){
-            if (!lista[i]->animacao.isInicio()){
+            if (!lista[i]->animacao.isFim()){
                 lista[i]->desenhar();
             }
         }
     }
 }
 //Verifica se terminou a animação de todos os sprites
-bool ParticleSystemSprite::isTerminou() 
+bool ParticleSystemSprite::isTerminou()
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size();i++){
