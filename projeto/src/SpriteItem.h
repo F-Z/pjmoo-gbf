@@ -21,14 +21,17 @@
 class SpriteItem : public Sprite
 {
   public:
+    //Construtor 
+    SpriteItem();
+
     //Destrutor 
     virtual ~SpriteItem();
 
     //Depreciado - observar para remover metodo
     virtual void desenhar(int x, int y);
 
-    //Construtor 
-    SpriteItem();
+    //Informa o quadro de animação
+    void setQuadro(int quadro);
 
 };
 #endif
