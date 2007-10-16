@@ -14,12 +14,12 @@
 
 #include "SpritePersonagem.h"
 
-//Destrutor
-SpritePersonagem::~SpritePersonagem()
+//Destrutor 
+SpritePersonagem::~SpritePersonagem() 
 {
 
 }
-void SpritePersonagem::setDirecao(SpriteDirecao DIR)
+void SpritePersonagem::setDirecao(SpriteDirecao DIR) 
 {
     switch (qtdDirecao){
         case 8:
@@ -58,29 +58,28 @@ void SpritePersonagem::setDirecao(SpriteDirecao DIR)
 
     animacao.processarManual();
 }
-void SpritePersonagem::setQtdDirecoes(int QTD)
+void SpritePersonagem::setQtdDirecoes(int QTD) 
 {
     qtdDirecao=QTD;
 }
-void SpritePersonagem::desenhar(int x, int y)
+void SpritePersonagem::desenhar(int x, int y) 
 {
     animacao.ajustarCorte(direcao,tamanho.w);
 
     Sprite::desenhar(x,y);
 }
-//Retorna a quantidade de direções que o personagem possui
-int SpritePersonagem::getQtdDirecoes()
+//Retorna a quantidade de direções que o personagem possui 
+int SpritePersonagem::getQtdDirecoes() 
 {
     return qtdDirecao;
 }
-SpriteDirecao SpritePersonagem::getDirecao()
+SpriteDirecao SpritePersonagem::getDirecao() 
 {
     return direcao;
 }
 //Construtor
-SpritePersonagem::SpritePersonagem()
+SpritePersonagem::SpritePersonagem() 
 {
     direcao=DR_CIMA;
     qtdDirecao=4;
-    animacao.setAutomatico(true);
 }
