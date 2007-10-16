@@ -34,26 +34,28 @@ class Animacao
     //Ajusta a area de corte do sprite - posicionamento nos frames
     void ajustarCorte(int direcao, int largura);
 
+    //Informa a quantidade de quadros e a taxa de repetição
+    void config(int quantidade, int taxaRepeticao);
+
     //Informa se animação está no fim - último frame
     bool isFim();
 
     //Informa se animação está no inicio - primeiro frame
     bool isInicio();
 
-    SDL_Rect getQuadro();
+    //Retorna a dimensão do quadro
+    SDL_Rect getDimensaoFrame();
 
     int processar();
 
     //Anima o sprite de forma manual, toda chamada a esse metodo anima o personagem 
     void processarManual();
 
-    void setAreaCorte(const SDL_Rect & area);
-
     //Define se a animação é automática ou manual 
     void setAutomatico(bool automatico);
 
-    //Informa a quantidade de quadros e a taxa de repetição
-    void setFrame(int quantidade, int taxaRepeticao);
+    //Define a dimensão do quadro
+    void setDimensaoFrame(const SDL_Rect & area);
 
     //Coloca a animação no primeiro frame
     void setInicio();
@@ -64,17 +66,19 @@ class Animacao
 
     SDL_Rect areaCorte;
 
+    Frame frame;
+
+    Frame repeticao;
+
+    //Informa o quadro a ser usado na animação
+    void setFrame(int quadro);
+
 
   private:
     //Anima o Sprite de forma automática 
     int animar();
 
-
-  protected:
-    Frame repeticao;
-
-    Frame frame;
-
+  friend class SpriteItem;
 };
 class SpriteInterface
 {

@@ -22,7 +22,6 @@ SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int 
 {
     SpriteItem *sprite = new SpriteItem();
     sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
-    sprite->setQuadro(0);
 
     return sprite;
 }

@@ -24,8 +24,14 @@ SpriteItem::~SpriteItem()
 {
 
 }
-//Informa o quadro de animação
-void SpriteItem::setQuadro(int quadro) 
+void SpriteItem::desenhar(int x, int y) 
 {
-    animacao.ajustarCorte(quadro,tamanho.w);
+    animacao.ajustarCorte(0,tamanho.w);
+
+    Sprite::desenhar(x,y);
+}
+//Informa o quadro de animação
+void SpriteItem::setFrame(int quadro) 
+{
+    animacao.setFrame(quadro);
 }
