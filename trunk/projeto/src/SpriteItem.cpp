@@ -14,6 +14,11 @@
 
 #include "SpriteItem.h"
 
+//Construtor 
+SpriteItem::SpriteItem() 
+{
+
+}
 //Destrutor 
 SpriteItem::~SpriteItem() 
 {
@@ -26,8 +31,8 @@ void SpriteItem::desenhar(int x, int y)
 
     Sprite::desenhar(x,y);
 }
-//Construtor 
-SpriteItem::SpriteItem() 
+//Informa o quadro de animação
+void SpriteItem::setQuadro(int quadro) 
 {
-
+    animacao.ajustarCorte(quadro,tamanho.w);
 }
