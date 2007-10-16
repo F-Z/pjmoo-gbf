@@ -1,7 +1,7 @@
 format 38
 "Sprite" // Framework GBF::Sprite
-  revision 23
-  modified_by 48 "david"
+  revision 27
+  modified_by 83 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -116,6 +116,21 @@ ${body}}"
 	comment "Ajusta a area de corte do sprite - posicionamento nos frames"
       end
 
+      operation 128625 "config"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "quantidade" explicit_type "int"
+	  param in name "taxaRepeticao" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Informa a quantidade de quadros e a taxa de repetição"
+      end
+
       operation 174800 "isFim"
 	public explicit_return_type "bool"
 	nparams 0
@@ -142,7 +157,7 @@ ${body}}"
 	comment "Informa se animação está no inicio - primeiro frame"
       end
 
-      operation 128248 "getQuadro"
+      operation 128248 "getDimensaoFrame"
 	public explicit_return_type "SDL_Rect"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
@@ -152,6 +167,7 @@ ${body}}"
 ${body}}"
 	
 	
+	comment "Retorna a dimensão do quadro"
       end
 
       operation 128753 "processar"
@@ -179,19 +195,6 @@ ${body}}"
 	comment "Anima o sprite de forma manual, toda chamada a esse metodo anima o personagem "
       end
 
-      operation 128504 "setAreaCorte"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "area" explicit_type "SDL_Rect"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-      end
-
       operation 173648 "setAutomatico"
 	public explicit_return_type "void"
 	nparams 1
@@ -206,19 +209,18 @@ ${body}}"
 	comment "Define se a animação é automática ou manual "
       end
 
-      operation 128625 "setFrame"
+      operation 128504 "setDimensaoFrame"
 	public explicit_return_type "void"
-	nparams 2
-	  param in name "quantidade" explicit_type "int"
-	  param in name "taxaRepeticao" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+	nparams 1
+	  param in name "area" explicit_type "SDL_Rect"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
 	
 	
-	comment "Informa a quantidade de quadros e a taxa de repetição"
+	comment "Define a dimensão do quadro"
       end
 
       operation 174928 "setInicio"
@@ -250,6 +252,38 @@ ${body}}"
 	idl_decl ""
       end
 
+      classrelation 128478 // frame (<directional aggregation by value>)
+	relation 128350 *-->
+	  a role_name "frame" multiplicity "1" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128478 // frame (<directional aggregation by value>)
+	  b multiplicity "" parent class_ref 128222 // Frame
+      end
+
+      classrelation 128222 // repeticao (<directional aggregation by value>)
+	relation 128222 *-->
+	  a role_name "repeticao" multiplicity "1" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128222 // repeticao (<directional aggregation by value>)
+	  b multiplicity "" parent class_ref 128222 // Frame
+      end
+
+      operation 128083 "setFrame"
+	protected explicit_return_type "void"
+	nparams 1
+	  param in name "quadro" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	comment "Informa o quadro a ser usado na animação"
+      end
+
       operation 173776 "animar"
 	private explicit_return_type "int"
 	nparams 0
@@ -263,22 +297,13 @@ ${body}}"
 	comment "Anima o Sprite de forma automática "
       end
 
-      classrelation 128222 // repeticao (<directional aggregation by value>)
-	relation 128222 *-->
-	  a role_name "repeticao" multiplicity "1" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 128222 // repeticao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128222 // Frame
-      end
-
-      classrelation 128478 // frame (<directional aggregation by value>)
-	relation 128350 *-->
-	  a role_name "frame" multiplicity "1" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 128478 // frame (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128222 // Frame
+      classrelation 128211 // <dependency>
+	relation 128211 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "#include in source"
+	    classrelation_ref 128211 // <dependency>
+	  b multiplicity "" parent class_ref 136528 // SpriteItem
       end
     end
 
@@ -692,13 +717,25 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
-      comment "Depreciado - observar para remover classe - utilize agora apenas Sprite ou SpritePersonagem"
       classrelation 140240 // <generalisation>
 	relation 140240 ---|>
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 140240 // <generalisation>
 	  b multiplicity "" parent class_ref 136400 // Sprite
+      end
+
+      operation 176592 "SpriteItem"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	comment "Construtor "
       end
 
       operation 176208 "~SpriteItem"
@@ -714,7 +751,7 @@ ${body}}"
 	comment "Destrutor "
       end
 
-      operation 176464 "desenhar"
+      operation 128211 "desenhar"
 	cpp_virtual public explicit_return_type "void"
 	nparams 2
 	  param in name "x" explicit_type "int"
@@ -726,20 +763,20 @@ ${body}}"
 ${body}}"
 	
 	
-	comment "Depreciado - observar para remover metodo"
       end
 
-      operation 176592 "SpriteItem"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+      operation 128109 "setFrame"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "quadro" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
 	
 	
-	comment "Construtor "
+	comment "Informa o quadro de animação"
       end
     end
 
@@ -837,7 +874,7 @@ ${body}}"
 
       classrelation 129393 // animacao (<directional aggregation by value>)
 	relation 129265 *-->
-	  a role_name "animacao" multiplicity "1" public
+	  a role_name "animacao" multiplicity "" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129393 // animacao (<directional aggregation by value>)
@@ -1583,7 +1620,7 @@ ${body}}"
 	relation 128304 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 128304 // <dependency>
 	  b multiplicity "" parent class_ref 128080 // FrameLayer
       end
@@ -1820,7 +1857,7 @@ ${body}}"
 	relation 128176 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 128176 // <dependency>
 	  b multiplicity "" parent class_ref 128080 // FrameLayer
       end

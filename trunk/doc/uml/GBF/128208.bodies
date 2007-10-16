@@ -9,4 +9,4 @@ class SpriteInterface
 
     imagem = gsiBuffer;
 
-    animacao.setAreaCorte(tamanho);
+    animacao.setDimensaoFrame(tamanho);

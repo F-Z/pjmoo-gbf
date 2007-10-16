@@ -3,7 +3,7 @@
     -_-> 2 "access" "import"
   end
   
-  class_stereotypes  18 "actor" "auxiliary" "boundary" "control" "entity" "enum" "enum_pattern" "exception" "focus" "implementation" "class" "interface" "metaclass" "struct" "type" "typedef" "union" "utility"
+  class_stereotypes  19 "actor" "auxiliary" "boundary" "control" "entity" "enum" "enum_pattern" "exception" "focus" "implementation" "class" "interface" "metaclass" "struct" "type" "typedef" "union" "utility" "STL"
     ---- 4 "std::vector" "std::list" "std::set" "std::deque"
     ---> 4 "std::vector" "std::list" "std::set" "std::deque"
     o--- 4 "std::vector" "std::list" "std::set" "std::deque"
