@@ -17,19 +17,12 @@
 //Construtor 
 SpriteItem::SpriteItem() 
 {
-
+    animacao.setAutomatico(false);
 }
 //Destrutor 
 SpriteItem::~SpriteItem() 
 {
 
-}
-//Depreciado - observar para remover metodo
-void SpriteItem::desenhar(int x, int y) 
-{
-    animacao.ajustarCorte(0,tamanho.w);
-
-    Sprite::desenhar(x,y);
 }
 //Informa o quadro de animação
 void SpriteItem::setQuadro(int quadro) 

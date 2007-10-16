@@ -17,7 +17,6 @@
 
 #include "Sprite.h"
 
-//Depreciado - observar para remover classe - utilize agora apenas Sprite ou SpritePersonagem
 class SpriteItem : public Sprite
 {
   public:
@@ -26,9 +25,6 @@ class SpriteItem : public Sprite
 
     //Destrutor 
     virtual ~SpriteItem();
-
-    //Depreciado - observar para remover metodo
-    virtual void desenhar(int x, int y);
 
     //Informa o quadro de animação
     void setQuadro(int quadro);
