@@ -10,15 +10,15 @@ classcanvas 128113 class_ref 134736 // SpritePersonagem
   end
 classcanvas 128241 class_ref 136528 // SpriteItem
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 207 593 2000
+  xyz 202 601 2000
   end
 classcanvas 128369 class_ref 128208 // SpriteInterface
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 200 201 2005
+  xyz 197 236 2005
   end
 classcanvas 128497 class_ref 136400 // Sprite
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 205 382 2004
+  xyz 205 390 2004
   end
 classcanvas 129009 class_ref 136272 // SpriteDirecao
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -34,24 +34,28 @@ classcanvas 129649 class_ref 128848 // SpriteFactory
   end
 classcanvas 130033 class_ref 128080 // FrameLayer
   draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 42 455 2009
+  xyz 48 470 2009
   end
 classcanvas 130673 class_ref 128241 // Animacao
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 6 116 2000
+  xyz 6 116 2005
   end
 relationcanvas 128222 relation_ref 128222 // <directional aggregation by value>
   geometry VH
-  from ref 130673 z 1999 to point 65 48
+  from ref 130673 z 1999 to point 68 50
   line 128350 z 1999 to ref 128094
-  role_a_pos 150 32 3000 no_role_b
-  multiplicity_a_pos 192 57 3000 no_multiplicity_b
+  role_a_pos 154 32 3000 no_role_b
+  multiplicity_a_pos 193 59 3000 no_multiplicity_b
 relationcanvas 128478 relation_ref 128350 // <directional aggregation by value>
   from ref 130673 z 1999 to ref 128094
-  role_a_pos 213 97 3000 no_role_b
-  multiplicity_a_pos 186 97 3000 no_multiplicity_b
+  role_a_pos 214 96 3000 no_role_b
+  multiplicity_a_pos 188 96 3000 no_multiplicity_b
 relationcanvas 128625 relation_ref 139728 // <generalisation>
   from ref 128497 z 1999 to ref 128369
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128723 relation_ref 128211 // <dependency>
+  from ref 130673 z 1999 stereotype "<<friend>>" xyz 152 504 3000 to ref 128241
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128753 relation_ref 140240 // <generalisation>
@@ -91,9 +95,7 @@ relationcanvas 130289 relation_ref 149200 // <dependency>
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130801 relation_ref 129265 // <directional aggregation by value>
-  geometry HVr
-  from ref 128369 z 1999 to point 257 248
-  line 132081 z 1999 to ref 130673
-  role_a_pos 138 232 3000 no_role_b
-  multiplicity_a_pos 138 257 3000 no_multiplicity_b
+  from ref 128369 z 1999 to ref 130673
+  role_a_pos 144 258 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
 end

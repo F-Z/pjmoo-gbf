@@ -3,12 +3,12 @@ class Sprite
     //chama o metodo criar da classe superclasse - SpriteInterface
     SpriteInterface::criar(left, top, largura, altura, gsiBuffer);
     //configura as informações de animação
-    animacao.setFrame(quantitadeQuadro,repeticaoQuadro);
+    animacao.config(quantitadeQuadro,repeticaoQuadro);
 !!!174160.cpp!!!	desenhar(in x : int, in y : int) : void
     posicao.x=x;
     posicao.y=y;
     SDL_Rect pontoCorte=tamanho;
-    pontoCorte.x+=animacao.getQuadro().x;
+    pontoCorte.x+=animacao.getDimensaoFrame().x;
 
     imagem->desenhar(posicao,pontoCorte,animacao.processar());
 !!!128085.cpp!!!	desenhar() : void
