@@ -17,6 +17,7 @@
 
 #include "GraphicSystemImageBuffer.h"
 #include "GBF_define.h"
+#include "ObjetoBase.h"
 
 struct Frame
 {
@@ -80,7 +81,7 @@ class Animacao
 
   friend class SpriteItem;
 };
-class SpriteInterface
+class SpriteInterface : public ObjetoBase
 {
   public:
     //Destrutor

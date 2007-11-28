@@ -21,6 +21,7 @@
 #include "SpritePersonagem.h"
 #include "GBF_define.h"
 #include "InputSystem.h"
+#include "ObjetoBase.h"
 
 //Definição de TypeDelay
 struct TypeDelay
@@ -42,7 +43,7 @@ struct TypeDelay
 //    Fornecer uma interface padrão para criação de personagens 
 //
 // 
-class PersonagemAbstract
+class PersonagemAbstract : public ObjetoBase
 {
   protected:
     bool ativo;

@@ -17,13 +17,14 @@
 #include "GBF_define.h"
 #include "InputSystem.h"
 #include "InputSystemUtility.h"
+#include "BaseSystem.h"
 
 //Descrição: 
 //    Classe para inicialização e gerenciamento do sistema de controle de interação do usuário
 //Motivação:
 //    Gerenciar o uso dos eventos do usuário
 
-class InputSystemCore {
+class InputSystemCore : public BaseSystem {
   public:
     //Destrutor
     virtual ~InputSystemCore();

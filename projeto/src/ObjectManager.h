@@ -14,20 +14,21 @@
 ////        http://pjmoo.codigolivre.org.br
 ////////////////////////////////////////////////////////////////////////
 
-#include "InputSystem.h"
+#include "InputSystemCore.h"
+#include "BaseManager.h"
 
 //Descrição: 
 //    Classe para criação de gerenciadores
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores
-class ObjectManager
+class ListManager : public BaseManager
 {
   public:
     //Construtor 
-    ObjectManager();
+    ListManager();
 
     //Destrutor 
-    virtual ~ObjectManager();
+    virtual ~ListManager();
 
     //Desenha objetos que estao no container
     virtual void desenhar() = 0;
@@ -39,7 +40,7 @@ class ObjectManager
     virtual void limpar() = 0;
 
     //Executa as ações de cada elemento 
-    virtual void acao(InputSystem * input) = 0;
+    virtual void acao(InputSystemCore * input) = 0;
 
 
   protected:

@@ -20,10 +20,11 @@
 #include "GraphicSystemScreen.h"
 #include "GraphicSystemImage.h"
 #include "GraphicSystem.h"
+#include "BaseSystem.h"
 
 class GraphicSystemUtility;
 
-class GraphicSystemCore
+class GraphicSystemCore : public BaseSystem
 {
   public:
     //Limpa a tela 

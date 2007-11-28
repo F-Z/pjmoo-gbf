@@ -19,6 +19,7 @@
 #include "UtilLog.h"
 #include "GBF_define.h"
 #include "SoundSystemUtility.h"
+#include "BaseSystem.h"
 
 //Descrição: 
 //    Valores para indicação dos canais de audio
@@ -33,7 +34,7 @@ enum SoundSystemCanal {
 //    Classe para inicialização e gerenciamento do sistema de som
 //Motivação:
 //    Gerenciar o uso do sistema de som
-class SoundSystemCore {
+class SoundSystemCore : public BaseSystem {
   public:
     //Destrutor
     virtual ~SoundSystemCore();

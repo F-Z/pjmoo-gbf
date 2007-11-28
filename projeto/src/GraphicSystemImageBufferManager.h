@@ -19,8 +19,9 @@
 
 #include <map>
 
+#include "BaseManager.h"
 
-class GraphicSystemImageBufferManager
+class GraphicSystemImageBufferManager : public BaseManager
 {
   public:
     //Destrutor

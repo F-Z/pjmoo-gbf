@@ -21,10 +21,11 @@
 #include <map>
 
 #include "UtilLog.h"
+#include "BaseManager.h"
 
 //Classe para Gerenciamento de FrameLayer
 
-class FrameLayerManager
+class FrameLayerManager : public BaseManager
 {
   public:
     //Destrutor

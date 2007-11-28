@@ -47,6 +47,7 @@ class GATMaquinaEstadoJogo : public GATMaquinaEstado
 
     void setJogoNovo();
 
+    //Coloca o jogo em estado de execução imediata
     void setJogoExecutando();
 
     void setJogoPause();

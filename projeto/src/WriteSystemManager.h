@@ -20,12 +20,13 @@
 #include <map>
 
 #include "UserInterfaceTexto.h"
+#include "BaseManager.h"
 
 //Descrição: 
 //    Classe para gerenciamento do sistema de fontes (letras).
 //Motivação:
 //    Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita
-class WriteSystemManager
+class WriteSystemManager : public BaseManager
 {
   public:
     //Constante para representar a fonte padrão do GBF
