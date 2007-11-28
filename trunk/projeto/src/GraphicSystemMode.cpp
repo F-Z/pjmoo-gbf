@@ -13,18 +13,18 @@
 
 #include "GraphicSystemMode.h"
 
-//Construtor 
-GraphicSystemMode::GraphicSystemMode() 
+//Construtor
+GraphicSystemMode::GraphicSystemMode()
 {
-
+    screen = NULL;
 }
-//Destrutor 
-GraphicSystemMode::~GraphicSystemMode() 
+//Destrutor
+GraphicSystemMode::~GraphicSystemMode()
 {
-    SDL_FreeSurface(screen);
+    //SDL_FreeSurface(screen);
 }
-//Coloca o vídeo em modo de tela cheia 
-void GraphicSystemMode::setModeFullScreen() 
+//Coloca o vídeo em modo de tela cheia
+void GraphicSystemMode::setModeFullScreen()
 {
     config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
     screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
@@ -37,8 +37,8 @@ void GraphicSystemMode::setModeFullScreen()
         UtilLog::tracer("GraphicSystem::setModeFullScreen Resolução:%ix%i %i Bits",config.w,config.h,config.color);
     }
 }
-//Coloca o vídeo em modo de janela 
-void GraphicSystemMode::setModeWindowScreen() 
+//Coloca o vídeo em modo de janela
+void GraphicSystemMode::setModeWindowScreen()
 {
     config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF);
     screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF);
@@ -51,23 +51,23 @@ void GraphicSystemMode::setModeWindowScreen()
         UtilLog::tracer("GraphicSystem::setModeWindowScreen Resolução:%ix%i %i Bits",config.w,config.h,config.color);
     }
 }
-//Retorna se o jogo esta rodando em modo de Tela Cheia 
-bool GraphicSystemMode::isFullScreen() 
+//Retorna se o jogo esta rodando em modo de Tela Cheia
+bool GraphicSystemMode::isFullScreen()
 {
     return config.full;
 }
-//Configura a resolução do modo gráfico 
-void GraphicSystemMode::setConfig(VideoConfig config) 
+//Configura a resolução do modo gráfico
+void GraphicSystemMode::setConfig(VideoConfig config)
 {
     this->config=config;
 }
-//Pega a Configuração do modo gráfico 
-VideoConfig GraphicSystemMode::getConfig() 
+//Pega a Configuração do modo gráfico
+VideoConfig GraphicSystemMode::getConfig()
 {
     return config;
 }
-//Retorna a Surface Primaria de Vídeo (framebuffer) 
-SDL_Surface * GraphicSystemMode::getScreen() 
+//Retorna a Surface Primaria de Vídeo (framebuffer)
+SDL_Surface * GraphicSystemMode::getScreen()
 {
     return screen;
 }
