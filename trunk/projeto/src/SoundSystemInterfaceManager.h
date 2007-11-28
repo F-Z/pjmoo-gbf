@@ -18,12 +18,13 @@
 
 #include "SoundSystemStatus.h"
 #include "UtilLog.h"
+#include "BaseManager.h"
 
 //Descrição: 
 //    Classe para criação de gerenciados de som
 //Motivação:
 //    Fornecer uma interface padrão para gerenciamento de som
-class SoundSystemInterfaceManager {
+class SoundSystemInterfaceManager : public BaseManager {
   public:
     //Destrutor
     virtual ~SoundSystemInterfaceManager();

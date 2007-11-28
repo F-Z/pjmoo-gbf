@@ -9,17 +9,20 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "ObjectManager.h"
+#ifndef _BASESYSTEM_H
+#define _BASESYSTEM_H
 
-//Construtor 
-ListManager::ListManager() 
+#include "ObjetoBase.h"
+
+class BaseSystem : public ObjetoBase
 {
+  public:
+    BaseSystem();
 
-}
-//Destrutor 
-ListManager::~ListManager() 
-{
+    virtual ~BaseSystem();
 
-}
+};
+#endif

@@ -15,12 +15,13 @@
 #define _PARTICLESYSTEMEFEITO_H
 
 #include "GraphicSystemUtility.h"
+#include "ObjetoBase.h"
 
 //Descrição: 
 //    Classe abstrata que permite agrupamente de particulas
 //Motivação:
 //    Permitir gerenciar um grupo de unidades com ciclo de vida semelhantes
-class ParticleSystemEfeito : public GraphicSystemUtility {
+class ParticleSystemEfeito : public GraphicSystemUtility, public ObjetoBase {
   public:
     //Construtor
     ParticleSystemEfeito();

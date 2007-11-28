@@ -15,6 +15,7 @@
 #define _TIMERSYSTEMCRONOMETROABSTRACT_H
 
 #include "GBF_define.h"
+#include "ObjetoBase.h"
 
 //Descrição: 
 //    Valores para marcação da passagem do tempo
@@ -51,7 +52,7 @@ enum EnumCronometro {
 //    Classe abstrata para criação de cronometros
 //Motivação:
 //    Fornecer um conjunto de métodos padrões para controle de tempo
-class TimerSystemCronometroAbstract {
+class TimerSystemCronometroAbstract : public ObjetoBase {
   protected:
     Uint32 tempoUnidade;
 
