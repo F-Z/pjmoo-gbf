@@ -82,6 +82,18 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Unit filename="src/BaseManager.cpp">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/BaseManager.h">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/BaseSystem.cpp">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/BaseSystem.h">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
 		<Unit filename="src/FrameLayer.cpp">
 			<Option virtualFolder="Sprite/" />
 		</Unit>
@@ -229,8 +241,18 @@
 		<Unit filename="src/ListPersonagemAutomaticoAbstract.h" />
 		<Unit filename="src/ListPersonagemJogadorAbstract.cpp" />
 		<Unit filename="src/ListPersonagemJogadorAbstract.h" />
-		<Unit filename="src/ObjectManager.cpp" />
-		<Unit filename="src/ObjectManager.h" />
+		<Unit filename="src/ObjectManager.cpp">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/ObjectManager.h">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/ObjetoBase.cpp">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
+		<Unit filename="src/ObjetoBase.h">
+			<Option virtualFolder="GBFCore/" />
+		</Unit>
 		<Unit filename="src/ParticleSystemEfeito.cpp">
 			<Option virtualFolder="ParticleSystem/" />
 		</Unit>
@@ -426,6 +448,7 @@
 		<Unit filename="src/WriteSystemManager.h" />
 		<Extensions>
 			<code_completion />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
