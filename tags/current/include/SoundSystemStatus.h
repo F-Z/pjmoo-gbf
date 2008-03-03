@@ -24,25 +24,17 @@ class SoundSystemStatus {
     //Destrutor
     virtual ~SoundSystemStatus();
 
-    //Retorna uma instância de SoundSystemStatus
-    static SoundSystemStatus * getInstance();
-
     //Verifica se sistema de som está funcionando
     bool isAtivo();
 
     //Verifica se o som está desligado
     bool isMute();
 
-    //Configura o sistema de som
-    void setMute(bool mute);
-
     //Configurar se o sistema de som está funcionando
     void setAtivo(bool ativo);
 
-
-  private:
-    //Construtor
-    SoundSystemStatus();
+    //Configura o sistema de som
+    void setMute(bool mute);
 
 
   protected:
@@ -52,7 +44,9 @@ class SoundSystemStatus {
 
 
   private:
-    static SoundSystemStatus * instance;
+    //Construtor
+    SoundSystemStatus();
 
+  friend class SoundSystemCore;
 };
 #endif

@@ -27,11 +27,11 @@ class SoundSystemFx {
     //Destrutor
     virtual ~SoundSystemFx();
 
-    //Toca Efeto sonoro
-    int play();
-
     //Lê arquivo de efeito sonoro
     bool carregarArquivo(std::string arquivo);
+
+    //Toca Efeto sonoro
+    int play();
 
     //Configura o volume do efeito, 
     //Obs.: Valor de 0 ate 128
@@ -39,10 +39,10 @@ class SoundSystemFx {
 
 
   protected:
+    Mix_Chunk * efeito;
+
     //Construtor
     SoundSystemFx();
-
-    Mix_Chunk * efeito;
 
   friend class SoundSystemFxManager;
 };

@@ -12,17 +12,18 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "SpriteAbstract.h"
+#include "Sprite.h"
 
-class SpritePersonagem : public SpriteAbstract
+class SpritePersonagem : public Sprite
 {
   public:
     //Destrutor 
     virtual ~SpritePersonagem();
 
-    void setDirecao(DIRECAO DIR);
+    void setDirecao(SpriteDirecao DIR);
 
     void setQtdDirecoes(int QTD);
 
@@ -31,14 +32,14 @@ class SpritePersonagem : public SpriteAbstract
     //Retorna a quantidade de direções que o personagem possui 
     int getQtdDirecoes();
 
-    DIRECAO getDirecao();
+    SpriteDirecao getDirecao();
 
     //Construtor
     SpritePersonagem();
 
 
   protected:
-    DIRECAO direcao;
+    SpriteDirecao direcao;
 
     int qtdDirecao;
 

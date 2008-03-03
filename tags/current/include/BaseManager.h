@@ -12,39 +12,17 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _INPUTSYSTEM_H
-#define _INPUTSYSTEM_H
+#ifndef _BASEMANAGER_H
+#define _BASEMANAGER_H
 
-#include "InputSystemJoystick.h"
-#include "InputSystemKeyboard.h"
-#include "InputSystemMouse.h"
+#include "ObjetoBase.h"
 
-class InputSystem
+class BaseManager : public ObjetoBase
 {
   public:
-    InputSystemJoystick * joystick;
+    BaseManager();
 
-    InputSystemKeyboard * teclado;
+    virtual ~BaseManager();
 
-    InputSystemMouse * mouse;
-
-    //Destrutor
-    ~InputSystem();
-
-    //Retorna uma instancia de InputSystem
-    static InputSystem * getInstance();
-
-
-  protected:
-    static InputSystem * instance;
-
-    InputSystem();
-
-
-  private:
-    //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
-
-  friend class InputSystemCore;
 };
 #endif

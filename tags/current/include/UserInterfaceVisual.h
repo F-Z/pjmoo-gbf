@@ -12,39 +12,39 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _INPUTSYSTEM_H
-#define _INPUTSYSTEM_H
+#ifndef _USERINTERFACEVISUAL_H
+#define _USERINTERFACEVISUAL_H
 
-#include "InputSystemJoystick.h"
-#include "InputSystemKeyboard.h"
-#include "InputSystemMouse.h"
+#include "GBF_define.h"
+#include "UtilColor.h"
+#include "GraphicSystemUtility.h"
 
-class InputSystem
+class UserInterfaceVisual : public GraphicSystemUtility
 {
   public:
-    InputSystemJoystick * joystick;
-
-    InputSystemKeyboard * teclado;
-
-    InputSystemMouse * mouse;
+    //Construtor
+    UserInterfaceVisual();
 
     //Destrutor
-    ~InputSystem();
+    virtual ~UserInterfaceVisual();
 
-    //Retorna uma instancia de InputSystem
-    static InputSystem * getInstance();
+    void setCorBorda(const CorPaleta & r, const CorPaleta & g, const CorPaleta & b);
+
+    //Aplica o efeito visual
+    virtual void aplicar(const Ponto & posicao, const Dimensao & dimensao);
+
+    //Desenha o EstiloVisual do Componente
+    virtual void desenhar() = 0;
+
+    virtual UserInterfaceVisual * clone() = 0;
 
 
   protected:
-    static InputSystem * instance;
+    RGB corBorda;
 
-    InputSystem();
+    Ponto posicao;
 
+    Dimensao dimensao;
 
-  private:
-    //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
-
-  friend class InputSystemCore;
 };
 #endif

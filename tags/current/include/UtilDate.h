@@ -27,7 +27,7 @@ class UtilDate
 {
   public:
     //Retorna Dia da semana, mês, dia do mês, hora e ano
-    static char * getInfo();
+    static std::string getInfo();
 
 };
 #endif

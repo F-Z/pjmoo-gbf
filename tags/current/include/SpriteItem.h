@@ -12,23 +12,24 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "SpriteAbstract.h"
-#include "GBF_define.h"
+#include "Sprite.h"
 
-class SpriteItem : public SpriteAbstract
+class SpriteItem : public Sprite
 {
   public:
+    //Construtor 
+    SpriteItem();
+
     //Destrutor 
     virtual ~SpriteItem();
 
-    void setPosicao(Ponto ponto);
-
     virtual void desenhar(int x, int y);
 
-    //Construtor 
-    SpriteItem();
+    //Informa o quadro de animação
+    void setFrame(int quadro);
 
 };
 #endif

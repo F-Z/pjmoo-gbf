@@ -14,14 +14,14 @@
 #ifndef _PARTICLESYSTEMEFEITOESFERICO_H
 #define _PARTICLESYSTEMEFEITOESFERICO_H
 
-#include "ParticleSystemEfeito.h"
 #include "GBF_define.h"
+#include "ParticleSystemPixel.h"
 
 //Descrição: 
 //    Classe abstrata que permite agrupamente de particulas esfericas
 //Motivação:
 //    Permitir gerenciar um grupo de unidades com movimento esferico
-class ParticleSystemEfeitoEsferico : public ParticleSystemEfeito {
+class ParticleSystemEfeitoEsferico : public ParticleSystemPixel {
   public:
     //Construtor
     ParticleSystemEfeitoEsferico();

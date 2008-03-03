@@ -19,15 +19,13 @@
 
 #include <map>
 
+#include "BaseManager.h"
 
-class GraphicSystemImageBufferManager
+class GraphicSystemImageBufferManager : public BaseManager
 {
   public:
     //Destrutor
     virtual ~GraphicSystemImageBufferManager();
-
-    // Retorna uma instancia de GraphicSystemImageBufferManager
-    static GraphicSystemImageBufferManager * getInstance();
 
     // Retorna GraphicSystemImageBufferManager para manipulação
     GraphicSystemImageBuffer * getImageBuffer(std::string nome);
@@ -43,8 +41,6 @@ class GraphicSystemImageBufferManager
 
 
   protected:
-    static GraphicSystemImageBufferManager * instance;
-
     std::map<std::string,GraphicSystemImageBuffer*> objetomap;
 
 
@@ -54,5 +50,6 @@ class GraphicSystemImageBufferManager
 
     static std::string pathBase;
 
+  friend class GraphicSystem;
 };
 #endif

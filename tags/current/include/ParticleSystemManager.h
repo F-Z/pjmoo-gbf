@@ -16,12 +16,13 @@
 
 #include "ParticleSystemEfeito.h"
 #include <deque>
+#include "BaseManager.h"
 
 //Descrição: 
 //    Classe para gerenciamento do sistema de  particulas.
 //Motivação:
 //    Gerenciar o uso de vários sistemas de particulas
-class ParticleSystemManager {
+class ParticleSystemManager : public BaseManager {
   private:
     //Construtor 
     ParticleSystemManager();

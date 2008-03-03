@@ -25,9 +25,6 @@ class GraphicSystemGFX
     //Destrutor 
     virtual ~GraphicSystemGFX();
 
-    //Retorna um objeto de GraphicSystemGFX (Singleton) 
-    static GraphicSystemGFX * getInstance();
-
     //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
     void setColor(CorPaleta R, CorPaleta G, CorPaleta B);
 
@@ -69,8 +66,6 @@ class GraphicSystemGFX
 
 
   protected:
-    static GraphicSystemGFX * instance;
-
     //Inicializa informações básicas
     void inicializar();
 
@@ -92,7 +87,16 @@ class GraphicSystemGFX
 
     int bpp;
 
+  friend class GraphicSystemCore;
   friend class GraphicSystem;
+
+  public:
+    //Realiza um lock na surface
+    bool travar();
+
+    //Realiza um unlock na surface
+    void destravar();
+
 };
 //Desenha um pixel na tela (Usando cor padrão selecionada)
 inline void GraphicSystemGFX::putPixel(int x, int y) 

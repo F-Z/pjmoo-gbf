@@ -12,6 +12,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "FrameLayer.h"
@@ -20,10 +21,11 @@
 #include <map>
 
 #include "UtilLog.h"
+#include "BaseManager.h"
 
 //Classe para Gerenciamento de FrameLayer
 
-class FrameLayerManager
+class FrameLayerManager : public BaseManager
 {
   public:
     //Destrutor

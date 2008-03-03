@@ -14,21 +14,24 @@
 #ifndef _WRITESYSTEMMANAGER_H
 #define _WRITESYSTEMMANAGER_H
 
-#include "WriteSystemBitmap.h"
 #include <string>
 
+#include "WriteSystemBitmap.h"
 #include <map>
 
-#include "WriteSystemFontDefault.h"
 #include "UserInterfaceTexto.h"
+#include "BaseManager.h"
 
 //Descrição: 
 //    Classe para gerenciamento do sistema de fontes (letras).
 //Motivação:
 //    Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita
-class WriteSystemManager
+class WriteSystemManager : public BaseManager
 {
   public:
+    //Constante para representar a fonte padrão do GBF
+    static const std::string defaultFont;
+
     //Destrutor
     virtual ~WriteSystemManager();
 
@@ -54,6 +57,9 @@ class WriteSystemManager
 
     //Remove uma fonte (WriteSystemFontBitmap)
     void apagar(std::string nome);
+
+    //Retorna em Pixel o tamanho total da linha
+    int getLarguraLinha(const std::string fonte, const std::string chave);
 
 
   protected:

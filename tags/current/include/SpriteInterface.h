@@ -12,12 +12,76 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "GraphicSystemImageBuffer.h"
 #include "GBF_define.h"
+#include "ObjetoBase.h"
 
-class SpriteInterface
+struct Frame
+{
+    int atual;
+
+    int total;
+
+};
+class Animacao
+{
+  public:
+    //Construtor
+    Animacao();
+
+    //Ajusta a area de corte do sprite - posicionamento nos frames
+    void ajustarCorte(int direcao, int largura);
+
+    //Informa a quantidade de quadros e a taxa de repetição
+    void config(int quantidade, int taxaRepeticao);
+
+    //Informa se animação está no fim - último frame
+    bool isFim();
+
+    //Informa se animação está no inicio - primeiro frame
+    bool isInicio();
+
+    //Retorna a dimensão do quadro
+    SDL_Rect getDimensaoFrame();
+
+    int processar();
+
+    //Anima o sprite de forma manual, toda chamada a esse metodo anima o personagem 
+    void processarManual();
+
+    //Define se a animação é automática ou manual 
+    void setAutomatico(bool automatico);
+
+    //Define a dimensão do quadro
+    void setDimensaoFrame(const SDL_Rect & area);
+
+    //Coloca a animação no primeiro frame
+    void setInicio();
+
+
+  protected:
+    bool automatico;
+
+    SDL_Rect areaCorte;
+
+    Frame frame;
+
+    Frame repeticao;
+
+    //Informa o quadro a ser usado na animação
+    void setFrame(int quadro);
+
+
+  private:
+    //Anima o Sprite de forma automática 
+    int animar();
+
+  friend class SpriteItem;
+};
+class SpriteInterface : public ObjetoBase
 {
   public:
     //Destrutor
@@ -32,21 +96,13 @@ class SpriteInterface
 
     GraphicSystemImageBuffer * imagem;
 
-    int frameAtual;
-
-    int frameRateAtual;
-
-    int frameTotal;
-
-    int frameRate;
-
-    bool automatico;
-
     SDL_Rect posicao;
 
     SDL_Rect tamanho;
 
-    SDL_Rect quadro;
+
+  public:
+    Animacao animacao;
 
 };
 #endif

@@ -12,6 +12,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "GBF_define.h"
@@ -22,10 +23,17 @@ class FrameLayerMundo
     //Destrutor
     virtual ~FrameLayerMundo();
 
-    //Construtor
-    FrameLayerMundo();
+    Dimensao getPixelTile();
 
-    void setTiles(int largura, int altura);
+    int getPixelTileHorizontal();
+
+    int getPixelTileVertical();
+
+    Dimensao getPixelVisivel();
+
+    int getPixelVisivelHorizontal();
+
+    int getPixelVisivelVertical();
 
     Dimensao getTiles();
 
@@ -35,27 +43,21 @@ class FrameLayerMundo
 
     void setPixelTile(int largura, int altura);
 
-    Dimensao getPixelTile();
-
-    int getPixelTileHorizontal();
-
-    int getPixelTileVertical();
-
     void setPixelVisivel(int largura, int altura);
 
-    Dimensao getPixelVisivel();
-
-    int getPixelVisivelHorizontal();
-
-    int getPixelVisivelVertical();
+    void setTiles(int largura, int altura);
 
 
   private:
-    Dimensao quantidadeTiles;
-
     Dimensao areaVisivel;
+
+    Dimensao quantidadeTiles;
 
     Dimensao tile;
 
+    //Construtor
+    FrameLayerMundo();
+
+  friend class FrameLayer;
 };
 #endif
