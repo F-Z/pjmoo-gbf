@@ -46,7 +46,7 @@ void UtilLog::iniciar()
         handleArquivo = fopen(arquivo.c_str(), "a+t");
 
         //cabecalho
-        escrever("Inicio do Log. %s",UtilDate::getInfo());
+        escrever("Inicio do Log. %s",UtilDate::getInfo().c_str());
         escrever("=========================================================================");
         escrever(" Gamework's Brazilian Framework (GBF) - http://pjmoo.codigolivre.org.br  ");
         escrever("=========================================================================");
@@ -61,7 +61,7 @@ void UtilLog::finalizar()
 {
     if (handleArquivo){
         escrever("");
-        escrever("Fim do Log. %s",UtilDate::getInfo());
+        escrever("Fim do Log. %s",UtilDate::getInfo().c_str());
         fclose(handleArquivo);
         handleArquivo = NULL;
     }
