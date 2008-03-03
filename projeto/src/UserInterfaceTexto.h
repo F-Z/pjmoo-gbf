@@ -60,6 +60,7 @@ class UserInterfaceTexto
     ~UserInterfaceTexto();
 
     static UserInterfaceTexto * getInstance();
+
     //Configura o caminho do arquivo de  mensagens
     static void setPathBase(std::string & path);
 
