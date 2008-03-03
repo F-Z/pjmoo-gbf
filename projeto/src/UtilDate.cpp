@@ -24,9 +24,6 @@ std::string UtilDate::getInfo()
 
     std::string retorno = hora;
 
-//    free(hora);
-//    delete(hora);
 
     return retorno;
 }
-

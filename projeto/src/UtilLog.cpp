@@ -42,7 +42,6 @@ void UtilLog::iniciar()
         handleArquivo = fopen(arquivo.c_str(), "w+t");
         fclose(handleArquivo);
         //abrindo novo
-        //handleArquivo = fopen(arquivo.c_str(), "w+t");
         handleArquivo = fopen(arquivo.c_str(), "a+t");
 
         //cabecalho
