@@ -14,15 +14,19 @@
 #include "UtilDate.h"
 
 //Retorna Dia da semana, mês, dia do mês, hora e ano
-char * UtilDate::getInfo()
+std::string UtilDate::getInfo()
 {
     time_t ltime;
     time(&ltime);
-    char *hora;
-    hora = new char[28];
-    hora = ctime(&ltime);
+
+    char * hora = ctime(&ltime);
     memcpy(hora+24, "\0", 1 );
 
-    return hora;
+    std::string retorno = hora;
+
+//    free(hora);
+//    delete(hora);
+
+    return retorno;
 }
 
