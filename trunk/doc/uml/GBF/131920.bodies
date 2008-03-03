@@ -1,6 +1,6 @@
 class GraphicSystemImage
 !!!147280.cpp!!!	GraphicSystemImage()
-
+    imagem=NULL;
 
 !!!147408.cpp!!!	~GraphicSystemImage()
     if (imagem!=NULL){

@@ -1,14 +1,14 @@
-format 38
+format 45
 "Personagem" // Framework GBF::Personagem
-  revision 6
-  modified_by 59 "david"
+  revision 7
+  modified_by 47 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,101 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
-    class 133456 "ObjectManager"
-      abstract visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit}
-{
-${members}};
-${inlines}
-"
-      java_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Descrição: 
-    Classe para criação de gerenciadores
-Motivação:
-    Fornecer uma interface padrão para criação de gerenciadores"
-      operation 160080 "ObjectManager"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	comment "Construtor "
-      end
-
-      operation 160208 "~ObjectManager"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	comment "Destrutor "
-      end
-
-      operation 160336 "desenhar"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	comment "Desenha objetos que estao no container"
-      end
-
-      operation 160464 "size"
-	abstract cpp_virtual public explicit_return_type "int"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	comment "Retorna a quantidade de elementos "
-      end
-
-      operation 160592 "limpar"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	comment "Limpa o container, removendo todos os elementos"
-      end
-
-      operation 160720 "acao"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
-	    defaultvalue "NULL"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	comment "Executa as ações de cada elemento "
-      end
-
-      operation 160848 "ordenar"
-	abstract cpp_virtual protected explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	comment "Ordena os elementos "
-      end
-    end
-
     class 134608 "TypeDelay"
       visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
@@ -147,6 +52,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -156,6 +62,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -164,6 +71,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -172,6 +80,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -180,6 +89,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -188,6 +98,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -200,6 +111,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -212,7 +124,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 135760 // <generalisation>
-	  b multiplicity "" parent class_ref 133328 // ListPersonagemAbstract
+	  b parent class_ref 133328 // ListPersonagemAbstract
       end
 
       operation 159824 "~ListPersonagemJogadorAbstract"
@@ -223,6 +135,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -238,6 +151,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
     end
@@ -250,6 +164,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -264,7 +179,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 135632 // <generalisation>
-	  b multiplicity "" parent class_ref 133328 // ListPersonagemAbstract
+	  b parent class_ref 133328 // ListPersonagemAbstract
       end
 
       operation 159568 "~ListPersonagemAutomaticoAbstract"
@@ -275,6 +190,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -290,6 +206,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
     end
@@ -302,6 +219,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -314,7 +232,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 135376 // <generalisation>
-	  b multiplicity "" parent class_ref 133456 // ObjectManager
+	  b parent class_ref 133456 // ListManager
       end
 
       operation 157904 "ListPersonagemAbstract"
@@ -325,6 +243,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor "
@@ -340,6 +259,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor "
       end
 
@@ -351,6 +271,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha objetos que estao no container"
@@ -366,6 +287,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna a quantidade de elementos "
       end
 
@@ -379,19 +301,21 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Limpa o container, removendo todos os elementos"
       end
 
       operation 158544 "acao"
 	cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 128155 // InputSystem
 	    defaultvalue "NULL"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0} = NULL${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Executa as ações de cada elemento "
@@ -408,6 +332,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 158800 "remover"
@@ -419,6 +344,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -434,6 +360,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 159056 "colisao"
@@ -445,6 +372,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -460,6 +388,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 159312 "executar"
@@ -467,6 +396,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -481,15 +411,16 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       classrelation 135504 // lista (<directional aggregation by value>)
 	relation 135504 *-->
 	  stereotype "std::deque"
-	  a role_name "lista" multiplicity "" protected
+	  a role_name "lista" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};"
 	    classrelation_ref 135504 // lista (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
+	  b parent class_ref 133584 // PersonagemAbstract
       end
     end
 
@@ -501,6 +432,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -515,6 +447,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -523,6 +456,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -531,6 +465,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -541,25 +476,25 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<std::string,${type}*> ${name}${value};
 "
 	    classrelation_ref 152144 // sprites (<unidirectional association>)
-	  b multiplicity "" parent class_ref 134736 // SpritePersonagem
+	  b parent class_ref 134736 // SpritePersonagem
       end
 
       classrelation 137424 // delay (<directional aggregation by value>)
 	relation 137424 *-->
-	  a role_name "delay" multiplicity "" protected
+	  a role_name "delay" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 137424 // delay (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 134608 // TypeDelay
+	  b parent class_ref 134608 // TypeDelay
       end
 
       classrelation 137552 // posicao (<directional aggregation by value>)
 	relation 137552 *-->
-	  a role_name "posicao" multiplicity "" protected
+	  a role_name "posicao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 137552 // posicao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
 
       attribute 138832 "IDcontagem"
@@ -568,16 +503,17 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 137296 // dimensao (<directional aggregation by value>)
 	relation 137296 *-->
-	  a role_name "dimensao" multiplicity "" private
+	  a role_name "dimensao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 137296 // dimensao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       operation 163408 "~PersonagemAbstract"
@@ -588,6 +524,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -601,6 +538,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha o sprite principal do personagem"
@@ -617,6 +555,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 163792 "setVivo"
@@ -628,6 +567,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -642,6 +582,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 164048 "isVivo"
@@ -652,6 +593,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -665,6 +607,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -681,6 +624,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 164432 "setPosicao"
@@ -692,6 +636,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -706,6 +651,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 164688 "adicionarSpritePrincipal"
@@ -717,6 +663,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Adiciona o sprite principal do personagem"
@@ -734,16 +681,18 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona o sprites extras do personagem"
       end
 
       operation 164816 "acao"
 	abstract cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 128155 // InputSystem
 	    defaultvalue "NULL"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -758,6 +707,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 194000 "getSpritePrincipal"
@@ -768,6 +718,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -783,6 +734,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 164944 "PersonagemAbstract"
@@ -795,6 +747,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
 
@@ -804,7 +757,15 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 137680 // <dependency>
-	  b multiplicity "" parent class_ref 133328 // ListPersonagemAbstract
+	  b parent class_ref 133328 // ListPersonagemAbstract
+      end
+
+      classrelation 133679 // <generalisation>
+	relation 130863 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133679 // <generalisation>
+	  b parent class_ref 128047 // ObjetoBase
       end
     end
 
@@ -816,6 +777,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -828,7 +790,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 137808 // <generalisation>
-	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
+	  b parent class_ref 133584 // PersonagemAbstract
       end
 
       operation 165200 "PersonagemAutomatico"
@@ -839,6 +801,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor "
@@ -854,16 +817,18 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "* Destrutor "
       end
 
       operation 165584 "acao"
 	abstract cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 128155 // InputSystem
 	    defaultvalue "NULL"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -877,6 +842,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -885,7 +851,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 138064 // <generalisation>
-	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
+	  b parent class_ref 133584 // PersonagemAbstract
       end
 
       operation 166224 "PersonagemEstatico"
@@ -896,6 +862,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -910,18 +877,20 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 193616 "acao"
 	cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 128155 // InputSystem
 	    defaultvalue "NULL"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -935,6 +904,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -950,7 +920,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 137936 // <generalisation>
-	  b multiplicity "" parent class_ref 133584 // PersonagemAbstract
+	  b parent class_ref 133584 // PersonagemAbstract
       end
 
       operation 165712 "PersonagemControlado"
@@ -961,6 +931,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor "
@@ -976,16 +947,18 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "* Destrutor "
       end
 
       operation 166096 "acao"
 	abstract cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param inout name "input" type class_ref 129488 // InputSystem
+	  param inout name "input" type class_ref 128155 // InputSystem
 	    defaultvalue "NULL"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -1016,42 +989,6 @@ ${members}
 ${namespace_end}"
       associated_classes
 	class_ref 133840 // ListPersonagemJogadorAbstract
-      end
-      comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
-//
-//    This library is free software; you can redistribute it and/or
-//    modify it under the terms of the GNU Library General Public
-//    License as published by the Free Software Foundation; either
-//    version 2 of the License, or (at your option) any later version.
-//
-//    David de Almeida Ferreira (F-Z)
-//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
-//////////////////////////////////////////////////////////////////////
-"
-    end
-
-    artifact 132560 "ObjectManager"
-      stereotype "source"
-      cpp_h "#ifndef _${NAME}_H
-#define _${NAME}_H
-
-${comment}
-${all_includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      cpp_src "${comment}
-${includes}
-${namespace_start}
-${members}
-${namespace_end}"
-      associated_classes
-	class_ref 133456 // ObjectManager
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira

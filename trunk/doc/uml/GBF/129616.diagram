@@ -1,4 +1,4 @@
-format 38
+format 45
 
 classcanvas 128033 class_ref 129061 // UserInterfaceWindow
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -7,25 +7,25 @@ classcanvas 128033 class_ref 129061 // UserInterfaceWindow
 classcanvas 128080 class_ref 129232 // GBF
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   hidden_attributes
+    attribute_ref 128720 // defaultPath
     attribute_ref 128336 // fps
     attribute_ref 128464 // numscreenshot
     attribute_ref 128592 // pathBase
-    attribute_ref 128720 // defaultPath
   hidden_operations
-    operation_ref 134992 // GBF
     operation_ref 135120 // ~GBF
-    operation_ref 135248 // setTitulo
-    operation_ref 135376 // iniciar
+    operation_ref 134992 // GBF
     operation_ref 135504 // atualizar
-    operation_ref 135632 // pausar
-    operation_ref 135760 // setFPS
-    operation_ref 135888 // isFPS
-    operation_ref 136016 // setPath
     operation_ref 136144 // getPath
+    operation_ref 135376 // iniciar
     operation_ref 136272 // isDefaultPath
+    operation_ref 135888 // isFPS
+    operation_ref 135632 // pausar
     operation_ref 136400 // setDefaultPath
-    operation_ref 136528 // controleInterno
+    operation_ref 135760 // setFPS
+    operation_ref 136016 // setPath
+    operation_ref 135248 // setTitulo
     operation_ref 136784 // carregar
+    operation_ref 136528 // controleInterno
     operation_ref 136656 // setTitulo
   xyz 253 174 2000
   end
@@ -37,22 +37,20 @@ classcanvas 128208 class_ref 137808 // UtilExtract
     operation_ref 187472 // extractApplication
   xyz 197 24 2000
   end
-classcanvas 128464 class_ref 129488 // InputSystem
+classcanvas 128464 class_ref 129488 // InputSystemCore
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color gray
   hidden_attributes
     attribute_ref 134992 // evento
     attribute_ref 135120 // controleExclusivo
   hidden_operations
-    operation_ref 152272 // ~InputSystem
-    operation_ref 152400 // getInstance
-    operation_ref 152528 // processar
-    operation_ref 152656 // getEvento
+    operation_ref 152272 // ~InputSystemCore
     operation_ref 152784 // alternarControleExclusivo
-    operation_ref 152912 // setControleExclusivo
-    operation_ref 153040 // limparEstado
     operation_ref 153168 // getControleExclusivo
-    operation_ref 153296 // InputSystem
+    operation_ref 152656 // getEvento
+    operation_ref 152528 // processar
+    operation_ref 152912 // setControleExclusivo
+    operation_ref 153296 // InputSystemCore
   xyz 32 234 2000
   end
 classcanvas 129232 class_ref 129872 // TimerSystemFPS
@@ -70,17 +68,16 @@ classcanvas 129232 class_ref 129872 // TimerSystemFPS
     operation_ref 182096 // diminuir
   xyz 352 408 3005
   end
-classcanvas 130000 class_ref 129360 // GraphicSystem
+classcanvas 130000 class_ref 129360 // GraphicSystemCore
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color gray
   hidden_operations
-    operation_ref 143952 // ~GraphicSystem
-    operation_ref 144080 // getInstance
-    operation_ref 144208 // sincronizar
     operation_ref 144336 // clear
-    operation_ref 144464 // flip
     operation_ref 144592 // salvarScreenShot
-    operation_ref 144720 // GraphicSystem
+    operation_ref 143952 // ~GraphicSystemCore
+    operation_ref 144208 // iniciar
+    operation_ref 144464 // flip
+    operation_ref 144720 // GraphicSystemCore
   xyz 282 23 2000
   end
 classcanvas 130640 class_ref 137936 // UtilLog
@@ -142,25 +139,24 @@ classcanvas 132944 class_ref 135888 // SoundSystemInterfaceManager
   hidden_attributes
     attribute_ref 139728 // pathBase
   hidden_operations
-    operation_ref 169168 // SoundSystemInterfaceManager
     operation_ref 169296 // ~SoundSystemInterfaceManager
-    operation_ref 169424 // play
-    operation_ref 169552 // carregar
+    operation_ref 169168 // SoundSystemInterfaceManager
     operation_ref 169680 // apagar
+    operation_ref 169552 // carregar
     operation_ref 169808 // pause
+    operation_ref 169424 // play
     operation_ref 169936 // resume
     operation_ref 170064 // setPathBase
   xyz 108 362 3010
   end
-classcanvas 133328 class_ref 129744 // SoundSystem
+classcanvas 133328 class_ref 129744 // SoundSystemCore
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color gray
   hidden_operations
-    operation_ref 166480 // ~SoundSystem
-    operation_ref 166608 // getInstance
+    operation_ref 166480 // ~SoundSystemCore
     operation_ref 166736 // iniciar
     operation_ref 166864 // setMute
-    operation_ref 166992 // SoundSystem
+    operation_ref 166992 // SoundSystemCore
   xyz 48 423 3005
   end
 classcanvas 137808 class_ref 132304 // VideoConfig
@@ -240,39 +236,18 @@ relationcanvas 128336 relation_ref 144848 // <dependency>
   line 141136 z 1999 stereotype "<<use>>" xyz 215 90 3000 to ref 128208
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
-relationcanvas 128592 relation_ref 133968 // <unidirectional association>
-  from ref 128464 z 1999 to point 17 250
-  line 128720 z 1999 to point 17 287
-  line 136528 z 1999 to point 69 287
-  line 128848 z 1999 to ref 128464
-  role_a_pos 81 279 3000 no_role_b
-  no_multiplicity_a no_multiplicity_b
 relationcanvas 128976 relation_ref 129744 // <unidirectional association>
   geometry VHr
   from ref 128080 z 1999 to point 77 191
   line 141648 z 1999 to ref 128464
   role_a_pos 89 215 3000 no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 129104 relation_ref 145104 // <dependency>
-  geometry HVH
-  from ref 128080 z 1999 to point 187 191
-  line 139472 z 1999 to point 187 251
-  line 139600 z 1999 to ref 128464
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
+  multiplicity_a_pos 65 213 3000 no_multiplicity_b
 relationcanvas 129360 relation_ref 130128 // <unidirectional association>
   geometry VHV
   from ref 128080 z 1999 to point 273 308
   line 139984 z 1999 to point 410 308
   line 140112 z 1999 to ref 129232
   role_a_pos 422 389 3000 no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 130128 relation_ref 131792 // <unidirectional association>
-  from ref 130000 z 1999 to point 328 8
-  line 130256 z 1999 to point 420 8
-  line 130384 z 1999 to point 420 39
-  line 134224 z 1999 to ref 130000
-  role_a_pos 388 23 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130512 relation_ref 129616 // <unidirectional association>
   geometry VHV
@@ -337,13 +312,6 @@ relationcanvas 133200 relation_ref 144976 // <dependency>
   from ref 128080 z 1999 to point 207 191
   line 140240 z 1999 stereotype "<<use>>" xyz 166 332 3000 to ref 132944
   no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 133456 relation_ref 138576 // <unidirectional association>
-  from ref 133328 z 1999 to point 85 465
-  line 133584 z 1999 to point 14 465
-  line 133712 z 1999 to point 14 438
-  line 136016 z 1999 to ref 133328
-  role_a_pos 32 471 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 133840 relation_ref 147920 // <dependency>
   geometry HV

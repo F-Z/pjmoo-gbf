@@ -1,14 +1,14 @@
-format 38
+format 48
 "GraphicSystem" // Framework GBF::GraphicSystem
-  revision 17
-  modified_by 48 "david"
+  revision 20
+  modified_by 92 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 128089 "GraphicSystemUtility"
       abstract visibility package stereotype "interface"
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -55,6 +54,7 @@ ${inlines}
       java_decl "${comment}${public}interface ${name}${extends} {
 ${members}}
 "
+      php_decl ""
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
@@ -66,7 +66,7 @@ ${members}};
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128089 // graphicSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+	  b parent class_ref 128113 // GraphicSystem
       end
 
       operation 128089 "setGraphicSystem"
@@ -79,6 +79,7 @@ ${members}};
 ${body}}"
 	
 	
+	
       end
 
       classrelation 128729 // <dependency>
@@ -87,7 +88,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128729 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+	  b parent class_ref 129360 // GraphicSystemCore
       end
     end
 
@@ -99,25 +100,26 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
       classrelation 128241 // imageBufferManager (<unidirectional association>)
 	relation 128113 --->
-	  a role_name "imageBufferManager" multiplicity "1" public
+	  a role_name "imageBufferManager" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128241 // imageBufferManager (<unidirectional association>)
-	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
+	  b parent class_ref 132176 // GraphicSystemImageBufferManager
       end
 
       classrelation 128369 // gfx (<unidirectional association>)
 	relation 128241 --->
-	  a role_name "gfx" multiplicity "1" public
+	  a role_name "gfx" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128369 // gfx (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
+	  b parent class_ref 131152 // GraphicSystemGFX
       end
 
       operation 128113 "GraphicSystem"
@@ -128,6 +130,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -142,6 +145,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       classrelation 128881 // instance (<unidirectional association>)
@@ -150,7 +154,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128881 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+	  b parent class_ref 128113 // GraphicSystem
       end
 
       operation 128369 "getInstance"
@@ -160,6 +164,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
       end
@@ -173,6 +178,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -192,6 +198,7 @@ ${inlines}
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -208,6 +215,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha uma surface na surface de vídeo"
       end
 
@@ -219,6 +227,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna ponteiro para a surface de vídeo "
@@ -234,6 +243,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Trava a surface para desenhar"
       end
 
@@ -245,6 +255,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Destrava a surface para desenhar"
@@ -260,6 +271,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
 
@@ -268,6 +280,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -282,6 +295,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa qual a surface a ser usada e a configuração"
       end
 
@@ -291,7 +305,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 133456 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+	  b parent class_ref 129360 // GraphicSystemCore
       end
 
       classrelation 146512 // <dependency>
@@ -300,7 +314,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 146512 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 150864 // <dependency>
@@ -309,7 +323,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150864 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
     end
 
@@ -321,6 +335,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -330,6 +345,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -338,6 +354,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -346,6 +363,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -354,6 +372,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -366,6 +385,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -375,6 +395,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -383,6 +404,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -391,6 +413,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -399,6 +422,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -411,6 +435,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -422,6 +447,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -440,6 +466,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)"
       end
 
@@ -452,6 +479,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Seta a cor a ser usada (Usar somente se a cor já estiver sido mapeada para RGB)"
@@ -467,6 +495,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha um pixel na tela (Usando cor padrão selecionada)"
@@ -487,6 +516,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha um pixel na tela (Usado para cores em formado decimal)"
       end
 
@@ -503,6 +533,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha um pixel na tela (Usado apenas se a cor já estiver em formato RGB)"
       end
 
@@ -516,6 +547,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Pegar a cor de um pixel na tela"
@@ -535,6 +567,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha uma linha na tela"
       end
 
@@ -551,6 +584,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha um circulo"
       end
 
@@ -565,6 +599,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha um circulo preenchido"
@@ -584,6 +619,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha um retangulo"
       end
 
@@ -599,6 +635,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha um retangulo preenchido"
@@ -618,6 +655,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha cruzamentos com fechamento na parte superior (rever utilidade)"
       end
 
@@ -635,6 +673,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha cruzamentos com fechamento na parte inferior (rever utilidade)"
       end
 
@@ -646,6 +685,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Inicializa informações básicas"
@@ -663,6 +703,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se o ponto (x,y) está dentro dos limites "
       end
 
@@ -671,25 +712,26 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 132048 // color (<directional aggregation by value>)
 	relation 132048 *-->
-	  a role_name "color" multiplicity "" protected
+	  a role_name "color" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 132048 // color (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 131536 // Cor
+	  b parent class_ref 131536 // Cor
       end
 
       classrelation 132176 // gsScreen (<unidirectional association>)
 	relation 132176 --->
-	  a role_name "gsScreen" multiplicity "" init_value "= NULL" class_relation private
+	  a role_name "gsScreen" init_value "= NULL" class_relation private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 132176 // gsScreen (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
+	  b parent class_ref 131408 // GraphicSystemScreen
       end
 
       operation 147024 "setGraphicSystemScreen"
@@ -700,6 +742,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
       end
@@ -714,6 +757,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
 
@@ -722,6 +766,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -731,7 +776,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 132304 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+	  b parent class_ref 129360 // GraphicSystemCore
       end
 
       classrelation 128753 // <dependency>
@@ -740,7 +785,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128753 // <dependency>
-	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+	  b parent class_ref 128113 // GraphicSystem
       end
 
       operation 128148 "travar"
@@ -751,6 +796,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Realiza um lock na surface"
@@ -766,6 +812,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Realiza um unlock na surface"
       end
     end
@@ -778,6 +825,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -789,6 +837,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor "
@@ -804,6 +853,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor "
       end
 
@@ -815,6 +865,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Coloca o vídeo em modo de tela cheia "
@@ -830,6 +881,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Coloca o vídeo em modo de janela "
       end
 
@@ -841,6 +893,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna se o jogo esta rodando em modo de Tela Cheia "
@@ -857,6 +910,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura a resolução do modo gráfico "
       end
 
@@ -868,6 +922,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Pega a Configuração do modo gráfico "
@@ -883,16 +938,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna a Surface Primaria de Vídeo (framebuffer) "
       end
 
       classrelation 133328 // config (<directional aggregation by value>)
 	relation 133328 *-->
-	  a role_name "config" multiplicity "" protected
+	  a role_name "config" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 133328 // config (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 132304 // VideoConfig
+	  b parent class_ref 132304 // VideoConfig
       end
 
       attribute 134736 "screen"
@@ -900,6 +956,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -909,7 +966,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148176 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 150608 // <dependency>
@@ -918,7 +975,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150608 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 128113 // <aggregation by value>
@@ -934,6 +991,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -945,6 +1003,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Limpa a tela "
@@ -961,6 +1020,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Salva uma imagem da tela "
       end
 
@@ -972,6 +1032,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -987,6 +1048,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 144464 "flip"
@@ -999,26 +1061,27 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Realiza o flip(troca) entre os buffers de vídeo "
       end
 
       classrelation 131536 // gsMode (<aggregation by value>)
 	relation 131536 *---
-	  a role_name "gsMode" multiplicity "" public
+	  a role_name "gsMode" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 131536 // gsMode (<aggregation by value>)
-	  b role_name "" multiplicity "" protected
+	  b role_name "" protected
 	    classrelation_ref 128113 // <aggregation by value>
       end
 
       classrelation 131664 // gsScreen (<unidirectional association>)
 	relation 131664 --->
-	  a role_name "gsScreen" multiplicity "" public
+	  a role_name "gsScreen" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 131664 // gsScreen (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
+	  b parent class_ref 131408 // GraphicSystemScreen
       end
 
       operation 144720 "GraphicSystemCore"
@@ -1031,6 +1094,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Inicializa SubSistema de suporte a Video "
       end
 
@@ -1040,16 +1104,16 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148560 // <dependency>
-	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
+	  b parent class_ref 131920 // GraphicSystemImage
       end
 
       classrelation 129009 // graphicSystem (<directional aggregation>)
 	relation 128881 o-->
-	  a role_name "graphicSystem" multiplicity "1" public
+	  a role_name "graphicSystem" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129009 // graphicSystem (<directional aggregation>)
-	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+	  b parent class_ref 128113 // GraphicSystem
       end
 
       classrelation 129137 // <dependency>
@@ -1058,7 +1122,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129137 // <dependency>
-	  b multiplicity "" parent class_ref 129232 // GBF
+	  b parent class_ref 129232 // GBF
       end
 
       classrelation 128048 // <dependency>
@@ -1066,7 +1130,15 @@ ${body}}"
 	  a package
 	    cpp default "#include in source"
 	    classrelation_ref 128048 // <dependency>
-	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
+	  b parent class_ref 128089 // GraphicSystemUtility
+      end
+
+      classrelation 132143 // <generalisation>
+	relation 129327 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 132143 // <generalisation>
+	  b parent class_ref 128175 // BaseSystem
       end
     end
 
@@ -1078,6 +1150,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1089,6 +1162,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1104,6 +1178,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1116,6 +1191,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Seta nível de transparência "
@@ -1134,6 +1210,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Seta cor transparente"
       end
 
@@ -1143,6 +1220,7 @@ ${body}}"
 	  param in name "arquivo" explicit_type "std::string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -1157,6 +1235,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 148048 "getTamanho"
@@ -1169,11 +1248,13 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 148176 "getPosicao"
 	public explicit_return_type "SDL_Rect"
 	nparams 0
+	
 	
 	
 	
@@ -1185,6 +1266,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1194,6 +1276,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1202,6 +1285,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1210,6 +1294,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1221,6 +1306,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Converte Surface para formato na inicialização do GraphicSystem "
@@ -1237,6 +1323,7 @@ ${body}}
 "
 	
 	
+	
       end
 
       operation 148560 "setTimer"
@@ -1250,6 +1337,7 @@ ${body}}
 "
 	
 	
+	
       end
 
       classrelation 132560 // <dependency>
@@ -1258,7 +1346,7 @@ ${body}}
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 132560 // <dependency>
-	  b multiplicity "" parent class_ref 129232 // GBF
+	  b parent class_ref 129232 // GBF
       end
 
       classrelation 132688 // <dependency>
@@ -1267,14 +1355,14 @@ ${body}}
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 132688 // <dependency>
-	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+	  b parent class_ref 129360 // GraphicSystemCore
       end
 
       classrelation 147536 // <dependency>
 	relation 147536 -_->
 	  a protected
 	    classrelation_ref 147536 // <dependency>
-	  b multiplicity "" parent class_ref 128464 // Area
+	  b parent class_ref 128464 // Area
       end
 
       classrelation 150736 // <dependency>
@@ -1283,16 +1371,16 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150736 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 129265 // gsScreen (<directional aggregation>)
 	relation 129137 o-->
-	  a role_name "gsScreen" multiplicity "1" class_relation protected
+	  a role_name "gsScreen" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129265 // gsScreen (<directional aggregation>)
-	  b multiplicity "" parent class_ref 131408 // GraphicSystemScreen
+	  b parent class_ref 131408 // GraphicSystemScreen
       end
     end
 
@@ -1304,6 +1392,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1315,6 +1404,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -1329,6 +1419,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment " Retorna GraphicSystemImageBufferManager para manipulação"
@@ -1346,6 +1437,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment " Carregar ImageBuffer para o ImageBufferManager "
       end
 
@@ -1358,6 +1450,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment " Remove ImageBuffer "
@@ -1374,6 +1467,7 @@ ${body}}
 "
 	
 	
+	
 	comment " Informa PathBase para leitura de arquivos"
       end
 
@@ -1382,6 +1476,7 @@ ${body}}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1395,6 +1490,7 @@ ${body}}
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1403,6 +1499,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1412,7 +1509,15 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128625 // <dependency>
-	  b multiplicity "" parent class_ref 128113 // GraphicSystem
+	  b parent class_ref 128113 // GraphicSystem
+      end
+
+      classrelation 133039 // <generalisation>
+	relation 130223 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133039 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
       end
     end
 
@@ -1424,6 +1529,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1432,7 +1538,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 132816 // <generalisation>
-	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
+	  b parent class_ref 131920 // GraphicSystemImage
       end
 
       operation 148688 "GraphicSystemImageBuffer"
@@ -1443,6 +1549,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1456,6 +1563,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -1472,6 +1580,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 149072 "desenhar"
@@ -1483,6 +1592,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha um sprite simples na tela "
@@ -1499,6 +1609,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Permite desenhar sprites animados  "
@@ -1518,6 +1629,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Permite desenhar sprites animados com corte "
       end
 
@@ -1527,7 +1639,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 133072 // <dependency>
-	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
+	  b parent class_ref 132176 // GraphicSystemImageBufferManager
       end
     end
   end

@@ -1,14 +1,14 @@
-format 38
+format 48
 "InputSystem" // Framework GBF::InputSystem
-  revision 9
-  modified_by 56 "david"
+  revision 12
+  modified_by 51 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 128027 "InputSystemUtility"
       visibility package stereotype "interface"
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -55,6 +54,7 @@ ${inlines}
       java_decl "${comment}${public}interface ${name}${extends} {
 ${members}}
 "
+      php_decl ""
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
@@ -66,7 +66,7 @@ ${members}};
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128795 // inputSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128155 // InputSystem
+	  b parent class_ref 128155 // InputSystem
       end
 
       operation 128027 "setInputSystem"
@@ -79,15 +79,16 @@ ${members}};
 ${body}}"
 	
 	
+	
       end
 
       classrelation 128568 // <dependency>
 	relation 128568 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 128568 // <dependency>
-	  b multiplicity "" parent class_ref 129488 // InputSystemCore
+	  b parent class_ref 129488 // InputSystemCore
       end
     end
 
@@ -99,34 +100,35 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
       classrelation 128027 // joystick (<unidirectional association>)
 	relation 128027 --->
-	  a role_name "joystick" multiplicity "1" public
+	  a role_name "joystick" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128027 // joystick (<unidirectional association>)
-	  b multiplicity "" parent class_ref 132688 // InputSystemJoystick
+	  b parent class_ref 132688 // InputSystemJoystick
       end
 
       classrelation 128155 // teclado (<unidirectional association>)
 	relation 128155 --->
-	  a role_name "teclado" multiplicity "1" public
+	  a role_name "teclado" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128155 // teclado (<unidirectional association>)
-	  b multiplicity "" parent class_ref 132432 // InputSystemKeyboard
+	  b parent class_ref 132432 // InputSystemKeyboard
       end
 
       classrelation 128283 // mouse (<unidirectional association>)
 	relation 128283 --->
-	  a role_name "mouse" multiplicity "1" public
+	  a role_name "mouse" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128283 // mouse (<unidirectional association>)
-	  b multiplicity "" parent class_ref 132560 // InputSystemMouse
+	  b parent class_ref 132560 // InputSystemMouse
       end
 
       operation 128184 "~InputSystem"
@@ -137,6 +139,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -151,16 +154,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna uma instancia de InputSystem"
       end
 
       classrelation 128056 // instance (<unidirectional association>)
 	relation 128056 --->
-	  a role_name "instance" multiplicity "1" class_relation protected
+	  a role_name "instance" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128056 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128155 // InputSystem
+	  b parent class_ref 128155 // InputSystem
       end
 
       operation 128056 "InputSystem"
@@ -171,6 +175,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -185,6 +190,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Processa os eventos referentes aos mouse, teclado e joystick"
       end
 
@@ -192,9 +198,9 @@ ${body}}"
 	relation 129464 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 129464 // <dependency>
-	  b multiplicity "" parent class_ref 129488 // InputSystemCore
+	  b parent class_ref 129488 // InputSystemCore
       end
     end
 
@@ -205,6 +211,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -223,6 +230,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -234,6 +242,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Alterna entre input exclusivo e compartilhado"
@@ -249,6 +258,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna como está configurado o modo de input"
       end
 
@@ -260,6 +270,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna o evento lançado para o SubSistema de Input"
@@ -275,6 +286,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 152528 "processar"
@@ -285,6 +297,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Processa os eventos referentes aos mouse, teclado e joystick"
@@ -301,6 +314,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura o controle do teclado, mouse e joystick como exclusivo da aplicação"
       end
 
@@ -309,6 +323,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -317,6 +332,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -330,6 +346,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -339,33 +356,41 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150352 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 128696 // inputSystem (<directional aggregation>)
 	relation 128696 o-->
-	  a role_name "inputSystem" multiplicity "1" init_value "=NULL" public
+	  a role_name "inputSystem" init_value "=NULL" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128696 // inputSystem (<directional aggregation>)
-	  b multiplicity "" parent class_ref 128155 // InputSystem
+	  b parent class_ref 128155 // InputSystem
       end
 
       classrelation 129208 // <dependency>
 	relation 129208 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 129208 // <dependency>
-	  b multiplicity "" parent class_ref 129232 // GBF
+	  b parent class_ref 129232 // GBF
       end
 
       classrelation 129336 // <dependency>
 	relation 129336 -_->
 	  a default
-	    cpp default "Generated"
+	    cpp default "#include in header"
 	    classrelation_ref 129336 // <dependency>
-	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
+	  b parent class_ref 128027 // InputSystemUtility
+      end
+
+      classrelation 132271 // <generalisation>
+	relation 129455 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 132271 // <generalisation>
+	  b parent class_ref 128175 // BaseSystem
       end
     end
 
@@ -377,6 +402,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -395,6 +421,7 @@ Motivação:
 "
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -407,6 +434,7 @@ Motivação:
 {
   ${body}}
 "
+	
 	
 	
 	comment "Retorna se o direcional foi movido para o lado esquerdo"
@@ -423,6 +451,7 @@ Motivação:
 "
 	
 	
+	
 	comment "Retorna se o direcional foi movido para o lado direito"
       end
 
@@ -434,6 +463,7 @@ Motivação:
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}
 "
+	
 	
 	
 	comment "* Retorna se o direcional foi movido para cima "
@@ -450,6 +480,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Retorna se o direcional foi movido para baixo"
       end
 
@@ -462,6 +493,7 @@ ${body}}
 {
   ${body}}
 "
+	
 	
 	
 	comment "Retorna se o botão A foi pressionado"
@@ -478,6 +510,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Retorna se o botão B foi pressionado"
       end
 
@@ -490,6 +523,7 @@ ${body}}
 {
   ${body}}
 "
+	
 	
 	
 	comment "Retorna se o botão C foi pressionado (caso exista)"
@@ -506,6 +540,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Retorna se o botão D foi pressionado (caso exista)"
       end
 
@@ -518,6 +553,7 @@ ${body}}
 {
   ${body}}
 "
+	
 	
 	
 	comment "Construtor"
@@ -534,6 +570,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Processa os eventos do joystick"
       end
 
@@ -542,32 +579,33 @@ ${body}}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 134096 // axe_horizontal (<directional aggregation by value>)
 	relation 134096 *-->
-	  a role_name "axe_horizontal" multiplicity "" private
+	  a role_name "axe_horizontal" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 134096 // axe_horizontal (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 132816 // JOYSTICK_AXE
+	  b parent class_ref 132816 // JOYSTICK_AXE
       end
 
       classrelation 134224 // axe_vertical (<directional aggregation by value>)
 	relation 134224 *-->
-	  a role_name "axe_vertical" multiplicity "" private
+	  a role_name "axe_vertical" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 134224 // axe_vertical (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 132816 // JOYSTICK_AXE
+	  b parent class_ref 132816 // JOYSTICK_AXE
       end
 
       classrelation 146128 // <dependency>
 	relation 146128 -_->
 	  a protected
 	    classrelation_ref 146128 // <dependency>
-	  b multiplicity "" parent class_ref 132944 // JOYSTICK_BOTAO
+	  b parent class_ref 132944 // JOYSTICK_BOTAO
       end
 
       classrelation 146896 // <dependency>
@@ -576,7 +614,7 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 146896 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 150096 // <dependency>
@@ -585,7 +623,7 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150096 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 128411 // <dependency>
@@ -594,7 +632,7 @@ ${body}}
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128411 // <dependency>
-	  b multiplicity "" parent class_ref 128155 // InputSystem
+	  b parent class_ref 128155 // InputSystem
       end
     end
 
@@ -605,6 +643,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -618,7 +657,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 134992 // <generalisation>
-	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
+	  b parent class_ref 131920 // GraphicSystemImage
       end
 
       operation 157392 "~InputSystemMouseCursor"
@@ -630,6 +669,7 @@ Motivação:
 {
   ${body}}
 "
+	
 	
 	
 	comment "Destrutor"
@@ -645,6 +685,7 @@ Motivação:
 {
   ${body}}
 "
+	
 	
 	
 	comment "Carregar arquivo contendo a imagem do ponteiro"
@@ -663,6 +704,7 @@ Motivação:
 "
 	
 	
+	
 	comment "Desenha o ponteiro na tela"
       end
 
@@ -677,16 +719,17 @@ Motivação:
 "
 	
 	
+	
 	comment "Construtor"
       end
 
       classrelation 135120 // ponto (<directional aggregation by value>)
 	relation 135120 *-->
-	  a role_name "ponto" multiplicity "" private
+	  a role_name "ponto" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 135120 // ponto (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
 
       classrelation 135248 // <dependency>
@@ -695,7 +738,7 @@ Motivação:
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 135248 // <dependency>
-	  b multiplicity "" parent class_ref 132560 // InputSystemMouse
+	  b parent class_ref 132560 // InputSystemMouse
       end
     end
 
@@ -706,6 +749,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -723,6 +767,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -734,6 +779,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a posição do mouse no eixo X"
@@ -749,6 +795,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna a posição do mouse no eixo Y"
       end
 
@@ -760,6 +807,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a posição do mouse"
@@ -776,6 +824,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Carrega o curso do mouse do arquivo"
       end
 
@@ -787,6 +836,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna o InputSystemMouseCursor para manipulação"
@@ -803,6 +853,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura se exibe ou não o cursor do mouse"
       end
 
@@ -814,6 +865,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna se o ponteiro está ativo na tela"
@@ -829,6 +881,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se o botão esquerdo foi pressionado"
       end
 
@@ -842,6 +895,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se o botão do meio foi pressionado"
       end
 
@@ -853,6 +907,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Verifica se o botão direito foi pressionado"
@@ -871,16 +926,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se a combinação de botões foi pressionada"
       end
 
       classrelation 134608 // cursor (<unidirectional association>)
 	relation 134608 --->
-	  a role_name "cursor" multiplicity "" protected
+	  a role_name "cursor" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 134608 // cursor (<unidirectional association>)
-	  b multiplicity "" parent class_ref 133200 // InputSystemMouseCursor
+	  b parent class_ref 133200 // InputSystemMouseCursor
       end
 
       operation 157136 "InputSystemMouse"
@@ -891,6 +947,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -906,16 +963,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Processa os eventos do mouse"
       end
 
       classrelation 134736 // ponto (<directional aggregation by value>)
 	relation 134736 *-->
-	  a role_name "ponto" multiplicity "" private
+	  a role_name "ponto" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 134736 // ponto (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
 
       attribute 137168 "botao"
@@ -923,6 +981,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -931,6 +990,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -938,7 +998,7 @@ ${body}}"
 	relation 146256 -_->
 	  a protected
 	    classrelation_ref 146256 // <dependency>
-	  b multiplicity "" parent class_ref 133072 // MOUSE_BOTAO
+	  b parent class_ref 133072 // MOUSE_BOTAO
       end
 
       classrelation 128667 // <dependency>
@@ -947,7 +1007,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128667 // <dependency>
-	  b multiplicity "" parent class_ref 128155 // InputSystem
+	  b parent class_ref 128155 // InputSystem
       end
     end
 
@@ -958,6 +1018,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -976,6 +1037,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -988,6 +1050,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Verifica se a tecla foi pressionada"
@@ -1003,6 +1066,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1014,6 +1078,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Processa os eventos do teclado"
@@ -1029,6 +1094,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Limpa o estado das teclas"
       end
 
@@ -1037,6 +1103,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1046,7 +1113,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 145360 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 150224 // <dependency>
@@ -1055,7 +1122,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150224 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 128539 // <dependency>
@@ -1064,7 +1131,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128539 // <dependency>
-	  b multiplicity "" parent class_ref 128155 // InputSystem
+	  b parent class_ref 128155 // InputSystem
       end
     end
 
@@ -1075,6 +1142,7 @@ ${items}
 };
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1086,6 +1154,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1093,6 +1162,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1100,6 +1170,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1107,6 +1178,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -1118,6 +1190,7 @@ ${items}
 };
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1129,6 +1202,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1136,6 +1210,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1143,6 +1218,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1150,6 +1226,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -1161,6 +1238,7 @@ ${items}
 };
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1172,6 +1250,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1179,6 +1258,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1186,6 +1266,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1193,6 +1274,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1200,6 +1282,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end

@@ -1,14 +1,14 @@
-format 38
+format 45
 "ParticleSystem" // Framework GBF::ParticleSystem
-  revision 10
-  modified_by 117 "david"
+  revision 11
+  modified_by 47 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 128186 "ParticleSystemPixel"
       abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -53,6 +52,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -64,6 +64,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -78,6 +79,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 161488 "desenhar"
@@ -88,6 +90,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha todas as unidades"
@@ -104,6 +107,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura a quantidade de unidades que serão criadas"
       end
 
@@ -117,6 +121,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Indica se todas as unidades já terminaram o ciclo de vida"
       end
 
@@ -125,7 +130,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128058 // <generalisation>
-	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
+	  b parent class_ref 134224 // ParticleSystemEfeito
       end
 
       classrelation 128442 // lista (<directional aggregation by value>)
@@ -135,7 +140,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
 "
 	    classrelation_ref 128442 // lista (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 133968 // Particula
+	  b parent class_ref 133968 // Particula
       end
 
       classrelation 128082 // <dependency>
@@ -143,7 +148,7 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 128082 // <dependency>
-	  b multiplicity "" parent class_ref 137552 // UtilColor
+	  b parent class_ref 137552 // UtilColor
       end
 
       classrelation 128210 // <dependency>
@@ -151,7 +156,7 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 128210 // <dependency>
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
     end
 
@@ -163,6 +168,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -174,6 +180,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -189,6 +196,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -200,6 +208,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha todas as unidades"
@@ -215,6 +224,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se terminou a animação de todos os sprites"
       end
 
@@ -223,7 +233,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128186 // <generalisation>
-	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
+	  b parent class_ref 134224 // ParticleSystemEfeito
       end
 
       classrelation 128698 // lista (<directional aggregation>)
@@ -233,7 +243,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
 	    classrelation_ref 128698 // lista (<directional aggregation>)
-	  b multiplicity "" parent class_ref 136400 // Sprite
+	  b parent class_ref 136400 // Sprite
 	  association_type class_ref 136400 // Sprite
       end
     end
@@ -246,6 +256,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -255,20 +266,20 @@ Motivação:
     Permitir representar uma unidade com caracteristicas e ciclo de vida próprios"
       classrelation 135888 // velocidade (<directional aggregation by value>)
 	relation 135888 *-->
-	  a role_name "velocidade" multiplicity "" public
+	  a role_name "velocidade" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 135888 // velocidade (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 131792 // PontoVirtual
+	  b parent class_ref 131792 // PontoVirtual
       end
 
       classrelation 136016 // posicao (<directional aggregation by value>)
 	relation 136016 *-->
-	  a role_name "posicao" multiplicity "" public
+	  a role_name "posicao" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 136016 // posicao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 131792 // PontoVirtual
+	  b parent class_ref 131792 // PontoVirtual
       end
 
       attribute 137424 "energia"
@@ -276,16 +287,17 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 136144 // cor (<directional aggregation by value>)
 	relation 136144 *-->
-	  a role_name "cor" multiplicity "" public
+	  a role_name "cor" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 136144 // cor (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 134096 // HSV
+	  b parent class_ref 134096 // HSV
       end
 
       attribute 137552 "ativa"
@@ -293,6 +305,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -304,6 +317,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -321,6 +335,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -334,6 +349,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -342,6 +358,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Desenha todas as unidades"
@@ -356,6 +373,7 @@ ${body}}"
 "
 	
 	
+	
 	comment "Inicializa o sistema de particulas"
       end
 
@@ -364,6 +382,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Executa as unidades do sistema"
@@ -376,6 +395,7 @@ ${body}}"
 "
 	
 	
+	
       end
 
       classrelation 128473 // <generalisation>
@@ -383,7 +403,15 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128473 // <generalisation>
-	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
+	  b parent class_ref 128089 // GraphicSystemUtility
+      end
+
+      classrelation 133807 // <generalisation>
+	relation 130991 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133807 // <generalisation>
+	  b parent class_ref 128047 // ObjetoBase
       end
     end
 
@@ -394,6 +422,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -411,6 +440,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -422,6 +452,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -438,6 +469,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura o tamanho do raio de ação das particulas"
       end
 
@@ -446,16 +478,17 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 136656 // origem (<directional aggregation by value>)
 	relation 136656 *-->
-	  a role_name "origem" multiplicity "" protected
+	  a role_name "origem" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 136656 // origem (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
 
       classrelation 128314 // <generalisation>
@@ -463,7 +496,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128314 // <generalisation>
-	  b multiplicity "" parent class_ref 128186 // ParticleSystemPixel
+	  b parent class_ref 128186 // ParticleSystemPixel
       end
     end
 
@@ -474,6 +507,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -491,6 +525,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
 
@@ -502,6 +537,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -518,6 +554,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona um Sistema de Particulas"
       end
 
@@ -529,6 +566,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha objetos que estao no container"
@@ -544,6 +582,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Atualiza o Sistema"
       end
 
@@ -555,6 +594,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a quantidade de elementos "
@@ -570,6 +610,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Limpa o gerenciador, removendo todos os elementos"
       end
 
@@ -582,25 +623,26 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Pega uma Instância de ParticleSystemManager"
       end
 
       classrelation 136784 // instance (<unidirectional association>)
 	relation 136784 --->
-	  a role_name "instance" multiplicity "" init_value "=NULL" class_relation protected
+	  a role_name "instance" init_value "=NULL" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 136784 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 134480 // ParticleSystemManager
+	  b parent class_ref 134480 // ParticleSystemManager
       end
 
       classrelation 136912 // lista (<directional aggregation by value>)
 	relation 136912 *-->
 	  stereotype "std::deque"
-	  a role_name "lista" multiplicity "" protected
+	  a role_name "lista" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}*> ${name}${value};"
 	    classrelation_ref 136912 // lista (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 134224 // ParticleSystemEfeito
+	  b parent class_ref 134224 // ParticleSystemEfeito
       end
 
       operation 163280 "removerMorto"
@@ -613,7 +655,16 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Remove os sistemas de particulas já finalizados"
+      end
+
+      classrelation 133167 // <generalisation>
+	relation 130351 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133167 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
       end
     end
   end

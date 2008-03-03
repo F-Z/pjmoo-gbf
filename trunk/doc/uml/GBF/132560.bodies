@@ -3,7 +3,7 @@ class InputSystemMouse
     UtilLog::subSistema("Removendo InputSystemMouse");
     try {
         if (cursor){
-        //delete (cursor);
+            delete (cursor);
         //Comentado por causar falha em ambiente Linux
         //motivo ainda desconhecido
         }

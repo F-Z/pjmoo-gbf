@@ -1,14 +1,14 @@
-format 38
+format 48
 "SoundSystem" // Framework GBF::SoundSystem
-  revision 9
-  modified_by 120 "david"
+  revision 11
+  modified_by 117 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 128246 "SoundSystemUtility"
       visibility package stereotype "interface"
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -55,6 +54,7 @@ ${inlines}
       java_decl "${comment}${public}interface ${name}${extends} {
 ${members}}
 "
+      php_decl ""
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
@@ -62,11 +62,11 @@ ${members}};
       
       classrelation 128758 // soundSystem (<unidirectional association>)
 	relation 128630 --->
-	  a role_name "soundSystem" multiplicity "1" init_value "=NULL" class_relation protected
+	  a role_name "soundSystem" init_value "=NULL" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128758 // soundSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128118 // SoundSystem
+	  b parent class_ref 128118 // SoundSystem
       end
 
       operation 128758 "setSoundSystem"
@@ -79,6 +79,7 @@ ${members}};
 ${body}}"
 	
 	
+	
       end
 
       classrelation 130038 // <dependency>
@@ -87,7 +88,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 130038 // <dependency>
-	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundSystemCore
       end
     end
 
@@ -99,6 +100,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -112,6 +114,7 @@ ${inlines}
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -122,6 +125,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	comment "Retorna uma instância de SoundSystem"
@@ -137,6 +141,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       classrelation 128374 // fxManager (<directional aggregation>)
@@ -145,7 +150,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128374 // fxManager (<directional aggregation>)
-	  b multiplicity "" parent class_ref 135504 // SoundSystemFxManager
+	  b parent class_ref 135504 // SoundSystemFxManager
       end
 
       classrelation 128118 // instance (<unidirectional association>)
@@ -154,7 +159,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128118 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128118 // SoundSystem
+	  b parent class_ref 128118 // SoundSystem
       end
 
       classrelation 128246 // musicManager (<directional aggregation>)
@@ -163,7 +168,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128246 // musicManager (<directional aggregation>)
-	  b multiplicity "" parent class_ref 135376 // SoundSystemMusicManager
+	  b parent class_ref 135376 // SoundSystemMusicManager
       end
 
       classrelation 129270 // <dependency>
@@ -172,7 +177,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129270 // <dependency>
-	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundSystemCore
       end
     end
 
@@ -183,6 +188,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -198,6 +204,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -223,6 +230,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Inicializa o sistema de som"
       end
 
@@ -237,6 +245,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura sistema sonoro para parar o som"
       end
 
@@ -246,16 +255,16 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128502 // soundSystem (<directional aggregation>)
-	  b multiplicity "" parent class_ref 128118 // SoundSystem
+	  b parent class_ref 128118 // SoundSystem
       end
 
       classrelation 138448 // status (<directional aggregation>)
 	relation 138448 o-->
-	  a role_name "status" multiplicity "" protected
+	  a role_name "status" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 138448 // status (<directional aggregation>)
-	  b multiplicity "" parent class_ref 135632 // SoundSystemStatus
+	  b parent class_ref 135632 // SoundSystemStatus
       end
 
       operation 166992 "SoundSystemCore"
@@ -268,6 +277,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -275,7 +285,7 @@ ${body}}"
 	relation 147664 -_->
 	  a protected
 	    classrelation_ref 147664 // <dependency>
-	  b multiplicity "" parent class_ref 135248 // SoundSystemCanal
+	  b parent class_ref 135248 // SoundSystemCanal
       end
 
       classrelation 147920 // <dependency>
@@ -284,7 +294,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 147920 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 150480 // <dependency>
@@ -293,7 +303,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 150480 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 129526 // <dependency>
@@ -302,7 +312,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129526 // <dependency>
-	  b multiplicity "" parent class_ref 129232 // GBF
+	  b parent class_ref 129232 // GBF
       end
 
       classrelation 129910 // <dependency>
@@ -310,7 +320,15 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 129910 // <dependency>
-	  b multiplicity "" parent class_ref 128246 // SoundSystemUtility
+	  b parent class_ref 128246 // SoundSystemUtility
+      end
+
+      classrelation 132399 // <generalisation>
+	relation 129583 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 132399 // <generalisation>
+	  b parent class_ref 128175 // BaseSystem
       end
     end
 
@@ -321,6 +339,7 @@ ${items}
 };
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -333,6 +352,7 @@ Motivação:
 	init_value "= 1"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -341,6 +361,7 @@ Motivação:
 	init_value "=2"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -352,6 +373,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -369,6 +391,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -381,6 +404,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Remove uma música do gerenciador"
@@ -398,6 +422,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Carregar um arquivo de música para o gerenciador"
       end
 
@@ -409,6 +434,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Pausa a música"
@@ -425,6 +451,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Toca uma música"
       end
 
@@ -437,6 +464,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Toca uma música de repetitiva"
@@ -455,6 +483,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Toca uma música uma certa quantidade de vezes"
       end
 
@@ -466,6 +495,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Continuar a tocar a música"
@@ -483,6 +513,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura o volume do som"
       end
 
@@ -497,6 +528,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Para uma música"
       end
 
@@ -505,6 +537,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -513,6 +546,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -526,6 +560,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -534,7 +569,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 139344 // <generalisation>
-	  b multiplicity "" parent class_ref 135888 // SoundSystemInterfaceManager
+	  b parent class_ref 135888 // SoundSystemInterfaceManager
       end
 
       classrelation 129654 // <dependency>
@@ -543,7 +578,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129654 // <dependency>
-	  b multiplicity "" parent class_ref 128118 // SoundSystem
+	  b parent class_ref 128118 // SoundSystem
       end
     end
 
@@ -554,6 +589,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -571,6 +607,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -583,6 +620,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Toca uma efeito sonoro"
@@ -600,6 +638,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Carregar um arquivo de efeito sonoro para o gerenciador"
       end
 
@@ -612,6 +651,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Remove um efeito sonoro do gerenciador"
@@ -627,6 +667,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Pausa o efeito sonoro"
       end
 
@@ -638,6 +679,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Continuar a tocar o efeito sonoro"
@@ -656,6 +698,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Toca um efeito sonoro de acordo com as coordenadas"
       end
 
@@ -669,6 +712,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Toca um efeito sonoro detectando em qual caixa está mais próximo"
@@ -686,6 +730,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Determina a área para calculo de efeito sonoro"
       end
 
@@ -699,6 +744,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Configura o volume do efeito sonoro
@@ -715,6 +761,7 @@ Obs.: Valor do volume de 0 ate 128"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -723,6 +770,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -731,6 +779,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -739,6 +788,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -747,7 +797,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 138832 // <generalisation>
-	  b multiplicity "" parent class_ref 135888 // SoundSystemInterfaceManager
+	  b parent class_ref 135888 // SoundSystemInterfaceManager
       end
 
       classrelation 129782 // <dependency>
@@ -756,7 +806,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129782 // <dependency>
-	  b multiplicity "" parent class_ref 128118 // SoundSystem
+	  b parent class_ref 128118 // SoundSystem
       end
     end
 
@@ -767,6 +817,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -784,6 +835,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -797,6 +849,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se sistema de som está funcionando"
       end
 
@@ -808,6 +861,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Verifica se o som está desligado"
@@ -824,6 +878,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configurar se o sistema de som está funcionando"
       end
 
@@ -838,6 +893,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura o sistema de som"
       end
 
@@ -846,6 +902,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -854,6 +911,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -867,6 +925,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -876,7 +935,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129398 // <dependency>
-	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundSystemCore
       end
     end
 
@@ -887,6 +946,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -904,6 +964,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -918,6 +979,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Lê arquivo de efeito sonoro"
       end
 
@@ -929,6 +991,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Toca Efeto sonoro"
@@ -946,6 +1009,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura o volume do efeito, 
 Obs.: Valor de 0 ate 128"
       end
@@ -955,6 +1019,7 @@ Obs.: Valor de 0 ate 128"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -968,6 +1033,7 @@ Obs.: Valor de 0 ate 128"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -977,7 +1043,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 138704 // <dependency>
-	  b multiplicity "" parent class_ref 135504 // SoundSystemFxManager
+	  b parent class_ref 135504 // SoundSystemFxManager
       end
     end
 
@@ -988,6 +1054,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1005,6 +1072,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1017,6 +1085,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Lê arquivo de música"
@@ -1032,6 +1101,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Toca Música de Fundo"
       end
 
@@ -1043,6 +1113,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Toca Música de Fundo de forma infinita"
@@ -1060,6 +1131,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Toca Música de Fundo várias vezes"
       end
 
@@ -1073,6 +1145,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Configura o volume da música
@@ -1089,6 +1162,7 @@ Obs.: Valor de 0 ate 128 "
 ${body}}"
 	
 	
+	
 	comment "Para a música"
       end
 
@@ -1097,6 +1171,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1110,6 +1185,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1119,7 +1195,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 139216 // <dependency>
-	  b multiplicity "" parent class_ref 135376 // SoundSystemMusicManager
+	  b parent class_ref 135376 // SoundSystemMusicManager
       end
     end
 
@@ -1130,6 +1206,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1147,6 +1224,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1160,6 +1238,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1169,6 +1248,7 @@ ${body}}"
 	  param in name "nome" explicit_type "std::string"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Apaga o arquivo de som do gerenciador"
@@ -1183,6 +1263,7 @@ ${body}}"
 "
 	
 	
+	
 	comment "Carrega no manager o arquivo de som"
       end
 
@@ -1191,6 +1272,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Pausa o sistema de som"
@@ -1204,6 +1286,7 @@ ${body}}"
 "
 	
 	
+	
 	comment "Toca um som"
       end
 
@@ -1212,6 +1295,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Continua a tocar o som"
@@ -1224,6 +1308,7 @@ ${body}}"
 	  param in name "volume" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Configura o volume do som
@@ -1240,6 +1325,7 @@ Obs.: Valor do volume de 0 ate 128"
 ${body}}"
 	
 	
+	
 	comment "Informa PathBase para leitura de arquivos"
       end
 
@@ -1253,6 +1339,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       attribute 139728 "pathBase"
@@ -1260,6 +1347,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1269,7 +1357,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128886 // status (<directional aggregation>)
-	  b multiplicity "" parent class_ref 135632 // SoundSystemStatus
+	  b parent class_ref 135632 // SoundSystemStatus
       end
 
       classrelation 148048 // <dependency>
@@ -1278,7 +1366,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148048 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 129142 // <dependency>
@@ -1287,7 +1375,15 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129142 // <dependency>
-	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundSystemCore
+      end
+
+      classrelation 133295 // <generalisation>
+	relation 130479 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133295 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
       end
     end
   end
