@@ -1,8 +1,8 @@
 class GraphicSystemMode
 !!!150352.cpp!!!	GraphicSystemMode()
-
+    screen = NULL;
 !!!150480.cpp!!!	~GraphicSystemMode()
-    SDL_FreeSurface(screen);
+//    SDL_FreeSurface(screen);
 !!!150608.cpp!!!	setModeFullScreen() : void
     config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
     screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);

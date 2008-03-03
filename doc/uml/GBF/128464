@@ -1,14 +1,14 @@
-format 38
+format 45
 "TimerSystem" // Framework GBF::TimerSystem
-  revision 7
-  modified_by 75 "david"
+  revision 8
+  modified_by 47 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 130896 "TimerSystemCronometroDecrescente"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -52,6 +51,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -64,7 +64,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 141136 // <generalisation>
-	  b multiplicity "" parent class_ref 136912 // TimerSystemCronometroAbstract
+	  b parent class_ref 136912 // TimerSystemCronometroAbstract
       end
 
       operation 180688 "executar"
@@ -75,6 +75,7 @@ Motivação:
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Executa este método quando o estado é CRONOMETRO_EXECUTAR"
@@ -90,6 +91,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -103,6 +105,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
     end
@@ -114,6 +117,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -126,7 +130,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 141008 // <generalisation>
-	  b multiplicity "" parent class_ref 136912 // TimerSystemCronometroAbstract
+	  b parent class_ref 136912 // TimerSystemCronometroAbstract
       end
 
       operation 179920 "executar"
@@ -137,6 +141,7 @@ Motivação:
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Executa este método quando o estado é CRONOMETRO_EXECUTAR"
@@ -152,6 +157,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -165,6 +171,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
     end
@@ -176,6 +183,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -193,6 +201,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -204,6 +213,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -219,6 +229,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 181840 "start"
@@ -229,6 +240,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Deve ser chamado antes do loop principal do jogo"
@@ -244,6 +256,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Aumenta a frequencia do FPS"
       end
 
@@ -257,6 +270,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Diminui a frequencia do FPS"
       end
 
@@ -265,6 +279,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -273,6 +288,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -282,7 +298,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 147408 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 149840 // <dependency>
@@ -291,7 +307,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149840 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
     end
 
@@ -301,6 +317,7 @@ ${body}}"
 ${items}};
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -312,6 +329,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Restaura tempo original e passa para o estado de iniciar"
       end
@@ -320,6 +338,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Inicio do cronometro"
       end
@@ -328,6 +347,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Pausa cronometro"
       end
@@ -336,6 +356,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "continua contagem do cronometro"
       end
@@ -344,6 +365,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Cronometro em execução"
       end
@@ -352,6 +374,7 @@ Motivação:
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Cronometro finalizado
 "
@@ -365,6 +388,7 @@ ${items}
 };
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -379,6 +403,7 @@ Motivação:
 	init_value "=100"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -387,6 +412,7 @@ Motivação:
 	init_value "=500"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -395,6 +421,7 @@ Motivação:
 	init_value "=1000"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -406,6 +433,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -418,6 +446,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -426,6 +455,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -434,6 +464,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -442,6 +473,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -450,16 +482,17 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 140880 // eCronometro (<directional aggregation by value>)
 	relation 140880 *-->
-	  a role_name "eCronometro" multiplicity "" protected
+	  a role_name "eCronometro" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 140880 // eCronometro (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 136784 // EnumCronometro
+	  b parent class_ref 136784 // EnumCronometro
       end
 
       operation 177616 "executar"
@@ -467,6 +500,7 @@ Motivação:
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Executa este método quando o estado é CRONOMETRO_EXECUTAR"
@@ -482,6 +516,7 @@ Motivação:
 ${body}}"
 	
 	
+	
 	comment "Executa este método quando o estado é CRONOMETRO_RESETAR"
       end
 
@@ -493,6 +528,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Executa este método quando o estado é CRONOMETRO_INICIAR"
@@ -508,6 +544,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Executa este método quando o estado é CRONOMETRO_CONTINUAR"
       end
 
@@ -519,6 +556,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Inicia o contado de tempo"
@@ -534,6 +572,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Muda o estado para CRONOMETRO_EXECUTAR"
       end
 
@@ -545,6 +584,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Muda o estado para CRONOMETRO_TERMINAR"
@@ -560,6 +600,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor "
       end
 
@@ -571,6 +612,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -587,6 +629,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura a unidade de tempo a ser usada"
       end
 
@@ -598,6 +641,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Muda o estado para CRONOMETRO_RESETAR"
@@ -613,6 +657,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Muda o estado para CRONOMETRO_INICIAR"
       end
 
@@ -624,6 +669,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Muda o estado para CRONOMETRO_PAUSAR"
@@ -639,6 +685,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Muda o estado para CRONOMETRO_CONTINUAR"
       end
 
@@ -652,6 +699,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Centro de processamento de estados"
       end
 
@@ -663,6 +711,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a contagem de tempo corrente"
@@ -679,6 +728,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona o marcador de tempo inicial"
       end
 
@@ -692,6 +742,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa se o tempo já terminou"
       end
 
@@ -699,7 +750,7 @@ ${body}}"
 	relation 147024 -_->
 	  a protected
 	    classrelation_ref 147024 // <dependency>
-	  b multiplicity "" parent class_ref 136656 // EnumTempo
+	  b parent class_ref 136656 // EnumTempo
       end
 
       classrelation 149968 // <dependency>
@@ -708,7 +759,15 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149968 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
+      end
+
+      classrelation 133935 // <generalisation>
+	relation 131119 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133935 // <generalisation>
+	  b parent class_ref 128047 // ObjetoBase
       end
     end
   end

@@ -1,14 +1,14 @@
-format 38
+format 45
 "Sprite" // Framework GBF::Sprite
-  revision 27
-  modified_by 83 "david"
+  revision 28
+  modified_by 47 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 128222 "Frame"
       visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
@@ -53,6 +52,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl "${comment}struct ${name} {
 ${members}};
 "
@@ -64,6 +64,7 @@ ${members}};
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -73,6 +74,7 @@ ${members}};
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -85,6 +87,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -96,6 +99,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -113,6 +117,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Ajusta a area de corte do sprite - posicionamento nos frames"
       end
 
@@ -128,6 +133,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa a quantidade de quadros e a taxa de repetição"
       end
 
@@ -139,6 +145,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Informa se animação está no fim - último frame"
@@ -154,6 +161,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa se animação está no inicio - primeiro frame"
       end
 
@@ -165,6 +173,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a dimensão do quadro"
@@ -180,6 +189,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 173904 "processarManual"
@@ -190,6 +200,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Anima o sprite de forma manual, toda chamada a esse metodo anima o personagem "
@@ -206,6 +217,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Define se a animação é automática ou manual "
       end
 
@@ -218,6 +230,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Define a dimensão do quadro"
@@ -233,6 +246,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Coloca a animação no primeiro frame"
       end
 
@@ -241,6 +255,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -249,6 +264,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -258,7 +274,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128478 // frame (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128222 // Frame
+	  b parent class_ref 128222 // Frame
       end
 
       classrelation 128222 // repeticao (<directional aggregation by value>)
@@ -267,7 +283,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128222 // repeticao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128222 // Frame
+	  b parent class_ref 128222 // Frame
       end
 
       operation 128083 "setFrame"
@@ -279,6 +295,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Informa o quadro a ser usado na animação"
@@ -294,6 +311,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Anima o Sprite de forma automática "
       end
 
@@ -301,9 +319,9 @@ ${body}}"
 	relation 128211 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 128211 // <dependency>
-	  b multiplicity "" parent class_ref 136528 // SpriteItem
+	  b parent class_ref 136528 // SpriteItem
       end
     end
 
@@ -313,6 +331,7 @@ ${body}}"
 ${items}};
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -321,6 +340,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -328,6 +348,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -335,6 +356,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -342,6 +364,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -349,6 +372,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -356,6 +380,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -363,6 +388,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -370,6 +396,7 @@ ${items}};
 	public explicit_type ""
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -382,6 +409,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -391,6 +419,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -399,6 +428,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -407,6 +437,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -415,6 +446,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -423,6 +455,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -431,6 +464,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -439,6 +473,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -447,6 +482,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -459,6 +495,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -470,6 +507,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -491,6 +529,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 175440 "criarSpritePersonagem"
@@ -509,6 +548,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 175568 "criarFrameLayer"
@@ -525,6 +565,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 175696 "SpriteFactory"
@@ -538,16 +579,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
       classrelation 139856 // gsiBuffer (<unidirectional association>)
 	relation 139856 --->
-	  a role_name "gsiBuffer" multiplicity "" protected
+	  a role_name "gsiBuffer" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 139856 // gsiBuffer (<unidirectional association>)
-	  b multiplicity "" parent class_ref 132048 // GraphicSystemImageBuffer
+	  b parent class_ref 132048 // GraphicSystemImageBuffer
       end
 
       classrelation 148816 // <dependency>
@@ -556,7 +598,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148816 // <dependency>
-	  b multiplicity "" parent class_ref 136528 // SpriteItem
+	  b parent class_ref 136528 // SpriteItem
       end
 
       classrelation 148944 // <dependency>
@@ -565,7 +607,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 148944 // <dependency>
-	  b multiplicity "" parent class_ref 134736 // SpritePersonagem
+	  b parent class_ref 134736 // SpritePersonagem
       end
 
       classrelation 149200 // <dependency>
@@ -574,7 +616,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149200 // <dependency>
-	  b multiplicity "" parent class_ref 128080 // FrameLayer
+	  b parent class_ref 128080 // FrameLayer
       end
     end
 
@@ -586,6 +628,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -594,7 +637,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 140496 // <generalisation>
-	  b multiplicity "" parent class_ref 136400 // Sprite
+	  b parent class_ref 136400 // Sprite
       end
 
       operation 176720 "~SpritePersonagem"
@@ -605,6 +648,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -621,6 +665,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 176976 "setQtdDirecoes"
@@ -632,6 +677,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -648,6 +694,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 177232 "getQtdDirecoes"
@@ -658,6 +705,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a quantidade de direções que o personagem possui "
@@ -673,6 +721,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 177488 "SpritePersonagem"
@@ -685,16 +734,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
       classrelation 140624 // direcao (<directional aggregation by value>)
 	relation 140624 *-->
-	  a role_name "direcao" multiplicity "" protected
+	  a role_name "direcao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 140624 // direcao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 136272 // SpriteDirecao
+	  b parent class_ref 136272 // SpriteDirecao
       end
 
       attribute 143440 "qtdDirecao"
@@ -702,6 +752,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -714,6 +765,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -722,7 +774,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 140240 // <generalisation>
-	  b multiplicity "" parent class_ref 136400 // Sprite
+	  b parent class_ref 136400 // Sprite
       end
 
       operation 176592 "SpriteItem"
@@ -733,6 +785,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor "
@@ -746,6 +799,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor "
@@ -763,6 +817,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 128109 "setFrame"
@@ -774,6 +829,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Informa o quadro de animação"
@@ -790,6 +846,7 @@ ${inlines}
       java_decl "${comment}${public}interface ${name}${extends} {
 ${members}}
 "
+      php_decl ""
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
@@ -803,6 +860,7 @@ ${members}};
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -823,6 +881,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 176080 "SpriteInterface"
@@ -835,16 +894,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
       classrelation 140112 // imagem (<directional aggregation>)
 	relation 140112 o-->
-	  a role_name "imagem" multiplicity "" protected
+	  a role_name "imagem" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 140112 // imagem (<directional aggregation>)
-	  b multiplicity "" parent class_ref 132048 // GraphicSystemImageBuffer
+	  b parent class_ref 132048 // GraphicSystemImageBuffer
       end
 
       attribute 143056 "posicao"
@@ -852,6 +912,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -860,6 +921,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -869,16 +931,24 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 149712 // <dependency>
-	  b multiplicity "" parent class_ref 138448 // SDL
+	  b parent class_ref 138448 // SDL
       end
 
       classrelation 129393 // animacao (<directional aggregation by value>)
 	relation 129265 *-->
-	  a role_name "animacao" multiplicity "" public
+	  a role_name "animacao" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129393 // animacao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128241 // Animacao
+	  b parent class_ref 128241 // Animacao
+      end
+
+      classrelation 133551 // <generalisation>
+	relation 130735 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133551 // <generalisation>
+	  b parent class_ref 128047 // ObjetoBase
       end
     end
 
@@ -890,6 +960,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -901,6 +972,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -923,6 +995,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 174160 "desenhar"
@@ -937,6 +1010,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 128085 "desenhar"
@@ -947,6 +1021,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha o sprite na tela, com base na última posição informada ou desenhada"
@@ -960,6 +1035,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a dimensão do sprite 'width' e 'height' "
@@ -976,6 +1052,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Colisão baseada no tamanho dos Sprites "
       end
 
@@ -988,6 +1065,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Posiciona o Sprite na tela "
@@ -1005,6 +1083,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Posiciona o Sprite na tela "
       end
 
@@ -1018,6 +1097,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1025,7 +1105,7 @@ ${body}}"
 	relation 148304 -_->
 	  a protected
 	    classrelation_ref 148304 // <dependency>
-	  b multiplicity "" parent class_ref 136144 // SpriteDirecaoStatus
+	  b parent class_ref 136144 // SpriteDirecaoStatus
       end
 
       classrelation 139728 // <generalisation>
@@ -1033,14 +1113,14 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 139728 // <generalisation>
-	  b multiplicity "" parent class_ref 128208 // SpriteInterface
+	  b parent class_ref 128208 // SpriteInterface
       end
 
       classrelation 148432 // <dependency>
 	relation 148432 -_->
 	  a protected
 	    classrelation_ref 148432 // <dependency>
-	  b multiplicity "" parent class_ref 136272 // SpriteDirecao
+	  b parent class_ref 136272 // SpriteDirecao
       end
     end
 
@@ -1052,6 +1132,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1061,16 +1142,16 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128080 // <generalisation>
-	  b multiplicity "" parent class_ref 128208 // SpriteInterface
+	  b parent class_ref 128208 // SpriteInterface
       end
 
       classrelation 128208 // camera (<directional aggregation by value>)
 	relation 128208 *-->
-	  a role_name "camera" multiplicity "" public
+	  a role_name "camera" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128208 // camera (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128336 // FrameLayerCamera
+	  b parent class_ref 128336 // FrameLayerCamera
       end
 
       operation 128080 "FrameLayer"
@@ -1081,6 +1162,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1096,6 +1178,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1107,6 +1190,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha o mapa"
@@ -1122,6 +1206,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)"
       end
 
@@ -1133,6 +1218,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Distancia restante para finalizar Scrolling Vertical"
@@ -1148,6 +1234,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Porcentagem percorrida do Scroll Horizontal"
       end
 
@@ -1161,6 +1248,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Porcentagem percorrida do Scroll Vertical"
       end
 
@@ -1172,6 +1260,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Distancia total do Scrolling Vertical"
@@ -1188,6 +1277,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Inicializa tiles com valores do arquivo"
       end
 
@@ -1200,6 +1290,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Iniciar preenchendo apenas com o quadro informado"
@@ -1216,6 +1307,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Iniciar ordenado até o quadro informado"
       end
 
@@ -1229,6 +1321,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Inicializa tiles de forma aleatória"
@@ -1248,6 +1341,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa o posicionamento da area de desenho e as suas dimensões internas"
       end
 
@@ -1261,6 +1355,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Informa o tamanho do mundo em tiles horizontais e verticais"
@@ -1278,6 +1373,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa o tamanho em pixels dos tiles usados no layer"
       end
 
@@ -1291,6 +1387,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha a grade de tiles do mapa"
       end
 
@@ -1299,25 +1396,26 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 128464 // mundo (<directional aggregation by value>)
 	relation 128464 *-->
-	  a role_name "mundo" multiplicity "" protected
+	  a role_name "mundo" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128464 // mundo (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128592 // FrameLayerMundo
+	  b parent class_ref 128592 // FrameLayerMundo
       end
 
       classrelation 128336 // screen_dimensao (<directional aggregation by value>)
 	relation 128336 *-->
-	  a role_name "screen_dimensao" multiplicity "" protected
+	  a role_name "screen_dimensao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128336 // screen_dimensao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128464 // Area
+	  b parent class_ref 128464 // Area
       end
 
       classrelation 128592 // <dependency>
@@ -1326,7 +1424,7 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 128592 // <dependency>
-	  b multiplicity "" parent class_ref 128720 // FrameLayerManager
+	  b parent class_ref 128720 // FrameLayerManager
       end
     end
 
@@ -1338,6 +1436,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1349,6 +1448,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -1364,6 +1464,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna a Posição Atual da Camera "
       end
 
@@ -1375,6 +1476,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Verifica se a Camera está no limite inferior do mapa "
@@ -1390,6 +1492,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se a Camera está no limite esquerdo do mapa "
       end
 
@@ -1403,6 +1506,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Verifica se a Camera está no limite direito do mapa "
       end
 
@@ -1414,6 +1518,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Verifica se a Camera está no limite superior do mapa"
@@ -1431,6 +1536,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Movimenta camera para Baixo "
       end
 
@@ -1444,6 +1550,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Movimenta camera para Esquerda "
@@ -1461,6 +1568,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Movimenta camera para Direita "
       end
 
@@ -1476,6 +1584,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Movimenta camera para Cima "
       end
 
@@ -1487,6 +1596,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Posiciona a Camera no Final do mapa "
@@ -1503,6 +1613,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 130512 "setPosicao"
@@ -1515,6 +1626,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Posiciona a Camera em um ponto do Mapa "
@@ -1530,6 +1642,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Posiciona a Camera no inicio do mapa "
       end
 
@@ -1541,6 +1654,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Mostra o posicionamento da camera no mapa "
@@ -1556,6 +1670,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Não permite que a camera ultrapasse o limite do mapa pelo lado superior "
       end
 
@@ -1567,6 +1682,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Não permite que a camera ultrapasse o limite do mapa pelo lado inferior "
@@ -1582,6 +1698,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo "
       end
 
@@ -1595,25 +1712,26 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Não permite que a camera ultrapasse o limite do mapa pelo lado direito "
       end
 
       classrelation 128976 // mundo (<directional aggregation>)
 	relation 128976 o-->
-	  a role_name "mundo" multiplicity "" private
+	  a role_name "mundo" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128976 // mundo (<directional aggregation>)
-	  b multiplicity "" parent class_ref 128592 // FrameLayerMundo
+	  b parent class_ref 128592 // FrameLayerMundo
       end
 
       classrelation 128848 // ponto (<directional aggregation by value>)
 	relation 128848 *-->
-	  a role_name "ponto" multiplicity "" private
+	  a role_name "ponto" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128848 // ponto (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
 
       classrelation 128304 // <dependency>
@@ -1622,7 +1740,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128304 // <dependency>
-	  b multiplicity "" parent class_ref 128080 // FrameLayer
+	  b parent class_ref 128080 // FrameLayer
       end
 
       operation 130128 "FrameLayerCamera"
@@ -1633,6 +1751,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1647,6 +1766,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1658,6 +1778,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -1673,6 +1794,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 134224 "getPixelTileHorizontal"
@@ -1683,6 +1805,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1697,6 +1820,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 134608 "getPixelVisivel"
@@ -1707,6 +1831,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1721,6 +1846,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 134864 "getPixelVisivelVertical"
@@ -1731,6 +1857,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1745,6 +1872,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 133712 "getTilesHorizontal"
@@ -1757,6 +1885,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 133840 "getTilesVertical"
@@ -1767,6 +1896,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1783,6 +1913,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 134480 "setPixelVisivel"
@@ -1795,6 +1926,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1811,33 +1943,34 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       classrelation 129360 // areaVisivel (<directional aggregation by value>)
 	relation 129360 *-->
-	  a role_name "areaVisivel" multiplicity "" private
+	  a role_name "areaVisivel" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129360 // areaVisivel (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       classrelation 129232 // quantidadeTiles (<directional aggregation by value>)
 	relation 129232 *-->
-	  a role_name "quantidadeTiles" multiplicity "" private
+	  a role_name "quantidadeTiles" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129232 // quantidadeTiles (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       classrelation 129488 // tile (<directional aggregation by value>)
 	relation 129488 *-->
-	  a role_name "tile" multiplicity "" private
+	  a role_name "tile" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129488 // tile (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       operation 133328 "FrameLayerMundo"
@@ -1850,6 +1983,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1859,7 +1993,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128176 // <dependency>
-	  b multiplicity "" parent class_ref 128080 // FrameLayer
+	  b parent class_ref 128080 // FrameLayer
       end
     end
 
@@ -1871,6 +2005,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1886,6 +2021,7 @@ ${inlines}
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1896,6 +2032,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	comment "Retorna uma instancia de FrameLayerManager "
@@ -1910,6 +2047,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna FrameLayer para manipulação "
@@ -1927,6 +2065,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona FrameLayer no FrameLayerManager "
       end
 
@@ -1940,16 +2079,17 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
       classrelation 129104 // instance (<unidirectional association>)
 	relation 129104 --->
-	  a role_name "instance" multiplicity "" class_relation protected
+	  a role_name "instance" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129104 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128720 // FrameLayerManager
+	  b parent class_ref 128720 // FrameLayerManager
       end
 
       attribute 128208 "objetomap"
@@ -1957,6 +2097,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1966,7 +2107,15 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143696 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
+      end
+
+      classrelation 132911 // <generalisation>
+	relation 130095 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 132911 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
       end
     end
   end

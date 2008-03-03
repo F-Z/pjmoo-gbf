@@ -1,14 +1,14 @@
-format 38
+format 48
 "GBF" // Framework GBF::GBF
-  revision 15
-  modified_by 118 "david"
+  revision 18
+  modified_by 92 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,305 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
+    class 128303 "BaseManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 132783 // <generalisation>
+	relation 129967 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 132783 // <generalisation>
+	  b parent class_ref 128047 // ObjetoBase
+      end
+
+      operation 128943 "BaseManager"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+      end
+
+      operation 129071 "~BaseManager"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+      end
+    end
+
+    class 133456 "ListManager"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Descrição: 
+    Classe para criação de gerenciadores
+Motivação:
+    Fornecer uma interface padrão para criação de gerenciadores"
+      operation 160080 "ListManager"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	comment "Construtor "
+      end
+
+      operation 160208 "~ListManager"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	comment "Destrutor "
+      end
+
+      operation 160336 "desenhar"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	comment "Desenha objetos que estao no container"
+      end
+
+      operation 160464 "size"
+	abstract cpp_virtual public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	comment "Retorna a quantidade de elementos "
+      end
+
+      operation 160592 "limpar"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	comment "Limpa o container, removendo todos os elementos"
+      end
+
+      operation 160720 "acao"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param inout name "input" type class_ref 129488 // InputSystemCore
+	    defaultvalue "NULL"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	comment "Executa as ações de cada elemento "
+      end
+
+      operation 160848 "ordenar"
+	abstract cpp_virtual protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	comment "Ordena os elementos "
+      end
+
+      classrelation 132655 // <generalisation>
+	relation 129839 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 132655 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
+      end
+    end
+
+    class 128047 "ObjetoBase"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 128047 "ObjetoBase"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+${body}}
+"
+	
+	
+	
+      end
+
+      operation 128175 "~ObjetoBase"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+${body}}
+"
+	
+	
+	
+      end
+
+      operation 128303 "isInstance"
+	stereotype "template"
+	cpp_inline public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract} {
+            if (dynamic_cast<T*>(this)){
+                return true;
+            } else {
+                return false;
+            }
+        };
+"
+	
+	
+	
+      end
+
+      operation 128431 "isInstance"
+	stereotype "template"
+	cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param in name "" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract} {
+            if (dynamic_cast<T*>(this)){
+                return true;
+            } else {
+                return false;
+            }
+        };
+"
+	
+	
+	
+      end
+
+      operation 128559 "isInstance"
+	stereotype "template"
+	cpp_inline public explicit_return_type "bool"
+	nparams 1
+	  param inout name "t" explicit_type "T"
+	cpp_decl "    ${comment}template<class T>
+  ${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract} {
+            if (dynamic_cast<T*>(this)){
+                return true;
+            } else {
+                return false;
+            }
+        };
+"
+	
+	
+	
+      end
+    end
+
+    class 128175 "BaseSystem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 130991 // <generalisation>
+	relation 128175 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 130991 // <generalisation>
+	  b parent class_ref 128047 // ObjetoBase
+      end
+
+      operation 128687 "BaseSystem"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+      end
+
+      operation 128815 "~BaseSystem"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+      end
+    end
+
     class 128976 "Ponto"
       visibility package stereotype "struct"
       cpp_decl "${comment}${template}struct ${name}${inherit}
@@ -53,6 +351,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -62,6 +361,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -70,6 +370,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -82,6 +383,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -91,6 +393,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -99,6 +402,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -111,6 +415,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -120,6 +425,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -128,6 +434,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -137,6 +444,7 @@ ${inlines}
       cpp_decl "${comment}typedef ${type} ${name};
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -148,6 +456,7 @@ ${inlines}
       cpp_decl "${comment}typedef ${type} ${name};
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -163,6 +472,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -173,39 +483,39 @@ Motivação:
  "
       classrelation 129616 // graphicSystemCore (<unidirectional association>)
 	relation 129616 --->
-	  a role_name "graphicSystemCore" multiplicity "" public
+	  a role_name "graphicSystemCore" public
 	    comment "GraphicSystemCore, núcleo do sistema gráfico"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129616 // graphicSystemCore (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129360 // GraphicSystemCore
+	  b parent class_ref 129360 // GraphicSystemCore
       end
 
       classrelation 129744 // inputSystemCore (<unidirectional association>)
 	relation 129744 --->
-	  a role_name "inputSystemCore" multiplicity "1" public
+	  a role_name "inputSystemCore" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129744 // inputSystemCore (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129488 // InputSystemCore
+	  b parent class_ref 129488 // InputSystemCore
       end
 
       classrelation 130000 // soundSystemCore (<unidirectional association>)
 	relation 130000 --->
-	  a role_name "soundSystemCore" multiplicity "" public
+	  a role_name "soundSystemCore" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 130000 // soundSystemCore (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundSystemCore
       end
 
       classrelation 129872 // writeSystem (<unidirectional association>)
 	relation 129872 --->
-	  a role_name "writeSystem" multiplicity "" public
+	  a role_name "writeSystem" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129872 // writeSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteSystemManager
       end
 
       operation 135120 "~GBF"
@@ -216,6 +526,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -231,6 +542,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -242,6 +554,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
@@ -257,6 +570,7 @@ Obs.: Deve ser usado na interação do loop principal do jogo"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna o diretório base da aplicação corrente"
@@ -276,6 +590,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Inicializa o Sistema, e configura o modo gráfico"
       end
 
@@ -287,6 +602,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -301,6 +617,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informa se o mostrador de FPS está ativo"
       end
 
@@ -312,6 +629,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Pausa o Sistema"
@@ -328,6 +646,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 135760 "setFPS"
@@ -339,6 +658,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Mostra o Contador de FPS"
@@ -353,6 +673,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Informa o caminho do diretório base da aplicação corrente"
@@ -370,6 +691,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Informação sobre o Autor e o Título da Aplicação.
 Obs.: Usado para arquivo de log e título da janela"
       end
@@ -384,6 +706,7 @@ Obs.: Usado para arquivo de log e título da janela"
 ${body}}"
 	
 	
+	
 	comment "Prepara o Ambiente para ser inicializado "
       end
 
@@ -395,6 +718,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Controle para ações internas"
@@ -411,6 +735,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Define o Título para Janela "
       end
 
@@ -419,6 +744,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -427,16 +753,17 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 130128 // fpsSystem (<unidirectional association>)
 	relation 130128 --->
-	  a role_name "fpsSystem" multiplicity "" private
+	  a role_name "fpsSystem" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 130128 // fpsSystem (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129872 // TimerSystemFPS
+	  b parent class_ref 129872 // TimerSystemFPS
       end
 
       attribute 128464 "numscreenshot"
@@ -444,6 +771,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -452,6 +780,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -462,7 +791,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143952 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
 
       classrelation 144208 // <dependency>
@@ -472,7 +801,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144208 // <dependency>
-	  b multiplicity "" parent class_ref 132176 // GraphicSystemImageBufferManager
+	  b parent class_ref 132176 // GraphicSystemImageBufferManager
       end
 
       classrelation 144336 // <dependency>
@@ -482,7 +811,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144336 // <dependency>
-	  b multiplicity "" parent class_ref 128720 // FrameLayerManager
+	  b parent class_ref 128720 // FrameLayerManager
       end
 
       classrelation 144464 // <dependency>
@@ -492,7 +821,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144464 // <dependency>
-	  b multiplicity "" parent class_ref 132304 // VideoConfig
+	  b parent class_ref 132304 // VideoConfig
       end
 
       classrelation 144848 // <dependency>
@@ -502,7 +831,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144848 // <dependency>
-	  b multiplicity "" parent class_ref 137808 // UtilExtract
+	  b parent class_ref 137808 // UtilExtract
       end
 
       classrelation 144976 // <dependency>
@@ -512,7 +841,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144976 // <dependency>
-	  b multiplicity "" parent class_ref 135888 // SoundSystemInterfaceManager
+	  b parent class_ref 135888 // SoundSystemInterfaceManager
       end
 
       classrelation 151760 // <dependency>
@@ -521,7 +850,7 @@ ${body}}"
 	  a package
 	    cpp default "#include in header"
 	    classrelation_ref 151760 // <dependency>
-	  b multiplicity "" parent class_ref 138576 // UserInterfaceTexto
+	  b parent class_ref 138576 // UserInterfaceTexto
       end
 
       classrelation 128289 // <dependency>
@@ -529,7 +858,7 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 128289 // <dependency>
-	  b multiplicity "" parent class_ref 129061 // UserInterfaceWindow
+	  b parent class_ref 129061 // UserInterfaceWindow
       end
     end
   end
@@ -538,6 +867,116 @@ ${body}}"
     //deployment diagram settings
     package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
+    artifact 128175 "BaseSystem"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128175 // BaseSystem
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 132560 "ObjectManager"
+      stereotype "source"
+      cpp_h "#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${comment}
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 133456 // ListManager
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128047 "ObjetoBase"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128047 // ObjetoBase
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
     artifact 128720 "GBF_define"
       stereotype "source"
       cpp_h "#ifndef _${NAME}_H
@@ -611,6 +1050,43 @@ ${namespace_end}"
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 //        http://pjmoo.codigolivre.org.br
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128303 "BaseManager"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128303 // BaseManager
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
 //////////////////////////////////////////////////////////////////////
 "
     end

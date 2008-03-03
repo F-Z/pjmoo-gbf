@@ -28,7 +28,7 @@ class PersonagemAbstract
     return adicionarSprite(sprite,"principal");
 !!!193744.cpp!!!	adicionarSprite(inout sprite : SpritePersonagem, in nome : std::string) : bool
     if (sprite){
-        sprite->setAutomatico(true);
+        sprite->animacao.setAutomatico(true);
         sprites[nome]=sprite;
         return true;
     } else {

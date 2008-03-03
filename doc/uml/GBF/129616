@@ -1,14 +1,14 @@
-format 38
+format 48
 "UserInterface" // Framework GBF::UserInterface
-  revision 23
-  modified_by 82 "david"
+  revision 25
+  modified_by 51 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,13 +44,13 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 128677 "UserInterfaceVisualTipoBackground"
       visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}};
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -60,6 +60,7 @@ ${items}};
 	constraint " ${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -69,6 +70,7 @@ ${items}};
 	constraint " ${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -78,6 +80,7 @@ ${items}};
 	constraint " ${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -88,6 +91,7 @@ ${items}};
 	constraint " ${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -98,6 +102,7 @@ ${items}};
 ${items}};
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -107,6 +112,7 @@ ${items}};
 	constraint " ${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -117,6 +123,7 @@ ${items}};
 	constraint " ${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -130,6 +137,7 @@ ${items}};
 ${items};
 ${members}}
 "
+      php_decl ""
       idl_decl "${comment}enum ${name} {
 ${items}};
 "
@@ -141,6 +149,7 @@ ${items}};
 	init_value "=0"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -149,6 +158,7 @@ ${items}};
 	init_value "=1"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -157,6 +167,7 @@ ${items}};
 	init_value "=2"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -169,6 +180,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -177,7 +189,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128805 // <generalisation>
-	  b multiplicity "" parent class_ref 128165 // UserInterfaceComponente
+	  b parent class_ref 128165 // UserInterfaceComponente
       end
 
       attribute 131109 "BOTAO_OK"
@@ -186,6 +198,7 @@ ${inlines}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -197,6 +210,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -214,6 +228,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -225,6 +240,7 @@ ${body}}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -243,6 +259,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${co
 ${body}}"
 	
 	
+	
 	comment "Posicação da Caixa na tela"
       end
 
@@ -256,6 +273,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -272,6 +290,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Inicializa as configurações da caixa de texto"
       end
 
@@ -284,6 +303,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Estilo Visual a ser Aplicado no Componente"
@@ -300,6 +320,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 134053 "confirmarSelecao"
@@ -310,6 +331,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -327,6 +349,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatil
 ${body}}"
 	
 	
+	
 	comment "Retorna se o Botão informado foi acionado"
       end
 
@@ -335,6 +358,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -343,6 +367,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -351,16 +376,17 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 128933 // textoAlinhamento (<directional aggregation by value>)
 	relation 128933 *-->
-	  a role_name "textoAlinhamento" multiplicity "" protected
+	  a role_name "textoAlinhamento" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128933 // textoAlinhamento (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128421 // UserInterfaceTextoAlinhamento
+	  b parent class_ref 128421 // UserInterfaceTextoAlinhamento
       end
 
       operation 134309 "desenharBackground"
@@ -373,6 +399,7 @@ ${body}}"
 ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha o background da caixa de texto"
@@ -390,6 +417,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Desenha o conteudo da janela"
       end
 
@@ -405,34 +433,35 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Desenha o botão de ação da janela"
       end
 
       classrelation 129061 // texto (<directional aggregation by value>)
 	relation 129061 *-->
-	  a role_name "texto" multiplicity "" public
+	  a role_name "texto" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129061 // texto (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128293 // UserInterfaceObjetoTexto
+	  b parent class_ref 128293 // UserInterfaceObjetoTexto
       end
 
       classrelation 129189 // visual (<unidirectional association>)
 	relation 129189 --->
-	  a role_name "visual" multiplicity "" protected
+	  a role_name "visual" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129189 // visual (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128549 // UserInterfaceVisual
+	  b parent class_ref 128549 // UserInterfaceVisual
       end
 
       classrelation 129317 // botao (<unidirectional association>)
 	relation 129317 --->
-	  a role_name "botao" multiplicity "" init_value "=NULL" protected
+	  a role_name "botao" init_value "=NULL" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129317 // botao (<unidirectional association>)
-	  b multiplicity "" parent class_ref 128037 // UserInterfaceBotao
+	  b parent class_ref 128037 // UserInterfaceBotao
       end
 
       attribute 131621 "tempoEspera"
@@ -440,6 +469,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -448,7 +478,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 129080 // <generalisation>
-	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
+	  b parent class_ref 128027 // InputSystemUtility
       end
     end
 
@@ -460,6 +490,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -468,7 +499,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 129445 // <generalisation>
-	  b multiplicity "" parent class_ref 129061 // UserInterfaceWindow
+	  b parent class_ref 129061 // UserInterfaceWindow
       end
 
       operation 134693 "UserInterfaceWindowTitulo"
@@ -479,6 +510,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
       end
@@ -493,6 +525,7 @@ ${body}}
 "
 	
 	
+	
       end
 
       operation 134949 "desenharConteudo"
@@ -503,6 +536,7 @@ ${body}}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -519,16 +553,17 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Inicializa as configurações da caixa de texto"
       end
 
       classrelation 129573 // titulo (<directional aggregation by value>)
 	relation 129573 *-->
-	  a role_name "titulo" multiplicity "" public
+	  a role_name "titulo" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 129573 // titulo (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128293 // UserInterfaceObjetoTexto
+	  b parent class_ref 128293 // UserInterfaceObjetoTexto
       end
     end
 
@@ -540,6 +575,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -553,6 +589,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -564,6 +601,7 @@ ${body}}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	comment "Destrutor"
@@ -582,6 +620,7 @@ ${body}}
 ${body}}"
 	
 	
+	
       end
 
       operation 130853 "aplicar"
@@ -598,6 +637,7 @@ ${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1}
 ${body}}"
 	
 	
+	
 	comment "Aplica o efeito visual"
       end
 
@@ -606,6 +646,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Desenha o EstiloVisual do Componente"
@@ -618,6 +659,7 @@ ${body}}"
 "
 	
 	
+	
       end
 
       attribute 129701 "corBorda"
@@ -625,6 +667,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -633,6 +676,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -641,6 +685,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -649,7 +694,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128345 // <generalisation>
-	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
+	  b parent class_ref 128089 // GraphicSystemUtility
       end
     end
 
@@ -661,6 +706,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -669,7 +715,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128677 // <generalisation>
-	  b multiplicity "" parent class_ref 128549 // UserInterfaceVisual
+	  b parent class_ref 128549 // UserInterfaceVisual
       end
 
       operation 132133 "UserInterfaceVisualSolido"
@@ -680,6 +726,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -693,6 +740,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -711,6 +759,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 132645 "desenhar"
@@ -723,6 +772,7 @@ ${body}}"
 ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha o EstiloVisual do Componente"
@@ -738,6 +788,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna uma copia do objeto"
       end
 
@@ -746,6 +797,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -758,6 +810,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -766,7 +819,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128421 // <generalisation>
-	  b multiplicity "" parent class_ref 128549 // UserInterfaceVisual
+	  b parent class_ref 128549 // UserInterfaceVisual
       end
 
       operation 131237 "UserInterfaceVisualImagem"
@@ -777,6 +830,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	comment "Construtor"
@@ -790,6 +844,7 @@ ${body}}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -807,6 +862,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Aplica o efeito visual"
       end
 
@@ -822,6 +878,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Desenha o EstiloVisual do Componente"
       end
 
@@ -833,6 +890,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna uma copia do objeto"
@@ -851,24 +909,26 @@ ${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatil
 ${body}}"
 	
 	
+	
 	comment "Define o estilo de background a ser utilizado"
       end
 
-      attribute 130725 "background"
-	protected explicit_type "FrameLayer"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+      classrelation 129368 // background (<directional aggregation>)
+	relation 128088 o-->
+	  a role_name "background" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	java_decl ""
-	idl_decl ""
+	    classrelation_ref 129368 // background (<directional aggregation>)
+	  b parent class_ref 128080 // FrameLayer
       end
 
       classrelation 128549 // tipoBackground (<directional aggregation by value>)
 	relation 128549 *-->
-	  a role_name "tipoBackground" multiplicity "" protected
+	  a role_name "tipoBackground" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128549 // tipoBackground (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128677 // UserInterfaceVisualTipoBackground
+	  b parent class_ref 128677 // UserInterfaceVisualTipoBackground
       end
 
       classrelation 128041 // <dependency>
@@ -876,7 +936,7 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 128041 // <dependency>
-	  b multiplicity "" parent class_ref 128848 // SpriteFactory
+	  b parent class_ref 128848 // SpriteFactory
       end
     end
 
@@ -888,6 +948,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -899,6 +960,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -908,6 +970,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -917,6 +980,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -925,6 +989,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -933,6 +998,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -941,6 +1007,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -949,6 +1016,7 @@ Texto Alinhado ao Centro (Centralizado)"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -962,6 +1030,7 @@ Texto Alinhado ao Centro (Centralizado)"
 ${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	comment "Construtor"
@@ -979,6 +1048,7 @@ ${body}}
 "
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -993,6 +1063,7 @@ ${body}}
 ${body}}"
 	
 	
+	
       end
 
       operation 129189 "getFonte"
@@ -1003,6 +1074,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1018,6 +1090,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 129445 "getChaveTexto"
@@ -1028,6 +1101,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1043,6 +1117,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 129701 "getDimensaoLetra"
@@ -1053,6 +1128,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1070,6 +1146,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatil
 ${body}}"
 	
 	
+	
 	comment "Informa o Estilo de entrelinhas a ser utilizado"
       end
 
@@ -1083,6 +1160,7 @@ ${body}}"
 ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna em pixel o espaçamento entre as linhas"
@@ -1101,6 +1179,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatil
 ${body}}"
 	
 	
+	
 	comment "Configura o Alinhamento do Texto"
       end
 
@@ -1116,6 +1195,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Retorna o alinhamento utilizado"
       end
 
@@ -1124,27 +1204,29 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 128293 // alinhamento (<directional aggregation by value>)
 	relation 128293 *-->
-	  a role_name "alinhamento" multiplicity "" protected
+	  a role_name "alinhamento" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128293 // alinhamento (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128421 // UserInterfaceTextoAlinhamento
+	  b parent class_ref 128421 // UserInterfaceTextoAlinhamento
       end
     end
 
     class 128165 "UserInterfaceComponente"
-      visibility package 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1156,6 +1238,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
       end
@@ -1170,6 +1253,7 @@ ${body}}
 "
 	
 	
+	
       end
 
       attribute 128165 "wsManager"
@@ -1178,6 +1262,7 @@ ${body}}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1187,6 +1272,7 @@ ${body}}
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
     end
@@ -1199,6 +1285,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1207,7 +1294,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128037 // <generalisation>
-	  b multiplicity "" parent class_ref 128165 // UserInterfaceComponente
+	  b parent class_ref 128165 // UserInterfaceComponente
       end
 
       operation 128037 "UserInterfaceBotao"
@@ -1223,6 +1310,7 @@ ${body}}
 "
 	
 	
+	
       end
 
       operation 128165 "~UserInterfaceBotao"
@@ -1233,6 +1321,7 @@ ${body}}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
       end
@@ -1250,6 +1339,7 @@ ${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}$
 ${body}}"
 	
 	
+	
 	comment "Desenha o botão"
       end
 
@@ -1265,6 +1355,7 @@ ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}$
 ${body}}"
 	
 	
+	
 	comment "Retorna a tecla correspondente ao botão"
       end
 
@@ -1273,16 +1364,17 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 128165 // botao (<directional aggregation by value>)
 	relation 128165 *-->
-	  a role_name "botao" multiplicity "" protected
+	  a role_name "botao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128165 // botao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128293 // UserInterfaceObjetoTexto
+	  b parent class_ref 128293 // UserInterfaceObjetoTexto
       end
     end
 
@@ -1294,6 +1386,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1306,6 +1399,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1317,6 +1411,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -1331,6 +1426,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 209104 "desenhar"
@@ -1340,6 +1436,7 @@ ${body}}"
 	  param in name "y" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -1355,6 +1452,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 210896 "getQuantidadeLetras"
@@ -1364,6 +1462,7 @@ ${body}}"
 "
 	
 	
+	
       end
 
       operation 211152 "getDimensaoLetra"
@@ -1371,6 +1470,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
       end
@@ -1385,6 +1485,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
     end
 
@@ -1396,6 +1497,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1408,6 +1510,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1416,16 +1519,17 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 155088 // tempo (<directional aggregation by value>)
 	relation 155088 *-->
-	  a role_name "tempo" multiplicity "" protected
+	  a role_name "tempo" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 155088 // tempo (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 130512 // TimerSystemCronometroCrescente
+	  b parent class_ref 130512 // TimerSystemCronometroCrescente
       end
 
       classrelation 154960 // wsManager (<unidirectional association>)
@@ -1434,7 +1538,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 154960 // wsManager (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteSystemManager
       end
 
       operation 208592 "UserInterfaceMenuItemTexto"
@@ -1449,6 +1553,7 @@ Motivação:
 ${body}}"
 	
 	
+	
       end
 
       operation 208720 "~UserInterfaceMenuItemTexto"
@@ -1459,6 +1564,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -1475,6 +1581,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 211024 "getQuantidadeLetras"
@@ -1485,6 +1592,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1499,6 +1607,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       classrelation 154832 // <generalisation>
@@ -1506,7 +1615,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 154832 // <generalisation>
-	  b multiplicity "" parent class_ref 140112 // UserInterfaceMenuItemAbstract
+	  b parent class_ref 140112 // UserInterfaceMenuItemAbstract
       end
     end
 
@@ -1518,6 +1627,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1530,6 +1640,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1538,6 +1649,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1546,6 +1658,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1556,16 +1669,16 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type} *> ${name}${value};
 "
 	    classrelation_ref 154576 // item (<unidirectional association>)
-	  b multiplicity "" parent class_ref 140112 // UserInterfaceMenuItemAbstract
+	  b parent class_ref 140112 // UserInterfaceMenuItemAbstract
       end
 
       classrelation 155216 // delayNavegacao (<directional aggregation by value>)
 	relation 155216 *-->
-	  a role_name "delayNavegacao" multiplicity "" protected
+	  a role_name "delayNavegacao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 155216 // delayNavegacao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 130896 // TimerSystemCronometroDecrescente
+	  b parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
       operation 207696 "UserInterfaceMenuAbstract"
@@ -1576,6 +1689,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1591,6 +1705,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1603,6 +1718,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1620,6 +1736,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 211792 "setCorFundo"
@@ -1635,6 +1752,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 208464 "setPosicao"
@@ -1647,6 +1765,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Define a posição x,y do menu"
@@ -1665,6 +1784,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Centraliza o menu na tela de acordo com as coordenadas passadas
 Obs.: Caso o parâmetro de alinhamento seja HORIZONTAL ou VERTICAL ele usará o parâmetro
 referente a outra posição para posicionar o menu na tela"
@@ -1680,6 +1800,7 @@ referente a outra posição para posicionar o menu na tela"
 ${body}}"
 	
 	
+	
       end
 
       operation 208336 "adicionar"
@@ -1693,6 +1814,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona um item ao menu"
       end
 
@@ -1704,6 +1826,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna o índice da opção selecionada"
@@ -1721,6 +1844,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 209360 "desenhar"
@@ -1728,6 +1852,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "desenha o menu na tela"
@@ -1743,6 +1868,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "remove todos os itens do menu"
       end
 
@@ -1756,6 +1882,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 210384 "navegar"
@@ -1765,6 +1892,7 @@ ${body}}"
 "
 	
 	
+	
       end
 
       attribute 158032 "maiorPalavra"
@@ -1772,6 +1900,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1781,7 +1910,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 155984 // eAlinhamento (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 140496 // EnumAlinhamento
+	  b parent class_ref 140496 // EnumAlinhamento
       end
 
       attribute 158544 "corBorda"
@@ -1789,6 +1918,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1797,6 +1927,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -1805,7 +1936,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128824 // <generalisation>
-	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
+	  b parent class_ref 128027 // InputSystemUtility
       end
     end
 
@@ -1817,6 +1948,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1825,7 +1957,7 @@ ${inlines}
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128143 // <generalisation>
-	  b multiplicity "" parent class_ref 140240 // UserInterfaceMenuTexto
+	  b parent class_ref 140240 // UserInterfaceMenuTexto
       end
 
       operation 128143 "UserInterfaceMenuTextoTransparente"
@@ -1836,6 +1968,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1851,6 +1984,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1864,6 +1998,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
     end
 
@@ -1875,6 +2010,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1887,7 +2023,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 154704 // <generalisation>
-	  b multiplicity "" parent class_ref 139984 // UserInterfaceMenuAbstract
+	  b parent class_ref 139984 // UserInterfaceMenuAbstract
       end
 
       operation 209744 "UserInterfaceMenuTexto"
@@ -1898,6 +2034,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -1913,6 +2050,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1924,6 +2062,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1938,6 +2077,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 210128 "itemAvancar"
@@ -1948,6 +2088,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -1962,6 +2103,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       classrelation 128217 // <generalisation>
@@ -1969,7 +2111,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128217 // <generalisation>
-	  b multiplicity "" parent class_ref 128089 // GraphicSystemUtility
+	  b parent class_ref 128089 // GraphicSystemUtility
       end
     end
 
@@ -1981,6 +2123,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1993,6 +2136,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Lista com os códigos e textos correspondentes
 "
@@ -2003,6 +2147,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Lista com os idiomas suportados"
       end
@@ -2012,6 +2157,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Prefixo do idioma selecionado
 "
@@ -2019,11 +2165,11 @@ Motivação:
 
       classrelation 151504 // instance (<unidirectional association>)
 	relation 151504 --->
-	  a role_name "instance" multiplicity "" init_value "=NULL" class_relation protected
+	  a role_name "instance" init_value "=NULL" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 151504 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 138576 // UserInterfaceTexto
+	  b parent class_ref 138576 // UserInterfaceTexto
       end
 
       attribute 151760 "arquivo"
@@ -2031,6 +2177,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "arquivo de localização a ser carregado
 "
@@ -2041,6 +2188,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Caminho padrão de localização dos arquivos"
       end
@@ -2050,9 +2198,10 @@ Motivação:
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw}
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
       end
@@ -2060,9 +2209,11 @@ ${body}}"
       operation 192080 "getInstance"
 	class_operation public return_type class_ref 138576 // UserInterfaceTexto
 	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
       end
@@ -2075,6 +2226,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	comment "Configura o caminho do arquivo de  mensagens"
@@ -2091,6 +2243,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Configura um idioma
 Obs.: O idioma é configurado de acordo com a lista de idiomas suportado"
       end
@@ -2105,6 +2258,7 @@ Obs.: O idioma é configurado de acordo com a lista de idiomas suportado"
 ${body}}"
 	
 	
+	
       end
 
       operation 192720 "detectarIdioma"
@@ -2115,6 +2269,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Seleciona o idioma automaticamente de acordo com o ambiente"
@@ -2130,6 +2285,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 193232 "setArquivo"
@@ -2143,6 +2299,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 191824 "size"
@@ -2153,6 +2310,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -2168,6 +2326,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 128121 "isChaveTexto"
@@ -2179,6 +2338,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna se existe a chave de texto"
@@ -2195,6 +2355,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 193360 "carregarIdioma"
@@ -2205,6 +2366,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
       end
@@ -2220,6 +2382,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 191952 "limpar"
@@ -2232,6 +2395,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
       end
 
       operation 191184 "UserInterfaceTexto"
@@ -2241,8 +2405,8 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
-  ${body}}
-"
+${body}}"
+	
 	
 	
       end
@@ -2252,7 +2416,7 @@ ${body}}"
 	  a default
 	    cpp default "#include in header"
 	    classrelation_ref 151632 // <dependency>
-	  b multiplicity "" parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // UtilLog
       end
     end
 
@@ -2264,6 +2428,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -2273,83 +2438,83 @@ Motivação:
     Possibilitar que o jogador informe seu nome e entre na galeria de recordes"
       classrelation 141520 // recorde (<directional aggregation by value>)
 	relation 141520 *-->
-	  a role_name "recorde" multiplicity "" private
+	  a role_name "recorde" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 141520 // recorde (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 137040 // TopSystemRecorde
+	  b parent class_ref 137040 // TopSystemRecorde
       end
 
       classrelation 141776 // wsManager (<unidirectional association>)
 	relation 141776 --->
-	  a role_name "wsManager" multiplicity "" private
+	  a role_name "wsManager" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 141776 // wsManager (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteSystemManager
       end
 
       classrelation 141904 // gsGFX (<unidirectional association>)
 	relation 141904 --->
-	  a role_name "gsGFX" multiplicity "" private
+	  a role_name "gsGFX" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 141904 // gsGFX (<unidirectional association>)
-	  b multiplicity "" parent class_ref 131152 // GraphicSystemGFX
+	  b parent class_ref 131152 // GraphicSystemGFX
       end
 
       classrelation 142032 // tempoNavegacao (<directional aggregation by value>)
 	relation 142032 *-->
-	  a role_name "tempoNavegacao" multiplicity "" private
+	  a role_name "tempoNavegacao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142032 // tempoNavegacao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 130896 // TimerSystemCronometroDecrescente
+	  b parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
       classrelation 142160 // tempoBlink (<directional aggregation by value>)
 	relation 142160 *-->
-	  a role_name "tempoBlink" multiplicity "" private
+	  a role_name "tempoBlink" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142160 // tempoBlink (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 130512 // TimerSystemCronometroCrescente
+	  b parent class_ref 130512 // TimerSystemCronometroCrescente
       end
 
       classrelation 142288 // posicao (<directional aggregation by value>)
 	relation 142288 *-->
-	  a role_name "posicao" multiplicity "" private
+	  a role_name "posicao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142288 // posicao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 128976 // Ponto
+	  b parent class_ref 128976 // Ponto
       end
 
       classrelation 142416 // dimensaoFonteLabel (<directional aggregation by value>)
 	relation 142416 *-->
-	  a role_name "dimensaoFonteLabel" multiplicity "" private
+	  a role_name "dimensaoFonteLabel" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142416 // dimensaoFonteLabel (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       classrelation 142544 // dimensaoFonteTeclado (<directional aggregation by value>)
 	relation 142544 *-->
-	  a role_name "dimensaoFonteTeclado" multiplicity "" private
+	  a role_name "dimensaoFonteTeclado" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142544 // dimensaoFonteTeclado (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       classrelation 142672 // caixaTeclado (<directional aggregation by value>)
 	relation 142672 *-->
-	  a role_name "caixaTeclado" multiplicity "" private
+	  a role_name "caixaTeclado" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142672 // caixaTeclado (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       attribute 147280 "totalTeclasTeclado"
@@ -2357,6 +2522,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2365,6 +2531,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2373,6 +2540,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2381,6 +2549,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2389,6 +2558,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2397,6 +2567,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}[3]${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2405,6 +2576,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}[50]${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Armazena a letras do teclado"
       end
@@ -2414,6 +2586,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2422,6 +2595,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2430,6 +2604,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -2441,6 +2616,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -2456,6 +2632,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -2468,6 +2645,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Define a fonte a ser usada pelo teclado virtual"
@@ -2485,6 +2663,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Define a posição da Interface de recordes"
       end
 
@@ -2497,6 +2676,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Define a fonte a ser usada pelo label"
@@ -2513,6 +2693,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona referência para o Sistema Gráfico GFX"
       end
 
@@ -2527,6 +2708,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Adiciona referência para o Sistema de Escrita"
       end
 
@@ -2538,6 +2720,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna o TopSystemRecorde"
@@ -2554,6 +2737,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Atribui um TopSystemRecorde para complementar os dados"
       end
 
@@ -2565,6 +2749,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Gerencia o controle do cursor (navegação) e as opções selecionadas"
@@ -2580,6 +2765,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha a interface contendo: pontuação, dados do jogador e teclado virtual"
       end
 
@@ -2591,6 +2777,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Efetua as ações de acordo com a posição do cursor"
@@ -2606,6 +2793,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha as caixas de fundo para posicionamento dos dados do jogador e do teclado virtual"
       end
 
@@ -2617,6 +2805,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Desenha o teclado virtual"
@@ -2632,6 +2821,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha o nome do jogador e sua pontuação"
       end
 
@@ -2645,6 +2835,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Efetua o controle sobre a navegação do cursor"
       end
 
@@ -2653,7 +2844,7 @@ ${body}}"
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 128952 // <generalisation>
-	  b multiplicity "" parent class_ref 128027 // InputSystemUtility
+	  b parent class_ref 128027 // InputSystemUtility
       end
     end
   end

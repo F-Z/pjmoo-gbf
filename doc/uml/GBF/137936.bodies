@@ -18,11 +18,10 @@ class UtilLog
         handleArquivo = fopen(arquivo.c_str(), "w+t");
         fclose(handleArquivo);
         //abrindo novo
-        //handleArquivo = fopen(arquivo.c_str(), "w+t");
         handleArquivo = fopen(arquivo.c_str(), "a+t");
 
         //cabecalho
-        escrever("Inicio do Log. %s",UtilDate::getInfo());
+        escrever("Inicio do Log. %s",UtilDate::getInfo().c_str());
         escrever("=========================================================================");
         escrever(" Gamework's Brazilian Framework (GBF) - http://pjmoo.codigolivre.org.br  ");
         escrever("=========================================================================");
@@ -34,7 +33,7 @@ class UtilLog
 !!!188112.cpp!!!	finalizar() : void
     if (handleArquivo){
         escrever("");
-        escrever("Fim do Log. %s",UtilDate::getInfo());
+        escrever("Fim do Log. %s",UtilDate::getInfo().c_str());
         fclose(handleArquivo);
         handleArquivo = NULL;
     }

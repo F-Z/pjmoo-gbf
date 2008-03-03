@@ -1,14 +1,14 @@
-format 38
+format 45
 "WriteSystem" // Framework GBF::WriteSystem
-  revision 7
-  modified_by 57 "david"
+  revision 8
+  modified_by 47 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
   package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
   //sequence diagram settings
-  show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
   show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
   //object diagram settings
@@ -36,7 +36,7 @@ format 38
     //object diagram settings
      write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
     //sequence diagram settings
-    show_full_operations_definition default write_horizontally default drawing_language default draw_all_relations default shadow default
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
     //state diagram settings
     package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
     show_activities default region_horizontally default drawing_language default
@@ -44,7 +44,6 @@ format 38
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    
     class 129616 "WriteSystemManager"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -53,6 +52,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -66,6 +66,7 @@ Motivação:
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
 	comment "Constante para representar a fonte padrão do GBF"
       end
@@ -78,6 +79,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -95,6 +97,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna uma fonte para manipulação direta
 Obs.: Ideal para casos em que se deseja manipulações avançadas"
       end
@@ -106,6 +109,7 @@ Obs.: Ideal para casos em que se deseja manipulações avançadas"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	comment "Pega uma Instância de FonteManager
@@ -122,6 +126,7 @@ Obs.: Esta classe é Singleton"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Carrega e adiciona uma fonte (WriteSystemBitmap)"
@@ -141,6 +146,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Escreve um texto na tela"
       end
 
@@ -156,6 +162,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ...${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Escreve um texto na tela usando recursos de Localização (Tradução)"
@@ -176,6 +183,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização"
       end
 
@@ -188,6 +196,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Remove uma fonte (WriteSystemFontBitmap)"
@@ -205,6 +214,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna em Pixel o tamanho total da linha"
       end
 
@@ -213,6 +223,7 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
@@ -226,25 +237,34 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Construtor"
       end
 
       classrelation 143312 // instance (<unidirectional association>)
 	relation 143312 --->
-	  a role_name "instance" multiplicity "" class_relation protected
+	  a role_name "instance" class_relation protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143312 // instance (<unidirectional association>)
-	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteSystemManager
       end
 
       classrelation 152016 // uiTexto (<unidirectional association>)
 	relation 152016 --->
-	  a role_name "uiTexto" multiplicity "" package
+	  a role_name "uiTexto" package
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 152016 // uiTexto (<unidirectional association>)
-	  b multiplicity "" parent class_ref 138576 // UserInterfaceTexto
+	  b parent class_ref 138576 // UserInterfaceTexto
+      end
+
+      classrelation 133423 // <generalisation>
+	relation 130607 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133423 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
       end
     end
 
@@ -256,6 +276,7 @@ ${members}};
 ${inlines}
 "
       java_decl ""
+      php_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -268,7 +289,7 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 142800 // <generalisation>
-	  b multiplicity "" parent class_ref 131920 // GraphicSystemImage
+	  b parent class_ref 131920 // GraphicSystemImage
       end
 
       operation 189136 "~WriteSystemBitmap"
@@ -279,6 +300,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Destrutor"
@@ -293,6 +315,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Carrega arquivo de imagem contendo o desenho das letras.
@@ -311,6 +334,7 @@ Obs.: Se a imagem tiver arquivo de dimensão das letras este será carregado, caso
 ${body}}"
 	
 	
+	
 	comment "Configura altura e largura padrão para todas as letras.
 Obs.: A altura e largura devem ser suficientes para evitar que a letra seja desenhada cortada"
       end
@@ -320,6 +344,7 @@ Obs.: A altura e largura devem ser suficientes para evitar que a letra seja dese
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	comment "Retorna a largura padrão"
@@ -335,6 +360,7 @@ Obs.: A altura e largura devem ser suficientes para evitar que a letra seja dese
 ${body}}"
 	
 	
+	
 	comment "Retorna a altura padrão"
       end
 
@@ -346,6 +372,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	comment "Retorna a dimensão (altura e largura) padrão"
@@ -364,6 +391,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Desenha o texto na tela"
       end
 
@@ -378,6 +406,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Retorna em pixel o tamanho da linha"
       end
 
@@ -386,25 +415,26 @@ ${body}}"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}[256]${value};
 "
 	java_decl ""
+	php_decl ""
 	idl_decl ""
       end
 
       classrelation 142928 // dimensaoPadrao (<directional aggregation by value>)
 	relation 142928 *-->
-	  a role_name "dimensaoPadrao" multiplicity "" private
+	  a role_name "dimensaoPadrao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 142928 // dimensaoPadrao (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       classrelation 143056 // dimensaoQuadro (<directional aggregation by value>)
 	relation 143056 *-->
-	  a role_name "dimensaoQuadro" multiplicity "" private
+	  a role_name "dimensaoQuadro" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 143056 // dimensaoQuadro (<directional aggregation by value>)
-	  b multiplicity "" parent class_ref 129104 // Dimensao
+	  b parent class_ref 129104 // Dimensao
       end
 
       operation 190032 "WriteSystemBitmap"
@@ -415,6 +445,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	comment "Construtor"
@@ -430,6 +461,7 @@ ${body}}"
 ${body}}"
 	
 	
+	
 	comment "Define altura e largura padrão baseada na maior altura e largura utilizada."
       end
 
@@ -439,10 +471,9 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 143184 // <dependency>
-	  b multiplicity "" parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteSystemManager
       end
     end
-
   end
 
   deploymentview 128464 "Deploy"
@@ -521,39 +552,5 @@ ${namespace_end}"
 "
     end
 
-    artifact 138064 "WriteSystemFontDefault"
-      stereotype "source"
-      cpp_h "${comment}
-#ifndef _${NAME}_H
-#define _${NAME}_H
-
-${all_includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      cpp_src "${comment}
-${includes}
-${namespace_start}
-${members}
-${namespace_end}"
-      associated_classes
-      end
-      comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
-//
-//    This library is free software; you can redistribute it and/or
-//    modify it under the terms of the GNU Library General Public
-//    License as published by the Free Software Foundation; either
-//    version 2 of the License, or (at your option) any later version.
-//
-//    David de Almeida Ferreira (F-Z)
-//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
-//////////////////////////////////////////////////////////////////////
-"
-    end
   end
 end
