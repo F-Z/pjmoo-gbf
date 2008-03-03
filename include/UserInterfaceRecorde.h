@@ -15,7 +15,6 @@
 #define _USERINTERFACERECORDE_H
 
 #include "TopSystemRecorde.h"
-#include "InputSystem.h"
 #include "WriteSystemManager.h"
 #include "GraphicSystemGFX.h"
 #include "TimerSystemCronometroDecrescente.h"
@@ -23,17 +22,16 @@
 #include "GBF_define.h"
 #include <string>
 
+#include "InputSystemUtility.h"
 
 //Descrição: 
 //    Classe para entrada de novo recorde.
 //Motivação:
 //    Possibilitar que o jogador informe seu nome e entre na galeria de recordes
-class UserInterfaceRecorde
+class UserInterfaceRecorde : public InputSystemUtility
 {
   private:
     TopSystemRecorde recorde;
-
-    InputSystem * input;
 
     WriteSystemManager * wsManager;
 
@@ -88,9 +86,6 @@ class UserInterfaceRecorde
 
     //Define a fonte a ser usada pelo label
     void setFonteLabel(std::string fonte);
-
-    //Adiciona referência para o Sistema de Entrada / InputSystem
-    void setInput(InputSystem * input);
 
     //Adiciona referência para o Sistema Gráfico GFX
     void setGFX(GraphicSystemGFX * gfx);

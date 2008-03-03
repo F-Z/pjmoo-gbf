@@ -12,39 +12,33 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _INPUTSYSTEM_H
-#define _INPUTSYSTEM_H
+#ifndef _USERINTERFACEBOTAO_H
+#define _USERINTERFACEBOTAO_H
 
-#include "InputSystemJoystick.h"
-#include "InputSystemKeyboard.h"
-#include "InputSystemMouse.h"
+#include "UserInterfaceComponente.h"
+#include <string>
 
-class InputSystem
+#include "GBF_define.h"
+#include "UserInterfaceObjetoTexto.h"
+
+class UserInterfaceBotao : public UserInterfaceComponente
 {
   public:
-    InputSystemJoystick * joystick;
+    UserInterfaceBotao(std::string fonte, std::string chaveTexto, const SDLKey & tecla);
 
-    InputSystemKeyboard * teclado;
+    virtual ~UserInterfaceBotao();
 
-    InputSystemMouse * mouse;
+    //Desenha o botão
+    void desenhar(const Ponto & posicao);
 
-    //Destrutor
-    ~InputSystem();
-
-    //Retorna uma instancia de InputSystem
-    static InputSystem * getInstance();
+    //Retorna a tecla correspondente ao botão
+    SDLKey getTecla();
 
 
   protected:
-    static InputSystem * instance;
+    SDLKey tecla;
 
-    InputSystem();
+    UserInterfaceObjetoTexto botao;
 
-
-  private:
-    //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
-
-  friend class InputSystemCore;
 };
 #endif

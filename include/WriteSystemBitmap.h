@@ -51,6 +51,9 @@ class WriteSystemBitmap : public GraphicSystemImage
     //Desenha o texto na tela
     void escrever(const char * PALAVRA, int X, int Y);
 
+    //Retorna em pixel o tamanho da linha
+    int getLarguraLinha(const char * palavra);
+
 
   private:
     char largura[256];

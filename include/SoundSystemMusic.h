@@ -27,17 +27,17 @@ class SoundSystemMusic {
     //Destrutor
     virtual ~SoundSystemMusic();
 
+    //Lê arquivo de música
+    bool carregarArquivo(std::string arquivo);
+
     //Toca Música de Fundo
     void play();
-
-    //Toca Música de Fundo várias vezes
-    void playLoop(int vezes);
 
     //Toca Música de Fundo de forma infinita
     void playInfinity();
 
-    //Lê arquivo de música
-    bool carregarArquivo(std::string arquivo);
+    //Toca Música de Fundo várias vezes
+    void playLoop(int vezes);
 
     //Configura o volume da música
     //Obs.: Valor de 0 ate 128 
@@ -48,10 +48,10 @@ class SoundSystemMusic {
 
 
   protected:
+    Mix_Music * musica;
+
     //Construtor
     SoundSystemMusic();
-
-    Mix_Music * musica;
 
   friend class SoundSystemMusicManager;
 };

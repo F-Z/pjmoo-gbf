@@ -12,6 +12,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "SpriteInterface.h"
@@ -36,8 +37,32 @@ class FrameLayer : public SpriteInterface
     //Desenha o mapa
     void desenhar();
 
-    //Desenha a grade de tiles do mapa
-    void showGrade();
+    //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
+    Area getArea();
+
+    //Distancia restante para finalizar Scrolling Vertical
+    int getDistanciaScrollVertical();
+
+    //Porcentagem percorrida do Scroll Horizontal
+    int getPorcentagemScrollHorizontal();
+
+    //Porcentagem percorrida do Scroll Vertical
+    int getPorcentagemScrollVertical();
+
+    //Distancia total do Scrolling Vertical
+    int getTotalScrollVertical();
+
+    //Inicializa tiles com valores do arquivo
+    void iniciarArquivo(std::string arquivo);
+
+    //Iniciar preenchendo apenas com o quadro informado
+    void iniciarCom(int quadro);
+
+    //Iniciar ordenado até o quadro informado
+    void iniciarOrdenado(int quadroMaximo);
+
+    //Inicializa tiles de forma aleatória
+    void iniciarRandomico(int range);
 
     //Informa o posicionamento da area de desenho e as suas dimensões internas
     void setFrame(int left, int top, int largura, int altura);
@@ -48,37 +73,16 @@ class FrameLayer : public SpriteInterface
     //Informa o tamanho em pixels dos tiles usados no layer
     void setPixelTile(int largura, int altura);
 
-    //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-    Area getArea();
-
-    //Inicializa tiles com valores do arquivo
-    void iniciarArquivo(std::string arquivo);
-
-    //Inicializa tiles de forma aleatória
-    void iniciarRandomico(int range);
-
-    //Iniciar ordenado
-    void iniciarOrdenado(int quantidade);
-
-    //Porcentagem percorrida do Scroll Vertical
-    int getPorcentagemScrollVertical();
-
-    //Porcentagem percorrida do Scroll Horizontal
-    int getPorcentagemScrollHorizontal();
-
-    //Distancia restante para finalizar Scrolling Vertical
-    int getDistanciaScrollVertical();
-
-    //Distancia total do Scrolling Vertical
-    int getTotalScrollVertical();
+    //Desenha a grade de tiles do mapa
+    void showGrade();
 
 
   protected:
     int * mapa;
 
-    Area screen_dimensao;
-
     FrameLayerMundo mundo;
+
+    Area screen_dimensao;
 
   friend class FrameLayerManager;
 };

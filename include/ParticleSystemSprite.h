@@ -9,42 +9,33 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
-////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _INPUTSYSTEM_H
-#define _INPUTSYSTEM_H
+#ifndef _PARTICLESYSTEMSPRITE_H
+#define _PARTICLESYSTEMSPRITE_H
 
-#include "InputSystemJoystick.h"
-#include "InputSystemKeyboard.h"
-#include "InputSystemMouse.h"
+#include "ParticleSystemEfeito.h"
+#include <deque>
+#include "Sprite.h"
 
-class InputSystem
+class ParticleSystemSprite : public ParticleSystemEfeito
 {
   public:
-    InputSystemJoystick * joystick;
-
-    InputSystemKeyboard * teclado;
-
-    InputSystemMouse * mouse;
+    //Construtor
+    ParticleSystemSprite();
 
     //Destrutor
-    ~InputSystem();
+    virtual ~ParticleSystemSprite();
 
-    //Retorna uma instancia de InputSystem
-    static InputSystem * getInstance();
+    //Desenha todas as unidades
+    virtual void desenhar();
+
+    //Verifica se terminou a animação de todos os sprites
+    virtual bool isTerminou();
 
 
   protected:
-    static InputSystem * instance;
+    std::deque<Sprite *> lista;
 
-    InputSystem();
-
-
-  private:
-    //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
-
-  friend class InputSystemCore;
 };
 #endif

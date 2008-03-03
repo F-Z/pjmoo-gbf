@@ -1,5 +1,5 @@
-#ifndef _SPRITEABSTRACT_H
-#define _SPRITEABSTRACT_H
+#ifndef _SPRITE_H
+#define _SPRITE_H
 
 ////    GBF - Gamework's Brazilian Framework
 ////    Copyright (C) 2004-2007 David de Almeida Ferreira
@@ -12,6 +12,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
 #include "GraphicSystemImageBuffer.h"
@@ -19,7 +20,7 @@
 #include "SpriteInterface.h"
 
 //Definição de direções
-enum DIRECAO {
+enum SpriteDirecao {
   DR_CIMA,
   DR_DIREITA,
   DR_BAIXO,
@@ -30,7 +31,7 @@ enum DIRECAO {
   DR_CIMAESQUERDA
 };
 //Definição de Status
-struct DIRECAO_STATUS
+struct SpriteDirecaoStatus
 {
     bool cima;
 
@@ -40,54 +41,44 @@ struct DIRECAO_STATUS
 
     bool esquerda;
 
-    bool cimadireita;
+    bool cimaDireita;
 
-    bool baixodireita;
+    bool baixoDireita;
 
-    bool baixoesquerda;
+    bool baixoEsquerda;
 
-    bool cimaesquerda;
+    bool cimaEsquerda;
 
 };
-class SpriteAbstract : protected SpriteInterface
+class Sprite : public SpriteInterface
 {
   public:
     //Destrutor
-    virtual ~SpriteAbstract();
-
-    //Posiciona o Sprite na tela 
-    virtual void setPosicao(int x, int y);
-
-    //Define se a animação é automática ou manual 
-    void setAutomatico(bool AUTOMATICO);
-
-    //Anima o Sprite de forma automática 
-    int animar();
-
-    //Anima o sprite de forma manual, toda chamada a esse metodo anima o personagem 
-    void animarManual();
+    virtual ~Sprite();
 
     void criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GraphicSystemImageBuffer * gsiBuffer);
 
     virtual void desenhar(int x, int y);
 
+    //Desenha o sprite na tela, com base na última posição informada ou desenhada
     virtual void desenhar();
-
-    //Colisão baseada no tamanho dos Sprites 
-    bool isColisao(SpriteAbstract * SPRITECOLISAO);
 
     //Retorna a dimensão do sprite 'width' e 'height' 
     Dimensao getTamanho();
 
-    bool isAnimacaoInicio();
+    //Colisão baseada no tamanho dos Sprites 
+    bool isColisao(Sprite * spriteColisao);
 
-    bool isAnimacaoFim();
+    //Posiciona o Sprite na tela 
+    void setPosicao(Ponto ponto);
 
-    void setAnimacaoInicio();
+    //Posiciona o Sprite na tela 
+    virtual void setPosicao(int x, int y);
 
 
   protected:
-    SpriteAbstract();
+    //Construtor
+    Sprite();
 
 };
 #endif

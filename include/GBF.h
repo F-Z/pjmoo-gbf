@@ -14,12 +14,12 @@
 ////        http://pjmoo.codigolivre.org.br
 ////////////////////////////////////////////////////////////////////////
 
+#include "GraphicSystemCore.h"
+#include "InputSystemCore.h"
+#include "SoundSystemCore.h"
+#include "WriteSystemManager.h"
 #include <string>
 
-#include "GraphicSystem.h"
-#include "InputSystem.h"
-#include "WriteSystemManager.h"
-#include "SoundSystem.h"
 #include "TimerSystemFPS.h"
 #include "UtilLog.h"
 #include "GraphicSystemImageBufferManager.h"
@@ -28,6 +28,7 @@
 #include "UtilExtract.h"
 #include "SoundSystemInterfaceManager.h"
 #include "UserInterfaceTexto.h"
+#include "UserInterfaceWindow.h"
 
 //Descrição: 
 //     Classe central do framework
@@ -37,73 +38,74 @@
 class GBF
 {
   public:
-    //Construtor
-    GBF();
+    //GraphicSystemCore, núcleo do sistema gráfico
+    GraphicSystemCore * graphicSystemCore;
+
+    InputSystemCore * inputSystemCore;
+
+    SoundSystemCore * soundSystemCore;
+
+    WriteSystemManager * writeSystem;
 
     //Destrutor
     virtual ~GBF();
 
-    //Informação sobre o Autor e o Título da Aplicação.
-    //Obs.: Usado para arquivo de log e título da janela
-    void setTitulo(std::string titulo, std::string autor);
-
-    //Inicializa o Sistema, e configura o modo gráfico
-    void iniciar(int width, int height, int bpp_color, bool full);
+    //Construtor
+    GBF();
 
     //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
     //desenha na tela o conteúdo do backbuffer
     //Obs.: Deve ser usado na interação do loop principal do jogo
     void atualizar();
 
-    //Pausa o Sistema
-    void pausar();
+    //Retorna o diretório base da aplicação corrente
+    std::string getPath();
 
-    //Mostra o Contador de FPS
-    void setFPS(bool show);
+    //Inicializa o Sistema, e configura o modo gráfico
+    void iniciar(int width, int height, int bpp_color, bool full);
+
+    bool isDefaultPath();
 
     //Informa se o mostrador de FPS está ativo
     bool isFPS();
 
-    //Informa o caminho do diretório base da aplicação corrente
-    void setPath(char * fullPath);
-
-    //Retorna o diretório base da aplicação corrente
-    std::string getPath();
-
-    bool isDefaultPath();
+    //Pausa o Sistema
+    void pausar();
 
     void setDefaultPath(bool ativo);
 
-    GraphicSystem * graphicSystem;
+    //Mostra o Contador de FPS
+    void setFPS(bool show);
 
-    InputSystem * inputSystem;
+    //Informa o caminho do diretório base da aplicação corrente
+    void setPath(char * fullPath);
 
-    WriteSystemManager * writeSystem;
+    //Informação sobre o Autor e o Título da Aplicação.
+    //Obs.: Usado para arquivo de log e título da janela
+    void setTitulo(std::string titulo, std::string autor);
 
-    SoundSystem * soundSystem;
+
+  protected:
+    //Prepara o Ambiente para ser inicializado 
+    void carregar();
+
+    //Controle para ações internas
+    void controleInterno();
+
+    //Define o Título para Janela 
+    void setTitulo(std::string titulo);
 
 
   private:
+    bool defaultPath;
+
     bool fps;
+
+    TimerSystemFPS * fpsSystem;
 
     int numscreenshot;
 
     std::string pathBase;
-
-    bool defaultPath;
-
-    TimerSystemFPS * fpsSystem;
-
-
-  protected:
-    //Controle para ações internas
-    void controleInterno();
-
-    //Prepara o Ambiente para ser inicializado 
-    void carregar();
-
-    //Define o Título para Janela 
-    void setTitulo(std::string titulo);
 
 };
 #endif

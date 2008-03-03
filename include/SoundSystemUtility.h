@@ -9,34 +9,23 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _WRITESYSTEMFONTDEFAULT_H
-#define _WRITESYSTEMFONTDEFAULT_H
+#ifndef _SOUNDSYSTEMUTILITY_H
+#define _SOUNDSYSTEMUTILITY_H
 
-#include <string>
+#include "SoundSystem.h"
 
-
-//Descrição: 
-//    Classe com as fontes padrões.
-//Motivação:
-//    Permitir a escrita de textos na tela com fontes padrões
-class WriteSystemFontDefault
+class SoundSystemUtility
 {
-  public:
-    static std::string console;
+  protected:
+    static SoundSystem * soundSystem;
 
-    static std::string pumpdemi;
 
-    static std::string fixedsys;
+  private:
+    static void setSoundSystem(SoundSystem * instance);
 
-    static std::string arial;
-
-    static std::string comic;
-
-    static std::string high;
-
-    static std::string stac;
-
+  friend class SoundSystemCore;
 };
 #endif

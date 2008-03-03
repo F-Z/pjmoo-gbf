@@ -14,33 +14,14 @@
 #ifndef _PARTICLESYSTEMEFEITO_H
 #define _PARTICLESYSTEMEFEITO_H
 
-#include "GBF_define.h"
-#include "UtilColor.h"
-#include <deque>
-#include "GraphicSystem.h"
+#include "GraphicSystemUtility.h"
+#include "ObjetoBase.h"
 
-//Descrição:
-//    Estrutura para representação de uma particula
-//Motivação:
-//    Permitir representar uma unidade com caracteristicas e ciclo de vida próprios
-struct Particula
-{
-    PontoVirtual velocidade;
-
-    PontoVirtual posicao;
-
-    int energia;
-
-    HSV cor;
-
-    bool ativa;
-
-};
 //Descrição: 
 //    Classe abstrata que permite agrupamente de particulas
 //Motivação:
 //    Permitir gerenciar um grupo de unidades com ciclo de vida semelhantes
-class ParticleSystemEfeito {
+class ParticleSystemEfeito : public GraphicSystemUtility, public ObjetoBase {
   public:
     //Construtor
     ParticleSystemEfeito();
@@ -48,14 +29,8 @@ class ParticleSystemEfeito {
     //Destrutor
     virtual ~ParticleSystemEfeito();
 
-    //Configura a quantidade de unidades que serão criadas
-    void setQuantidade(int quantidade);
-
-    //Indica se todas as unidades já terminaram o ciclo de vida
-    virtual bool isTerminou();
-
     //Desenha todas as unidades
-    virtual void desenhar();
+    virtual void desenhar() = 0;
 
     //Inicializa o sistema de particulas
     virtual void criar(int x, int y) = 0;
@@ -63,10 +38,7 @@ class ParticleSystemEfeito {
     //Executa as unidades do sistema
     virtual void executar() = 0;
 
-
-  protected:
-    std::deque<Particula> lista;
-    static GraphicSystem * graphicSystem;
+    virtual bool isTerminou() = 0;
 
 };
 #endif
