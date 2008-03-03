@@ -16,7 +16,7 @@
 //Construtor
 GraphicSystemImage::GraphicSystemImage() 
 {
-
+    imagem=NULL;
 
 }
 //Destrutor
