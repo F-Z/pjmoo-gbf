@@ -21,11 +21,12 @@ UserInterfaceWindowTitulo::UserInterfaceWindowTitulo(){
 UserInterfaceWindowTitulo::~UserInterfaceWindowTitulo(){
 }
 
-void UserInterfaceWindowTitulo::desenharConteudo() 
+void UserInterfaceWindowTitulo::desenharConteudo()
 {
     UserInterfaceWindow::desenharConteudo();
 
     int posicaoTextoHorizontal = 0;
+    int posicaoTextoVertical   = posicao.y+int(titulo.getDimensaoLetra().h*0.2);
 
     if (titulo.getAlinhamento()==TEXTO_CENTRALIZADO){
         int auxiliar = wsManager->getLarguraLinha(titulo.getFonte(),titulo.getChaveTexto());
@@ -34,13 +35,13 @@ void UserInterfaceWindowTitulo::desenharConteudo()
         posicaoTextoHorizontal = posicao.x+titulo.getDimensaoLetra().w;
     }
 
-    wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicao.y,titulo.getChaveTexto());
+    wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,titulo.getChaveTexto());
 
 }
 //Inicializa as configurações da caixa de texto
 
 //Inicializa as configurações da caixa de texto
-void UserInterfaceWindowTitulo::inicializar() 
+void UserInterfaceWindowTitulo::inicializar()
 {
     UserInterfaceWindow::inicializar();
     titulo.setDimensaoLetra(wsManager->getFonte(titulo.getFonte())->getDimensao());
