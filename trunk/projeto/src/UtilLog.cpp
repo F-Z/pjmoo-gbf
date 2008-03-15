@@ -153,13 +153,13 @@ void UtilLog::tracer(const char * texto, ...)
     fflush(handleArquivo);
 }
 
-std::string UtilLog::arquivo = "";
+std::string UtilLog::arquivo= "";
 
-std::string UtilLog::autor = "";
+std::string UtilLog::autor= "";
 
-std::string UtilLog::projeto = "";
+std::string UtilLog::projeto= "";
 
-FILE * UtilLog::handleArquivo = NULL;
+FILE * UtilLog::handleArquivo= NULL;
 
 void UtilLog::escrever(const char * texto, ...)
 {
