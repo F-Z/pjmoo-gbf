@@ -133,7 +133,7 @@ void UserInterfaceWindow::desenharConteudo()
 
         if (continuar){
 
-            if (textoAlinhamento==TEXTO_CENTRALIZADO){
+            if (texto.getAlinhamento()==TEXTO_CENTRALIZADO){
                 auxiliar = wsManager->getLarguraLinha(texto.getFonte(),textoChave);
                 posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
             } else {
