@@ -1,12 +1,12 @@
-format 48
+format 55
 "UserInterface" // Framework GBF::UserInterface
-  revision 25
-  modified_by 51 "david"
+  revision 26
+  modified_by 99 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default
   //sequence diagram settings
   show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
@@ -30,7 +30,7 @@ format 48
   cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   classview 129616 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
     show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
@@ -51,6 +51,7 @@ ${items}};
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -61,6 +62,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -71,6 +73,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -81,6 +84,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -92,6 +96,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
@@ -103,6 +108,7 @@ ${items}};
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -113,6 +119,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -124,6 +131,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
@@ -138,6 +146,7 @@ ${items};
 ${members}}
 "
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl "${comment}enum ${name} {
 ${items}};
 "
@@ -150,6 +159,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -159,6 +169,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -168,6 +179,7 @@ ${items}};
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
@@ -181,6 +193,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -199,6 +212,7 @@ ${inlines}
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -210,6 +224,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -229,6 +244,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -240,6 +256,7 @@ ${body}}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -260,6 +277,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Posicação da Caixa na tela"
       end
 
@@ -273,6 +291,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -291,6 +310,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Inicializa as configurações da caixa de texto"
       end
 
@@ -303,6 +323,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -321,6 +342,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 134053 "confirmarSelecao"
@@ -331,6 +353,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -350,6 +373,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna se o Botão informado foi acionado"
       end
 
@@ -359,6 +383,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -368,6 +393,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -377,16 +403,8 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
-      end
-
-      classrelation 128933 // textoAlinhamento (<directional aggregation by value>)
-	relation 128933 *-->
-	  a role_name "textoAlinhamento" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 128933 // textoAlinhamento (<directional aggregation by value>)
-	  b parent class_ref 128421 // UserInterfaceTextoAlinhamento
       end
 
       operation 134309 "desenharBackground"
@@ -399,6 +417,7 @@ ${body}}"
 ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -418,6 +437,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha o conteudo da janela"
       end
 
@@ -434,15 +454,16 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha o botão de ação da janela"
       end
 
-      classrelation 129061 // texto (<directional aggregation by value>)
+      classrelation 129061 // texto (<directional composition>)
 	relation 129061 *-->
 	  a role_name "texto" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 129061 // texto (<directional aggregation by value>)
+	    classrelation_ref 129061 // texto (<directional composition>)
 	  b parent class_ref 128293 // UserInterfaceObjetoTexto
       end
 
@@ -470,6 +491,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -491,6 +513,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -513,6 +536,7 @@ ${body}}
 	
 	
 	
+	
       end
 
       operation 134821 "~UserInterfaceWindowTitulo"
@@ -526,6 +550,7 @@ ${body}}
 	
 	
 	
+	
       end
 
       operation 134949 "desenharConteudo"
@@ -536,6 +561,7 @@ ${body}}
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -554,15 +580,16 @@ ${body}}"
 	
 	
 	
+	
 	comment "Inicializa as configurações da caixa de texto"
       end
 
-      classrelation 129573 // titulo (<directional aggregation by value>)
+      classrelation 129573 // titulo (<directional composition>)
 	relation 129573 *-->
 	  a role_name "titulo" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 129573 // titulo (<directional aggregation by value>)
+	    classrelation_ref 129573 // titulo (<directional composition>)
 	  b parent class_ref 128293 // UserInterfaceObjetoTexto
       end
     end
@@ -576,6 +603,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -590,6 +618,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -601,6 +630,7 @@ ${body}}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	
@@ -621,6 +651,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 130853 "aplicar"
@@ -638,6 +669,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Aplica o efeito visual"
       end
 
@@ -646,6 +678,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	
@@ -660,6 +693,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       attribute 129701 "corBorda"
@@ -668,6 +702,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -677,6 +712,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -686,6 +722,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -707,6 +744,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -729,6 +767,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -740,6 +779,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -760,6 +800,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 132645 "desenhar"
@@ -772,6 +813,7 @@ ${body}}"
 ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -789,6 +831,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna uma copia do objeto"
       end
 
@@ -798,6 +841,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
@@ -811,6 +855,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -833,6 +878,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -844,6 +890,7 @@ ${body}}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -863,6 +910,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Aplica o efeito visual"
       end
 
@@ -879,6 +927,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha o EstiloVisual do Componente"
       end
 
@@ -890,6 +939,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -910,6 +960,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Define o estilo de background a ser utilizado"
       end
 
@@ -922,12 +973,12 @@ ${body}}"
 	  b parent class_ref 128080 // FrameLayer
       end
 
-      classrelation 128549 // tipoBackground (<directional aggregation by value>)
+      classrelation 128549 // tipoBackground (<directional composition>)
 	relation 128549 *-->
 	  a role_name "tipoBackground" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 128549 // tipoBackground (<directional aggregation by value>)
+	    classrelation_ref 128549 // tipoBackground (<directional composition>)
 	  b parent class_ref 128677 // UserInterfaceVisualTipoBackground
       end
 
@@ -949,6 +1000,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -961,6 +1013,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -971,6 +1024,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -981,6 +1035,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -990,6 +1045,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -999,6 +1055,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1008,6 +1065,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1017,6 +1075,7 @@ Texto Alinhado ao Centro (Centralizado)"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1030,6 +1089,7 @@ Texto Alinhado ao Centro (Centralizado)"
 ${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	
@@ -1049,6 +1109,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1064,6 +1125,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 129189 "getFonte"
@@ -1074,6 +1136,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1091,6 +1154,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 129445 "getChaveTexto"
@@ -1101,6 +1165,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1118,6 +1183,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 129701 "getDimensaoLetra"
@@ -1128,6 +1194,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1147,6 +1214,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Informa o Estilo de entrelinhas a ser utilizado"
       end
 
@@ -1160,6 +1228,7 @@ ${body}}"
 ${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1180,6 +1249,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura o Alinhamento do Texto"
       end
 
@@ -1196,6 +1266,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna o alinhamento utilizado"
       end
 
@@ -1205,15 +1276,16 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      classrelation 128293 // alinhamento (<directional aggregation by value>)
+      classrelation 128293 // alinhamento (<directional composition>)
 	relation 128293 *-->
 	  a role_name "alinhamento" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 128293 // alinhamento (<directional aggregation by value>)
+	    classrelation_ref 128293 // alinhamento (<directional composition>)
 	  b parent class_ref 128421 // UserInterfaceTextoAlinhamento
       end
     end
@@ -1227,6 +1299,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1238,6 +1311,7 @@ ${inlines}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	
@@ -1254,6 +1328,7 @@ ${body}}
 	
 	
 	
+	
       end
 
       attribute 128165 "wsManager"
@@ -1263,6 +1338,7 @@ ${body}}
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1273,6 +1349,7 @@ ${body}}
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
@@ -1286,6 +1363,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1311,6 +1389,7 @@ ${body}}
 	
 	
 	
+	
       end
 
       operation 128165 "~UserInterfaceBotao"
@@ -1321,6 +1400,7 @@ ${body}}
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
 ${body}}
 "
+	
 	
 	
 	
@@ -1340,6 +1420,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha o botão"
       end
 
@@ -1356,6 +1437,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna a tecla correspondente ao botão"
       end
 
@@ -1365,15 +1447,16 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      classrelation 128165 // botao (<directional aggregation by value>)
+      classrelation 128165 // botao (<directional composition>)
 	relation 128165 *-->
 	  a role_name "botao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 128165 // botao (<directional aggregation by value>)
+	    classrelation_ref 128165 // botao (<directional composition>)
 	  b parent class_ref 128293 // UserInterfaceObjetoTexto
       end
     end
@@ -1387,6 +1470,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1400,6 +1484,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1411,6 +1496,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1427,6 +1513,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 209104 "desenhar"
@@ -1436,6 +1523,7 @@ ${body}}"
 	  param in name "y" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	
@@ -1453,6 +1541,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 210896 "getQuantidadeLetras"
@@ -1463,6 +1552,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 211152 "getDimensaoLetra"
@@ -1470,6 +1560,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	
@@ -1486,6 +1577,7 @@ ${body}}"
 	
 	
 	
+	
       end
     end
 
@@ -1498,6 +1590,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1511,6 +1604,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1520,15 +1614,16 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      classrelation 155088 // tempo (<directional aggregation by value>)
+      classrelation 155088 // tempo (<directional composition>)
 	relation 155088 *-->
 	  a role_name "tempo" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 155088 // tempo (<directional aggregation by value>)
+	    classrelation_ref 155088 // tempo (<directional composition>)
 	  b parent class_ref 130512 // TimerSystemCronometroCrescente
       end
 
@@ -1554,6 +1649,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 208720 "~UserInterfaceMenuItemTexto"
@@ -1564,6 +1660,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1582,6 +1679,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 211024 "getQuantidadeLetras"
@@ -1595,6 +1693,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 211280 "getDimensaoLetra"
@@ -1605,6 +1704,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1628,6 +1728,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1641,6 +1742,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1650,6 +1752,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1659,6 +1762,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1672,12 +1776,12 @@ Motivação:
 	  b parent class_ref 140112 // UserInterfaceMenuItemAbstract
       end
 
-      classrelation 155216 // delayNavegacao (<directional aggregation by value>)
+      classrelation 155216 // delayNavegacao (<directional composition>)
 	relation 155216 *-->
 	  a role_name "delayNavegacao" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 155216 // delayNavegacao (<directional aggregation by value>)
+	    classrelation_ref 155216 // delayNavegacao (<directional composition>)
 	  b parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
@@ -1689,6 +1793,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1706,6 +1811,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -1718,6 +1824,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1737,6 +1844,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 211792 "setCorFundo"
@@ -1753,6 +1861,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 208464 "setPosicao"
@@ -1765,6 +1874,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1785,6 +1895,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Centraliza o menu na tela de acordo com as coordenadas passadas
 Obs.: Caso o parâmetro de alinhamento seja HORIZONTAL ou VERTICAL ele usará o parâmetro
 referente a outra posição para posicionar o menu na tela"
@@ -1798,6 +1909,7 @@ referente a outra posição para posicionar o menu na tela"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1815,6 +1927,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Adiciona um item ao menu"
       end
 
@@ -1826,6 +1939,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1845,6 +1959,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 209360 "desenhar"
@@ -1852,6 +1967,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	
@@ -1869,6 +1985,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "remove todos os itens do menu"
       end
 
@@ -1883,6 +2000,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 210384 "navegar"
@@ -1890,6 +2008,7 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	
@@ -1901,15 +2020,16 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      classrelation 155984 // eAlinhamento (<directional aggregation by value>)
+      classrelation 155984 // eAlinhamento (<directional composition>)
 	relation 155984 *-->
 	  a role_name "eAlinhamento" multiplicity "1" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 155984 // eAlinhamento (<directional aggregation by value>)
+	    classrelation_ref 155984 // eAlinhamento (<directional composition>)
 	  b parent class_ref 140496 // EnumAlinhamento
       end
 
@@ -1919,6 +2039,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1928,6 +2049,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1949,6 +2071,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1971,6 +2094,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -1982,6 +2106,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1999,6 +2124,7 @@ ${body}}"
 	
 	
 	
+	
       end
     end
 
@@ -2011,6 +2137,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -2037,6 +2164,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Construtor"
       end
 
@@ -2048,6 +2176,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -2065,6 +2194,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 210512 "navegar"
@@ -2075,6 +2205,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2091,6 +2222,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 210256 "itemAnterior"
@@ -2101,6 +2233,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2124,6 +2257,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -2137,6 +2271,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "Lista com os códigos e textos correspondentes
 "
@@ -2148,6 +2283,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "Lista com os idiomas suportados"
       end
@@ -2158,6 +2294,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "Prefixo do idioma selecionado
 "
@@ -2178,6 +2315,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "arquivo de localização a ser carregado
 "
@@ -2189,6 +2327,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "Caminho padrão de localização dos arquivos"
       end
@@ -2204,6 +2343,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 192080 "getInstance"
@@ -2213,6 +2353,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	
@@ -2226,6 +2367,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	
@@ -2244,6 +2386,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura um idioma
 Obs.: O idioma é configurado de acordo com a lista de idiomas suportado"
       end
@@ -2259,6 +2402,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 192720 "detectarIdioma"
@@ -2269,6 +2413,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2286,6 +2431,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 193232 "setArquivo"
@@ -2300,6 +2446,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 191824 "size"
@@ -2310,6 +2457,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2327,6 +2475,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 128121 "isChaveTexto"
@@ -2338,6 +2487,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2356,6 +2506,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 193360 "carregarIdioma"
@@ -2366,6 +2517,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2383,6 +2535,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 191952 "limpar"
@@ -2396,6 +2549,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 191184 "UserInterfaceTexto"
@@ -2406,6 +2560,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -2429,6 +2584,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -2436,12 +2592,12 @@ ${inlines}
     Classe para entrada de novo recorde.
 Motivação:
     Possibilitar que o jogador informe seu nome e entre na galeria de recordes"
-      classrelation 141520 // recorde (<directional aggregation by value>)
+      classrelation 141520 // recorde (<directional composition>)
 	relation 141520 *-->
 	  a role_name "recorde" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 141520 // recorde (<directional aggregation by value>)
+	    classrelation_ref 141520 // recorde (<directional composition>)
 	  b parent class_ref 137040 // TopSystemRecorde
       end
 
@@ -2463,57 +2619,57 @@ Motivação:
 	  b parent class_ref 131152 // GraphicSystemGFX
       end
 
-      classrelation 142032 // tempoNavegacao (<directional aggregation by value>)
+      classrelation 142032 // tempoNavegacao (<directional composition>)
 	relation 142032 *-->
 	  a role_name "tempoNavegacao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142032 // tempoNavegacao (<directional aggregation by value>)
+	    classrelation_ref 142032 // tempoNavegacao (<directional composition>)
 	  b parent class_ref 130896 // TimerSystemCronometroDecrescente
       end
 
-      classrelation 142160 // tempoBlink (<directional aggregation by value>)
+      classrelation 142160 // tempoBlink (<directional composition>)
 	relation 142160 *-->
 	  a role_name "tempoBlink" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142160 // tempoBlink (<directional aggregation by value>)
+	    classrelation_ref 142160 // tempoBlink (<directional composition>)
 	  b parent class_ref 130512 // TimerSystemCronometroCrescente
       end
 
-      classrelation 142288 // posicao (<directional aggregation by value>)
+      classrelation 142288 // posicao (<directional composition>)
 	relation 142288 *-->
 	  a role_name "posicao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142288 // posicao (<directional aggregation by value>)
+	    classrelation_ref 142288 // posicao (<directional composition>)
 	  b parent class_ref 128976 // Ponto
       end
 
-      classrelation 142416 // dimensaoFonteLabel (<directional aggregation by value>)
+      classrelation 142416 // dimensaoFonteLabel (<directional composition>)
 	relation 142416 *-->
 	  a role_name "dimensaoFonteLabel" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142416 // dimensaoFonteLabel (<directional aggregation by value>)
+	    classrelation_ref 142416 // dimensaoFonteLabel (<directional composition>)
 	  b parent class_ref 129104 // Dimensao
       end
 
-      classrelation 142544 // dimensaoFonteTeclado (<directional aggregation by value>)
+      classrelation 142544 // dimensaoFonteTeclado (<directional composition>)
 	relation 142544 *-->
 	  a role_name "dimensaoFonteTeclado" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142544 // dimensaoFonteTeclado (<directional aggregation by value>)
+	    classrelation_ref 142544 // dimensaoFonteTeclado (<directional composition>)
 	  b parent class_ref 129104 // Dimensao
       end
 
-      classrelation 142672 // caixaTeclado (<directional aggregation by value>)
+      classrelation 142672 // caixaTeclado (<directional composition>)
 	relation 142672 *-->
 	  a role_name "caixaTeclado" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142672 // caixaTeclado (<directional aggregation by value>)
+	    classrelation_ref 142672 // caixaTeclado (<directional composition>)
 	  b parent class_ref 129104 // Dimensao
       end
 
@@ -2523,6 +2679,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2532,6 +2689,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2541,6 +2699,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2550,6 +2709,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2559,6 +2719,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2568,6 +2729,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2577,6 +2739,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "Armazena a letras do teclado"
       end
@@ -2587,6 +2750,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2596,6 +2760,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2605,6 +2770,7 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -2616,6 +2782,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -2633,6 +2800,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -2645,6 +2813,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2664,6 +2833,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Define a posição da Interface de recordes"
       end
 
@@ -2676,6 +2846,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2694,6 +2865,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Adiciona referência para o Sistema Gráfico GFX"
       end
 
@@ -2709,6 +2881,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Adiciona referência para o Sistema de Escrita"
       end
 
@@ -2720,6 +2893,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2738,6 +2912,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Atribui um TopSystemRecorde para complementar os dados"
       end
 
@@ -2749,6 +2924,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2766,6 +2942,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha a interface contendo: pontuação, dados do jogador e teclado virtual"
       end
 
@@ -2777,6 +2954,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2794,6 +2972,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha as caixas de fundo para posicionamento dos dados do jogador e do teclado virtual"
       end
 
@@ -2805,6 +2984,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2822,6 +3002,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha o nome do jogador e sua pontuação"
       end
 
@@ -2833,6 +3014,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -2875,7 +3057,7 @@ ${namespace_end}"
 	class_ref 129061 // UserInterfaceWindow
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -2884,8 +3066,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -2912,7 +3094,7 @@ ${namespace_end}"
 	class_ref 129189 // UserInterfaceWindowTitulo
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -2921,8 +3103,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -2950,7 +3132,7 @@ ${namespace_end}"
 	class_ref 128805 // UserInterfaceVisualImagem
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -2959,8 +3141,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -2987,7 +3169,7 @@ ${namespace_end}"
 	class_ref 128933 // UserInterfaceVisualSolido
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -2996,8 +3178,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3024,7 +3206,7 @@ ${namespace_end}"
 	class_ref 128549 // UserInterfaceVisual
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3033,8 +3215,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3062,7 +3244,7 @@ ${namespace_end}"
 	class_ref 128293 // UserInterfaceObjetoTexto
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3071,8 +3253,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3099,7 +3281,7 @@ ${namespace_end}"
 	class_ref 128165 // UserInterfaceComponente
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3108,8 +3290,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3136,7 +3318,7 @@ ${namespace_end}"
 	class_ref 128037 // UserInterfaceBotao
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3145,8 +3327,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3173,7 +3355,7 @@ ${namespace_end}"
 	class_ref 131024 // UserInterfaceRecorde
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3182,7 +3364,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3215,7 +3398,7 @@ ${namespace_end}"
 	class_ref 138576 // UserInterfaceTexto
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3224,7 +3407,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3251,7 +3435,7 @@ ${namespace_end}"
 	class_ref 140368 // UserInterfaceMenuItemTexto
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3260,7 +3444,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3287,7 +3472,7 @@ ${namespace_end}"
 	class_ref 140240 // UserInterfaceMenuTexto
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3296,7 +3481,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3323,7 +3509,7 @@ ${namespace_end}"
 	class_ref 140112 // UserInterfaceMenuItemAbstract
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3332,7 +3518,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3359,7 +3546,7 @@ ${namespace_end}"
 	class_ref 139984 // UserInterfaceMenuAbstract
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3368,7 +3555,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3390,7 +3578,7 @@ ${namespace_end}
 	class_ref 140496 // EnumAlinhamento
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3399,7 +3587,8 @@ ${namespace_end}
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -3426,7 +3615,7 @@ ${namespace_end}"
 	class_ref 128143 // UserInterfaceMenuTextoTransparente
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -3435,7 +3624,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end

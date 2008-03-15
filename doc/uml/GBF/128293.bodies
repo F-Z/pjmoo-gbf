@@ -1,6 +1,7 @@
 class UserInterfaceObjetoTexto
 !!!128805.cpp!!!	UserInterfaceObjetoTexto()
     entreLinhas=ENTRELINHA_UMA_MEIA;
+    alinhamento=TEXTO_NORMAL;
 !!!129061.cpp!!!	setFonte(in fonte : string) : void
     this->fonte=fonte;
 
