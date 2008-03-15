@@ -5,6 +5,7 @@ class UserInterfaceWindowTitulo
     UserInterfaceWindow::desenharConteudo();
 
     int posicaoTextoHorizontal = 0;
+    int posicaoTextoVertical   = posicao.y+int(titulo.getDimensaoLetra().h*0.2);
 
     if (titulo.getAlinhamento()==TEXTO_CENTRALIZADO){
         int auxiliar = wsManager->getLarguraLinha(titulo.getFonte(),titulo.getChaveTexto());
@@ -13,7 +14,7 @@ class UserInterfaceWindowTitulo
         posicaoTextoHorizontal = posicao.x+titulo.getDimensaoLetra().w;
     }
 
-    wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicao.y,titulo.getChaveTexto());
+    wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,titulo.getChaveTexto());
 
 !!!135077.cpp!!!	inicializar() : void
     UserInterfaceWindow::inicializar();

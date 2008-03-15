@@ -404,12 +404,20 @@
 		<Unit filename="src/UserInterfaceMenuTexto.h" />
 		<Unit filename="src/UserInterfaceMenuTextoTransparente.cpp" />
 		<Unit filename="src/UserInterfaceMenuTextoTransparente.h" />
-		<Unit filename="src/UserInterfaceObjetoTexto.cpp" />
-		<Unit filename="src/UserInterfaceObjetoTexto.h" />
+		<Unit filename="src/UserInterfaceObjetoTexto.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceObjetoTexto.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/UserInterfaceRecorde.cpp" />
 		<Unit filename="src/UserInterfaceRecorde.h" />
-		<Unit filename="src/UserInterfaceTexto.cpp" />
-		<Unit filename="src/UserInterfaceTexto.h" />
+		<Unit filename="src/UserInterfaceTexto.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceTexto.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/UserInterfaceVisual.cpp">
 			<Option virtualFolder="UserInterface/" />
 		</Unit>
@@ -431,9 +439,15 @@
 		<Unit filename="src/UserInterfaceWindow.cpp">
 			<Option virtualFolder="UserInterface/" />
 		</Unit>
-		<Unit filename="src/UserInterfaceWindow.h" />
-		<Unit filename="src/UserInterfaceWindowTitulo.cpp" />
-		<Unit filename="src/UserInterfaceWindowTitulo.h" />
+		<Unit filename="src/UserInterfaceWindow.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceWindowTitulo.cpp">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
+		<Unit filename="src/UserInterfaceWindowTitulo.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/UtilColor.cpp" />
 		<Unit filename="src/UtilColor.h" />
 		<Unit filename="src/UtilDate.cpp" />
