@@ -25,6 +25,7 @@ const float UserInterfaceObjetoTexto::ENTRELINHA_DUPLA=2.0;
 //Construtor
 UserInterfaceObjetoTexto::UserInterfaceObjetoTexto(){
     entreLinhas=ENTRELINHA_UMA_MEIA;
+    alinhamento=TEXTO_NORMAL;
 }
 
 //Destrutor
