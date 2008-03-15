@@ -20,8 +20,8 @@
 #include "GBF_define.h"
 
 enum UserInterfaceTextoAlinhamento {
-  TEXTO_NORMAL =0,
-  TEXTO_CENTRALIZADO =1
+  TEXTO_NORMAL=0,
+  TEXTO_CENTRALIZADO=1
 
 };
 //Texto Alinhado a esquerda
