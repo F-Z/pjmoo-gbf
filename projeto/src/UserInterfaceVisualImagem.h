@@ -21,10 +21,10 @@
 #include "SpriteFactory.h"
 
 enum UserInterfaceVisualTipoBackground {
-  BACKGROUND_LINES =0,
-  BACKGROUND_RINGS =1,
-  BACKGROUND_CHESS =2,
-  BAKCGROUND_SQUARE =3
+  BACKGROUND_LINES=0,
+  BACKGROUND_RINGS=1,
+  BACKGROUND_CHESS=2,
+  BAKCGROUND_SQUARE=3
 
 };
 class UserInterfaceVisualImagem : public UserInterfaceVisual
