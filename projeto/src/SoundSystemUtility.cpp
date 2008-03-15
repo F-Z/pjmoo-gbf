@@ -14,7 +14,7 @@
 
 #include "SoundSystemUtility.h"
 
-SoundSystem * SoundSystemUtility::soundSystem =NULL;
+SoundSystem * SoundSystemUtility::soundSystem=NULL;
 
 void SoundSystemUtility::setSoundSystem(SoundSystem * instance)
 {

@@ -26,8 +26,8 @@
 //Motivação:
 //    Fornecer um conjunto de valores para configuração do modo de audio
 enum SoundSystemCanal {
-  CANAL_MONO = 1,
-  CANAL_STEREO =2
+  CANAL_MONO= 1,
+  CANAL_STEREO=2
 
 };
 //Descrição: 
