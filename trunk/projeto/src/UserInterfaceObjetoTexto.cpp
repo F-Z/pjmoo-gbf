@@ -14,18 +14,17 @@
 
 #include "UserInterfaceObjetoTexto.h"
 
-const float UserInterfaceObjetoTexto::ENTRELINHA_SIMPLES =1.0;
+const float UserInterfaceObjetoTexto::ENTRELINHA_SIMPLES=1.0;
 
-const float UserInterfaceObjetoTexto::ENTRELINHA_UMA_MEIA =1.5;
+const float UserInterfaceObjetoTexto::ENTRELINHA_UMA_MEIA=1.5;
 
-const float UserInterfaceObjetoTexto::ENTRELINHA_DUPLA =2.0;
+const float UserInterfaceObjetoTexto::ENTRELINHA_DUPLA=2.0;
 
 //Construtor
 
 //Construtor
 UserInterfaceObjetoTexto::UserInterfaceObjetoTexto(){
     entreLinhas=ENTRELINHA_UMA_MEIA;
-    alinhamento=TEXTO_NORMAL;
 }
 
 //Destrutor
@@ -34,38 +33,38 @@ UserInterfaceObjetoTexto::UserInterfaceObjetoTexto(){
 UserInterfaceObjetoTexto::~UserInterfaceObjetoTexto(){
 }
 
-void UserInterfaceObjetoTexto::setFonte(std::string fonte)
+void UserInterfaceObjetoTexto::setFonte(std::string fonte) 
 {
     this->fonte=fonte;
 
 //    dimensaoLetra=wsManager->getFonte(fonte)->getDimensao();
 //    espacoEntreLinhas=int(dimensaoLetra.w*estiloEntreLinhas);
 }
-std::string UserInterfaceObjetoTexto::getFonte()
+std::string UserInterfaceObjetoTexto::getFonte() 
 {
     return fonte;
 }
-void UserInterfaceObjetoTexto::setChaveTexto(std::string chaveTexto)
+void UserInterfaceObjetoTexto::setChaveTexto(std::string chaveTexto) 
 {
     this->chaveTexto=chaveTexto;
 }
-std::string UserInterfaceObjetoTexto::getChaveTexto()
+std::string UserInterfaceObjetoTexto::getChaveTexto() 
 {
     return chaveTexto;
 }
-void UserInterfaceObjetoTexto::setDimensaoLetra(const Dimensao & dimensao)
+void UserInterfaceObjetoTexto::setDimensaoLetra(const Dimensao & dimensao) 
 {
     dimensaoLetra=dimensao;
     espacoEntreLinhas=int(dimensaoLetra.w*entreLinhas);
 }
-Dimensao UserInterfaceObjetoTexto::getDimensaoLetra()
+Dimensao UserInterfaceObjetoTexto::getDimensaoLetra() 
 {
     return dimensaoLetra;
 }
 //Informa o Estilo de entrelinhas a ser utilizado
 
 //Informa o Estilo de entrelinhas a ser utilizado
-void UserInterfaceObjetoTexto::setEntreLinha(float estiloEntreLinhas)
+void UserInterfaceObjetoTexto::setEntreLinha(float estiloEntreLinhas) 
 {
     if ((estiloEntreLinhas==ENTRELINHA_SIMPLES)||(estiloEntreLinhas==ENTRELINHA_UMA_MEIA)||
        (estiloEntreLinhas==ENTRELINHA_DUPLA)){
@@ -75,21 +74,21 @@ void UserInterfaceObjetoTexto::setEntreLinha(float estiloEntreLinhas)
 //Retorna em pixel o espaçamento entre as linhas
 
 //Retorna em pixel o espaçamento entre as linhas
-int UserInterfaceObjetoTexto::getEspacoEntreLinhas()
+int UserInterfaceObjetoTexto::getEspacoEntreLinhas() 
 {
     return espacoEntreLinhas;
 }
 //Configura o Alinhamento do Texto
 
 //Configura o Alinhamento do Texto
-void UserInterfaceObjetoTexto::setAlinhamento(UserInterfaceTextoAlinhamento alinhamento)
+void UserInterfaceObjetoTexto::setAlinhamento(UserInterfaceTextoAlinhamento alinhamento) 
 {
     this->alinhamento=alinhamento;
 }
 //Retorna o alinhamento utilizado
 
 //Retorna o alinhamento utilizado
-UserInterfaceTextoAlinhamento UserInterfaceObjetoTexto::getAlinhamento()
+UserInterfaceTextoAlinhamento UserInterfaceObjetoTexto::getAlinhamento() 
 {
     return alinhamento;
 }
