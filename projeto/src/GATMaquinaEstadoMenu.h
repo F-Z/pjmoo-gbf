@@ -17,12 +17,12 @@
 #include "GATMaquinaEstado.h"
 
 enum GATEstadoMenu {
-  GAT_EM_INICIO =0,
-  GAT_EM_PRINCIPAL =10,
-  GAT_EM_AJUDA =20,
-  GAT_EM_CREDITO =30,
-  GAT_EM_SOBRE =40,
-  GAT_EM_CONFIGURACAO =50
+  GAT_EM_INICIO=0,
+  GAT_EM_PRINCIPAL=10,
+  GAT_EM_AJUDA=20,
+  GAT_EM_CREDITO=30,
+  GAT_EM_SOBRE=40,
+  GAT_EM_CONFIGURACAO=50
 };
 class GATMaquinaEstadoMenu : public GATMaquinaEstado
 {

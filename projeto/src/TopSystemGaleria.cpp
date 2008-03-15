@@ -15,7 +15,7 @@
 
 const int TopSystemGaleria::assCheckSize;
 
-int TopSystemGaleria::assCheck[assCheckSize] ={'N'+'a'+'o'+'E'+'V'+'a'+'l'+'i'+'d'+'o','N'+'E'+'V','0'+'.'+'0'};
+int TopSystemGaleria::assCheck[assCheckSize]={'N'+'a'+'o'+'E'+'V'+'a'+'l'+'i'+'d'+'o','N'+'E'+'V','0'+'.'+'0'};
 
 std::string TopSystemGaleria::pathBase;
 

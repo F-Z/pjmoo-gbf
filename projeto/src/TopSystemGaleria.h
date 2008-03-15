@@ -32,7 +32,7 @@ class TopSystemGaleria {
 
 
   private:
-    static const int assCheckSize =  3;
+    static const int assCheckSize=  3;
 
     static int assCheck[assCheckSize];
 
