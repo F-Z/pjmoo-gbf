@@ -62,8 +62,6 @@ class UserInterfaceWindow : public UserInterfaceComponente, public InputSystemUt
 
     int espacoAntesTexto;
 
-    UserInterfaceTextoAlinhamento textoAlinhamento;
-
     //Desenha o background da caixa de texto
     void desenharBackground();
 

@@ -22,7 +22,7 @@
 //    Gerenciar uma listagem de recordes
 class TopSystemRecordeLista {
   public:
-    static const int tamanho =  10;
+    static const int tamanho=  10;
 
 
   protected:

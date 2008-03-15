@@ -17,10 +17,10 @@
 #include "GATMaquinaEstado.h"
 
 enum GATEstadoTopGaleria {
-  GAT_ET_INICIO =0,
-  GAT_ET_NOVO =10,
-  GAT_ET_SALVAR =20,
-  GAT_ET_EXIBIR =30
+  GAT_ET_INICIO=0,
+  GAT_ET_NOVO=10,
+  GAT_ET_SALVAR=20,
+  GAT_ET_EXIBIR=30
 };
 class GATMaquinaEstadoTopGaleria : public GATMaquinaEstado
 {
