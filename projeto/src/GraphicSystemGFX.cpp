@@ -238,7 +238,7 @@ bool GraphicSystemGFX::offSetLimite(int x, int y)
         return true;
     }
 }
-GraphicSystemScreen * GraphicSystemGFX::gsScreen = NULL;
+GraphicSystemScreen * GraphicSystemGFX::gsScreen= NULL;
 
 void GraphicSystemGFX::setGraphicSystemScreen(GraphicSystemScreen * screen)
 {
