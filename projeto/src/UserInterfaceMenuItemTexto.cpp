@@ -13,7 +13,7 @@
 
 #include "UserInterfaceMenuItemTexto.h"
 
-WriteSystemManager * UserInterfaceMenuItemTexto::wsManager =NULL;
+WriteSystemManager * UserInterfaceMenuItemTexto::wsManager=NULL;
 
 UserInterfaceMenuItemTexto::UserInterfaceMenuItemTexto(const std::string & texto, const std::string & fonteTexto) 
 {

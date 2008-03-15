@@ -13,7 +13,7 @@
 
 #include "UserInterfaceTexto.h"
 
-UserInterfaceTexto * UserInterfaceTexto::instance =NULL;
+UserInterfaceTexto * UserInterfaceTexto::instance=NULL;
 
 //Caminho padrão de localização dos arquivos
 std::string UserInterfaceTexto::pathBase;
