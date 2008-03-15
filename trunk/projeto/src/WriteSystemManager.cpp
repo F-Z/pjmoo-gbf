@@ -14,7 +14,7 @@
 #include "WriteSystemManager.h"
 
 //Constante para representar a fonte padrão do GBF
-const std::string WriteSystemManager::defaultFont ="default";
+const std::string WriteSystemManager::defaultFont="default";
 
 //Destrutor
 WriteSystemManager::~WriteSystemManager() 
