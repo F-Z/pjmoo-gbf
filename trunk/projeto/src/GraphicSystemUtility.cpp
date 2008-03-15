@@ -14,7 +14,7 @@
 
 #include "GraphicSystemUtility.h"
 
-GraphicSystem * GraphicSystemUtility::graphicSystem =NULL;
+GraphicSystem * GraphicSystemUtility::graphicSystem=NULL;
 
 void GraphicSystemUtility::setGraphicSystem(GraphicSystem * instance)
 {

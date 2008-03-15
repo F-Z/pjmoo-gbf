@@ -45,7 +45,7 @@ SDL_Rect GraphicSystemImage::getTamanho()
 {
     return tamanho;
 }
-double GraphicSystemImage::time =0.0f;
+double GraphicSystemImage::time=0.0f;
 
 //Converte Surface para formato na inicialização do GraphicSystem 
 void GraphicSystemImage::converterSurface() 
