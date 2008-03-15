@@ -14,7 +14,7 @@
 
 #include "InputSystemUtility.h"
 
-InputSystem * InputSystemUtility::inputSystem =NULL;
+InputSystem * InputSystemUtility::inputSystem=NULL;
 
 void InputSystemUtility::setInputSystem(InputSystem * instance)
 {
