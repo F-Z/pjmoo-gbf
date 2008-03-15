@@ -16,8 +16,8 @@
 
 //Alinhamento dos itens do menu e dos itens
 enum EnumAlinhamento {
-  CENTRO =0,
-  HORIZONTAL =1,
-  VERTICAL =2
+  CENTRO=0,
+  HORIZONTAL=1,
+  VERTICAL=2
 };
 #endif

@@ -27,7 +27,7 @@ UserInterfaceComponente::UserInterfaceComponente(){
 UserInterfaceComponente::~UserInterfaceComponente(){
 }
 
-WriteSystemManager * UserInterfaceComponente::wsManager =NULL;
+WriteSystemManager * UserInterfaceComponente::wsManager=NULL;
 
-UserInterfaceTexto * UserInterfaceComponente::uiTexto =NULL;
+UserInterfaceTexto * UserInterfaceComponente::uiTexto=NULL;
 
