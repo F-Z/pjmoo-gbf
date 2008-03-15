@@ -38,5 +38,5 @@ void SoundSystemInterfaceManager::setStatus(SoundSystemStatus * instance)
 }
 std::string SoundSystemInterfaceManager::pathBase;
 
-SoundSystemStatus * SoundSystemInterfaceManager::status =NULL;
+SoundSystemStatus * SoundSystemInterfaceManager::status=NULL;
 

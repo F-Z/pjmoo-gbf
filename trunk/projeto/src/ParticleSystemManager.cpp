@@ -78,7 +78,7 @@ ParticleSystemManager * ParticleSystemManager::getInstance()
     }
     return instance;
 }
-ParticleSystemManager * ParticleSystemManager::instance =NULL;
+ParticleSystemManager * ParticleSystemManager::instance=NULL;
 
 //Remove os sistemas de particulas já finalizados
 void ParticleSystemManager::removerMorto() 
