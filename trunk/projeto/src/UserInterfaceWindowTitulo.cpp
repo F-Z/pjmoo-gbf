@@ -21,7 +21,7 @@ UserInterfaceWindowTitulo::UserInterfaceWindowTitulo(){
 UserInterfaceWindowTitulo::~UserInterfaceWindowTitulo(){
 }
 
-void UserInterfaceWindowTitulo::desenharConteudo()
+void UserInterfaceWindowTitulo::desenharConteudo() 
 {
     UserInterfaceWindow::desenharConteudo();
 
@@ -41,7 +41,7 @@ void UserInterfaceWindowTitulo::desenharConteudo()
 //Inicializa as configurações da caixa de texto
 
 //Inicializa as configurações da caixa de texto
-void UserInterfaceWindowTitulo::inicializar()
+void UserInterfaceWindowTitulo::inicializar() 
 {
     UserInterfaceWindow::inicializar();
     titulo.setDimensaoLetra(wsManager->getFonte(titulo.getFonte())->getDimensao());
