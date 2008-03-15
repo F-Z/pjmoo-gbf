@@ -13,7 +13,7 @@
 
 #include "PersonagemAbstract.h"
 
-unsigned int PersonagemAbstract::IDcontagem =0;
+unsigned int PersonagemAbstract::IDcontagem=0;
 
 //Destrutor 
 PersonagemAbstract::~PersonagemAbstract() 
