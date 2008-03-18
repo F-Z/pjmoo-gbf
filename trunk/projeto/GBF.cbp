@@ -12,7 +12,6 @@
 				<Option working_dir="" />
 				<Option type="2" />
 				<Option compiler="gcc" />
-				<Option projectResourceIncludeDirsRelation="2" />
 				<Compiler>
 					<Add option="-Os" />
 					<Add option="-O3" />
@@ -31,7 +30,6 @@
 				<Option working_dir="" />
 				<Option type="2" />
 				<Option compiler="gcc" />
-				<Option projectResourceIncludeDirsRelation="2" />
 				<Compiler>
 					<Add option="-Os" />
 					<Add option="-O3" />
@@ -50,7 +48,6 @@
 				<Option working_dir="" />
 				<Option type="2" />
 				<Option compiler="gcc" />
-				<Option projectResourceIncludeDirsRelation="2" />
 				<Compiler>
 					<Add option="-W" />
 					<Add option="-Wall" />
@@ -68,7 +65,6 @@
 				<Option working_dir="" />
 				<Option type="2" />
 				<Option compiler="gcc" />
-				<Option projectResourceIncludeDirsRelation="2" />
 				<Compiler>
 					<Add option="-W" />
 					<Add option="-Wall" />
