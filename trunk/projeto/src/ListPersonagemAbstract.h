@@ -19,29 +19,29 @@
 #include "PersonagemAbstract.h"
 #include <deque>
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de gerenciadores de personagens
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores de personagens
 class ListPersonagemAbstract : public ListManager
 {
   public:
-    //Construtor 
+    //Construtor
     ListPersonagemAbstract();
 
-    //Destrutor 
+    //Destrutor
     virtual ~ListPersonagemAbstract();
 
     //Desenha objetos que estao no container
     virtual void desenhar();
 
-    //Retorna a quantidade de elementos 
+    //Retorna a quantidade de elementos
     virtual int size();
 
     //Limpa o container, removendo todos os elementos
     virtual void limpar();
 
-    //Executa as ações de cada elemento 
+    //Executa as ações de cada elemento
     virtual void acao(InputSystem * input = NULL);
 
     void adicionar(PersonagemAbstract * personagem);
@@ -54,11 +54,12 @@ class ListPersonagemAbstract : public ListManager
 
     virtual PersonagemAbstract * getPersonagem(int indice);
 
-    virtual void executar() = 0;
+//    virtual void executar() = 0;
 
 
   protected:
     virtual void ordenar();
+    virtual void remover();
 
     std::deque<PersonagemAbstract*> lista;
 };
