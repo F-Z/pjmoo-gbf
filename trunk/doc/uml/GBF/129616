@@ -1,7 +1,7 @@
 format 55
 "UserInterface" // Framework GBF::UserInterface
-  revision 26
-  modified_by 99 "david"
+  revision 28
+  modified_by 28 "david"
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -44,6 +44,266 @@ format 55
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
+    class 129180 "UserInterfaceWindowRecorde"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129308 // <generalisation>
+	relation 129308 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129308 // <generalisation>
+	  b parent class_ref 129061 // UserInterfaceWindow
+      end
+
+      classrelation 129820 // <generalisation>
+	relation 129820 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129820 // <generalisation>
+	  b parent class_ref 128089 // GraphicSystemUtility
+      end
+
+      attribute 129308 "BOTAO_SALVAR"
+	class_attribute const_attribute public explicit_type "int"
+	init_value "=200"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 129436 "UserInterfaceWindowRecorde"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 129564 "~UserInterfaceWindowRecorde"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 129308 "isAcao"
+	cpp_virtual public explicit_return_type "bool"
+	nparams 1
+	  param in name "tipoAcao" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna se a ação informada foi acionado"
+      end
+    end
+
+    class 129308 "UserInterfaceWindowDialog"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 131109 "BOTAO_OK"
+	class_attribute const_attribute public explicit_type "int"
+	init_value "=100"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 129692 "UserInterfaceWindowDialog"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 129820 "~UserInterfaceWindowDialog"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 133925 "adicionarBotao"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "novoBotao" type class_ref 128037 // UserInterfaceBotao
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 134181 "isAcao"
+	cpp_virtual public explicit_return_type "bool"
+	nparams 1
+	  param in name "tipoAcao" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna se a ação informada foi acionado"
+      end
+
+      operation 134053 "confirmarSelecao"
+	public explicit_return_type "int"
+	nparams 0
+	cpp_visibility protected cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      classrelation 129436 // <generalisation>
+	relation 129436 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129436 // <generalisation>
+	  b parent class_ref 129061 // UserInterfaceWindow
+      end
+
+      classrelation 129564 // texto (<directional composition>)
+	relation 129564 *-->
+	  a role_name "texto" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 129564 // texto (<directional composition>)
+	  b parent class_ref 128293 // UserInterfaceObjetoTexto
+      end
+
+      classrelation 129692 // botao (<unidirectional association>)
+	relation 129692 --->
+	  a role_name "botao" init_value "=NULL" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129692 // botao (<unidirectional association>)
+	  b parent class_ref 128037 // UserInterfaceBotao
+      end
+
+      operation 129948 "inicializar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Inicializa as configurações da caixa de texto
+
+${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Inicializa as configurações da caixa de texto"
+      end
+
+      operation 130076 "desenharConteudo"
+	cpp_virtual protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Desenha o conteudo da janela
+
+${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Desenha o conteudo da janela"
+      end
+
+      operation 130332 "desenharControles"
+	cpp_virtual protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Desenha o botão de ação da janela
+
+${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Desenha o botão de ação da janela"
+      end
+    end
+
     class 128677 "UserInterfaceVisualTipoBackground"
       visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
@@ -88,11 +348,33 @@ ${items}};
 	idl_decl ""
       end
 
-      attribute 130597 "BAKCGROUND_SQUARE"
+      attribute 130597 "BACKGROUND_SQUARE"
 	public explicit_type ""
 	init_value "=3
 "
-	constraint " ${comment}${name}${value},"
+	constraint "${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128028 "BACKGROUND_LINES_BLACK"
+	public explicit_type ""
+	init_value "=4"
+	constraint "${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128156 "BACKGROUND_CHESS_BLACK"
+	public explicit_type ""
+	init_value "=5"
+	constraint "${comment}${name}${value},"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
@@ -185,7 +467,7 @@ ${items}};
     end
 
     class 129061 "UserInterfaceWindow"
-      visibility package 
+      abstract visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -205,15 +487,12 @@ ${inlines}
 	  b parent class_ref 128165 // UserInterfaceComponente
       end
 
-      attribute 131109 "BOTAO_OK"
-	class_attribute const_attribute public explicit_type "int"
-	init_value "=1"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
+      classrelation 129080 // <generalisation>
+	relation 129080 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129080 // <generalisation>
+	  b parent class_ref 128027 // InputSystemUtility
       end
 
       operation 132901 "UserInterfaceWindow"
@@ -236,11 +515,9 @@ ${body}}"
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "//Destrutor
-
-${comment}${inline}${class}::${name}${(}${)}${throw}{
-${body}}
-"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
 	
 	
 	
@@ -330,51 +607,17 @@ ${body}}"
 	comment "Estilo Visual a ser Aplicado no Componente"
       end
 
-      operation 133925 "adicionarBotao"
-	public explicit_return_type "void"
+      operation 129180 "isAcao"
+	abstract cpp_virtual public explicit_return_type "bool"
 	nparams 1
-	  param inout name "novoBotao" type class_ref 128037 // UserInterfaceBotao
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-      end
-
-      operation 134053 "confirmarSelecao"
-	public explicit_return_type "int"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-      end
-
-      operation 134181 "isBotao"
-	public explicit_return_type "bool"
-	nparams 1
-	  param in name "tipoBotao" explicit_type "int"
+	  param in name "tipoAcao" explicit_type "int"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "//Retorna se o Botão informado foi acionado
-
-${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
 	
 	
 	
 	
-	comment "Retorna se o Botão informado foi acionado"
+	comment "Retorna se a ação informada foi acionado"
       end
 
       attribute 131237 "dimensao"
@@ -407,8 +650,18 @@ ${body}}"
 	idl_decl ""
       end
 
+      attribute 131621 "tempoEspera"
+	protected explicit_type "TimerSystemCronometroDecrescente"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
       operation 134309 "desenharBackground"
-	protected explicit_return_type "void"
+	cpp_virtual protected explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -441,8 +694,8 @@ ${body}}"
 	comment "Desenha o conteudo da janela"
       end
 
-      operation 134565 "desenharBotao"
-	protected explicit_return_type "void"
+      operation 134565 "desenharControles"
+	cpp_virtual protected explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -458,15 +711,6 @@ ${body}}"
 	comment "Desenha o botão de ação da janela"
       end
 
-      classrelation 129061 // texto (<directional composition>)
-	relation 129061 *-->
-	  a role_name "texto" public
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 129061 // texto (<directional composition>)
-	  b parent class_ref 128293 // UserInterfaceObjetoTexto
-      end
-
       classrelation 129189 // visual (<unidirectional association>)
 	relation 129189 --->
 	  a role_name "visual" protected
@@ -476,32 +720,6 @@ ${body}}"
 	  b parent class_ref 128549 // UserInterfaceVisual
       end
 
-      classrelation 129317 // botao (<unidirectional association>)
-	relation 129317 --->
-	  a role_name "botao" init_value "=NULL" protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 129317 // botao (<unidirectional association>)
-	  b parent class_ref 128037 // UserInterfaceBotao
-      end
-
-      attribute 131621 "tempoEspera"
-	protected explicit_type "TimerSystemCronometroDecrescente"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      classrelation 129080 // <generalisation>
-	relation 129080 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 129080 // <generalisation>
-	  b parent class_ref 128027 // InputSystemUtility
-      end
     end
 
     class 129189 "UserInterfaceWindowTitulo"
@@ -517,14 +735,6 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 129445 // <generalisation>
-	relation 129445 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 129445 // <generalisation>
-	  b parent class_ref 129061 // UserInterfaceWindow
-      end
-
       operation 134693 "UserInterfaceWindowTitulo"
 	public explicit_return_type ""
 	nparams 0
@@ -591,6 +801,14 @@ ${body}}"
 "
 	    classrelation_ref 129573 // titulo (<directional composition>)
 	  b parent class_ref 128293 // UserInterfaceObjetoTexto
+      end
+
+      classrelation 129180 // <generalisation>
+	relation 129180 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 129180 // <generalisation>
+	  b parent class_ref 129308 // UserInterfaceWindowDialog
       end
     end
 
@@ -3613,6 +3831,80 @@ ${members}
 ${namespace_end}"
       associated_classes
 	class_ref 128143 // UserInterfaceMenuTextoTransparente
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 129180 "UserInterfaceWindowRecorde"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 129180 // UserInterfaceWindowRecorde
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 129308 "UserInterfaceWindowDialog"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 129308 // UserInterfaceWindowDialog
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2008 David de Almeida Ferreira

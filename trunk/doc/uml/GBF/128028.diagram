@@ -1,0 +1,54 @@
+format 55
+
+classcanvas 128028 class_ref 133456 // ListManager
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 649 48 2000
+  end
+classcanvas 128156 class_ref 128303 // BaseManager
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 398 33 2004
+  end
+classcanvas 128412 class_ref 133840 // ListPersonagemJogadorAbstract
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 492 512 2000
+  end
+classcanvas 128540 class_ref 133712 // ListPersonagemAutomaticoAbstract
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 208 513 2005
+  end
+classcanvas 128668 class_ref 133328 // ListPersonagemAbstract
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 384 181 2010
+  end
+classcanvas 129180 class_ref 128047 // ObjetoBase
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 130 29 2004
+  end
+note 129436 "ADD
+remover
+DEL
+executar"
+  xyzwh 98 292 2000 141 107
+relationcanvas 128284 relation_ref 129839 // <generalisation>
+  from ref 128028 z 1999 to ref 128156
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128796 relation_ref 135376 // <generalisation>
+  from ref 128668 z 1999 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128924 relation_ref 135760 // <generalisation>
+  from ref 128412 z 1999 to ref 128668
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129052 relation_ref 135632 // <generalisation>
+  from ref 128540 z 1999 to ref 128668
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129308 relation_ref 129967 // <generalisation>
+  from ref 128156 z 1999 to ref 129180
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+line 129564 -_-_
+  from ref 129436 z 1999 to ref 128668
+end
