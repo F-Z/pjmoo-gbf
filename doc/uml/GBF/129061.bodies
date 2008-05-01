@@ -1,7 +1,6 @@
 class UserInterfaceWindow
 !!!132901.cpp!!!	UserInterfaceWindow()
     espacoAntesTexto=0;
-    botao = NULL;
 
     tempoEspera.setTempoOriginal(1);
     tempoEspera.setUnidade(TEMPO_MEIO);
@@ -10,9 +9,6 @@ class UserInterfaceWindow
     if (visual){
         delete(visual);
     }
-    if (botao){
-        delete(botao);
-    }
 !!!133285.cpp!!!	executar() : void
     tempoEspera.processar();
 
@@ -20,7 +16,7 @@ class UserInterfaceWindow
 
     desenharConteudo();
 
-    desenharBotao();
+    desenharControles();
 !!!133413.cpp!!!	setPosicao(in x : int, in y : int) : void
     posicao.x=x;
     posicao.y=y;
@@ -28,71 +24,14 @@ class UserInterfaceWindow
     dimensao.w=largura;
     dimensao.h=altura;
 !!!133669.cpp!!!	inicializar() : void
-    texto.setDimensaoLetra(wsManager->getFonte(texto.getFonte())->getDimensao());
     if (visual!=NULL){
         visual->aplicar(posicao,dimensao);
     }
 !!!133797.cpp!!!	setVisual(inout visual : UserInterfaceVisual) : void
     this->visual=visual;
-!!!133925.cpp!!!	adicionarBotao(inout novoBotao : UserInterfaceBotao) : void
-    botao=novoBotao;
-!!!134053.cpp!!!	confirmarSelecao() : int
-    int selecionado = -1;
-
-    if (((botao==NULL)
-        ||(((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))))
-        &&(tempoEspera.isTerminou())){
-        tempoEspera.setResetar();
-        selecionado=BOTAO_OK;
-    }
-
-    return selecionado;
-!!!134181.cpp!!!	isBotao(in tipoBotao : int) : bool
-    if (confirmarSelecao()==tipoBotao){
-        return true;
-    } else {
-        return false;
-    }
 !!!134309.cpp!!!	desenharBackground() : void
     if (visual!=NULL){
         visual->desenhar();
     }
 !!!134437.cpp!!!	desenharConteudo() : void
-    int numeroLinha=1;
-    bool continuar = false;
-    char textoChave[30];
 
-    int posicaoTextoVertical   = posicao.y+espacoAntesTexto;
-    int posicaoTextoHorizontal = 0;
-    int auxiliar=0;
-
-    do {
-        sprintf(textoChave,texto.getChaveTexto().c_str(),numeroLinha);
-
-        continuar=uiTexto->isChaveTexto(textoChave);
-
-        if (continuar){
-
-            if (texto.getAlinhamento()==TEXTO_CENTRALIZADO){
-                auxiliar = wsManager->getLarguraLinha(texto.getFonte(),textoChave);
-                posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
-            } else {
-                posicaoTextoHorizontal = posicao.x+texto.getDimensaoLetra().w;
-            }
-
-            wsManager->escreverLocalizado(texto.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
-            posicaoTextoVertical=posicao.y+espacoAntesTexto+(texto.getEspacoEntreLinhas()*numeroLinha);
-            numeroLinha++;
-
-        } else {
-            break;
-        }
-
-    } while(true);
-!!!134565.cpp!!!	desenharBotao() : void
-    if ((botao!=NULL)&&(tempoEspera.isTerminou())){
-        Ponto pontoAux = posicao;
-        pontoAux.y = posicao.y+dimensao.h;
-        pontoAux.x = posicao.x+dimensao.w;
-        botao->desenhar(pontoAux);
-    }

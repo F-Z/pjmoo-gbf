@@ -1,0 +1,68 @@
+class UserInterfaceWindowDialog
+!!!129692.cpp!!!	UserInterfaceWindowDialog()
+    botao = NULL;
+!!!129820.cpp!!!	~UserInterfaceWindowDialog()
+    if (botao){
+        delete(botao);
+    }
+!!!133925.cpp!!!	adicionarBotao(inout novoBotao : UserInterfaceBotao) : void
+    botao=novoBotao;
+!!!134181.cpp!!!	isAcao(in tipoAcao : int) : bool
+    if (confirmarSelecao()==tipoAcao){
+        return true;
+    } else {
+        return false;
+    }
+!!!134053.cpp!!!	confirmarSelecao() : int
+    int selecionado = -1;
+
+    if (((botao==NULL)
+        ||(((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))))
+        &&(tempoEspera.isTerminou())){
+        tempoEspera.setResetar();
+        selecionado=BOTAO_OK;
+    }
+
+    return selecionado;
+!!!129948.cpp!!!	inicializar() : void
+    UserInterfaceWindow::inicializar();
+    texto.setDimensaoLetra(wsManager->getFonte(texto.getFonte())->getDimensao());
+!!!130076.cpp!!!	desenharConteudo() : void
+    int numeroLinha=1;
+    bool continuar = false;
+    char textoChave[30];
+
+    int posicaoTextoVertical   = posicao.y+espacoAntesTexto;
+    int posicaoTextoHorizontal = 0;
+    int auxiliar=0;
+
+    do {
+        sprintf(textoChave,texto.getChaveTexto().c_str(),numeroLinha);
+
+        continuar=uiTexto->isChaveTexto(textoChave);
+
+        if (continuar){
+
+            if (texto.getAlinhamento()==TEXTO_CENTRALIZADO){
+                auxiliar = wsManager->getLarguraLinha(texto.getFonte(),textoChave);
+                posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
+            } else {
+                posicaoTextoHorizontal = posicao.x+texto.getDimensaoLetra().w;
+            }
+
+            wsManager->escreverLocalizado(texto.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
+            posicaoTextoVertical=posicao.y+espacoAntesTexto+(texto.getEspacoEntreLinhas()*numeroLinha);
+            numeroLinha++;
+
+        } else {
+            break;
+        }
+
+    } while(true);
+!!!130332.cpp!!!	desenharControles() : void
+    if ((botao!=NULL)&&(tempoEspera.isTerminou())){
+        Ponto pontoAux = posicao;
+        pontoAux.y = posicao.y+dimensao.h;
+        pontoAux.x = posicao.x+dimensao.w;
+        botao->desenhar(pontoAux);
+    }
