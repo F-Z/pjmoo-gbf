@@ -14,16 +14,16 @@
 #include "UserInterfaceRecorde.h"
 
 //Construtor
-UserInterfaceRecorde::UserInterfaceRecorde() 
+UserInterfaceRecorde::UserInterfaceRecorde()
 {
     //Para não esquecer:
     //As Soluções mais simples, são as que melhor funcionam :P
     strcpy(miniTeclado,"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 _+-$%*,.:[]!=");
 
 
-    tecladoControle[0]="VOLTAR";
-    tecladoControle[1]="AVANCAR";
-    tecladoControle[2]="SALVAR";
+    tecladoControle[0]="BACK";
+    tecladoControle[1]="NEXT";
+    tecladoControle[2]="SAVE";
 
 
     totalTeclasTeclado  = strlen(miniTeclado);
@@ -54,12 +54,12 @@ UserInterfaceRecorde::UserInterfaceRecorde()
     tempoBlink.setResetar();
 }
 //Destrutor
-UserInterfaceRecorde::~UserInterfaceRecorde() 
+UserInterfaceRecorde::~UserInterfaceRecorde()
 {
 //não implementado
 }
 //Define a fonte a ser usada pelo teclado virtual
-void UserInterfaceRecorde::setFonteTeclado(std::string fonte) 
+void UserInterfaceRecorde::setFonteTeclado(std::string fonte)
 {
     fonteTeclado=fonte;
     dimensaoFonteTeclado=wsManager->getFonte(fonteTeclado)->getDimensao();
@@ -68,34 +68,34 @@ void UserInterfaceRecorde::setFonteTeclado(std::string fonte)
     caixaTeclado.h=(dimensaoFonteTeclado.h + int(dimensaoFonteTeclado.h/4))*int(totalTeclasTeclado/10);
 }
 //Define a posição da Interface de recordes
-void UserInterfaceRecorde::setPosicao(int x, int y) 
+void UserInterfaceRecorde::setPosicao(int x, int y)
 {
     posicao.x=x;
     posicao.y=y;
 }
 //Define a fonte a ser usada pelo label
-void UserInterfaceRecorde::setFonteLabel(std::string fonte) 
+void UserInterfaceRecorde::setFonteLabel(std::string fonte)
 {
     fonteLabel=fonte;
     dimensaoFonteLabel=wsManager->getFonte(fonteLabel)->getDimensao();
 }
 //Adiciona referência para o Sistema Gráfico GFX
-void UserInterfaceRecorde::setGFX(GraphicSystemGFX * gfx) 
+void UserInterfaceRecorde::setGFX(GraphicSystemGFX * gfx)
 {
     gsGFX=gfx;
 }
 //Adiciona referência para o Sistema de Escrita
-void UserInterfaceRecorde::setWriteManager(WriteSystemManager * write) 
+void UserInterfaceRecorde::setWriteManager(WriteSystemManager * write)
 {
     this->wsManager=write;
 }
 //Retorna o TopSystemRecorde
-TopSystemRecorde UserInterfaceRecorde::getRecorde() 
+TopSystemRecorde UserInterfaceRecorde::getRecorde()
 {
     return recorde;
 }
 //Atribui um TopSystemRecorde para complementar os dados
-void UserInterfaceRecorde::setRecorde(TopSystemRecorde recorde) 
+void UserInterfaceRecorde::setRecorde(TopSystemRecorde recorde)
 {
     this->recorde  = recorde;
     nomePosicao    = 0;
@@ -104,7 +104,7 @@ void UserInterfaceRecorde::setRecorde(TopSystemRecorde recorde)
     tempoNavegacao.setResetar();
 }
 //Gerencia o controle do cursor (navegação) e as opções selecionadas
-bool UserInterfaceRecorde::controle() 
+bool UserInterfaceRecorde::controle()
 {
     bool salva = false;
     tempoNavegacao.processar();
@@ -116,14 +116,14 @@ bool UserInterfaceRecorde::controle()
     return salva;
 }
 //Desenha a interface contendo: pontuação, dados do jogador e teclado virtual
-void UserInterfaceRecorde::desenhar() 
+void UserInterfaceRecorde::desenhar()
 {
     desenharCaixa();
     desenharDados();
     desenharMiniTeclado();
 }
 //Efetua as ações de acordo com a posição do cursor
-bool UserInterfaceRecorde::confirmar() 
+bool UserInterfaceRecorde::confirmar()
 {
     bool salva = false;
     if ((inputSystem->teclado->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())){
@@ -151,7 +151,7 @@ bool UserInterfaceRecorde::confirmar()
     return salva;
 }
 //Desenha as caixas de fundo para posicionamento dos dados do jogador e do teclado virtual
-void UserInterfaceRecorde::desenharCaixa() 
+void UserInterfaceRecorde::desenharCaixa()
 {
     if (tempoBlink.getTempo()%2!=0){
         gsGFX->setColor(250,250,250);
@@ -164,7 +164,7 @@ void UserInterfaceRecorde::desenharCaixa()
     gsGFX->retangulo(posicao.x,posicao.y,caixaTeclado.w,caixaTeclado.h);
 }
 //Desenha o teclado virtual
-void UserInterfaceRecorde::desenharMiniTeclado() 
+void UserInterfaceRecorde::desenharMiniTeclado()
 {
     gsGFX->setColor(255,255,0);
     int letra=0;
@@ -200,13 +200,13 @@ void UserInterfaceRecorde::desenharMiniTeclado()
     }
 }
 //Desenha o nome do jogador e sua pontuação
-void UserInterfaceRecorde::desenharDados() 
+void UserInterfaceRecorde::desenharDados()
 {
     wsManager->escrever(fonteTeclado, posicao.x+20 , posicao.y-50,"%s"  ,recorde.nome);
     wsManager->escrever(fonteTeclado, posicao.x+270, posicao.y-50,"%08d",recorde.pontos);
 }
 //Efetua o controle sobre a navegação do cursor
-void UserInterfaceRecorde::navegar() 
+void UserInterfaceRecorde::navegar()
 {
     if ((inputSystem->teclado->isKey(SDLK_LEFT))||(inputSystem->joystick->isAxeLeft())){
             tecladoSelecao--;
