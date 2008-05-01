@@ -17,34 +17,34 @@
 #include "InputSystemCore.h"
 #include "BaseManager.h"
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de gerenciadores
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores
 class ListManager : public BaseManager
 {
   public:
-    //Construtor 
+    //Construtor
     ListManager();
 
-    //Destrutor 
+    //Destrutor
     virtual ~ListManager();
 
     //Desenha objetos que estao no container
     virtual void desenhar() = 0;
 
-    //Retorna a quantidade de elementos 
+    //Retorna a quantidade de elementos
     virtual int size() = 0;
 
     //Limpa o container, removendo todos os elementos
     virtual void limpar() = 0;
 
-    //Executa as ações de cada elemento 
-    virtual void acao(InputSystemCore * input) = 0;
+    //Executa as ações de cada elemento
+    virtual void acao(InputSystem * input) = 0;
 
 
   protected:
-    //Ordena os elementos 
+    //Ordena os elementos
     virtual void ordenar() = 0;
 
 };
