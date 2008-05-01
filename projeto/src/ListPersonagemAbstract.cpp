@@ -13,19 +13,19 @@
 
 #include "ListPersonagemAbstract.h"
 
-//Construtor 
-ListPersonagemAbstract::ListPersonagemAbstract() 
+//Construtor
+ListPersonagemAbstract::ListPersonagemAbstract()
 {
 
 }
-//Destrutor 
-ListPersonagemAbstract::~ListPersonagemAbstract() 
+//Destrutor
+ListPersonagemAbstract::~ListPersonagemAbstract()
 {
 
     limpar();
 }
 //Desenha objetos que estao no container
-void ListPersonagemAbstract::desenhar() 
+void ListPersonagemAbstract::desenhar()
 {
     if (!lista.empty()){
         for (unsigned int t=0; t<lista.size(); t++){
@@ -35,13 +35,13 @@ void ListPersonagemAbstract::desenhar()
         }
     }
 }
-//Retorna a quantidade de elementos 
-int ListPersonagemAbstract::size() 
+//Retorna a quantidade de elementos
+int ListPersonagemAbstract::size()
 {
     return lista.size();
 }
 //Limpa o container, removendo todos os elementos
-void ListPersonagemAbstract::limpar() 
+void ListPersonagemAbstract::limpar()
 {
     for (unsigned int i=0; i<lista.size(); i++){
         try {
@@ -54,9 +54,11 @@ void ListPersonagemAbstract::limpar()
     }
     lista.clear();
 }
-//Executa as ações de cada elemento 
-void ListPersonagemAbstract::acao(InputSystem * input) 
+//Executa as ações de cada elemento
+void ListPersonagemAbstract::acao(InputSystem * input)
 {
+    remover();
+
     if (!lista.empty()){
         for (unsigned int t=0; t<lista.size(); t++){
             if (lista[t]!=NULL){
@@ -65,11 +67,11 @@ void ListPersonagemAbstract::acao(InputSystem * input)
         }
     }
 }
-void ListPersonagemAbstract::adicionar(PersonagemAbstract * personagem) 
+void ListPersonagemAbstract::adicionar(PersonagemAbstract * personagem)
 {
     lista.push_back(personagem);
 }
-void ListPersonagemAbstract::remover(PersonagemAbstract * personagem) 
+void ListPersonagemAbstract::remover(PersonagemAbstract * personagem)
 {
     for (int i=lista.size()-1; i>=0; i--){
         if (lista[i]==personagem){
@@ -79,7 +81,11 @@ void ListPersonagemAbstract::remover(PersonagemAbstract * personagem)
         }
     }
 }
-void ListPersonagemAbstract::colisao(ListPersonagemAbstract * objeto) 
+void ListPersonagemAbstract::remover()
+{
+    //Hook
+}
+void ListPersonagemAbstract::colisao(ListPersonagemAbstract * objeto)
 {
     PersonagemAbstract *l=NULL;
     PersonagemAbstract *o=NULL;
@@ -98,7 +104,7 @@ void ListPersonagemAbstract::colisao(ListPersonagemAbstract * objeto)
         }
     }
 }
-void ListPersonagemAbstract::colisao(PersonagemAbstract * objeto) 
+void ListPersonagemAbstract::colisao(PersonagemAbstract * objeto)
 {
     PersonagemAbstract *l=NULL;
 
@@ -114,11 +120,11 @@ void ListPersonagemAbstract::colisao(PersonagemAbstract * objeto)
         }
     }
 }
-PersonagemAbstract * ListPersonagemAbstract::getPersonagem(int indice) 
+PersonagemAbstract * ListPersonagemAbstract::getPersonagem(int indice)
 {
     return lista[indice];
 }
-void ListPersonagemAbstract::ordenar() 
+void ListPersonagemAbstract::ordenar()
 {
     PersonagemAbstract *buffer;
 
