@@ -24,7 +24,9 @@ enum UserInterfaceVisualTipoBackground {
   BACKGROUND_LINES=0,
   BACKGROUND_RINGS=1,
   BACKGROUND_CHESS=2,
-  BAKCGROUND_SQUARE=3
+  BACKGROUND_SQUARE=3,
+  BACKGROUND_LINES_BLACK=4,
+  BACKGROUND_CHESS_BLACK=5
 
 };
 class UserInterfaceVisualImagem : public UserInterfaceVisual
