@@ -52,7 +52,7 @@ class UserInterfaceWindow : public UserInterfaceComponente, public InputSystemUt
     int confirmarSelecao();
 
     //Retorna se o Botão informado foi acionado
-    bool isBotao(int tipoBotao);
+    virtual bool isBotao(int tipoBotao);
 
 
   protected:
@@ -63,13 +63,13 @@ class UserInterfaceWindow : public UserInterfaceComponente, public InputSystemUt
     int espacoAntesTexto;
 
     //Desenha o background da caixa de texto
-    void desenharBackground();
+    virtual void desenharBackground();
 
     //Desenha o conteudo da janela
     virtual void desenharConteudo();
 
     //Desenha o botão de ação da janela
-    void desenharBotao();
+    virtual void desenharBotao();
 
 
   public:
