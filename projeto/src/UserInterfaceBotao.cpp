@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////    Copyright (C) 2004-2008 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -8,8 +8,8 @@
 ////
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
 ////        http://pjmoo.sourceforge.net
+////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
 #include "UserInterfaceBotao.h"
@@ -23,23 +23,24 @@ UserInterfaceBotao::UserInterfaceBotao(std::string fonte, std::string chaveTexto
 UserInterfaceBotao::~UserInterfaceBotao(){
 }
 
-//Desenha o botão
-
-//Desenha o botão
-void UserInterfaceBotao::desenhar(const Ponto & posicao) 
-{
-    Dimensao dimensao = wsManager->getFonte(botao.getFonte())->getDimensao();
-    int tamanhoTexto = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
-
-    int posicaoTextoHorizontal = int(posicao.x - tamanhoTexto);
-    int posicaoTextoVertical   = int(posicao.y - (dimensao.h * 1.2));
-
-    wsManager->escreverLocalizado(botao.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,botao.getChaveTexto());
-}
 //Retorna a tecla correspondente ao botão
 
 //Retorna a tecla correspondente ao botão
 SDLKey UserInterfaceBotao::getTecla() 
 {
     return tecla;
+}
+//Desenha os componentes visuais
+void UserInterfaceBotao::desenhar() 
+{
+    wsManager->escreverLocalizado(botao.getFonte(),posicao.x,posicao.y,botao.getChaveTexto());
+}
+//atualiza as informações do componente (posicao, dimensao, estado)
+void UserInterfaceBotao::atualizar() 
+{
+    //Dimensao dimensao = wsManager->getFonte(botao.getFonte())->getDimensao();
+    //int tamanhoTexto = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
+
+    //posicao.x=posicao.x-tamanhoTexto;
+    // posicao.y=int(posicao.y - (dimensao.h * 1.2));
 }
