@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////    Copyright (C) 2004-2008 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -8,8 +8,8 @@
 ////
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
 ////        http://pjmoo.sourceforge.net
+////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef _USERINTERFACEBOTAO_H
@@ -18,7 +18,6 @@
 #include "UserInterfaceComponente.h"
 #include <string>
 
-#include "GBF_define.h"
 #include "UserInterfaceObjetoTexto.h"
 
 class UserInterfaceBotao : public UserInterfaceComponente
@@ -28,9 +27,6 @@ class UserInterfaceBotao : public UserInterfaceComponente
 
     virtual ~UserInterfaceBotao();
 
-    //Desenha o botão
-    void desenhar(const Ponto & posicao);
-
     //Retorna a tecla correspondente ao botão
     SDLKey getTecla();
 
@@ -39,6 +35,12 @@ class UserInterfaceBotao : public UserInterfaceComponente
     SDLKey tecla;
 
     UserInterfaceObjetoTexto botao;
+
+    //Desenha os componentes visuais
+    virtual void desenhar();
+
+    //atualiza as informações do componente (posicao, dimensao, estado)
+    void atualizar();
 
 };
 #endif
