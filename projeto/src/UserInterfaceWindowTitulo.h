@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////    Copyright (C) 2004-2008 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -8,17 +8,17 @@
 ////
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
 ////        http://pjmoo.sourceforge.net
+////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef _USERINTERFACEWINDOWTITULO_H
 #define _USERINTERFACEWINDOWTITULO_H
 
-#include "UserInterfaceWindow.h"
 #include "UserInterfaceObjetoTexto.h"
+#include "UserInterfaceWindowDialog.h"
 
-class UserInterfaceWindowTitulo : public UserInterfaceWindow
+class UserInterfaceWindowTitulo : public UserInterfaceWindowDialog
 {
   public:
     UserInterfaceWindowTitulo();
