@@ -18,6 +18,9 @@ UserInterfaceBotao::UserInterfaceBotao(std::string fonte, std::string chaveTexto
     botao.setFonte(fonte);
     botao.setChaveTexto(chaveTexto);
     this->tecla=tecla;
+
+    dimensao   = wsManager->getFonte(botao.getFonte())->getDimensao();
+    dimensao.w = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
 }
 
 UserInterfaceBotao::~UserInterfaceBotao(){
@@ -26,21 +29,18 @@ UserInterfaceBotao::~UserInterfaceBotao(){
 //Retorna a tecla correspondente ao botão
 
 //Retorna a tecla correspondente ao botão
-SDLKey UserInterfaceBotao::getTecla() 
+SDLKey UserInterfaceBotao::getTecla()
 {
     return tecla;
 }
 //Desenha os componentes visuais
-void UserInterfaceBotao::desenhar() 
+void UserInterfaceBotao::desenhar()
 {
     wsManager->escreverLocalizado(botao.getFonte(),posicao.x,posicao.y,botao.getChaveTexto());
 }
 //atualiza as informações do componente (posicao, dimensao, estado)
-void UserInterfaceBotao::atualizar() 
+void UserInterfaceBotao::atualizar()
 {
-    //Dimensao dimensao = wsManager->getFonte(botao.getFonte())->getDimensao();
-    //int tamanhoTexto = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
-
     //posicao.x=posicao.x-tamanhoTexto;
     // posicao.y=int(posicao.y - (dimensao.h * 1.2));
 }
