@@ -1,11 +1,11 @@
-class UserInterfaceWindowDialog
-!!!129692.cpp!!!	UserInterfaceWindowDialog()
+class UIWindowDialog
+!!!129692.cpp!!!	UIWindowDialog()
     botao = NULL;
-!!!129820.cpp!!!	~UserInterfaceWindowDialog()
+!!!129820.cpp!!!	~UIWindowDialog()
     if (botao){
         delete(botao);
     }
-!!!133925.cpp!!!	adicionarBotao(inout novoBotao : UserInterfaceBotao) : void
+!!!133925.cpp!!!	adicionarBotao(inout novoBotao : UIBotao) : void
     botao=novoBotao;
 !!!134181.cpp!!!	isAcao(in tipoAcao : int) : bool
     if (confirmarSelecao()==tipoAcao){
@@ -25,7 +25,7 @@ class UserInterfaceWindowDialog
 
     return selecionado;
 !!!129948.cpp!!!	inicializar() : void
-    UserInterfaceWindow::inicializar();
+    UIWindow::inicializar();
     texto.setDimensaoLetra(wsManager->getFonte(texto.getFonte())->getDimensao());
 !!!130076.cpp!!!	desenharConteudo() : void
     int numeroLinha=1;
@@ -43,7 +43,7 @@ class UserInterfaceWindowDialog
 
         if (continuar){
 
-            if (texto.getAlinhamento()==TEXTO_CENTRALIZADO){
+            if (texto.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
                 auxiliar = wsManager->getLarguraLinha(texto.getFonte(),textoChave);
                 posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
             } else {
@@ -59,10 +59,17 @@ class UserInterfaceWindowDialog
         }
 
     } while(true);
-!!!130332.cpp!!!	desenharControles() : void
+!!!130332.cpp!!!	desenharForeground() : void
     if ((botao!=NULL)&&(tempoEspera.isTerminou())){
+        botao->executar();
+    }
+!!!145052.cpp!!!	atualizar() : void
+    tempoEspera.processar();
+
+    if (botao!=NULL){
         Ponto pontoAux = posicao;
-        pontoAux.y = posicao.y+dimensao.h;
-        pontoAux.x = posicao.x+dimensao.w;
-        botao->desenhar(pontoAux);
+        Dimensao d= botao->getDimensao();
+        pontoAux.x = (posicao.x+dimensao.w)-d.w;
+        pontoAux.y = (posicao.y+dimensao.h)-d.h;
+        botao->setPosicao(pontoAux.x,pontoAux.y);
     }

@@ -1,0 +1,44 @@
+format 55
+
+classcanvas 128028 class_ref 128848 // SpriteFactory
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 190 269 2000
+  end
+classcanvas 128156 class_ref 134736 // SpritePersonagem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 308 27 2005
+  end
+classcanvas 128412 class_ref 136528 // SpriteItem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 64 82 2004
+  end
+classcanvas 128668 class_ref 128080 // FrameLayer
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 357 483 2004
+  end
+packagecanvas 128924 
+  package_ref 134556 // Layer
+    xyzwh 32 429 2000 568 425
+packagecanvas 129052 
+  package_ref 128976 // Sprite
+    xyzwh 35 -8 2000 454 245
+relationcanvas 128284 relation_ref 148944 // <dependency>
+  geometry HV
+  from ref 128028 z 1999 to point 380 332
+  line 129308 z 1999 to ref 128156
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128540 relation_ref 148816 // <dependency>
+  geometry VHr
+  from ref 128028 z 1999 to point 113 332
+  line 129180 z 1999 to ref 128412
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128796 relation_ref 149200 // <dependency>
+  geometry VHV
+  from ref 128028 z 1999 to point 271 439
+  line 129436 z 1999 to point 465 439
+  line 129564 z 1999 to ref 128668
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

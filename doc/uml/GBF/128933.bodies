@@ -1,4 +1,4 @@
-class UserInterfaceVisualSolido
+class UIVisualSolido
 !!!132517.cpp!!!	setCorFundo(in r : CorPaleta, in g : CorPaleta, in b : CorPaleta) : void
     corFundo.r=r;
     corFundo.g=g;
@@ -9,8 +9,8 @@ class UserInterfaceVisualSolido
 
     graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
     graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
-!!!128010.cpp!!!	clone() : UserInterfaceVisual
-    UserInterfaceVisualSolido * uivSolido = new UserInterfaceVisualSolido();
+!!!128010.cpp!!!	clone() : UIVisual
+    UIVisualSolido * uivSolido = new UIVisualSolido();
     uivSolido->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
     uivSolido->setCorFundo(corFundo.r,corFundo.g,corFundo.b);
 

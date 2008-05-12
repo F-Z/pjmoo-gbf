@@ -1,6 +1,6 @@
 class InputSystemCore
 !!!152272.cpp!!!	~InputSystemCore()
-    UtilLog::sistema("Removendo InputSystem");
+//    UtilLog::sistema("Removendo InputSystem");
 
     delete(inputSystem);
 !!!152784.cpp!!!	alternarControleExclusivo() : void

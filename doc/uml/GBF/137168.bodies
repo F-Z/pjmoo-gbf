@@ -1,21 +1,21 @@
-class TopSystemRecordeLista
-!!!212048.cpp!!!	TopSystemRecordeLista()
+class RSLista
+!!!212048.cpp!!!	RSLista()
     for (int i=0; i<tamanho; i++){
         recorde[i].inicializar();
     }
-!!!212176.cpp!!!	~TopSystemRecordeLista()
+!!!212176.cpp!!!	~RSLista()
 //não implementado
-!!!184144.cpp!!!	getPrimeiro() : TopSystemRecorde
+!!!184144.cpp!!!	getPrimeiro() : RSRecorde
     return recorde[0];
-!!!184272.cpp!!!	getUltimo() : TopSystemRecorde
+!!!184272.cpp!!!	getUltimo() : RSRecorde
     return recorde[(tamanho-1)];
-!!!184400.cpp!!!	getRecorde(in indice : int) : TopSystemRecorde
+!!!184400.cpp!!!	getRecorde(in indice : int) : RSRecorde
     if ((indice<0)||(indice>=tamanho)){
         throw "Indice não existente";
     } else {
         return recorde[indice];
     }
-!!!184016.cpp!!!	pesquisar(in pesquisa : TopSystemRecorde) : bool
+!!!184016.cpp!!!	pesquisar(in pesquisa : RSRecorde) : bool
     bool retorno = false;
 
     for (int i=0; i<tamanho; i++){
@@ -28,7 +28,7 @@ class TopSystemRecordeLista
     }
 
     return retorno;
-!!!183888.cpp!!!	adicionar(in novo : TopSystemRecorde) : bool
+!!!183888.cpp!!!	adicionar(in novo : RSRecorde) : bool
     bool retorno = false;
 
     if (!pesquisar(novo)){
@@ -40,7 +40,7 @@ class TopSystemRecordeLista
     return retorno;
 !!!184528.cpp!!!	ordenar() : void
     int passo,Pi,j,indice;
-    TopSystemRecorde recordeAuxiliar;
+    RSRecorde recordeAuxiliar;
     int Ppasso[4]={5,3,2,1};
 
     for (Pi=0; Pi<4; Pi++ ){
@@ -59,7 +59,7 @@ class TopSystemRecordeLista
             recorde[j+passo] = recordeAuxiliar;
         }
     }
-!!!184656.cpp!!!	adicionarFinal(in novo : TopSystemRecorde) : bool
+!!!184656.cpp!!!	adicionarFinal(in novo : RSRecorde) : bool
     bool retorno = true;
 
     try {
@@ -71,9 +71,9 @@ class TopSystemRecordeLista
     }
 
     return retorno;
-!!!128238.cpp!!!	getLista() : TopSystemRecorde*
+!!!128238.cpp!!!	getLista() : RSLista
     return &recorde[0];
-!!!128366.cpp!!!	setLista(in lista[] : TopSystemRecorde) : void
+!!!128366.cpp!!!	setLista(in lista[] : RSRecorde) : void
     for (int i=0; i<tamanho; i++){
         recorde[i]=lista[i];
     }

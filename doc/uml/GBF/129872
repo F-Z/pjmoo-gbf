@@ -1,6 +1,6 @@
 format 55
 "GBF" // Framework GBF::GBF
-  revision 19
+  revision 32
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -28,6 +28,13 @@ format 55
   
   cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_namespace "GBF"
+  package_ref 131868 // Kernel
+
+  package_ref 134428 // Grafico
+
+  package_ref 129232 // Cor
+
   classview 129872 "Classes"
     //class diagram settings
     draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -468,35 +475,8 @@ ${inlines}
       end
     end
 
-    class 131536 "Cor"
-      visibility package stereotype "typedef" explicit_base_type "Uint32"
-      cpp_decl "${comment}typedef ${type} ${name};
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Estrutura para definição de cor"
-    end
-
-    class 131664 "CorPaleta"
-      visibility package stereotype "typedef" explicit_base_type "Uint8"
-      cpp_decl "${comment}typedef ${type} ${name};
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Estrutura para definição de paleta de cor.
-Obs.: Representa um dos canais de cor (RGB)"
-    end
-
-    class 129232 "GBF"
-      visibility package 
+    class 129232 "GBFramework"
+      visibility package stereotype "facade"
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
 ${members}};
@@ -520,7 +500,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129616 // graphicSystemCore (<unidirectional association>)
-	  b parent class_ref 129360 // GraphicSystemCore
+	  b parent class_ref 129360 // GraphicCore
       end
 
       classrelation 129744 // inputSystemCore (<unidirectional association>)
@@ -529,7 +509,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129744 // inputSystemCore (<unidirectional association>)
-	  b parent class_ref 129488 // InputSystemCore
+	  b parent class_ref 129488 // InputCore
       end
 
       classrelation 130000 // soundSystemCore (<unidirectional association>)
@@ -538,7 +518,7 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 130000 // soundSystemCore (<unidirectional association>)
-	  b parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundCore
       end
 
       classrelation 129872 // writeSystem (<unidirectional association>)
@@ -547,10 +527,10 @@ Motivação:
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 129872 // writeSystem (<unidirectional association>)
-	  b parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteManager
       end
 
-      operation 135120 "~GBF"
+      operation 135120 "~GBFramework"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -565,7 +545,7 @@ ${body}}"
 	comment "Destrutor"
       end
 
-      operation 134992 "GBF"
+      operation 134992 "GBFramework"
 	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -812,7 +792,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 130128 // fpsSystem (<unidirectional association>)
-	  b parent class_ref 129872 // TimerSystemFPS
+	  b parent class_ref 129872 // FPS
       end
 
       attribute 128464 "numscreenshot"
@@ -842,7 +822,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143952 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // Log
       end
 
       classrelation 144208 // <dependency>
@@ -852,7 +832,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144208 // <dependency>
-	  b parent class_ref 132176 // GraphicSystemImageBufferManager
+	  b parent class_ref 132176 // ImageBufferManager
       end
 
       classrelation 144336 // <dependency>
@@ -862,7 +842,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144336 // <dependency>
-	  b parent class_ref 128720 // FrameLayerManager
+	  b parent class_ref 128720 // LayerManager
       end
 
       classrelation 144464 // <dependency>
@@ -882,7 +862,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144848 // <dependency>
-	  b parent class_ref 137808 // UtilExtract
+	  b parent class_ref 137808 // StringExtract
       end
 
       classrelation 144976 // <dependency>
@@ -892,7 +872,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 144976 // <dependency>
-	  b parent class_ref 135888 // SoundSystemInterfaceManager
+	  b parent class_ref 135888 // SoundManagerAbstract
       end
 
       classrelation 151760 // <dependency>
@@ -901,16 +881,18 @@ ${body}}"
 	  a package
 	    cpp default "#include in header"
 	    classrelation_ref 151760 // <dependency>
-	  b parent class_ref 138576 // UserInterfaceTexto
+	  b parent class_ref 138576 // Idioma
       end
+    end
 
-      classrelation 128289 // <dependency>
-	relation 128289 -_->
-	  a default
-	    cpp default "#include in header"
-	    classrelation_ref 128289 // <dependency>
-	  b parent class_ref 129061 // UserInterfaceWindow
-      end
+    classdiagram 137372 "GBF"
+      draw_all_relations default hide_attributes default hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
+    end
+
+    classdiagram 140188 "temp"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
     end
   end
 
@@ -940,7 +922,7 @@ ${namespace_end}"
 	class_ref 128175 // BaseSystem
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -949,13 +931,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 132560 "ObjectManager"
+    artifact 132560 "ListManager"
       stereotype "source"
       cpp_h "#ifndef _${NAME}_H
 #define _${NAME}_H
@@ -977,7 +959,7 @@ ${namespace_end}"
 	class_ref 133456 // ListManager
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -986,7 +968,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -1013,7 +996,7 @@ ${namespace_end}"
 	class_ref 128047 // ObjetoBase
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1022,49 +1005,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
-//////////////////////////////////////////////////////////////////////
-"
-    end
-
-    artifact 128720 "GBF_define"
-      stereotype "source"
-      cpp_h "#ifndef _${NAME}_H
-#define _${NAME}_H
-
-//SDL
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
-
-
-${comment}
-${includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      associated_classes
-	class_ref 128976 // Ponto
-	class_ref 129104 // Dimensao
-	class_ref 131536 // Cor
-	class_ref 131664 // CorPaleta
-	class_ref 131792 // PontoVirtual
-	class_ref 138448 // SDL
-      end
-      comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
-//
-//    This library is free software; you can redistribute it and/or
-//    modify it under the terms of the GNU Library General Public
-//    License as published by the Free Software Foundation; either
-//    version 2 of the License, or (at your option) any later version.
-//
-//    David de Almeida Ferreira (F-Z)
-//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -1088,10 +1030,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 129232 // GBF
+	class_ref 129232 // GBFramework
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1100,7 +1042,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -1127,7 +1070,7 @@ ${namespace_end}"
 	class_ref 128303 // BaseManager
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1136,8 +1079,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end

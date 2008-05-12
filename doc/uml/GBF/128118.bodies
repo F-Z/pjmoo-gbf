@@ -13,5 +13,5 @@ class SoundSystem
 
     return instance;
 !!!128246.cpp!!!	SoundSystem()
-    musicManager = new SoundSystemMusicManager();
-    fxManager    = new SoundSystemFxManager();
+    musicManager = new MusicManager();
+    fxManager    = new FXManager();

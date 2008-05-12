@@ -1,7 +1,7 @@
 format 55
 "GBF"
-  revision 14
-  modified_by 99 "david"
+  revision 21
+  modified_by 28 "david"
 
   artifact_default_description "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2008 David de Almeida Ferreira

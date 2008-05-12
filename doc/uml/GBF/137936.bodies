@@ -1,11 +1,10 @@
-class UtilLog
+class Log
 !!!187600.cpp!!!	setArquivo(in arquivo : std::string) : void
-    UtilLog::arquivo=arquivo+"_GBF_Debug.log";
+    Log::arquivo=arquivo+"_GBF_Debug.log";
 !!!187728.cpp!!!	setAutor(in autor : std::string) : void
-
-	UtilLog::autor=autor;
+    Log::autor=autor;
 !!!187856.cpp!!!	setProjeto(in projeto : std::string) : void
-    UtilLog::projeto=projeto;
+    Log::projeto=projeto;
 !!!187984.cpp!!!	iniciar() : void
     if ((arquivo=="")||(projeto=="")||(autor=="")){
         printf("Atencao:\n\r As informacoes abaixo sao obrigatorias.");
@@ -21,7 +20,7 @@ class UtilLog
         handleArquivo = fopen(arquivo.c_str(), "a+t");
 
         //cabecalho
-        escrever("Inicio do Log. %s",UtilDate::getInfo().c_str());
+        escrever("Inicio do Log. %s",Date::getInfo().c_str());
         escrever("=========================================================================");
         escrever(" Gamework's Brazilian Framework (GBF) - http://pjmoo.codigolivre.org.br  ");
         escrever("=========================================================================");
@@ -33,7 +32,7 @@ class UtilLog
 !!!188112.cpp!!!	finalizar() : void
     if (handleArquivo){
         escrever("");
-        escrever("Fim do Log. %s",UtilDate::getInfo().c_str());
+        escrever("Fim do Log. %s",Date::getInfo().c_str());
         fclose(handleArquivo);
         handleArquivo = NULL;
     }

@@ -1,6 +1,6 @@
-class InputSystemMouse
-!!!155600.cpp!!!	~InputSystemMouse()
-    UtilLog::subSistema("Removendo InputSystemMouse");
+class Mouse
+!!!155600.cpp!!!	~Mouse()
+//    UtilLog::subSistema("Removendo InputSystemMouse");
     try {
         if (cursor){
             delete (cursor);
@@ -27,7 +27,7 @@ class InputSystemMouse
         //UtilLog::getInstance()->status("[Falhou]");
         setMouse(false);
     }
-!!!156240.cpp!!!	getMouseCursor() : InputSystemMouseCursor
+!!!156240.cpp!!!	getMouseCursor() : Cursor
     return cursor;
 !!!156368.cpp!!!	setMouse(in show : bool) : void
     mouse=show;
@@ -79,11 +79,11 @@ class InputSystemMouse
     }
 
     return (e&&m&&d);
-!!!157136.cpp!!!	InputSystemMouse()
-    UtilLog::subSistema("Instanciando InputSystemMouse");
+!!!157136.cpp!!!	Mouse()
+//    UtilLog::subSistema("Instanciando InputSystemMouse");
     SDL_ShowCursor(SDL_DISABLE);
     setMouse(false);
-    cursor = new InputSystemMouseCursor();
+    cursor = new Cursor();
 !!!157264.cpp!!!	processar() : void
     SDL_GetMouseState(&ponto.x, &ponto.y);
 

@@ -1,21 +1,25 @@
-class ParticleSystemPixel
-!!!128466.cpp!!!	~ParticleSystemPixel()
+class PSPixel
+!!!128466.cpp!!!	~PSPixel()
     lista.clear();
 !!!161488.cpp!!!	desenhar() : void
     Ponto ponto;
+
     if (!lista.empty()){
-        RGB tcor;
+
+        GBF::Cor::RGB tcor;
         graphicSystem->gfx->setColor(255,255,255);
         graphicSystem->gfx->travar();
+
         for (unsigned int i=0; i<lista.size(); i++){
             if (lista[i].ativa){
-                tcor = UtilColor::forRGB(lista[i].cor);
+                tcor = GBF::Cor::Converter::forRGB(lista[i].cor);
                 graphicSystem->gfx->setColor(tcor.r,tcor.g,tcor.b);
                 ponto.x=int(lista[i].posicao.x);
                 ponto.y=int(lista[i].posicao.y);
                 graphicSystem->gfx->putPixel(ponto.x,ponto.y);
             }
         }
+
         graphicSystem->gfx->destravar();
     }
 !!!161232.cpp!!!	setQuantidade(in quantidade : int) : void

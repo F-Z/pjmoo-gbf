@@ -1,14 +1,14 @@
-class UserInterfaceMenuItemTexto
-!!!208592.cpp!!!	UserInterfaceMenuItemTexto(in texto : std::string, in fonteTexto : std::string)
+class UIItemTexto
+!!!208592.cpp!!!	UIItemTexto(in texto : std::string, in fonteTexto : std::string)
     this->texto=texto;
     this->fonteTexto=fonteTexto;
-    
+
     tempo.setTempoOriginal(0);
-    tempo.setUnidade(TEMPO_CENTESIMO);
+    tempo.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
     tempo.setResetar();
-    
+
     if (wsManager==NULL){
-        wsManager = WriteSystemManager::getInstance();
+        wsManager = GBF::Kernel::Write::WriteManager::getInstance();
     }
 !!!209232.cpp!!!	desenhar(in x : int, in y : int) : void
     if (isAtivo()){

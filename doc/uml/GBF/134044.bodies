@@ -1,0 +1,144 @@
+class UIWindowRecorde
+!!!142236.cpp!!!	atualizar() : void
+    tempoEspera.processar();
+
+    textNome.setValue(recorde.nome);
+    textPonto.setValue(recorde.pontos);
+!!!142364.cpp!!!	desenharForeground() : void
+    if (showErro){
+        wsManager->escreverLocalizado(fonteAviso.nome, fonteAviso.posicao.x,fonteAviso.posicao.y,"GBF_UIRecorde_warning");
+    }
+!!!142492.cpp!!!	desenharConteudo() : void
+    //escrevendo titulo centralizado
+    wsManager->escreverLocalizado(fonteTitulo.nome,fonteTitulo.posicao.x,fonteTitulo.posicao.y,"GBF_UIRecorde_title");
+
+    teclado.executar();
+    textNome.executar();
+    textPonto.executar();
+!!!142620.cpp!!!	confirmarSelecao() : int
+    int opcao = false;
+    if ((inputSystem->teclado->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())){
+
+        showErro=false;
+
+        int selecao = teclado.getIndex();
+
+        if ((selecao>=0)&&(selecao<teclado.getTotalCaracter())){
+            recorde.nome[nomePosicao]=teclado.getCaracter();
+            nomePosicao++;
+        } else if (selecao==teclado.getTotalCaracter()){//controle voltar
+            nomePosicao--;
+        } else if (selecao==teclado.getTotalCaracter()+1){//controle avancar
+            nomePosicao++;
+        } else if (selecao==teclado.getTotalCaracter()+2){//controle salvar
+            //if (recorde.nome[0]!=' '){
+            if (strlen(recorde.nome)>1){
+                opcao=BOTAO_SALVAR;
+            } else {
+                showErro=true;
+            }
+        }
+        tempoEspera.setResetar();
+    }
+
+    if (nomePosicao<0){
+        nomePosicao=0;
+    } else if (nomePosicao>9){
+        nomePosicao=9;
+    }
+
+    textNome.setCursorPosicao(nomePosicao);
+
+    return opcao;
+!!!142748.cpp!!!	inicializar() : void
+    UIWindow::inicializar();
+
+    Dimensao d = teclado.getDimensao();
+
+    int pX=(posicao.x+dimensao.w)/2-(d.w/2);
+    int pY=(posicao.y+dimensao.h)/2;
+
+    teclado.setPosicao(pX,pY);
+
+
+    pY=pY+teclado.getDimensao().h;
+    fonteAviso.posicao.x=pX;
+    fonteAviso.posicao.y=pY;
+
+    pX=posicao.x+fonteTitulo.dimensao.h;
+    pY=posicao.y+(fonteTitulo.dimensao.h*1.5);
+
+    textNome.setPosicao(pX,pY);
+
+    pX=posicao.x+dimensao.w - textPonto.getDimensao().w - fonteTitulo.dimensao.h;
+
+    textPonto.setPosicao(pX,pY);
+!!!142876.cpp!!!	UIWindowRecorde()
+    teclado.setCaracter("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 _+-$%*,.:[]!=");
+    teclado.setControle(0,"GBF_UIRecorde_button_back");
+    teclado.setControle(1,"GBF_UIRecorde_button_next");
+    teclado.setControle(2,"GBF_UIRecorde_button_save");
+
+    textNome.setLabel("GBF_UIRecorde_title_player");
+    textNome.maxLength(10);
+    textNome.showCursor(true);
+
+    textPonto.setLabel("GBF_UIRecorde_title_points");
+    textPonto.maxLength(8);
+
+    nomePosicao     = 0;
+    posicao.x       = 0;
+    posicao.y       = 0;
+
+    tempoEspera.setTempoOriginal(1);
+    tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
+    tempoEspera.setResetar();
+
+    showErro = false;
+!!!143004.cpp!!!	~UIWindowRecorde()
+    delete(uiVisualComponentes);
+!!!143132.cpp!!!	setVisualComponentes(inout visual : UIVisualSolido) : void
+    uiVisualComponentes=visual;
+
+    textNome.setVisual(uiVisualComponentes);
+    textPonto.setVisual(uiVisualComponentes);
+    teclado.setVisual(uiVisualComponentes);
+
+    teclado.setCorCursor(255,255,0);
+!!!143260.cpp!!!	setFonteTitulo(in fonte : string) : void
+    fonteTitulo.nome=fonte;
+    fonteTitulo.dimensao=wsManager->getFonte(fonteTitulo.nome)->getDimensao();
+
+    int tamanho = wsManager->getLarguraLinha(fonteTitulo.nome,"GBF_UIRecorde_title");
+    fonteTitulo.posicao.x=posicao.x+(dimensao.w/2)-(tamanho/2);
+    fonteTitulo.posicao.y=posicao.y;
+!!!143388.cpp!!!	setFonteTecladoVirtual(in fonteTeclado : string, in fonteControle : string) : void
+    teclado.setFonteTeclado(fonteTeclado);
+    teclado.setFonteControle(fonteControle);
+!!!143516.cpp!!!	setFonteEdit(in fonteLabel : string, in fonteValue : string) : void
+    textNome.setFonteLabel(fonteLabel);
+    textNome.setFonteCampo(fonteValue);
+
+    textPonto.setFonteLabel(fonteLabel);
+    textPonto.setFonteCampo(fonteValue);
+
+    textPonto.showCursor(false);
+
+    fonteAviso.nome=fonteLabel;
+!!!143644.cpp!!!	getRecorde() : TopSystemRecorde
+    return recorde;
+!!!143772.cpp!!!	setRecorde(in recorde : TopSystemRecorde) : void
+    this->recorde  = recorde;
+    nomePosicao    = 0;
+    tempoEspera.setResetar();
+!!!143900.cpp!!!	isAcao(in tipoAcao : int) : bool
+    bool salva = false;
+
+    if (tempoEspera.isTerminou()){
+        if(confirmarSelecao()==tipoAcao)
+        {
+            salva=true;
+        }
+    }
+
+    return salva;

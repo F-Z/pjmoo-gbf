@@ -17,9 +17,9 @@ class InputSystem
     }
     return instance;
 !!!128056.cpp!!!	InputSystem()
-    teclado  = new InputSystemKeyboard();
-    mouse    = new InputSystemMouse();
-    joystick = new InputSystemJoystick();
+    teclado  = new Keyboard();
+    mouse    = new Mouse();
+    joystick = new Joystick();
 !!!128440.cpp!!!	processar() : void
     joystick->processar();
     teclado->processar();

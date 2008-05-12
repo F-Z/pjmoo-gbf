@@ -3,13 +3,10 @@ class UserInterfaceBotao
     botao.setFonte(fonte);
     botao.setChaveTexto(chaveTexto);
     this->tecla=tecla;
-!!!128293.cpp!!!	desenhar(in posicao : Ponto) : void
-    Dimensao dimensao = wsManager->getFonte(botao.getFonte())->getDimensao();
-    int tamanhoTexto = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
 
-    int posicaoTextoHorizontal = int(posicao.x - tamanhoTexto);
-    int posicaoTextoVertical   = int(posicao.y - (dimensao.h * 1.2));
-
-    wsManager->escreverLocalizado(botao.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,botao.getChaveTexto());
+    dimensao   = wsManager->getFonte(botao.getFonte())->getDimensao();
+    dimensao.w = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
 !!!128421.cpp!!!	getTecla() : SDLKey
     return tecla;
+!!!135580.cpp!!!	desenhar() : void
+    wsManager->escreverLocalizado(botao.getFonte(),posicao.x,posicao.y,botao.getChaveTexto());

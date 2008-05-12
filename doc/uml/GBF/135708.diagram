@@ -1,0 +1,36 @@
+format 55
+
+classcanvas 128028 class_ref 131920 // ImageBase
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 209 266 2000
+  end
+classcanvas 128156 class_ref 129360 // GraphicCore
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 48 37 3005
+  end
+classcanvas 128796 class_ref 131408 // Screen
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 463 16 2004
+  end
+relationcanvas 128284 relation_ref 148560 // <dependency>
+  from ref 128156 z 1999 to point 184 251
+  line 128540 z 1999 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128412 relation_ref 132688 // <dependency>
+  from ref 128028 z 1999 stereotype "<<friend>>" xyz 151 226 3000 to ref 128156
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128924 relation_ref 133456 // <dependency>
+  from ref 128796 z 1999 stereotype "<<friend>>" xyz 290 107 3000 to ref 128156
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129052 relation_ref 129137 // <directional aggregation>
+  from ref 128028 z 1999 to ref 128796
+  role_a_pos 467 182 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129180 relation_ref 131664 // <unidirectional association>
+  from ref 128156 z 1999 to ref 128796
+  role_a_pos 397 84 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

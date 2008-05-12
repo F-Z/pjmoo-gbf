@@ -1,22 +1,22 @@
-class GBF
-!!!135120.cpp!!!	~GBF()
-    UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
-    UtilLog::cabecalho("Descarregando Framework");
+class GBFramework
+!!!135120.cpp!!!	~GBFramework()
+//    UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
+//    UtilLog::cabecalho("Descarregando Framework");
 
     delete(fpsSystem);
     delete(writeSystem);
 //    delete(GraphicSystemImageBufferManager::getInstance());
-    delete(FrameLayerManager::getInstance());
+    delete(Grafico::Layer::LayerManager::getInstance());
     delete(graphicSystemCore);
     delete(soundSystemCore);
     delete(inputSystemCore);
 
-    UtilLog::sistema("Removendo SDL");
+  //  UtilLog::sistema("Removendo SDL");
     SDL_Quit();
 
-    UtilLog::cabecalho("Descarregando Completo do Framework");
-    UtilLog::finalizar();
-!!!134992.cpp!!!	GBF()
+    //UtilLog::cabecalho("Descarregando Completo do Framework");
+    //UtilLog::finalizar();
+!!!134992.cpp!!!	GBFramework()
     numscreenshot = 0;
     pathBase      = "";
     fps           = true;
@@ -35,17 +35,18 @@ class GBF
         inputSystemCore->processar();
         graphicSystemCore->flip();
     } catch(...){
-        UtilLog::tracer("SDL: %s", SDL_GetError());
-        UtilLog::tracer("SDL_Image: %s", IMG_GetError());
-        UtilLog::tracer("SDL_Mixer: %s", Mix_GetError());
+        //UtilLog::tracer("SDL: %s", SDL_GetError());
+        //UtilLog::tracer("SDL_Image: %s", IMG_GetError());
+        //UtilLog::tracer("SDL_Mixer: %s", Mix_GetError());
     }
 !!!136144.cpp!!!	getPath() : std::string
     return pathBase;
 !!!135376.cpp!!!	iniciar(in width : int, in height : int, in bpp_color : int, in full : bool) : void
-    UtilLog::cabecalho("Inicializando Framework");
-    UtilLog::tracer("Inicializando ModoGráfico");
+    //UtilLog::cabecalho("Inicializando Framework");
+   // UtilLog::tracer("Inicializando ModoGráfico");
 
-    VideoConfig config;
+
+    Kernel::Graphic::VideoConfig config;
     config.w     = width;
     config.h     = height;
     config.color = bpp_color;
@@ -60,15 +61,15 @@ class GBF
 
     graphicSystemCore->iniciar();
     inputSystemCore->iniciar();
-    soundSystemCore->iniciar(22050,AUDIO_S16SYS,CANAL_STEREO,2048,16);
+    soundSystemCore->iniciar(22050,AUDIO_S16SYS,Kernel::Sound::CANAL_STEREO,2048,16);
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
     //Carregando Fontes Padrões
-    UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
-    writeSystem->carregar(WriteSystemManager::defaultFont,getPath()+"data//kernel//fonte//default.png");
+    //UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
+    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont,getPath()+"data//kernel//fonte//default.png");
 
-    UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
+    //UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
     graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
@@ -77,7 +78,7 @@ class GBF
     //FPSTimer primeira chamada
     fpsSystem->start();
 
-    UtilLog::cabecalho("Iniciando Ambiente para Escopo do Jogo");
+    //UtilLog::cabecalho("Iniciando Ambiente para Escopo do Jogo");
 !!!136272.cpp!!!	isDefaultPath() : bool
     return defaultPath;
 !!!135888.cpp!!!	isFPS() : bool
@@ -87,44 +88,44 @@ class GBF
 !!!135760.cpp!!!	setFPS(in show : bool) : void
     fps=show;
 !!!136016.cpp!!!	setPath(inout fullPath : char) : void
-    pathBase=UtilExtract::extractPath(fullPath);
+    pathBase=Kernel::Util::StringExtract::extractPath(fullPath);
 
     if (isDefaultPath()){
-        UtilLog::setArquivo(fullPath);
-        GraphicSystemImageBufferManager::setPathBase(pathBase);
-        SoundSystemInterfaceManager::setPathBase(pathBase);
-        UserInterfaceTexto::setPathBase(pathBase);
+        //UtilLog::setArquivo(fullPath);
+        Kernel::Graphic::ImageBufferManager::setPathBase(pathBase);
+        Kernel::Sound::SoundManagerAbstract::setPathBase(pathBase);
+        Kernel::Write::Idioma::setPathBase(pathBase);
     }
 !!!135248.cpp!!!	setTitulo(in titulo : std::string, in autor : std::string) : void
-    UtilLog::setAutor(autor);
-    UtilLog::setProjeto(titulo);
+//    UtilLog::setAutor(autor);
+//    UtilLog::setProjeto(titulo);
     carregar();
     setTitulo(titulo);
 !!!136784.cpp!!!	carregar() : void
     //Inicializando Log
-    UtilLog::iniciar();
+//    UtilLog::iniciar();
 
     //Inicializando Gerador Randômico
-    UtilLog::sistema("Inicializando Gerador Randômico");
+   // UtilLog::sistema("Inicializando Gerador Randômico");
     srand(time(NULL));
 
     //Inicializando FPS do jogo
-    fpsSystem = new TimerSystemFPS();
+    fpsSystem = new Kernel::Timer::FPS();
 
     //Inicializando Video
-    graphicSystemCore = new GraphicSystemCore();
-    FrameLayerManager::getInstance();
+    graphicSystemCore = new Kernel::Graphic::GraphicCore();
+    Grafico::Layer::LayerManager::getInstance();
 
     //Inicializando Gerenciador de Fontes
-    writeSystem = WriteSystemManager::getInstance();
+    writeSystem = Kernel::Write::WriteManager::getInstance();
 
     //Inicializando Input
-    inputSystemCore = new InputSystemCore();
+    inputSystemCore = new Kernel::Input::InputCore();
 
     //Inicializando Audio
-    soundSystemCore = new SoundSystemCore();
+    soundSystemCore = new Kernel::Sound::SoundCore();
 
-    UtilLog::cabecalho("Carregamento Completo do Framework");
+   // UtilLog::cabecalho("Carregamento Completo do Framework");
 !!!136528.cpp!!!	controleInterno() : void
     //F10 = Alterna entre modo de controle exclusivo
     if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){

@@ -1,0 +1,73 @@
+class UIField
+!!!136860.cpp!!!	UIField()
+    tempoBlink.setTempoOriginal(0);
+    tempoBlink.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
+    tempoBlink.setResetar();
+
+    cursor.show=false;
+    indice=0;
+
+    visual=NULL;
+!!!136988.cpp!!!	~UIField()
+    //dtor
+!!!137116.cpp!!!	setLabel(in label : string) : void
+    this->label=label;
+!!!137244.cpp!!!	setFonteLabel(in fonte : string) : void
+    fonteLabel.nome=fonte;
+    fonteLabel.dimensao=wsManager->getFonte(fonteLabel.nome)->getDimensao();
+!!!137372.cpp!!!	setFonteCampo(in fonte : string) : void
+    fonteCampo.nome=fonte;
+    fonteCampo.dimensao=wsManager->getFonte(fonteCampo.nome)->getDimensao();
+
+    dimensao.w=(length*fonteCampo.dimensao.w)+(fonteCampo.dimensao.w*0.2);
+    dimensao.h=(fonteCampo.dimensao.h)*1.6;
+!!!137500.cpp!!!	maxLength(in length : int) : void
+    this->length=length;
+!!!137628.cpp!!!	showCursor(in show : bool) : void
+    cursor.show=show;
+    tempoBlink.setResetar();
+!!!137756.cpp!!!	setCursorPosicao(in posicao : int) : void
+    indice=posicao;
+!!!137884.cpp!!!	setVisual(inout visual : UIVisual) : void
+    this->visual=visual;
+!!!138012.cpp!!!	desenharBackground() : void
+    //escrevendo label (Jogador - Pontos)
+    wsManager->escreverLocalizado(fonteLabel.nome, fonteLabel.posicao.x, fonteLabel.posicao.y,label);
+
+    if (visual!=NULL){
+        visual->desenhar();
+    }
+!!!138268.cpp!!!	desenharForeground() : void
+    //desenhando cursor
+    if (cursor.show){
+        if (tempoBlink.getTempo()%2!=0){
+            graphicSystem->gfx->setColor(250,250,250);
+            graphicSystem->gfx->retanguloPreenchido(cursor.posicao.x,cursor.posicao.y,fonteCampo.dimensao.w,2);
+        }
+    }
+!!!138396.cpp!!!	atualizar() : void
+    tempoBlink.processar();
+
+    fonteLabel.posicao.x=posicao.x;
+    fonteLabel.posicao.y=posicao.y;
+
+    fonteCampo.posicao.x=posicao.x+(fonteCampo.dimensao.w*0.2);
+    fonteCampo.posicao.y=fonteLabel.posicao.y+(fonteLabel.dimensao.h*1.2)+1;
+
+    cursor.posicao.x=fonteCampo.posicao.x + (indice * fonteCampo.dimensao.w);
+    cursor.posicao.y=fonteCampo.posicao.y+fonteCampo.dimensao.h;
+
+    if (visual!=NULL){
+        Dimensao d  = dimensao;
+
+        Ponto  p  = posicao;
+               p.y= fonteLabel.posicao.y+(fonteLabel.dimensao.h*1.2)-1;
+
+        visual->aplicar(p,dimensao);
+    }
+!!!138524.cpp!!!	desenhar() : void
+    desenharBackground();
+
+    desenharConteudo();
+
+    desenharForeground();

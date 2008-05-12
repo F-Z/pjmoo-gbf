@@ -1,6 +1,6 @@
 class GraphicSystemGFX
 !!!144848.cpp!!!	~GraphicSystemGFX()
-    UtilLog::subSistema("Removendo GraphicSystemGFX");
+//    UtilLog::subSistema("Removendo GraphicSystemGFX");
     pScreen = NULL;
 !!!145104.cpp!!!	setColor(in R : CorPaleta, in G : CorPaleta, in B : CorPaleta) : void
     color = SDL_MapRGB(pScreen->format,R,G,B);
@@ -196,7 +196,7 @@ class GraphicSystemGFX
     linha(X+W,Y,X+W,Y+H);
     linha(X,Y+H,X+W,Y+H);
 !!!146768.cpp!!!	inicializar() : void
-    UtilLog::comentario("Inicializando GraphicSystemGFX");
+//    UtilLog::comentario("Inicializando GraphicSystemGFX");
     pScreen  = gsScreen->getScreen();
     bpp      = pScreen->format->BytesPerPixel;
     setColor(0xFFFFFF);
@@ -209,7 +209,7 @@ class GraphicSystemGFX
 !!!147024.cpp!!!	setGraphicSystemScreen(inout screen : GraphicSystemScreen) : void
     gsScreen = screen;
 !!!147152.cpp!!!	GraphicSystemGFX()
-    UtilLog::subSistema("Instanciando GraphicSystemGFX");
+//    UtilLog::subSistema("Instanciando GraphicSystemGFX");
     pScreen = NULL;
 !!!128148.cpp!!!	travar() : bool
     return gsScreen->travar();

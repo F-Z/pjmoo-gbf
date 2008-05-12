@@ -1,10 +1,10 @@
-class UserInterfaceMenuAbstract
-!!!207696.cpp!!!	UserInterfaceMenuAbstract()
+class UIMenuAbstract
+!!!207696.cpp!!!	UIMenuAbstract()
     itemSelecionado=0;
     maiorPalavra=0;
 
     delayNavegacao.setTempoOriginal(2);
-    delayNavegacao.setUnidade(TEMPO_CENTESIMO);
+    delayNavegacao.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
     delayNavegacao.setResetar();
 !!!210768.cpp!!!	setEspacoVertical(in espaco : int) : void
     espacoVertical=espaco;
@@ -19,7 +19,7 @@ class UserInterfaceMenuAbstract
 !!!208464.cpp!!!	setPosicao(in x : int, in y : int) : void
     posicao.x=x;
     posicao.y=y;
-!!!211408.cpp!!!	centralizarTela(in x : int, in y : int, in alinhamento : EnumAlinhamento) : void
+!!!211408.cpp!!!	centralizarTela(in x : int, in y : int, in alinhamento : UIAlinhamento) : void
     switch(alinhamento){
         case CENTRO:
                 setPosicao(x/2,y/2);
@@ -44,7 +44,7 @@ class UserInterfaceMenuAbstract
     desenhar();
 
     return navegou;
-!!!208336.cpp!!!	adicionar(in item : UserInterfaceMenuItemAbstract) : void
+!!!208336.cpp!!!	adicionar(in item : UIItemAbstract) : void
     if (item!=NULL) {
         this->item.push_back(item);
         int quantidadeLetra = item->getQuantidadeLetras();
