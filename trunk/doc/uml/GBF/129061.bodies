@@ -1,25 +1,14 @@
-class UserInterfaceWindow
-!!!132901.cpp!!!	UserInterfaceWindow()
+class UIWindow
+!!!132901.cpp!!!	UIWindow()
     espacoAntesTexto=0;
 
     tempoEspera.setTempoOriginal(1);
-    tempoEspera.setUnidade(TEMPO_MEIO);
+    tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
     tempoEspera.setResetar();
-!!!133029.cpp!!!	~UserInterfaceWindow()
+!!!133029.cpp!!!	~UIWindow()
     if (visual){
         delete(visual);
     }
-!!!133285.cpp!!!	executar() : void
-    tempoEspera.processar();
-
-    desenharBackground();
-
-    desenharConteudo();
-
-    desenharControles();
-!!!133413.cpp!!!	setPosicao(in x : int, in y : int) : void
-    posicao.x=x;
-    posicao.y=y;
 !!!133541.cpp!!!	setDimensao(in largura : int, in altura : int) : void
     dimensao.w=largura;
     dimensao.h=altura;
@@ -27,11 +16,17 @@ class UserInterfaceWindow
     if (visual!=NULL){
         visual->aplicar(posicao,dimensao);
     }
-!!!133797.cpp!!!	setVisual(inout visual : UserInterfaceVisual) : void
+!!!133797.cpp!!!	setVisual(inout visual : UIVisual) : void
     this->visual=visual;
+!!!135452.cpp!!!	atualizar() : void
+    tempoEspera.processar();
+!!!135324.cpp!!!	desenhar() : void
+    desenharBackground();
+
+    desenharConteudo();
+
+    desenharForeground();
 !!!134309.cpp!!!	desenharBackground() : void
     if (visual!=NULL){
         visual->desenhar();
     }
-!!!134437.cpp!!!	desenharConteudo() : void
-

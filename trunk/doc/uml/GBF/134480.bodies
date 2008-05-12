@@ -1,9 +1,9 @@
-class ParticleSystemManager
-!!!162256.cpp!!!	ParticleSystemManager()
+class PSManager
+!!!162256.cpp!!!	PSManager()
 
-!!!162384.cpp!!!	~ParticleSystemManager()
+!!!162384.cpp!!!	~PSManager()
     limpar();
-!!!162512.cpp!!!	adicionar(inout efeito : ParticleSystemEfeito) : void
+!!!162512.cpp!!!	adicionar(inout efeito : PSEfeito) : void
     lista.push_back(efeito);
 !!!162640.cpp!!!	desenhar() : void
     if (!lista.empty()){
@@ -35,9 +35,9 @@ class ParticleSystemManager
         }
     }
     lista.clear();
-!!!163152.cpp!!!	getInstance() : ParticleSystemManager
+!!!163152.cpp!!!	getInstance() : PSManager
     if (instance == NULL){
-        instance = new ParticleSystemManager();
+        instance = new PSManager();
     }
     return instance;
 !!!163280.cpp!!!	removerMorto() : void

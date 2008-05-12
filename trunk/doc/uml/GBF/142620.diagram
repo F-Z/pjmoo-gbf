@@ -1,0 +1,39 @@
+format 55
+
+classcanvas 128028 class_ref 134096 // HSV
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 119 99 2000
+  end
+classcanvas 128156 class_ref 137296 // RGB
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 111 405 2000
+  end
+classcanvas 128284 class_ref 137424 // RGBf
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 306 407 2000
+  end
+classcanvas 128412 class_ref 131664 // CorPaleta
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 352 101 2000
+  end
+classcanvas 128540 class_ref 131536 // Cor
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 362 213 2000
+  end
+classcanvas 128668 class_ref 137552 // Converter
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 210 249 2005
+  end
+relationcanvas 128796 relation_ref 150992 // <dependency>
+  from ref 128668 z 1999 to ref 128156
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128924 relation_ref 151120 // <dependency>
+  from ref 128668 z 1999 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129052 relation_ref 151248 // <dependency>
+  from ref 128668 z 1999 to ref 128284
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

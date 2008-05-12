@@ -1,0 +1,9 @@
+class UITextField
+!!!141724.cpp!!!	UITextField()
+
+!!!141852.cpp!!!	~UITextField()
+    //dtor
+!!!141980.cpp!!!	setValue(in value : string) : void
+    this->value=value;
+!!!142108.cpp!!!	desenharConteudo() : void
+    wsManager->escrever(fonteCampo.nome, fonteCampo.posicao.x, fonteCampo.posicao.y,"%s"  ,value.c_str());

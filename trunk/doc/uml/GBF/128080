@@ -1,6 +1,6 @@
 format 55
 "Framework GBF" // Framework GBF
-  revision 54
+  revision 67
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -28,6 +28,49 @@ format 55
   
   cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  deploymentview 132124 "deploy"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default
+    artifact 128720 "GBF_define"
+      stereotype "source"
+      cpp_h "#ifndef _${NAME}_H
+#define _${NAME}_H
+
+//SDL
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
+
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      associated_classes
+	class_ref 128976 // Ponto
+	class_ref 129104 // Dimensao
+	class_ref 131792 // PontoVirtual
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.codigolivre.org.br
+//////////////////////////////////////////////////////////////////////
+"
+    end
+  end
+
   classview 128080 "Diagrama de Classes"
     //class diagram settings
     draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -89,11 +132,6 @@ format 55
       size A4
     end
 
-    classdiagram 129360 "UserInterface"
-      draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab yes class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-      size A4
-    end
-
     classdiagram 128848 "Sprite"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A4
@@ -110,7 +148,7 @@ format 55
     end
 
     classdiagram 128047 "Base"
-      draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      draw_all_relations no hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
       size A3
     end
   end
@@ -610,12 +648,29 @@ format 55
     classdiagram 128088 "UserInterfaceWindow"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       comment "Relacionamentos para montagem da janela"
-      size A3-Landscape
+      size A2-Landscape
     end
 
     classdiagram 128028 "Containers"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A4
+    end
+
+    class 131612 "FonteReferencia"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl "${comment}struct ${name} {
+${members}};
+"
+      explicit_switch_type ""
+      
     end
   end
 
@@ -623,25 +678,11 @@ format 55
 
   package_ref 129744 // GAT
 
-  package_ref 129488 // TopSystem
-
-  package_ref 128464 // TimerSystem
-
-  package_ref 128336 // SoundSystem
-
   package_ref 129104 // ParticleSystem
 
-  package_ref 128592 // InputSystem
+  package_ref 129616 // UserInterface
 
-  package_ref 128720 // WriteSystem
-
-  package_ref 128848 // GraphicSystem
-
-  package_ref 128976 // Sprite
-
-  package_ref 129232 // Util
+  package_ref 129488 // RankingSystem
 
   package_ref 129360 // Personagem
-
-  package_ref 129616 // UserInterface
 end

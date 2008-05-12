@@ -1,0 +1,49 @@
+format 55
+
+classcanvas 128028 class_ref 128549 // UIVisual
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 414 107 2000
+  end
+classcanvas 128156 class_ref 128805 // UIVisualImagem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 209 349 2004
+  end
+classcanvas 128412 class_ref 128933 // UIVisualSolido
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 584 352 2004
+  end
+classcanvas 128668 class_ref 128677 // UIBackground
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 443 564 3005
+  end
+classcanvas 129308 class_ref 137296 // RGB
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 614 143 2000
+  end
+relationcanvas 128284 relation_ref 128421 // <generalisation>
+  geometry HV
+  from ref 128156 z 1999 to point 465 421
+  line 129180 z 1999 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128540 relation_ref 128677 // <generalisation>
+  geometry VHr
+  from ref 128412 z 1999 to point 465 415
+  line 129052 z 1999 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128796 relation_ref 128549 // <directional composition>
+  geometry VH
+  from ref 128156 z 1999 to point 280 647
+  line 128924 z 1999 to ref 128668
+  role_a_pos 342 627 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129436 relation_ref 138268 // <composition>
+  from ref 128028 z 1999 to ref 129308
+  role_a_pos 551 176 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129564 relation_ref 138780 // <directional composition>
+  from ref 128412 z 1999 to ref 129308
+  role_a_pos 660 263 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

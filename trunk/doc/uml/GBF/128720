@@ -1,12 +1,12 @@
-format 45
-"WriteSystem" // Framework GBF::WriteSystem
-  revision 8
-  modified_by 47 "david"
+format 55
+"Write" // Framework GBF::GBF::Kernel::Write
+  revision 15
+  modified_by 28 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default
   //sequence diagram settings
   show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
@@ -28,9 +28,10 @@ format 45
   
   cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
-  classview 128720 "Classes"
+  cpp_namespace "GBF::Kernel::Write"
+  classview 128720 "classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
     show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
@@ -44,7 +45,7 @@ format 45
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
-    class 129616 "WriteSystemManager"
+    class 138576 "Idioma"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
@@ -53,6 +54,334 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Descrição: 
+    Classe para carregar textos
+Motivação:
+    Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos"
+      attribute 151248 "mapaTexto"
+	protected explicit_type "std::map<std::string,std::string>"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Lista com os códigos e textos correspondentes
+"
+      end
+
+      attribute 151632 "idiomaSuportado"
+	protected explicit_type "std::map<std::string,std::string>"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Lista com os idiomas suportados"
+      end
+
+      attribute 151504 "idiomaPrefixo"
+	protected explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Prefixo do idioma selecionado
+"
+      end
+
+      classrelation 151504 // instance (<unidirectional association>)
+	relation 151504 --->
+	  a role_name "instance" init_value "=NULL" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 151504 // instance (<unidirectional association>)
+	  b parent class_ref 138576 // Idioma
+      end
+
+      attribute 151760 "arquivo"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "arquivo de localização a ser carregado
+"
+      end
+
+      attribute 151376 "pathBase"
+	class_attribute private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Caminho padrão de localização dos arquivos"
+      end
+
+      operation 191312 "~Idioma"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 192080 "getInstance"
+	class_operation public return_type class_ref 138576 // Idioma
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 192208 "setPathBase"
+	class_operation public explicit_return_type "void"
+	nparams 1
+	  param inout name "path" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+	
+	
+	comment "Configura o caminho do arquivo de  mensagens"
+      end
+
+      operation 192464 "setIdioma"
+	public explicit_return_type "bool"
+	nparams 1
+	  param in name "codigo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Configura um idioma
+Obs.: O idioma é configurado de acordo com a lista de idiomas suportado"
+      end
+
+      operation 192592 "getIdioma"
+	public explicit_return_type "std::string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 192720 "detectarIdioma"
+	public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Seleciona o idioma automaticamente de acordo com o ambiente"
+      end
+
+      operation 191440 "atualizar"
+	public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 193232 "setArquivo"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "arquivo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 191824 "size"
+	public explicit_return_type "int"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 191568 "getTexto"
+	public explicit_return_type "std::string"
+	nparams 1
+	  param in name "chave" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 128121 "isChaveTexto"
+	public explicit_return_type "bool"
+	nparams 1
+	  param in name "chave" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna se existe a chave de texto"
+      end
+
+      operation 191696 "parser"
+	protected explicit_return_type "void"
+	nparams 1
+	  param inout name "info" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 193360 "carregarIdioma"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 193488 "parserIdioma"
+	protected explicit_return_type "void"
+	nparams 1
+	  param inout name "info" explicit_type "char"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 191952 "limpar"
+	protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 191184 "Idioma"
+	private explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      classrelation 151632 // <dependency>
+	relation 151632 -_->
+	  a default
+	    cpp default "#include in header"
+	    classrelation_ref 151632 // <dependency>
+	  b parent class_ref 137936 // Log
+      end
+    end
+
+    class 129616 "WriteManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -67,11 +396,12 @@ Motivação:
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
 	comment "Constante para representar a fonte padrão do GBF"
       end
 
-      operation 190288 "~WriteSystemManager"
+      operation 190288 "~WriteManager"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -82,11 +412,12 @@ ${body}}"
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
       operation 190416 "getFonte"
-	public return_type class_ref 138064 // WriteSystemBitmap
+	public return_type class_ref 138064 // FonteBitmap
 	nparams 1
 	  param in name "nome" explicit_type "std::string"
 	    defaultvalue "\"console\""
@@ -98,17 +429,19 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna uma fonte para manipulação direta
 Obs.: Ideal para casos em que se deseja manipulações avançadas"
       end
 
       operation 190544 "getInstance"
-	class_operation public return_type class_ref 129616 // WriteSystemManager
+	class_operation public return_type class_ref 129616 // WriteManager
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	
@@ -126,6 +459,7 @@ Obs.: Esta classe é Singleton"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -147,6 +481,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Escreve um texto na tela"
       end
 
@@ -162,6 +497,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ...${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -184,6 +520,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização"
       end
 
@@ -196,6 +533,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -215,19 +553,21 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna em Pixel o tamanho total da linha"
       end
 
       attribute 151120 "objetomap"
-	protected explicit_type "std::map<std::string,WriteSystemBitmap*>"
+	protected explicit_type "std::map<std::string,FonteBitmap*>"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      operation 191056 "WriteSystemManager"
+      operation 191056 "WriteManager"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -235,6 +575,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -247,7 +588,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 143312 // instance (<unidirectional association>)
-	  b parent class_ref 129616 // WriteSystemManager
+	  b parent class_ref 129616 // WriteManager
       end
 
       classrelation 152016 // uiTexto (<unidirectional association>)
@@ -256,7 +597,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 152016 // uiTexto (<unidirectional association>)
-	  b parent class_ref 138576 // UserInterfaceTexto
+	  b parent class_ref 138576 // Idioma
       end
 
       classrelation 133423 // <generalisation>
@@ -268,7 +609,7 @@ ${body}}"
       end
     end
 
-    class 138064 "WriteSystemBitmap"
+    class 138064 "FonteBitmap"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
@@ -277,6 +618,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -289,10 +631,19 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 142800 // <generalisation>
-	  b parent class_ref 131920 // GraphicSystemImage
+	  b parent class_ref 131920 // ImageBase
       end
 
-      operation 189136 "~WriteSystemBitmap"
+      classrelation 143184 // <dependency>
+	relation 143184 -_->
+	  stereotype "friend"
+	  a protected
+	    cpp default "${type}"
+	    classrelation_ref 143184 // <dependency>
+	  b parent class_ref 129616 // WriteManager
+      end
+
+      operation 189136 "~FonteBitmap"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -300,6 +651,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -315,6 +667,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -335,6 +688,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura altura e largura padrão para todas as letras.
 Obs.: A altura e largura devem ser suficientes para evitar que a letra seja desenhada cortada"
       end
@@ -344,6 +698,7 @@ Obs.: A altura e largura devem ser suficientes para evitar que a letra seja dese
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
+	
 	
 	
 	
@@ -361,6 +716,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna a altura padrão"
       end
 
@@ -372,6 +728,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -392,6 +749,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Desenha o texto na tela"
       end
 
@@ -407,6 +765,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna em pixel o tamanho da linha"
       end
 
@@ -416,28 +775,29 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      classrelation 142928 // dimensaoPadrao (<directional aggregation by value>)
+      classrelation 142928 // dimensaoPadrao (<directional composition>)
 	relation 142928 *-->
 	  a role_name "dimensaoPadrao" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 142928 // dimensaoPadrao (<directional aggregation by value>)
+	    classrelation_ref 142928 // dimensaoPadrao (<directional composition>)
 	  b parent class_ref 129104 // Dimensao
       end
 
-      classrelation 143056 // dimensaoQuadro (<directional aggregation by value>)
+      classrelation 143056 // dimensaoQuadro (<directional composition>)
 	relation 143056 *-->
 	  a role_name "dimensaoQuadro" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 143056 // dimensaoQuadro (<directional aggregation by value>)
+	    classrelation_ref 143056 // dimensaoQuadro (<directional composition>)
 	  b parent class_ref 129104 // Dimensao
       end
 
-      operation 190032 "WriteSystemBitmap"
+      operation 190032 "FonteBitmap"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -445,6 +805,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -462,25 +823,65 @@ ${body}}"
 	
 	
 	
+	
 	comment "Define altura e largura padrão baseada na maior altura e largura utilizada."
       end
+    end
 
-      classrelation 143184 // <dependency>
-	relation 143184 -_->
-	  stereotype "friend"
-	  a protected
-	    cpp default "${type}"
-	    classrelation_ref 143184 // <dependency>
-	  b parent class_ref 129616 // WriteSystemManager
-      end
+    classdiagram 138524 "Write"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
     end
   end
 
-  deploymentview 128464 "Deploy"
+  deploymentview 128464 "deploy"
     //deployment diagram settings
     package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
-    artifact 137936 "WriteSystemBitmap"
+    artifact 138320 "Idioma"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+#ifndef __gnu_linux__
+#include <windows.h>
+#endif
+
+#include <fstream>
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 138576 // Idioma
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 137936 "FonteBitmap"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -499,10 +900,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 138064 // WriteSystemBitmap
+	class_ref 138064 // FonteBitmap
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -511,12 +912,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 138192 "WriteSystemManager"
+    artifact 138192 "WriteManager"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -535,10 +937,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 129616 // WriteSystemManager
+	class_ref 129616 // WriteManager
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -547,10 +949,10 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
-
   end
 end

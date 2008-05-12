@@ -1,0 +1,646 @@
+format 55
+"Visual" // Framework GBF::UserInterface::Visual
+  revision 5
+  modified_by 28 "david"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default
+  
+  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_namespace "UserInterface::Visual"
+  classview 129692 "classes"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default
+    associated_deployment_view deploymentview_ref 128208 // Deploy
+    class 128677 "UIBackground"
+      visibility package stereotype "enum"
+      cpp_decl "${comment}enum ${name} {
+${items}};
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 130213 "BACKGROUND_LINES"
+	public explicit_type ""
+	init_value "=0"
+	constraint " ${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 130341 "BACKGROUND_RINGS"
+	public explicit_type ""
+	init_value "=1"
+	constraint " ${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 130469 "BACKGROUND_CHESS"
+	public explicit_type ""
+	init_value "=2"
+	constraint " ${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 130597 "BACKGROUND_SQUARE"
+	public explicit_type ""
+	init_value "=3
+"
+	constraint "${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128028 "BACKGROUND_LINES_BLACK"
+	public explicit_type ""
+	init_value "=4"
+	constraint "${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 128156 "BACKGROUND_CHESS_BLACK"
+	public explicit_type ""
+	init_value "=5"
+	constraint "${comment}${name}${value},"
+	cpp_decl "  ${comment}${name}${value},"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 128933 "UIVisualSolido"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128677 // <generalisation>
+	relation 128677 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128677 // <generalisation>
+	  b parent class_ref 128549 // UIVisual
+      end
+
+      operation 132133 "UIVisualSolido"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Construtor"
+      end
+
+      operation 132389 "~UIVisualSolido"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 132517 "setCorFundo"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "r" type class_ref 131664 // CorPaleta
+	  param in name "g" type class_ref 131664 // CorPaleta
+	  param in name "b" type class_ref 131664 // CorPaleta
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 132645 "desenhar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Desenha o EstiloVisual do Componente
+
+${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Desenha o EstiloVisual do Componente"
+      end
+
+      operation 128010 "clone"
+	cpp_virtual public return_type class_ref 128549 // UIVisual
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna uma copia do objeto"
+      end
+
+      classrelation 138908 // corFundo (<directional composition>)
+	relation 138780 *-->
+	  a role_name "corFundo" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 138908 // corFundo (<directional composition>)
+	  b parent class_ref 137296 // RGB
+      end
+    end
+
+    class 128805 "UIVisualImagem"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 128421 // <generalisation>
+	relation 128421 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128421 // <generalisation>
+	  b parent class_ref 128549 // UIVisual
+      end
+
+      operation 131237 "UIVisualImagem"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Construtor"
+      end
+
+      operation 131493 "~UIVisualImagem"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 131621 "aplicar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param in name "posicao" explicit_type "Ponto"
+	  param in name "dimensao" explicit_type "Dimensao"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Aplica o efeito visual"
+      end
+
+      operation 131749 "desenhar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Desenha o EstiloVisual do Componente
+
+${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Desenha o EstiloVisual do Componente"
+      end
+
+      operation 131877 "clone"
+	cpp_virtual public return_type class_ref 128549 // UIVisual
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna uma copia do objeto"
+      end
+
+      operation 132005 "setTipoBackground"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "tipo" type class_ref 128677 // UIBackground
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Define o estilo de background a ser utilizado
+
+${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Define o estilo de background a ser utilizado"
+      end
+
+      classrelation 129368 // background (<directional aggregation>)
+	relation 128088 o-->
+	  a role_name "background" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 129368 // background (<directional aggregation>)
+	  b parent class_ref 128080 // FrameLayer
+      end
+
+      classrelation 128549 // tipoBackground (<directional composition>)
+	relation 128549 *-->
+	  a role_name "tipoBackground" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 128549 // tipoBackground (<directional composition>)
+	  b parent class_ref 128677 // UIBackground
+      end
+
+      classrelation 128041 // <dependency>
+	relation 128041 -_->
+	  a default
+	    cpp default "#include in header"
+	    classrelation_ref 128041 // <dependency>
+	  b parent class_ref 128848 // SpriteFactory
+      end
+    end
+
+    class 128549 "UIVisual"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 130341 "UIVisual"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+${body}}
+"
+	
+	
+	
+	
+	comment "Construtor"
+      end
+
+      operation 130597 "~UIVisual"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
+${body}}
+"
+	
+	
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 130725 "setCorBorda"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "r" type class_ref 131664 // CorPaleta
+	  param in name "g" type class_ref 131664 // CorPaleta
+	  param in name "b" type class_ref 131664 // CorPaleta
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}, const ${t2} & ${p2}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+      end
+
+      operation 130853 "aplicar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param in name "posicao" explicit_type "Ponto"
+	  param in name "dimensao" explicit_type "Dimensao"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "//Aplica o efeito visual
+
+${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, const ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Aplica o efeito visual"
+      end
+
+      operation 130981 "desenhar"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Desenha o EstiloVisual do Componente"
+      end
+
+      operation 131109 "clone"
+	abstract cpp_virtual public return_type class_ref 128549 // UIVisual
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+      end
+
+      classrelation 138268 // corBorda (<composition>)
+	relation 138268 *---
+	  a role_name "corBorda" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 138268 // corBorda (<composition>)
+	  b role_name "" protected
+	    classrelation_ref 138396 // <composition>
+      end
+
+      attribute 129829 "posicao"
+	protected explicit_type "Ponto"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 129957 "dimensao"
+	protected explicit_type "Dimensao"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128345 // <generalisation>
+	relation 128345 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 128345 // <generalisation>
+	  b parent class_ref 128089 // GraphicSystemUtility
+      end
+    end
+
+    classdiagram 131612 "classes"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
+    end
+  end
+
+  deploymentview 128028 "deploy"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default
+    artifact 128549 "UIVisualImagem"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128677 // UIBackground
+	class_ref 128805 // UIVisualImagem
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128677 "UIVisualSolido"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128933 // UIVisualSolido
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 128421 "UIVisual"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 128549 // UIVisual
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+  end
+end

@@ -1,13 +1,13 @@
-class UserInterfaceWindowTitulo
-!!!134693.cpp!!!	UserInterfaceWindowTitulo()
-    titulo.setAlinhamento(TEXTO_CENTRALIZADO);
+class UIWindowTitulo
+!!!134693.cpp!!!	UIWindowTitulo()
+    titulo.setAlinhamento(Texto::TEXTO_CENTRALIZADO);
 !!!134949.cpp!!!	desenharConteudo() : void
-    UserInterfaceWindow::desenharConteudo();
+    UIWindowDialog::desenharConteudo();
 
     int posicaoTextoHorizontal = 0;
     int posicaoTextoVertical   = posicao.y+int(titulo.getDimensaoLetra().h*0.2);
 
-    if (titulo.getAlinhamento()==TEXTO_CENTRALIZADO){
+    if (titulo.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
         int auxiliar = wsManager->getLarguraLinha(titulo.getFonte(),titulo.getChaveTexto());
         posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
     } else {
@@ -17,6 +17,6 @@ class UserInterfaceWindowTitulo
     wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,titulo.getChaveTexto());
 
 !!!135077.cpp!!!	inicializar() : void
-    UserInterfaceWindow::inicializar();
+    UIWindowDialog::inicializar();
     titulo.setDimensaoLetra(wsManager->getFonte(titulo.getFonte())->getDimensao());
     espacoAntesTexto=int(titulo.getDimensaoLetra().h*titulo.ENTRELINHA_UMA_MEIA);

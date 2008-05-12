@@ -1,100 +1,126 @@
-format 24
+format 55
 
 statecanvas 128080 state_ref 130768 // GAT_EJ_INICIO
   show_activities default region_horizontally default drawing_language default
-  xyzwh 60 71 2000 99 33
+  xyzwh 51 71 2000 117 39
 statecanvas 128208 state_ref 130896 // GAT_EJ_NOVO
   show_activities default region_horizontally default drawing_language default
-  xyzwh 213 19 2005 99 33
+  xyzwh 222 18 2005 115 39
 statecanvas 128336 state_ref 131024 // GAT_EJ_EXECUTANDO
   show_activities default region_horizontally default drawing_language default
-  xyzwh 267 294 2005 139 33
+  xyzwh 261 302 2005 167 39
 statecanvas 128464 state_ref 131152 // GAT_EJ_PAUSE
   show_activities default region_horizontally default drawing_language default
-  xyzwh 120 380 2000 103 33
+  xyzwh 118 378 2000 123 39
 statecanvas 128592 state_ref 131280 // GAT_EJ_FASE_CARREGAR
   show_activities default region_horizontally default drawing_language default
-  xyzwh 184 112 2000 159 33
+  xyzwh 157 121 2000 193 39
 statecanvas 128720 state_ref 131408 // GAT_EJ_FASE_FINALIZADA
   show_activities default region_horizontally default drawing_language default
-  xyzwh 465 156 2005 165 33
+  xyzwh 461 157 2005 197 39
 statecanvas 128848 state_ref 131536 // GAT_EJ_GAMEOVER
   show_activities default region_horizontally default drawing_language default
-  xyzwh 484 391 2000 129 33
+  xyzwh 537 398 2000 153 39
 statecanvas 128976 state_ref 131664 // GAT_EJ_ZERADO
   show_activities default region_horizontally default drawing_language default
-  xyzwh 18 208 2005 111 33
+  xyzwh 7 237 2005 131 39
 pseudostatecanvas 129104 pseudostate_ref 129104 // initial
-  xyz 101 18 2000
+  xyz 66 14 2000
 pseudostatecanvas 130000 pseudostate_ref 129232 // choice
-  xyz 535 286 2005
+  xyz 559 284 2005
 pseudostatecanvas 131152 pseudostate_ref 129360 // choice
-  xyz 251 205 2005
+  xyz 251 210 2005
 pseudostatecanvas 131664 pseudostate_ref 129488 // exit_point
-  xyz 377 437 3005 label_xy 352 455
+  xyz 379 468 3005 label_xy 354 486
 transitioncanvas 129232 transition_ref 133200 // <transition>
+  geometry VHV
   
-  from ref 129104 z 1999 to ref 128080write_horizontally default drawing_language default
+  from ref 129104 z 1999 to point 73 49
+  line 128796 z 1999 to point 107 49
+  line 128924 z 1999 to ref 128080
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 129360 transition_ref 133328 // <transition>
   geometry HVH
   
-  from ref 128080 z 1999 to point 183 85
-  line 132176 z 1999 to point 183 33
-  line 132304 z 1999 to ref 128208write_horizontally default drawing_language default
+  from ref 128080 z 1999 to point 192 88
+  line 132176 z 1999 to point 192 35
+  line 132304 z 1999 to ref 128208
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 129616 transition_ref 133584 // setJogoPause()
   geometry HVr
   
-  from ref 128336 z 1999 label "setJogoPause()" xyz 280 351 1999 to point 334 394
-  line 135248 z 1999 to ref 128464write_horizontally default drawing_language default
+  from ref 128336 z 1999 label "setJogoPause()" xyz 283 355 1999 to point 342 395
+  line 135248 z 1999 to ref 128464
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 129744 transition_ref 133712 // setJogoExecutando()
   geometry HVr
   
-  from ref 128464 z 1999 label "setJogoExecutando()" xyz 119 291 1999 to point 169 308
-  line 134096 z 1999 to ref 128336write_horizontally default drawing_language default
+  from ref 128464 z 1999 label "setJogoExecutando()" xyz 123 295 1999 to point 177 319
+  line 134096 z 1999 to ref 128336
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 130128 transition_ref 133840 // <transition>
   geometry VH
   
-  from ref 128336 z 1999 to point 334 302
-  line 136144 z 1999 to ref 130000write_horizontally default drawing_language default
+  from ref 128336 z 1999 to point 342 300
+  line 136144 z 1999 to ref 130000
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 130384 transition_ref 134096 // setJogoGameOver()
-  geometry VHr
+  geometry VHV
   
-  from ref 130000 z 1999 label "setJogoGameOver()" xyz 561 325 1999 to point 546 302
-  line 135632 z 1999 to ref 128848write_horizontally default drawing_language default
+  from ref 130000 z 1999 label "setJogoGameOver()" xyz 584 360 1999 to point 569 357
+  line 128028 z 1999 to point 611 357
+  line 128156 z 1999 to ref 128848
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 130512 transition_ref 134224 // setJogoFaseFinalizada()
-  geometry VHr
+  geometry VHV
   
-  from ref 130000 z 1999 label "setJogoFaseFinalizada()" xyz 553 266 1999 to point 545 302
-  line 135888 z 1999 to ref 128720write_horizontally default drawing_language default
+  from ref 130000 z 1999 label "setJogoFaseFinalizada()" xyz 578 222 1999 to point 569 237
+  line 128284 z 1999 to point 557 237
+  line 128412 z 1999 to ref 128720
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 130640 transition_ref 134352 // setJogoFaseCarregar()
   geometry HVr
   
-  from ref 128720 z 1999 label "setJogoFaseCarregar()" xyz 483 109 1999 to point 545 126
-  line 135376 z 1999 to ref 128592write_horizontally default drawing_language default
+  from ref 128720 z 1999 label "setJogoFaseCarregar()" xyz 490 115 1999 to point 557 138
+  line 135376 z 1999 to ref 128592
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 131280 transition_ref 134608 // <transition>
+  geometry VHV
   
-  from ref 128592 z 1999 to ref 131152write_horizontally default drawing_language default
+  from ref 128592 z 1999 to point 251 182
+  line 129308 z 1999 to point 261 182
+  line 129436 z 1999 to ref 131152
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 131408 transition_ref 134736 // setJogoZerado()
-  geometry HVr
+  geometry HVH
   
-  from ref 131152 z 1999 label "setJogoZerado()" xyz 163 203 1999 to point 261 222
-  line 134864 z 1999 to ref 128976write_horizontally default drawing_language default
+  from ref 131152 z 1999 label "setJogoZerado()" xyz 122 208 1999 to point 192 226
+  line 128540 z 1999 to point 192 254
+  line 128668 z 1999 to ref 128976
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 131536 transition_ref 134864 // setJogoExecutando()
   geometry HV
   
-  from ref 131152 z 1999 label "setJogoExecutando()" xyz 285 206 1999 to point 334 221
-  line 134992 z 1999 to ref 128336write_horizontally default drawing_language default
+  from ref 131152 z 1999 label "setJogoExecutando()" xyz 289 211 1999 to point 342 226
+  line 134992 z 1999 to ref 128336
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 131792 transition_ref 134992 // setMenu()
   geometry VH
   
-  from ref 128976 z 1999 label "setMenu()" xyz 78 320 1999 to point 71 444
-  line 133072 z 1999 to ref 131664write_horizontally default drawing_language default
+  from ref 128976 z 1999 label "setMenu()" xyz 73 350 1999 to point 70 475
+  line 133072 z 1999 to ref 131664
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 131920 transition_ref 135120 // setMenu()
   geometry HV
   
-  from ref 128848 z 1999 label "setMenu()" xyz 409 390 1999 to point 384 405
-  line 132816 z 1999 to ref 131664write_horizontally default drawing_language default
+  from ref 128848 z 1999 label "setMenu()" xyz 436 399 1999 to point 386 415
+  line 132816 z 1999 to ref 131664
+  write_horizontally default show_definition default drawing_language default
 transitioncanvas 134224 transition_ref 135248 // setJogoFaseCarregar()
+  geometry VHV
   
-  from ref 128208 z 1999 label "setJogoFaseCarregar()" xyz 205 73 1999 to ref 128592write_horizontally default drawing_language default
+  from ref 128208 z 1999 label "setJogoFaseCarregar()" xyz 210 61 1999 to point 277 86
+  line 129052 z 1999 to point 251 86
+  line 129180 z 1999 to ref 128592
+  write_horizontally default show_definition default drawing_language default
 end

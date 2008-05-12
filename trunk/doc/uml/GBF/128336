@@ -1,12 +1,12 @@
-format 48
-"SoundSystem" // Framework GBF::SoundSystem
-  revision 11
-  modified_by 117 "david"
+format 55
+"Sound" // Framework GBF::GBF::Kernel::Sound
+  revision 19
+  modified_by 28 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default
   //sequence diagram settings
   show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
@@ -28,9 +28,10 @@ format 48
   
   cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
-  classview 128336 "Classes"
+  cpp_namespace "GBF::Kernel::Sound"
+  classview 128336 "classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
     show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
@@ -44,6 +45,687 @@ format 48
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
+    class 135376 "MusicManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Descrição: 
+    Classe para gerenciamento de Música
+Motivação:
+    Fornecer mecanismos para gerenciamento de músicas de fundo"
+      operation 171216 "~MusicManager"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 171600 "apagar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Remove uma música do gerenciador"
+      end
+
+      operation 171472 "carregar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param in name "nome" explicit_type "std::string"
+	  param in name "arquivo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Carregar um arquivo de música para o gerenciador"
+      end
+
+      operation 171728 "pause"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Pausa a música"
+      end
+
+      operation 171344 "play"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Toca uma música"
+      end
+
+      operation 172112 "playInfinity"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Toca uma música de repetitiva"
+      end
+
+      operation 171984 "playLoop"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "nome" explicit_type "std::string"
+	  param in name "vezes" explicit_type "int"
+	    defaultvalue "0"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Toca uma música uma certa quantidade de vezes"
+      end
+
+      operation 171856 "resume"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Continuar a tocar a música"
+      end
+
+      operation 128353 "setVolume"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param inout name "nome" explicit_type "std::string"
+	  param in name "volume" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Configura o volume do som"
+      end
+
+      operation 172240 "stop"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Para uma música"
+      end
+
+      attribute 139984 "objetomap"
+	protected explicit_type "std::map<std::string,Music*>"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 157008 "musicaTocando"
+	private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 172368 "MusicManager"
+	private explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Construtor"
+      end
+
+      classrelation 139344 // <generalisation>
+	relation 139344 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 139344 // <generalisation>
+	  b parent class_ref 135888 // SoundManagerAbstract
+      end
+
+      classrelation 129654 // <dependency>
+	relation 129526 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "${type}"
+	    classrelation_ref 129654 // <dependency>
+	  b parent class_ref 128118 // SoundSystem
+      end
+
+      classrelation 150940 // <dependency>
+	relation 141340 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 150940 // <dependency>
+	  b parent class_ref 136016 // Music
+      end
+    end
+
+    class 135504 "FXManager"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Descrição: 
+    Classe para gerenciamento de Efeitos sonoros
+Motivação:
+    Fornecer mecanismos para gerenciamento de efeitos sonoros"
+      operation 167760 "~FXManager"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 167888 "play"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Toca uma efeito sonoro"
+      end
+
+      operation 168016 "carregar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param in name "nome" explicit_type "std::string"
+	  param in name "arquivo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Carregar um arquivo de efeito sonoro para o gerenciador"
+      end
+
+      operation 168144 "apagar"
+	cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Remove um efeito sonoro do gerenciador"
+      end
+
+      operation 168272 "pause"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Pausa o efeito sonoro"
+      end
+
+      operation 168400 "resume"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Continuar a tocar o efeito sonoro"
+      end
+
+      operation 168528 "playPanEffect"
+	public explicit_return_type "void"
+	nparams 3
+	  param in name "nome" explicit_type "std::string"
+	  param in name "left" explicit_type "int"
+	  param in name "right" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Toca um efeito sonoro de acordo com as coordenadas"
+      end
+
+      operation 168656 "playPanEffect"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "nome" explicit_type "std::string"
+	  param in name "posicao" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Toca um efeito sonoro detectando em qual caixa está mais próximo"
+      end
+
+      operation 168912 "setLimite"
+	public explicit_return_type "void"
+	nparams 2
+	  param in name "left" explicit_type "int"
+	  param in name "right" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Determina a área para calculo de efeito sonoro"
+      end
+
+      operation 128481 "setVolume"
+	cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param inout name "nome" explicit_type "std::string"
+	  param in name "volume" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Configura o volume do efeito sonoro
+Obs.: Valor do volume de 0 ate 128"
+      end
+
+      operation 169040 "FXManager"
+	private explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Construtor"
+      end
+
+      attribute 139344 "objetomap"
+	protected explicit_type "std::map<std::string,FX*>"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 139472 "area_left"
+	protected explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 139600 "area_right"
+	protected explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 138832 // <generalisation>
+	relation 138832 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 138832 // <generalisation>
+	  b parent class_ref 135888 // SoundManagerAbstract
+      end
+
+      classrelation 129782 // <dependency>
+	relation 129654 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "${type}"
+	    classrelation_ref 129782 // <dependency>
+	  b parent class_ref 128118 // SoundSystem
+      end
+    end
+
+    class 135888 "SoundManagerAbstract"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Descrição: 
+    Classe para criação de gerenciados de som
+Motivação:
+    Fornecer uma interface padrão para gerenciamento de som"
+      operation 169296 "~SoundManagerAbstract"
+	cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Destrutor"
+      end
+
+      operation 169168 "SoundManagerAbstract"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
+{
+${body}}"
+	
+	
+	
+	
+	comment "Construtor"
+      end
+
+      operation 169680 "apagar"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Apaga o arquivo de som do gerenciador"
+      end
+
+      operation 169552 "carregar"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param in name "nome" explicit_type "std::string"
+	  param in name "arquivo" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Carrega no manager o arquivo de som"
+      end
+
+      operation 169808 "pause"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Pausa o sistema de som"
+      end
+
+      operation 169424 "play"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "nome" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Toca um som"
+      end
+
+      operation 169936 "resume"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Continua a tocar o som"
+      end
+
+      operation 128097 "setVolume"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param inout name "nome" explicit_type "std::string"
+	  param in name "volume" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	
+	
+	
+	
+	comment "Configura o volume do som
+Obs.: Valor do volume de 0 ate 128"
+      end
+
+      operation 170064 "setPathBase"
+	class_operation public explicit_return_type "void"
+	nparams 1
+	  param in name "path" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+	
+	
+	comment "Informa PathBase para leitura de arquivos"
+      end
+
+      operation 128886 "setStatus"
+	class_operation private explicit_return_type "void"
+	nparams 1
+	  param in name "instance" type class_ref 135632 // SoundStatus
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+	
+	
+      end
+
+      attribute 139728 "pathBase"
+	class_attribute protected explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 128886 // status (<directional aggregation>)
+	relation 128758 o-->
+	  a role_name "status" multiplicity "1" init_value "=NULL" class_relation protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 128886 // status (<directional aggregation>)
+	  b parent class_ref 135632 // SoundStatus
+      end
+
+      classrelation 148048 // <dependency>
+	relation 148048 -_->
+	  a protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 148048 // <dependency>
+	  b parent class_ref 137936 // Log
+      end
+
+      classrelation 129142 // <dependency>
+	relation 129014 -_->
+	  stereotype "friend"
+	  a package
+	    cpp default "${type}"
+	    classrelation_ref 129142 // <dependency>
+	  b parent class_ref 129744 // SoundCore
+      end
+
+      classrelation 133295 // <generalisation>
+	relation 130479 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 133295 // <generalisation>
+	  b parent class_ref 128303 // BaseManager
+      end
+    end
+
     class 128246 "SoundSystemUtility"
       visibility package stereotype "interface"
       cpp_decl "${comment}${template}class ${name}${inherit}
@@ -55,6 +737,7 @@ ${inlines}
 ${members}}
 "
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
@@ -80,6 +763,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       classrelation 130038 // <dependency>
@@ -88,7 +772,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 130038 // <dependency>
-	  b parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundCore
       end
     end
 
@@ -101,6 +785,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -115,6 +800,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -125,6 +811,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	
@@ -142,6 +829,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       classrelation 128374 // fxManager (<directional aggregation>)
@@ -150,7 +838,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128374 // fxManager (<directional aggregation>)
-	  b parent class_ref 135504 // SoundSystemFxManager
+	  b parent class_ref 135504 // FXManager
       end
 
       classrelation 128118 // instance (<unidirectional association>)
@@ -168,7 +856,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128246 // musicManager (<directional aggregation>)
-	  b parent class_ref 135376 // SoundSystemMusicManager
+	  b parent class_ref 135376 // MusicManager
       end
 
       classrelation 129270 // <dependency>
@@ -177,11 +865,11 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129270 // <dependency>
-	  b parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundCore
       end
     end
 
-    class 129744 "SoundSystemCore"
+    class 129744 "SoundCore"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -189,6 +877,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -196,7 +885,7 @@ ${inlines}
     Classe para inicialização e gerenciamento do sistema de som
 Motivação:
     Gerenciar o uso do sistema de som"
-      operation 166480 "~SoundSystemCore"
+      operation 166480 "~SoundCore"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -204,6 +893,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -217,7 +907,7 @@ ${body}}"
 	    defaultvalue "22050"
 	  param in name "formato" explicit_type "Uint16"
 	    defaultvalue "AUDIO_S16SYS"
-	  param in name "canal" type class_ref 135248 // SoundSystemCanal
+	  param in name "canal" type class_ref 135248 // Canal
 	    defaultvalue "CANAL_STEREO"
 	  param in name "cache" explicit_type "Uint16"
 	    defaultvalue "2048"
@@ -228,6 +918,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}, ${t3} ${p3}, ${t4} ${p4}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -243,6 +934,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -264,17 +956,18 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 138448 // status (<directional aggregation>)
-	  b parent class_ref 135632 // SoundSystemStatus
+	  b parent class_ref 135632 // SoundStatus
       end
 
-      operation 166992 "SoundSystemCore"
-	private explicit_return_type ""
+      operation 166992 "SoundCore"
+	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -285,7 +978,7 @@ ${body}}"
 	relation 147664 -_->
 	  a protected
 	    classrelation_ref 147664 // <dependency>
-	  b parent class_ref 135248 // SoundSystemCanal
+	  b parent class_ref 135248 // Canal
       end
 
       classrelation 147920 // <dependency>
@@ -294,7 +987,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 147920 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // Log
       end
 
       classrelation 150480 // <dependency>
@@ -304,15 +997,6 @@ ${body}}"
 "
 	    classrelation_ref 150480 // <dependency>
 	  b parent class_ref 138448 // SDL
-      end
-
-      classrelation 129526 // <dependency>
-	relation 129398 -_->
-	  stereotype "friend"
-	  a package
-	    cpp default "${type}"
-	    classrelation_ref 129526 // <dependency>
-	  b parent class_ref 129232 // GBF
       end
 
       classrelation 129910 // <dependency>
@@ -332,7 +1016,7 @@ ${body}}"
       end
     end
 
-    class 135248 "SoundSystemCanal"
+    class 135248 "Canal"
       visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
@@ -340,6 +1024,7 @@ ${items}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -353,6 +1038,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -362,11 +1048,12 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
 
-    class 135376 "SoundSystemMusicManager"
+    class 135632 "SoundStatus"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -374,450 +1061,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Descrição: 
-    Classe para gerenciamento de Música
-Motivação:
-    Fornecer mecanismos para gerenciamento de músicas de fundo"
-      operation 171216 "~SoundSystemMusicManager"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	comment "Destrutor"
-      end
-
-      operation 171600 "apagar"
-	cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Remove uma música do gerenciador"
-      end
-
-      operation 171472 "carregar"
-	cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param in name "nome" explicit_type "std::string"
-	  param in name "arquivo" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Carregar um arquivo de música para o gerenciador"
-      end
-
-      operation 171728 "pause"
-	cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Pausa a música"
-      end
-
-      operation 171344 "play"
-	cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Toca uma música"
-      end
-
-      operation 172112 "playInfinity"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Toca uma música de repetitiva"
-      end
-
-      operation 171984 "playLoop"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "nome" explicit_type "std::string"
-	  param in name "vezes" explicit_type "int"
-	    defaultvalue "0"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Toca uma música uma certa quantidade de vezes"
-      end
-
-      operation 171856 "resume"
-	cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Continuar a tocar a música"
-      end
-
-      operation 128353 "setVolume"
-	cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param inout name "nome" explicit_type "std::string"
-	  param in name "volume" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Configura o volume do som"
-      end
-
-      operation 172240 "stop"
-	public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Para uma música"
-      end
-
-      attribute 139984 "objetomap"
-	protected explicit_type "std::map<std::string,SoundSystemMusic*>"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	idl_decl ""
-      end
-
-      attribute 157008 "musicaTocando"
-	private explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	idl_decl ""
-      end
-
-      operation 172368 "SoundSystemMusicManager"
-	private explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	comment "Construtor"
-      end
-
-      classrelation 139344 // <generalisation>
-	relation 139344 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 139344 // <generalisation>
-	  b parent class_ref 135888 // SoundSystemInterfaceManager
-      end
-
-      classrelation 129654 // <dependency>
-	relation 129526 -_->
-	  stereotype "friend"
-	  a package
-	    cpp default "${type}"
-	    classrelation_ref 129654 // <dependency>
-	  b parent class_ref 128118 // SoundSystem
-      end
-    end
-
-    class 135504 "SoundSystemFxManager"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Descrição: 
-    Classe para gerenciamento de Efeitos sonoros
-Motivação:
-    Fornecer mecanismos para gerenciamento de efeitos sonoros"
-      operation 167760 "~SoundSystemFxManager"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	comment "Destrutor"
-      end
-
-      operation 167888 "play"
-	cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Toca uma efeito sonoro"
-      end
-
-      operation 168016 "carregar"
-	cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param in name "nome" explicit_type "std::string"
-	  param in name "arquivo" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Carregar um arquivo de efeito sonoro para o gerenciador"
-      end
-
-      operation 168144 "apagar"
-	cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Remove um efeito sonoro do gerenciador"
-      end
-
-      operation 168272 "pause"
-	cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Pausa o efeito sonoro"
-      end
-
-      operation 168400 "resume"
-	cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Continuar a tocar o efeito sonoro"
-      end
-
-      operation 168528 "playPanEffect"
-	public explicit_return_type "void"
-	nparams 3
-	  param in name "nome" explicit_type "std::string"
-	  param in name "left" explicit_type "int"
-	  param in name "right" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Toca um efeito sonoro de acordo com as coordenadas"
-      end
-
-      operation 168656 "playPanEffect"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "nome" explicit_type "std::string"
-	  param in name "posicao" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Toca um efeito sonoro detectando em qual caixa está mais próximo"
-      end
-
-      operation 168912 "setLimite"
-	public explicit_return_type "void"
-	nparams 2
-	  param in name "left" explicit_type "int"
-	  param in name "right" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Determina a área para calculo de efeito sonoro"
-      end
-
-      operation 128481 "setVolume"
-	cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param inout name "nome" explicit_type "std::string"
-	  param in name "volume" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	comment "Configura o volume do efeito sonoro
-Obs.: Valor do volume de 0 ate 128"
-      end
-
-      operation 169040 "SoundSystemFxManager"
-	private explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	comment "Construtor"
-      end
-
-      attribute 139344 "objetomap"
-	protected explicit_type "std::map<std::string,SoundSystemFx*>"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	idl_decl ""
-      end
-
-      attribute 139472 "area_left"
-	protected explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	idl_decl ""
-      end
-
-      attribute 139600 "area_right"
-	protected explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	idl_decl ""
-      end
-
-      classrelation 138832 // <generalisation>
-	relation 138832 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 138832 // <generalisation>
-	  b parent class_ref 135888 // SoundSystemInterfaceManager
-      end
-
-      classrelation 129782 // <dependency>
-	relation 129654 -_->
-	  stereotype "friend"
-	  a package
-	    cpp default "${type}"
-	    classrelation_ref 129782 // <dependency>
-	  b parent class_ref 128118 // SoundSystem
-      end
-    end
-
-    class 135632 "SoundSystemStatus"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -825,7 +1069,7 @@ ${inlines}
     Classe para controle do estado do sistema de som
 Motivação:
     Fornecer um conjunto de controles básicos para o sistema de som"
-      operation 172496 "~SoundSystemStatus"
+      operation 172496 "~SoundStatus"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -833,6 +1077,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -850,6 +1095,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Verifica se sistema de som está funcionando"
       end
 
@@ -861,6 +1107,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -879,6 +1126,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configurar se o sistema de som está funcionando"
       end
 
@@ -894,6 +1142,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura o sistema de som"
       end
 
@@ -903,6 +1152,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -912,10 +1162,11 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      operation 173264 "SoundSystemStatus"
+      operation 173264 "SoundStatus"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -923,6 +1174,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -935,11 +1187,11 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129398 // <dependency>
-	  b parent class_ref 129744 // SoundSystemCore
+	  b parent class_ref 129744 // SoundCore
       end
     end
 
-    class 135760 "SoundSystemFx"
+    class 135760 "FX"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -947,6 +1199,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -954,7 +1207,7 @@ ${inlines}
     Classe para representação de um efeito sonoro
 Motivação:
     Permitir manipular efeitos sonoros"
-      operation 167120 "~SoundSystemFx"
+      operation 167120 "~FX"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -962,6 +1215,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -980,6 +1234,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Lê arquivo de efeito sonoro"
       end
 
@@ -991,6 +1246,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1010,6 +1266,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura o volume do efeito, 
 Obs.: Valor de 0 ate 128"
       end
@@ -1020,10 +1277,11 @@ Obs.: Valor de 0 ate 128"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      operation 167632 "SoundSystemFx"
+      operation 167632 "FX"
 	protected explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -1034,20 +1292,21 @@ ${body}}"
 	
 	
 	
+	
 	comment "Construtor"
       end
 
-      classrelation 138704 // <dependency>
-	relation 138704 -_->
+      classrelation 149660 // <dependency>
+	relation 140060 -_->
 	  stereotype "friend"
-	  a protected
+	  a package
 	    cpp default "${type}"
-	    classrelation_ref 138704 // <dependency>
-	  b parent class_ref 135504 // SoundSystemFxManager
+	    classrelation_ref 149660 // <dependency>
+	  b parent class_ref 135504 // FXManager
       end
     end
 
-    class 136016 "SoundSystemMusic"
+    class 136016 "Music"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -1055,6 +1314,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1062,7 +1322,7 @@ ${inlines}
     Classe para representação de músicas
 Motivação:
     Permitir manipular músicas (trila sonora)"
-      operation 170192 "~SoundSystemMusic"
+      operation 170192 "~Music"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -1070,6 +1330,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1088,6 +1349,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Lê arquivo de música"
       end
 
@@ -1102,6 +1364,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Toca Música de Fundo"
       end
 
@@ -1113,6 +1376,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1132,6 +1396,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Toca Música de Fundo várias vezes"
       end
 
@@ -1145,6 +1410,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -1163,6 +1429,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Para a música"
       end
 
@@ -1172,10 +1439,11 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      operation 171088 "SoundSystemMusic"
+      operation 171088 "Music"
 	protected explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -1183,6 +1451,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1195,204 +1464,21 @@ ${body}}"
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 139216 // <dependency>
-	  b parent class_ref 135376 // SoundSystemMusicManager
+	  b parent class_ref 135376 // MusicManager
       end
     end
 
-    class 135888 "SoundSystemInterfaceManager"
-      abstract visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Descrição: 
-    Classe para criação de gerenciados de som
-Motivação:
-    Fornecer uma interface padrão para gerenciamento de som"
-      operation 169296 "~SoundSystemInterfaceManager"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	comment "Destrutor"
-      end
-
-      operation 169168 "SoundSystemInterfaceManager"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	comment "Construtor"
-      end
-
-      operation 169680 "apagar"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	
-	comment "Apaga o arquivo de som do gerenciador"
-      end
-
-      operation 169552 "carregar"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param in name "nome" explicit_type "std::string"
-	  param in name "arquivo" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	
-	comment "Carrega no manager o arquivo de som"
-      end
-
-      operation 169808 "pause"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	
-	comment "Pausa o sistema de som"
-      end
-
-      operation 169424 "play"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "nome" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	
-	comment "Toca um som"
-      end
-
-      operation 169936 "resume"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	
-	comment "Continua a tocar o som"
-      end
-
-      operation 128097 "setVolume"
-	abstract cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param inout name "nome" explicit_type "std::string"
-	  param in name "volume" explicit_type "int"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	
-	
-	
-	comment "Configura o volume do som
-Obs.: Valor do volume de 0 ate 128"
-      end
-
-      operation 170064 "setPathBase"
-	class_operation public explicit_return_type "void"
-	nparams 1
-	  param in name "path" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-${body}}"
-	
-	
-	
-	comment "Informa PathBase para leitura de arquivos"
-      end
-
-      operation 128886 "setStatus"
-	class_operation private explicit_return_type "void"
-	nparams 1
-	  param in name "instance" type class_ref 135632 // SoundSystemStatus
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${throw}${staticnl}{
-${body}}"
-	
-	
-	
-      end
-
-      attribute 139728 "pathBase"
-	class_attribute protected explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	idl_decl ""
-      end
-
-      classrelation 128886 // status (<directional aggregation>)
-	relation 128758 o-->
-	  a role_name "status" multiplicity "1" init_value "=NULL" class_relation protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 128886 // status (<directional aggregation>)
-	  b parent class_ref 135632 // SoundSystemStatus
-      end
-
-      classrelation 148048 // <dependency>
-	relation 148048 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 148048 // <dependency>
-	  b parent class_ref 137936 // UtilLog
-      end
-
-      classrelation 129142 // <dependency>
-	relation 129014 -_->
-	  stereotype "friend"
-	  a package
-	    cpp default "${type}"
-	    classrelation_ref 129142 // <dependency>
-	  b parent class_ref 129744 // SoundSystemCore
-      end
-
-      classrelation 133295 // <generalisation>
-	relation 130479 ---|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 133295 // <generalisation>
-	  b parent class_ref 128303 // BaseManager
-      end
+    classdiagram 135964 "Sound"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
     end
   end
 
-  deploymentview 129488 "Deploy"
+  deploymentview 129488 "deploy"
     //deployment diagram settings
     package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
-    artifact 133968 "SoundSystemCore"
+    artifact 134224 "FXManager"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1411,11 +1497,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 135248 // SoundSystemCanal
-	class_ref 129744 // SoundSystemCore
+	class_ref 135504 // FXManager
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1424,49 +1509,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 134096 "SoundSystemFx"
-      stereotype "source"
-      cpp_h "${comment}
-#ifndef _${NAME}_H
-#define _${NAME}_H
-
-#include <SDL/SDL_mixer.h>
-${all_includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      cpp_src "${comment}
-${includes}
-${namespace_start}
-${members}
-${namespace_end}"
-      associated_classes
-	class_ref 135760 // SoundSystemFx
-      end
-      comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
-//
-//    This library is free software; you can redistribute it and/or
-//    modify it under the terms of the GNU Library General Public
-//    License as published by the Free Software Foundation; either
-//    version 2 of the License, or (at your option) any later version.
-//
-//    David de Almeida Ferreira (F-Z)
-//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
-//////////////////////////////////////////////////////////////////////
-"
-    end
-
-    artifact 134224 "SoundSystemFxManager"
+    artifact 134352 "SoundManagerAbstract"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1485,10 +1534,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 135504 // SoundSystemFxManager
+	class_ref 135888 // SoundManagerAbstract
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1497,12 +1546,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 134352 "SoundSystemInterfaceManager"
+    artifact 134608 "MusicManager"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1521,10 +1571,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 135888 // SoundSystemInterfaceManager
+	class_ref 135376 // MusicManager
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1533,12 +1583,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 134480 "SoundSystemMusic"
+    artifact 134096 "FX"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1558,10 +1609,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 136016 // SoundSystemMusic
+	class_ref 135760 // FX
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1570,12 +1621,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 134608 "SoundSystemMusicManager"
+    artifact 133968 "SoundCore"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1594,7 +1646,46 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 135376 // SoundSystemMusicManager
+	class_ref 135248 // Canal
+	class_ref 129744 // SoundCore
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 134480 "Music"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+#include <SDL/SDL_mixer.h>
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 136016 // Music
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2007 David de Almeida Ferreira
@@ -1611,7 +1702,7 @@ ${namespace_end}"
 "
     end
 
-    artifact 134736 "SoundSystemStatus"
+    artifact 134736 "SoundStatus"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1631,10 +1722,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 135632 // SoundSystemStatus
+	class_ref 135632 // SoundStatus
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1643,7 +1734,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
@@ -1722,4 +1814,5 @@ ${namespace_end}"
 "
     end
   end
+
 end

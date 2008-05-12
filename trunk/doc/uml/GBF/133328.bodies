@@ -1,7 +1,7 @@
-class ListPersonagemAbstract
-!!!157904.cpp!!!	ListPersonagemAbstract()
+class ListPersonagem
+!!!157904.cpp!!!	ListPersonagem()
 
-!!!158032.cpp!!!	~ListPersonagemAbstract()
+!!!158032.cpp!!!	~ListPersonagem()
 
     limpar();
 !!!158160.cpp!!!	desenhar() : void
@@ -33,9 +33,9 @@ class ListPersonagemAbstract
             }
         }
     }
-!!!158672.cpp!!!	adicionar(inout personagem : PersonagemAbstract) : void
+!!!158672.cpp!!!	adicionar(inout personagem : Personagem) : void
     lista.push_back(personagem);
-!!!158800.cpp!!!	remover(inout personagem : PersonagemAbstract) : void
+!!!158800.cpp!!!	remover(inout personagem : Personagem) : void
     for (int i=lista.size()-1; i>=0; i--){
         if (lista[i]==personagem){
             delete lista[i];
@@ -43,9 +43,9 @@ class ListPersonagemAbstract
             lista.erase(lista.begin()+i);
         }
     }
-!!!158928.cpp!!!	colisao(inout objeto : ListPersonagemAbstract) : void
-    PersonagemAbstract *l=NULL;
-    PersonagemAbstract *o=NULL;
+!!!158928.cpp!!!	colisao(inout objeto : ListPersonagem) : void
+    Personagem *l=NULL;
+    Personagem *o=NULL;
 
     for (int i=0; i<size(); i++){
         if (((l=getPersonagem(i))!=NULL)&&(l->isVivo())){
@@ -60,8 +60,8 @@ class ListPersonagemAbstract
             }
         }
     }
-!!!159056.cpp!!!	colisao(inout objeto : PersonagemAbstract) : void
-    PersonagemAbstract *l=NULL;
+!!!159056.cpp!!!	colisao(inout objeto : Personagem) : void
+    Personagem *l=NULL;
 
     for (int i=0; i<size(); i++){
         if((l=getPersonagem(i))!=NULL){
@@ -74,10 +74,10 @@ class ListPersonagemAbstract
             }
         }
     }
-!!!159184.cpp!!!	getPersonagem(in indice : int) : PersonagemAbstract
+!!!159184.cpp!!!	getPersonagem(in indice : int) : Personagem
     return lista[indice];
 !!!159440.cpp!!!	ordenar() : void
-    PersonagemAbstract *buffer;
+    Personagem *buffer;
 
     for (unsigned int t=0; t<lista.size()-1; t++){
         if ((lista[t]!=NULL) && (lista[t+1]!=NULL)){

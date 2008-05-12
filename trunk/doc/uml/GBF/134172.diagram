@@ -1,0 +1,144 @@
+format 55
+
+classcanvas 128028 class_ref 128155 // InputSystem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 491 263 3005
+  end
+classcanvas 128540 class_ref 129488 // InputCore
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 188 14 2004
+  end
+classcanvas 128924 class_ref 132688 // Joystick
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 706 90 3005
+  end
+classcanvas 129308 class_ref 133200 // Cursor
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 82 638 2000
+  end
+classcanvas 129436 class_ref 132560 // Mouse
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 335 438 3005
+  end
+classcanvas 130076 class_ref 132432 // Keyboard
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 692 533 3010
+  end
+classcanvas 130460 class_ref 128027 // InputSystemUtility
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 60 389 2004
+  end
+classcanvas 131100 class_ref 133072 // MouseBotao
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 525 648 2009
+  end
+classcanvas 131356 class_ref 132944 // JoystickBotao
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 859 326 2009
+  end
+classcanvas 131612 class_ref 132816 // JoystickAxe
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 914 33 2004
+  end
+relationcanvas 128156 relation_ref 128056 // <unidirectional association>
+  from ref 128028 z 1999 to point 461 263
+  line 128284 z 1999 to point 461 293
+  line 128412 z 1999 to ref 128028
+  role_a_pos 490 226 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128668 relation_ref 128696 // <directional aggregation>
+  geometry HV
+  from ref 128540 z 1999 to point 547 121
+  line 133788 z 1999 to ref 128028
+  role_a_pos 559 240 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128796 relation_ref 129464 // <dependency>
+  from ref 128028 z 1999 stereotype "<<friend>>" xyz 397 232 3000 to ref 128540
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129052 relation_ref 128411 // <dependency>
+  from ref 128924 z 1999 stereotype "<<friend>>" xyz 623 263 3000 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129180 relation_ref 128027 // <unidirectional association>
+  geometry HVH
+  from ref 128028 z 1999 to point 654 316
+  line 135708 z 1999 to point 654 216
+  line 135836 z 1999 to ref 128924
+  role_a_pos 650 196 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129564 relation_ref 134608 // <unidirectional association>
+  geometry HVr
+  from ref 129436 z 1999 to point 397 691
+  line 135580 z 1999 to ref 129308
+  role_a_pos 216 671 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129692 relation_ref 128667 // <dependency>
+  from ref 129436 z 1999 stereotype "<<friend>>" xyz 458 425 3000 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129820 relation_ref 135248 // <dependency>
+  geometry VH
+  from ref 129308 z 1999 to point 142 602
+  line 135324 z 1999 stereotype "<<friend>>" xyz 151 580 3000 to ref 129436
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129948 relation_ref 128283 // <unidirectional association>
+  geometry HVr
+  from ref 128028 z 1999 to point 547 602
+  line 136220 z 1999 to ref 129436
+  role_a_pos 473 582 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130204 relation_ref 128539 // <dependency>
+  from ref 130076 z 1999 stereotype "<<friend>>" xyz 609 452 3000 to ref 128028
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130332 relation_ref 128155 // <unidirectional association>
+  geometry VH
+  from ref 128028 z 1999 to point 547 602
+  line 136092 z 1999 to ref 130076
+  role_a_pos 639 582 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130588 relation_ref 128795 // <unidirectional association>
+  geometry HVH
+  from ref 130460 z 1999 to point 336 424
+  line 134300 z 1999 to point 336 316
+  line 134428 z 1999 to ref 128028
+  role_a_pos 376 302 3000 no_role_b
+  multiplicity_a_pos 473 326 3000 no_multiplicity_b
+relationcanvas 130716 relation_ref 128568 // <dependency>
+  geometry VH
+  from ref 130460 z 1999 stereotype "<<friend>>" xyz 52 313 3000 to point 121 121
+  line 134684 z 1999 to ref 128540
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130844 relation_ref 129336 // <dependency>
+  from ref 128540 z 1999 to ref 130460
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131228 relation_ref 146256 // <dependency>
+  geometry VH
+  from ref 129436 z 1999 to point 397 712
+  line 136348 z 1999 to ref 131100
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131484 relation_ref 146128 // <dependency>
+  geometry VH
+  from ref 128924 z 1999 to point 753 390
+  line 133276 z 1999 to ref 131356
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131740 relation_ref 134096 // <directional composition>
+  geometry HVH
+  from ref 128924 z 1999 to point 857 216
+  line 132380 z 1999 to point 857 106
+  line 132508 z 1999 to ref 131612
+  role_a_pos 819 86 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131868 relation_ref 134224 // <directional composition>
+  geometry HV
+  from ref 128924 z 1999 to point 962 216
+  line 132764 z 1999 to ref 131612
+  role_a_pos 974 191 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

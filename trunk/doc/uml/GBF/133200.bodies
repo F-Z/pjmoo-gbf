@@ -1,7 +1,6 @@
 class InputSystemMouseCursor
 !!!157392.cpp!!!	~InputSystemMouseCursor()
-
-    UtilLog::subSistema("Removendo InputSystemMouseCursor");
+    //UtilLog::subSistema("Removendo InputSystemMouseCursor");
 !!!157520.cpp!!!	carregarArquivo(in arquivo : std::string) : bool
 
 	if (imagem){
@@ -25,5 +24,4 @@ class InputSystemMouseCursor
 		gsScreen->blitSurface(imagem,NULL,&posicao);
 	}
 !!!157776.cpp!!!	InputSystemMouseCursor()
-
-    UtilLog::subSistema("Instanciando InputSystemMouseCursor");
+//UtilLog::subSistema("Instanciando InputSystemMouseCursor");

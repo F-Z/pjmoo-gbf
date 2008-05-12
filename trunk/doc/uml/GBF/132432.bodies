@@ -1,6 +1,6 @@
 class InputSystemKeyboard
 !!!154960.cpp!!!	~InputSystemKeyboard()
-    UtilLog::subSistema("Removendo InputSystemKeyboard");
+//    UtilLog::subSistema("Removendo InputSystemKeyboard");
 !!!155088.cpp!!!	isKey(in tecla : SDLKey) : bool
    if (ptecla[tecla]){
         return true;
@@ -8,7 +8,7 @@ class InputSystemKeyboard
         return false;
    }
 !!!155216.cpp!!!	InputSystemKeyboard()
-    UtilLog::subSistema("Instanciando InputSystemKeyboard");
+//    UtilLog::subSistema("Instanciando InputSystemKeyboard");
     processar();
 !!!155344.cpp!!!	processar() : void
    ptecla = SDL_GetKeyState(NULL);

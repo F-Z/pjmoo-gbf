@@ -1,13 +1,13 @@
-class SoundSystemCore
-!!!166480.cpp!!!	~SoundSystemCore()
-    UtilLog::sistema("Removendo SoundSystem");
+class SoundCore
+!!!166480.cpp!!!	~SoundCore()
+//    UtilLog::sistema("Removendo SoundSystem");
 
     delete(soundSystem);
     delete(status);
 
     Mix_CloseAudio();
     SDL_QuitSubSystem(SDL_INIT_AUDIO);
-!!!166736.cpp!!!	iniciar(in frequencia : int = 22050, in formato : Uint16 = AUDIO_S16SYS, in canal : SoundSystemCanal = CANAL_STEREO, in cache : Uint16 = 2048, in quantidadeCanais : int = 16) : void
+!!!166736.cpp!!!	iniciar(in frequencia : int = 22050, in formato : Uint16 = AUDIO_S16SYS, in canal : Canal = CANAL_STEREO, in cache : Uint16 = 2048, in quantidadeCanais : int = 16) : void
     bool hardware = false;
 
     if (status->isAtivo()) {
@@ -15,15 +15,15 @@ class SoundSystemCore
             if (Mix_AllocateChannels(quantidadeCanais)>0){
                 hardware = true;
             } else {
-                UtilLog::comentario("Alocando canais de Som =%s [Falhou]",SDL_GetError());
+                //UtilLog::comentario("Alocando canais de Som =%s [Falhou]",SDL_GetError());
             }
         } else {
-            UtilLog::comentario("Inicializando SDL_mixer =%s [Falhou]",SDL_GetError());
+           // UtilLog::comentario("Inicializando SDL_mixer =%s [Falhou]",SDL_GetError());
         }
     }
 
     status->setAtivo(hardware);
-    SoundSystemInterfaceManager::setStatus(status);
+    SoundManagerAbstract::setStatus(status);
 
     soundSystem = SoundSystem::getInstance();
     SoundSystemUtility::setSoundSystem(soundSystem);
@@ -31,17 +31,17 @@ class SoundSystemCore
     if (status->isAtivo()){
         status->setMute(mute);
     }
-!!!166992.cpp!!!	SoundSystemCore()
-    UtilLog::sistema("Instanciando SoundSystem");
+!!!166992.cpp!!!	SoundCore()
+    //UtilLog::sistema("Instanciando SoundSystem");
     bool hardware = false;
 
     if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0 ) {
-        UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_AUDIO)=%s",SDL_GetError());
+        //UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_AUDIO)=%s",SDL_GetError());
     } else {
         hardware = true;
     }
 
-    status = new SoundSystemStatus();
+    status = new SoundStatus();
     status->setAtivo(hardware);
 
 

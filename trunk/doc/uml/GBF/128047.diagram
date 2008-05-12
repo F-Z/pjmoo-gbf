@@ -1,347 +1,288 @@
-format 45
+format 55
 
 classcanvas 128047 class_ref 128047 // ObjetoBase
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color darkgreen
-  xyz 573 350 2000
+  xyz 552 344 2000
   end
 classcanvas 128175 class_ref 133456 // ListManager
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color verylightorange
-  xyz 93 461 3020
+  xyz 90 485 3020
   end
-classcanvas 128687 class_ref 133328 // ListPersonagemAbstract
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 128687 class_ref 133328 // ListPersonagem
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color verylightorange
-  xyz 11 661 2004
+  xyz 156 682 2004
   end
 classcanvas 128943 class_ref 128175 // BaseSystem
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color lightmediumgreen
-  xyz 267 169 2005
+  xyz 285 164 2005
   end
-classcanvas 130351 class_ref 129616 // WriteSystemManager
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 130351 class_ref 129616 // WriteManager
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgray
-  xyz 10 280 3005
+  xyz 7 275 3005
   end
-classcanvas 130863 class_ref 135888 // SoundSystemInterfaceManager
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 130863 class_ref 135888 // SoundManagerAbstract
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgray
-  xyz 10 370 3005
+  xyz 7 326 3005
   end
-classcanvas 131247 class_ref 134480 // ParticleSystemManager
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 131247 class_ref 134480 // PSManager
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgray
-  xyz 10 326 3010
+  xyz 11 417 3010
   end
-classcanvas 132399 class_ref 132176 // GraphicSystemImageBufferManager
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 132399 class_ref 132176 // ImageBufferManager
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgray
-  xyz 10 410 3015
+  xyz 10 372 3015
   end
-classcanvas 132911 class_ref 128720 // FrameLayerManager
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 132911 class_ref 128720 // LayerManager
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgray
-  xyz 10 238 3020
+  xyz 8 224 3020
   end
-classcanvas 134703 class_ref 129744 // SoundSystemCore
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 134703 class_ref 129744 // SoundCore
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightred
-  xyz 7 53 2000
+  xyz 8 54 2000
   end
-classcanvas 134831 class_ref 129488 // InputSystemCore
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 134831 class_ref 129488 // InputCore
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightred
-  xyz 7 9 2005
+  xyz 8 8 2005
   end
-classcanvas 134959 class_ref 129360 // GraphicSystemCore
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 134959 class_ref 129360 // GraphicCore
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightred
-  xyz 7 101 2010
+  xyz 8 102 2010
   end
 classcanvas 135983 class_ref 128303 // BaseManager
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   color lightmediumgreen
-  xyz 371 465 2000
+  xyz 367 483 2000
   end
 classcanvas 138415 class_ref 128208 // SpriteInterface
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color mediumgreen
-  xyz 510 539 2005
+  xyz 511 536 2005
   end
 classcanvas 138543 class_ref 136400 // Sprite
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgreen
-  xyz 639 630 2000
+  xyz 663 627 2000
   end
 classcanvas 138927 class_ref 134736 // SpritePersonagem
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgreen
-  xyz 742 726 2005
+  xyz 764 740 2005
   end
 classcanvas 140463 class_ref 136528 // SpriteItem
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgreen
-  xyz 742 683 2004
+  xyz 774 687 2004
   end
 classcanvas 140719 class_ref 128080 // FrameLayer
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightgreen
-  xyz 396 630 2004
+  xyz 343 627 2004
   end
-classcanvas 141103 class_ref 133584 // PersonagemAbstract
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 141103 class_ref 133584 // Personagem
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color mediumgreen
-  xyz 704 450 2004
+  xyz 759 443 2004
   end
-classcanvas 141615 class_ref 134864 // PersonagemAutomatico
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
-  color lightyellow
-  xyz 865 564 2009
-  end
-classcanvas 141871 class_ref 135120 // PersonagemEstatico
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
-  color lightyellow
-  xyz 865 521 2004
-  end
-classcanvas 142127 class_ref 134992 // PersonagemControlado
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
-  color lightyellow
-  xyz 865 609 2004
-  end
-classcanvas 142511 class_ref 133712 // ListPersonagemAutomaticoAbstract
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
-  color verylightorange
-  xyz 182 801 2004
-  end
-classcanvas 142767 class_ref 133840 // ListPersonagemJogadorAbstract
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
-  color verylightorange
-  xyz 182 753 2004
-  end
-classcanvas 143023 class_ref 134224 // ParticleSystemEfeito
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 143023 class_ref 134224 // PSEfeito
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color mediumgreen
-  xyz 638 278 2009
+  xyz 666 292 2009
   end
-classcanvas 143279 class_ref 128058 // ParticleSystemSprite
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 143279 class_ref 128058 // PSSprite
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightmediumblue
-  xyz 837 221 2004
+  xyz 823 137 2004
   end
-classcanvas 143791 class_ref 128186 // ParticleSystemPixel
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 143791 class_ref 128186 // PSPixel
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightmediumblue
-  xyz 843 170 2004
+  xyz 819 189 2004
   end
-classcanvas 144047 class_ref 134352 // ParticleSystemEfeitoEsferico
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+classcanvas 144047 class_ref 134352 // PSEfeitoEsferico
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightmediumblue
-  xyz 973 101 2004
+  xyz 864 277 2004
   end
-classcanvas 144431 class_ref 136912 // TimerSystemCronometroAbstract
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 144431 class_ref 136912 // CronometroAbstract
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color mediumgreen
-  xyz 347 114 3025
+  xyz 382 113 3025
   end
-classcanvas 144687 class_ref 130512 // TimerSystemCronometroCrescente
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 144687 class_ref 130512 // CronometroCrescente
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightmagenta
-  xyz 542 13 3005
+  xyz 581 10 3005
   end
-classcanvas 144943 class_ref 130896 // TimerSystemCronometroDecrescente
-  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode uml auto_label_position default show_infonote default shadow default
+classcanvas 144943 class_ref 130896 // CronometroDecrescente
+  draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode namespace auto_label_position default show_infonote default shadow default
   color lightmagenta
-  xyz 542 62 3010
+  xyz 578 59 3010
   end
 note 152879 "Pq existir as duas?"
   xyzwh 21 778 2000 118 35
 relationcanvas 128815 relation_ref 135376 // <generalisation>
   geometry VHV
-  from ref 128687 z 1999 to point 164 635
-  line 153519 z 1999 to point 140 635
+  from ref 128687 z 1999 to point 253 665
+  line 153519 z 1999 to point 149 665
   line 153647 z 1999 to ref 128175
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129071 relation_ref 128175 // <generalisation>
   geometry VHr
-  from ref 128943 z 1999 to point 618 200
+  from ref 128943 z 1999 to point 609 198
   line 135855 z 1999 to ref 128047
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 135087 relation_ref 129327 // <generalisation>
   geometry VHr
-  from ref 134959 z 1999 to point 315 118
+  from ref 134959 z 1999 to point 344 120
   line 135471 z 1999 to ref 128943
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 135215 relation_ref 129455 // <generalisation>
   geometry VHr
-  from ref 134831 z 1999 to point 315 26
+  from ref 134831 z 1999 to point 344 26
   line 135599 z 1999 to ref 128943
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 135343 relation_ref 129583 // <generalisation>
   geometry VHr
-  from ref 134703 z 1999 to point 315 70
+  from ref 134703 z 1999 to point 344 72
   line 135727 z 1999 to ref 128943
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 136239 relation_ref 129839 // <generalisation>
   geometry VH
-  from ref 128175 z 1999 to point 140 496
+  from ref 128175 z 1999 to point 149 517
   line 154031 z 1999 to ref 135983
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 136367 relation_ref 129967 // <generalisation>
   geometry HVH
-  from ref 135983 z 1999 to point 523 496
-  line 151215 z 1999 to point 523 407
+  from ref 135983 z 1999 to point 522 517
+  line 151215 z 1999 to point 522 407
   line 151343 z 1999 to ref 128047
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 136623 relation_ref 130095 // <generalisation>
   geometry VHr
-  from ref 132911 z 1999 to point 422 255
+  from ref 132911 z 1999 to point 430 242
   line 136751 z 1999 to ref 135983
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 136879 relation_ref 130223 // <generalisation>
   geometry VHr
-  from ref 132399 z 1999 to point 422 427
+  from ref 132399 z 1999 to point 430 390
   line 137007 z 1999 to ref 135983
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 137135 relation_ref 130351 // <generalisation>
   geometry VHr
-  from ref 131247 z 1999 to point 422 343
+  from ref 131247 z 1999 to point 430 435
   line 137775 z 1999 to ref 135983
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 137263 relation_ref 130479 // <generalisation>
   geometry VHr
-  from ref 130863 z 1999 to point 422 387
+  from ref 130863 z 1999 to point 430 344
   line 137647 z 1999 to ref 135983
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 137391 relation_ref 130607 // <generalisation>
   geometry VHr
-  from ref 130351 z 1999 to point 422 297
+  from ref 130351 z 1999 to point 430 293
   line 137903 z 1999 to ref 135983
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 138671 relation_ref 139728 // <generalisation>
   geometry HV
-  from ref 138543 z 1999 to point 619 647
+  from ref 138543 z 1999 to point 604 645
   line 151855 z 1999 to ref 138415
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 138799 relation_ref 130735 // <generalisation>
   geometry VHr
-  from ref 138415 z 1999 to point 618 566
+  from ref 138415 z 1999 to point 609 565
   line 151599 z 1999 to ref 128047
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 139055 relation_ref 140496 // <generalisation>
   geometry HV
-  from ref 138927 z 1999 to point 725 743
+  from ref 138927 z 1999 to point 752 758
   line 145199 z 1999 to ref 138543
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 140591 relation_ref 140240 // <generalisation>
   geometry HV
-  from ref 140463 z 1999 to point 725 700
+  from ref 140463 z 1999 to point 752 705
   line 151727 z 1999 to ref 138543
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 140847 relation_ref 128080 // <generalisation>
   geometry VHr
-  from ref 140719 z 1999 to point 619 647
+  from ref 140719 z 1999 to point 604 645
   line 151983 z 1999 to ref 138415
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 141743 relation_ref 137808 // <generalisation>
-  geometry VHr
-  from ref 141615 z 1999 to point 847 581
-  line 154287 z 1999 to ref 141103
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 141999 relation_ref 138064 // <generalisation>
-  geometry VHr
-  from ref 141871 z 1999 to point 847 538
-  line 154415 z 1999 to ref 141103
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 142255 relation_ref 137936 // <generalisation>
-  geometry VHr
-  from ref 142127 z 1999 to point 847 626
-  line 154159 z 1999 to ref 141103
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 142383 relation_ref 130863 // <generalisation>
   geometry HVH
-  from ref 141103 z 1999 to point 683 467
-  line 153263 z 1999 to point 683 407
+  from ref 141103 z 1999 to point 712 461
+  line 153263 z 1999 to point 712 407
   line 153391 z 1999 to ref 128047
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 142639 relation_ref 135632 // <generalisation>
-  geometry VHr
-  from ref 142511 z 1999 to point 164 818
-  line 153775 z 1999 to ref 128687
-  no_role_a no_role_b
-  no_multiplicity_a no_multiplicity_b
-relationcanvas 142895 relation_ref 135760 // <generalisation>
-  geometry VHr
-  from ref 142767 z 1999 to point 164 770
-  line 153903 z 1999 to ref 128687
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 143407 relation_ref 128186 // <generalisation>
   geometry VHr
-  from ref 143279 z 1999 to point 786 238
+  from ref 143279 z 1999 to point 747 155
   line 154671 z 1999 to ref 143023
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 143919 relation_ref 128058 // <generalisation>
   geometry VHr
-  from ref 143791 z 1999 to point 786 187
+  from ref 143791 z 1999 to point 747 207
   line 154799 z 1999 to ref 143023
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 144175 relation_ref 128314 // <generalisation>
   geometry VHr
-  from ref 144047 z 1999 to point 988 118
+  from ref 144047 z 1999 to point 898 295
   line 154543 z 1999 to ref 143791
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 144303 relation_ref 130991 // <generalisation>
   geometry HVr
-  from ref 143023 z 1999 to point 786 407
+  from ref 143023 z 1999 to point 747 407
   line 152367 z 1999 to ref 128047
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 144559 relation_ref 131119 // <generalisation>
   geometry VHr
-  from ref 144431 z 1999 to point 618 131
+  from ref 144431 z 1999 to point 609 131
   line 151471 z 1999 to ref 128047
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 144815 relation_ref 141008 // <generalisation>
   geometry VHr
-  from ref 144687 z 1999 to point 525 30
+  from ref 144687 z 1999 to point 512 28
   line 152111 z 1999 to ref 144431
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 145071 relation_ref 141136 // <generalisation>
   geometry VHr
-  from ref 144943 z 1999 to point 525 79
+  from ref 144943 z 1999 to point 512 77
   line 152239 z 1999 to ref 144431
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
-line 153007 -_-_
-  from ref 142511 z 1999 to ref 152879
-line 153135 -_-_
-  from ref 142767 z 1999 to ref 152879
 end

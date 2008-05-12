@@ -1,13 +1,12 @@
 class InputSystemJoystick
 !!!153424.cpp!!!	~InputSystemJoystick()
+//    UtilLog::subSistema("Removendo InputSystemJoystick");
+    SDL_JoystickClose(joystick);
 
-    UtilLog::subSistema("Removendo InputSystemJoystick");
-	SDL_JoystickClose(joystick);
+    /*Finaliza o subsistema de joystick*/
+    SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
 
-	/*Finaliza o subsistema de joystick*/
-	SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
-	
-	joystick=NULL;
+    joystick=NULL;
 !!!153552.cpp!!!	isAxeLeft() : bool
 
 	if ((joystick)&&(axe_horizontal==AXE_LEFT)){
@@ -65,23 +64,22 @@ class InputSystemJoystick
 		return false;
 	}
 !!!154576.cpp!!!	InputSystemJoystick()
+//    UtilLog::subSistema("Instanciando InputSystemJoystick");
+    joystick=NULL;
 
-    UtilLog::subSistema("Instanciando InputSystemJoystick");
-	joystick=NULL;
-
-	if (SDL_InitSubSystem(SDL_INIT_JOYSTICK)>=0){
-		if (SDL_JoystickEventState(SDL_ENABLE)==SDL_ENABLE){
-			if ((joystick = SDL_JoystickOpen(0))!=NULL){
-				UtilLog::comentario("Descrição=%s  ",SDL_JoystickName(0));
-			} else {
-				UtilLog::comentario("[Falhou] SDL_JoystickOpen(0)=%s",SDL_GetError());
-			}
-		} else {
-			UtilLog::comentario("[Falhou] SDL_JoystickEventState(SDL_ENABLE)=%s",SDL_GetError());
-		}
-	} else {
-		UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_JOYSTICK)=%s",SDL_GetError());
-	}
+    if (SDL_InitSubSystem(SDL_INIT_JOYSTICK)>=0){
+        if (SDL_JoystickEventState(SDL_ENABLE)==SDL_ENABLE){
+            if ((joystick = SDL_JoystickOpen(0))!=NULL){
+            //UtilLog::comentario("Descrição=%s  ",SDL_JoystickName(0));
+            } else {
+            //UtilLog::comentario("[Falhou] SDL_JoystickOpen(0)=%s",SDL_GetError());
+            }
+        } else {
+            //UtilLog::comentario("[Falhou] SDL_JoystickEventState(SDL_ENABLE)=%s",SDL_GetError());
+        }
+    } else {
+        //UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_JOYSTICK)=%s",SDL_GetError());
+    }
 !!!154704.cpp!!!	processar() : void
 
 	int x=0,y=0;

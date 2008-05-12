@@ -1,0 +1,64 @@
+format 55
+
+classcanvas 133148 class_ref 129360 // GraphicCore
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 310 56 2000
+  end
+classcanvas 133276 class_ref 128113 // GraphicSystem
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 313 613 3005
+  end
+classcanvas 133916 class_ref 128089 // GraphicSystemUtility
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 580 360 2004
+  end
+classcanvas 134428 class_ref 131152 // GFX
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 28 144 3010
+  end
+relationcanvas 133404 relation_ref 128753 // <unidirectional association>
+  from ref 133276 z 1999 to point 283 613
+  line 133532 z 1999 to point 283 643
+  line 133660 z 1999 to ref 133276
+  role_a_pos 253 627 3000 no_role_b
+  multiplicity_a_pos 295 657 3000 no_multiplicity_b
+relationcanvas 133788 relation_ref 128881 // <directional aggregation>
+  geometry VHV
+  from ref 133148 z 1999 to point 376 406
+  line 136476 z 1999 to point 377 406
+  line 136604 z 1999 to ref 133276
+  role_a_pos 389 590 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134044 relation_ref 128089 // <unidirectional association>
+  geometry HVr
+  from ref 133916 z 1999 to point 649 657
+  line 135964 z 1999 to ref 133276
+  role_a_pos 455 637 3000 no_role_b
+  multiplicity_a_pos 455 667 3000 no_multiplicity_b
+relationcanvas 134172 relation_ref 128729 // <dependency>
+  from ref 133916 z 1999 stereotype "<<friend>>" xyz 497 278 3000 to ref 133148
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134300 relation_ref 128048 // <dependency>
+  geometry HV
+  from ref 133148 z 1999 to point 649 128
+  line 135708 z 1999 to ref 133916
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134556 relation_ref 132304 // <dependency>
+  geometry VH
+  from ref 134428 z 1999 to point 117 128
+  line 135836 z 1999 stereotype "<<friend>>" xyz 227 253 3000 to ref 133148
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134684 relation_ref 128625 // <dependency>
+  from ref 134428 z 1999 stereotype "<<friend>>" xyz 241 540 3000 to ref 133276
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 134812 relation_ref 128241 // <unidirectional association>
+  geometry VHr
+  from ref 133276 z 1999 to point 117 657
+  line 136348 z 1999 to ref 134428
+  role_a_pos 129 598 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

@@ -1,0 +1,97 @@
+format 55
+
+classcanvas 128028 class_ref 138064 // FonteBitmap
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 57 166 2000
+  end
+classcanvas 128156 class_ref 129616 // WriteManager
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 293 260 3005
+  end
+classcanvas 128796 class_ref 138576 // UIIdioma
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 608 156 3005
+  end
+classcanvas 129436 class_ref 137936 // Log
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  hidden_attributes
+    attribute_ref 149584 // arquivo
+    attribute_ref 149712 // autor
+    attribute_ref 149840 // projeto
+    attribute_ref 149968 // handleArquivo
+  hidden_operations
+    operation_ref 187600 // setArquivo
+    operation_ref 187728 // setAutor
+    operation_ref 187856 // setProjeto
+    operation_ref 187984 // iniciar
+    operation_ref 188112 // finalizar
+    operation_ref 188240 // cabecalho
+    operation_ref 188368 // sistema
+    operation_ref 188496 // subSistema
+    operation_ref 188624 // comentario
+    operation_ref 188752 // comentarioComQuebra
+    operation_ref 188880 // tracer
+    operation_ref 189008 // escrever
+  xyz 463 669 2004
+  end
+classcanvas 129692 class_ref 128303 // BaseManager
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  hidden_operations
+    operation_ref 128943 // BaseManager
+    operation_ref 129071 // ~BaseManager
+  xyz 170 601 2004
+  end
+classcanvas 129948 class_ref 131920 // ImageBase
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  hidden_attributes
+    attribute_ref 133456 // imagem
+    attribute_ref 133584 // time
+    attribute_ref 133712 // tamanho
+    attribute_ref 133840 // posicao
+  hidden_operations
+    operation_ref 147280 // ImageBase
+    operation_ref 147408 // ~ImageBase
+    operation_ref 147536 // setAlpha
+    operation_ref 147664 // setColorKey
+    operation_ref 147792 // carregarArquivo
+    operation_ref 147920 // getTimer
+    operation_ref 148048 // getTamanho
+    operation_ref 148176 // getPosicao
+    operation_ref 148304 // converterSurface
+    operation_ref 148432 // setGraphicSystemScreen
+    operation_ref 148560 // setTimer
+  xyz 78 40 3010
+  end
+relationcanvas 128284 relation_ref 143312 // <unidirectional association>
+  from ref 128156 z 1999 to point 263 260
+  line 128412 z 1999 to point 263 290
+  line 128540 z 1999 to ref 128156
+  role_a_pos 233 297 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128668 relation_ref 143184 // <dependency>
+  from ref 128028 z 1999 stereotype "<<friend>>" xyz 205 327 3000 to ref 128156
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 128924 relation_ref 151504 // <unidirectional association>
+  from ref 128796 z 1999 to point 578 156
+  line 129052 z 1999 to point 578 186
+  line 129180 z 1999 to ref 128796
+  role_a_pos 614 224 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129308 relation_ref 152016 // <unidirectional association>
+  from ref 128156 z 1999 to ref 128796
+  role_a_pos 554 350 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129564 relation_ref 151632 // <dependency>
+  from ref 128796 z 1999 to ref 129436
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 129820 relation_ref 130607 // <generalisation>
+  from ref 128156 z 1999 to ref 129692
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130076 relation_ref 142800 // <generalisation>
+  from ref 128028 z 1999 to ref 129948
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

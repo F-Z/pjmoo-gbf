@@ -1,12 +1,12 @@
-format 48
-"InputSystem" // Framework GBF::InputSystem
-  revision 12
-  modified_by 51 "david"
+format 55
+"Input" // Framework GBF::GBF::Kernel::Input
+  revision 17
+  modified_by 28 "david"
   // class settings
   //class diagram settings
-  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
   //use case diagram settings
-  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default
   //sequence diagram settings
   show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default
   //collaboration diagram settings
@@ -28,9 +28,10 @@ format 48
   
   cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
   cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
+  cpp_namespace "GBF::Kernel::Input"
   classview 128592 "Classes"
     //class diagram settings
-    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+    draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
     //collaboration diagram settings
     show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default draw_all_relations default shadow default
     //object diagram settings
@@ -55,6 +56,7 @@ ${inlines}
 ${members}}
 "
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
@@ -80,6 +82,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       classrelation 128568 // <dependency>
@@ -88,7 +91,7 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 128568 // <dependency>
-	  b parent class_ref 129488 // InputSystemCore
+	  b parent class_ref 129488 // InputCore
       end
     end
 
@@ -101,6 +104,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -110,7 +114,7 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128027 // joystick (<unidirectional association>)
-	  b parent class_ref 132688 // InputSystemJoystick
+	  b parent class_ref 132688 // Joystick
       end
 
       classrelation 128155 // teclado (<unidirectional association>)
@@ -119,7 +123,7 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128155 // teclado (<unidirectional association>)
-	  b parent class_ref 132432 // InputSystemKeyboard
+	  b parent class_ref 132432 // Keyboard
       end
 
       classrelation 128283 // mouse (<unidirectional association>)
@@ -128,7 +132,7 @@ ${inlines}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 128283 // mouse (<unidirectional association>)
-	  b parent class_ref 132560 // InputSystemMouse
+	  b parent class_ref 132560 // Mouse
       end
 
       operation 128184 "~InputSystem"
@@ -142,6 +146,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Destrutor"
       end
 
@@ -152,6 +157,7 @@ ${body}}"
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}"
+	
 	
 	
 	
@@ -178,6 +184,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 128440 "processar"
@@ -191,6 +198,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Processa os eventos referentes aos mouse, teclado e joystick"
       end
 
@@ -200,11 +208,11 @@ ${body}}"
 	  a package
 	    cpp default "${type}"
 	    classrelation_ref 129464 // <dependency>
-	  b parent class_ref 129488 // InputSystemCore
+	  b parent class_ref 129488 // InputCore
       end
     end
 
-    class 129488 "InputSystemCore"
+    class 129488 "InputCore"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -212,6 +220,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -220,7 +229,7 @@ ${inlines}
 Motivação:
     Gerenciar o uso dos eventos do usuário
 "
-      operation 152272 "~InputSystemCore"
+      operation 152272 "~InputCore"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -228,6 +237,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -245,6 +255,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Alterna entre input exclusivo e compartilhado"
       end
 
@@ -256,6 +267,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -273,6 +285,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna o evento lançado para o SubSistema de Input"
       end
 
@@ -287,6 +300,7 @@ ${body}}"
 	
 	
 	
+	
       end
 
       operation 152528 "processar"
@@ -297,6 +311,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -315,6 +330,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura o controle do teclado, mouse e joystick como exclusivo da aplicação"
       end
 
@@ -324,6 +340,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -333,17 +350,19 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      operation 153296 "InputSystemCore"
-	private explicit_return_type ""
+      operation 153296 "InputCore"
+	public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -368,15 +387,6 @@ ${body}}"
 	  b parent class_ref 128155 // InputSystem
       end
 
-      classrelation 129208 // <dependency>
-	relation 129208 -_->
-	  stereotype "friend"
-	  a package
-	    cpp default "${type}"
-	    classrelation_ref 129208 // <dependency>
-	  b parent class_ref 129232 // GBF
-      end
-
       classrelation 129336 // <dependency>
 	relation 129336 -_->
 	  a default
@@ -394,7 +404,7 @@ ${body}}"
       end
     end
 
-    class 132688 "InputSystemJoystick"
+    class 132688 "Joystick"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit}
 {
@@ -403,6 +413,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -410,7 +421,7 @@ ${inlines}
     Classe para controle do joystick
 Motivação:
     Prover o controle de eventos por meio do Joystick"
-      operation 153424 "~InputSystemJoystick"
+      operation 153424 "~Joystick"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -419,6 +430,7 @@ Motivação:
 {
   ${body}}
 "
+	
 	
 	
 	
@@ -437,6 +449,7 @@ Motivação:
 	
 	
 	
+	
 	comment "Retorna se o direcional foi movido para o lado esquerdo"
       end
 
@@ -452,6 +465,7 @@ Motivação:
 	
 	
 	
+	
 	comment "Retorna se o direcional foi movido para o lado direito"
       end
 
@@ -463,6 +477,7 @@ Motivação:
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
 ${body}}
 "
+	
 	
 	
 	
@@ -481,6 +496,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Retorna se o direcional foi movido para baixo"
       end
 
@@ -493,6 +509,7 @@ ${body}}
 {
   ${body}}
 "
+	
 	
 	
 	
@@ -511,6 +528,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Retorna se o botão B foi pressionado"
       end
 
@@ -523,6 +541,7 @@ ${body}}
 {
   ${body}}
 "
+	
 	
 	
 	
@@ -541,10 +560,11 @@ ${body}}
 	
 	
 	
+	
 	comment "Retorna se o botão D foi pressionado (caso exista)"
       end
 
-      operation 154576 "InputSystemJoystick"
+      operation 154576 "Joystick"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -553,6 +573,7 @@ ${body}}
 {
   ${body}}
 "
+	
 	
 	
 	
@@ -571,6 +592,7 @@ ${body}}
 	
 	
 	
+	
 	comment "Processa os eventos do joystick"
       end
 
@@ -580,32 +602,33 @@ ${body}}
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
-      classrelation 134096 // axe_horizontal (<directional aggregation by value>)
+      classrelation 134096 // axe_horizontal (<directional composition>)
 	relation 134096 *-->
 	  a role_name "axe_horizontal" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 134096 // axe_horizontal (<directional aggregation by value>)
-	  b parent class_ref 132816 // JOYSTICK_AXE
+	    classrelation_ref 134096 // axe_horizontal (<directional composition>)
+	  b parent class_ref 132816 // JoystickAxe
       end
 
-      classrelation 134224 // axe_vertical (<directional aggregation by value>)
+      classrelation 134224 // axe_vertical (<directional composition>)
 	relation 134224 *-->
 	  a role_name "axe_vertical" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 134224 // axe_vertical (<directional aggregation by value>)
-	  b parent class_ref 132816 // JOYSTICK_AXE
+	    classrelation_ref 134224 // axe_vertical (<directional composition>)
+	  b parent class_ref 132816 // JoystickAxe
       end
 
       classrelation 146128 // <dependency>
 	relation 146128 -_->
 	  a protected
 	    classrelation_ref 146128 // <dependency>
-	  b parent class_ref 132944 // JOYSTICK_BOTAO
+	  b parent class_ref 132944 // JoystickBotao
       end
 
       classrelation 146896 // <dependency>
@@ -614,7 +637,7 @@ ${body}}
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 146896 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // Log
       end
 
       classrelation 150096 // <dependency>
@@ -636,7 +659,7 @@ ${body}}
       end
     end
 
-    class 133200 "InputSystemMouseCursor"
+    class 133200 "Cursor"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -644,6 +667,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -657,10 +681,10 @@ Motivação:
 	  a public
 	    cpp default "${type}"
 	    classrelation_ref 134992 // <generalisation>
-	  b parent class_ref 131920 // GraphicSystemImage
+	  b parent class_ref 131920 // ImageBase
       end
 
-      operation 157392 "~InputSystemMouseCursor"
+      operation 157392 "~Cursor"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -669,6 +693,7 @@ Motivação:
 {
   ${body}}
 "
+	
 	
 	
 	
@@ -685,6 +710,7 @@ Motivação:
 {
   ${body}}
 "
+	
 	
 	
 	
@@ -705,10 +731,11 @@ Motivação:
 	
 	
 	
+	
 	comment "Desenha o ponteiro na tela"
       end
 
-      operation 157776 "InputSystemMouseCursor"
+      operation 157776 "Cursor"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -720,15 +747,16 @@ Motivação:
 	
 	
 	
+	
 	comment "Construtor"
       end
 
-      classrelation 135120 // ponto (<directional aggregation by value>)
+      classrelation 135120 // ponto (<directional composition>)
 	relation 135120 *-->
 	  a role_name "ponto" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 135120 // ponto (<directional aggregation by value>)
+	    classrelation_ref 135120 // ponto (<directional composition>)
 	  b parent class_ref 128976 // Ponto
       end
 
@@ -738,11 +766,11 @@ Motivação:
 	  a protected
 	    cpp default "${type}"
 	    classrelation_ref 135248 // <dependency>
-	  b parent class_ref 132560 // InputSystemMouse
+	  b parent class_ref 132560 // Mouse
       end
     end
 
-    class 132560 "InputSystemMouse"
+    class 132560 "Mouse"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -750,6 +778,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -757,7 +786,7 @@ ${inlines}
     Classe para controle do mouse
 Motivação:
     Prover o controle de eventos por meio do Mouse"
-      operation 155600 "~InputSystemMouse"
+      operation 155600 "~Mouse"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -765,6 +794,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -782,6 +812,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna a posição do mouse no eixo X"
       end
 
@@ -796,6 +827,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Retorna a posição do mouse no eixo Y"
       end
 
@@ -807,6 +839,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -825,17 +858,19 @@ ${body}}"
 	
 	
 	
+	
 	comment "Carrega o curso do mouse do arquivo"
       end
 
       operation 156240 "getMouseCursor"
-	public return_type class_ref 133200 // InputSystemMouseCursor
+	public return_type class_ref 133200 // Cursor
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} * ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} * ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -854,6 +889,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Configura se exibe ou não o cursor do mouse"
       end
 
@@ -865,6 +901,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -882,6 +919,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Verifica se o botão esquerdo foi pressionado"
       end
 
@@ -896,6 +934,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Verifica se o botão do meio foi pressionado"
       end
 
@@ -907,6 +946,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
+	
 	
 	
 	
@@ -927,6 +967,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Verifica se a combinação de botões foi pressionada"
       end
 
@@ -936,10 +977,10 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 134608 // cursor (<unidirectional association>)
-	  b parent class_ref 133200 // InputSystemMouseCursor
+	  b parent class_ref 133200 // Cursor
       end
 
-      operation 157136 "InputSystemMouse"
+      operation 157136 "Mouse"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -947,6 +988,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -964,15 +1006,16 @@ ${body}}"
 	
 	
 	
+	
 	comment "Processa os eventos do mouse"
       end
 
-      classrelation 134736 // ponto (<directional aggregation by value>)
+      classrelation 134736 // ponto (<directional composition>)
 	relation 134736 *-->
 	  a role_name "ponto" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
-	    classrelation_ref 134736 // ponto (<directional aggregation by value>)
+	    classrelation_ref 134736 // ponto (<directional composition>)
 	  b parent class_ref 128976 // Ponto
       end
 
@@ -982,6 +1025,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -991,6 +1035,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -998,7 +1043,7 @@ ${body}}"
 	relation 146256 -_->
 	  a protected
 	    classrelation_ref 146256 // <dependency>
-	  b parent class_ref 133072 // MOUSE_BOTAO
+	  b parent class_ref 133072 // MouseBotao
       end
 
       classrelation 128667 // <dependency>
@@ -1011,7 +1056,7 @@ ${body}}"
       end
     end
 
-    class 132432 "InputSystemKeyboard"
+    class 132432 "Keyboard"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
@@ -1019,6 +1064,7 @@ ${inlines}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1027,7 +1073,7 @@ ${inlines}
 Motivação:
     Prover o controle de eventos por meio do Teclado
 "
-      operation 154960 "~InputSystemKeyboard"
+      operation 154960 "~Keyboard"
 	cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
@@ -1035,6 +1081,7 @@ Motivação:
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1053,10 +1100,11 @@ ${body}}"
 	
 	
 	
+	
 	comment "Verifica se a tecla foi pressionada"
       end
 
-      operation 155216 "InputSystemKeyboard"
+      operation 155216 "Keyboard"
 	private explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
@@ -1064,6 +1112,7 @@ ${body}}"
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
 {
 ${body}}"
+	
 	
 	
 	
@@ -1081,6 +1130,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Processa os eventos do teclado"
       end
 
@@ -1095,6 +1145,7 @@ ${body}}"
 	
 	
 	
+	
 	comment "Limpa o estado das teclas"
       end
 
@@ -1104,6 +1155,7 @@ ${body}}"
 "
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1113,7 +1165,7 @@ ${body}}"
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
 	    classrelation_ref 145360 // <dependency>
-	  b parent class_ref 137936 // UtilLog
+	  b parent class_ref 137936 // Log
       end
 
       classrelation 150224 // <dependency>
@@ -1135,7 +1187,7 @@ ${body}}"
       end
     end
 
-    class 133072 "MOUSE_BOTAO"
+    class 133072 "MouseBotao"
       visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
@@ -1143,6 +1195,7 @@ ${items}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1155,6 +1208,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1163,6 +1217,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1171,6 +1226,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1179,11 +1235,12 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
 
-    class 132944 "JOYSTICK_BOTAO"
+    class 132944 "JoystickBotao"
       visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
@@ -1191,6 +1248,7 @@ ${items}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1203,6 +1261,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1211,6 +1270,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1219,6 +1279,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1227,11 +1288,12 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
     end
 
-    class 132816 "JOYSTICK_AXE"
+    class 132816 "JoystickAxe"
       visibility package stereotype "enum"
       cpp_decl "${comment}enum ${name} {
 ${items}
@@ -1239,6 +1301,7 @@ ${items}
 "
       java_decl ""
       php_decl ""
+      python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
@@ -1251,6 +1314,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1259,6 +1323,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1267,6 +1332,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1275,6 +1341,7 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
 
@@ -1283,8 +1350,19 @@ Motivação:
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""
+	python_decl ""
 	idl_decl ""
       end
+    end
+
+    classdiagram 134172 "classes"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A3-Landscape
+    end
+
+    classdiagram 138908 "Externo"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
     end
   end
 
@@ -1292,7 +1370,7 @@ Motivação:
     //deployment diagram settings
     package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
     draw_component_as_icon default show_component_req_prov default show_component_rea default
-    artifact 131152 "InputSystemCore"
+    artifact 131152 "InputCore"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1311,10 +1389,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 129488 // InputSystemCore
+	class_ref 129488 // InputCore
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1323,12 +1401,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 131664 "InputSystemKeyboard"
+    artifact 131664 "Keyboard"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1347,10 +1426,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 132432 // InputSystemKeyboard
+	class_ref 132432 // Keyboard
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1359,12 +1438,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 131536 "InputSystemJoystick"
+    artifact 131536 "Joystick"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1383,12 +1463,12 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 132816 // JOYSTICK_AXE
-	class_ref 132944 // JOYSTICK_BOTAO
-	class_ref 132688 // InputSystemJoystick
+	class_ref 132816 // JoystickAxe
+	class_ref 132944 // JoystickBotao
+	class_ref 132688 // Joystick
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1397,12 +1477,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 131920 "InputSystemMouse"
+    artifact 131920 "Mouse"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1421,11 +1502,11 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 133072 // MOUSE_BOTAO
-	class_ref 132560 // InputSystemMouse
+	class_ref 133072 // MouseBotao
+	class_ref 132560 // Mouse
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1434,12 +1515,13 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end
 
-    artifact 132048 "InputSystemMouseCursor"
+    artifact 132048 "Cursor"
       stereotype "source"
       cpp_h "${comment}
 #ifndef _${NAME}_H
@@ -1458,10 +1540,10 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 133200 // InputSystemMouseCursor
+	class_ref 133200 // Cursor
       end
       comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
 //
 //    This library is free software; you can redistribute it and/or
 //    modify it under the terms of the GNU Library General Public
@@ -1470,7 +1552,8 @@ ${namespace_end}"
 //
 //    David de Almeida Ferreira (F-Z)
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
 //////////////////////////////////////////////////////////////////////
 "
     end

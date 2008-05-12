@@ -1,0 +1,102 @@
+format 55
+
+classcanvas 129820 class_ref 140496 // UIAlinhamento
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 148 47 2000
+  end
+classcanvas 129948 class_ref 133020 // UICursor
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 85 266 2000
+  end
+classcanvas 130076 class_ref 132764 // UIFonteReferencia
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 558 42 2000
+  end
+classcanvas 130204 class_ref 132892 // UIFonteExtendida
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 557 182 2004
+  end
+classcanvas 130460 class_ref 128165 // UIComponente
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  xyz 315 279 2000
+  end
+classcanvas 130716 class_ref 138576 // Idioma
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  hidden_attributes
+    attribute_ref 151248 // mapaTexto
+    attribute_ref 151632 // idiomaSuportado
+    attribute_ref 151504 // idiomaPrefixo
+    attribute_ref 151760 // arquivo
+    attribute_ref 151376 // pathBase
+  hidden_operations
+    operation_ref 191312 // ~Idioma
+    operation_ref 192080 // getInstance
+    operation_ref 192208 // setPathBase
+    operation_ref 192464 // setIdioma
+    operation_ref 192592 // getIdioma
+    operation_ref 192720 // detectarIdioma
+    operation_ref 191440 // atualizar
+    operation_ref 193232 // setArquivo
+    operation_ref 191824 // size
+    operation_ref 191568 // getTexto
+    operation_ref 128121 // isChaveTexto
+    operation_ref 191696 // parser
+    operation_ref 193360 // carregarIdioma
+    operation_ref 193488 // parserIdioma
+    operation_ref 191952 // limpar
+    operation_ref 191184 // Idioma
+  xyz 201 490 3005
+  end
+classcanvas 131356 class_ref 129616 // WriteManager
+  draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+  hidden_attributes
+    attribute_ref 150224 // defaultFont
+    attribute_ref 151120 // objetomap
+  hidden_operations
+    operation_ref 190288 // ~WriteManager
+    operation_ref 190416 // getFonte
+    operation_ref 190544 // getInstance
+    operation_ref 190672 // carregar
+    operation_ref 190800 // escrever
+    operation_ref 192336 // escreverLocalizado
+    operation_ref 192848 // escreverLocalizadoSubChave
+    operation_ref 190928 // apagar
+    operation_ref 128247 // getLarguraLinha
+    operation_ref 191056 // WriteManager
+  xyz 481 569 2004
+  end
+relationcanvas 130332 relation_ref 132508 // <generalisation>
+  from ref 130204 z 1999 to ref 130076
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 130844 relation_ref 151504 // <unidirectional association>
+  from ref 130716 z 1999 to point 171 490
+  line 130972 z 1999 to point 171 520
+  line 131100 z 1999 to ref 130716
+  role_a_pos 141 491 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131228 relation_ref 136732 // <directional aggregation>
+  geometry VHr
+  from ref 130460 z 1999 to point 226 377
+  line 132636 z 1999 to ref 130716
+  role_a_pos 238 467 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131484 relation_ref 143312 // <unidirectional association>
+  from ref 131356 z 1999 to point 451 569
+  line 131612 z 1999 to point 451 599
+  line 131740 z 1999 to ref 131356
+  role_a_pos 421 573 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131868 relation_ref 152016 // <unidirectional association>
+  geometry VHr
+  from ref 131356 z 1999 to point 226 587
+  line 132380 z 1999 to ref 130716
+  role_a_pos 238 538 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+relationcanvas 131996 relation_ref 138652 // <directional aggregation>
+  geometry HV
+  from ref 130460 z 1999 to point 527 377
+  line 132252 z 1999 to ref 131356
+  role_a_pos 539 546 3000 no_role_b
+  no_multiplicity_a no_multiplicity_b
+end

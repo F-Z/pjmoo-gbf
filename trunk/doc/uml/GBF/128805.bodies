@@ -1,16 +1,17 @@
-class UserInterfaceVisualImagem
-!!!131237.cpp!!!	UserInterfaceVisualImagem()
+class UIVisualImagem
+!!!131237.cpp!!!	UIVisualImagem()
     tipoBackground=BACKGROUND_LINES;
 
-    SpriteFactory *spriteFactory = new SpriteFactory(graphicSystem->imageBufferManager->getImageBuffer("gbf-window-background"));
+    GBF::Grafico::SpriteFactory *spriteFactory = new GBF::Grafico::SpriteFactory(graphicSystem->imageBufferManager->getImageBuffer("gbf-window-background"));
     background = spriteFactory->criarFrameLayer(0,0,10,10);
+
     delete(spriteFactory);
-!!!131493.cpp!!!	~UserInterfaceVisualImagem()
+!!!131493.cpp!!!	~UIVisualImagem()
     if (background){
         delete(background);
     }
 !!!131621.cpp!!!	aplicar(in posicao : Ponto, in dimensao : Dimensao) : void
-    UserInterfaceVisual::aplicar(posicao,dimensao);
+    UIVisual::aplicar(posicao,dimensao);
 
     if (background!=NULL){
         background->setFrame(posicao.x,posicao.y,dimensao.w,dimensao.h);
@@ -24,11 +25,11 @@ class UserInterfaceVisualImagem
     }
     graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
     graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
-!!!131877.cpp!!!	clone() : UserInterfaceVisual
-    UserInterfaceVisualImagem * uivImagem = new UserInterfaceVisualImagem();
+!!!131877.cpp!!!	clone() : UIVisual
+    UIVisualImagem * uivImagem = new UIVisualImagem();
     uivImagem->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
     uivImagem->setTipoBackground(tipoBackground);
 
     return uivImagem;
-!!!132005.cpp!!!	setTipoBackground(in tipo : UserInterfaceVisualTipoBackground) : void
+!!!132005.cpp!!!	setTipoBackground(in tipo : UIBackground) : void
     tipoBackground=tipo;
