@@ -14,33 +14,41 @@
 
 #include "SpriteFactory.h"
 
+namespace GBF {
+
+namespace Grafico {
+
 //Destrutor
 SpriteFactory::~SpriteFactory() 
 {
 }
-SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
+GBF::Grafico::Sprite::SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
 {
-    SpriteItem *sprite = new SpriteItem();
+    Sprite::SpriteItem *sprite = new Sprite::SpriteItem();
     sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
 
     return sprite;
 }
-SpritePersonagem * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
+GBF::Grafico::Sprite::SpritePersonagem * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
 {
-    SpritePersonagem *sprite = new SpritePersonagem();
+    Sprite::SpritePersonagem *sprite = new Sprite::SpritePersonagem();
     sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
 
     return sprite;
 }
-FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura) 
+GBF::Grafico::Layer::FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura) 
 {
-    FrameLayer *sprite =new FrameLayer();
+    Layer::FrameLayer *sprite = new Layer::FrameLayer();
     sprite->criar(left,top,largura,altura,gsiBuffer);
 
     return sprite;
 }
 //Construtor
-SpriteFactory::SpriteFactory(GraphicSystemImageBuffer * gsiBuffer) 
+SpriteFactory::SpriteFactory(GBF::Kernel::Graphic::ImageBuffer * gsiBuffer) 
 {
     SpriteFactory::gsiBuffer=gsiBuffer;
 }
+
+} // namespace GBF::Grafico
+
+} // namespace GBF

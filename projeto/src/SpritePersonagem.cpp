@@ -14,12 +14,18 @@
 
 #include "SpritePersonagem.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Sprite {
+
 //Destrutor 
 SpritePersonagem::~SpritePersonagem() 
 {
 
 }
-void SpritePersonagem::setDirecao(SpriteDirecao DIR) 
+void SpritePersonagem::setDirecao(Direcao DIR) 
 {
     switch (qtdDirecao){
         case 8:
@@ -73,7 +79,7 @@ int SpritePersonagem::getQtdDirecoes()
 {
     return qtdDirecao;
 }
-SpriteDirecao SpritePersonagem::getDirecao() 
+Direcao SpritePersonagem::getDirecao() 
 {
     return direcao;
 }
@@ -83,3 +89,9 @@ SpritePersonagem::SpritePersonagem()
     direcao=DR_CIMA;
     qtdDirecao=4;
 }
+
+} // namespace GBF::Grafico::Sprite
+
+} // namespace GBF::Grafico
+
+} // namespace GBF

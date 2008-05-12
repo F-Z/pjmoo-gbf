@@ -17,6 +17,12 @@
 
 #include "Sprite.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Sprite {
+
 class SpriteItem : public Sprite
 {
   public:
@@ -32,4 +38,10 @@ class SpriteItem : public Sprite
     void setFrame(int quadro);
 
 };
+
+} // namespace GBF::Grafico::Sprite
+
+} // namespace GBF::Grafico
+
+} // namespace GBF
 #endif

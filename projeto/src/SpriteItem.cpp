@@ -14,6 +14,12 @@
 
 #include "SpriteItem.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Sprite {
+
 //Construtor 
 SpriteItem::SpriteItem() 
 {
@@ -35,3 +41,9 @@ void SpriteItem::setFrame(int quadro)
 {
     animacao.setFrame(quadro);
 }
+
+} // namespace GBF::Grafico::Sprite
+
+} // namespace GBF::Grafico
+
+} // namespace GBF

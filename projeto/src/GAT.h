@@ -14,28 +14,30 @@
 #ifndef _GAT_H
 #define _GAT_H
 
-#include "GATMaquinaEstadoGeral.h"
-#include "GATMaquinaEstadoTopGaleria.h"
-#include "GATMaquinaEstadoMenu.h"
-#include "GATMaquinaEstadoJogo.h"
-#include "UserInterfaceRecorde.h"
+#include "GTEstadoGeral.h"
+#include "GTTopGaleria.h"
+#include "GTMenu.h"
+#include "GTJogo.h"
 #include "GBF.h"
-#include "TopSystemGaleria.h"
-#include "UserInterfaceMenuAbstract.h"
-#include "TimerSystemCronometroCrescente.h"
+#include "UIWindowRecorde.h"
+#include "RSGaleria.h"
+#include "UIMenuAbstract.h"
+#include "CronometroCrescente.h"
 
-class GAT : public GATMaquinaEstadoGeral, public GATMaquinaEstadoTopGaleria, public GATMaquinaEstadoMenu, public GATMaquinaEstadoJogo
+namespace GAT {
+
+class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJogo
 {
   protected:
-    UserInterfaceRecorde * uiRecordeNovo;
+    GBF::GBFramework * frameworkGBF;
 
-    GBF * frameworkGBF;
+    UserInterface::Window::UIWindowRecorde * uiRecordeNovo;
 
-    TopSystemGaleria * tsGaleria;
+    RankingSystem::RSGaleria * tsGaleria;
 
-    UserInterfaceMenuAbstract * uiMenuPrincipal;
+    UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
 
-    TimerSystemCronometroCrescente tempoInativo;
+    GBF::Kernel::Timer::CronometroCrescente tempoInativo;
 
 
   private:
@@ -93,4 +95,6 @@ class GAT : public GATMaquinaEstadoGeral, public GATMaquinaEstadoTopGaleria, pub
 
 
 };
+
+} // namespace GAT
 #endif

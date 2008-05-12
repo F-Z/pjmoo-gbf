@@ -17,6 +17,12 @@
 
 #include "GraphicSystem.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Graphic {
+
 class GraphicSystemUtility
 {
   protected:
@@ -26,6 +32,12 @@ class GraphicSystemUtility
   private:
     static void setGraphicSystem(GraphicSystem * instance);
 
-  friend class GraphicSystemCore;
+  friend class GraphicCore;
 };
+
+} // namespace GBF::Kernel::Graphic
+
+} // namespace GBF::Kernel
+
+} // namespace GBF
 #endif

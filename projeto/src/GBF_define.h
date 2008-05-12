@@ -35,11 +35,6 @@ struct Dimensao
     int h;
 
 };
-//Estrutura para definição de cor
-typedef Uint32 Cor;
-//Estrutura para definição de paleta de cor.
-//Obs.: Representa um dos canais de cor (RGB)
-typedef Uint8 CorPaleta;
 //Estrutura para posicionamento virtual na tela
 struct PontoVirtual
 {

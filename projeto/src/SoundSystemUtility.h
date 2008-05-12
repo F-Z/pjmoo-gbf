@@ -17,6 +17,12 @@
 
 #include "SoundSystem.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Sound {
+
 class SoundSystemUtility
 {
   protected:
@@ -26,6 +32,12 @@ class SoundSystemUtility
   private:
     static void setSoundSystem(SoundSystem * instance);
 
-  friend class SoundSystemCore;
+  friend class SoundCore;
 };
+
+} // namespace GBF::Kernel::Sound
+
+} // namespace GBF::Kernel
+
+} // namespace GBF
 #endif

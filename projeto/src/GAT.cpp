@@ -13,6 +13,8 @@
 
 #include "GAT.h"
 
+namespace GAT {
+
 //Construtor
 GAT::GAT(int argc, char * argv[]) 
 {
@@ -25,13 +27,13 @@ GAT::GAT(int argc, char * argv[])
         }
     }
 
-    frameworkGBF    = new GBF();   
-    tsGaleria       = new TopSystemGaleria();
+    frameworkGBF    = new GBF::GBFramework();
+    tsGaleria       = new RankingSystem::RSGaleria();
     uiRecordeNovo   = NULL;
     uiMenuPrincipal = NULL;
 
     tempoInativo.setTempoOriginal(0);
-    tempoInativo.setUnidade(TEMPO_SEGUNDO);
+    tempoInativo.setUnidade(GBF::Kernel::Timer::TEMPO_SEGUNDO);
     tempoInativo.setResetar();
 
     frameworkGBF->setPath(argv[0]);
@@ -59,7 +61,7 @@ bool GAT::isFullScreen()
 void GAT::executar() 
 {
     //Inicialização de classes extras 
-    TopSystemGaleria::setPathBase(frameworkGBF->getPath());
+    RankingSystem::RSGaleria::setPathBase(frameworkGBF->getPath());
 
     while(looping) {
         escutar();
@@ -126,7 +128,7 @@ bool GAT::setJogo()
 {
     bool mudou = false;
 
-    if (GATMaquinaEstadoGeral::setJogo()){
+    if (GTEstadoGeral::setJogo()){
         setJogoInicio();
         mudou=true;
     }
@@ -137,7 +139,7 @@ bool GAT::setMenu()
 {
     bool mudou = false;
 
-    if (GATMaquinaEstadoGeral::setMenu()){
+    if (GTEstadoGeral::setMenu()){
         setMenuInicio();
         mudou=true;
     }
@@ -147,10 +149,10 @@ bool GAT::setMenu()
 bool GAT::setTopGaleria() 
 {
     bool mudou = false;
-    
-    if (GATMaquinaEstadoGeral::setTopGaleria()){
-		setTopGaleriaInicio();
-		mudou=true;
+
+    if (GTEstadoGeral::setTopGaleria()){
+        setTopGaleriaInicio();
+        mudou=true;
     }
 
     return mudou;
@@ -195,3 +197,5 @@ void GAT::sair()
 {
     looping=false;
 }
+
+} // namespace GAT

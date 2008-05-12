@@ -2,7 +2,7 @@
 #define _GBF_H
 
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////    Copyright (C) 2004-2008 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -11,47 +11,49 @@
 ////
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
+////        http://pjmoo.sourceforge.net
+////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "GraphicSystemCore.h"
-#include "InputSystemCore.h"
-#include "SoundSystemCore.h"
-#include "WriteSystemManager.h"
+#include "GraphicCore.h"
+#include "InputCore.h"
+#include "SoundCore.h"
+#include "WriteManager.h"
 #include <string>
 
-#include "TimerSystemFPS.h"
-#include "UtilLog.h"
-#include "GraphicSystemImageBufferManager.h"
-#include "FrameLayerManager.h"
-#include "GraphicSystemMode.h"
-#include "UtilExtract.h"
-#include "SoundSystemInterfaceManager.h"
-#include "UserInterfaceTexto.h"
-#include "UserInterfaceWindow.h"
+#include "FPS.h"
+#include "Log.h"
+#include "ImageBufferManager.h"
+#include "LayerManager.h"
+#include "GraphicMode.h"
+#include "StringExtract.h"
+#include "SoundManagerAbstract.h"
+#include "Idioma.h"
+
+namespace GBF {
 
 //Descrição: 
 //     Classe central do framework
 //Motivação:
 //     Prover de forma unificada a inicialização e configuração básica do framework
 // 
-class GBF
+class GBFramework
 {
   public:
     //GraphicSystemCore, núcleo do sistema gráfico
-    GraphicSystemCore * graphicSystemCore;
+    GBF::Kernel::Graphic::GraphicCore * graphicSystemCore;
 
-    InputSystemCore * inputSystemCore;
+    GBF::Kernel::Input::InputCore * inputSystemCore;
 
-    SoundSystemCore * soundSystemCore;
+    GBF::Kernel::Sound::SoundCore * soundSystemCore;
 
-    WriteSystemManager * writeSystem;
+    GBF::Kernel::Write::WriteManager * writeSystem;
 
     //Destrutor
-    virtual ~GBF();
+    virtual ~GBFramework();
 
     //Construtor
-    GBF();
+    GBFramework();
 
     //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
     //desenha na tela o conteúdo do backbuffer
@@ -101,11 +103,13 @@ class GBF
 
     bool fps;
 
-    TimerSystemFPS * fpsSystem;
+    GBF::Kernel::Timer::FPS * fpsSystem;
 
     int numscreenshot;
 
     std::string pathBase;
 
 };
+
+} // namespace GBF
 #endif

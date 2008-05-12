@@ -15,18 +15,24 @@
 #ifndef _INPUTSYSTEM_H
 #define _INPUTSYSTEM_H
 
-#include "InputSystemJoystick.h"
-#include "InputSystemKeyboard.h"
-#include "InputSystemMouse.h"
+#include "Joystick.h"
+#include "Keyboard.h"
+#include "Mouse.h"
+
+namespace GBF {
+
+namespace Kernel {
+
+namespace Input {
 
 class InputSystem
 {
   public:
-    InputSystemJoystick * joystick;
+    Joystick * joystick;
 
-    InputSystemKeyboard * teclado;
+    Keyboard * teclado;
 
-    InputSystemMouse * mouse;
+    Mouse * mouse;
 
     //Destrutor
     ~InputSystem();
@@ -45,6 +51,12 @@ class InputSystem
     //Processa os eventos referentes aos mouse, teclado e joystick
     void processar();
 
-  friend class InputSystemCore;
+  friend class InputCore;
 };
+
+} // namespace GBF::Kernel::Input
+
+} // namespace GBF::Kernel
+
+} // namespace GBF
 #endif

@@ -14,6 +14,12 @@
 
 #include "FrameLayer.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Layer {
+
 //Construtor
 FrameLayer::FrameLayer() 
 {
@@ -110,7 +116,7 @@ void FrameLayer::desenhar()
     }
 }
 //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-Area FrameLayer::getArea() 
+GBF::Kernel::Graphic::Area FrameLayer::getArea() 
 {
     return screen_dimensao;
 }
@@ -283,3 +289,9 @@ void FrameLayer::showGrade()
     }
 */
 }
+
+} // namespace GBF::Grafico::Layer
+
+} // namespace GBF::Grafico
+
+} // namespace GBF

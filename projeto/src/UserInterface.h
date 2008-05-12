@@ -19,8 +19,10 @@
 #include <string>
 
 
+namespace UserInterface {
+
 //Alinhamento dos itens do menu e dos itens
-enum EnumAlinhamento {
+enum UIAlinhamento {
   CENTRO=0,
   HORIZONTAL=1,
   VERTICAL=2
@@ -44,4 +46,6 @@ struct UIFonteExtendida : public UIFonteReferencia
     Ponto posicao;
 
 };
+
+} // namespace UserInterface
 #endif

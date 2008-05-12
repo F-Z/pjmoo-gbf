@@ -14,9 +14,21 @@
 
 #include "InputSystemUtility.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Input {
+
 InputSystem * InputSystemUtility::inputSystem=NULL;
 
 void InputSystemUtility::setInputSystem(InputSystem * instance)
 {
     inputSystem=instance;
 }
+
+} // namespace GBF::Kernel::Input
+
+} // namespace GBF::Kernel
+
+} // namespace GBF

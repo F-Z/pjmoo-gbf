@@ -17,13 +17,19 @@
 
 #include "Sprite.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Sprite {
+
 class SpritePersonagem : public Sprite
 {
   public:
     //Destrutor 
     virtual ~SpritePersonagem();
 
-    void setDirecao(SpriteDirecao DIR);
+    void setDirecao(Direcao DIR);
 
     void setQtdDirecoes(int QTD);
 
@@ -32,16 +38,22 @@ class SpritePersonagem : public Sprite
     //Retorna a quantidade de direções que o personagem possui 
     int getQtdDirecoes();
 
-    SpriteDirecao getDirecao();
+    Direcao getDirecao();
 
     //Construtor
     SpritePersonagem();
 
 
   protected:
-    SpriteDirecao direcao;
+    Direcao direcao;
 
     int qtdDirecao;
 
 };
+
+} // namespace GBF::Grafico::Sprite
+
+} // namespace GBF::Grafico
+
+} // namespace GBF
 #endif
