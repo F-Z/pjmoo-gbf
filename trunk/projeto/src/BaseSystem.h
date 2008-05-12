@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
+////    Copyright (C) 2004-2008 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -8,14 +8,16 @@
 ////
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
 ////        http://pjmoo.sourceforge.net
+////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef _BASESYSTEM_H
 #define _BASESYSTEM_H
 
 #include "ObjetoBase.h"
+
+namespace GBF {
 
 class BaseSystem : public ObjetoBase
 {
@@ -25,4 +27,6 @@ class BaseSystem : public ObjetoBase
     virtual ~BaseSystem();
 
 };
+
+} // namespace GBF
 #endif

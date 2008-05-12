@@ -14,11 +14,17 @@
 
 #include "Sprite.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Sprite {
+
 //Destrutor
 Sprite::~Sprite() 
 {
 }
-void Sprite::criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GraphicSystemImageBuffer * gsiBuffer) 
+void Sprite::criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer) 
 {
     //chama o metodo criar da classe superclasse - SpriteInterface
     SpriteInterface::criar(left, top, largura, altura, gsiBuffer);
@@ -40,7 +46,7 @@ void Sprite::desenhar()
     desenhar(posicao.x,posicao.y);
 }
 //Retorna a dimensão do sprite 'width' e 'height' 
-Dimensao Sprite::getTamanho() 
+::Dimensao Sprite::getTamanho() 
 {
     Dimensao dimensao;
     dimensao.w=tamanho.w;
@@ -61,7 +67,7 @@ bool Sprite::isColisao(Sprite * spriteColisao)
     }
 }
 //Posiciona o Sprite na tela 
-void Sprite::setPosicao(Ponto ponto) 
+void Sprite::setPosicao(::Ponto ponto) 
 {
     setPosicao(ponto.x,ponto.y);
 }
@@ -79,3 +85,9 @@ Sprite::Sprite()
 
     animacao.setAutomatico(true);
 }
+
+} // namespace GBF::Grafico::Sprite
+
+} // namespace GBF::Grafico
+
+} // namespace GBF

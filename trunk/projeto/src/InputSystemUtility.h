@@ -17,6 +17,12 @@
 
 #include "InputSystem.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Input {
+
 class InputSystemUtility
 {
   protected:
@@ -26,6 +32,12 @@ class InputSystemUtility
   private:
     static void setInputSystem(InputSystem * instance);
 
-  friend class InputSystemCore;
+  friend class InputCore;
 };
+
+} // namespace GBF::Kernel::Input
+
+} // namespace GBF::Kernel
+
+} // namespace GBF
 #endif

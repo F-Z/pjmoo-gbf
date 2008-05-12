@@ -15,12 +15,18 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "GraphicSystemImageBuffer.h"
+#include "ImageBuffer.h"
 #include "GBF_define.h"
 #include "SpriteInterface.h"
 
+namespace GBF {
+
+namespace Grafico {
+
+namespace Sprite {
+
 //Definição de direções
-enum SpriteDirecao {
+enum Direcao {
   DR_CIMA,
   DR_DIREITA,
   DR_BAIXO,
@@ -31,7 +37,7 @@ enum SpriteDirecao {
   DR_CIMAESQUERDA
 };
 //Definição de Status
-struct SpriteDirecaoStatus
+struct DirecaoStatus
 {
     bool cima;
 
@@ -50,13 +56,13 @@ struct SpriteDirecaoStatus
     bool cimaEsquerda;
 
 };
-class Sprite : public SpriteInterface
+class Sprite : public GBF::Grafico::SpriteInterface
 {
   public:
     //Destrutor
     virtual ~Sprite();
 
-    void criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GraphicSystemImageBuffer * gsiBuffer);
+    void criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
 
     virtual void desenhar(int x, int y);
 
@@ -64,13 +70,13 @@ class Sprite : public SpriteInterface
     virtual void desenhar();
 
     //Retorna a dimensão do sprite 'width' e 'height' 
-    Dimensao getTamanho();
+    ::Dimensao getTamanho();
 
     //Colisão baseada no tamanho dos Sprites 
     bool isColisao(Sprite * spriteColisao);
 
     //Posiciona o Sprite na tela 
-    void setPosicao(Ponto ponto);
+    void setPosicao(::Ponto ponto);
 
     //Posiciona o Sprite na tela 
     virtual void setPosicao(int x, int y);
@@ -81,4 +87,10 @@ class Sprite : public SpriteInterface
     Sprite();
 
 };
+
+} // namespace GBF::Grafico::Sprite
+
+} // namespace GBF::Grafico
+
+} // namespace GBF
 #endif

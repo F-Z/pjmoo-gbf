@@ -14,10 +14,16 @@
 
 #include "GraphicSystem.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Graphic {
+
 GraphicSystem::GraphicSystem() 
 {
-    imageBufferManager = new GraphicSystemImageBufferManager();
-    gfx = new GraphicSystemGFX();
+    imageBufferManager = new ImageBufferManager();
+    gfx = new GFX();
 }
 GraphicSystem::~GraphicSystem() 
 {
@@ -38,3 +44,9 @@ GraphicSystem * GraphicSystem::getInstance()
 
     return instance;
 }
+
+} // namespace GBF::Kernel::Graphic
+
+} // namespace GBF::Kernel
+
+} // namespace GBF

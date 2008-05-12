@@ -18,7 +18,11 @@
 #include "SpriteItem.h"
 #include "SpritePersonagem.h"
 #include "FrameLayer.h"
-#include "GraphicSystemImageBuffer.h"
+#include "ImageBuffer.h"
+
+namespace GBF {
+
+namespace Grafico {
 
 class SpriteFactory
 {
@@ -26,18 +30,22 @@ class SpriteFactory
     //Destrutor
     virtual ~SpriteFactory();
 
-    SpriteItem * criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+    GBF::Grafico::Sprite::SpriteItem * criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-    SpritePersonagem * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+    GBF::Grafico::Sprite::SpritePersonagem * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-    FrameLayer * criarFrameLayer(int left, int top, int largura, int altura);
+    GBF::Grafico::Layer::FrameLayer * criarFrameLayer(int left, int top, int largura, int altura);
 
     //Construtor
-    SpriteFactory(GraphicSystemImageBuffer * gsiBuffer);
+    SpriteFactory(GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
 
 
   protected:
-    GraphicSystemImageBuffer * gsiBuffer;
+    GBF::Kernel::Graphic::ImageBuffer * gsiBuffer;
 
 };
+
+} // namespace GBF::Grafico
+
+} // namespace GBF
 #endif

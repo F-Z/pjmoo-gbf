@@ -16,17 +16,23 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include "SpriteInterface.h"
-#include "FrameLayerCamera.h"
-#include "GraphicSystemImage.h"
+#include "LayerCamera.h"
+#include "ImageBase.h"
 #include <string>
 
-#include "FrameLayerMundo.h"
+#include "LayerMundo.h"
+
+namespace GBF {
+
+namespace Grafico {
+
+namespace Layer {
 
 //Classe para Desenho de TileMaps
-class FrameLayer : public SpriteInterface
+class FrameLayer : public GBF::Grafico::SpriteInterface
 {
   public:
-    FrameLayerCamera camera;
+    LayerCamera camera;
 
     //Construtor
     FrameLayer();
@@ -38,7 +44,7 @@ class FrameLayer : public SpriteInterface
     void desenhar();
 
     //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-    Area getArea();
+    GBF::Kernel::Graphic::Area getArea();
 
     //Distancia restante para finalizar Scrolling Vertical
     int getDistanciaScrollVertical();
@@ -80,10 +86,16 @@ class FrameLayer : public SpriteInterface
   protected:
     int * mapa;
 
-    FrameLayerMundo mundo;
+    LayerMundo mundo;
 
-    Area screen_dimensao;
+    GBF::Kernel::Graphic::Area screen_dimensao;
 
-  friend class FrameLayerManager;
+  friend class LayerManager;
 };
+
+} // namespace GBF::Grafico::Layer
+
+} // namespace GBF::Grafico
+
+} // namespace GBF
 #endif

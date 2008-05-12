@@ -14,9 +14,21 @@
 
 #include "SoundSystemUtility.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Sound {
+
 SoundSystem * SoundSystemUtility::soundSystem=NULL;
 
 void SoundSystemUtility::setSoundSystem(SoundSystem * instance)
 {
     soundSystem=instance;
 }
+
+} // namespace GBF::Kernel::Sound
+
+} // namespace GBF::Kernel
+
+} // namespace GBF

@@ -15,15 +15,21 @@
 #ifndef _GRAPHICSYSTEM_H
 #define _GRAPHICSYSTEM_H
 
-#include "GraphicSystemImageBufferManager.h"
-#include "GraphicSystemGFX.h"
+#include "ImageBufferManager.h"
+#include "GFX.h"
+
+namespace GBF {
+
+namespace Kernel {
+
+namespace Graphic {
 
 class GraphicSystem
 {
   public:
-    GraphicSystemImageBufferManager * imageBufferManager;
+    ImageBufferManager * imageBufferManager;
 
-    GraphicSystemGFX * gfx;
+    GFX * gfx;
 
 
   protected:
@@ -42,4 +48,10 @@ class GraphicSystem
     static GraphicSystem * getInstance();
 
 };
+
+} // namespace GBF::Kernel::Graphic
+
+} // namespace GBF::Kernel
+
+} // namespace GBF
 #endif

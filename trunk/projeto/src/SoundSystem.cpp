@@ -14,6 +14,12 @@
 
 #include "SoundSystem.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Sound {
+
 //Destrutor
 SoundSystem::~SoundSystem() 
 {
@@ -35,8 +41,14 @@ SoundSystem * SoundSystem::getInstance()
 }
 SoundSystem::SoundSystem() 
 {
-    musicManager = new SoundSystemMusicManager();
-    fxManager    = new SoundSystemFxManager();
+    musicManager = new MusicManager();
+    fxManager    = new FXManager();
 }
 SoundSystem * SoundSystem::instance;
 
+
+} // namespace GBF::Kernel::Sound
+
+} // namespace GBF::Kernel
+
+} // namespace GBF

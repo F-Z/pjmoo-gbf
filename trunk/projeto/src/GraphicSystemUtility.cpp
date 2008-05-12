@@ -14,9 +14,21 @@
 
 #include "GraphicSystemUtility.h"
 
+namespace GBF {
+
+namespace Kernel {
+
+namespace Graphic {
+
 GraphicSystem * GraphicSystemUtility::graphicSystem=NULL;
 
 void GraphicSystemUtility::setGraphicSystem(GraphicSystem * instance)
 {
     graphicSystem = instance;
 }
+
+} // namespace GBF::Kernel::Graphic
+
+} // namespace GBF::Kernel
+
+} // namespace GBF

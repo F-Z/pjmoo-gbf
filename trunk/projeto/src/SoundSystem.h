@@ -15,8 +15,14 @@
 #ifndef _SOUNDSYSTEM_H
 #define _SOUNDSYSTEM_H
 
-#include "SoundSystemFxManager.h"
-#include "SoundSystemMusicManager.h"
+#include "FXManager.h"
+#include "MusicManager.h"
+
+namespace GBF {
+
+namespace Kernel {
+
+namespace Sound {
 
 class SoundSystem
 {
@@ -33,7 +39,7 @@ class SoundSystem
 
 
   public:
-    SoundSystemFxManager * fxManager;
+    FXManager * fxManager;
 
 
   protected:
@@ -41,8 +47,14 @@ class SoundSystem
 
 
   public:
-    SoundSystemMusicManager * musicManager;
+    MusicManager * musicManager;
 
-  friend class SoundSystemCore;
+  friend class SoundCore;
 };
+
+} // namespace GBF::Kernel::Sound
+
+} // namespace GBF::Kernel
+
+} // namespace GBF
 #endif
