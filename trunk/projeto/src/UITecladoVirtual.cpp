@@ -60,15 +60,15 @@ void UITecladoVirtual::desenharBackground()
 
     int letra=0;
 
-    Ponto tecla;
+    GBF::Ponto tecla;
     tecla.x=posicao.x + (fonteTeclado.dimensao.w/4);
     tecla.y=posicao.y;
 
-    Ponto cursor;
+    GBF::Ponto cursor;
     cursor.x=posicao.x + (fonteTeclado.dimensao.w * 0.2);
     cursor.y=posicao.y + (fonteTeclado.dimensao.h * 0.1);
 
-    Dimensao cursorDimensao;
+    GBF::Dimensao cursorDimensao;
     cursorDimensao.w=fonteTeclado.dimensao.w;
     cursorDimensao.h=fonteTeclado.dimensao.h;
 
@@ -94,18 +94,18 @@ void UITecladoVirtual::desenharConteudo()
 {
     graphicSystem->gfx->setColor(corCursor.r,corCursor.g,corCursor.b);
 
-    Ponto tecla;
+    GBF::Ponto tecla;
     tecla.x=posicao.x + (fonteTeclado.dimensao.w/4);
     tecla.y=posicao.y;
 
     tecla.x=posicao.x + (10 * (fonteTeclado.dimensao.w + fonteTeclado.dimensao.w*0.3));
     tecla.y=posicao.y + dimensao.h - (getTotalControle() * fonteControle.dimensao.h);
 
-    Ponto cursor;
+    GBF::Ponto cursor;
     cursor.x=tecla.x - int(fonteControle.dimensao.w*0.25);
     cursor.y=tecla.y;
 
-    Dimensao cursorDimensao;
+    GBF::Dimensao cursorDimensao;
     cursorDimensao.w=getTamanhoControle() + (fonteControle.dimensao.w*0.5);
     cursorDimensao.h=fonteControle.dimensao.h;
 
@@ -132,7 +132,7 @@ void UITecladoVirtual::atualizar()
     }
 
     if (visual!=NULL){
-        Dimensao d  = dimensao;
+        GBF::Dimensao d  = dimensao;
         d.w=dimensao.w+getTamanhoControle()+(fonteTeclado.dimensao.w);
 
         visual->aplicar(posicao,d);
@@ -183,10 +183,6 @@ void UITecladoVirtual::setCaracter(std::string caracteres)
 void UITecladoVirtual::setControle(int index, std::string texto) 
 {
     controle[index]=texto;
-}
-Dimensao UITecladoVirtual::getDimensao() 
-{
-    return dimensao;
 }
 char UITecladoVirtual::getCaracter() 
 {

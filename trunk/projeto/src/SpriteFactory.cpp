@@ -16,39 +16,41 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
+//Construtor
+SpriteFactory::SpriteFactory(std::string nomeImageBuffer) 
+{
+    GBF::Kernel::Graphic::GraphicSystem  *graphicSystem = GBF::Kernel::Graphic::GraphicSystem::getInstance();
+
+    imageBuffer=graphicSystem->imageBufferManager->getImageBuffer(nomeImageBuffer);
+}
 //Destrutor
 SpriteFactory::~SpriteFactory() 
 {
 }
-GBF::Grafico::Sprite::SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
+GBF::Imagem::Sprite::SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
 {
     Sprite::SpriteItem *sprite = new Sprite::SpriteItem();
-    sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
+    sprite->criar(left,top,largura,altura,frameTotal,frameRate,imageBuffer);
 
     return sprite;
 }
-GBF::Grafico::Sprite::SpritePersonagem * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
+GBF::Imagem::Sprite::SpritePersonagem * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate) 
 {
     Sprite::SpritePersonagem *sprite = new Sprite::SpritePersonagem();
-    sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
+    sprite->criar(left,top,largura,altura,frameTotal,frameRate,imageBuffer);
 
     return sprite;
 }
-GBF::Grafico::Layer::FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura) 
+GBF::Imagem::Layer::FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura) 
 {
     Layer::FrameLayer *sprite = new Layer::FrameLayer();
-    sprite->criar(left,top,largura,altura,gsiBuffer);
+    sprite->criar(left,top,largura,altura,imageBuffer);
 
     return sprite;
 }
-//Construtor
-SpriteFactory::SpriteFactory(GBF::Kernel::Graphic::ImageBuffer * gsiBuffer) 
-{
-    SpriteFactory::gsiBuffer=gsiBuffer;
-}
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

@@ -15,11 +15,11 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Layer {
 
@@ -29,19 +29,19 @@ class LayerMundo
     //Destrutor
     virtual ~LayerMundo();
 
-    ::Dimensao getPixelTile();
+    GBF::Dimensao getPixelTile();
 
     int getPixelTileHorizontal();
 
     int getPixelTileVertical();
 
-    ::Dimensao getPixelVisivel();
+    GBF::Dimensao getPixelVisivel();
 
     int getPixelVisivelHorizontal();
 
     int getPixelVisivelVertical();
 
-    ::Dimensao getTiles();
+    GBF::Dimensao getTiles();
 
     int getTilesHorizontal();
 
@@ -55,11 +55,11 @@ class LayerMundo
 
 
   private:
-    ::Dimensao areaVisivel;
+    GBF::Dimensao areaVisivel;
 
-    ::Dimensao quantidadeTiles;
+    GBF::Dimensao quantidadeTiles;
 
-    ::Dimensao tile;
+    GBF::Dimensao tile;
 
     //Construtor
     LayerMundo();
@@ -67,9 +67,9 @@ class LayerMundo
   friend class FrameLayer;
 };
 
-} // namespace GBF::Grafico::Layer
+} // namespace GBF::Imagem::Layer
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF
 #endif

@@ -17,7 +17,7 @@
 
 #include <string>
 
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace UserInterface {
 
@@ -65,9 +65,9 @@ class UITexto
 
     std::string getChaveTexto();
 
-    void setDimensaoLetra(const Dimensao & dimensao);
+    void setDimensaoLetra(const GBF::Dimensao & dimensao);
 
-    Dimensao getDimensaoLetra();
+    GBF::Dimensao getDimensaoLetra();
 
     //Informa o Estilo de entrelinhas a ser utilizado
     void setEntreLinha(float estiloEntreLinhas);
@@ -83,9 +83,9 @@ class UITexto
 
 
   protected:
-    Dimensao dimensaoLetra;
-
     UITextoAlinhamento alinhamento;
+
+    GBF::Dimensao dimensaoLetra;
 
 };
 

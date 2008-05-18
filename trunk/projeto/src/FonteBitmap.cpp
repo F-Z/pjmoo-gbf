@@ -77,7 +77,7 @@ int FonteBitmap::getAltura()
     return dimensaoPadrao.h;
 }
 //Retorna a dimensão (altura e largura) padrão
-::Dimensao FonteBitmap::getDimensao() 
+GBF::Dimensao FonteBitmap::getDimensao() 
 {
     return dimensaoPadrao;
 }

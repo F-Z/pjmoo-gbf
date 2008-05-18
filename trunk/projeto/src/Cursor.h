@@ -18,7 +18,7 @@
 #include "ImageBase.h"
 #include <string>
 
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace GBF {
 
@@ -49,7 +49,7 @@ class Cursor : public GBF::Kernel::Graphic::ImageBase {
     //Construtor
     Cursor();
 
-    ::Ponto ponto;
+    GBF::Ponto ponto;
 
   friend class Mouse;
 };

@@ -54,7 +54,7 @@ bool ImageBuffer::carregarArquivo(std::string arquivo)
     }
 }
 //Desenha um sprite simples na tela 
-void ImageBuffer::desenhar(::Ponto POSICAO) 
+void ImageBuffer::desenhar(GBF::Ponto POSICAO) 
 {
     SDL_Rect rect,pos;
 

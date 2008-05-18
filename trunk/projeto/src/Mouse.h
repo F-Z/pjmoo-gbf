@@ -15,7 +15,7 @@
 #ifndef _MOUSE_H
 #define _MOUSE_H
 
-#include "GBF_define.h"
+#include "GBF.h"
 #include <string>
 
 #include "Cursor.h"
@@ -53,7 +53,7 @@ class Mouse {
     int getY();
 
     //Retorna a posição do mouse
-    ::Ponto getPosicao();
+    GBF::Ponto getPosicao();
 
     //Carrega o curso do mouse do arquivo
     void carregarArquivo(std::string arquivo);
@@ -91,7 +91,7 @@ class Mouse {
     //Processa os eventos do mouse
     void processar();
 
-    ::Ponto ponto;
+    GBF::Ponto ponto;
 
     Uint8 botao;
 

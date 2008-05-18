@@ -15,7 +15,7 @@
 #ifndef _PSEFEITOESFERICO_H
 #define _PSEFEITOESFERICO_H
 
-#include "GBF_define.h"
+#include "GBF.h"
 #include "PSPixel.h"
 
 namespace ParticleSystem {
@@ -39,7 +39,7 @@ class PSEfeitoEsferico : public PSPixel {
   protected:
     int raio;
 
-    ::Ponto origem;
+    GBF::Ponto origem;
 
 };
 

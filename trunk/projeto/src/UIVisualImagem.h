@@ -16,7 +16,7 @@
 #define _UIVISUALIMAGEM_H
 
 #include "UIVisual.h"
-#include "GBF_define.h"
+#include "GBF.h"
 #include "FrameLayer.h"
 #include "SpriteFactory.h"
 
@@ -43,7 +43,7 @@ class UIVisualImagem : public UIVisual
     virtual ~UIVisualImagem();
 
     //Aplica o efeito visual
-    virtual void aplicar(const Ponto & posicao, const Dimensao & dimensao);
+    virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
 
     //Desenha o EstiloVisual do Componente
     virtual void desenhar();
@@ -56,7 +56,7 @@ class UIVisualImagem : public UIVisual
 
 
   protected:
-    GBF::Grafico::Layer::FrameLayer * background;
+    GBF::Imagem::Layer::FrameLayer * background;
 
     UIBackground tipoBackground;
 

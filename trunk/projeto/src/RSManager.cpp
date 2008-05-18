@@ -12,38 +12,38 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "RSGaleria.h"
+#include "RSManager.h"
 
 namespace RankingSystem {
 
-const int RSGaleria::assCheckSize;
+const int RSManager::assCheckSize;
 
-int RSGaleria::assCheck[assCheckSize]={'N'+'a'+'o'+'E'+'V'+'a'+'l'+'i'+'d'+'o','N'+'E'+'V','0'+'.'+'0'};
+int RSManager::assCheck[assCheckSize]={'N'+'a'+'o'+'E'+'V'+'a'+'l'+'i'+'d'+'o','N'+'E'+'V','0'+'.'+'0'};
 
-std::string RSGaleria::pathBase;
+std::string RSManager::pathBase;
 
 //Construtor
-RSGaleria::RSGaleria() 
+RSManager::RSManager() 
 {
 //não implementado
 }
 //Destrutor
-RSGaleria::~RSGaleria() 
+RSManager::~RSManager() 
 {
 //não implementado
 }
 //Adiciona um recorde
-bool RSGaleria::adicionar(RSRecorde recorde) 
+bool RSManager::adicionar(RSRecorde recorde) 
 {
     return lista.adicionar(recorde);
 }
 //Retorna um recorde com base no indice
-RSRecorde RSGaleria::getRecorde(int indice) 
+RSRecorde RSManager::getRecorde(int indice) 
 {
     return lista.getRecorde(indice);
 }
 //Salva recordes em arquivo
-bool RSGaleria::salvar() 
+bool RSManager::salvar() 
 {
     FILE *handleArquivo;
     bool retorno = false;
@@ -69,7 +69,7 @@ bool RSGaleria::salvar()
     return retorno;
 }
 //Carrega recordes de um arquivo
-bool RSGaleria::carregar() 
+bool RSManager::carregar() 
 {
     FILE *handleArquivo;
     bool retorno = false;
@@ -108,25 +108,25 @@ bool RSGaleria::carregar()
     return retorno;
 }
 //Adiciona uma lista de recordes
-void RSGaleria::setRecordeLista(RSLista lista) 
+void RSManager::setRecordeLista(RSLista lista) 
 {
     this->lista=lista;
 }
 //Informa o arquivo para carregar e salvar os recordes
-void RSGaleria::setArquivo(std::string arquivo) 
+void RSManager::setArquivo(std::string arquivo) 
 {
     this->arquivo=pathBase;
     this->arquivo+=arquivo;
 }
 //Configura o caminho do arquivo de recordes
-void RSGaleria::setPathBase(std::string path)
+void RSManager::setPathBase(std::string path)
 
 {
       pathBase=path;
 }
 
 //Configura a assinatura do arquivo de recordes
-void RSGaleria::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao) 
+void RSManager::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao) 
 {
 
     assCheck[0]=jogoNome;
@@ -134,7 +134,7 @@ void RSGaleria::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao)
     assCheck[2]=jogoVersao;
 }
 //Verificar se um recorde já existe
-bool RSGaleria::pesquisar(RSRecorde pesquisa) 
+bool RSManager::pesquisar(RSRecorde pesquisa) 
 {
     return lista.pesquisar(pesquisa);
 }

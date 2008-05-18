@@ -17,10 +17,10 @@
 
 #include <string>
 
+#include "Idioma.h"
 #include "FonteBitmap.h"
 #include <map>
 
-#include "Idioma.h"
 #include "BaseManager.h"
 
 namespace GBF {
@@ -38,6 +38,8 @@ class WriteManager : public GBF::BaseManager
   public:
     //Constante para representar a fonte padrão do GBF
     static const std::string defaultFont;
+
+    Idioma * idioma;
 
     //Destrutor
     virtual ~WriteManager();
@@ -80,10 +82,6 @@ class WriteManager : public GBF::BaseManager
 
   protected:
     static WriteManager * instance;
-
-
-  public:
-    Idioma * uiTexto;
 
 };
 

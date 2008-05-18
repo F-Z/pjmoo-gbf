@@ -20,7 +20,6 @@
 
 #include "UserInterface.h"
 #include "UIVisual.h"
-#include "GBF_define.h"
 #include "GraphicSystemUtility.h"
 #include "UIComponente.h"
 #include "InputSystemUtility.h"
@@ -80,8 +79,6 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
     void setCaracter(std::string caracteres);
 
     void setControle(int index, std::string texto);
-
-    Dimensao getDimensao();
 
     char getCaracter();
 

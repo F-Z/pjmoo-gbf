@@ -27,18 +27,6 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Definição de area
-struct Area
-{
-    int top;
-
-    int left;
-
-    int bottom;
-
-    int right;
-
-};
 class ImageBase
 {
   public:

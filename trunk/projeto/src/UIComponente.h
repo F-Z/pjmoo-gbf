@@ -17,7 +17,7 @@
 
 #include "Idioma.h"
 #include "WriteManager.h"
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace UserInterface {
 
@@ -34,16 +34,12 @@ class UIComponente
 
     static GBF::Kernel::Write::WriteManager * wsManager;
 
-    Ponto posicao;
-
-    Dimensao dimensao;
-
 
   public:
     //Posicao do Componente na Tela
     virtual void setPosicao(int x, int y);
 
-    ::Dimensao getDimensao();
+    GBF::Dimensao getDimensao();
 
     //Executa o componente (atualizando,desenhando)
     virtual void executar();
@@ -55,6 +51,10 @@ class UIComponente
 
     //atualiza as informações do componente (posicao, dimensao, estado)
     virtual void atualizar();
+
+    GBF::Ponto posicao;
+
+    GBF::Dimensao dimensao;
 
 };
 

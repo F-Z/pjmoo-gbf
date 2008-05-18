@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Layer {
 
@@ -116,7 +116,7 @@ void FrameLayer::desenhar()
     }
 }
 //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-GBF::Kernel::Graphic::Area FrameLayer::getArea() 
+GBF::Area FrameLayer::getArea() 
 {
     return screen_dimensao;
 }
@@ -290,8 +290,8 @@ void FrameLayer::showGrade()
 */
 }
 
-} // namespace GBF::Grafico::Layer
+} // namespace GBF::Imagem::Layer
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

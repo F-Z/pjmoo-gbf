@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Sprite {
 
@@ -42,8 +42,8 @@ void SpriteItem::setFrame(int quadro)
     animacao.setFrame(quadro);
 }
 
-} // namespace GBF::Grafico::Sprite
+} // namespace GBF::Imagem::Sprite
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

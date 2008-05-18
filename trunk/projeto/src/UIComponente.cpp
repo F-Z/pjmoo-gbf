@@ -39,7 +39,7 @@ void UIComponente::setPosicao(int x, int y)
     posicao.x=x;
     posicao.y=y;
 }
-::Dimensao UIComponente::getDimensao() 
+GBF::Dimensao UIComponente::getDimensao() 
 {
     return dimensao;
 }

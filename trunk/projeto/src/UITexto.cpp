@@ -57,12 +57,12 @@ std::string UITexto::getChaveTexto()
 {
     return chaveTexto;
 }
-void UITexto::setDimensaoLetra(const Dimensao & dimensao) 
+void UITexto::setDimensaoLetra(const GBF::Dimensao & dimensao) 
 {
     dimensaoLetra=dimensao;
     espacoEntreLinhas=int(dimensaoLetra.w*entreLinhas);
 }
-Dimensao UITexto::getDimensaoLetra() 
+GBF::Dimensao UITexto::getDimensaoLetra() 
 {
     return dimensaoLetra;
 }

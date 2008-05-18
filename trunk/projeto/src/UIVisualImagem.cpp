@@ -23,7 +23,7 @@ UIVisualImagem::UIVisualImagem()
 {
     tipoBackground=BACKGROUND_LINES;
 
-    GBF::Grafico::SpriteFactory *spriteFactory = new GBF::Grafico::SpriteFactory(graphicSystem->imageBufferManager->getImageBuffer("gbf-window-background"));
+    GBF::Imagem::SpriteFactory *spriteFactory = new GBF::Imagem::SpriteFactory("gbf-window-background");
     background = spriteFactory->criarFrameLayer(0,0,10,10);
 
     delete(spriteFactory);
@@ -36,7 +36,7 @@ UIVisualImagem::~UIVisualImagem()
     }
 }
 //Aplica o efeito visual
-void UIVisualImagem::aplicar(const Ponto & posicao, const Dimensao & dimensao) 
+void UIVisualImagem::aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao) 
 {
     UIVisual::aplicar(posicao,dimensao);
 

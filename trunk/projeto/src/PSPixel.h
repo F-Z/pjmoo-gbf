@@ -15,7 +15,7 @@
 #ifndef _PSPIXEL_H
 #define _PSPIXEL_H
 
-#include "GBF_define.h"
+#include "GBF.h"
 #include "Cor.h"
 #include "PSEfeito.h"
 #include <deque>
@@ -28,9 +28,9 @@ namespace ParticleSystem {
 //    Permitir representar uma unidade com caracteristicas e ciclo de vida próprios
 struct Particula
 {
-    ::PontoVirtual velocidade;
+    GBF::PontoVirtual velocidade;
 
-    ::PontoVirtual posicao;
+    GBF::PontoVirtual posicao;
 
     int energia;
 

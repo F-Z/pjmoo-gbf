@@ -18,9 +18,9 @@
 #include "GTTopGaleria.h"
 #include "GTMenu.h"
 #include "GTJogo.h"
-#include "GBF.h"
+#include "GBFramework.h"
 #include "UIWindowRecorde.h"
-#include "RSGaleria.h"
+#include "RSManager.h"
 #include "UIMenuAbstract.h"
 #include "CronometroCrescente.h"
 
@@ -33,7 +33,7 @@ class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJ
 
     UserInterface::Window::UIWindowRecorde * uiRecordeNovo;
 
-    RankingSystem::RSGaleria * tsGaleria;
+    RankingSystem::RSManager * recordeManager;
 
     UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
 

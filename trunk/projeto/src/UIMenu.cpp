@@ -29,13 +29,13 @@ UIMenu::~UIMenu()
 void UIMenu::desenhar() 
 {
     if (!item.empty()){
-        Dimensao dimensao = item[0]->getDimensaoLetra();
+        GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
         int offsetY=(dimensao.w/4);
         int totalVertical   = (int(item.size()) * espacoVertical)+offsetY;
         int totalHorizontal = (maiorPalavra+2) * dimensao.w;
         int meioHorizontal  = totalHorizontal/2;
 
-        Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
+        GBF::Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
 
         graphicSystem->gfx->setColor(corFundo.r,corFundo.g,corFundo.b);
         graphicSystem->gfx->retanguloPreenchido(t.x,t.y,totalHorizontal,totalVertical);

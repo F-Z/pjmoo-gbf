@@ -16,12 +16,12 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include "ImageBuffer.h"
-#include "GBF_define.h"
+#include "GBF.h"
 #include "SpriteInterface.h"
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Sprite {
 
@@ -56,7 +56,7 @@ struct DirecaoStatus
     bool cimaEsquerda;
 
 };
-class Sprite : public GBF::Grafico::SpriteInterface
+class Sprite : public GBF::Imagem::SpriteInterface
 {
   public:
     //Destrutor
@@ -70,13 +70,13 @@ class Sprite : public GBF::Grafico::SpriteInterface
     virtual void desenhar();
 
     //Retorna a dimensão do sprite 'width' e 'height' 
-    ::Dimensao getTamanho();
+    GBF::Dimensao getTamanho();
 
     //Colisão baseada no tamanho dos Sprites 
     bool isColisao(Sprite * spriteColisao);
 
     //Posiciona o Sprite na tela 
-    void setPosicao(::Ponto ponto);
+    void setPosicao(GBF::Ponto ponto);
 
     //Posiciona o Sprite na tela 
     virtual void setPosicao(int x, int y);
@@ -88,9 +88,9 @@ class Sprite : public GBF::Grafico::SpriteInterface
 
 };
 
-} // namespace GBF::Grafico::Sprite
+} // namespace GBF::Imagem::Sprite
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF
 #endif

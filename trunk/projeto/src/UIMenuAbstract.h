@@ -15,7 +15,7 @@
 #ifndef _UIMENUABSTRACT_H
 #define _UIMENUABSTRACT_H
 
-#include "GBF_define.h"
+#include "GBF.h"
 #include <deque>
 #include "UIItemAbstract.h"
 #include "CronometroDecrescente.h"
@@ -34,11 +34,11 @@ namespace Menu {
 class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 {
   protected:
-    ::Ponto posicao;
-
     int itemSelecionado;
 
     int espacoVertical;
+
+    GBF::Ponto posicao;
 
     std::deque<UIItemAbstract *> item;
 
@@ -76,7 +76,7 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
 
   protected:
-    Ponto calcularAlinhamento(int caixaLargura, int caixaAltura);
+    GBF::Ponto calcularAlinhamento(int caixaLargura, int caixaAltura);
 
     //desenha o menu na tela
     virtual void desenhar() = 0;

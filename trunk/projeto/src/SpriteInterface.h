@@ -23,7 +23,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 class SpriteInterface : public GBF::ObjetoBase
 {
@@ -46,11 +46,11 @@ class SpriteInterface : public GBF::ObjetoBase
 
 
   public:
-    GBF::Grafico::Sprite::Animacao animacao;
+    GBF::Imagem::Sprite::Animacao animacao;
 
 };
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF
 #endif

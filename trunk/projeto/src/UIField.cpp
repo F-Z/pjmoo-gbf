@@ -107,9 +107,9 @@ void UIField::atualizar()
     cursor.posicao.y=fonteCampo.posicao.y+fonteCampo.dimensao.h;
 
     if (visual!=NULL){
-        Dimensao d  = dimensao;
+        GBF::Dimensao d  = dimensao;
 
-        Ponto  p  = posicao;
+        GBF::Ponto  p  = posicao;
                p.y= fonteLabel.posicao.y+(fonteLabel.dimensao.h*1.2)-1;
 
         visual->aplicar(p,dimensao);

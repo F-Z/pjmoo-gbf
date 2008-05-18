@@ -107,9 +107,9 @@
 		<Unit filename="src/FrameLayer.h" />
 		<Unit filename="src/GAT.cpp" />
 		<Unit filename="src/GAT.h" />
-		<Unit filename="src/GBF.cpp" />
 		<Unit filename="src/GBF.h" />
-		<Unit filename="src/GBF_define.h" />
+		<Unit filename="src/GBFramework.cpp" />
+		<Unit filename="src/GBFramework.h" />
 		<Unit filename="src/GFX.cpp" />
 		<Unit filename="src/GFX.h" />
 		<Unit filename="src/GTEstadoGeral.cpp" />
@@ -180,10 +180,10 @@
 		<Unit filename="src/PSSprite.h" />
 		<Unit filename="src/Personagem.cpp" />
 		<Unit filename="src/Personagem.h" />
-		<Unit filename="src/RSGaleria.cpp" />
-		<Unit filename="src/RSGaleria.h" />
 		<Unit filename="src/RSLista.cpp" />
 		<Unit filename="src/RSLista.h" />
+		<Unit filename="src/RSManager.cpp" />
+		<Unit filename="src/RSManager.h" />
 		<Unit filename="src/RSRecorde.cpp" />
 		<Unit filename="src/RSRecorde.h" />
 		<Unit filename="src/Screen.cpp" />

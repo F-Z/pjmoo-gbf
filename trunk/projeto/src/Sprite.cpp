@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Sprite {
 
@@ -46,7 +46,7 @@ void Sprite::desenhar()
     desenhar(posicao.x,posicao.y);
 }
 //Retorna a dimensão do sprite 'width' e 'height' 
-::Dimensao Sprite::getTamanho() 
+GBF::Dimensao Sprite::getTamanho() 
 {
     Dimensao dimensao;
     dimensao.w=tamanho.w;
@@ -67,7 +67,7 @@ bool Sprite::isColisao(Sprite * spriteColisao)
     }
 }
 //Posiciona o Sprite na tela 
-void Sprite::setPosicao(::Ponto ponto) 
+void Sprite::setPosicao(GBF::Ponto ponto) 
 {
     setPosicao(ponto.x,ponto.y);
 }
@@ -86,8 +86,8 @@ Sprite::Sprite()
     animacao.setAutomatico(true);
 }
 
-} // namespace GBF::Grafico::Sprite
+} // namespace GBF::Imagem::Sprite
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

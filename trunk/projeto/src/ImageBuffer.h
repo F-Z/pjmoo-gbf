@@ -18,7 +18,7 @@
 #include "ImageBase.h"
 #include <string>
 
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace GBF {
 
@@ -38,7 +38,7 @@ class ImageBuffer : public ImageBase
     virtual bool carregarArquivo(std::string arquivo);
 
     //Desenha um sprite simples na tela 
-    void desenhar(::Ponto POSICAO);
+    void desenhar(GBF::Ponto POSICAO);
 
     //Permite desenhar sprites animados  
     void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME);
