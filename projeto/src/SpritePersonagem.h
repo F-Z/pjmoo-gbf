@@ -19,7 +19,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Sprite {
 
@@ -51,9 +51,9 @@ class SpritePersonagem : public Sprite
 
 };
 
-} // namespace GBF::Grafico::Sprite
+} // namespace GBF::Imagem::Sprite
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF
 #endif

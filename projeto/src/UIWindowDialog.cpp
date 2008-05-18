@@ -114,8 +114,8 @@ void UIWindowDialog::atualizar()
     tempoEspera.processar();
 
     if (botao!=NULL){
-        Ponto pontoAux = posicao;
-        Dimensao d= botao->getDimensao();
+        GBF::Ponto pontoAux = posicao;
+        GBF::Dimensao d= botao->getDimensao();
         pontoAux.x = (posicao.x+dimensao.w)-d.w;
         pontoAux.y = (posicao.y+dimensao.h)-d.h;
         botao->setPosicao(pontoAux.x,pontoAux.y);

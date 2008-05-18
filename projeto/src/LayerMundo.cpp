@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Layer {
 
@@ -24,7 +24,7 @@ namespace Layer {
 LayerMundo::~LayerMundo() 
 {
 }
-::Dimensao LayerMundo::getPixelTile() 
+GBF::Dimensao LayerMundo::getPixelTile() 
 {
     return tile;
 }
@@ -36,7 +36,7 @@ int LayerMundo::getPixelTileVertical()
 {
     return tile.h;
 }
-::Dimensao LayerMundo::getPixelVisivel() 
+GBF::Dimensao LayerMundo::getPixelVisivel() 
 {
     return areaVisivel;
 }
@@ -48,7 +48,7 @@ int LayerMundo::getPixelVisivelVertical()
 {
     return areaVisivel.h;
 }
-::Dimensao LayerMundo::getTiles() 
+GBF::Dimensao LayerMundo::getTiles() 
 {
     return quantidadeTiles;
 }
@@ -80,8 +80,8 @@ LayerMundo::LayerMundo()
 {
 }
 
-} // namespace GBF::Grafico::Layer
+} // namespace GBF::Imagem::Layer
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

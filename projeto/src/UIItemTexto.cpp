@@ -50,9 +50,9 @@ void UIItemTexto::desenhar(int x, int y)
 int UIItemTexto::getQuantidadeLetras() 
 {
 //    return strlen(wsManager->uiTexto->getTexto(fonteTexto).c_str());
-    return wsManager->uiTexto->getTexto(texto).length();
+    return wsManager->idioma->getTexto(texto).length();
 }
-::Dimensao UIItemTexto::getDimensaoLetra() 
+GBF::Dimensao UIItemTexto::getDimensaoLetra() 
 {
     return wsManager->getFonte(fonteTexto)->getDimensao();
 }

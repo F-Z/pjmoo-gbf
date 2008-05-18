@@ -111,9 +111,9 @@ int UIMenuAbstract::confirmarSelecao()
 
     return selecionado;
 }
-Ponto UIMenuAbstract::calcularAlinhamento(int caixaLargura, int caixaAltura) 
+GBF::Ponto UIMenuAbstract::calcularAlinhamento(int caixaLargura, int caixaAltura) 
 {
-    Ponto ponto;
+    GBF::Ponto ponto;
     
     switch (eAlinhamento)
     {

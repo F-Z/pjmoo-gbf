@@ -15,7 +15,7 @@
 #ifndef _USERINTERFACE_H
 #define _USERINTERFACE_H
 
-#include "GBF_define.h"
+#include "GBF.h"
 #include <string>
 
 
@@ -31,19 +31,19 @@ struct UICursor
 {
     bool show;
 
-    Ponto posicao;
+    GBF::Ponto posicao;
 
 };
 struct UIFonteReferencia
 {
     std::string nome;
 
-    Dimensao dimensao;
+    GBF::Dimensao dimensao;
 
 };
 struct UIFonteExtendida : public UIFonteReferencia
 {
-    Ponto posicao;
+    GBF::Ponto posicao;
 
 };
 

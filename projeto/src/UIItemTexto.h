@@ -19,7 +19,7 @@
 
 #include "CronometroCrescente.h"
 #include "WriteManager.h"
-#include "GBF_define.h"
+#include "GBF.h"
 #include "UIItemAbstract.h"
 
 namespace UserInterface {
@@ -51,7 +51,7 @@ class UIItemTexto : public UIItemAbstract
 
     virtual int getQuantidadeLetras();
 
-    virtual ::Dimensao getDimensaoLetra();
+    virtual GBF::Dimensao getDimensaoLetra();
 
 };
 

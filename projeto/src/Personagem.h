@@ -20,7 +20,7 @@
 #include <string>
 
 #include "SpritePersonagem.h"
-#include "GBF_define.h"
+#include "GBF.h"
 #include "InputSystem.h"
 #include "ObjetoBase.h"
 
@@ -55,17 +55,17 @@ class Personagem : public GBF::ObjetoBase
 
     unsigned int ID;
 
-    std::map<std::string,GBF::Grafico::Sprite::SpritePersonagem*> sprites;
+    std::map<std::string,GBF::Imagem::Sprite::SpritePersonagem*> sprites;
 
     TypeDelay delay;
 
-    ::Ponto posicao;
+    GBF::Ponto posicao;
 
 
   private:
     static unsigned int IDcontagem;
 
-    ::Dimensao dimensao;
+    GBF::Dimensao dimensao;
 
 
   public:
@@ -87,23 +87,23 @@ class Personagem : public GBF::ObjetoBase
 
     virtual void setPosicao(int x, int y);
 
-    virtual void setPosicao(::Ponto ponto);
+    virtual void setPosicao(GBF::Ponto ponto);
 
-    virtual ::Ponto getPosicao();
+    virtual GBF::Ponto getPosicao();
 
     //Adiciona o sprite principal do personagem
-    bool adicionarSpritePrincipal(GBF::Grafico::Sprite::SpritePersonagem * sprite);
+    bool adicionarSpritePrincipal(GBF::Imagem::Sprite::SpritePersonagem * sprite);
 
     //Adiciona o sprites extras do personagem
-    bool adicionarSprite(GBF::Grafico::Sprite::SpritePersonagem * sprite, const std::string & nome);
+    bool adicionarSprite(GBF::Imagem::Sprite::SpritePersonagem * sprite, const std::string & nome);
 
     virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
 
-    ::Dimensao getDimensao();
+    GBF::Dimensao getDimensao();
 
-    GBF::Grafico::Sprite::SpritePersonagem * getSpritePrincipal();
+    GBF::Imagem::Sprite::SpritePersonagem * getSpritePrincipal();
 
-    GBF::Grafico::Sprite::SpritePersonagem * getSprite(const std::string & nome);
+    GBF::Imagem::Sprite::SpritePersonagem * getSprite(const std::string & nome);
 
 
   protected:

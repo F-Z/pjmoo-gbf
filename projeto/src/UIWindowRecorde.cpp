@@ -95,7 +95,7 @@ void UIWindowRecorde::inicializar()
 {
     UIWindow::inicializar();
 
-    Dimensao d = teclado.getDimensao();
+    GBF::Dimensao d = teclado.getDimensao();
 
     int pX=(posicao.x+dimensao.w)/2-(d.w/2);
     int pY=(posicao.y+dimensao.h)/2;

@@ -29,13 +29,13 @@ UIMenuTransparente::~UIMenuTransparente()
 void UIMenuTransparente::desenhar() 
 {
     if (!item.empty()){
-        Dimensao dimensao = item[0]->getDimensaoLetra();
+        GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
         int offsetY=(dimensao.w/4);
         int totalVertical   = (int(item.size()) * espacoVertical)+offsetY;
         int totalHorizontal = (maiorPalavra) * dimensao.w;
         int meioHorizontal  = totalHorizontal/2;
 
-        Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
+        GBF::Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
 
         int pontoY=t.y+offsetY;
         for (unsigned int i=0; i<item.size(); i++){

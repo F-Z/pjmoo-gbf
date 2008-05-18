@@ -18,7 +18,7 @@
 #include "ImageBase.h"
 #include <string>
 
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace GBF {
 
@@ -53,7 +53,7 @@ class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
     int getAltura();
 
     //Retorna a dimensão (altura e largura) padrão
-    ::Dimensao getDimensao();
+    GBF::Dimensao getDimensao();
 
 
   protected:
@@ -67,9 +67,9 @@ class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
   private:
     char largura[256];
 
-    ::Dimensao dimensaoPadrao;
+    GBF::Dimensao dimensaoPadrao;
 
-    ::Dimensao dimensaoQuadro;
+    GBF::Dimensao dimensaoQuadro;
 
     //Construtor
     FonteBitmap();

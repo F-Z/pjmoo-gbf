@@ -15,7 +15,7 @@
 #ifndef _UIITEMABSTRACT_H
 #define _UIITEMABSTRACT_H
 
-#include "GBF_define.h"
+#include "GBF.h"
 
 namespace UserInterface {
 
@@ -42,7 +42,7 @@ class UIItemAbstract
 
     virtual int getQuantidadeLetras() = 0;
 
-    virtual ::Dimensao getDimensaoLetra() = 0;
+    virtual GBF::Dimensao getDimensaoLetra() = 0;
 
 
   protected:

@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Sprite {
 
@@ -90,8 +90,8 @@ SpritePersonagem::SpritePersonagem()
     qtdDirecao=4;
 }
 
-} // namespace GBF::Grafico::Sprite
+} // namespace GBF::Imagem::Sprite
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

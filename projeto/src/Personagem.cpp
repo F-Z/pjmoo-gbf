@@ -57,21 +57,21 @@ void Personagem::setPosicao(int x, int y)
         sprites["principal"]->setPosicao(posicao.x,posicao.y);
     }
 }
-void Personagem::setPosicao(::Ponto ponto) 
+void Personagem::setPosicao(GBF::Ponto ponto) 
 {
     setPosicao(ponto.x,ponto.y);
 }
-::Ponto Personagem::getPosicao() 
+GBF::Ponto Personagem::getPosicao() 
 {
     return posicao;
 }
 //Adiciona o sprite principal do personagem
-bool Personagem::adicionarSpritePrincipal(GBF::Grafico::Sprite::SpritePersonagem * sprite) 
+bool Personagem::adicionarSpritePrincipal(GBF::Imagem::Sprite::SpritePersonagem * sprite) 
 {
     return adicionarSprite(sprite,"principal");
 }
 //Adiciona o sprites extras do personagem
-bool Personagem::adicionarSprite(GBF::Grafico::Sprite::SpritePersonagem * sprite, const std::string & nome) 
+bool Personagem::adicionarSprite(GBF::Imagem::Sprite::SpritePersonagem * sprite, const std::string & nome) 
 {
     if (sprite){
         sprite->animacao.setAutomatico(true);
@@ -81,15 +81,15 @@ bool Personagem::adicionarSprite(GBF::Grafico::Sprite::SpritePersonagem * sprite
         return false;
     }
 }
-::Dimensao Personagem::getDimensao() 
+GBF::Dimensao Personagem::getDimensao() 
 {
     return sprites["principal"]->getTamanho();
 }
-GBF::Grafico::Sprite::SpritePersonagem * Personagem::getSpritePrincipal() 
+GBF::Imagem::Sprite::SpritePersonagem * Personagem::getSpritePrincipal() 
 {
     return sprites["principal"];
 }
-GBF::Grafico::Sprite::SpritePersonagem * Personagem::getSprite(const std::string & nome) 
+GBF::Imagem::Sprite::SpritePersonagem * Personagem::getSprite(const std::string & nome) 
 {
     return sprites[nome];
 }

@@ -15,37 +15,40 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
+#include <string>
+
 #include "SpriteItem.h"
 #include "SpritePersonagem.h"
 #include "FrameLayer.h"
 #include "ImageBuffer.h"
+#include "GraphicSystem.h"
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 class SpriteFactory
 {
   public:
+    //Construtor
+    SpriteFactory(std::string nomeImageBuffer);
+
     //Destrutor
     virtual ~SpriteFactory();
 
-    GBF::Grafico::Sprite::SpriteItem * criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+    GBF::Imagem::Sprite::SpriteItem * criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-    GBF::Grafico::Sprite::SpritePersonagem * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+    GBF::Imagem::Sprite::SpritePersonagem * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-    GBF::Grafico::Layer::FrameLayer * criarFrameLayer(int left, int top, int largura, int altura);
-
-    //Construtor
-    SpriteFactory(GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
+    GBF::Imagem::Layer::FrameLayer * criarFrameLayer(int left, int top, int largura, int altura);
 
 
   protected:
-    GBF::Kernel::Graphic::ImageBuffer * gsiBuffer;
+    GBF::Kernel::Graphic::ImageBuffer * imageBuffer;
 
 };
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF
 #endif

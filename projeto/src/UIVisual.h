@@ -16,7 +16,7 @@
 #define _UIVISUAL_H
 
 #include "Cor.h"
-#include "GBF_define.h"
+#include "GBF.h"
 #include "GraphicSystemUtility.h"
 
 namespace UserInterface {
@@ -35,7 +35,7 @@ class UIVisual : public GBF::Kernel::Graphic::GraphicSystemUtility
     void setCorBorda(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b);
 
     //Aplica o efeito visual
-    virtual void aplicar(const Ponto & posicao, const Dimensao & dimensao);
+    virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
 
     //Desenha o EstiloVisual do Componente
     virtual void desenhar() = 0;
@@ -46,9 +46,9 @@ class UIVisual : public GBF::Kernel::Graphic::GraphicSystemUtility
   protected:
     GBF::Cor::RGB corBorda;
 
-    Ponto posicao;
+    GBF::Ponto posicao;
 
-    Dimensao dimensao;
+    GBF::Dimensao dimensao;
 
 };
 

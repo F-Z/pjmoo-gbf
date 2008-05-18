@@ -12,7 +12,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "GBF.h"
+#include "GBFramework.h"
 
 namespace GBF {
 
@@ -25,7 +25,7 @@ GBFramework::~GBFramework()
     delete(fpsSystem);
     delete(writeSystem);
 //    delete(GraphicSystemImageBufferManager::getInstance());
-    delete(Grafico::Layer::LayerManager::getInstance());
+    delete(Imagem::Layer::LayerManager::getInstance());
     delete(graphicSystemCore);
     delete(soundSystemCore);
     delete(inputSystemCore);
@@ -106,7 +106,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full)
     graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
-    writeSystem->uiTexto->detectarIdioma();
+    writeSystem->idioma->detectarIdioma();
 
     //FPSTimer primeira chamada
     fpsSystem->start();
@@ -171,7 +171,7 @@ void GBFramework::carregar()
 
     //Inicializando Video
     graphicSystemCore = new Kernel::Graphic::GraphicCore();
-    Grafico::Layer::LayerManager::getInstance();
+    Imagem::Layer::LayerManager::getInstance();
 
     //Inicializando Gerenciador de Fontes
     writeSystem = Kernel::Write::WriteManager::getInstance();

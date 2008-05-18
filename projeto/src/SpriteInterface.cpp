@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 //Destrutor
 SpriteInterface::~SpriteInterface() 
@@ -39,6 +39,6 @@ SpriteInterface::SpriteInterface()
 {
 }
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

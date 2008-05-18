@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Sprite {
 
@@ -123,8 +123,8 @@ int Animacao::animar()
     return frame.atual;
 }
 
-} // namespace GBF::Grafico::Sprite
+} // namespace GBF::Imagem::Sprite
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

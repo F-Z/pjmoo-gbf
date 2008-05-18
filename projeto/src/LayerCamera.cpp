@@ -16,7 +16,7 @@
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Layer {
 
@@ -26,7 +26,7 @@ LayerCamera::~LayerCamera()
     mundo=NULL;
 }
 //Retorna a Posição Atual da Camera 
-::Ponto LayerCamera::getPosicao() 
+GBF::Ponto LayerCamera::getPosicao() 
 {
     return ponto;
 }
@@ -157,8 +157,8 @@ LayerCamera::LayerCamera()
     setTop();
 }
 
-} // namespace GBF::Grafico::Layer
+} // namespace GBF::Imagem::Layer
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF

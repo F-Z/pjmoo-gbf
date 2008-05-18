@@ -1,8 +1,13 @@
 #ifndef _GBF_H
 #define _GBF_H
 
+//SDL
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
+
+
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
+////    Copyright (C) 2004-2007 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -11,103 +16,45 @@
 ////
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
+////        http://pjmoo.codigolivre.org.br
 ////////////////////////////////////////////////////////////////////////
-
-#include "GraphicCore.h"
-#include "InputCore.h"
-#include "SoundCore.h"
-#include "WriteManager.h"
-#include <string>
-
-#include "FPS.h"
-#include "Log.h"
-#include "ImageBufferManager.h"
-#include "LayerManager.h"
-#include "GraphicMode.h"
-#include "StringExtract.h"
-#include "SoundManagerAbstract.h"
-#include "Idioma.h"
 
 namespace GBF {
 
-//Descrição: 
-//     Classe central do framework
-//Motivação:
-//     Prover de forma unificada a inicialização e configuração básica do framework
-// 
-class GBFramework
+//Estrutura para posicionamento na tela
+struct Ponto
 {
-  public:
-    //GraphicSystemCore, núcleo do sistema gráfico
-    GBF::Kernel::Graphic::GraphicCore * graphicSystemCore;
+    int x;
 
-    GBF::Kernel::Input::InputCore * inputSystemCore;
+    int y;
 
-    GBF::Kernel::Sound::SoundCore * soundSystemCore;
+};
+//Estrutura para representar dimensões
+struct Dimensao
+{
+    int w;
 
-    GBF::Kernel::Write::WriteManager * writeSystem;
+    int h;
 
-    //Destrutor
-    virtual ~GBFramework();
+};
+//Estrutura para posicionamento virtual na tela
+struct PontoVirtual
+{
+    float x;
 
-    //Construtor
-    GBFramework();
+    float y;
 
-    //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
-    //desenha na tela o conteúdo do backbuffer
-    //Obs.: Deve ser usado na interação do loop principal do jogo
-    void atualizar();
+};
+//Definição de area
+struct Area
+{
+    int top;
 
-    //Retorna o diretório base da aplicação corrente
-    std::string getPath();
+    int left;
 
-    //Inicializa o Sistema, e configura o modo gráfico
-    void iniciar(int width, int height, int bpp_color, bool full);
+    int bottom;
 
-    bool isDefaultPath();
-
-    //Informa se o mostrador de FPS está ativo
-    bool isFPS();
-
-    //Pausa o Sistema
-    void pausar();
-
-    void setDefaultPath(bool ativo);
-
-    //Mostra o Contador de FPS
-    void setFPS(bool show);
-
-    //Informa o caminho do diretório base da aplicação corrente
-    void setPath(char * fullPath);
-
-    //Informação sobre o Autor e o Título da Aplicação.
-    //Obs.: Usado para arquivo de log e título da janela
-    void setTitulo(std::string titulo, std::string autor);
-
-
-  protected:
-    //Prepara o Ambiente para ser inicializado 
-    void carregar();
-
-    //Controle para ações internas
-    void controleInterno();
-
-    //Define o Título para Janela 
-    void setTitulo(std::string titulo);
-
-
-  private:
-    bool defaultPath;
-
-    bool fps;
-
-    GBF::Kernel::Timer::FPS * fpsSystem;
-
-    int numscreenshot;
-
-    std::string pathBase;
+    int right;
 
 };
 

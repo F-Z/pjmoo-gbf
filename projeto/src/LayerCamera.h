@@ -15,12 +15,12 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "GBF_define.h"
+#include "GBF.h"
 #include "LayerMundo.h"
 
 namespace GBF {
 
-namespace Grafico {
+namespace Imagem {
 
 namespace Layer {
 
@@ -31,7 +31,7 @@ class LayerCamera
     virtual ~LayerCamera();
 
     //Retorna a Posição Atual da Camera 
-    ::Ponto getPosicao();
+    GBF::Ponto getPosicao();
 
     //Verifica se a Camera está no limite inferior do mapa 
     bool isBottom();
@@ -89,7 +89,7 @@ class LayerCamera
   private:
     LayerMundo * mundo;
 
-    ::Ponto ponto;
+    GBF::Ponto ponto;
 
   friend class FrameLayer;
     //Construtor
@@ -97,9 +97,9 @@ class LayerCamera
 
 };
 
-} // namespace GBF::Grafico::Layer
+} // namespace GBF::Imagem::Layer
 
-} // namespace GBF::Grafico
+} // namespace GBF::Imagem
 
 } // namespace GBF
 #endif

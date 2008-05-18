@@ -38,7 +38,7 @@ class PSSprite : public PSEfeito
 
 
   protected:
-    std::deque<GBF::Grafico::Sprite::Sprite *> lista;
+    std::deque<GBF::Imagem::Sprite::Sprite *> lista;
 
 };
 

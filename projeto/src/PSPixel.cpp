@@ -26,7 +26,7 @@ PSPixel::~PSPixel()
 //Desenha todas as unidades
 void PSPixel::desenhar() 
 {
-    Ponto ponto;
+    GBF::Ponto ponto;
 
     if (!lista.empty()){
 

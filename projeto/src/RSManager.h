@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _RSGALERIA_H
-#define _RSGALERIA_H
+#ifndef _RSMANAGER_H
+#define _RSMANAGER_H
 
 #include <string>
 
@@ -27,7 +27,7 @@ namespace RankingSystem {
 //    Classe para gerenciamento da listagem de recordes
 //Motivação:
 //    Permitir carregar e salvar em disco a listagem de recordes
-class RSGaleria {
+class RSManager {
   protected:
     std::string arquivo;
 
@@ -44,10 +44,10 @@ class RSGaleria {
 
   public:
     //Construtor
-    RSGaleria();
+    RSManager();
 
     //Destrutor
-    ~RSGaleria();
+    ~RSManager();
 
     //Adiciona um recorde
     bool adicionar(RSRecorde recorde);

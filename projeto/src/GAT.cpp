@@ -28,7 +28,7 @@ GAT::GAT(int argc, char * argv[])
     }
 
     frameworkGBF    = new GBF::GBFramework();
-    tsGaleria       = new RankingSystem::RSGaleria();
+    recordeManager  = new RankingSystem::RSManager();
     uiRecordeNovo   = NULL;
     uiMenuPrincipal = NULL;
 
@@ -44,8 +44,8 @@ GAT::~GAT()
     if (uiRecordeNovo){
         delete(uiRecordeNovo);
     }
-    if (tsGaleria){
-        delete(tsGaleria);
+    if (recordeManager){
+        delete(recordeManager);
     }
     if (uiMenuPrincipal){
         delete(uiMenuPrincipal);
@@ -61,7 +61,7 @@ bool GAT::isFullScreen()
 void GAT::executar() 
 {
     //Inicialização de classes extras 
-    RankingSystem::RSGaleria::setPathBase(frameworkGBF->getPath());
+    RankingSystem::RSManager::setPathBase(frameworkGBF->getPath());
 
     while(looping) {
         escutar();
