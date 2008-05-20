@@ -49,15 +49,13 @@ class ListPersonagem : public GBF::ListManager
 
     void adicionar(Personagem * personagem);
 
-    void remover(Personagem * personagem);
+    virtual void remover(Personagem * personagem);
 
     virtual void colisao(ListPersonagem * objeto);
 
     virtual void colisao(Personagem * objeto);
 
     virtual Personagem * getPersonagem(int indice);
-
-    virtual void executar() = 0;
 
 
   protected:
