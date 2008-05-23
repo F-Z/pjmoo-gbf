@@ -21,41 +21,41 @@ namespace Kernel {
 namespace Graphic {
 
 //Construtor
-ImageBase::ImageBase() 
+ImageBase::ImageBase()
 {
     imagem=NULL;
 
 }
 //Destrutor
-ImageBase::~ImageBase() 
+ImageBase::~ImageBase()
 {
     if (imagem!=NULL){
         SDL_FreeSurface(imagem);
         //UtilLog::getInstance()->status("Removendo Surfaces");
     }
 }
-//Seta nível de transparência 
-void ImageBase::setAlpha(Uint8 ALPHA) 
+//Seta nível de transparência
+void ImageBase::setAlpha(Uint8 ALPHA)
 {
     SDL_SetAlpha(imagem,SDL_SRCALPHA,ALPHA);
 }
 //Seta cor transparente
-void ImageBase::setColorKey(Uint8 R, Uint8 G, Uint8 B) 
+void ImageBase::setColorKey(Uint8 R, Uint8 G, Uint8 B)
 {
-    SDL_SetColorKey(imagem,SDL_SRCCOLORKEY,SDL_MapRGB(imagem->format,R,G,B));
+    SDL_SetColorKey(imagem,(SDL_SRCCOLORKEY|SDL_RLEACCEL),SDL_MapRGB(imagem->format,R,G,B));
 }
-double ImageBase::getTimer() 
+double ImageBase::getTimer()
 {
     return time;
 }
-SDL_Rect ImageBase::getTamanho() 
+SDL_Rect ImageBase::getTamanho()
 {
     return tamanho;
 }
 double ImageBase::time=0.0f;
 
-//Converte Surface para formato na inicialização do GraphicSystem 
-void ImageBase::converterSurface() 
+//Converte Surface para formato na inicialização do GraphicSystem
+void ImageBase::converterSurface()
 {
     SDL_Surface *tmp = SDL_DisplayFormat(imagem);
     SDL_FreeSurface(imagem);
