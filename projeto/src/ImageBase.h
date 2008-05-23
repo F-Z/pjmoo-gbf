@@ -59,7 +59,7 @@ class ImageBase
     SDL_Rect posicao;
 
     //Converte Surface para formato na inicialização do GraphicSystem 
-    void converterSurface();
+    virtual void converterSurface();
 
 
   public:
