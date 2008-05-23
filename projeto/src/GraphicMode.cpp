@@ -33,9 +33,9 @@ GraphicMode::~GraphicMode()
 //Coloca o vídeo em modo de tela cheia 
 void GraphicMode::setModeFullScreen() 
 {
-    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
-    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
-
+    //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
+    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
+    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_HWSURFACE|SDL_ANYFORMAT|SDL_DOUBLEBUF|SDL_FULLSCREEN);
     if (screen==NULL){
        // UtilLog::tracer("GraphicSystem::setModeFullScreen=%s",SDL_GetError());
         exit(-1);
@@ -47,8 +47,9 @@ void GraphicMode::setModeFullScreen()
 //Coloca o vídeo em modo de janela 
 void GraphicMode::setModeWindowScreen() 
 {
-    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF);
-    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF);
+    //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
+    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_HWSURFACE|SDL_ANYFORMAT|SDL_DOUBLEBUF);
 
     if (screen==NULL){
        // UtilLog::tracer("GraphicSystem::setModeWindowScreen=%s",SDL_GetError());
