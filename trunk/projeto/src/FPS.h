@@ -36,22 +36,13 @@ class FPS {
     //Destrutor
     virtual ~FPS();
 
-    void processar();
+    virtual void processar() = 0;
 
     //Deve ser chamado antes do loop principal do jogo
-    void start();
+    virtual void iniciar() = 0;
 
-    //Aumenta a frequencia do FPS
-    void aumentar();
-
-    //Diminui a frequencia do FPS
-    void diminuir();
-
-
-  private:
-    double framestart;
-
-    int fpsMax;
+    //Retorna o valor do FPS
+    virtual int getValor() = 0;
 
 };
 
