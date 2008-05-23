@@ -46,18 +46,19 @@ GBFramework::GBFramework()
 }
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
 //desenha na tela o conteúdo do backbuffer
-//Obs.: Deve ser usado na interação do loop principal do jogo
+
 void GBFramework::atualizar() 
 {
     try {
         fpsSystem->processar();
-        /*
+
         if (isFPS()){
-            writeSystem->getFonte("console")->setAlpha(180);
-            writeSystem->escrever("console",5,0,"FPS: %i",fpsSystem->getFPS());
-            writeSystem->getFonte("console")->setAlpha(255);
+            //writeSystem->getFonte(Kernel::Write::WriteManager::defaultFont)->setAlpha(180);
+            writeSystem->escrever(Kernel::Write::WriteManager::defaultFont,0,0,"FPS: %d",fpsSystem->getValor());
+            //writeSystem->escrever(Kernel::Write::WriteManager::defaultFont,0,0,"FPS: %d",fpsSystem->getFPS());
+            //writeSystem->getFonte(Kernel::Write::WriteManager::defaultFont)->setAlpha(255);
         }
-        */
+
         controleInterno();
         inputSystemCore->processar();
         graphicSystemCore->flip();
@@ -109,7 +110,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full)
     writeSystem->idioma->detectarIdioma();
 
     //FPSTimer primeira chamada
-    fpsSystem->start();
+    fpsSystem->iniciar();
 
     //UtilLog::cabecalho("Iniciando Ambiente para Escopo do Jogo");
 }
@@ -167,7 +168,7 @@ void GBFramework::carregar()
     srand(time(NULL));
 
     //Inicializando FPS do jogo
-    fpsSystem = new Kernel::Timer::FPS();
+    fpsSystem = Kernel::Timer::FPSFactory::criar(Kernel::Timer::FPS_CONTADOR);
 
     //Inicializando Video
     graphicSystemCore = new Kernel::Graphic::GraphicCore();
