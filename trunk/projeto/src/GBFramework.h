@@ -29,6 +29,7 @@
 #include "StringExtract.h"
 #include "SoundManagerAbstract.h"
 #include "Idioma.h"
+#include "FPSFactory.h"
 
 namespace GBF {
 
@@ -57,7 +58,7 @@ class GBFramework
 
     //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
     //desenha na tela o conteúdo do backbuffer
-    //Obs.: Deve ser usado na interação do loop principal do jogo
+    
     void atualizar();
 
     //Retorna o diretório base da aplicação corrente
