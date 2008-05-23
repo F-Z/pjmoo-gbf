@@ -23,44 +23,12 @@ namespace Timer {
 FPS::FPS() 
 {
 //    UtilLog::sistema("Instanciando FPS");
-    framestart =0.0f;
-    fpsMax     =30;
+
 }
 //Destrutor
 FPS::~FPS() 
 {
 //    UtilLog::sistema("Removendo FPS[%i]",fpsMax);
-}
-void FPS::processar() 
-{
-    while( (SDL_GetTicks() - framestart) < 1000 / fpsMax )
-    {
-        //wait...
-        //se tempo atual menos o tempo inicial for menor que
-        // 1000/30, faz com que entre em espera
-        //até que se complete o tempo
-    }
-
-    framestart = SDL_GetTicks();
-}
-//Deve ser chamado antes do loop principal do jogo
-void FPS::start() 
-{
-//    UtilLog::tracer("Inicializando FPS");
-    framestart = SDL_GetTicks();
-}
-//Aumenta a frequencia do FPS
-void FPS::aumentar() 
-{
-    fpsMax++;
-}
-//Diminui a frequencia do FPS
-void FPS::diminuir() 
-{
-    fpsMax--;
-    if (fpsMax<=30){
-        fpsMax=30;
-    }
 }
 
 } // namespace GBF::Kernel::Timer
