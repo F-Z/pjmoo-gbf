@@ -77,6 +77,11 @@ class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
     //Define altura e largura padrão baseada na maior altura e largura utilizada.
     void checkar();
 
+
+  protected:
+    //Converte Surface para formato na inicialização do GraphicSystem 
+    virtual void converterSurface();
+
 };
 
 } // namespace GBF::Kernel::Write

@@ -34,7 +34,7 @@ bool FonteBitmap::carregarArquivo(std::string ARQUIVO)
     imagem = IMG_Load(ARQUIVO.data());
 
     if (imagem!=NULL){
-        //converterSurface();
+        converterSurface();
         //setColorKey(0,0,0);
 
         txt=ARQUIVO.substr(0,ARQUIVO.length()-4);
@@ -133,6 +133,13 @@ void FonteBitmap::checkar()
 
     dimensaoPadrao.w=maior;
     dimensaoPadrao.h=dimensaoQuadro.h;
+}
+//Converte Surface para formato na inicialização do GraphicSystem 
+void FonteBitmap::converterSurface() 
+{
+    SDL_Surface *tmp = SDL_DisplayFormatAlpha(imagem);
+    SDL_FreeSurface(imagem);
+    imagem=tmp;
 }
 
 } // namespace GBF::Kernel::Write
