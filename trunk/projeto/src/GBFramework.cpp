@@ -40,9 +40,7 @@ GBFramework::~GBFramework()
 GBFramework::GBFramework() 
 {
     numscreenshot = 0;
-    pathBase      = "";
-    fps           = true;
-    setDefaultPath(true);
+    fps           = false;
 }
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
 //desenha na tela o conteúdo do backbuffer
@@ -71,10 +69,10 @@ void GBFramework::atualizar()
 //Retorna o diretório base da aplicação corrente
 std::string GBFramework::getPath() 
 {
-    return pathBase;
+    return Kernel::Util::Path::getPath();
 }
 //Inicializa o Sistema, e configura o modo gráfico
-void GBFramework::iniciar(int width, int height, int bpp_color, bool full) 
+void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::Tipo fps) 
 {
     //UtilLog::cabecalho("Inicializando Framework");
    // UtilLog::tracer("Inicializando ModoGráfico");
@@ -109,14 +107,12 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full)
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->idioma->detectarIdioma();
 
-    //FPSTimer primeira chamada
+    //FPS
+    fpsSystem = Kernel::FPS::FPSFactory::criar(fps);
+    //FPS primeira chamada
     fpsSystem->iniciar();
 
     //UtilLog::cabecalho("Iniciando Ambiente para Escopo do Jogo");
-}
-bool GBFramework::isDefaultPath() 
-{
-    return defaultPath;
 }
 //Informa se o mostrador de FPS está ativo
 bool GBFramework::isFPS() 
@@ -127,10 +123,6 @@ bool GBFramework::isFPS()
 void GBFramework::pausar() 
 {
 }
-void GBFramework::setDefaultPath(bool ativo) 
-{
-    defaultPath=ativo;
-}
 //Mostra o Contador de FPS
 void GBFramework::setFPS(bool show) 
 {
@@ -139,14 +131,15 @@ void GBFramework::setFPS(bool show)
 //Informa o caminho do diretório base da aplicação corrente
 void GBFramework::setPath(char * fullPath) 
 {
-    pathBase=Kernel::Util::StringExtract::extractPath(fullPath);
+    std::string pathBase=Kernel::Util::StringExtract::extractPath(fullPath);
 
-    if (isDefaultPath()){
+   // if (isDefaultPath()){
+        Kernel::Util::Path::setPath(pathBase);
         //UtilLog::setArquivo(fullPath);
-        Kernel::Graphic::ImageBufferManager::setPathBase(pathBase);
-        Kernel::Sound::SoundManagerAbstract::setPathBase(pathBase);
-        Kernel::Write::Idioma::setPathBase(pathBase);
-    }
+        //Kernel::Graphic::ImageBufferManager::setPathBase(pathBase);
+        //Kernel::Sound::SoundManagerAbstract::setPathBase(pathBase);
+        //Kernel::Write::Idioma::setPathBase(pathBase);
+    //}
 }
 //Informação sobre o Autor e o Título da Aplicação.
 //Obs.: Usado para arquivo de log e título da janela
@@ -167,8 +160,6 @@ void GBFramework::carregar()
    // UtilLog::sistema("Inicializando Gerador Randômico");
     srand(time(NULL));
 
-    //Inicializando FPS do jogo
-    fpsSystem = Kernel::Timer::FPSFactory::criar(Kernel::Timer::FPS_CONTADOR);
 
     //Inicializando Video
     graphicSystemCore = new Kernel::Graphic::GraphicCore();
