@@ -21,6 +21,7 @@
 
 #include "FX.h"
 #include "SoundManagerAbstract.h"
+#include "Path.h"
 
 namespace GBF {
 

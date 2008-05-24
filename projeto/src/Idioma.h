@@ -26,6 +26,7 @@
 #include <string>
 
 #include "Log.h"
+#include "Path.h"
 
 namespace GBF {
 
@@ -59,17 +60,11 @@ class Idioma
     
     std::string arquivo;
 
-    //Caminho padrão de localização dos arquivos
-    static std::string pathBase;
-
 
   public:
     ~Idioma();
 
     static Idioma * getInstance();
-
-    //Configura o caminho do arquivo de  mensagens
-    static void setPathBase(std::string & path);
 
     //Configura um idioma
     //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
@@ -95,6 +90,7 @@ class Idioma
   protected:
     void parser(char * info);
 
+    //Carrega o mapeamento de idiomas e os arquivos de texto
     void carregarIdioma();
 
     void parserIdioma(char * info);

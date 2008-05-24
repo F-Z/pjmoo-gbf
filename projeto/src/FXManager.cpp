@@ -52,10 +52,10 @@ void FXManager::carregar(std::string nome, std::string arquivo)
 {
     FX *som = new FX();
 
-    std::string fullPath=pathBase+arquivo;
+    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
     //UtilLog::tracer("SoundFxManager::carregar(%s)",nome.c_str());
-    if ((status->isAtivo())&&(som->carregarArquivo(fullPath))){
+    if ((status->isAtivo())&&(som->carregarArquivo(fullpath))){
         objetomap[nome]=som;
         //UtilLog::comentario("[Ok]");
     } else {
