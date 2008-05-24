@@ -1,5 +1,0 @@
-#Arquivo de Textos
-#Português Brasil
-#LANG=pt_BR
-
-
