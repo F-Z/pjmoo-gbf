@@ -34,17 +34,10 @@ SoundManagerAbstract::SoundManagerAbstract()
         //UtilLog::getInstance()->status("[Falhou]");
     }
 }
-//Informa PathBase para leitura de arquivos
-void SoundManagerAbstract::setPathBase(std::string path)
-{
-    pathBase=path;
-}
 void SoundManagerAbstract::setStatus(SoundStatus * instance)
 {
     status = instance;
 }
-std::string SoundManagerAbstract::pathBase;
-
 SoundStatus * SoundManagerAbstract::status=NULL;
 
 
