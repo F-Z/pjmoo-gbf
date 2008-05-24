@@ -97,6 +97,12 @@
 		<Unit filename="src/Date.h" />
 		<Unit filename="src/FPS.cpp" />
 		<Unit filename="src/FPS.h" />
+		<Unit filename="src/FPSContador.cpp" />
+		<Unit filename="src/FPSContador.h" />
+		<Unit filename="src/FPSFactory.cpp" />
+		<Unit filename="src/FPSFactory.h" />
+		<Unit filename="src/FPSLimitado.cpp" />
+		<Unit filename="src/FPSLimitado.h" />
 		<Unit filename="src/FX.cpp" />
 		<Unit filename="src/FX.h" />
 		<Unit filename="src/FXManager.cpp" />
@@ -178,6 +184,8 @@
 		<Unit filename="src/PSPixel.h" />
 		<Unit filename="src/PSSprite.cpp" />
 		<Unit filename="src/PSSprite.h" />
+		<Unit filename="src/Path.cpp" />
+		<Unit filename="src/Path.h" />
 		<Unit filename="src/Personagem.cpp" />
 		<Unit filename="src/Personagem.h" />
 		<Unit filename="src/RSLista.cpp" />
