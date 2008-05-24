@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<F2IBuilder>
+  <application>
+    <name>F2IBuilder</name>
+    <version>3.5</version>
+  </application>
+  <project>
+    <useMetrics>true</useMetrics>
+    <useAlpha>true</useAlpha>
+    <showGrid>false</showGrid>
+    <antialias>true</antialias>
+    <imageType>PNG</imageType>
+    <color>
+      <font>-1</font>
+      <shadow>-12566464</shadow>
+      <background>-16777216</background>
+    </color>
+    <style>
+      <bold>true</bold>
+    </style>
+    <font>
+      <name>Liberation Mono</name>
+      <size>14</size>
+    </font>
+    <texture>
+      <size>Auto</size>
+    </texture>
+    <shadow>
+      <vertical>VerticalNone</vertical>
+      <horizontal>HorizontalNone</horizontal>
+    </shadow>
+  </project>
+</F2IBuilder>
+

@@ -1,0 +1,12 @@
+#Fichero de textos
+#Español
+
+GBF_UIRecorde_title=Nuevo Record
+GBF_UIRecorde_button_back=Espalda
+GBF_UIRecorde_button_next=Siguiente
+GBF_UIRecorde_button_save=Salvar
+
+GBF_UIRecorde_warning=Nombre Requerido. ESC para cancelar.
+
+GBF_UIRecorde_title_player=Jugador
+GBF_UIRecorde_title_points=Puntos
