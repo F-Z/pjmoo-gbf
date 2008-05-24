@@ -21,7 +21,7 @@ namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
 #define FRAME_VALUES 10
 //Descrição:
@@ -30,10 +30,12 @@ namespace Timer {
 //    Fornecer um mecanismo para controlar a  velocidade de processamento da aplicação
 class FPSContador : public FPS
 {
-  public:
+  private:
     //Construtor
     FPSContador();
 
+
+  public:
     //Destrutor
     virtual ~FPSContador();
 
@@ -54,9 +56,10 @@ class FPSContador : public FPS
 
     float framespersecond;
 
+  friend class FPSFactory;
 };
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 

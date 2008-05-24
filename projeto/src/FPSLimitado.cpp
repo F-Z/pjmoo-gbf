@@ -18,20 +18,25 @@ namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
-FPSLimitado::FPSLimitado()
+FPSLimitado::FPSLimitado(int taxaFrames) 
 {
-    fpsMax = 30;
     framestart = 0.0f;
+
+    if (taxaFrames<30){
+        fpsConstante = 30;
+    } else {
+        fpsConstante = taxaFrames;
+    }
 }
-FPSLimitado::~FPSLimitado()
+FPSLimitado::~FPSLimitado() 
 {
 }
-void FPSLimitado::processar()
+void FPSLimitado::processar() 
 {
 
-    while( (SDL_GetTicks() - framestart) < 1000 / fpsMax )
+    while( (SDL_GetTicks() - framestart) < 1000 / fpsConstante )
     {
         //wait...
         //se tempo atual menos o tempo inicial for menor que
@@ -42,30 +47,17 @@ void FPSLimitado::processar()
     framestart = SDL_GetTicks();
 }
 //Deve ser chamado antes do loop principal do jogo
-void FPSLimitado::iniciar()
+void FPSLimitado::iniciar() 
 {
 //    UtilLog::tracer("Inicializando FPS");
     framestart = SDL_GetTicks();
 }
-//Aumenta a frequencia do FPS
-void FPSLimitado::aumentar()
+int FPSLimitado::getValor() 
 {
-    fpsMax++;
-}
-//Diminui a frequencia do FPS
-void FPSLimitado::diminuir()
-{
-    fpsMax--;
-    if (fpsMax<=30){
-        fpsMax=30;
-    }
-}
-int FPSLimitado::getValor()
-{
-    return fpsMax;
+    return fpsConstante;
 }
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 

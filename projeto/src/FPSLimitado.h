@@ -21,19 +21,19 @@ namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
 class FPSLimitado : public FPS
 {
   private:
-    int fpsMax;
+    int fpsConstante;
 
     double framestart;
 
+    FPSLimitado(int taxaFrames);
+
 
   public:
-    FPSLimitado();
-
     virtual ~FPSLimitado();
 
     void processar();
@@ -41,17 +41,12 @@ class FPSLimitado : public FPS
     //Deve ser chamado antes do loop principal do jogo
     void iniciar();
 
-    //Aumenta a frequencia do FPS
-    void aumentar();
-
-    //Diminui a frequencia do FPS
-    void diminuir();
-
     int getValor();
 
+  friend class FPSFactory;
 };
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 

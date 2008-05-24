@@ -17,27 +17,31 @@
 
 #include "FPS.h"
 
-namespace GBF { namespace Kernel { namespace Timer { class FPSContador; }  }  } 
-namespace GBF { namespace Kernel { namespace Timer { class FPSLimitado; }  }  } 
+namespace GBF { namespace Kernel { namespace FPS { class FPSContador; }  }  } 
+namespace GBF { namespace Kernel { namespace FPS { class FPSLimitado; }  }  } 
 
 namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
-enum FPSTipo {
-  FPS_CONTADOR = 4,
-  FPS_LIMITADO = 0
+enum Tipo {
+  //Frame não limitado, exibe apenas o contador em seu máximo processamento
+  FPS_CONTADOR = 100,
+  //Limitado a 30 frames por segundo
+  FPS_LIMITADO = 30,
+  //Limitado a 40 frames por segundo
+  FPS_LIMITADO_40 = 40
 };
 class FPSFactory
 {
   public:
-    static FPS * criar(FPSTipo  tipo);
+    static FPS * criar(Tipo  tipo);
 
 };
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 

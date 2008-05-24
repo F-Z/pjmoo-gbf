@@ -20,9 +20,9 @@ namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
-FPS * FPSFactory::criar(FPSTipo  tipo)
+FPS * FPSFactory::criar(Tipo  tipo)
 
 {
     FPS * fps = NULL;
@@ -32,13 +32,13 @@ FPS * FPSFactory::criar(FPSTipo  tipo)
             fps = new FPSContador();
         break;
         default:
-            fps = new FPSLimitado();
+            fps = new FPSLimitado(tipo);
     }
 
     return fps;
 }
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 
