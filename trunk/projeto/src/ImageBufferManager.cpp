@@ -55,10 +55,10 @@ void ImageBufferManager::carregar(std::string nome, std::string arquivo)
     ImageBuffer* tab = new ImageBuffer();
 //    UtilLog::getInstance()->inicializando("ImagemTableManager::Carregar()");
 
-    std::string fullPath=pathBase+arquivo;
+    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
   //  UtilLog::tracer("ImagemTable=%s Arquivo=%s",nome.c_str(),fullPath.c_str());
-    if (tab->carregarArquivo(fullPath)){
+    if (tab->carregarArquivo(fullpath)){
         objetomap[nome]=tab;
         //UtilLog::comentario("[Ok]");
     } else {
@@ -74,19 +74,11 @@ void ImageBufferManager::apagar(std::string nome)
         objetomap.erase(nome);
     }
 }
-// Informa PathBase para leitura de arquivos
-void ImageBufferManager::setPathBase(std::string path)
-{
-    pathBase=path;
-}
-
 //Construtor
 ImageBufferManager::ImageBufferManager() 
 {
 //    UtilLog::subSistema("Instanciando GraphicSystemImageBufferManager");
 }
-std::string ImageBufferManager::pathBase;
-
 
 } // namespace GBF::Kernel::Graphic
 

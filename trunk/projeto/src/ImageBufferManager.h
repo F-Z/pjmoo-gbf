@@ -21,6 +21,7 @@
 #include <map>
 
 #include "BaseManager.h"
+#include "Path.h"
 
 namespace GBF {
 
@@ -43,9 +44,6 @@ class ImageBufferManager : public GBF::BaseManager
     // Remove ImageBuffer 
     void apagar(std::string nome);
 
-    // Informa PathBase para leitura de arquivos
-    static void setPathBase(std::string path);
-
 
   protected:
     std::map<std::string,ImageBuffer*> objetomap;
@@ -54,10 +52,6 @@ class ImageBufferManager : public GBF::BaseManager
   public:
     //Construtor
     ImageBufferManager();
-
-
-  private:
-    static std::string pathBase;
 
   friend class GraphicSystem;
 };

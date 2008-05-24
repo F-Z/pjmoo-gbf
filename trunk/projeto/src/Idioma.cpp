@@ -22,9 +22,6 @@ namespace Write {
 
 Idioma * Idioma::instance=NULL;
 
-//Caminho padrão de localização dos arquivos
-std::string Idioma::pathBase;
-
 Idioma::~Idioma() 
 {
 //    UtilLog::sistema("Removendo UserInterfaceTexto");
@@ -36,11 +33,6 @@ Idioma * Idioma::getInstance()
     }
 
     return instance;
-}
-//Configura o caminho do arquivo de  mensagens
-void Idioma::setPathBase(std::string & path)
-{
-    pathBase=path+"data//etc//";
 }
 //Configura um idioma
 //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
@@ -100,7 +92,8 @@ bool Idioma::atualizar()
 {
     char str[256];
     bool retorno = false;
-    std::string fullpath=pathBase+"texto//"+getIdioma()+"."+arquivo;
+
+    std::string fullpath=Kernel::Util::Path::getPath()+"data//etc//idioma//"+getIdioma()+"."+arquivo;
 
     if (!arquivo.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
@@ -158,10 +151,13 @@ void Idioma::parser(char * info)
         mapaTexto[linha.substr(0,i)]=linha.substr(i+1,tamanho);
     }
 }
+//Carrega o mapeamento de idiomas e os arquivos de texto
 void Idioma::carregarIdioma() 
 {
     char str[256];
-    std::string fullpath=pathBase+"idioma.cfg";
+
+    std::string fullpath=Kernel::Util::Path::getPath()+"//data//etc//idioma.cfg";
+
     if (arquivo.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
        // UtilLog::tracer("Carregando Configuração de Idiomas=%s",fullpath.c_str());
