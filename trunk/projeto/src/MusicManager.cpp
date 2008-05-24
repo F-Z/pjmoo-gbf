@@ -53,7 +53,7 @@ void MusicManager::carregar(std::string nome, std::string arquivo)
 {
     Music *som = new Music();
 
-    std::string fullpath=pathBase+arquivo;
+    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
     //UtilLog::getInstance()->inicializando("SoundMusicManager::Carregar()");
     //UtilLog::tracer("SoundMusic=%s Arquivo=%s",nome.c_str(),fullpath.c_str());
