@@ -1,3 +1,0 @@
-#Archive of Texts
-#English
-#LANG=en_US
