@@ -21,6 +21,7 @@
 #include "WriteManager.h"
 #include <string>
 
+#include "FPSFactory.h"
 #include "FPS.h"
 #include "Log.h"
 #include "ImageBufferManager.h"
@@ -28,16 +29,15 @@
 #include "GraphicMode.h"
 #include "StringExtract.h"
 #include "SoundManagerAbstract.h"
-#include "Idioma.h"
-#include "FPSFactory.h"
+#include "Path.h"
 
 namespace GBF {
 
-//Descrição: 
+//Descrição:
 //     Classe central do framework
 //Motivação:
 //     Prover de forma unificada a inicialização e configuração básica do framework
-// 
+//
 class GBFramework
 {
   public:
@@ -58,24 +58,20 @@ class GBFramework
 
     //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
     //desenha na tela o conteúdo do backbuffer
-    
+
     void atualizar();
 
     //Retorna o diretório base da aplicação corrente
     std::string getPath();
 
     //Inicializa o Sistema, e configura o modo gráfico
-    void iniciar(int width, int height, int bpp_color, bool full);
-
-    bool isDefaultPath();
+    void iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::Tipo fps);
 
     //Informa se o mostrador de FPS está ativo
     bool isFPS();
 
     //Pausa o Sistema
     void pausar();
-
-    void setDefaultPath(bool ativo);
 
     //Mostra o Contador de FPS
     void setFPS(bool show);
@@ -89,26 +85,22 @@ class GBFramework
 
 
   protected:
-    //Prepara o Ambiente para ser inicializado 
+    //Prepara o Ambiente para ser inicializado
     void carregar();
 
     //Controle para ações internas
     void controleInterno();
 
-    //Define o Título para Janela 
+    //Define o Título para Janela
     void setTitulo(std::string titulo);
 
 
   private:
-    bool defaultPath;
-
     bool fps;
 
-    GBF::Kernel::Timer::FPS * fpsSystem;
+    GBF::Kernel::FPS::FPS * fpsSystem;
 
     int numscreenshot;
-
-    std::string pathBase;
 
 };
 
