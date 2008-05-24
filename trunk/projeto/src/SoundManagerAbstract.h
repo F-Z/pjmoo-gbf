@@ -58,17 +58,12 @@ class SoundManagerAbstract : public GBF::BaseManager {
     //Obs.: Valor do volume de 0 ate 128
     virtual void setVolume(std::string nome, int volume) = 0;
 
-    //Informa PathBase para leitura de arquivos
-    static void setPathBase(std::string path);
-
 
   private:
     static void setStatus(SoundStatus * instance);
 
 
   protected:
-    static std::string pathBase;
-
     static SoundStatus * status;
 
   friend class SoundCore;
