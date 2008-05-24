@@ -22,7 +22,7 @@ namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
 //Descrição: 
 //    Classe para controle da quantidade de quadros por segundo
@@ -46,7 +46,7 @@ class FPS {
 
 };
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 

@@ -18,7 +18,7 @@ namespace GBF {
 
 namespace Kernel {
 
-namespace Timer {
+namespace FPS {
 
 //Construtor
 
@@ -107,7 +107,7 @@ int FPSContador::getValor()
     return framespersecond;
 }
 
-} // namespace GBF::Kernel::Timer
+} // namespace GBF::Kernel::FPS
 
 } // namespace GBF::Kernel
 
