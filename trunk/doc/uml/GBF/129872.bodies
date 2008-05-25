@@ -1,27 +1,6 @@
-class TimerSystemFPS
-!!!181456.cpp!!!	TimerSystemFPS()
+class FPS
+!!!181456.cpp!!!	FPS()
 //    UtilLog::sistema("Instanciando FPS");
-    framestart =0.0f;
-    fpsMax     =30;
-!!!181584.cpp!!!	~TimerSystemFPS()
-//    UtilLog::sistema("Removendo FPS[%i]",fpsMax);
-!!!181712.cpp!!!	processar() : void
-    while( (SDL_GetTicks() - framestart) < 1000 / fpsMax )
-    {
-        //wait...
-        //se tempo atual menos o tempo inicial for menor que
-        // 1000/30, faz com que entre em espera
-        //até que se complete o tempo
-    }
 
-    framestart = SDL_GetTicks();
-!!!181840.cpp!!!	start() : void
-//    UtilLog::tracer("Inicializando FPS");
-    framestart = SDL_GetTicks();
-!!!181968.cpp!!!	aumentar() : void
-    fpsMax++;
-!!!182096.cpp!!!	diminuir() : void
-    fpsMax--;
-    if (fpsMax<=30){
-        fpsMax=30;
-    }
+!!!181584.cpp!!!	~FPS()
+//    UtilLog::sistema("Removendo FPS[%i]",fpsMax);

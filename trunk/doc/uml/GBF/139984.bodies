@@ -64,7 +64,7 @@ class UIMenuAbstract
 
     return selecionado;
 !!!211536.cpp!!!	calcularAlinhamento(in caixaLargura : int, in caixaAltura : int) : Ponto
-    Ponto ponto;
+    GBF::Ponto ponto;
     
     switch (eAlinhamento)
     {

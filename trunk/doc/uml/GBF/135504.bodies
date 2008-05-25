@@ -23,10 +23,10 @@ class FXManager
 !!!168016.cpp!!!	carregar(in nome : std::string, in arquivo : std::string) : void
     FX *som = new FX();
 
-    std::string fullPath=pathBase+arquivo;
+    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
     //UtilLog::tracer("SoundFxManager::carregar(%s)",nome.c_str());
-    if ((status->isAtivo())&&(som->carregarArquivo(fullPath))){
+    if ((status->isAtivo())&&(som->carregarArquivo(fullpath))){
         objetomap[nome]=som;
         //UtilLog::comentario("[Ok]");
     } else {

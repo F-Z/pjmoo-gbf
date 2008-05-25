@@ -2,7 +2,7 @@ format 55
 
 classcanvas 128028 class_ref 139728 // GAT
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 495 883 2000
+  xyz 493 876 2000
   end
 classcanvas 128156 class_ref 134044 // UIWindowRecorde
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -30,7 +30,7 @@ classcanvas 128156 class_ref 134044 // UIWindowRecorde
   end
 classcanvas 128540 class_ref 139856 // GTMaquinaEstado
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 482 86 2000
+  xyz 480 93 2000
   end
 classcanvas 128668 class_ref 139216 // GTEstadoGeral
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -46,7 +46,7 @@ classcanvas 129436 class_ref 139088 // GTJogo
   end
 classcanvas 129820 class_ref 139600 // GTTopGaleria
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 599 463 2009
+  xyz 599 465 2009
   end
 classcanvas 131484 class_ref 130896 // CronometroDecrescente
   draw_all_relations default hide_attributes yes hide_operations yes show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -59,7 +59,7 @@ classcanvas 131868 class_ref 139344 // EstadoGeral
   end
 classcanvas 132124 class_ref 138832 // EstadoMenu
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
-  xyz 217 188 2004
+  xyz 216 190 2004
   end
 classcanvas 132380 class_ref 138960 // EstadoJogo
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -71,63 +71,63 @@ classcanvas 132636 class_ref 139472 // EstadoTopGaleria
   end
 relationcanvas 128284 relation_ref 138396 // <directional aggregation>
   geometry HVr
-  from ref 128028 z 1999 to point 564 1374
+  from ref 128028 z 1999 to point 562 1374
   line 131356 z 1999 to ref 128156
-  role_a_pos 343 1354 3000 no_role_b
+  role_a_pos 347 1355 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128796 relation_ref 154064 // <generalisation>
   geometry VH
-  from ref 128668 z 1999 to point 195 149
+  from ref 128668 z 1999 to point 195 153
   line 130204 z 1999 to ref 128540
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 128924 relation_ref 153040 // <generalisation>
   geometry HVr
-  from ref 128028 z 1999 to point 564 834
+  from ref 128028 z 1999 to point 562 824
   line 136092 z 1999 to ref 128668
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129180 relation_ref 154448 // <generalisation>
   geometry VH
-  from ref 129052 z 1999 to point 425 149
+  from ref 129052 z 1999 to point 424 153
   line 134428 z 1999 to ref 128540
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129308 relation_ref 153296 // <generalisation>
   geometry HVr
-  from ref 128028 z 1999 to point 564 611
+  from ref 128028 z 1999 to point 562 603
   line 135964 z 1999 to ref 129052
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129564 relation_ref 154192 // <generalisation>
   geometry HVr
-  from ref 129436 z 1999 to point 927 149
+  from ref 129436 z 1999 to point 926 153
   line 130332 z 1999 to ref 128540
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129692 relation_ref 153424 // <generalisation>
   geometry VH
-  from ref 128028 z 1999 to point 564 834
+  from ref 128028 z 1999 to point 562 822
   line 136476 z 1999 to ref 129436
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 129948 relation_ref 154320 // <generalisation>
   geometry HVr
-  from ref 129820 z 1999 to point 694 149
+  from ref 129820 z 1999 to point 694 153
   line 134684 z 1999 to ref 128540
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 130076 relation_ref 153168 // <generalisation>
   geometry VH
-  from ref 128028 z 1999 to point 564 611
+  from ref 128028 z 1999 to point 562 606
   line 135836 z 1999 to ref 129820
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 131612 relation_ref 144156 // <directional composition>
   geometry HVr
-  from ref 128540 z 1999 to point 555 41
+  from ref 128540 z 1999 to point 552 41
   line 131740 z 1999 to ref 131484
-  role_a_pos 398 21 3000 no_role_b
+  role_a_pos 402 22 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 132892 relation_ref 144284 // <directional composition>
   geometry VHV
@@ -138,15 +138,15 @@ relationcanvas 132892 relation_ref 144284 // <directional composition>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 133020 relation_ref 144412 // <directional composition>
   geometry VHr
-  from ref 129052 z 2003 to point 311 611
+  from ref 129052 z 2003 to point 309 603
   line 136220 z 2003 to ref 132124
-  role_a_pos 323 366 3000 no_role_b
+  role_a_pos 321 360 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 133276 relation_ref 144540 // <directional composition>
   geometry HV
-  from ref 129820 z 2008 to point 811 611
+  from ref 129820 z 2008 to point 810 606
   line 136348 z 2008 to ref 132636
-  role_a_pos 823 366 3000 no_role_b
+  role_a_pos 822 360 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 133404 relation_ref 144668 // <directional composition>
   geometry VHV

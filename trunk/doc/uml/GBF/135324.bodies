@@ -1,0 +1,25 @@
+class FPSLimitado
+!!!146204.cpp!!!	FPSLimitado(in taxaFrames : int)
+    framestart = 0.0f;
+
+    if (taxaFrames<30){
+        fpsConstante = 30;
+    } else {
+        fpsConstante = taxaFrames;
+    }
+!!!146716.cpp!!!	processar() : void
+
+    while( (SDL_GetTicks() - framestart) < 1000 / fpsConstante )
+    {
+        //wait...
+        //se tempo atual menos o tempo inicial for menor que
+        // 1000/30, faz com que entre em espera
+        //até que se complete o tempo
+    }
+
+    framestart = SDL_GetTicks();
+!!!146844.cpp!!!	iniciar() : void
+//    UtilLog::tracer("Inicializando FPS");
+    framestart = SDL_GetTicks();
+!!!147228.cpp!!!	getValor() : int
+    return fpsConstante;

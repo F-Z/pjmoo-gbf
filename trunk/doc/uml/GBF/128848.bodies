@@ -1,18 +1,20 @@
 class SpriteFactory
+!!!175696.cpp!!!	SpriteFactory(in nomeImageBuffer : string)
+    GBF::Kernel::Graphic::GraphicSystem  *graphicSystem = GBF::Kernel::Graphic::GraphicSystem::getInstance();
+
+    imageBuffer=graphicSystem->imageBufferManager->getImageBuffer(nomeImageBuffer);
 !!!175312.cpp!!!	criarSpriteItem(in left : int, in top : int, in largura : int, in altura : int, in frameTotal : int, in frameRate : int) : SpriteItem
     Sprite::SpriteItem *sprite = new Sprite::SpriteItem();
-    sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
+    sprite->criar(left,top,largura,altura,frameTotal,frameRate,imageBuffer);
 
     return sprite;
 !!!175440.cpp!!!	criarSpritePersonagem(in left : int, in top : int, in largura : int, in altura : int, in frameTotal : int, in frameRate : int) : SpritePersonagem
     Sprite::SpritePersonagem *sprite = new Sprite::SpritePersonagem();
-    sprite->criar(left,top,largura,altura,frameTotal,frameRate,gsiBuffer);
+    sprite->criar(left,top,largura,altura,frameTotal,frameRate,imageBuffer);
 
     return sprite;
 !!!175568.cpp!!!	criarFrameLayer(in left : int, in top : int, in largura : int, in altura : int) : FrameLayer
     Layer::FrameLayer *sprite = new Layer::FrameLayer();
-    sprite->criar(left,top,largura,altura,gsiBuffer);
+    sprite->criar(left,top,largura,altura,imageBuffer);
 
     return sprite;
-!!!175696.cpp!!!	SpriteFactory(inout gsiBuffer : ImageBuffer)
-    SpriteFactory::gsiBuffer=gsiBuffer;

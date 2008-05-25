@@ -1,6 +1,6 @@
 format 55
 "Menu" // Framework GBF::UserInterface::Menu
-  revision 3
+  revision 5
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -62,16 +62,6 @@ ${inlines}
     Classe para criação de menus
 Motivação:
     Fornecer uma interface padrão para criação de menus"
-      attribute 157136 "posicao"
-	protected type class_ref 128976 // Ponto
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
       attribute 157776 "itemSelecionado"
 	protected explicit_type "int"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -90,6 +80,15 @@ Motivação:
 	php_decl ""
 	python_decl ""
 	idl_decl ""
+      end
+
+      classrelation 156572 // posicao (<directional composition>)
+	relation 146972 *-->
+	  a role_name "posicao" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 156572 // posicao (<directional composition>)
+	  b parent class_ref 128976 // Ponto
       end
 
       classrelation 154576 // item (<unidirectional association>)
@@ -273,7 +272,7 @@ ${body}}"
       end
 
       operation 211536 "calcularAlinhamento"
-	protected explicit_return_type "Ponto"
+	protected return_type class_ref 128976 // Ponto
 	nparams 2
 	  param in name "caixaLargura" explicit_type "int"
 	  param in name "caixaAltura" explicit_type "int"
@@ -832,7 +831,7 @@ ${body}}"
       end
     end
 
-    classdiagram 130460 "Geral"
+    classdiagram 130460 "Menu"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A4
     end

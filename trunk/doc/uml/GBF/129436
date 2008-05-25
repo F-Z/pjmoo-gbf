@@ -1,6 +1,6 @@
 format 55
 "Texto" // Framework GBF::UserInterface::Texto
-  revision 4
+  revision 5
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -263,7 +263,7 @@ ${body}}"
       operation 129573 "setDimensaoLetra"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "dimensao" explicit_type "Dimensao"
+	  param in name "dimensao" type class_ref 129104 // Dimensao
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}
@@ -276,7 +276,7 @@ ${body}}"
       end
 
       operation 129701 "getDimensaoLetra"
-	public explicit_return_type "Dimensao"
+	public return_type class_ref 129104 // Dimensao
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -359,16 +359,6 @@ ${body}}"
 	comment "Retorna o alinhamento utilizado"
       end
 
-      attribute 129573 "dimensaoLetra"
-	protected explicit_type "Dimensao"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
       classrelation 128293 // alinhamento (<directional composition>)
 	relation 128293 *-->
 	  a role_name "alinhamento" protected
@@ -377,6 +367,20 @@ ${body}}"
 	    classrelation_ref 128293 // alinhamento (<directional composition>)
 	  b parent class_ref 128421 // UITextoAlinhamento
       end
+
+      classrelation 156700 // dimensaoLetra (<directional composition>)
+	relation 147100 *-->
+	  a role_name "dimensaoLetra" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 156700 // dimensaoLetra (<directional composition>)
+	  b parent class_ref 129104 // Dimensao
+      end
+    end
+
+    classdiagram 143772 "Texto"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
     end
   end
 

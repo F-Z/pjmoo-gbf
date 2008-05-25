@@ -10,7 +10,7 @@ class GAT
     }
 
     frameworkGBF    = new GBF::GBFramework();
-    tsGaleria       = new RankingSystem::RSGaleria();
+    recordeManager  = new RankingSystem::RSManager();
     uiRecordeNovo   = NULL;
     uiMenuPrincipal = NULL;
 
@@ -23,8 +23,8 @@ class GAT
     if (uiRecordeNovo){
         delete(uiRecordeNovo);
     }
-    if (tsGaleria){
-        delete(tsGaleria);
+    if (recordeManager){
+        delete(recordeManager);
     }
     if (uiMenuPrincipal){
         delete(uiMenuPrincipal);
@@ -36,7 +36,7 @@ class GAT
     return fullscreen;
 !!!205392.cpp!!!	executar() : void
     //Inicialização de classes extras 
-    RankingSystem::RSGaleria::setPathBase(frameworkGBF->getPath());
+    RankingSystem::RSManager::setPathBase(frameworkGBF->getPath());
 
     while(looping) {
         escutar();

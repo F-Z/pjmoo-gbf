@@ -1,5 +1,5 @@
-class WriteSystemBitmap
-!!!189136.cpp!!!	~WriteSystemBitmap()
+class FonteBitmap
+!!!189136.cpp!!!	~FonteBitmap()
     //UtilLog::getInstance()->status("[Fonte Removido(a)]");
 !!!189264.cpp!!!	carregarArquivo(in ARQUIVO : std::string) : bool
     FILE *ARQ_FONTE;
@@ -7,7 +7,7 @@ class WriteSystemBitmap
     imagem = IMG_Load(ARQUIVO.data());
 
     if (imagem!=NULL){
-        //converterSurface();
+        converterSurface();
         //setColorKey(0,0,0);
 
         txt=ARQUIVO.substr(0,ARQUIVO.length()-4);
@@ -61,7 +61,18 @@ class WriteSystemBitmap
         posicao.y=Y;
         posicao.x=posicao.x+largura[l];
     }
-!!!190032.cpp!!!	WriteSystemBitmap()
+!!!128119.cpp!!!	getLarguraLinha(in palavra : char) : int
+    int tamanhoPixel=0;
+    int t=strlen(palavra);
+    unsigned char l;
+
+    for (int i=0; i<t; i++){
+        l=palavra[i];
+        tamanhoPixel=tamanhoPixel+largura[l];
+    }
+
+    return tamanhoPixel;
+!!!190032.cpp!!!	FonteBitmap()
 
 !!!190160.cpp!!!	checkar() : void
     int maior=0;
@@ -73,14 +84,7 @@ class WriteSystemBitmap
 
     dimensaoPadrao.w=maior;
     dimensaoPadrao.h=dimensaoQuadro.h;
-!!!128119.cpp!!!	getLarguraLinha(in palavra : char)
-    int tamanhoPixel=0;
-    int t=strlen(palavra);
-    unsigned char l;
-
-    for (int i=0; i<t; i++){
-        l=palavra[i];
-        tamanhoPixel=tamanhoPixel+largura[l];
-    }
-
-    return tamanhoPixel;
+!!!148380.cpp!!!	converterSurface() : void
+    SDL_Surface *tmp = SDL_DisplayFormatAlpha(imagem);
+    SDL_FreeSurface(imagem);
+    imagem=tmp;

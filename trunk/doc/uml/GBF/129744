@@ -1,7 +1,7 @@
 format 55
 "GAT" // Framework GBF::GAT
-  revision 11
-  modified_by 28 "david"
+  revision 14
+  modified_by 95 ""
   // class settings
   //class diagram settings
   draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
@@ -60,6 +60,7 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+      comment "GAT - GBF Application Template"
       classrelation 153040 // <generalisation>
 	relation 153040 ---|>
 	  a public
@@ -110,13 +111,13 @@ ${inlines}
 	  b parent class_ref 134044 // UIWindowRecorde
       end
 
-      classrelation 153808 // tsGaleria (<unidirectional association>)
+      classrelation 153808 // recordeManager (<unidirectional association>)
 	relation 153808 --->
-	  a role_name "tsGaleria" multiplicity "1" protected
+	  a role_name "recordeManager" multiplicity "1" protected
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
 "
-	    classrelation_ref 153808 // tsGaleria (<unidirectional association>)
-	  b parent class_ref 130640 // RSGaleria
+	    classrelation_ref 153808 // recordeManager (<unidirectional association>)
+	  b parent class_ref 130640 // RSManager
       end
 
       classrelation 155728 // uiMenuPrincipal (<unidirectional association>)
@@ -1908,7 +1909,7 @@ ${body}}"
       end
     end
 
-    classdiagram 131740 "classes"
+    classdiagram 131740 "GAT"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A3
     end

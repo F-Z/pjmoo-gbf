@@ -2,7 +2,7 @@ class UIVisualImagem
 !!!131237.cpp!!!	UIVisualImagem()
     tipoBackground=BACKGROUND_LINES;
 
-    GBF::Grafico::SpriteFactory *spriteFactory = new GBF::Grafico::SpriteFactory(graphicSystem->imageBufferManager->getImageBuffer("gbf-window-background"));
+    GBF::Imagem::SpriteFactory *spriteFactory = new GBF::Imagem::SpriteFactory("gbf-window-background");
     background = spriteFactory->criarFrameLayer(0,0,10,10);
 
     delete(spriteFactory);

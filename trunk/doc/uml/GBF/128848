@@ -1,6 +1,6 @@
 format 55
 "Graphic" // Framework GBF::GBF::Kernel::Graphic
-  revision 28
+  revision 35
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -122,22 +122,6 @@ ${body}}"
 	comment " Remove ImageBuffer "
       end
 
-      operation 150096 "setPathBase"
-	class_operation public explicit_return_type "void"
-	nparams 1
-	  param in name "path" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-${body}}
-"
-	
-	
-	
-	
-	comment " Informa PathBase para leitura de arquivos"
-      end
-
       attribute 133968 "objetomap"
 	protected explicit_type "std::map<std::string,ImageBuffer*>"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
@@ -163,16 +147,6 @@ ${body}}"
 	comment "Construtor"
       end
 
-      attribute 134096 "pathBase"
-	class_attribute private explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
       classrelation 128625 // <dependency>
 	relation 128497 -_->
 	  stereotype "friend"
@@ -189,60 +163,13 @@ ${body}}"
 	    classrelation_ref 133039 // <generalisation>
 	  b parent class_ref 128303 // BaseManager
       end
-    end
 
-    class 128464 "Area"
-      visibility package stereotype "struct"
-      cpp_decl "${comment}${template}struct ${name}${inherit}
-{
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Definição de area"
-      attribute 132944 "top"
-	public explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 133072 "left"
-	public explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 133200 "bottom"
-	public explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 133328 "right"
-	public explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
+      classrelation 165148 // <dependency>
+	relation 155548 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 165148 // <dependency>
+	  b parent class_ref 138140 // Path
       end
     end
 
@@ -416,7 +343,7 @@ ${body}}"
       end
 
       operation 148304 "converterSurface"
-	protected explicit_return_type "void"
+	cpp_virtual protected explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -1889,7 +1816,6 @@ ${namespace_start}
 ${members}
 ${namespace_end}"
       associated_classes
-	class_ref 128464 // Area
 	class_ref 131920 // ImageBase
       end
       comment "//    GBF - Gamework's Brazilian Framework

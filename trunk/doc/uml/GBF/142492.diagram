@@ -70,17 +70,17 @@ relationcanvas 132124 relation_ref 130863 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 relationcanvas 132636 relation_ref 135504 // <directional composition>
   geometry VHr
-  from ref 132508 z 1999 to point 198 554
-  line 134428 z 1999 stereotype "<<std::deque>>" xyz 154 526 3000 to ref 128028
+  from ref 132508 z 1999 to point 198 544
+  line 134428 z 1999 stereotype "<<std::deque>>" xyz 154 521 3000 to ref 128028
   role_a_pos 210 505 3000 no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 132764 relation_ref 137680 // <dependency>
-  from ref 128028 z 1999 stereotype "<<friend>>" xyz 297 429 3000 to ref 132508
+  from ref 128028 z 1999 stereotype "<<friend>>" xyz 297 423 3000 to ref 132508
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 relationcanvas 134300 relation_ref 135376 // <generalisation>
   geometry HV
-  from ref 132508 z 1999 to point 646 554
+  from ref 132508 z 1999 to point 646 544
   line 134684 z 1999 to ref 134172
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b

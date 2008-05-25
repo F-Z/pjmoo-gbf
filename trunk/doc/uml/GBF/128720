@@ -1,6 +1,6 @@
 format 55
 "Write" // Framework GBF::GBF::Kernel::Write
-  revision 15
+  revision 21
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -118,17 +118,6 @@ Motivação:
 "
       end
 
-      attribute 151376 "pathBase"
-	class_attribute private explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	comment "Caminho padrão de localização dos arquivos"
-      end
-
       operation 191312 "~Idioma"
 	public explicit_return_type ""
 	nparams 0
@@ -154,21 +143,6 @@ ${body}}"
 	
 	
 	
-      end
-
-      operation 192208 "setPathBase"
-	class_operation public explicit_return_type "void"
-	nparams 1
-	  param inout name "path" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-${body}}"
-	
-	
-	
-	
-	comment "Configura o caminho do arquivo de  mensagens"
       end
 
       operation 192464 "setIdioma"
@@ -318,6 +292,7 @@ ${body}}"
 	
 	
 	
+	comment "Carrega o mapeamento de idiomas e os arquivos de texto"
       end
 
       operation 193488 "parserIdioma"
@@ -370,6 +345,14 @@ ${body}}"
 	    classrelation_ref 151632 // <dependency>
 	  b parent class_ref 137936 // Log
       end
+
+      classrelation 165020 // <dependency>
+	relation 155420 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 165020 // <dependency>
+	  b parent class_ref 138140 // Path
+      end
     end
 
     class 129616 "WriteManager"
@@ -399,6 +382,15 @@ Motivação:
 	python_decl ""
 	idl_decl ""
 	comment "Constante para representar a fonte padrão do GBF"
+      end
+
+      classrelation 152016 // idioma (<unidirectional association>)
+	relation 152016 --->
+	  a role_name "idioma" public
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 152016 // idioma (<unidirectional association>)
+	  b parent class_ref 138576 // Idioma
       end
 
       operation 190288 "~WriteManager"
@@ -589,15 +581,6 @@ ${body}}"
 "
 	    classrelation_ref 143312 // instance (<unidirectional association>)
 	  b parent class_ref 129616 // WriteManager
-      end
-
-      classrelation 152016 // uiTexto (<unidirectional association>)
-	relation 152016 --->
-	  a role_name "uiTexto" package
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 152016 // uiTexto (<unidirectional association>)
-	  b parent class_ref 138576 // Idioma
       end
 
       classrelation 133423 // <generalisation>
@@ -825,6 +808,21 @@ ${body}}"
 	
 	
 	comment "Define altura e largura padrão baseada na maior altura e largura utilizada."
+      end
+
+      operation 148380 "converterSurface"
+	cpp_virtual protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Converte Surface para formato na inicialização do GraphicSystem "
       end
     end
 

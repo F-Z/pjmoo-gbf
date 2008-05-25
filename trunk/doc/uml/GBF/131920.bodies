@@ -1,8 +1,8 @@
-class GraphicSystemImage
-!!!147280.cpp!!!	GraphicSystemImage()
+class ImageBase
+!!!147280.cpp!!!	ImageBase()
     imagem=NULL;
 
-!!!147408.cpp!!!	~GraphicSystemImage()
+!!!147408.cpp!!!	~ImageBase()
     if (imagem!=NULL){
         SDL_FreeSurface(imagem);
         //UtilLog::getInstance()->status("Removendo Surfaces");
@@ -10,7 +10,7 @@ class GraphicSystemImage
 !!!147536.cpp!!!	setAlpha(in ALPHA : Uint8) : void
     SDL_SetAlpha(imagem,SDL_SRCALPHA,ALPHA);
 !!!147664.cpp!!!	setColorKey(in R : Uint8, in G : Uint8, in B : Uint8) : void
-    SDL_SetColorKey(imagem,SDL_SRCCOLORKEY,SDL_MapRGB(imagem->format,R,G,B));
+    SDL_SetColorKey(imagem,SDL_SRCCOLORKEY|SDL_RLEACCEL,SDL_MapRGB(imagem->format,R,G,B));
 !!!147920.cpp!!!	getTimer() : double
     return time;
 !!!148048.cpp!!!	getTamanho() : SDL_Rect
@@ -19,7 +19,7 @@ class GraphicSystemImage
     SDL_Surface *tmp = SDL_DisplayFormat(imagem);
     SDL_FreeSurface(imagem);
     imagem=tmp;
-!!!148432.cpp!!!	setGraphicSystemScreen(inout screen : GraphicSystemScreen) : void
+!!!148432.cpp!!!	setGraphicSystemScreen(inout screen : Screen) : void
     gsScreen = screen;
 !!!148560.cpp!!!	setTimer(in TEMPO : double) : void
     time=TEMPO;

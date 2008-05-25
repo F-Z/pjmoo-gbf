@@ -1,6 +1,6 @@
 format 55
 "Sound" // Framework GBF::GBF::Kernel::Sound
-  revision 19
+  revision 23
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -281,6 +281,14 @@ ${body}}"
 	    classrelation_ref 150940 // <dependency>
 	  b parent class_ref 136016 // Music
       end
+
+      classrelation 164892 // <dependency>
+	relation 155292 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 164892 // <dependency>
+	  b parent class_ref 138140 // Path
+      end
     end
 
     class 135504 "FXManager"
@@ -524,6 +532,22 @@ ${body}}"
 	    classrelation_ref 129782 // <dependency>
 	  b parent class_ref 128118 // SoundSystem
       end
+
+      classrelation 128095 // <dependency>
+	relation 128095 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 128095 // <dependency>
+	  b parent class_ref 135760 // FX
+      end
+
+      classrelation 164764 // <dependency>
+	relation 155164 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 164764 // <dependency>
+	  b parent class_ref 138140 // Path
+      end
     end
 
     class 135888 "SoundManagerAbstract"
@@ -651,21 +675,6 @@ ${body}}"
 Obs.: Valor do volume de 0 ate 128"
       end
 
-      operation 170064 "setPathBase"
-	class_operation public explicit_return_type "void"
-	nparams 1
-	  param in name "path" explicit_type "std::string"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
-${body}}"
-	
-	
-	
-	
-	comment "Informa PathBase para leitura de arquivos"
-      end
-
       operation 128886 "setStatus"
 	class_operation private explicit_return_type "void"
 	nparams 1
@@ -678,16 +687,6 @@ ${body}}"
 	
 	
 	
-      end
-
-      attribute 139728 "pathBase"
-	class_attribute protected explicit_type "std::string"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
       end
 
       classrelation 128886 // status (<directional aggregation>)
@@ -1814,5 +1813,4 @@ ${namespace_end}"
 "
     end
   end
-
 end
