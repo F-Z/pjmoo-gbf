@@ -1,6 +1,6 @@
 format 55
-"Timer" // Framework GBF::Kernel::Timer
-  revision 10
+"Timer" // Framework GBF::GBF::Kernel::Timer
+  revision 14
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -45,6 +45,11 @@ format 55
     //activity diagram settings
     package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
     show_infonote default drawing_language default
+    classdiagram 144924 "Timer"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
+    end
+
     class 130896 "CronometroDecrescente"
       visibility package 
       cpp_decl "${comment}${template}class ${name}${inherit} {
@@ -182,150 +187,6 @@ ${body}}"
 	
 	
 	comment "Destrutor"
-      end
-    end
-
-    class 129872 "FPS"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      comment "Descrição: 
-    Classe para controle da quantidade de quadros por segundo
-Motivação:
-    Fornecer um mecanismo para controlar a  velocidade de processamento da aplicação"
-      operation 181456 "FPS"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	
-	comment "Construtor"
-      end
-
-      operation 181584 "~FPS"
-	cpp_virtual public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} 
-{
-${body}}"
-	
-	
-	
-	
-	comment "Destrutor"
-      end
-
-      operation 181712 "processar"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-      end
-
-      operation 181840 "start"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-	comment "Deve ser chamado antes do loop principal do jogo"
-      end
-
-      operation 181968 "aumentar"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-	comment "Aumenta a frequencia do FPS"
-      end
-
-      operation 182096 "diminuir"
-	public explicit_return_type "void"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-	comment "Diminui a frequencia do FPS"
-      end
-
-      attribute 145360 "framestart"
-	private explicit_type "double"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 145488 "fpsMax"
-	private explicit_type "int"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      classrelation 147408 // <dependency>
-	relation 147408 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 147408 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
-      classrelation 149840 // <dependency>
-	relation 149840 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 149840 // <dependency>
-	  b parent class_ref 138448 // SDL
       end
     end
 
@@ -904,42 +765,6 @@ ${namespace_end}"
 //        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 //        http://pjmoo.sourceforge.net
 //        http://davidferreira-fz.blogspot.com
-//////////////////////////////////////////////////////////////////////
-"
-    end
-
-    artifact 136400 "FPS"
-      stereotype "source"
-      cpp_h "${comment}
-#ifndef _${NAME}_H
-#define _${NAME}_H
-
-${all_includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      cpp_src "${comment}
-${includes}
-${namespace_start}
-${members}
-${namespace_end}"
-      associated_classes
-	class_ref 129872 // FPS
-      end
-      comment "//    GBF - Gamework's Brazilian Framework
-//    Copyright (C) 2004-2007 David de Almeida Ferreira
-//
-//    This library is free software; you can redistribute it and/or
-//    modify it under the terms of the GNU Library General Public
-//    License as published by the Free Software Foundation; either
-//    version 2 of the License, or (at your option) any later version.
-//
-//    David de Almeida Ferreira (F-Z)
-//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-//        http://pjmoo.codigolivre.org.br
 //////////////////////////////////////////////////////////////////////
 "
     end

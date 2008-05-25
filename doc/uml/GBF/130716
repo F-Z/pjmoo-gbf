@@ -1,6 +1,6 @@
 format 55
 "Componente" // Framework GBF::UserInterface::Componente
-  revision 6
+  revision 7
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -909,20 +909,6 @@ ${body}}"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}
-{
-${body}}"
-	
-	
-	
-	
-      end
-
-      operation 140828 "getDimensao"
-	preserve_cpp_body_indent public explicit_return_type "Dimensao"
-	nparams 0
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}
 {
 ${body}}"
 	

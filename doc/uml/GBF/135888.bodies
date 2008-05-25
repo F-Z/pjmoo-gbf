@@ -1,13 +1,11 @@
-class SoundSystemInterfaceManager
-!!!169296.cpp!!!	~SoundSystemInterfaceManager()
+class SoundManagerAbstract
+!!!169296.cpp!!!	~SoundManagerAbstract()
     status = NULL;
-!!!169168.cpp!!!	SoundSystemInterfaceManager()
+!!!169168.cpp!!!	SoundManagerAbstract()
     if (status->isAtivo()){
         //UtilLog::getInstance()->status("[Ok]");
     } else {
         //UtilLog::getInstance()->status("[Falhou]");
     }
-!!!170064.cpp!!!	setPathBase(in path : std::string) : void
-    pathBase=path;
-!!!128886.cpp!!!	setStatus(in instance : SoundSystemStatus) : void
+!!!128886.cpp!!!	setStatus(in instance : SoundStatus) : void
     status = instance;

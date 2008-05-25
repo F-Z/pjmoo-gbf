@@ -1,0 +1,5 @@
+class Path
+!!!170064.cpp!!!	setPath(in path : std::string) : void
+    Path::path=path;
+!!!152220.cpp!!!	getPath() : std::string
+    return Path::path;

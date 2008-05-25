@@ -50,14 +50,14 @@ class WriteManager
     va_list ap;
 
     va_start(ap, chave);
-    vsprintf(textoFormatado, uiTexto->getTexto(chave).c_str(), ap);
+    vsprintf(textoFormatado, idioma->getTexto(chave).c_str(), ap);
     va_end(ap);
 
     escrever(fonte,x,y,textoFormatado);
 !!!192848.cpp!!!	escreverLocalizadoSubChave(in fonte : std::string, in x : int, in y : int, in chave : std::string, in subChave : std::string) : void
     char textoFormatado[256];
 
-    sprintf(textoFormatado, uiTexto->getTexto(chave).c_str(), uiTexto->getTexto(subChave).c_str());
+    sprintf(textoFormatado, idioma->getTexto(chave).c_str(), idioma->getTexto(subChave).c_str());
     escrever(fonte,x,y,textoFormatado);
 !!!190928.cpp!!!	apagar(in nome : std::string) : void
     if (objetomap[nome]){
@@ -67,10 +67,10 @@ class WriteManager
     }
 !!!128247.cpp!!!	getLarguraLinha(in fonte : string, in chave : string) : int
     if (objetomap[fonte]){
-        return objetomap[fonte]->getLarguraLinha(uiTexto->getTexto(chave).c_str());
+        return objetomap[fonte]->getLarguraLinha(idioma->getTexto(chave).c_str());
     } else {
         return 0;
     }
 !!!191056.cpp!!!	WriteManager()
 //    UtilLog::subSistema("Instanciando WriteSystemManager");
-    uiTexto =  Idioma::getInstance();
+    idioma =  Idioma::getInstance();

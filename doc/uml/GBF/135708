@@ -1,6 +1,6 @@
 format 55
 "Util" // Framework GBF::GBF::Kernel::Util
-  revision 1
+  revision 3
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -389,6 +389,64 @@ ${body}}
       end
     end
 
+    class 138140 "Path"
+      visibility package stereotype "utility"
+      cpp_decl "${comment}${template}class ${name}${inherit}
+{
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Descrição: 
+    Informa o Path da aplicação
+Motivação:
+    Possibilitar que o caminho da aplicação seja obtido em runtime para a leitura ou gravação de arquivos"
+      operation 170064 "setPath"
+	class_operation public explicit_return_type "void"
+	nparams 1
+	  param in name "path" explicit_type "std::string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+	
+	
+	comment "Informa o Path para leitura de arquivos"
+      end
+
+      attribute 139728 "path"
+	class_attribute private explicit_type "std::string"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	comment "Caminho base da aplicação"
+      end
+
+      operation 152220 "getPath"
+	class_operation preserve_cpp_body_indent public explicit_return_type "std::string"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna o path base da aplicação"
+      end
+    end
+
     classdiagram 138652 "Util"
       draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
       size A4
@@ -499,6 +557,43 @@ ${members}
 ${namespace_end}"
       associated_classes
 	class_ref 137808 // StringExtract
+      end
+      comment "//    GBF - Gamework's Brazilian Framework
+//    Copyright (C) 2004-2008 David de Almeida Ferreira
+//
+//    This library is free software; you can redistribute it and/or
+//    modify it under the terms of the GNU Library General Public
+//    License as published by the Free Software Foundation; either
+//    version 2 of the License, or (at your option) any later version.
+//
+//    David de Almeida Ferreira (F-Z)
+//        davidferreira@uol.com.br or davidferreira.fz@gmail.com
+//        http://pjmoo.sourceforge.net
+//        http://davidferreira-fz.blogspot.com
+//////////////////////////////////////////////////////////////////////
+"
+    end
+
+    artifact 135964 "Path"
+      stereotype "source"
+      cpp_h "${comment}
+#ifndef _${NAME}_H
+#define _${NAME}_H
+
+${all_includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_classes
+	class_ref 138140 // Path
       end
       comment "//    GBF - Gamework's Brazilian Framework
 //    Copyright (C) 2004-2008 David de Almeida Ferreira

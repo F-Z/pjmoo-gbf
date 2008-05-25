@@ -2,7 +2,7 @@ class PSPixel
 !!!128466.cpp!!!	~PSPixel()
     lista.clear();
 !!!161488.cpp!!!	desenhar() : void
-    Ponto ponto;
+    GBF::Ponto ponto;
 
     if (!lista.empty()){
 

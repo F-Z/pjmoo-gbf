@@ -26,10 +26,10 @@ class ImageBufferManager
     ImageBuffer* tab = new ImageBuffer();
 //    UtilLog::getInstance()->inicializando("ImagemTableManager::Carregar()");
 
-    std::string fullPath=pathBase+arquivo;
+    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
   //  UtilLog::tracer("ImagemTable=%s Arquivo=%s",nome.c_str(),fullPath.c_str());
-    if (tab->carregarArquivo(fullPath)){
+    if (tab->carregarArquivo(fullpath)){
         objetomap[nome]=tab;
         //UtilLog::comentario("[Ok]");
     } else {
@@ -41,7 +41,5 @@ class ImageBufferManager
         objetomap[nome]=NULL;
         objetomap.erase(nome);
     }
-!!!150096.cpp!!!	setPathBase(in path : std::string) : void
-    pathBase=path;
 !!!150224.cpp!!!	ImageBufferManager()
 //    UtilLog::subSistema("Instanciando GraphicSystemImageBufferManager");

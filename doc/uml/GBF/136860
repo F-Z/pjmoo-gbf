@@ -1,6 +1,6 @@
 format 55
-"Kernel" // Framework GBF::GBF::Kernel
-  revision 5
+"import" // import
+  revision 2
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -26,20 +26,5 @@ format 55
   package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
   show_infonote default drawing_language default
   
-  cpp_h_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
-  cpp_src_dir "/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/"
-  cpp_namespace "GBF::Kernel"
-  package_ref 138012 // FPS
-
-  package_ref 128848 // Graphic
-
-  package_ref 128464 // Timer
-
-  package_ref 128592 // Input
-
-  package_ref 128336 // Sound
-
-  package_ref 128720 // Write
-
-  package_ref 135708 // Util
+  cpp_namespace "GBF::Kernel::Timer"
 end

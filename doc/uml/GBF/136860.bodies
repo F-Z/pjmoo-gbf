@@ -1,0 +1,13 @@
+class FPSFactory
+!!!151068.cpp!!!	criar(in tipo : Tipo) : FPS
+    FPS * fps = NULL;
+
+    switch(tipo){
+        case FPS_CONTADOR:
+            fps = new FPSContador();
+        break;
+        default:
+            fps = new FPSLimitado(tipo);
+    }
+
+    return fps;

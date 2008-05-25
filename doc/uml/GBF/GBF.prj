@@ -1,6 +1,6 @@
 format 55
 "GBF"
-  revision 21
+  revision 24
   modified_by 28 "david"
 
   artifact_default_description "//    GBF - Gamework's Brazilian Framework
@@ -71,4 +71,6 @@ Gimp, OpenOffice, CódigoLivre, SourceForge, CVS, Subversion
   package_ref 128080 // Framework GBF
 
   package_ref 128208 // Extern
+
+  package_ref 136860 // import
 end
