@@ -91,6 +91,11 @@ class FrameLayer : public GBF::Imagem::SpriteInterface
     GBF::Area screen_dimensao;
 
   friend class LayerManager;
+
+  public:
+    //Carrega tilemap apartir de um vetor pré-alocado em memoria.
+    void carregarMemoria(int * vetor);
+
 };
 
 } // namespace GBF::Imagem::Layer
