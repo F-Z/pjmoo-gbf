@@ -21,19 +21,24 @@ namespace Imagem {
 namespace Layer {
 
 //Construtor
-FrameLayer::FrameLayer()
+FrameLayer::FrameLayer() 
 {
     mapa=NULL;
+    mapaColisao=NULL;
 }
 //Destrutor
-FrameLayer::~FrameLayer()
+FrameLayer::~FrameLayer() 
 {
     if (mapa!=NULL){
         delete[] mapa;
     }
+
+    if (mapaColisao!=NULL){
+        delete[] mapaColisao;
+    }
 }
 //Desenha o mapa
-void FrameLayer::desenhar()
+void FrameLayer::desenhar() 
 {
     int i,IMG,bloco_y,bloco_x;
     int offset_x, offset_y;
@@ -118,24 +123,24 @@ void FrameLayer::desenhar()
     }
 }
 //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-GBF::Area FrameLayer::getArea()
+GBF::Area FrameLayer::getArea() 
 {
     return screen_dimensao;
 }
 //Distancia restante para finalizar Scrolling Vertical
-int FrameLayer::getDistanciaScrollVertical()
+int FrameLayer::getDistanciaScrollVertical() 
 {
     Ponto ponto = camera.getPosicao();
 
     return ponto.y;
 }
 //Porcentagem percorrida do Scroll Horizontal
-int FrameLayer::getPorcentagemScrollHorizontal()
+int FrameLayer::getPorcentagemScrollHorizontal() 
 {
     return 0;
 }
 //Porcentagem percorrida do Scroll Vertical
-int FrameLayer::getPorcentagemScrollVertical()
+int FrameLayer::getPorcentagemScrollVertical() 
 {
     Dimensao tilesMundo = mundo.getTiles();
     Ponto ponto         = camera.getPosicao();
@@ -145,7 +150,7 @@ int FrameLayer::getPorcentagemScrollVertical()
     return total;
 }
 //Distancia total do Scrolling Vertical
-int FrameLayer::getTotalScrollVertical()
+int FrameLayer::getTotalScrollVertical() 
 {
     Dimensao tilesMundo = mundo.getTiles();
     Ponto ponto         = camera.getPosicao();
@@ -153,7 +158,7 @@ int FrameLayer::getTotalScrollVertical()
     return int(tilesMundo.h * mundo.getPixelTileVertical());
 }
 //Inicializa tiles com valores do arquivo
-void FrameLayer::iniciarArquivo(std::string arquivo)
+void FrameLayer::iniciarArquivo(std::string arquivo) 
 {
     FILE *handleArquivo;
     handleArquivo = fopen(arquivo.c_str(),"rb");
@@ -167,7 +172,7 @@ void FrameLayer::iniciarArquivo(std::string arquivo)
     camera.setMundo(&mundo);
 }
 //Iniciar preenchendo apenas com o quadro informado
-void FrameLayer::iniciarCom(int quadro)
+void FrameLayer::iniciarCom(int quadro) 
 {
     Dimensao tilesMundo   = mundo.getTiles();
     int total = tilesMundo.w*tilesMundo.h;
@@ -179,7 +184,7 @@ void FrameLayer::iniciarCom(int quadro)
     camera.setMundo(&mundo);
 }
 //Iniciar ordenado até o quadro informado
-void FrameLayer::iniciarOrdenado(int quadroMaximo)
+void FrameLayer::iniciarOrdenado(int quadroMaximo) 
 {
     Dimensao tilesMundo   = mundo.getTiles();
     int total = tilesMundo.w*tilesMundo.h;
@@ -196,7 +201,7 @@ void FrameLayer::iniciarOrdenado(int quadroMaximo)
     camera.setMundo(&mundo);
 }
 //Inicializa tiles de forma aleatória
-void FrameLayer::iniciarRandomico(int range)
+void FrameLayer::iniciarRandomico(int range) 
 {
     Dimensao tilesMundo = mundo.getTiles();
     int total = tilesMundo.w*tilesMundo.h;
@@ -208,7 +213,7 @@ void FrameLayer::iniciarRandomico(int range)
     camera.setMundo(&mundo);
 }
 //Informa o posicionamento da area de desenho e as suas dimensões internas
-void FrameLayer::setFrame(int left, int top, int largura, int altura)
+void FrameLayer::setFrame(int left, int top, int largura, int altura) 
 {
     screen_dimensao.top    = top;
     screen_dimensao.left   = left;
@@ -218,7 +223,7 @@ void FrameLayer::setFrame(int left, int top, int largura, int altura)
     mundo.setPixelVisivel(largura,altura);
 }
 //Informa o tamanho do mundo em tiles horizontais e verticais
-void FrameLayer::setTiles(int largura, int altura)
+void FrameLayer::setTiles(int largura, int altura) 
 {
     mundo.setTiles(largura,altura);
 
@@ -228,12 +233,12 @@ void FrameLayer::setTiles(int largura, int altura)
     mapa = new int[largura*altura];
 }
 //Informa o tamanho em pixels dos tiles usados no layer
-void FrameLayer::setPixelTile(int largura, int altura)
+void FrameLayer::setPixelTile(int largura, int altura) 
 {
     mundo.setPixelTile(largura,altura);
 }
 //Desenha a grade de tiles do mapa
-void FrameLayer::showGrade()
+void FrameLayer::showGrade() 
 {
 /*
     int offset_x, offset_y;
@@ -292,9 +297,24 @@ void FrameLayer::showGrade()
 */
 }
 //Carrega tilemap apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarMemoria(int * vetor)
+void FrameLayer::carregarMapaMemoria(int * vetor) 
 {
     mapa = vetor;
+}
+//Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
+void FrameLayer::carregarColisaoMemoria(int * vetor) 
+{
+    mapa = vetor;
+}
+//Retorna o tipo de colisão usado no brick
+int FrameLayer::getTipoColisao(int indice) 
+{
+    return mapaColisao[indice];
+}
+//Retorna o tipo de imagem usado no brick
+int FrameLayer::getTipoImagem(int indice) 
+{
+    return mapa[indice];
 }
 
 } // namespace GBF::Imagem::Layer
