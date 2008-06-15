@@ -297,14 +297,38 @@ void FrameLayer::showGrade()
 */
 }
 //Carrega tilemap apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarMapaMemoria(int * vetor) 
+void FrameLayer::carregarMapaMemoria(int vetor[]) 
 {
-    mapa = vetor;
+    if (mapa!=NULL){
+        delete []mapa;
+    }
+
+    GBF::Dimensao tamanho = mundo.getTiles();
+
+    int total = tamanho.w*tamanho.h;
+
+    mapa = new int[total];
+
+    for (int i=0; i<total; i++){
+        mapa[i]=vetor[i];
+    }
 }
 //Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarColisaoMemoria(int * vetor) 
+void FrameLayer::carregarColisaoMemoria(int vetor[]) 
 {
-    mapa = vetor;
+    if (mapaColisao!=NULL){
+        delete []mapaColisao;
+    }
+
+    GBF::Dimensao tamanho = mundo.getTiles();
+
+    int total = tamanho.w*tamanho.h;
+
+    mapaColisao = new int[total];
+
+    for (int i=0; i<total; i++){
+        mapaColisao[i]=vetor[i];
+    }
 }
 //Retorna o tipo de colisão usado no brick
 int FrameLayer::getTipoColisao(int indice) 
