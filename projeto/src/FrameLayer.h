@@ -88,18 +88,22 @@ class FrameLayer : public GBF::Imagem::SpriteInterface
 
     int * mapaColisao;
 
+
+  public:
     LayerMundo mundo;
 
+
+  protected:
     GBF::Area screen_dimensao;
 
   friend class LayerManager;
 
   public:
     //Carrega tilemap apartir de um vetor pré-alocado em memoria.
-    void carregarMapaMemoria(int * vetor);
+    void carregarMapaMemoria(int vetor[]);
 
     //Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
-    void carregarColisaoMemoria(int * vetor);
+    void carregarColisaoMemoria(int vetor[]);
 
     //Retorna o tipo de colisão usado no brick
     int getTipoColisao(int indice);
