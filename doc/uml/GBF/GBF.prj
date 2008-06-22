@@ -1,6 +1,6 @@
 format 55
 "GBF"
-  revision 24
+  revision 25
   modified_by 28 "david"
 
   artifact_default_description "//    GBF - Gamework's Brazilian Framework
