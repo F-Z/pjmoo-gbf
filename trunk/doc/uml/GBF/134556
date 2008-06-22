@@ -1,6 +1,6 @@
 format 55
 "Layer" // Framework GBF::GBF::Imagem::Layer
-  revision 4
+  revision 8
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -1073,9 +1073,19 @@ ${body}}"
 	idl_decl ""
       end
 
+      attribute 143260 "mapaColisao"
+	protected explicit_type "int"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
       classrelation 128464 // mundo (<directional composition>)
 	relation 128464 *-->
-	  a role_name "mundo" protected
+	  a role_name "mundo" public
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	    classrelation_ref 128464 // mundo (<directional composition>)
@@ -1099,6 +1109,75 @@ ${body}}"
 	    classrelation_ref 128592 // <dependency>
 	  b parent class_ref 128720 // LayerManager
       end
+
+      operation 153372 "carregarMapaMemoria"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "vetor" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}[]${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}[]${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Carrega tilemap apartir de um vetor pré-alocado em memoria."
+      end
+
+      operation 154524 "carregarColisaoMemoria"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "vetor" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}[]${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}[]${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Carrega mapa de colisão apartir de um vetor pré-alocado em memoria."
+      end
+
+      operation 154652 "getTipoColisao"
+	public explicit_return_type "int"
+	nparams 1
+	  param in name "indice" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna o tipo de colisão usado no brick"
+      end
+
+      operation 154780 "getTipoImagem"
+	public explicit_return_type "int"
+	nparams 1
+	  param in name "indice" explicit_type "int"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}
+{
+${body}}"
+	
+	
+	
+	
+	comment "Retorna o tipo de imagem usado no brick"
+      end
+    end
+
+    classdiagram 147228 "Layer"
+      draw_all_relations default hide_attributes default hide_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_multiplicity default show_members_initialization default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_infonote default shadow default
+      size A4
     end
   end
 

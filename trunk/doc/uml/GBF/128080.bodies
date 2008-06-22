@@ -1,8 +1,15 @@
 class FrameLayer
 !!!128080.cpp!!!	FrameLayer()
     mapa=NULL;
+    mapaColisao=NULL;
 !!!128208.cpp!!!	~FrameLayer()
-    delete[] mapa;
+    if (mapa!=NULL){
+        delete[] mapa;
+    }
+
+    if (mapaColisao!=NULL){
+        delete[] mapaColisao;
+    }
 !!!128336.cpp!!!	desenhar() : void
     int i,IMG,bloco_y,bloco_x;
     int offset_x, offset_y;
@@ -220,3 +227,35 @@ class FrameLayer
         linha_x+=tamanho.w;
     }
 */
+!!!153372.cpp!!!	carregarMapaMemoria(in vetor : int) : void
+    if (mapa!=NULL){
+        delete []mapa;
+    }
+
+    GBF::Dimensao tamanho = mundo.getTiles();
+
+    int total = tamanho.w*tamanho.h;
+
+    mapa = new int[total];
+
+    for (int i=0; i<total; i++){
+        mapa[i]=vetor[i];
+    }
+!!!154524.cpp!!!	carregarColisaoMemoria(in vetor : int) : void
+    if (mapaColisao!=NULL){
+        delete []mapaColisao;
+    }
+
+    GBF::Dimensao tamanho = mundo.getTiles();
+
+    int total = tamanho.w*tamanho.h;
+
+    mapaColisao = new int[total];
+
+    for (int i=0; i<total; i++){
+        mapaColisao[i]=vetor[i];
+    }
+!!!154652.cpp!!!	getTipoColisao(in indice : int) : int
+    return mapaColisao[indice];
+!!!154780.cpp!!!	getTipoImagem(in indice : int) : int
+    return mapa[indice];
