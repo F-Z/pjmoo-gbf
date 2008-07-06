@@ -66,8 +66,10 @@ void WriteManager::carregar(std::string nome, std::string arquivo)
 {
     FonteBitmap *f = new FonteBitmap();
 
+    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
+
    // UtilLog::tracer("FonteBitmap=%s Arquivo=%s",nome.c_str(),arquivo.c_str());
-    if (f->carregarArquivo(arquivo)){
+    if (f->carregarArquivo(fullpath)){
         objetomap[nome]=f;
         //UtilLog::comentario("[Ok]");
     } else {

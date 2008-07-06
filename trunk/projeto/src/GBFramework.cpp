@@ -99,7 +99,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
 
     //Carregando Fontes Padrões
     //UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
-    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont,getPath()+"data//kernel//fonte//default.png");
+    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont,"data//kernel//fonte//default.png");
 
     //UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
     graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
