@@ -1,6 +1,6 @@
 format 55
 "GBF" // Framework GBF::GBF
-  revision 39
+  revision 40
   modified_by 28 "david"
   // class settings
   //class diagram settings

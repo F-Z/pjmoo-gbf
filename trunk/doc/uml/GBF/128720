@@ -1,6 +1,6 @@
 format 55
 "Write" // Framework GBF::GBF::Kernel::Write
-  revision 21
+  revision 22
   modified_by 28 "david"
   // class settings
   //class diagram settings
