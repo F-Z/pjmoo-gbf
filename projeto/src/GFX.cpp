@@ -20,29 +20,29 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Destrutor 
-GFX::~GFX() 
+//Destrutor
+GFX::~GFX()
 {
 //    UtilLog::subSistema("Removendo GraphicSystemGFX");
     pScreen = NULL;
 }
 //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
-void GFX::setColor(GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B) 
+void GFX::setColor(GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B)
 {
     color = SDL_MapRGB(pScreen->format,R,G,B);
 }
 //Seta a cor a ser usada (Usar somente se a cor já estiver sido mapeada para RGB)
-void GFX::setColor(GBF::Cor::Cor cor) 
+void GFX::setColor(GBF::Cor::Cor cor)
 {
     color = cor;
 }
 //Desenha um pixel na tela (Usado para cores em formado decimal)
-void GFX::putPixel(int x, int y, GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B) 
+void GFX::putPixel(int x, int y, GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B)
 {
     putPixel(x,y,SDL_MapRGB(pScreen->format,R,G,B));
 }
 //Desenha um pixel na tela (Usado apenas se a cor já estiver em formato RGB)
-void GFX::putPixel(int x, int y, GBF::Cor::Cor cor) 
+void GFX::putPixel(int x, int y, GBF::Cor::Cor cor)
 {
     if (offSetLimite(x,y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;
@@ -72,7 +72,7 @@ void GFX::putPixel(int x, int y, GBF::Cor::Cor cor)
     }
 }
 //Pegar a cor de um pixel na tela
-GBF::Cor::Cor GFX::getPixel(int x, int y) 
+GBF::Cor::Cor GFX::getPixel(int x, int y)
 {
     if (offSetLimite(x,y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;
@@ -98,7 +98,7 @@ GBF::Cor::Cor GFX::getPixel(int x, int y)
     }
 }
 //Desenha uma linha na tela
-void GFX::linha(int XI, int YI, int XF, int YF) 
+void GFX::linha(int XI, int YI, int XF, int YF)
 {
     #define sgn(x) ((x<0)?-1:((x>0)?1:0))
     /* macro para retornar o seno de um numero */
@@ -140,7 +140,7 @@ void GFX::linha(int XI, int YI, int XF, int YF)
     gsScreen->destravar();
 }
 //Desenha um circulo
-void GFX::circulo(int X, int Y, int RAIO) 
+void GFX::circulo(int X, int Y, int RAIO)
 {
     float n=0,invradius=1/(float)RAIO;
     int dx=0,dy=RAIO-1;
@@ -167,7 +167,7 @@ void GFX::circulo(int X, int Y, int RAIO)
     gsScreen->destravar();
 }
 //Desenha um circulo preenchido
-void GFX::circuloPreenchido(int X, int Y, int RAIO) 
+void GFX::circuloPreenchido(int X, int Y, int RAIO)
 {
     float n=0,invradius=1/(float)RAIO;
     int dx=0,dy=RAIO-1;
@@ -198,7 +198,7 @@ void GFX::circuloPreenchido(int X, int Y, int RAIO)
     gsScreen->destravar();
 }
 //Desenha um retangulo
-void GFX::retangulo(int X, int Y, int W, int H) 
+void GFX::retangulo(int X, int Y, int W, int H)
 {
     linha(X,Y,X+W,Y);
     linha(X,Y,X,Y+H);
@@ -206,7 +206,7 @@ void GFX::retangulo(int X, int Y, int W, int H)
     linha(X,Y+H,X+W,Y+H);
 }
 //Desenha um retangulo preenchido
-void GFX::retanguloPreenchido(int X, int Y, int W, int H) 
+void GFX::retanguloPreenchido(int X, int Y, int W, int H)
 {
     SDL_Rect retangulo;
     retangulo.x=X;
@@ -217,27 +217,27 @@ void GFX::retanguloPreenchido(int X, int Y, int W, int H)
     SDL_FillRect(pScreen,&retangulo,color);
 }
 //Desenha cruzamentos com fechamento na parte superior (rever utilidade)
-void GFX::gradeSuperior(int X, int Y, int W, int H) 
+void GFX::gradeSuperior(int X, int Y, int W, int H)
 {
     linha(X,Y,X+W,Y);
     linha(X,Y,X,Y+H);
 }
 //Desenha cruzamentos com fechamento na parte inferior (rever utilidade)
-void GFX::gradeInferior(int X, int Y, int W, int H) 
+void GFX::gradeInferior(int X, int Y, int W, int H)
 {
     linha(X+W,Y,X+W,Y+H);
     linha(X,Y+H,X+W,Y+H);
 }
 //Inicializa informações básicas
-void GFX::inicializar() 
+void GFX::inicializar()
 {
 //    UtilLog::comentario("Inicializando GraphicSystemGFX");
     pScreen  = gsScreen->getScreen();
     bpp      = pScreen->format->BytesPerPixel;
     setColor(0xFFFFFF);
 }
-//Verifica se o ponto (x,y) está dentro dos limites 
-bool GFX::offSetLimite(int x, int y) 
+//Verifica se o ponto (x,y) está dentro dos limites
+bool GFX::offSetLimite(int x, int y)
 {
     if ((x<0)||(y<0)||(x>=pScreen->w)||(y>=pScreen->h)) {
         return false;
@@ -251,19 +251,19 @@ void GFX::setGraphicSystemScreen(Screen * screen)
 {
     gsScreen = screen;
 }
-//Construtor 
-GFX::GFX() 
+//Construtor
+GFX::GFX()
 {
-//    UtilLog::subSistema("Instanciando GraphicSystemGFX");
+    std::cout << "GBF::Kernel::Graphic::GFX" << std::endl;
     pScreen = NULL;
 }
 //Realiza um lock na surface
-bool GFX::travar() 
+bool GFX::travar()
 {
     return gsScreen->travar();
 }
 //Realiza um unlock na surface
-void GFX::destravar() 
+void GFX::destravar()
 {
     gsScreen->destravar();
 }

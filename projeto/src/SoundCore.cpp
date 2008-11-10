@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-SoundCore::~SoundCore() 
+SoundCore::~SoundCore()
 {
 //    UtilLog::sistema("Removendo SoundSystem");
 
@@ -32,18 +32,22 @@ SoundCore::~SoundCore()
     SDL_QuitSubSystem(SDL_INIT_AUDIO);
 }
 //Inicializa o sistema de som
-void SoundCore::iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cache, int quantidadeCanais) 
+void SoundCore::iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cache, int quantidadeCanais)
 {
     bool hardware = false;
+
+    std::cout << "GBF::Kernel::Sound::SoundCore::iniciar()" << std::endl;
 
     if (status->isAtivo()) {
         if (Mix_OpenAudio(frequencia, formato, canal, cache) == 0 ){
             if (Mix_AllocateChannels(quantidadeCanais)>0){
                 hardware = true;
             } else {
+                std::cerr << "[ERROR]SDL_Mixer:" << SDL_GetError() << std::endl;
                 //UtilLog::comentario("Alocando canais de Som =%s [Falhou]",SDL_GetError());
             }
         } else {
+            std::cerr << "[ERROR]SDL_Mixer:" << SDL_GetError() << std::endl;
            // UtilLog::comentario("Inicializando SDL_mixer =%s [Falhou]",SDL_GetError());
         }
     }
@@ -55,20 +59,20 @@ void SoundCore::iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cach
     SoundSystemUtility::setSoundSystem(soundSystem);
 }
 //Configura sistema sonoro para parar o som
-void SoundCore::setMute(bool mute) 
+void SoundCore::setMute(bool mute)
 {
     if (status->isAtivo()){
         status->setMute(mute);
     }
 }
 //Construtor
-SoundCore::SoundCore() 
+SoundCore::SoundCore()
 {
     //UtilLog::sistema("Instanciando SoundSystem");
     bool hardware = false;
 
     if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0 ) {
-        //UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_AUDIO)=%s",SDL_GetError());
+        std::cerr << "[ERROR]SDL:" << SDL_GetError() << std::endl;
     } else {
         hardware = true;
     }

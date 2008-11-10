@@ -16,7 +16,7 @@
 
 #include <SDL/SDL_mixer.h>
 #include <string>
-
+#include <iostream>
 
 namespace GBF {
 
@@ -24,7 +24,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para representação de músicas
 //Motivação:
 //    Permitir manipular músicas (trila sonora)
@@ -46,7 +46,7 @@ class Music {
     void playLoop(int vezes);
 
     //Configura o volume da música
-    //Obs.: Valor de 0 ate 128 
+    //Obs.: Valor de 0 ate 128
     void setVolume(int valor);
 
     //Para a música

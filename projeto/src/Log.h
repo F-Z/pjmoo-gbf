@@ -29,7 +29,7 @@ namespace Kernel {
 
 namespace Util {
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de logs
 //Motivação:
 //     Catalogar informações de execução
@@ -38,6 +38,7 @@ namespace Util {
 class Log
 {
   public:
+
     static void setArquivo(std::string arquivo);
 
     static void setAutor(std::string autor);

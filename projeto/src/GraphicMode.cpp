@@ -20,62 +20,67 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Construtor 
-GraphicMode::GraphicMode() 
+//Construtor
+GraphicMode::GraphicMode()
 {
     screen = NULL;
 }
-//Destrutor 
-GraphicMode::~GraphicMode() 
+//Destrutor
+GraphicMode::~GraphicMode()
 {
 //    SDL_FreeSurface(screen);
 }
-//Coloca o vídeo em modo de tela cheia 
-void GraphicMode::setModeFullScreen() 
+//Coloca o vídeo em modo de tela cheia
+void GraphicMode::setModeFullScreen()
 {
+    std::cout << "GBF::Kernel::Graphic::GraphicMode::setModeFullScreen()" << std::endl;
     //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
     config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
     screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_HWSURFACE|SDL_ANYFORMAT|SDL_DOUBLEBUF|SDL_FULLSCREEN);
+
     if (screen==NULL){
-       // UtilLog::tracer("GraphicSystem::setModeFullScreen=%s",SDL_GetError());
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
         config.full=true;
-        //UtilLog::tracer("GraphicSystem::setModeFullScreen Resolução:%ix%i %i Bits",config.w,config.h,config.color);
+        std::cout << "\tGraphicMode: " << (int)config.w << "x" << (int)config.h << " " << (int)config.color << " Bits" << std::endl;
+        std::cout << "\tGraphicMode: FullScreen" << std::endl;
     }
 }
-//Coloca o vídeo em modo de janela 
-void GraphicMode::setModeWindowScreen() 
+//Coloca o vídeo em modo de janela
+void GraphicMode::setModeWindowScreen()
 {
+    std::cout << "GBF::Kernel::Graphic::GraphicMode::setModeWindowScreen()" << std::endl;
     //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
     config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_HWSURFACE|SDL_DOUBLEBUF);
     screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_HWSURFACE|SDL_ANYFORMAT|SDL_DOUBLEBUF);
 
     if (screen==NULL){
-       // UtilLog::tracer("GraphicSystem::setModeWindowScreen=%s",SDL_GetError());
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
         config.full=false;
-        //UtilLog::tracer("GraphicSystem::setModeWindowScreen Resolução:%ix%i %i Bits",config.w,config.h,config.color);
+        std::cout << "\tGraphicMode: " << (int)config.w << "x" << (int)config.h << " " << (int)config.color << " Bits" << std::endl;
+        std::cout << "\tGraphicMode: Window" << std::endl;
     }
 }
-//Retorna se o jogo esta rodando em modo de Tela Cheia 
-bool GraphicMode::isFullScreen() 
+//Retorna se o jogo esta rodando em modo de Tela Cheia
+bool GraphicMode::isFullScreen()
 {
     return config.full;
 }
-//Configura a resolução do modo gráfico 
-void GraphicMode::setConfig(VideoConfig config) 
+//Configura a resolução do modo gráfico
+void GraphicMode::setConfig(VideoConfig config)
 {
     this->config=config;
 }
-//Pega a Configuração do modo gráfico 
-VideoConfig GraphicMode::getConfig() 
+//Pega a Configuração do modo gráfico
+VideoConfig GraphicMode::getConfig()
 {
     return config;
 }
-//Retorna a Surface Primaria de Vídeo (framebuffer) 
-SDL_Surface * GraphicMode::getScreen() 
+//Retorna a Surface Primaria de Vídeo (framebuffer)
+SDL_Surface * GraphicMode::getScreen()
 {
     return screen;
 }

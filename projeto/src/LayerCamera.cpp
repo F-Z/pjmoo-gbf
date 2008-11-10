@@ -21,17 +21,22 @@ namespace Imagem {
 namespace Layer {
 
 //Destrutor
-LayerCamera::~LayerCamera() 
+LayerCamera::~LayerCamera()
 {
     mundo=NULL;
 }
-//Retorna a Posição Atual da Camera 
-GBF::Ponto LayerCamera::getPosicao() 
+//Retorna a Posição Atual da Camera
+GBF::Ponto LayerCamera::getPosicao()
 {
-    return ponto;
+    Ponto p;
+
+    p.x=(int)ponto.x;
+    p.y=(int)ponto.y;
+
+    return p;
 }
-//Verifica se a Camera está no limite inferior do mapa 
-bool LayerCamera::isBottom() 
+//Verifica se a Camera está no limite inferior do mapa
+bool LayerCamera::isBottom()
 {
     if (ponto.y>=(mundo->getTilesVertical() * mundo->getPixelTileVertical() - mundo->getPixelVisivelVertical())){
         return true;
@@ -39,8 +44,8 @@ bool LayerCamera::isBottom()
         return false;
     }
 }
-//Verifica se a Camera está no limite esquerdo do mapa 
-bool LayerCamera::isLeft() 
+//Verifica se a Camera está no limite esquerdo do mapa
+bool LayerCamera::isLeft()
 {
     if (ponto.x<=0){
         return true;
@@ -48,8 +53,8 @@ bool LayerCamera::isLeft()
         return false;
     }
 }
-//Verifica se a Camera está no limite direito do mapa 
-bool LayerCamera::isRight() 
+//Verifica se a Camera está no limite direito do mapa
+bool LayerCamera::isRight()
 {
     if (ponto.x>=(mundo->getTilesHorizontal() * mundo->getPixelTileHorizontal() - mundo->getPixelVisivelVertical())){
         return true;
@@ -58,7 +63,7 @@ bool LayerCamera::isRight()
     }
 }
 //Verifica se a Camera está no limite superior do mapa
-bool LayerCamera::isTop() 
+bool LayerCamera::isTop()
 {
     if (ponto.y<=0){
         return true;
@@ -66,54 +71,54 @@ bool LayerCamera::isTop()
         return false;
     }
 }
-//Movimenta camera para Baixo 
-void LayerCamera::runDown(int deslocamento) 
+//Movimenta camera para Baixo
+void LayerCamera::runDown(float deslocamento)
 {
     ponto.y+=deslocamento;
     limiteDown();
 }
-//Movimenta camera para Esquerda 
-void LayerCamera::runLeft(int deslocamento) 
+//Movimenta camera para Esquerda
+void LayerCamera::runLeft(float deslocamento)
 {
     ponto.x-=deslocamento;
     limiteLeft();
 }
-//Movimenta camera para Direita 
-void LayerCamera::runRight(int deslocamento) 
+//Movimenta camera para Direita
+void LayerCamera::runRight(float deslocamento)
 {
     ponto.x+=deslocamento;
     limiteRight();
 }
-//Movimenta camera para Cima 
-void LayerCamera::runUp(int deslocamento) 
+//Movimenta camera para Cima
+void LayerCamera::runUp(float deslocamento)
 {
     ponto.y-=deslocamento;
     limiteUp();
 }
-//Posiciona a Camera no Final do mapa 
-void LayerCamera::setBottom() 
+//Posiciona a Camera no Final do mapa
+void LayerCamera::setBottom()
 {
     ponto.x=0;
     ponto.y=(mundo->getTilesVertical() - mundo->getTilesHorizontal()) * (mundo->getPixelTileVertical());
 }
-void LayerCamera::setMundo(LayerMundo * mundo) 
+void LayerCamera::setMundo(LayerMundo * mundo)
 {
     this->mundo=mundo;
 }
-//Posiciona a Camera em um ponto do Mapa 
-void LayerCamera::setPosicao(int X, int Y) 
+//Posiciona a Camera em um ponto do Mapa
+void LayerCamera::setPosicao(int X, int Y)
 {
     ponto.x=X;
     ponto.y=Y;
 }
-//Posiciona a Camera no inicio do mapa 
-void LayerCamera::setTop() 
+//Posiciona a Camera no inicio do mapa
+void LayerCamera::setTop()
 {
     ponto.x=0;
     ponto.y=0;
 }
-//Mostra o posicionamento da camera no mapa 
-void LayerCamera::show() 
+//Mostra o posicionamento da camera no mapa
+void LayerCamera::show()
 {
 /*
     GraphicSystemGFX *gfx = GraphicSystemGFX::getInstance();
@@ -121,30 +126,30 @@ void LayerCamera::show()
     gfx->circulo(ponto.x,ponto.y,10);
 */
 }
-//Não permite que a camera ultrapasse o limite do mapa pelo lado superior 
-void LayerCamera::limiteUp() 
+//Não permite que a camera ultrapasse o limite do mapa pelo lado superior
+void LayerCamera::limiteUp()
 {
     if (ponto.y<=0){
         ponto.y=0;
     }
 }
-//Não permite que a camera ultrapasse o limite do mapa pelo lado inferior 
-void LayerCamera::limiteDown() 
+//Não permite que a camera ultrapasse o limite do mapa pelo lado inferior
+void LayerCamera::limiteDown()
 {
     int limite = (mundo->getTilesVertical() * mundo->getPixelTileVertical()) - mundo->getPixelVisivelVertical();
     if (ponto.y>=limite){
         ponto.y =limite;
     }
 }
-//Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo 
-void LayerCamera::limiteLeft() 
+//Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo
+void LayerCamera::limiteLeft()
 {
     if (ponto.x<=0){
         ponto.x=0;
     }
 }
-//Não permite que a camera ultrapasse o limite do mapa pelo lado direito 
-void LayerCamera::limiteRight() 
+//Não permite que a camera ultrapasse o limite do mapa pelo lado direito
+void LayerCamera::limiteRight()
 {
     int limite = (mundo->getTilesHorizontal() * mundo->getPixelTileHorizontal()) - mundo->getPixelVisivelHorizontal();
     if (ponto.x>=limite){
@@ -152,7 +157,7 @@ void LayerCamera::limiteRight()
     }
 }
 //Construtor
-LayerCamera::LayerCamera() 
+LayerCamera::LayerCamera()
 {
     setTop();
 }
