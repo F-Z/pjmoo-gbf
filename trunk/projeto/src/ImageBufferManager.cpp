@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Graphic {
 
 //Destrutor
-ImageBufferManager::~ImageBufferManager() 
+ImageBufferManager::~ImageBufferManager()
 {
 //    UtilLog::subSistema("Removendo GraphicSystemImageBufferManager");
 
@@ -40,7 +40,7 @@ ImageBufferManager::~ImageBufferManager()
     objetomap.clear();
 }
 // Retorna GraphicSystemImageBufferManager para manipulação
-ImageBuffer * ImageBufferManager::getImageBuffer(std::string nome) 
+ImageBuffer * ImageBufferManager::getImageBuffer(std::string nome)
 {
     if (objetomap.find(nome)!=objetomap.end()){
         return objetomap[nome];
@@ -49,24 +49,21 @@ ImageBuffer * ImageBufferManager::getImageBuffer(std::string nome)
     //DAFs gerar log de erro
     }
 }
-// Carregar ImageBuffer para o ImageBufferManager 
-void ImageBufferManager::carregar(std::string nome, std::string arquivo) 
+// Carregar ImageBuffer para o ImageBufferManager
+void ImageBufferManager::carregar(std::string nome, std::string arquivo)
 {
-    ImageBuffer* tab = new ImageBuffer();
-//    UtilLog::getInstance()->inicializando("ImagemTableManager::Carregar()");
-
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-  //  UtilLog::tracer("ImagemTable=%s Arquivo=%s",nome.c_str(),fullPath.c_str());
+    ImageBuffer* tab = new ImageBuffer();
+
+    std::cout << "\tImageBufferManager: " << nome << "=" << fullpath << std::endl;
+
     if (tab->carregarArquivo(fullpath)){
         objetomap[nome]=tab;
-        //UtilLog::comentario("[Ok]");
-    } else {
-        //UtilLog::comentario("[Falhou]");
     }
 }
-// Remove ImageBuffer 
-void ImageBufferManager::apagar(std::string nome) 
+// Remove ImageBuffer
+void ImageBufferManager::apagar(std::string nome)
 {
     if (objetomap[nome]){
         delete(objetomap[nome]);
@@ -75,9 +72,10 @@ void ImageBufferManager::apagar(std::string nome)
     }
 }
 //Construtor
-ImageBufferManager::ImageBufferManager() 
+ImageBufferManager::ImageBufferManager()
 {
 //    UtilLog::subSistema("Instanciando GraphicSystemImageBufferManager");
+    std::cout << "GBF::Kernel::Graphic::ImageBufferManager" << std::endl;
 }
 
 } // namespace GBF::Kernel::Graphic

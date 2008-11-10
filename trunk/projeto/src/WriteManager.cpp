@@ -24,7 +24,7 @@ namespace Write {
 const std::string WriteManager::defaultFont="default";
 
 //Destrutor
-WriteManager::~WriteManager() 
+WriteManager::~WriteManager()
 {
 //    UtilLog::subSistema("Removendo WriteSystemManager");
     std::map<std::string,FonteBitmap*>::iterator it;
@@ -43,7 +43,7 @@ WriteManager::~WriteManager()
 }
 //Retorna uma fonte para manipulação direta
 //Obs.: Ideal para casos em que se deseja manipulações avançadas
-FonteBitmap * WriteManager::getFonte(std::string nome) 
+FonteBitmap * WriteManager::getFonte(std::string nome)
 {
     if (objetomap.find(nome)!=objetomap.end()){
         return objetomap[nome];
@@ -62,22 +62,20 @@ WriteManager * WriteManager::getInstance()
     return instance;
 }
 //Carrega e adiciona uma fonte (WriteSystemBitmap)
-void WriteManager::carregar(std::string nome, std::string arquivo) 
+void WriteManager::carregar(std::string nome, std::string arquivo)
 {
-    FonteBitmap *f = new FonteBitmap();
-
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-   // UtilLog::tracer("FonteBitmap=%s Arquivo=%s",nome.c_str(),arquivo.c_str());
+    FonteBitmap *f = new FonteBitmap();
+
+    std::cout << "\tWriteManager: " << nome << "=" << fullpath << std::endl;
+
     if (f->carregarArquivo(fullpath)){
         objetomap[nome]=f;
-        //UtilLog::comentario("[Ok]");
-    } else {
-        //UtilLog::comentario("[Falhou]");
     }
 }
 //Escreve um texto na tela
-void WriteManager::escrever(std::string fonte, int x, int y, const char * texto, ...) 
+void WriteManager::escrever(std::string fonte, int x, int y, const char * texto, ...)
 {
     char texto_aux[256];
     va_list ap;
@@ -89,7 +87,7 @@ void WriteManager::escrever(std::string fonte, int x, int y, const char * texto,
     getFonte(fonte)->escrever(texto_aux,x,y);
 }
 //Escreve um texto na tela usando recursos de Localização (Tradução)
-void WriteManager::escreverLocalizado(const std::string & fonte, int x, int y, std::string chave, ...) 
+void WriteManager::escreverLocalizado(const std::string & fonte, int x, int y, std::string chave, ...)
 {
     char textoFormatado[256];
     va_list ap;
@@ -101,7 +99,7 @@ void WriteManager::escreverLocalizado(const std::string & fonte, int x, int y, s
     escrever(fonte,x,y,textoFormatado);
 }
 //Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização
-void WriteManager::escreverLocalizadoSubChave(const std::string fonte, int x, int y, const std::string chave, const std::string subChave) 
+void WriteManager::escreverLocalizadoSubChave(const std::string fonte, int x, int y, const std::string chave, const std::string subChave)
 {
     char textoFormatado[256];
 
@@ -109,7 +107,7 @@ void WriteManager::escreverLocalizadoSubChave(const std::string fonte, int x, in
     escrever(fonte,x,y,textoFormatado);
 }
 //Remove uma fonte (WriteSystemFontBitmap)
-void WriteManager::apagar(std::string nome) 
+void WriteManager::apagar(std::string nome)
 {
     if (objetomap[nome]){
         delete (objetomap[nome]);
@@ -118,7 +116,7 @@ void WriteManager::apagar(std::string nome)
     }
 }
 //Retorna em Pixel o tamanho total da linha
-int WriteManager::getLarguraLinha(const std::string fonte, const std::string chave) 
+int WriteManager::getLarguraLinha(const std::string fonte, const std::string chave)
 {
     if (objetomap[fonte]){
         return objetomap[fonte]->getLarguraLinha(idioma->getTexto(chave).c_str());
@@ -127,7 +125,7 @@ int WriteManager::getLarguraLinha(const std::string fonte, const std::string cha
     }
 }
 //Construtor
-WriteManager::WriteManager() 
+WriteManager::WriteManager()
 {
 //    UtilLog::subSistema("Instanciando WriteSystemManager");
     idioma =  Idioma::getInstance();

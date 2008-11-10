@@ -20,18 +20,18 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Limpa a tela 
-void GraphicCore::clear() 
+//Limpa a tela
+void GraphicCore::clear()
 {
     SDL_FillRect(gsMode.getScreen(), NULL, 0);
 }
-//Salva uma imagem da tela 
-void GraphicCore::salvarScreenShot(std::string arquivo) 
+//Salva uma imagem da tela
+void GraphicCore::salvarScreenShot(std::string arquivo)
 {
     SDL_SaveBMP(gsMode.getScreen(),arquivo.c_str());
 }
-//Destrutor 
-GraphicCore::~GraphicCore() 
+//Destrutor
+GraphicCore::~GraphicCore()
 {
 //    UtilLog::sistema("Removendo GraphicSystem");
 
@@ -41,8 +41,9 @@ GraphicCore::~GraphicCore()
 
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
-void GraphicCore::iniciar() 
+void GraphicCore::iniciar()
 {
+    std::cout << "GBF::Kernel::Graphic::GraphicCore::iniciar()" << std::endl;
     gsScreen->setScreen(gsMode.getScreen());
 
     ImageBase::setGraphicSystemScreen(gsScreen);
@@ -52,26 +53,30 @@ void GraphicCore::iniciar()
     graphicSystem->gfx->inicializar();
     GraphicSystemUtility::setGraphicSystem(graphicSystem);
 }
-//Realiza o flip(troca) entre os buffers de vídeo 
-void GraphicCore::flip() 
+//Realiza o flip(troca) entre os buffers de vídeo
+void GraphicCore::flip()
 {
     SDL_Flip(gsMode.getScreen());
 }
-//Inicializa SubSistema de suporte a Video 
-GraphicCore::GraphicCore() 
+//Inicializa SubSistema de suporte a Video
+GraphicCore::GraphicCore()
 {
     const SDL_version *v = SDL_Linked_Version();
-  //  UtilLog::sistema("Instanciando SDL - versão %i.%i.%i",v->major,v->minor,v->patch);
-   // UtilLog::sistema("Instanciando GraphicSystem");
+
+    std::cout << "GBF::Kernel::Graphic::GraphicCore" << std::endl;
+
+    std::cout << "\tSDL: " << (int) v->major << "." << (int) v->minor << "." << (int) v->patch << " version" << std::endl;
+
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-       // UtilLog::comentario("[Falhou] :: %s",SDL_GetError());
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
-        putenv("SDL_VIDEO_CENTERED=true");
+        SDL_putenv("SDL_VIDEO_CENTERED=true");
         char videodriver[10];
         SDL_VideoDriverName(videodriver,10);
-        //UtilLog::comentario("Driver de Vídeo=%s : Centralizado=%s",videodriver,getenv("SDL_VIDEO_CENTERED"));
+
+        std::cout << "\tSDL: driver " << videodriver << " - center: " << getenv("SDL_VIDEO_CENTERED") << std::endl;
 
         gsScreen = new Screen();
 //        gsGFX    = GraphicSystemGFX::getInstance();
