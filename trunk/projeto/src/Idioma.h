@@ -22,11 +22,12 @@
 #include <fstream>
 
 #include <map>
-#include <iostream>
+
 #include <string>
 
-
 #include "Path.h"
+#include <iostream>
+
 
 namespace GBF {
 
@@ -34,7 +35,7 @@ namespace Kernel {
 
 namespace Write {
 
-//Descrição:
+//Descrição: 
 //    Classe para carregar textos
 //Motivação:
 //    Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos
@@ -42,14 +43,14 @@ class Idioma
 {
   protected:
     //Lista com os códigos e textos correspondentes
-
+    
     std::map<std::string,std::string> mapaTexto;
 
     //Lista com os idiomas suportados
     std::map<std::string,std::string> idiomaSuportado;
 
     //Prefixo do idioma selecionado
-
+    
     std::string idiomaPrefixo;
 
     static Idioma * instance;
@@ -57,7 +58,7 @@ class Idioma
 
   private:
     //arquivo de localização a ser carregado
-
+    
     std::string arquivo;
 
 
