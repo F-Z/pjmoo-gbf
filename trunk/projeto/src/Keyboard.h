@@ -15,8 +15,6 @@
 #ifndef _KEYBOARD_H
 #define _KEYBOARD_H
 
-#include <iostream>
-
 #include <SDL/SDL.h>
 
 
@@ -26,7 +24,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição:
+//Descrição: 
 //    Classe para controle do teclado
 //Motivação:
 //    Prover o controle de eventos por meio do Teclado

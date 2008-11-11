@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Input {
 
 //Destrutor
-InputSystem::~InputSystem()
+InputSystem::~InputSystem() 
 {
     if (teclado){
         delete(teclado);
@@ -45,14 +45,14 @@ InputSystem * InputSystem::getInstance()
 }
 InputSystem * InputSystem::instance;
 
-InputSystem::InputSystem()
+InputSystem::InputSystem() 
 {
     teclado  = new Keyboard();
     mouse    = new Mouse();
     joystick = new Joystick();
 }
 //Processa os eventos referentes aos mouse, teclado e joystick
-void InputSystem::processar()
+void InputSystem::processar() 
 {
     joystick->processar();
     teclado->processar();
