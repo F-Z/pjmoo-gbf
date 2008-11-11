@@ -17,7 +17,6 @@
 
 #include "SoundSystem.h"
 #include "SoundStatus.h"
-
 #include <SDL/SDL.h>
 
 #include "SoundSystemUtility.h"
@@ -29,7 +28,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição:
+//Descrição: 
 //    Valores para indicação dos canais de audio
 //Motivação:
 //    Fornecer um conjunto de valores para configuração do modo de audio
@@ -38,7 +37,7 @@ enum Canal {
   CANAL_STEREO=2
 
 };
-//Descrição:
+//Descrição: 
 //    Classe para inicialização e gerenciamento do sistema de som
 //Motivação:
 //    Gerenciar o uso do sistema de som

@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-SoundCore::~SoundCore()
+SoundCore::~SoundCore() 
 {
 //    UtilLog::sistema("Removendo SoundSystem");
 
@@ -32,7 +32,7 @@ SoundCore::~SoundCore()
     SDL_QuitSubSystem(SDL_INIT_AUDIO);
 }
 //Inicializa o sistema de som
-void SoundCore::iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cache, int quantidadeCanais)
+void SoundCore::iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cache, int quantidadeCanais) 
 {
     bool hardware = false;
 
@@ -59,14 +59,14 @@ void SoundCore::iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cach
     SoundSystemUtility::setSoundSystem(soundSystem);
 }
 //Configura sistema sonoro para parar o som
-void SoundCore::setMute(bool mute)
+void SoundCore::setMute(bool mute) 
 {
     if (status->isAtivo()){
         status->setMute(mute);
     }
 }
 //Construtor
-SoundCore::SoundCore()
+SoundCore::SoundCore() 
 {
     //UtilLog::sistema("Instanciando SoundSystem");
     bool hardware = false;
@@ -79,8 +79,6 @@ SoundCore::SoundCore()
 
     status = new SoundStatus();
     status->setAtivo(hardware);
-
-
 }
 
 } // namespace GBF::Kernel::Sound

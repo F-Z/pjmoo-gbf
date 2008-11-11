@@ -17,7 +17,7 @@
 
 #include <SDL/SDL_mixer.h>
 #include <string>
-#include <iostream>
+
 
 namespace GBF {
 
@@ -25,7 +25,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição:
+//Descrição: 
 //    Classe para representação de um efeito sonoro
 //Motivação:
 //    Permitir manipular efeitos sonoros
@@ -40,7 +40,7 @@ class FX {
     //Toca Efeto sonoro
     int play();
 
-    //Configura o volume do efeito,
+    //Configura o volume do efeito, 
     //Obs.: Valor de 0 ate 128
     void setVolume(int valor);
 
