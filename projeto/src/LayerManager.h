@@ -20,7 +20,6 @@
 
 #include <map>
 
-#include "Log.h"
 #include "BaseManager.h"
 
 namespace GBF {
@@ -37,13 +36,13 @@ class LayerManager : public GBF::BaseManager
     //Destrutor
     virtual ~LayerManager();
 
-    //Retorna uma instancia de FrameLayerManager 
+    //Retorna uma instancia de FrameLayerManager
     static LayerManager * getInstance();
 
-    //Retorna FrameLayer para manipulação 
+    //Retorna FrameLayer para manipulação
     FrameLayer * getFrameLayer(std::string nome);
 
-    //Adiciona FrameLayer no FrameLayerManager 
+    //Adiciona FrameLayer no FrameLayerManager
     void adicionar(std::string nome, FrameLayer * frameLayer);
 
 

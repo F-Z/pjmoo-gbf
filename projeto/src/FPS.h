@@ -14,7 +14,8 @@
 #ifndef _FPS_H
 #define _FPS_H
 
-#include "Log.h"
+#include <iostream>
+
 #include <SDL/SDL.h>
 
 
@@ -24,7 +25,7 @@ namespace Kernel {
 
 namespace FPS {
 
-//Descrição: 
+//Descrição:
 //    Classe para controle da quantidade de quadros por segundo
 //Motivação:
 //    Fornecer um mecanismo para controlar a  velocidade de processamento da aplicação

@@ -2,6 +2,7 @@
 #define _GFX_H
 
 #include <math.h>
+#include <iostream>
 
 ////    GBF - Gamework's Brazilian Framework
 ////    Copyright (C) 2004-2008 David de Almeida Ferreira
@@ -29,7 +30,7 @@ namespace Graphic {
 class GFX
 {
   public:
-    //Destrutor 
+    //Destrutor
     virtual ~GFX();
 
     //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
@@ -76,7 +77,7 @@ class GFX
     //Inicializa informações básicas
     void inicializar();
 
-    //Verifica se o ponto (x,y) está dentro dos limites 
+    //Verifica se o ponto (x,y) está dentro dos limites
     bool offSetLimite(int x, int y);
 
     SDL_Surface * pScreen;
@@ -89,7 +90,7 @@ class GFX
 
     static void setGraphicSystemScreen(Screen * screen);
 
-    //Construtor 
+    //Construtor
     GFX();
 
     int bpp;
@@ -106,7 +107,7 @@ class GFX
 
 };
 //Desenha um pixel na tela (Usando cor padrão selecionada)
-inline void GFX::putPixel(int x, int y) 
+inline void GFX::putPixel(int x, int y)
 {
     if (offSetLimite(x,y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;

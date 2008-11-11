@@ -76,7 +76,7 @@ GraphicCore::GraphicCore()
         char videodriver[10];
         SDL_VideoDriverName(videodriver,10);
 
-        std::cout << "\tSDL: driver " << videodriver << " - center: " << getenv("SDL_VIDEO_CENTERED") << std::endl;
+        std::cout << "\tSDL: driver " << videodriver << std::endl;
 
         gsScreen = new Screen();
 //        gsGFX    = GraphicSystemGFX::getInstance();

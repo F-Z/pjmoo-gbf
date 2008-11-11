@@ -19,11 +19,10 @@
 
 #include "RSLista.h"
 #include "RSRecorde.h"
-#include "Log.h"
 
 namespace RankingSystem {
 
-//Descrição: 
+//Descrição:
 //    Classe para gerenciamento da listagem de recordes
 //Motivação:
 //    Permitir carregar e salvar em disco a listagem de recordes

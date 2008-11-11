@@ -23,7 +23,6 @@
 
 #include "FPSFactory.h"
 #include "FPS.h"
-#include "Log.h"
 #include "ImageBufferManager.h"
 #include "LayerManager.h"
 #include "GraphicMode.h"
@@ -33,11 +32,11 @@
 
 namespace GBF {
 
-//Descrição: 
+//Descrição:
 //     Classe central do framework
 //Motivação:
 //     Prover de forma unificada a inicialização e configuração básica do framework
-// 
+//
 class GBFramework
 {
   public:
@@ -58,7 +57,7 @@ class GBFramework
 
     //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
     //desenha na tela o conteúdo do backbuffer
-    
+
     void atualizar();
 
     //Retorna o diretório base da aplicação corrente
@@ -85,13 +84,13 @@ class GBFramework
 
 
   protected:
-    //Prepara o Ambiente para ser inicializado 
+    //Prepara o Ambiente para ser inicializado
     void carregar();
 
     //Controle para ações internas
     void controleInterno();
 
-    //Define o Título para Janela 
+    //Define o Título para Janela
     void setTitulo(std::string titulo);
 
 
