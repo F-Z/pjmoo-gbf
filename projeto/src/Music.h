@@ -17,6 +17,8 @@
 #include <SDL/SDL_mixer.h>
 #include <string>
 
+#include <iostream>
+
 
 namespace GBF {
 
