@@ -14,8 +14,8 @@
 ////        http://pjmoo.sourceforge.net
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
+#include <iostream>
 
-#include "Log.h"
 #include <SDL/SDL.h>
 
 
@@ -25,7 +25,7 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Informações da Configuração de Vídeo 
+//Informações da Configuração de Vídeo
 struct VideoConfig
 {
     int w;
@@ -40,28 +40,28 @@ struct VideoConfig
 class GraphicMode
 {
   public:
-    //Construtor 
+    //Construtor
     GraphicMode();
 
-    //Destrutor 
+    //Destrutor
     ~GraphicMode();
 
-    //Coloca o vídeo em modo de tela cheia 
+    //Coloca o vídeo em modo de tela cheia
     void setModeFullScreen();
 
-    //Coloca o vídeo em modo de janela 
+    //Coloca o vídeo em modo de janela
     void setModeWindowScreen();
 
-    //Retorna se o jogo esta rodando em modo de Tela Cheia 
+    //Retorna se o jogo esta rodando em modo de Tela Cheia
     bool isFullScreen();
 
-    //Configura a resolução do modo gráfico 
+    //Configura a resolução do modo gráfico
     void setConfig(VideoConfig config);
 
-    //Pega a Configuração do modo gráfico 
+    //Pega a Configuração do modo gráfico
     VideoConfig getConfig();
 
-    //Retorna a Surface Primaria de Vídeo (framebuffer) 
+    //Retorna a Surface Primaria de Vídeo (framebuffer)
     SDL_Surface * getScreen();
 
 

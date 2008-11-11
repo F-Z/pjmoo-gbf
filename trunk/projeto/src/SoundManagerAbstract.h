@@ -18,7 +18,6 @@
 #include <string>
 
 #include "SoundStatus.h"
-#include "Log.h"
 #include "BaseManager.h"
 
 namespace GBF {
@@ -27,7 +26,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de gerenciados de som
 //Motivação:
 //    Fornecer uma interface padrão para gerenciamento de som
