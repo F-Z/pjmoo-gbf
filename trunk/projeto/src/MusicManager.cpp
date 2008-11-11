@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-MusicManager::~MusicManager()
+MusicManager::~MusicManager() 
 {
 //    UtilLog::subSistema("Removendo SoundSystemMusicManager");
     Mix_HaltMusic();
@@ -40,7 +40,7 @@ MusicManager::~MusicManager()
     objetomap.clear();
 }
 //Remove uma música do gerenciador
-void MusicManager::apagar(std::string nome)
+void MusicManager::apagar(std::string nome) 
 {
     if (objetomap[nome]){
         delete(objetomap[nome]);
@@ -49,7 +49,7 @@ void MusicManager::apagar(std::string nome)
     }
 }
 //Carregar um arquivo de música para o gerenciador
-void MusicManager::carregar(std::string nome, std::string arquivo)
+void MusicManager::carregar(std::string nome, std::string arquivo) 
 {
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
@@ -63,22 +63,21 @@ void MusicManager::carregar(std::string nome, std::string arquivo)
     }
 }
 //Pausa a música
-void MusicManager::pause()
+void MusicManager::pause() 
 {
-
     if (status->isAtivo()){
-    	Mix_PauseMusic();
+        Mix_PauseMusic();
     }
 }
 //Toca uma música
-void MusicManager::play(std::string nome)
+void MusicManager::play(std::string nome) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         objetomap[nome]->play();
     }
 }
 //Toca uma música de repetitiva
-void MusicManager::playInfinity(const std::string & nome)
+void MusicManager::playInfinity(const std::string & nome) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         if (musicaTocando!=nome){
@@ -88,7 +87,7 @@ void MusicManager::playInfinity(const std::string & nome)
     }
 }
 //Toca uma música uma certa quantidade de vezes
-void MusicManager::playLoop(const std::string & nome, int vezes)
+void MusicManager::playLoop(const std::string & nome, int vezes) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         if (musicaTocando!=nome){
@@ -98,21 +97,21 @@ void MusicManager::playLoop(const std::string & nome, int vezes)
     }
 }
 //Continuar a tocar a música
-void MusicManager::resume()
+void MusicManager::resume() 
 {
     if (status->isAtivo()){
         Mix_ResumeMusic();
     }
 }
 //Configura o volume do som
-void MusicManager::setVolume(std::string nome, int volume)
+void MusicManager::setVolume(std::string nome, int volume) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         objetomap[nome]->setVolume(volume);
     }
 }
 //Para uma música
-void MusicManager::stop(const std::string & nome)
+void MusicManager::stop(const std::string & nome) 
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         objetomap[nome]->stop();
@@ -120,10 +119,9 @@ void MusicManager::stop(const std::string & nome)
     }
 }
 //Construtor
-MusicManager::MusicManager()
+MusicManager::MusicManager() 
 {
     std::cout << "GBF::Kernel::Sound::MusicManager" << std::endl;
-//    UtilLog::subSistema("Instanciando SoundSystemMusicManager");
 }
 
 } // namespace GBF::Kernel::Sound
