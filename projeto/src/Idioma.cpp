@@ -22,7 +22,7 @@ namespace Write {
 
 Idioma * Idioma::instance=NULL;
 
-Idioma::~Idioma()
+Idioma::~Idioma() 
 {
 //    UtilLog::sistema("Removendo UserInterfaceTexto");
 }
@@ -36,7 +36,7 @@ Idioma * Idioma::getInstance()
 }
 //Configura um idioma
 //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
-bool Idioma::setIdioma(const std::string & codigo)
+bool Idioma::setIdioma(const std::string & codigo) 
 {
     bool achou = false;
    // UtilLog::tracer("UserInterfaceTexto::setIdioma(%s)",codigo.c_str());
@@ -52,12 +52,12 @@ bool Idioma::setIdioma(const std::string & codigo)
 
     return achou;
 }
-std::string Idioma::getIdioma()
+std::string Idioma::getIdioma() 
 {
     return idiomaPrefixo;
 }
 //Seleciona o idioma automaticamente de acordo com o ambiente
-void Idioma::detectarIdioma()
+void Idioma::detectarIdioma() 
 {
     std::cout << "GBF::Kernel::Write::Idioma::detectarIdioma()" << std::endl;
 #ifdef __gnu_linux__
@@ -89,7 +89,7 @@ void Idioma::detectarIdioma()
     }
 #endif
 }
-bool Idioma::atualizar()
+bool Idioma::atualizar() 
 {
     char str[256];
     bool retorno = false;
@@ -115,15 +115,15 @@ bool Idioma::atualizar()
 
     return retorno;
 }
-void Idioma::setArquivo(const std::string & arquivo)
+void Idioma::setArquivo(const std::string & arquivo) 
 {
    this->arquivo=arquivo;
 }
-int Idioma::size()
+int Idioma::size() 
 {
     return mapaTexto.size();
 }
-std::string Idioma::getTexto(const std::string & chave)
+std::string Idioma::getTexto(const std::string & chave) 
 {
     if (mapaTexto.find(chave)!=mapaTexto.end()){
         return mapaTexto[chave];
@@ -132,11 +132,11 @@ std::string Idioma::getTexto(const std::string & chave)
     }
 }
 //Retorna se existe a chave de texto
-bool Idioma::isChaveTexto(const std::string & chave)
+bool Idioma::isChaveTexto(const std::string & chave) 
 {
     return mapaTexto.find(chave)!=mapaTexto.end();
 }
-void Idioma::parser(char * info)
+void Idioma::parser(char * info) 
 {
     int i = 0;
     std::string linha = info;
@@ -154,7 +154,7 @@ void Idioma::parser(char * info)
     }
 }
 //Carrega o mapeamento de idiomas e os arquivos de texto
-void Idioma::carregarIdioma()
+void Idioma::carregarIdioma() 
 {
     char str[256];
 
@@ -180,13 +180,12 @@ void Idioma::carregarIdioma()
                 std::cout << "\tIdioma: " <<  (std::string) it->second << "=" << (std::string) it->first << std::endl;;
             }
 
-
         } else {
             std::cerr << "[ERROR]Idioma: File Not Found : " << fullpath << std::endl;
         }
     }
 }
-void Idioma::parserIdioma(char * info)
+void Idioma::parserIdioma(char * info) 
 {
     int i = 0;
     std::string linha = info;
@@ -199,14 +198,15 @@ void Idioma::parserIdioma(char * info)
             break;
         }
     }
+
     if ((i>0)&&((i+1)<tamanho)){
         idiomaSuportado[linha.substr(0,i)]=linha.substr(i+1,tamanho);
     }
 }
-void Idioma::limpar()
+void Idioma::limpar() 
 {
 }
-Idioma::Idioma()
+Idioma::Idioma() 
 {
     std::cout << "GBF::Kernel::Write::Idioma" << std::endl;
 

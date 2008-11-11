@@ -15,6 +15,9 @@
 #ifndef _OBJETOBASE_H
 #define _OBJETOBASE_H
 
+#include <iostream>
+
+
 namespace GBF {
 
 class ObjetoBase
