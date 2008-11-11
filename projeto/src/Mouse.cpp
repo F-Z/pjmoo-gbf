@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Input {
 
 //Destrutor
-Mouse::~Mouse()
+Mouse::~Mouse() 
 {
 //    UtilLog::subSistema("Removendo InputSystemMouse");
     try {
@@ -36,23 +36,23 @@ Mouse::~Mouse()
     SDL_ShowCursor(SDL_ENABLE);
 }
 //Retorna a posição do mouse no eixo X
-int Mouse::getX()
+int Mouse::getX() 
 {
 
 	return ponto.x;
 }
 //Retorna a posição do mouse no eixo Y
-int Mouse::getY()
+int Mouse::getY() 
 {
     return ponto.y;
 }
 //Retorna a posição do mouse
-GBF::Ponto Mouse::getPosicao()
+GBF::Ponto Mouse::getPosicao() 
 {
     return ponto;
 }
 //Carrega o curso do mouse do arquivo
-void Mouse::carregarArquivo(std::string arquivo)
+void Mouse::carregarArquivo(std::string arquivo) 
 {
     std::cout << "\tMouse: " << arquivo << std::endl;
 
@@ -63,22 +63,22 @@ void Mouse::carregarArquivo(std::string arquivo)
     }
 }
 //Retorna o InputSystemMouseCursor para manipulação
-Cursor * Mouse::getMouseCursor()
+Cursor * Mouse::getMouseCursor() 
 {
     return cursor;
 }
 //Configura se exibe ou não o cursor do mouse
-void Mouse::setMouse(bool show)
+void Mouse::setMouse(bool show) 
 {
     mouse=show;
 }
 //Retorna se o ponteiro está ativo na tela
-bool Mouse::isMouse()
+bool Mouse::isMouse() 
 {
     return mouse;
 }
 //Verifica se o botão esquerdo foi pressionado
-bool Mouse::isButtonLeft()
+bool Mouse::isButtonLeft() 
 {
     if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(MS_LEFT)){
         return true;
@@ -87,7 +87,7 @@ bool Mouse::isButtonLeft()
     }
 }
 //Verifica se o botão do meio foi pressionado
-bool Mouse::isButtonMiddle()
+bool Mouse::isButtonMiddle() 
 {
     if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(MS_MIDDLE)){
         return true;
@@ -96,7 +96,7 @@ bool Mouse::isButtonMiddle()
     }
 }
 //Verifica se o botão direito foi pressionado
-bool Mouse::isButtonRight()
+bool Mouse::isButtonRight() 
 {
     if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(MS_RIGHT)){
         return true;
@@ -105,7 +105,7 @@ bool Mouse::isButtonRight()
     }
 }
 //Verifica se a combinação de botões foi pressionada
-bool Mouse::isButton(bool left, bool middle, bool right)
+bool Mouse::isButton(bool left, bool middle, bool right) 
 {
     bool e,m,d;
 
@@ -136,7 +136,7 @@ bool Mouse::isButton(bool left, bool middle, bool right)
     return (e&&m&&d);
 }
 //Construtor
-Mouse::Mouse()
+Mouse::Mouse() 
 {
     std::cout << "GBF::Kernel::Input::Mouse" << std::endl;
     SDL_ShowCursor(SDL_DISABLE);
@@ -144,7 +144,7 @@ Mouse::Mouse()
     cursor = new Cursor();
 }
 //Processa os eventos do mouse
-void Mouse::processar()
+void Mouse::processar() 
 {
     SDL_GetMouseState(&ponto.x, &ponto.y);
 

@@ -15,9 +15,9 @@
 #ifndef _JOYSTICK_H
 #define _JOYSTICK_H
 
-#include <iostream>
-
 #include <SDL/SDL.h>
+
+#include <iostream>
 
 
 namespace GBF {
@@ -26,7 +26,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição:
+//Descrição: 
 //    Valores para indicação dos eixos
 //Motivação:
 //    Fornecer um conjunto de valores para verificação dos eixos do joystick
@@ -38,7 +38,7 @@ enum JoystickAxe {
   AXE_DOWN
 
 };
-//Descrição:
+//Descrição: 
 //    Valores para indicação dos botões
 //Motivação:
 //    Fornecer um conjunto de valores para verificação dos botões do joystick
@@ -49,7 +49,7 @@ enum JoystickBotao {
   JB_D
 
 };
-//Descrição:
+//Descrição: 
 //    Classe para controle do joystick
 //Motivação:
 //    Prover o controle de eventos por meio do Joystick
@@ -65,7 +65,7 @@ class Joystick
     //Retorna se o direcional foi movido para o lado direito
     bool isAxeRight();
 
-    //* Retorna se o direcional foi movido para cima
+    //* Retorna se o direcional foi movido para cima 
     bool isAxeUp();
 
     //Retorna se o direcional foi movido para baixo
