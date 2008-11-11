@@ -20,13 +20,13 @@ namespace Kernel {
 
 namespace Graphic {
 
-GraphicSystem::GraphicSystem()
+GraphicSystem::GraphicSystem() 
 {
     std::cout << "GBF::Kernel::Graphic::GraphicSystem" << std::endl;
     imageBufferManager = new ImageBufferManager();
     gfx = new GFX();
 }
-GraphicSystem::~GraphicSystem()
+GraphicSystem::~GraphicSystem() 
 {
     if (imageBufferManager){
         delete(imageBufferManager);

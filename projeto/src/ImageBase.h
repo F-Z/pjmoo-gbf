@@ -16,10 +16,11 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include <string>
-#include <iostream>
 
 #include "Screen.h"
 #include <SDL/SDL.h>
+
+#include <iostream>
 
 
 namespace GBF {
@@ -37,7 +38,7 @@ class ImageBase
     //Destrutor
     virtual ~ImageBase();
 
-    //Seta nível de transparência
+    //Seta nível de transparência 
     void setAlpha(Uint8 ALPHA);
 
     //Seta cor transparente
@@ -59,7 +60,7 @@ class ImageBase
 
     SDL_Rect posicao;
 
-    //Converte Surface para formato na inicialização do GraphicSystem
+    //Converte Surface para formato na inicialização do GraphicSystem 
     virtual void converterSurface();
 
 

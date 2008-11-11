@@ -20,18 +20,18 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Limpa a tela
-void GraphicCore::clear()
+//Limpa a tela 
+void GraphicCore::clear() 
 {
     SDL_FillRect(gsMode.getScreen(), NULL, 0);
 }
-//Salva uma imagem da tela
-void GraphicCore::salvarScreenShot(std::string arquivo)
+//Salva uma imagem da tela 
+void GraphicCore::salvarScreenShot(std::string arquivo) 
 {
     SDL_SaveBMP(gsMode.getScreen(),arquivo.c_str());
 }
-//Destrutor
-GraphicCore::~GraphicCore()
+//Destrutor 
+GraphicCore::~GraphicCore() 
 {
 //    UtilLog::sistema("Removendo GraphicSystem");
 
@@ -41,7 +41,7 @@ GraphicCore::~GraphicCore()
 
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
-void GraphicCore::iniciar()
+void GraphicCore::iniciar() 
 {
     std::cout << "GBF::Kernel::Graphic::GraphicCore::iniciar()" << std::endl;
     gsScreen->setScreen(gsMode.getScreen());
@@ -53,13 +53,13 @@ void GraphicCore::iniciar()
     graphicSystem->gfx->inicializar();
     GraphicSystemUtility::setGraphicSystem(graphicSystem);
 }
-//Realiza o flip(troca) entre os buffers de vídeo
-void GraphicCore::flip()
+//Realiza o flip(troca) entre os buffers de vídeo 
+void GraphicCore::flip() 
 {
     SDL_Flip(gsMode.getScreen());
 }
-//Inicializa SubSistema de suporte a Video
-GraphicCore::GraphicCore()
+//Inicializa SubSistema de suporte a Video 
+GraphicCore::GraphicCore() 
 {
     const SDL_version *v = SDL_Linked_Version();
 
@@ -79,9 +79,6 @@ GraphicCore::GraphicCore()
         std::cout << "\tSDL: driver " << videodriver << std::endl;
 
         gsScreen = new Screen();
-//        gsGFX    = GraphicSystemGFX::getInstance();
-//        gsMode   = new GraphicSystemMode();
-//        gsImageBufferManager = GraphicSystemImageBufferManager::getInstance();
     }
 }
 

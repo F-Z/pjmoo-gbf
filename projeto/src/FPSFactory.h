@@ -17,8 +17,8 @@
 
 #include "FPS.h"
 
-namespace GBF { namespace Kernel { namespace FPS { class FPSContador; }  }  }
-namespace GBF { namespace Kernel { namespace FPS { class FPSLimitado; }  }  }
+namespace GBF { namespace Kernel { namespace FPS { class FPSContador; }  }  } 
+namespace GBF { namespace Kernel { namespace FPS { class FPSLimitado; }  }  } 
 
 namespace GBF {
 
