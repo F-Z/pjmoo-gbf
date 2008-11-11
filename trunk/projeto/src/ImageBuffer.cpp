@@ -21,27 +21,15 @@ namespace Kernel {
 namespace Graphic {
 
 //Construtor
-ImageBuffer::ImageBuffer()
+ImageBuffer::ImageBuffer() 
 {
-//    spriteFactory = new SpriteFactory(this);
-//comentado na solucao para tentar resolver o problema de altadependencia
-//junto com esta mudança as seguintes tb foram realizadas:
-//
-//removendo friend das classe que eram amigas de SpriteFactory:
-//SpriteItem
-//SpritePersonagem
-//FrameLayer
-//passando construtor de private para public:
-//SpriteItem
-//SpritePersonagem
-//FrameLayer
 }
 //Destrutor
-ImageBuffer::~ImageBuffer()
+ImageBuffer::~ImageBuffer() 
 {
     //UtilLog::getInstance()->status("[GraphicSystemImageBuffer Removido(a)]");
 }
-bool ImageBuffer::carregarArquivo(std::string arquivo)
+bool ImageBuffer::carregarArquivo(std::string arquivo) 
 {
     imagem = IMG_Load(arquivo.c_str());
 
@@ -55,8 +43,8 @@ bool ImageBuffer::carregarArquivo(std::string arquivo)
         return false;
     }
 }
-//Desenha um sprite simples na tela
-void ImageBuffer::desenhar(GBF::Ponto POSICAO)
+//Desenha um sprite simples na tela 
+void ImageBuffer::desenhar(GBF::Ponto POSICAO) 
 {
     SDL_Rect rect,pos;
 
@@ -66,8 +54,8 @@ void ImageBuffer::desenhar(GBF::Ponto POSICAO)
 
     gsScreen->blitSurface(imagem,&rect,&pos);
 }
-//Permite desenhar sprites animados
-void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME)
+//Permite desenhar sprites animados  
+void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME) 
 {
     SDL_Rect rect;
 
@@ -78,8 +66,8 @@ void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME)
 
     gsScreen->blitSurface(imagem,&rect,&POSICAO);
 }
-//Permite desenhar sprites animados com corte
-void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME, SDL_Rect CORTE)
+//Permite desenhar sprites animados com corte 
+void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME, SDL_Rect CORTE) 
 {
     SDL_Rect rect;
 
