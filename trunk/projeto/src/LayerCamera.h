@@ -30,70 +30,72 @@ class LayerCamera
     //Destrutor
     virtual ~LayerCamera();
 
-    //Retorna a Posição Atual da Camera
+    //Retorna a Posição Atual da Camera 
     GBF::Ponto getPosicao();
 
-    //Verifica se a Camera está no limite inferior do mapa
+    //Verifica se a Camera está no limite inferior do mapa 
     bool isBottom();
 
-    //Verifica se a Camera está no limite esquerdo do mapa
+    //Verifica se a Camera está no limite esquerdo do mapa 
     bool isLeft();
 
-    //Verifica se a Camera está no limite direito do mapa
+    //Verifica se a Camera está no limite direito do mapa 
     bool isRight();
 
     //Verifica se a Camera está no limite superior do mapa
     bool isTop();
 
-    //Movimenta camera para Baixo
+    //Movimenta camera para Baixo 
     void runDown(float deslocamento);
 
-    //Movimenta camera para Esquerda
+    //Movimenta camera para Esquerda 
     void runLeft(float deslocamento);
 
-    //Movimenta camera para Direita
+    //Movimenta camera para Direita 
     void runRight(float deslocamento);
 
-    //Movimenta camera para Cima
+    //Movimenta camera para Cima 
     void runUp(float deslocamento);
 
-    //Posiciona a Camera no Final do mapa
+    //Posiciona a Camera no Final do mapa 
     void setBottom();
 
     void setMundo(LayerMundo * mundo);
 
-    //Posiciona a Camera em um ponto do Mapa
+    //Posiciona a Camera em um ponto do Mapa 
     void setPosicao(int X, int Y);
 
-    //Posiciona a Camera no inicio do mapa
+    //Posiciona a Camera no inicio do mapa 
     void setTop();
 
-    //Mostra o posicionamento da camera no mapa
+    //Mostra o posicionamento da camera no mapa 
     void show();
 
 
   protected:
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado superior
+    //Não permite que a camera ultrapasse o limite do mapa pelo lado superior 
     void limiteUp();
 
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado inferior
+    //Não permite que a camera ultrapasse o limite do mapa pelo lado inferior 
     void limiteDown();
 
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo
+    //Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo 
     void limiteLeft();
 
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado direito
+    //Não permite que a camera ultrapasse o limite do mapa pelo lado direito 
     void limiteRight();
 
 
   private:
     LayerMundo * mundo;
 
-    GBF::PontoVirtual ponto;
-
   friend class FrameLayer;
     //Construtor
     LayerCamera();
+
+
+  protected:
+    GBF::PontoVirtual ponto;
 
 };
 
