@@ -26,6 +26,7 @@
 
 namespace GAT {
 
+//GAT - GBF Application Template
 class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJogo
 {
   protected:
