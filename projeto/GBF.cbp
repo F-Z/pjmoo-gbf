@@ -164,8 +164,6 @@
 		<Unit filename="src/ListManager.h" />
 		<Unit filename="src/ListPersonagem.cpp" />
 		<Unit filename="src/ListPersonagem.h" />
-		<Unit filename="src/Log.cpp" />
-		<Unit filename="src/Log.h" />
 		<Unit filename="src/Mouse.cpp" />
 		<Unit filename="src/Mouse.h" />
 		<Unit filename="src/Music.cpp" />
