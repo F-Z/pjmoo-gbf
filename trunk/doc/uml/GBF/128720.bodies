@@ -32,10 +32,12 @@ class LayerManager
         return NULL;
     }
 !!!132944.cpp!!!	adicionar(in nome : std::string, inout frameLayer : FrameLayer) : void
+    std::cout << "\tLayerManager: " << nome << std::endl;
+
     if ((nome!="")&&(frameLayer!=NULL)){
         objetomap[nome]=frameLayer;
     } else {
-       // UtilLog::comentario("Adicionando FrameLayer %s [Falhou]",nome.c_str());
+        std::cerr << "[ERROR]LayerManager: Is Null or Undefined" << nome << std::endl;
     }
 !!!133072.cpp!!!	LayerManager()
-//    UtilLog::subSistema("Instanciando FrameLayerManager");
+    std::cout << "GBF::Imagem::Layer::LayerManager" << std::endl;

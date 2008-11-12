@@ -1,7 +1,6 @@
 class GBFramework
 !!!135120.cpp!!!	~GBFramework()
-//    UtilLog::cabecalho("Finalizando Ambiente do Escopo do Jogo");
-//    UtilLog::cabecalho("Descarregando Framework");
+    std::cout << "[END].[Game Space]" << std::endl;
 
     delete(fpsSystem);
     delete(writeSystem);
@@ -11,11 +10,7 @@ class GBFramework
     delete(soundSystemCore);
     delete(inputSystemCore);
 
-  //  UtilLog::sistema("Removendo SDL");
     SDL_Quit();
-
-    //UtilLog::cabecalho("Descarregando Completo do Framework");
-    //UtilLog::finalizar();
 !!!134992.cpp!!!	GBFramework()
     numscreenshot = 0;
     fps           = false;
@@ -34,16 +29,12 @@ class GBFramework
         inputSystemCore->processar();
         graphicSystemCore->flip();
     } catch(...){
-        //UtilLog::tracer("SDL: %s", SDL_GetError());
-        //UtilLog::tracer("SDL_Image: %s", IMG_GetError());
-        //UtilLog::tracer("SDL_Mixer: %s", Mix_GetError());
+        std::cerr << " Error durante a execução do Jogo " << SDL_GetError() << std::endl;
     }
 !!!136144.cpp!!!	getPath() : std::string
     return Kernel::Util::Path::getPath();
 !!!135376.cpp!!!	iniciar(in width : int, in height : int, in bpp_color : int, in full : bool, in fps : Tipo) : void
-    //UtilLog::cabecalho("Inicializando Framework");
-   // UtilLog::tracer("Inicializando ModoGráfico");
-
+    std::cout << "GBF::Kernel::GBFramework::iniciar()" << std::endl;
 
     Kernel::Graphic::VideoConfig config;
     config.w     = width;
@@ -59,17 +50,12 @@ class GBFramework
     }
 
     graphicSystemCore->iniciar();
+
     inputSystemCore->iniciar();
+
     soundSystemCore->iniciar(22050,AUDIO_S16SYS,Kernel::Sound::CANAL_STEREO,2048,16);
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
-
-    //Carregando Fontes Padrões
-    //UtilLog::tracer("Carregando Fonte Padrão para FonteManager");
-    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont,"data//kernel//fonte//default.png");
-
-    //UtilLog::tracer("Carregando Padrões para Fundo de Janelas");
-    graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
     writeSystem->idioma->detectarIdioma();
@@ -79,7 +65,14 @@ class GBFramework
     //FPS primeira chamada
     fpsSystem->iniciar();
 
-    //UtilLog::cabecalho("Iniciando Ambiente para Escopo do Jogo");
+
+    //Carregando Fontes Padrões
+    std::cout << "[*]Load Default" << std::endl;
+    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont,"data//kernel//fonte//default.png");
+
+    graphicSystemCore->graphicSystem->imageBufferManager->carregar("gbf-window-background","data//kernel//imagem//window-background.png");
+
+    std::cout << "[BGN].[Game Space]" << std::endl;
 !!!135888.cpp!!!	isFPS() : bool
     return fps;
 !!!135760.cpp!!!	setFPS(in show : bool) : void
@@ -95,33 +88,36 @@ class GBFramework
         //Kernel::Write::Idioma::setPathBase(pathBase);
     //}
 !!!135248.cpp!!!	setTitulo(in titulo : std::string, in autor : std::string) : void
-//    UtilLog::setAutor(autor);
-//    UtilLog::setProjeto(titulo);
+    std::cout << "[GAME - INFO]-------------------" << std::endl;
+    std::cout << " Title: "   << titulo << std::endl;
+    std::cout << " By: "      << autor  << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+
     carregar();
     setTitulo(titulo);
 !!!136784.cpp!!!	carregar() : void
-    //Inicializando Log
-//    UtilLog::iniciar();
-
     //Inicializando Gerador Randômico
-   // UtilLog::sistema("Inicializando Gerador Randômico");
+    std::cout << "GBF::Kernel::GBFramework::carregar()" << std::endl;
+    std::cout << "\tCPP: srand" << std::endl;
     srand(time(NULL));
 
 
     //Inicializando Video
+    std::cout << "GBF::Kernel::Graphic" << std::endl;
     graphicSystemCore = new Kernel::Graphic::GraphicCore();
     Imagem::Layer::LayerManager::getInstance();
 
     //Inicializando Gerenciador de Fontes
+    std::cout << "GBF::Kernel::Write" << std::endl;
     writeSystem = Kernel::Write::WriteManager::getInstance();
 
     //Inicializando Input
+    std::cout << "GBF::Kernel::Input" << std::endl;
     inputSystemCore = new Kernel::Input::InputCore();
 
     //Inicializando Audio
+    std::cout << "GBF::Kernel::Sound" << std::endl;
     soundSystemCore = new Kernel::Sound::SoundCore();
-
-   // UtilLog::cabecalho("Carregamento Completo do Framework");
 !!!136528.cpp!!!	controleInterno() : void
     //F10 = Alterna entre modo de controle exclusivo
     if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){
@@ -129,8 +125,7 @@ class GBFramework
     //F11 = Alterna entre modo tela Cheia e Janela
     } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)){
         if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
-            //UtilLog::getInstance()->inicializando("GBF :: Aviso");
-            //UtilLog::getInstance()->comentario("Sem Suporte a troca entre FullScreen e WindowScreen");
+            std::cout << "SDL: SDL_WM_ToggleFullScreen nao suportado" << std::endl;
         }
     //F12 = Salva um screen do jogo
     } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)){

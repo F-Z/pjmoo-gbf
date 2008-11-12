@@ -1,10 +1,13 @@
-class FrameLayerCamera
-!!!130000.cpp!!!	~FrameLayerCamera()
+class LayerCamera
+!!!130000.cpp!!!	~LayerCamera()
     mundo=NULL;
-!!!130128.cpp!!!	FrameLayerCamera()
-    setTop();
 !!!130896.cpp!!!	getPosicao() : Ponto
-    return ponto;
+    Ponto p;
+
+    p.x=(int)ponto.x;
+    p.y=(int)ponto.y;
+
+    return p;
 !!!131152.cpp!!!	isBottom() : bool
     if (ponto.y>=(mundo->getTilesVertical() * mundo->getPixelTileVertical() - mundo->getPixelVisivelVertical())){
         return true;
@@ -29,22 +32,22 @@ class FrameLayerCamera
     } else {
         return false;
     }
-!!!131664.cpp!!!	runDown(in deslocamento : int = 1) : void
+!!!131664.cpp!!!	runDown(in deslocamento : float = 1) : void
     ponto.y+=deslocamento;
     limiteDown();
-!!!131792.cpp!!!	runLeft(in deslocamento : int = 1) : void
+!!!131792.cpp!!!	runLeft(in deslocamento : float = 1) : void
     ponto.x-=deslocamento;
     limiteLeft();
-!!!131920.cpp!!!	runRight(in deslocamento : int = 1) : void
+!!!131920.cpp!!!	runRight(in deslocamento : float = 1) : void
     ponto.x+=deslocamento;
     limiteRight();
-!!!131536.cpp!!!	runUp(in deslocamento : int = 1) : void
+!!!131536.cpp!!!	runUp(in deslocamento : float = 1) : void
     ponto.y-=deslocamento;
     limiteUp();
 !!!130768.cpp!!!	setBottom() : void
     ponto.x=0;
     ponto.y=(mundo->getTilesVertical() - mundo->getTilesHorizontal()) * (mundo->getPixelTileVertical());
-!!!130256.cpp!!!	setMundo(in mundo : FrameLayerMundo) : void
+!!!130256.cpp!!!	setMundo(in mundo : LayerMundo) : void
     this->mundo=mundo;
 !!!130512.cpp!!!	setPosicao(in X : int, in Y : int) : void
     ponto.x=X;
@@ -76,3 +79,5 @@ class FrameLayerCamera
     if (ponto.x>=limite){
         ponto.x =limite;
     }
+!!!130128.cpp!!!	LayerCamera()
+    setTop();

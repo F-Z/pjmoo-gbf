@@ -21,16 +21,14 @@ class FXManager
         objetomap[nome]->play();
     }
 !!!168016.cpp!!!	carregar(in nome : std::string, in arquivo : std::string) : void
-    FX *som = new FX();
-
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-    //UtilLog::tracer("SoundFxManager::carregar(%s)",nome.c_str());
+    FX *som = new FX();
+
+    std::cout << "\tFXManager: " << nome << "=" << fullpath << std::endl;
     if ((status->isAtivo())&&(som->carregarArquivo(fullpath))){
         objetomap[nome]=som;
-        //UtilLog::comentario("[Ok]");
     } else {
-        //UtilLog::comentario("[Falhou]");
         delete(som);
     }
 !!!168144.cpp!!!	apagar(in nome : std::string) : void
@@ -77,4 +75,4 @@ class FXManager
         objetomap[nome]->setVolume(volume);
     }
 !!!169040.cpp!!!	FXManager()
-//    UtilLog::subSistema("Instanciando SoundSystemFxManager");
+    std::cout << "GBF::Kernel::Sound::FXManager" << std::endl;

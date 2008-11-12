@@ -1,6 +1,6 @@
 format 55
 "Sound" // Framework GBF::GBF::Kernel::Sound
-  revision 23
+  revision 24
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -698,15 +698,6 @@ ${body}}"
 	  b parent class_ref 135632 // SoundStatus
       end
 
-      classrelation 148048 // <dependency>
-	relation 148048 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 148048 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
       classrelation 129142 // <dependency>
 	relation 129014 -_->
 	  stereotype "friend"
@@ -978,15 +969,6 @@ ${body}}"
 	  a protected
 	    classrelation_ref 147664 // <dependency>
 	  b parent class_ref 135248 // Canal
-      end
-
-      classrelation 147920 // <dependency>
-	relation 147920 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 147920 // <dependency>
-	  b parent class_ref 137936 // Log
       end
 
       classrelation 150480 // <dependency>
@@ -1303,6 +1285,14 @@ ${body}}"
 	    classrelation_ref 149660 // <dependency>
 	  b parent class_ref 135504 // FXManager
       end
+
+      classrelation 166556 // <dependency>
+	relation 156956 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 166556 // <dependency>
+	  b parent class_ref 139292 // IOStream
+      end
     end
 
     class 136016 "Music"
@@ -1464,6 +1454,14 @@ ${body}}"
 	    cpp default "${type}"
 	    classrelation_ref 139216 // <dependency>
 	  b parent class_ref 135376 // MusicManager
+      end
+
+      classrelation 166684 // <dependency>
+	relation 157084 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 166684 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 

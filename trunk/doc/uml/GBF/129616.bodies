@@ -27,16 +27,14 @@ class WriteManager
     }
     return instance;
 !!!190672.cpp!!!	carregar(in nome : std::string, in arquivo : std::string) : void
-    FonteBitmap *f = new FonteBitmap();
-
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-   // UtilLog::tracer("FonteBitmap=%s Arquivo=%s",nome.c_str(),arquivo.c_str());
+    FonteBitmap *f = new FonteBitmap();
+
+    std::cout << "\tWriteManager: " << nome << "=" << fullpath << std::endl;
+
     if (f->carregarArquivo(fullpath)){
         objetomap[nome]=f;
-        //UtilLog::comentario("[Ok]");
-    } else {
-        //UtilLog::comentario("[Falhou]");
     }
 !!!190800.cpp!!!	escrever(in fonte : std::string, in x : int, in y : int, in texto : char) : void
     char texto_aux[256];

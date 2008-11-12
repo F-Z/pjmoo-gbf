@@ -1,6 +1,6 @@
 format 55
 "Write" // Framework GBF::GBF::Kernel::Write
-  revision 22
+  revision 23
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -338,20 +338,20 @@ ${body}}"
 	
       end
 
-      classrelation 151632 // <dependency>
-	relation 151632 -_->
-	  a default
-	    cpp default "#include in header"
-	    classrelation_ref 151632 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
       classrelation 165020 // <dependency>
 	relation 155420 -_->
 	  a package
 	    cpp default "#include in header"
 	    classrelation_ref 165020 // <dependency>
 	  b parent class_ref 138140 // Path
+      end
+
+      classrelation 166428 // <dependency>
+	relation 156828 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 166428 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 

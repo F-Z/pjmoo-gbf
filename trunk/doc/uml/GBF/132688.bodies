@@ -1,5 +1,5 @@
-class InputSystemJoystick
-!!!153424.cpp!!!	~InputSystemJoystick()
+class Joystick
+!!!153424.cpp!!!	~Joystick()
 //    UtilLog::subSistema("Removendo InputSystemJoystick");
     SDL_JoystickClose(joystick);
 
@@ -63,22 +63,23 @@ class InputSystemJoystick
 	} else {
 		return false;
 	}
-!!!154576.cpp!!!	InputSystemJoystick()
-//    UtilLog::subSistema("Instanciando InputSystemJoystick");
+!!!154576.cpp!!!	Joystick()
+    std::cout << "GBF::Kernel::Input::Joystick" << std::endl;
+
     joystick=NULL;
 
     if (SDL_InitSubSystem(SDL_INIT_JOYSTICK)>=0){
         if (SDL_JoystickEventState(SDL_ENABLE)==SDL_ENABLE){
             if ((joystick = SDL_JoystickOpen(0))!=NULL){
-            //UtilLog::comentario("Descrição=%s  ",SDL_JoystickName(0));
+                std::cout << "\tSDL: joystick: " << SDL_JoystickName(0) << std::endl;
             } else {
-            //UtilLog::comentario("[Falhou] SDL_JoystickOpen(0)=%s",SDL_GetError());
+                std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
             }
         } else {
-            //UtilLog::comentario("[Falhou] SDL_JoystickEventState(SDL_ENABLE)=%s",SDL_GetError());
+            std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         }
     } else {
-        //UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_JOYSTICK)=%s",SDL_GetError());
+            std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
     }
 !!!154704.cpp!!!	processar() : void
 

@@ -23,17 +23,14 @@ class ImageBufferManager
     //DAFs gerar log de erro
     }
 !!!149840.cpp!!!	carregar(in nome : std::string, in arquivo : std::string) : void
-    ImageBuffer* tab = new ImageBuffer();
-//    UtilLog::getInstance()->inicializando("ImagemTableManager::Carregar()");
-
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-  //  UtilLog::tracer("ImagemTable=%s Arquivo=%s",nome.c_str(),fullPath.c_str());
+    ImageBuffer* tab = new ImageBuffer();
+
+    std::cout << "\tImageBufferManager: " << nome << "=" << fullpath << std::endl;
+
     if (tab->carregarArquivo(fullpath)){
         objetomap[nome]=tab;
-        //UtilLog::comentario("[Ok]");
-    } else {
-        //UtilLog::comentario("[Falhou]");
     }
 !!!149968.cpp!!!	apagar(in nome : std::string) : void
     if (objetomap[nome]){
@@ -42,4 +39,4 @@ class ImageBufferManager
         objetomap.erase(nome);
     }
 !!!150224.cpp!!!	ImageBufferManager()
-//    UtilLog::subSistema("Instanciando GraphicSystemImageBufferManager");
+    std::cout << "GBF::Kernel::Graphic::ImageBufferManager" << std::endl;

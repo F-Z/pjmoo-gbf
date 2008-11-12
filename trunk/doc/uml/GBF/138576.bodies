@@ -24,6 +24,7 @@ class Idioma
 !!!192592.cpp!!!	getIdioma() : std::string
     return idiomaPrefixo;
 !!!192720.cpp!!!	detectarIdioma() : void
+    std::cout << "GBF::Kernel::Write::Idioma::detectarIdioma()" << std::endl;
 #ifdef __gnu_linux__
 //Descobrindo o idioma do usuário no GNU/LINUX
     const char* idioma    = getenv("LC_ALL");
@@ -47,7 +48,7 @@ class Idioma
     char idioma[6];
     int id = GetUserDefaultLangID();
     sprintf(idioma,"%d",id & 0x3ff);
-    
+
     if (!setIdioma(idioma)){
         setIdioma("DEFAULT");
     }
@@ -68,10 +69,11 @@ class Idioma
             }
             arquivoTexto.close();
             retorno = true;
+        } else {
+            std::cerr << "[ERROR]Idioma: File Not Found : " << fullpath << std::endl;
         }
-    }
-    if (!retorno){
-       // UtilLog::tracer("UserInterfaceTexto::atualizar() %s - [* ERRO *]",fullpath.c_str());
+    } else {
+        std::cerr << "[ERROR]Idioma: File Not Defined" << std::endl;
     }
 
     return retorno;
@@ -107,15 +109,28 @@ class Idioma
 
     std::string fullpath=Kernel::Util::Path::getPath()+"//data//etc//idioma.cfg";
 
+    std::cout << "\tCFG: " << fullpath << std::endl;
+
     if (arquivo.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
-       // UtilLog::tracer("Carregando Configuração de Idiomas=%s",fullpath.c_str());
+
+        mapaTexto.clear();
+
         if (arquivoTexto!=NULL){
             while(!arquivoTexto.eof()){
                 arquivoTexto.getline(str,256);
                 parserIdioma(str);
             }
             arquivoTexto.close();
+
+            std::map<std::string,std::string>::iterator it;
+
+            for (it=idiomaSuportado.begin();it!=idiomaSuportado.end(); it++){
+                std::cout << "\tIdioma: " <<  (std::string) it->second << "=" << (std::string) it->first << std::endl;;
+            }
+
+        } else {
+            std::cerr << "[ERROR]Idioma: File Not Found : " << fullpath << std::endl;
         }
     }
 !!!193488.cpp!!!	parserIdioma(inout info : char) : void
@@ -130,10 +145,11 @@ class Idioma
             break;
         }
     }
+
     if ((i>0)&&((i+1)<tamanho)){
         idiomaSuportado[linha.substr(0,i)]=linha.substr(i+1,tamanho);
-        //UtilLog::tracer("IdiomaSuportado[%s]=%s",linha.substr(0,i).c_str(),linha.substr(i+1,tamanho).c_str());
     }
 !!!191184.cpp!!!	Idioma()
-//    UtilLog::subSistema("Instanciando UserInterfaceTexto");
+    std::cout << "GBF::Kernel::Write::Idioma" << std::endl;
+
     carregarIdioma();

@@ -1,6 +1,6 @@
 format 55
 "Graphic" // Framework GBF::GBF::Kernel::Graphic
-  revision 35
+  revision 37
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -411,6 +411,14 @@ ${body}}
 	    classrelation_ref 129265 // gsScreen (<directional aggregation>)
 	  b parent class_ref 131408 // Screen
       end
+
+      classrelation 168092 // <dependency>
+	relation 158492 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 168092 // <dependency>
+	  b parent class_ref 139292 // IOStream
+      end
     end
 
     class 132048 "ImageBuffer"
@@ -676,15 +684,6 @@ ${body}}"
 	comment "Informa qual a surface a ser usada e a configuração"
       end
 
-      classrelation 146512 // <dependency>
-	relation 146512 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 146512 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
       classrelation 150864 // <dependency>
 	relation 150864 -_->
 	  a protected
@@ -903,15 +902,6 @@ ${body}}"
 	idl_decl ""
       end
 
-      classrelation 148176 // <dependency>
-	relation 148176 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 148176 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
       classrelation 150608 // <dependency>
 	relation 150608 -_->
 	  a protected
@@ -923,6 +913,14 @@ ${body}}"
 
       classrelation 128113 // <composition>
 	relation_ref 131536 // <composition>
+      end
+
+      classrelation 168348 // <dependency>
+	relation 158748 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 168348 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 
@@ -1468,6 +1466,14 @@ ${body}}"
 	
 	
 	comment "Realiza um unlock na surface"
+      end
+
+      classrelation 168220 // <dependency>
+	relation 158620 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 168220 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 

@@ -19,12 +19,11 @@ class Mouse
 !!!155984.cpp!!!	getPosicao() : Ponto
     return ponto;
 !!!156112.cpp!!!	carregarArquivo(in arquivo : std::string) : void
-    //UtilLog::getInstance()->inicializando("\tCarregando Cursor");
+    std::cout << "\tMouse: " << arquivo << std::endl;
+
     if (cursor->carregarArquivo(arquivo)){
-        //UtilLog::getInstance()->status("[Ok]");
         setMouse(true);
     } else {
-        //UtilLog::getInstance()->status("[Falhou]");
         setMouse(false);
     }
 !!!156240.cpp!!!	getMouseCursor() : Cursor
@@ -80,7 +79,7 @@ class Mouse
 
     return (e&&m&&d);
 !!!157136.cpp!!!	Mouse()
-//    UtilLog::subSistema("Instanciando InputSystemMouse");
+    std::cout << "GBF::Kernel::Input::Mouse" << std::endl;
     SDL_ShowCursor(SDL_DISABLE);
     setMouse(false);
     cursor = new Cursor();

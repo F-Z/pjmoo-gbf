@@ -4,7 +4,7 @@ class FonteBitmap
 !!!189264.cpp!!!	carregarArquivo(in ARQUIVO : std::string) : bool
     FILE *ARQ_FONTE;
     std::string txt="";
-    imagem = IMG_Load(ARQUIVO.data());
+    imagem = IMG_Load(ARQUIVO.c_str());
 
     if (imagem!=NULL){
         converterSurface();
@@ -30,6 +30,8 @@ class FonteBitmap
         checkar();
         return true;
     } else {
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
+
         return false;
     }
 !!!189392.cpp!!!	setDimensao(in largura : int, in altura : int) : void

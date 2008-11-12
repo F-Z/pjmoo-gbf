@@ -1,18 +1,5 @@
-class GraphicSystemImageBuffer
-!!!148688.cpp!!!	GraphicSystemImageBuffer()
-//    spriteFactory = new SpriteFactory(this);
-//comentado na solucao para tentar resolver o problema de altadependencia
-//junto com esta mudança as seguintes tb foram realizadas:
-//
-//removendo friend das classe que eram amigas de SpriteFactory:
-//SpriteItem
-//SpritePersonagem
-//FrameLayer
-//passando construtor de private para public:
-//SpriteItem
-//SpritePersonagem
-//FrameLayer
-!!!148816.cpp!!!	~GraphicSystemImageBuffer()
+class ImageBuffer
+!!!148816.cpp!!!	~ImageBuffer()
     //UtilLog::getInstance()->status("[GraphicSystemImageBuffer Removido(a)]");
 !!!148944.cpp!!!	carregarArquivo(in arquivo : std::string) : bool
     imagem = IMG_Load(arquivo.c_str());
@@ -22,6 +9,8 @@ class GraphicSystemImageBuffer
         setColorKey(255,0,255);
         return true;
     } else {
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
+
         return false;
     }
 !!!149072.cpp!!!	desenhar(in POSICAO : Ponto) : void
