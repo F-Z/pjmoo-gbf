@@ -22,7 +22,7 @@
 
 namespace RankingSystem {
 
-//Descrição:
+//Descrição: 
 //    Classe para gerenciamento da listagem de recordes
 //Motivação:
 //    Permitir carregar e salvar em disco a listagem de recordes

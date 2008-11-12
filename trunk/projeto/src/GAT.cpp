@@ -16,7 +16,7 @@
 namespace GAT {
 
 //Construtor
-GAT::GAT(int argc, char * argv[])
+GAT::GAT(int argc, char * argv[]) 
 {
     fullscreen = true;
     looping    = true;
@@ -39,7 +39,7 @@ GAT::GAT(int argc, char * argv[])
     frameworkGBF->setPath(argv[0]);
 }
 //Destrutor
-GAT::~GAT()
+GAT::~GAT() 
 {
     if (uiRecordeNovo){
         delete(uiRecordeNovo);
@@ -54,13 +54,13 @@ GAT::~GAT()
         delete(frameworkGBF);
     }
 }
-bool GAT::isFullScreen()
+bool GAT::isFullScreen() 
 {
     return fullscreen;
 }
-void GAT::executar()
+void GAT::executar() 
 {
-    //Inicialização de classes extras
+    //Inicialização de classes extras 
     RankingSystem::RSManager::setPathBase(frameworkGBF->getPath());
 
     while(looping) {
@@ -68,14 +68,14 @@ void GAT::executar()
         interpretadorGlobal();
     }
 }
-void GAT::interpretadorGlobal()
+void GAT::interpretadorGlobal() 
 {
     if (frameworkGBF->inputSystemCore->inputSystem->teclado->isKey(SDLK_ESCAPE)){
         setMenu();
     }
-//TODO: Criar mecanismo para aumetar/diminuir ciclo do FPS
+//TODO: Criar mecanismo para aumetar/diminuir ciclo do FPS  
 }
-void GAT::escutar()
+void GAT::escutar() 
 {
     executarTempo();
 
@@ -105,26 +105,26 @@ void GAT::escutar()
     frameworkGBF->atualizar();
 }
 //Apresentação do jogo
-void GAT::apresentacao()
+void GAT::apresentacao() 
 {
     setMenu();
 }
 //Tela para entrada de Novo Recorde
-void GAT::topGaleriaNovo()
+void GAT::topGaleriaNovo() 
 {
     setMenu();
 }
 //Tela para Salvar Novo Recorde
-void GAT::topGaleriaSalvar()
+void GAT::topGaleriaSalvar() 
 {
     setMenu();
 }
 //Tela para Exibição dos Recordes
-void GAT::topGaleriaExibir()
+void GAT::topGaleriaExibir() 
 {
     setMenu();
 }
-bool GAT::setJogo()
+bool GAT::setJogo() 
 {
     bool mudou = false;
 
@@ -135,7 +135,7 @@ bool GAT::setJogo()
 
     return mudou;
 }
-bool GAT::setMenu()
+bool GAT::setMenu() 
 {
     bool mudou = false;
 
@@ -146,7 +146,7 @@ bool GAT::setMenu()
 
     return mudou;
 }
-bool GAT::setTopGaleria()
+bool GAT::setTopGaleria() 
 {
     bool mudou = false;
 
@@ -157,7 +157,7 @@ bool GAT::setTopGaleria()
 
     return mudou;
 }
-void GAT::menu()
+void GAT::menu() 
 {
     switch(processarEstadoMenu()){
         case GAT_EM_PRINCIPAL:
@@ -185,15 +185,15 @@ void GAT::menu()
             break;
     }
 }
-void GAT::jogo()
+void GAT::jogo() 
 {
     loopJogo();
 }
-void GAT::topGaleria()
+void GAT::topGaleria() 
 {
     loopTopGaleria();
 }
-void GAT::sair()
+void GAT::sair() 
 {
     looping=false;
 }
