@@ -21,7 +21,7 @@ namespace Imagem {
 namespace Layer {
 
 //Destrutor
-LayerManager::~LayerManager()
+LayerManager::~LayerManager() 
 {
     //UtilLog::subSistema("Removendo FrameLayerManager");
 
@@ -32,19 +32,17 @@ LayerManager::~LayerManager()
 
         nome = (*it).first;
 
-        if (nome!=""){
-            try {
-                delete ((*it).second);
-                (*it).second=NULL;
-                //util::Log::tracer("Removido: %s [Ok] ",nome.c_str());
-            } catch (...){
-                //util::Log::tracer("Tentando Remover: %s [Falhou]",nome.c_str());
-            }
+        try {
+            delete ((*it).second);
+            (*it).second=NULL;
+            //util::Log::tracer("Removido: %s [Ok] ",nome.c_str());
+        } catch (...){
+            //util::Log::tracer("Tentando Remover: %s [Falhou]",nome.c_str());
         }
     }
     objetomap.clear();
 }
-//Retorna uma instancia de FrameLayerManager
+//Retorna uma instancia de FrameLayerManager 
 LayerManager * LayerManager::getInstance()
 {
     if (instance == NULL){
@@ -53,8 +51,8 @@ LayerManager * LayerManager::getInstance()
 
     return instance;
 }
-//Retorna FrameLayer para manipulação
-FrameLayer * LayerManager::getFrameLayer(std::string nome)
+//Retorna FrameLayer para manipulação 
+FrameLayer * LayerManager::getFrameLayer(std::string nome) 
 {
     if (objetomap.find(nome)!=objetomap.end()){
         return objetomap[nome];
@@ -63,8 +61,8 @@ FrameLayer * LayerManager::getFrameLayer(std::string nome)
         return NULL;
     }
 }
-//Adiciona FrameLayer no FrameLayerManager
-void LayerManager::adicionar(std::string nome, FrameLayer * frameLayer)
+//Adiciona FrameLayer no FrameLayerManager 
+void LayerManager::adicionar(std::string nome, FrameLayer * frameLayer) 
 {
     std::cout << "\tLayerManager: " << nome << std::endl;
 
@@ -75,10 +73,9 @@ void LayerManager::adicionar(std::string nome, FrameLayer * frameLayer)
     }
 }
 //Construtor
-LayerManager::LayerManager()
+LayerManager::LayerManager() 
 {
     std::cout << "GBF::Imagem::Layer::LayerManager" << std::endl;
-//    UtilLog::subSistema("Instanciando FrameLayerManager");
 }
 LayerManager * LayerManager::instance;
 
