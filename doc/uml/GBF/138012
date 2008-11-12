@@ -1,6 +1,6 @@
 format 55
 "FPS" // Framework GBF::GBF::Kernel::FPS
-  revision 1
+  revision 3
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -119,15 +119,6 @@ ${body}}"
 	comment "Deve ser chamado antes do loop principal do jogo"
       end
 
-      classrelation 147408 // <dependency>
-	relation 147408 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 147408 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
       classrelation 149840 // <dependency>
 	relation 149840 -_->
 	  a protected
@@ -147,6 +138,14 @@ ${body}}"
 	
 	
 	comment "Retorna o valor do FPS"
+      end
+
+      classrelation 167964 // <dependency>
+	relation 158364 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 167964 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 
@@ -299,7 +298,7 @@ ${body}}"
 	relation 152348 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 161948 // <dependency>
 	  b parent class_ref 136860 // FPSFactory
       end
@@ -422,7 +421,7 @@ ${body}}"
 	relation 152476 -_->
 	  stereotype "friend"
 	  a package
-	    cpp default "friend class ${type};"
+	    cpp default "${type}"
 	    classrelation_ref 162076 // <dependency>
 	  b parent class_ref 136860 // FPSFactory
       end
@@ -503,7 +502,7 @@ ${items}};
       
       attribute 140828 "FPS_CONTADOR"
 	public type class_ref 136988 // Tipo
-	init_value "100"
+	init_value "0"
 	cpp_decl "  ${comment}${name}${value},"
 	java_decl ""
 	php_decl ""

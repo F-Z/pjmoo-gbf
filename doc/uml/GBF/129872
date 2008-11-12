@@ -1,6 +1,6 @@
 format 55
 "GBF" // Framework GBF::GBF
-  revision 40
+  revision 42
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -372,6 +372,14 @@ ${body}}
 	
 	
 	
+      end
+
+      classrelation 166300 // <dependency>
+	relation 156700 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 166300 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 
@@ -820,16 +828,6 @@ ${body}}"
 	php_decl ""
 	python_decl ""
 	idl_decl ""
-      end
-
-      classrelation 143952 // <dependency>
-	relation 143952 -_->
-	  stereotype "use"
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 143952 // <dependency>
-	  b parent class_ref 137936 // Log
       end
 
       classrelation 144208 // <dependency>

@@ -22,23 +22,19 @@ class MusicManager
         objetomap.erase(nome);
     }
 !!!171472.cpp!!!	carregar(in nome : std::string, in arquivo : std::string) : void
-    Music *som = new Music();
-
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-    //UtilLog::getInstance()->inicializando("SoundMusicManager::Carregar()");
-    //UtilLog::tracer("SoundMusic=%s Arquivo=%s",nome.c_str(),fullpath.c_str());
+    Music *som = new Music();
 
+    std::cout << "\tMusicManager: " << nome << "=" << fullpath << std::endl;
     if ((status->isAtivo())&&(som->carregarArquivo(fullpath))){
         objetomap[nome]=som;
-       //UtilLog::comentario("[Ok]");
     } else {
-        //UtilLog::comentario("[Falhou]");
+        delete(som);
     }
 !!!171728.cpp!!!	pause() : void
-
     if (status->isAtivo()){
-    	Mix_PauseMusic();
+        Mix_PauseMusic();
     }
 !!!171344.cpp!!!	play(in nome : std::string) : void
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
@@ -72,4 +68,4 @@ class MusicManager
         musicaTocando="";
     }
 !!!172368.cpp!!!	MusicManager()
-//    UtilLog::subSistema("Instanciando SoundSystemMusicManager");
+    std::cout << "GBF::Kernel::Sound::MusicManager" << std::endl;

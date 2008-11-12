@@ -1,5 +1,5 @@
-class GraphicSystemGFX
-!!!144848.cpp!!!	~GraphicSystemGFX()
+class GFX
+!!!144848.cpp!!!	~GFX()
 //    UtilLog::subSistema("Removendo GraphicSystemGFX");
     pScreen = NULL;
 !!!145104.cpp!!!	setColor(in R : CorPaleta, in G : CorPaleta, in B : CorPaleta) : void
@@ -206,10 +206,10 @@ class GraphicSystemGFX
     } else {
         return true;
     }
-!!!147024.cpp!!!	setGraphicSystemScreen(inout screen : GraphicSystemScreen) : void
+!!!147024.cpp!!!	setGraphicSystemScreen(inout screen : Screen) : void
     gsScreen = screen;
-!!!147152.cpp!!!	GraphicSystemGFX()
-//    UtilLog::subSistema("Instanciando GraphicSystemGFX");
+!!!147152.cpp!!!	GFX()
+    std::cout << "GBF::Kernel::Graphic::GFX" << std::endl;
     pScreen = NULL;
 !!!128148.cpp!!!	travar() : bool
     return gsScreen->travar();

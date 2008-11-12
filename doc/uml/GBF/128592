@@ -1,6 +1,6 @@
 format 55
 "Input" // Framework GBF::GBF::Kernel::Input
-  revision 17
+  revision 19
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -631,15 +631,6 @@ ${body}}
 	  b parent class_ref 132944 // JoystickBotao
       end
 
-      classrelation 146896 // <dependency>
-	relation 146896 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 146896 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
-
       classrelation 150096 // <dependency>
 	relation 150096 -_->
 	  a protected
@@ -656,6 +647,14 @@ ${body}}
 	    cpp default "${type}"
 	    classrelation_ref 128411 // <dependency>
 	  b parent class_ref 128155 // InputSystem
+      end
+
+      classrelation 167836 // <dependency>
+	relation 158236 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 167836 // <dependency>
+	  b parent class_ref 139292 // IOStream
       end
     end
 
@@ -1157,15 +1156,6 @@ ${body}}"
 	php_decl ""
 	python_decl ""
 	idl_decl ""
-      end
-
-      classrelation 145360 // <dependency>
-	relation 145360 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 145360 // <dependency>
-	  b parent class_ref 137936 // Log
       end
 
       classrelation 150224 // <dependency>

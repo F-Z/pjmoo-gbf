@@ -1,5 +1,5 @@
-class InputSystemCore
-!!!152272.cpp!!!	~InputSystemCore()
+class InputCore
+!!!152272.cpp!!!	~InputCore()
 //    UtilLog::sistema("Removendo InputSystem");
 
     delete(inputSystem);
@@ -11,6 +11,7 @@ class InputSystemCore
 !!!152656.cpp!!!	getEvento() : SDL_Event
     return &evento;
 !!!128312.cpp!!!	iniciar() : void
+    std::cout << "GBF::Kernel::Input::InputCore::iniciar()" << std::endl;
     inputSystem = InputSystem::getInstance();
 
     InputSystemUtility::setInputSystem(inputSystem);
@@ -20,4 +21,5 @@ class InputSystemCore
     SDL_PollEvent(&evento);
 !!!152912.cpp!!!	setControleExclusivo(in valor : SDL_GrabMode) : void
     controleExclusivo=valor;
+    std::cout << "\tSDL: SDL_WM_GrabInput: " << (bool)controleExclusivo << std::endl;
     SDL_WM_GrabInput(controleExclusivo);

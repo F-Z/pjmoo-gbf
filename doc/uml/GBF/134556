@@ -1,6 +1,6 @@
 format 55
 "Layer" // Framework GBF::GBF::Imagem::Layer
-  revision 8
+  revision 10
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -154,15 +154,6 @@ ${body}}"
 	php_decl ""
 	python_decl ""
 	idl_decl ""
-      end
-
-      classrelation 143696 // <dependency>
-	relation 143696 -_->
-	  a protected
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${value};
-"
-	    classrelation_ref 143696 // <dependency>
-	  b parent class_ref 137936 // Log
       end
 
       classrelation 132911 // <generalisation>
@@ -534,7 +525,7 @@ ${body}}"
       operation 131664 "runDown"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "deslocamento" explicit_type "int"
+	  param in name "deslocamento" explicit_type "float"
 	    defaultvalue "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -551,7 +542,7 @@ ${body}}"
       operation 131792 "runLeft"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "deslocamento" explicit_type "int"
+	  param in name "deslocamento" explicit_type "float"
 	    defaultvalue "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -568,7 +559,7 @@ ${body}}"
       operation 131920 "runRight"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "deslocamento" explicit_type "int"
+	  param in name "deslocamento" explicit_type "float"
 	    defaultvalue "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -585,7 +576,7 @@ ${body}}"
       operation 131536 "runUp"
 	public explicit_return_type "void"
 	nparams 1
-	  param in name "deslocamento" explicit_type "int"
+	  param in name "deslocamento" explicit_type "float"
 	    defaultvalue "1"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${abstract};
 "
@@ -745,15 +736,6 @@ ${body}}"
 	  b parent class_ref 128592 // LayerMundo
       end
 
-      classrelation 128848 // ponto (<directional composition>)
-	relation 128848 *-->
-	  a role_name "ponto" private
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	    classrelation_ref 128848 // ponto (<directional composition>)
-	  b parent class_ref 128976 // Ponto
-      end
-
       classrelation 128304 // <dependency>
 	relation 128304 -_->
 	  stereotype "friend"
@@ -776,6 +758,15 @@ ${body}}"
 	
 	
 	comment "Construtor"
+      end
+
+      classrelation 168476 // ponto (<directional composition>)
+	relation 158876 *-->
+	  a role_name "ponto" protected
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    classrelation_ref 168476 // ponto (<directional composition>)
+	  b parent class_ref 131792 // PontoVirtual
       end
     end
 

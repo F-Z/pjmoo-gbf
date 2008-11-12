@@ -1,6 +1,6 @@
 format 55
 "RankingSystem" // Framework GBF::RankingSystem
-  revision 9
+  revision 10
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -287,13 +287,6 @@ ${body}}"
 	comment "Verificar se um recorde já existe"
       end
 
-      classrelation 128324 // <dependency>
-	relation 128324 -_->
-	  a default
-	    cpp default "#include in header"
-	    classrelation_ref 128324 // <dependency>
-	  b parent class_ref 137936 // Log
-      end
     end
 
     class 137040 "RSRecorde"

@@ -1,5 +1,6 @@
 class GraphicSystem
 !!!128113.cpp!!!	GraphicSystem()
+    std::cout << "GBF::Kernel::Graphic::GraphicSystem" << std::endl;
     imageBufferManager = new ImageBufferManager();
     gfx = new GFX();
 !!!128241.cpp!!!	~GraphicSystem()

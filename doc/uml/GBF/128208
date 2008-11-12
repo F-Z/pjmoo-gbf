@@ -1,6 +1,6 @@
 format 55
 "Extern" // Extern
-  revision 2
+  revision 3
   modified_by 28 "david"
   // class settings
   //class diagram settings
@@ -74,7 +74,7 @@ format 55
     show_infonote default drawing_language default
     comment "Pacote com os includes padrões da STL"
     class 128048 "Math"
-      visibility package stereotype "STL"
+      visibility package stereotype "ANSI C++"
       cpp_external cpp_decl "${name}
 #include <cmath>
 "
@@ -85,6 +85,20 @@ format 55
       explicit_switch_type ""
       
       comment "Classe para representar a inclusão de <cmath>"
+    end
+
+    class 139292 "IOStream"
+      visibility package stereotype "ANSI C++"
+      cpp_external cpp_decl "${name}
+#include <iostream>
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "Classe para representar a inclusão de <iostream>"
     end
   end
 end

@@ -1,29 +1,35 @@
-class GraphicSystemMode
-!!!150352.cpp!!!	GraphicSystemMode()
+class GraphicMode
+!!!150352.cpp!!!	GraphicMode()
     screen = NULL;
-!!!150480.cpp!!!	~GraphicSystemMode()
+!!!150480.cpp!!!	~GraphicMode()
 //    SDL_FreeSurface(screen);
 !!!150608.cpp!!!	setModeFullScreen() : void
-    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
-    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
+    std::cout << "GBF::Kernel::Graphic::GraphicMode::setModeFullScreen()" << std::endl;
+    //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
+    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
+    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_HWSURFACE|SDL_ANYFORMAT|SDL_DOUBLEBUF|SDL_FULLSCREEN);
 
     if (screen==NULL){
-       // UtilLog::tracer("GraphicSystem::setModeFullScreen=%s",SDL_GetError());
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
         config.full=true;
-        //UtilLog::tracer("GraphicSystem::setModeFullScreen Resolução:%ix%i %i Bits",config.w,config.h,config.color);
+        std::cout << "\tGraphicMode: " << (int)config.w << "x" << (int)config.h << " " << (int)config.color << " Bits" << std::endl;
+        std::cout << "\tGraphicMode: FullScreen" << std::endl;
     }
 !!!150736.cpp!!!	setModeWindowScreen() : void
-    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_SWSURFACE|SDL_DOUBLEBUF);
-    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_SWSURFACE|SDL_DOUBLEBUF);
+    std::cout << "GBF::Kernel::Graphic::GraphicMode::setModeWindowScreen()" << std::endl;
+    //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
+    config.color = SDL_VideoModeOK(config.w,config.h,config.color, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    screen       = SDL_SetVideoMode(config.w,config.h,config.color,SDL_HWSURFACE|SDL_ANYFORMAT|SDL_DOUBLEBUF);
 
     if (screen==NULL){
-       // UtilLog::tracer("GraphicSystem::setModeWindowScreen=%s",SDL_GetError());
+        std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
         config.full=false;
-        //UtilLog::tracer("GraphicSystem::setModeWindowScreen Resolução:%ix%i %i Bits",config.w,config.h,config.color);
+        std::cout << "\tGraphicMode: " << (int)config.w << "x" << (int)config.h << " " << (int)config.color << " Bits" << std::endl;
+        std::cout << "\tGraphicMode: Window" << std::endl;
     }
 !!!150864.cpp!!!	isFullScreen() : bool
     return config.full;

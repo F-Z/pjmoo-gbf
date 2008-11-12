@@ -10,14 +10,18 @@ class SoundCore
 !!!166736.cpp!!!	iniciar(in frequencia : int = 22050, in formato : Uint16 = AUDIO_S16SYS, in canal : Canal = CANAL_STEREO, in cache : Uint16 = 2048, in quantidadeCanais : int = 16) : void
     bool hardware = false;
 
+    std::cout << "GBF::Kernel::Sound::SoundCore::iniciar()" << std::endl;
+
     if (status->isAtivo()) {
         if (Mix_OpenAudio(frequencia, formato, canal, cache) == 0 ){
             if (Mix_AllocateChannels(quantidadeCanais)>0){
                 hardware = true;
             } else {
+                std::cerr << "[ERROR]SDL_Mixer:" << SDL_GetError() << std::endl;
                 //UtilLog::comentario("Alocando canais de Som =%s [Falhou]",SDL_GetError());
             }
         } else {
+            std::cerr << "[ERROR]SDL_Mixer:" << SDL_GetError() << std::endl;
            // UtilLog::comentario("Inicializando SDL_mixer =%s [Falhou]",SDL_GetError());
         }
     }
@@ -36,12 +40,10 @@ class SoundCore
     bool hardware = false;
 
     if (SDL_InitSubSystem(SDL_INIT_AUDIO) < 0 ) {
-        //UtilLog::comentario("[Falhou] SDL_InitSubSystem(SDL_INIT_AUDIO)=%s",SDL_GetError());
+        std::cerr << "[ERROR]SDL:" << SDL_GetError() << std::endl;
     } else {
         hardware = true;
     }
 
     status = new SoundStatus();
     status->setAtivo(hardware);
-
-

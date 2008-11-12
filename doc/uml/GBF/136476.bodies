@@ -1,5 +1,7 @@
-class FPSCounter
-!!!149660.cpp!!!	~FPSCounter()
+class FPSContador
+!!!149532.cpp!!!	FPSContador()
+    std::cout << "GBF::Kernel::FPS::FPSContador" << std::endl;
+!!!149660.cpp!!!	~FPSContador()
 //    UtilLog::sistema("Removendo FPS[%i]",fpsMax);
 !!!149788.cpp!!!	processar() : void
 
@@ -54,7 +56,7 @@ class FPSCounter
         framespersecond = 1000.f / framespersecond;
 
 !!!149916.cpp!!!	iniciar() : void
-    std::cout << "Inicializando FPS " << std::endl;
+    std::cout << "\tSDL: " << std::endl;
 
     // Set all frame times to 0ms.
     memset(frametimes, 0, sizeof(frametimes));
@@ -62,6 +64,6 @@ class FPSCounter
     framespersecond = 0;
     frametimelast = SDL_GetTicks();
 
-    std::cout << "OK! " << std::endl;
+    std::cout << (double) frametimelast << " ticks" << std::endl;
 !!!150300.cpp!!!	getValor() : int
     return framespersecond;
