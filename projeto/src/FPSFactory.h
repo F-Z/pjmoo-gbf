@@ -17,8 +17,8 @@
 
 #include "FPS.h"
 
-namespace GBF { namespace Kernel { namespace FPS { class FPSContador; }  }  } 
-namespace GBF { namespace Kernel { namespace FPS { class FPSLimitado; }  }  } 
+namespace GBF { namespace Kernel { namespace FPS { class FPSContador; }  }  }
+namespace GBF { namespace Kernel { namespace FPS { class FPSLimitado; }  }  }
 
 namespace GBF {
 
@@ -30,9 +30,13 @@ enum Tipo {
   //Frame não limitado, exibe apenas o contador em seu máximo processamento
   FPS_CONTADOR = 0,
   //Limitado a 30 frames por segundo
-  FPS_LIMITADO = 30,
+  FPS_LIMITADO = 33,
   //Limitado a 40 frames por segundo
-  FPS_LIMITADO_40 = 40
+  FPS_LIMITADO_40 = 25,
+  //Limitado a 50 frames por segundo
+  FPS_LIMITADO_50 = 20,
+  //Limitado a aproximadamente 60 frames por segundo
+  FPS_LIMITADO_60 = 16
 };
 class FPSFactory
 {
