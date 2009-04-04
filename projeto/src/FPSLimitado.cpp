@@ -20,11 +20,9 @@ namespace Kernel {
 
 namespace FPS {
 
-FPSLimitado::FPSLimitado(int taxaFrames) 
+FPSLimitado::FPSLimitado(int taxaFrames)
 {
     std::cout << "GBF::Kernel::FPS::FPSLimitado" << std::endl;
-
-    framestart = 0.0f;
 
     if (taxaFrames<30){
         fpsConstante = 30;
@@ -33,31 +31,30 @@ FPSLimitado::FPSLimitado(int taxaFrames)
     }
 
     std::cout << "\tFPS: " << (float) fpsConstante << " fps" << std::endl;
+    iniciar();
 }
-FPSLimitado::~FPSLimitado() 
-{
-}
-void FPSLimitado::processar() 
+FPSLimitado::~FPSLimitado()
 {
 
-    while( (SDL_GetTicks() - framestart) < 1000 / fpsConstante )
-    {
-        //wait...
-        //se tempo atual menos o tempo inicial for menor que
-        // 1000/30, faz com que entre em espera
-        //até que se complete o tempo
+}
+void FPSLimitado::processar()
+{
+    int delta = SDL_GetTicks() - frameStart;
+
+    if(delta < fpsConstante){
+        SDL_Delay(fpsConstante - delta);
     }
 
-    framestart = SDL_GetTicks();
+    frameStart = SDL_GetTicks();
 }
 //Deve ser chamado antes do loop principal do jogo
-void FPSLimitado::iniciar() 
+void FPSLimitado::iniciar()
 {
     std::cout << "\tSDL: ";
-    framestart = SDL_GetTicks();
-    std::cout << (double) framestart << " ticks" << std::endl;
+    frameStart = SDL_GetTicks();
+    std::cout << (int) frameStart << " ticks" << std::endl;
 }
-int FPSLimitado::getValor() 
+int FPSLimitado::getValor()
 {
     return fpsConstante;
 }

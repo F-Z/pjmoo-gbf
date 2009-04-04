@@ -28,10 +28,9 @@ class FPSLimitado : public FPS
   private:
     int fpsConstante;
 
-    double framestart;
+    int frameStart;
 
     FPSLimitado(int taxaFrames);
-
 
   public:
     virtual ~FPSLimitado();
