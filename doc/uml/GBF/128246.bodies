@@ -1,3 +1,0 @@
-class SoundSystemUtility
-!!!128758.cpp!!!	setSoundSystem(in instance : SoundSystem) : void
-    soundSystem=instance;

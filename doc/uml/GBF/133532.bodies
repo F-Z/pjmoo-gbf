@@ -1,9 +1,0 @@
-class UINumberField
-!!!138652.cpp!!!	UINumberField()
-    //ctor
-!!!138780.cpp!!!	~UINumberField()
-    //dtor
-!!!138908.cpp!!!	setValue(in value : uint) : void
-    this->value=value;
-!!!139036.cpp!!!	desenharConteudo() : void
-    wsManager->escrever(fonteCampo.nome, fonteCampo.posicao.x, fonteCampo.posicao.y,"%08d",value);

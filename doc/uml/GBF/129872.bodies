@@ -1,6 +1,0 @@
-class FPS
-!!!181456.cpp!!!	FPS()
-//    UtilLog::sistema("Instanciando FPS");
-
-!!!181584.cpp!!!	~FPS()
-//    UtilLog::sistema("Removendo FPS[%i]",fpsMax);
