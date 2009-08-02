@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
+////    Copyright (C) 2004-2009 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -9,7 +9,7 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
+////        http://www.davidferreira.com.br
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef _IDIOMA_H
@@ -19,6 +19,7 @@
 #include <windows.h>
 #endif
 
+#include <cstdlib>
 #include <fstream>
 
 #include <map>
@@ -35,7 +36,7 @@ namespace Kernel {
 
 namespace Write {
 
-//Descrição: 
+//Descrição:
 //    Classe para carregar textos
 //Motivação:
 //    Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos
@@ -43,14 +44,14 @@ class Idioma
 {
   protected:
     //Lista com os códigos e textos correspondentes
-    
+
     std::map<std::string,std::string> mapaTexto;
 
     //Lista com os idiomas suportados
     std::map<std::string,std::string> idiomaSuportado;
 
     //Prefixo do idioma selecionado
-    
+
     std::string idiomaPrefixo;
 
     static Idioma * instance;
@@ -58,7 +59,7 @@ class Idioma
 
   private:
     //arquivo de localização a ser carregado
-    
+
     std::string arquivo;
 
 

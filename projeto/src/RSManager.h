@@ -1,5 +1,5 @@
 ////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
+////    Copyright (C) 2004-2009 David de Almeida Ferreira
 ////
 ////    This library is free software; you can redistribute it and/or
 ////    modify it under the terms of the GNU Library General Public
@@ -9,20 +9,21 @@
 ////    David de Almeida Ferreira (F-Z)
 ////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
 ////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
+////        http://www.davidferreira.com.br
 ////////////////////////////////////////////////////////////////////////
 
 #ifndef _RSMANAGER_H
 #define _RSMANAGER_H
 
 #include <string>
+#include <cstdio>
 
 #include "RSLista.h"
 #include "RSRecorde.h"
 
 namespace RankingSystem {
 
-//Descrição: 
+//Descrição:
 //    Classe para gerenciamento da listagem de recordes
 //Motivação:
 //    Permitir carregar e salvar em disco a listagem de recordes

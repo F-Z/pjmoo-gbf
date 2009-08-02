@@ -23,16 +23,10 @@ namespace Util {
 //Retorna Dia da semana, mês, dia do mês, hora e ano
 std::string Date::getInfo()
 {
-    time_t ltime;
-    time(&ltime);
+    time_t tmpTime;
+    time(&tmpTime);
 
-    char * hora = ctime(&ltime);
-    memcpy(hora+24, "\0", 1 );
-
-    std::string retorno = hora;
-
-
-    return retorno;
+    return std::string(ctime(&tmpTime));
 }
 
 } // namespace GBF::Kernel::Util
