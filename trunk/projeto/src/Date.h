@@ -24,7 +24,7 @@ namespace Kernel {
 
 namespace Util {
 
-//Descrição: 
+//Descrição:
 //    Manipular informações de data do Sistema Operacional.
 //Motivação:
 //    Usado principalmente para obter informações como data e hora
