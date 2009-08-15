@@ -20,7 +20,7 @@ namespace Menu {
 
 GBF::Kernel::Write::WriteManager * UIItemTexto::wsManager=NULL;
 
-UIItemTexto::UIItemTexto(const std::string & texto, const std::string & fonteTexto) 
+UIItemTexto::UIItemTexto(const std::string & texto, const std::string & fonteTexto)
 {
     this->texto=texto;
     this->fonteTexto=fonteTexto;
@@ -33,10 +33,10 @@ UIItemTexto::UIItemTexto(const std::string & texto, const std::string & fonteTex
         wsManager = GBF::Kernel::Write::WriteManager::getInstance();
     }
 }
-UIItemTexto::~UIItemTexto() 
+UIItemTexto::~UIItemTexto()
 {
 }
-void UIItemTexto::desenhar(int x, int y) 
+void UIItemTexto::desenhar(int x, int y)
 {
     if (isAtivo()){
         tempo.processar();
@@ -47,12 +47,11 @@ void UIItemTexto::desenhar(int x, int y)
         wsManager->escreverLocalizado(fonteTexto,x,y,texto.c_str());
     }
 }
-int UIItemTexto::getQuantidadeLetras() 
+int UIItemTexto::getQuantidadeLetras()
 {
-//    return strlen(wsManager->uiTexto->getTexto(fonteTexto).c_str());
     return wsManager->idioma->getTexto(texto).length();
 }
-GBF::Dimensao UIItemTexto::getDimensaoLetra() 
+GBF::Dimensao UIItemTexto::getDimensaoLetra()
 {
     return wsManager->getFonte(fonteTexto)->getDimensao();
 }

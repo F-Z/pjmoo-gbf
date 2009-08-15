@@ -19,14 +19,14 @@ namespace UserInterface {
 namespace Menu {
 
 //Construtor
-UIMenu::UIMenu() 
+UIMenu::UIMenu()
 {
 }
 //Destrutor
-UIMenu::~UIMenu() 
+UIMenu::~UIMenu()
 {
 }
-void UIMenu::desenhar() 
+void UIMenu::desenhar()
 {
     if (!item.empty()){
         GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
@@ -43,16 +43,20 @@ void UIMenu::desenhar()
         graphicSystem->gfx->retangulo(t.x,t.y,totalHorizontal,totalVertical);
 
         int pontoY=t.y+offsetY;
+        int pontoX=0;
+        int quantidadeLetras = 0;
         for (unsigned int i=0; i<item.size(); i++){
             if (item[i]!=NULL){
-                int dtmp=item[i]->getQuantidadeLetras();
-                item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
+                //item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
+                quantidadeLetras = item[i]->getQuantidadeLetras();
+                pontoX = t.x + meioHorizontal - (quantidadeLetras*dimensao.w)/2;
+                item[i]->desenhar(pontoX,pontoY);
             }
             pontoY+=espacoVertical;
         }
     }
 }
-bool UIMenu::navegar() 
+bool UIMenu::navegar()
 {
     bool navegou = false;
 
@@ -68,14 +72,14 @@ bool UIMenu::navegar()
 
     return navegou;
 }
-void UIMenu::itemAvancar() 
+void UIMenu::itemAvancar()
 {
     itemSelecionado++;
     if (itemSelecionado>=int(item.size())){
         itemSelecionado=item.size()-1;
     }
 }
-void UIMenu::itemAnterior() 
+void UIMenu::itemAnterior()
 {
     itemSelecionado--;
     if (itemSelecionado<0){
