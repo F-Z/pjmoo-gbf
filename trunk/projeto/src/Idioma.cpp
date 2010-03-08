@@ -40,6 +40,7 @@ bool Idioma::setIdioma(const std::string & codigo)
 {
     bool achou = false;
    // UtilLog::tracer("UserInterfaceTexto::setIdioma(%s)",codigo.c_str());
+    std::cout << "\tIdioma: " << codigo << std::endl;
 
     if ((!codigo.empty())&&(idiomaSuportado.find(codigo)!=idiomaSuportado.end())){
         idiomaPrefixo=idiomaSuportado[codigo];
