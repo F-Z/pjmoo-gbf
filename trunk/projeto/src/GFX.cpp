@@ -27,22 +27,22 @@ GFX::~GFX()
     pScreen = NULL;
 }
 //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
-void GFX::setColor(GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B)
+void GFX::setColor(GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B)
 {
     color = SDL_MapRGB(pScreen->format,R,G,B);
 }
 //Seta a cor a ser usada (Usar somente se a cor já estiver sido mapeada para RGB)
-void GFX::setColor(GBF::Cor::Cor cor)
+void GFX::setColor(GBF::Color::Cor cor)
 {
     color = cor;
 }
 //Desenha um pixel na tela (Usado para cores em formado decimal)
-void GFX::putPixel(int x, int y, GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B)
+void GFX::putPixel(int x, int y, GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B)
 {
     putPixel(x,y,SDL_MapRGB(pScreen->format,R,G,B));
 }
 //Desenha um pixel na tela (Usado apenas se a cor já estiver em formato RGB)
-void GFX::putPixel(int x, int y, GBF::Cor::Cor cor)
+void GFX::putPixel(int x, int y, GBF::Color::Cor cor)
 {
     if (offSetLimite(x,y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;
@@ -72,7 +72,7 @@ void GFX::putPixel(int x, int y, GBF::Cor::Cor cor)
     }
 }
 //Pegar a cor de um pixel na tela
-GBF::Cor::Cor GFX::getPixel(int x, int y)
+GBF::Color::Cor GFX::getPixel(int x, int y)
 {
     if (offSetLimite(x,y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;

@@ -36,13 +36,13 @@ void UIMenuAbstract::setEspacoVertical(int espaco)
 {
     espacoVertical=espaco;
 }
-void UIMenuAbstract::setCorBorda(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b)
+void UIMenuAbstract::setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
 {
     corBorda.r=r;
     corBorda.g=g;
     corBorda.b=b;
 }
-void UIMenuAbstract::setCorFundo(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b)
+void UIMenuAbstract::setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
 {
     corFundo.r=r;
     corFundo.g=g;

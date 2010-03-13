@@ -15,7 +15,7 @@
 #ifndef _UITECLADOVIRTUAL_H
 #define _UITECLADOVIRTUAL_H
 
-#include "Cor.h"
+#include "Color.h"
 #include <string>
 
 #include "UserInterface.h"
@@ -36,7 +36,7 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
     //Efetua o controle sobre a navegação do cursor
     void navegar();
 
-    GBF::Cor::RGB corCursor;
+    GBF::Color::RGB corCursor;
 
 
   protected:
@@ -92,7 +92,7 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
 
     void setVisual(UserInterface::Visual::UIVisual * visual);
 
-    void setCorCursor(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b);
+    void setCorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
 
   protected:

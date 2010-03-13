@@ -15,7 +15,7 @@
 #ifndef _UIVISUAL_H
 #define _UIVISUAL_H
 
-#include "Cor.h"
+#include "Color.h"
 #include "GBF.h"
 #include "GraphicSystemUtility.h"
 
@@ -32,7 +32,7 @@ class UIVisual : public GBF::Kernel::Graphic::GraphicSystemUtility
     //Destrutor
     virtual ~UIVisual();
 
-    void setCorBorda(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b);
+    void setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
     //Aplica o efeito visual
     virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
@@ -44,7 +44,7 @@ class UIVisual : public GBF::Kernel::Graphic::GraphicSystemUtility
 
 
   protected:
-    GBF::Cor::RGB corBorda;
+    GBF::Color::RGB corBorda;
 
     GBF::Ponto posicao;
 

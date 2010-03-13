@@ -17,7 +17,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "Cor.h"
+#include "Color.h"
 #include "Screen.h"
 #include <iostream>
 
@@ -31,26 +31,26 @@ namespace Graphic {
 class GFX
 {
   public:
-    //Destrutor 
+    //Destrutor
     virtual ~GFX();
 
     //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
-    void setColor(GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B);
+    void setColor(GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B);
 
     //Seta a cor a ser usada (Usar somente se a cor já estiver sido mapeada para RGB)
-    void setColor(GBF::Cor::Cor cor);
+    void setColor(GBF::Color::Cor cor);
 
     //Desenha um pixel na tela (Usando cor padrão selecionada)
     inline void putPixel(int x, int y);
 
     //Desenha um pixel na tela (Usado para cores em formado decimal)
-    void putPixel(int x, int y, GBF::Cor::CorPaleta R, GBF::Cor::CorPaleta G, GBF::Cor::CorPaleta B);
+    void putPixel(int x, int y, GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B);
 
     //Desenha um pixel na tela (Usado apenas se a cor já estiver em formato RGB)
-    void putPixel(int x, int y, GBF::Cor::Cor cor);
+    void putPixel(int x, int y, GBF::Color::Cor cor);
 
     //Pegar a cor de um pixel na tela
-    GBF::Cor::Cor getPixel(int x, int y);
+    GBF::Color::Cor getPixel(int x, int y);
 
     //Desenha uma linha na tela
     void linha(int XI, int YI, int XF, int YF);
@@ -78,12 +78,12 @@ class GFX
     //Inicializa informações básicas
     void inicializar();
 
-    //Verifica se o ponto (x,y) está dentro dos limites 
+    //Verifica se o ponto (x,y) está dentro dos limites
     bool offSetLimite(int x, int y);
 
     SDL_Surface * pScreen;
 
-    GBF::Cor::Cor color;
+    GBF::Color::Cor color;
 
 
   private:
@@ -91,7 +91,7 @@ class GFX
 
     static void setGraphicSystemScreen(Screen * screen);
 
-    //Construtor 
+    //Construtor
     GFX();
 
     int bpp;
@@ -108,7 +108,7 @@ class GFX
 
 };
 //Desenha um pixel na tela (Usando cor padrão selecionada)
-inline void GFX::putPixel(int x, int y) 
+inline void GFX::putPixel(int x, int y)
 {
     if (offSetLimite(x,y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;

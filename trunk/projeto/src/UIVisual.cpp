@@ -26,7 +26,7 @@ UIVisual::UIVisual(){
 UIVisual::~UIVisual(){
 }
 
-void UIVisual::setCorBorda(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b) 
+void UIVisual::setCorBorda(const GBF::Color::CorPaleta & r, const GBF::Color::CorPaleta & g, const GBF::Color::CorPaleta & b)
 {
     corBorda.r=r;
     corBorda.g=g;
@@ -35,7 +35,7 @@ void UIVisual::setCorBorda(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPal
 //Aplica o efeito visual
 
 //Aplica o efeito visual
-void UIVisual::aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao) 
+void UIVisual::aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao)
 {
     this->dimensao=dimensao;
     this->posicao=posicao;
