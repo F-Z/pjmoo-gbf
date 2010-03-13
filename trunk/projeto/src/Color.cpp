@@ -12,13 +12,13 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "Cor.h"
+#include "Color.h"
 
 namespace GBF {
 
-namespace Cor {
+namespace Color {
 
-//Transforma de RGB para HSV 
+//Transforma de RGB para HSV
 HSV Converter::forHSV(RGB cor)
 {
 
@@ -57,7 +57,7 @@ HSV Converter::forHSV(RGB cor)
     return hsv;
 }
 
-//Transforma de HSV para RGB 
+//Transforma de HSV para RGB
 RGB Converter::forRGB(HSV cor)
 {
 
@@ -115,7 +115,7 @@ RGB Converter::forRGB(HSV cor)
     return rgb;
 }
 
-//Retorna o menor valor 
+//Retorna o menor valor
 int Converter::menor(int valor1, int valor2)
 {
     if (valor1 <= valor2){
@@ -125,7 +125,7 @@ int Converter::menor(int valor1, int valor2)
     }
 }
 
-//Retorna o maior valor 
+//Retorna o maior valor
 int Converter::maior(int valor1, int valor2)
 {
     if (valor1 >= valor2){
