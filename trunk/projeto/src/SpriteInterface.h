@@ -19,13 +19,13 @@
 #include <SDL/SDL.h>
 
 #include "Animacao.h"
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace GBF {
 
 namespace Imagem {
 
-class SpriteInterface : public GBF::ObjetoBase
+class SpriteInterface : public GBF::Object
 {
   public:
     //Destrutor

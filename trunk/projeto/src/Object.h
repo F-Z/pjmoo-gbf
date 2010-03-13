@@ -12,20 +12,20 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _OBJETOBASE_H
-#define _OBJETOBASE_H
+#ifndef _OBJECT_H
+#define _OBJECT_H
 
 #include <iostream>
 
 
 namespace GBF {
 
-class ObjetoBase
+class Object
 {
   public:
-    ObjetoBase();
+    Object();
 
-    virtual ~ObjetoBase();
+    virtual ~Object();
 
     template<class T>
       inline bool isInstance() {

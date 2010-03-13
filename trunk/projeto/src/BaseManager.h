@@ -15,11 +15,11 @@
 #ifndef _BASEMANAGER_H
 #define _BASEMANAGER_H
 
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace GBF {
 
-class BaseManager : public ObjetoBase
+class BaseManager : public Object
 {
   public:
     BaseManager();

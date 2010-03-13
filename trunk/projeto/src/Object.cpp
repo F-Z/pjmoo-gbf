@@ -12,14 +12,14 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace GBF {
 
-ObjetoBase::ObjetoBase(){
+Object::Object(){
 }
 
-ObjetoBase::~ObjetoBase(){
+Object::~Object(){
 }
 
 
