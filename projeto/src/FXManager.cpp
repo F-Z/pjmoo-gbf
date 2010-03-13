@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-FXManager::~FXManager() 
+FXManager::~FXManager()
 {
 //    UtilLog::subSistema("Removendo SoundSystemFxManager");
     Mix_HaltChannel(-1);
@@ -40,7 +40,7 @@ FXManager::~FXManager()
     objetomap.clear();
 }
 //Toca uma efeito sonoro
-void FXManager::play(std::string nome) 
+void FXManager::play(std::string nome)
 {
 
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
@@ -48,21 +48,21 @@ void FXManager::play(std::string nome)
     }
 }
 //Carregar um arquivo de efeito sonoro para o gerenciador
-void FXManager::carregar(std::string nome, std::string arquivo) 
+void FXManager::loadFromFile(std::string nome, std::string arquivo)
 {
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
     FX *som = new FX();
 
     std::cout << "\tFXManager: " << nome << "=" << fullpath << std::endl;
-    if ((status->isAtivo())&&(som->carregarArquivo(fullpath))){
+    if ((status->isAtivo())&&(som->loadFromFile(fullpath))){
         objetomap[nome]=som;
     } else {
         delete(som);
     }
 }
 //Remove um efeito sonoro do gerenciador
-void FXManager::apagar(std::string nome) 
+void FXManager::apagar(std::string nome)
 {
     if (objetomap[nome]){
         delete(objetomap[nome]);
@@ -71,28 +71,28 @@ void FXManager::apagar(std::string nome)
     }
 }
 //Pausa o efeito sonoro
-void FXManager::pause() 
+void FXManager::pause()
 {
     if (status->isAtivo()){
         Mix_Pause(-1);
     }
 }
 //Continuar a tocar o efeito sonoro
-void FXManager::resume() 
+void FXManager::resume()
 {
     if (status->isAtivo()){
         Mix_Resume(-1);
     }
 }
 //Toca um efeito sonoro de acordo com as coordenadas
-void FXManager::playPanEffect(std::string nome, int left, int right) 
+void FXManager::playPanEffect(std::string nome, int left, int right)
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         Mix_SetPanning(objetomap[nome]->play(),left,right-left);
     }
 }
 //Toca um efeito sonoro detectando em qual caixa está mais próximo
-void FXManager::playPanEffect(std::string nome, int posicao) 
+void FXManager::playPanEffect(std::string nome, int posicao)
 {
     int E,D,c;
     E=D=0;
@@ -112,14 +112,14 @@ void FXManager::playPanEffect(std::string nome, int posicao)
     }
 }
 //Determina a área para calculo de efeito sonoro
-void FXManager::setLimite(int left, int right) 
+void FXManager::setLimite(int left, int right)
 {
     area_left=left;
     area_right=right;
 }
 //Configura o volume do efeito sonoro
 //Obs.: Valor do volume de 0 ate 128
-void FXManager::setVolume(std::string nome, int volume) 
+void FXManager::setVolume(std::string nome, int volume)
 {
     if ((objetomap.find(nome)!=objetomap.end())&&(!status->isMute())){
         //Mix_Pause(objetomap[NOME]->play());
@@ -127,7 +127,7 @@ void FXManager::setVolume(std::string nome, int volume)
     }
 }
 //Construtor
-FXManager::FXManager() 
+FXManager::FXManager()
 {
     std::cout << "GBF::Kernel::Sound::FXManager" << std::endl;
 }

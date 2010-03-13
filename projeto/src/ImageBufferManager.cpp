@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Graphic {
 
 //Destrutor
-ImageBufferManager::~ImageBufferManager() 
+ImageBufferManager::~ImageBufferManager()
 {
 //    UtilLog::subSistema("Removendo GraphicSystemImageBufferManager");
 
@@ -40,7 +40,7 @@ ImageBufferManager::~ImageBufferManager()
     objetomap.clear();
 }
 // Retorna GraphicSystemImageBufferManager para manipulação
-ImageBuffer * ImageBufferManager::getImageBuffer(std::string nome) 
+ImageBuffer * ImageBufferManager::getImageBuffer(std::string nome)
 {
     if (objetomap.find(nome)!=objetomap.end()){
         return objetomap[nome];
@@ -49,8 +49,8 @@ ImageBuffer * ImageBufferManager::getImageBuffer(std::string nome)
     //DAFs gerar log de erro
     }
 }
-// Carregar ImageBuffer para o ImageBufferManager 
-void ImageBufferManager::carregar(std::string nome, std::string arquivo) 
+// Carregar ImageBuffer para o ImageBufferManager
+void ImageBufferManager::loadFromFile(std::string nome, std::string arquivo)
 {
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
@@ -58,12 +58,12 @@ void ImageBufferManager::carregar(std::string nome, std::string arquivo)
 
     std::cout << "\tImageBufferManager: " << nome << "=" << fullpath << std::endl;
 
-    if (tab->carregarArquivo(fullpath)){
+    if (tab->loadFromFile(fullpath)){
         objetomap[nome]=tab;
     }
 }
-// Remove ImageBuffer 
-void ImageBufferManager::apagar(std::string nome) 
+// Remove ImageBuffer
+void ImageBufferManager::apagar(std::string nome)
 {
     if (objetomap[nome]){
         delete(objetomap[nome]);
@@ -72,7 +72,7 @@ void ImageBufferManager::apagar(std::string nome)
     }
 }
 //Construtor
-ImageBufferManager::ImageBufferManager() 
+ImageBufferManager::ImageBufferManager()
 {
     std::cout << "GBF::Kernel::Graphic::ImageBufferManager" << std::endl;
 }

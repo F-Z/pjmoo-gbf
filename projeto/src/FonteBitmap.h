@@ -26,7 +26,7 @@ namespace Kernel {
 
 namespace Write {
 
-//Descrição: 
+//Descrição:
 //    Classe que representa fontes originadas de imagens (Font Bitmap).
 //Motivação:
 //    Permitir a personalização dos textos na tela por meio de fontes contidas em imagens
@@ -40,7 +40,7 @@ class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
 
     //Carrega arquivo de imagem contendo o desenho das letras.
     //Obs.: Se a imagem tiver arquivo de dimensão das letras este será carregado, caso contrario será utilizado um valor default tanto para largura como altura
-    virtual bool carregarArquivo(std::string ARQUIVO);
+    virtual bool loadFromFile(std::string ARQUIVO);
 
     //Configura altura e largura padrão para todas as letras.
     //Obs.: A altura e largura devem ser suficientes para evitar que a letra seja desenhada cortada
@@ -79,7 +79,7 @@ class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
 
 
   protected:
-    //Converte Surface para formato na inicialização do GraphicSystem 
+    //Converte Surface para formato na inicialização do GraphicSystem
     virtual void converterSurface();
 
 };

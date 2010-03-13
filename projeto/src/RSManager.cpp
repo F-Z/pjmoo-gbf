@@ -23,32 +23,32 @@ int RSManager::assCheck[assCheckSize]={'N'+'a'+'o'+'E'+'V'+'a'+'l'+'i'+'d'+'o','
 std::string RSManager::pathBase;
 
 //Construtor
-RSManager::RSManager() 
+RSManager::RSManager()
 {
 //não implementado
 }
 //Destrutor
-RSManager::~RSManager() 
+RSManager::~RSManager()
 {
 //não implementado
 }
 //Adiciona um recorde
-bool RSManager::adicionar(RSRecorde recorde) 
+bool RSManager::adicionar(RSRecorde recorde)
 {
     return lista.adicionar(recorde);
 }
 //Retorna um recorde com base no indice
-RSRecorde RSManager::getRecorde(int indice) 
+RSRecorde RSManager::getRecorde(int indice)
 {
     return lista.getRecorde(indice);
 }
 //Salva recordes em arquivo
-bool RSManager::salvar() 
+bool RSManager::save()
 {
     FILE *handleArquivo;
     bool retorno = false;
 
-    handleArquivo = fopen(arquivo.c_str(),"wb");
+    handleArquivo = fopen(fileName.c_str(),"wb");
 
     if (handleArquivo!=NULL){
         fwrite(assCheck,sizeof(int),assCheckSize,handleArquivo);
@@ -69,13 +69,13 @@ bool RSManager::salvar()
     return retorno;
 }
 //Carrega recordes de um arquivo
-bool RSManager::carregar() 
+bool RSManager::load()
 {
     FILE *handleArquivo;
     bool retorno = false;
     int assLocal[assCheckSize];
 
-    handleArquivo = fopen(arquivo.c_str(),"rb");
+    handleArquivo = fopen(fileName.c_str(),"rb");
 
     //UtilLog::tracer("Carregando TopSystemGaleria...");
     if (handleArquivo!=NULL){
@@ -108,15 +108,15 @@ bool RSManager::carregar()
     return retorno;
 }
 //Adiciona uma lista de recordes
-void RSManager::setRecordeLista(RSLista lista) 
+void RSManager::setRecordeLista(RSLista lista)
 {
     this->lista=lista;
 }
 //Informa o arquivo para carregar e salvar os recordes
-void RSManager::setArquivo(std::string arquivo) 
+void RSManager::setFileName(std::string fileName)
 {
-    this->arquivo=pathBase;
-    this->arquivo+=arquivo;
+    this->fileName=pathBase;
+    this->fileName+=fileName;
 }
 //Configura o caminho do arquivo de recordes
 void RSManager::setPathBase(std::string path)
@@ -126,7 +126,7 @@ void RSManager::setPathBase(std::string path)
 }
 
 //Configura a assinatura do arquivo de recordes
-void RSManager::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao) 
+void RSManager::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao)
 {
 
     assCheck[0]=jogoNome;
@@ -134,7 +134,7 @@ void RSManager::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao)
     assCheck[2]=jogoVersao;
 }
 //Verificar se um recorde já existe
-bool RSManager::pesquisar(RSRecorde pesquisa) 
+bool RSManager::pesquisar(RSRecorde pesquisa)
 {
     return lista.pesquisar(pesquisa);
 }

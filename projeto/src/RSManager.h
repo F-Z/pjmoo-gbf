@@ -29,7 +29,7 @@ namespace RankingSystem {
 //    Permitir carregar e salvar em disco a listagem de recordes
 class RSManager {
   protected:
-    std::string arquivo;
+    std::string fileName;
 
     RSLista lista;
 
@@ -56,16 +56,16 @@ class RSManager {
     RSRecorde getRecorde(int indice);
 
     //Salva recordes em arquivo
-    bool salvar();
+    bool save();
 
     //Carrega recordes de um arquivo
-    bool carregar();
+    bool load();
 
     //Adiciona uma lista de recordes
     void setRecordeLista(RSLista lista);
 
     //Informa o arquivo para carregar e salvar os recordes
-    void setArquivo(std::string arquivo);
+    void setFileName(std::string fileName);
 
     //Configura o caminho do arquivo de recordes
     static void setPathBase(std::string path);

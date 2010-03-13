@@ -26,7 +26,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para representação de músicas
 //Motivação:
 //    Permitir manipular músicas (trila sonora)
@@ -36,7 +36,7 @@ class Music {
     virtual ~Music();
 
     //Lê arquivo de música
-    bool carregarArquivo(std::string arquivo);
+    bool loadFromFile(std::string arquivo);
 
     //Toca Música de Fundo
     void play();
@@ -48,7 +48,7 @@ class Music {
     void playLoop(int vezes);
 
     //Configura o volume da música
-    //Obs.: Valor de 0 ate 128 
+    //Obs.: Valor de 0 ate 128
     void setVolume(int valor);
 
     //Para a música

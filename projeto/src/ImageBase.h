@@ -38,13 +38,13 @@ class ImageBase
     //Destrutor
     virtual ~ImageBase();
 
-    //Seta nível de transparência 
+    //Seta nível de transparência
     void setAlpha(Uint8 ALPHA);
 
     //Seta cor transparente
     void setColorKey(Uint8 R, Uint8 G, Uint8 B);
 
-    virtual bool carregarArquivo(std::string arquivo) = 0;
+    virtual bool loadFromFile(std::string arquivo) = 0;
 
     double getTimer();
 
@@ -60,7 +60,7 @@ class ImageBase
 
     SDL_Rect posicao;
 
-    //Converte Surface para formato na inicialização do GraphicSystem 
+    //Converte Surface para formato na inicialização do GraphicSystem
     virtual void converterSurface();
 
 

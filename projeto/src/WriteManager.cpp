@@ -70,7 +70,7 @@ void WriteManager::carregar(std::string nome, std::string arquivo)
 
     std::cout << "\tWriteManager: " << nome << "=" << fullpath << std::endl;
 
-    if (f->carregarArquivo(fullpath)){
+    if (f->loadFromFile(fullpath)){
         objetomap[nome]=f;
     }
 }
