@@ -226,7 +226,7 @@ void UITecladoVirtual::setVisual(UserInterface::Visual::UIVisual * visual)
 {
     this->visual=visual;
 }
-void UITecladoVirtual::setCorCursor(const GBF::Color::CorPaleta & r, const GBF::Color::CorPaleta & g, const GBF::Color::CorPaleta & b)
+void UITecladoVirtual::setCorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
 {
     corCursor.r=r;
     corCursor.g=g;

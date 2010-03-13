@@ -16,7 +16,7 @@
 #define _PSPIXEL_H
 
 #include "GBF.h"
-#include "Cor.h"
+#include "Color.h"
 #include "PSEfeito.h"
 #include <deque>
 
@@ -34,7 +34,7 @@ struct Particula
 
     int energia;
 
-    GBF::Cor::HSV cor;
+    GBF::Color::HSV cor;
 
     bool ativa;
 

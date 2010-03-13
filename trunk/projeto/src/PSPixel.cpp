@@ -16,27 +16,27 @@
 
 namespace ParticleSystem {
 
-PSPixel::PSPixel() 
+PSPixel::PSPixel()
 {
 }
-PSPixel::~PSPixel() 
+PSPixel::~PSPixel()
 {
     lista.clear();
 }
 //Desenha todas as unidades
-void PSPixel::desenhar() 
+void PSPixel::desenhar()
 {
     GBF::Ponto ponto;
 
     if (!lista.empty()){
 
-        GBF::Cor::RGB tcor;
+        GBF::Color::RGB tcor;
         graphicSystem->gfx->setColor(255,255,255);
         graphicSystem->gfx->travar();
 
         for (unsigned int i=0; i<lista.size(); i++){
             if (lista[i].ativa){
-                tcor = GBF::Cor::Converter::forRGB(lista[i].cor);
+                tcor = GBF::Color::Converter::forRGB(lista[i].cor);
                 graphicSystem->gfx->setColor(tcor.r,tcor.g,tcor.b);
                 ponto.x=int(lista[i].posicao.x);
                 ponto.y=int(lista[i].posicao.y);
@@ -48,7 +48,7 @@ void PSPixel::desenhar()
     }
 }
 //Configura a quantidade de unidades que serão criadas
-void PSPixel::setQuantidade(int quantidade) 
+void PSPixel::setQuantidade(int quantidade)
 {
     for (int i=0; i<quantidade; i++){
         Particula particula;
@@ -67,7 +67,7 @@ void PSPixel::setQuantidade(int quantidade)
     }
 }
 //Indica se todas as unidades já terminaram o ciclo de vida
-bool PSPixel::isTerminou() 
+bool PSPixel::isTerminou()
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size();i++){

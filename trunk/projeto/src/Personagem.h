@@ -22,7 +22,7 @@
 #include "SpritePersonagem.h"
 #include "GBF.h"
 #include "InputSystem.h"
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace Personagem {
 
@@ -40,13 +40,13 @@ struct TypeDelay
     float tiroD;
 
 };
-//Descrição: 
+//Descrição:
 //    Classe para criação de personagens genéricos
 //Motivação:
-//    Fornecer uma interface padrão para criação de personagens 
+//    Fornecer uma interface padrão para criação de personagens
 //
-// 
-class Personagem : public GBF::ObjetoBase
+//
+class Personagem : public GBF::Object
 {
   protected:
     bool ativo;
@@ -69,7 +69,7 @@ class Personagem : public GBF::ObjetoBase
 
 
   public:
-    //Destrutor 
+    //Destrutor
     virtual ~Personagem();
 
     //Desenha o sprite principal do personagem
@@ -107,7 +107,7 @@ class Personagem : public GBF::ObjetoBase
 
 
   protected:
-    //Construtor 
+    //Construtor
     Personagem();
 
   friend class ListPersonagem;

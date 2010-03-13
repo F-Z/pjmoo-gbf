@@ -26,7 +26,7 @@ UIVisual::UIVisual(){
 UIVisual::~UIVisual(){
 }
 
-void UIVisual::setCorBorda(const GBF::Color::CorPaleta & r, const GBF::Color::CorPaleta & g, const GBF::Color::CorPaleta & b)
+void UIVisual::setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
 {
     corBorda.r=r;
     corBorda.g=g;
