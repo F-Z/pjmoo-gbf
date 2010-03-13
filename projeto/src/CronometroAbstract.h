@@ -17,7 +17,7 @@
 
 #include <SDL/SDL.h>
 
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace GBF {
 
@@ -25,7 +25,7 @@ namespace Kernel {
 
 namespace Timer {
 
-//Descrição: 
+//Descrição:
 //    Valores para marcação da passagem do tempo
 //Motivação:
 //    Fornecer um conjunto de valores para medição da passagem de tempo
@@ -40,7 +40,7 @@ enum Tempo {
   TEMPO_DECIMO=100
 
 };
-//Descrição: 
+//Descrição:
 //    Valores para  indicação de estado
 //Motivação:
 //    Fornecer um conjunto de valores para definição da máquina de estados dos cronometros
@@ -56,14 +56,14 @@ enum Cronometro {
   //Cronometro em execução
   CRONOMETRO_EXECUTAR,
   //Cronometro finalizado
-  
+
   CRONOMETRO_TERMINAR
 };
-//Descrição: 
+//Descrição:
 //    Classe abstrata para criação de cronometros
 //Motivação:
 //    Fornecer um conjunto de métodos padrões para controle de tempo
-class CronometroAbstract : public GBF::ObjetoBase {
+class CronometroAbstract : public GBF::Object {
   protected:
     Uint32 tempoUnidade;
 
@@ -100,10 +100,10 @@ class CronometroAbstract : public GBF::ObjetoBase {
 
 
   public:
-    //Construtor 
+    //Construtor
     CronometroAbstract();
 
-    //Destrutor 
+    //Destrutor
     virtual ~CronometroAbstract();
 
     //Configura a unidade de tempo a ser usada

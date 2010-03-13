@@ -15,11 +15,11 @@
 #ifndef _BASESYSTEM_H
 #define _BASESYSTEM_H
 
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace GBF {
 
-class BaseSystem : public ObjetoBase
+class BaseSystem : public Object
 {
   public:
     BaseSystem();
