@@ -18,7 +18,7 @@
 #include <string>
 
 #include "SpriteItem.h"
-#include "SpritePersonagem.h"
+#include "SpriteCharacter.h"
 #include "FrameLayer.h"
 #include "ImageBuffer.h"
 #include "GraphicSystem.h"
@@ -38,7 +38,7 @@ class SpriteFactory
 
     GBF::Imagem::Sprite::SpriteItem * criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-    GBF::Imagem::Sprite::SpritePersonagem * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+    GBF::Imagem::Sprite::SpriteCharacter * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
     GBF::Imagem::Layer::FrameLayer * criarFrameLayer(int left, int top, int largura, int altura);
 

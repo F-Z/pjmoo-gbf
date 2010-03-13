@@ -1,5 +1,5 @@
-#ifndef _SPRITEPERSONAGEM_H
-#define _SPRITEPERSONAGEM_H
+#ifndef _SPRITECHARACTER_H
+#define _SPRITECHARACTER_H
 
 ////    GBF - Gamework's Brazilian Framework
 ////    Copyright (C) 2004-2007 David de Almeida Ferreira
@@ -23,29 +23,29 @@ namespace Imagem {
 
 namespace Sprite {
 
-class SpritePersonagem : public Sprite
+class SpriteCharacter : public Sprite
 {
   public:
-    //Destrutor 
-    virtual ~SpritePersonagem();
+    //Destrutor
+    virtual ~SpriteCharacter();
 
-    void setDirecao(Direcao DIR);
+    void setDirection(Direcao DIR);
 
     void setQtdDirecoes(int QTD);
 
     virtual void desenhar(int x, int y);
 
-    //Retorna a quantidade de direções que o personagem possui 
+    //Retorna a quantidade de direções que o personagem possui
     int getQtdDirecoes();
 
-    Direcao getDirecao();
+    Direcao getDirection();
 
     //Construtor
-    SpritePersonagem();
+    SpriteCharacter();
 
 
   protected:
-    Direcao direcao;
+    Direcao direction;
 
     int qtdDirecao;
 

@@ -12,7 +12,7 @@
 ////        http://pjmoo.sourceforge.net
 ////////////////////////////////////////////////////////////////////////
 
-#include "SpritePersonagem.h"
+#include "SpriteCharacter.h"
 
 namespace GBF {
 
@@ -20,27 +20,27 @@ namespace Imagem {
 
 namespace Sprite {
 
-//Destrutor 
-SpritePersonagem::~SpritePersonagem() 
+//Destrutor
+SpriteCharacter::~SpriteCharacter()
 {
 
 }
-void SpritePersonagem::setDirecao(Direcao DIR) 
+void SpriteCharacter::setDirection(Direcao DIR)
 {
     switch (qtdDirecao){
         case 8:
         case 4:
-                direcao=DIR;
+                direction=DIR;
             break;
         case 3:
                 switch (DIR){
                     case DR_ESQUERDA:
-                            direcao=DR_BAIXO;
+                            direction=DR_BAIXO;
                         break;
                     case DR_BAIXO:
                         break;
                     default:
-                            direcao=DIR;
+                            direction=DIR;
                         break;
                 }
             break;
@@ -48,11 +48,11 @@ void SpritePersonagem::setDirecao(Direcao DIR)
                 switch (DIR){
                     case DR_ESQUERDA:
                     case DR_CIMA:
-                            direcao=DR_CIMA;
+                            direction=DR_CIMA;
                         break;
                     case DR_BAIXO:
                     case DR_DIREITA:
-                            direcao=DR_DIREITA;
+                            direction=DR_DIREITA;
                         break;
                     default:
                             //Sem modificação da direção. Opção 'default' apenas
@@ -64,29 +64,29 @@ void SpritePersonagem::setDirecao(Direcao DIR)
 
     animacao.processarManual();
 }
-void SpritePersonagem::setQtdDirecoes(int QTD) 
+void SpriteCharacter::setQtdDirecoes(int QTD)
 {
     qtdDirecao=QTD;
 }
-void SpritePersonagem::desenhar(int x, int y) 
+void SpriteCharacter::desenhar(int x, int y)
 {
-    animacao.ajustarCorte(direcao,tamanho.w);
+    animacao.ajustarCorte(direction,tamanho.w);
 
     Sprite::desenhar(x,y);
 }
-//Retorna a quantidade de direções que o personagem possui 
-int SpritePersonagem::getQtdDirecoes() 
+//Retorna a quantidade de direções que o personagem possui
+int SpriteCharacter::getQtdDirecoes()
 {
     return qtdDirecao;
 }
-Direcao SpritePersonagem::getDirecao() 
+Direcao SpriteCharacter::getDirection()
 {
-    return direcao;
+    return direction;
 }
 //Construtor
-SpritePersonagem::SpritePersonagem() 
+SpriteCharacter::SpriteCharacter()
 {
-    direcao=DR_CIMA;
+    direction=DR_CIMA;
     qtdDirecao=4;
 }
 
