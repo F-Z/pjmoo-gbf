@@ -26,7 +26,7 @@ UIVisualSolido::UIVisualSolido()
 UIVisualSolido::~UIVisualSolido()
 {
 }
-void UIVisualSolido::setCorFundo(const GBF::Color::CorPaleta & r, const GBF::Color::CorPaleta & g, const GBF::Color::CorPaleta & b)
+void UIVisualSolido::setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
 {
     corFundo.r=r;
     corFundo.g=g;

@@ -16,15 +16,15 @@
 #define _PSEFEITO_H
 
 #include "GraphicSystemUtility.h"
-#include "ObjetoBase.h"
+#include "Object.h"
 
 namespace ParticleSystem {
 
-//Descrição: 
+//Descrição:
 //    Classe abstrata que permite agrupamente de particulas
 //Motivação:
 //    Permitir gerenciar um grupo de unidades com ciclo de vida semelhantes
-class PSEfeito : public GBF::Kernel::Graphic::GraphicSystemUtility, public GBF::ObjetoBase {
+class PSEfeito : public GBF::Kernel::Graphic::GraphicSystemUtility, public GBF::Object {
   public:
     //Construtor
     PSEfeito();
