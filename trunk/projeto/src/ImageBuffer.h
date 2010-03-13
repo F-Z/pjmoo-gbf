@@ -35,15 +35,15 @@ class ImageBuffer : public ImageBase
     //Destrutor
     virtual ~ImageBuffer();
 
-    virtual bool carregarArquivo(std::string arquivo);
+    virtual bool loadFromFile(std::string arquivo);
 
-    //Desenha um sprite simples na tela 
+    //Desenha um sprite simples na tela
     void desenhar(GBF::Ponto POSICAO);
 
-    //Permite desenhar sprites animados  
+    //Permite desenhar sprites animados
     void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME);
 
-    //Permite desenhar sprites animados com corte 
+    //Permite desenhar sprites animados com corte
     void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME, SDL_Rect CORTE);
 
   friend class ImageBufferManager;

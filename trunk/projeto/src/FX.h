@@ -27,7 +27,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para representação de um efeito sonoro
 //Motivação:
 //    Permitir manipular efeitos sonoros
@@ -37,12 +37,12 @@ class FX {
     virtual ~FX();
 
     //Lê arquivo de efeito sonoro
-    bool carregarArquivo(std::string arquivo);
+    bool loadFromFile(std::string arquivo);
 
     //Toca Efeto sonoro
     int play();
 
-    //Configura o volume do efeito, 
+    //Configura o volume do efeito,
     //Obs.: Valor de 0 ate 128
     void setVolume(int valor);
 

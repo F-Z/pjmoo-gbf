@@ -29,7 +29,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para gerenciamento de Efeitos sonoros
 //Motivação:
 //    Fornecer mecanismos para gerenciamento de efeitos sonoros
@@ -42,7 +42,7 @@ class FXManager : public SoundManagerAbstract {
     virtual void play(std::string nome);
 
     //Carregar um arquivo de efeito sonoro para o gerenciador
-    virtual void carregar(std::string nome, std::string arquivo);
+    virtual void loadFromFile(std::string nome, std::string arquivo);
 
     //Remove um efeito sonoro do gerenciador
     virtual void apagar(std::string nome);

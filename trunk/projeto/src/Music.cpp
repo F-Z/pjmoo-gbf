@@ -20,14 +20,14 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-Music::~Music() 
+Music::~Music()
 {
     Mix_FreeMusic(musica);
     musica = NULL;
     //UtilLog::getInstance()->status("[SoundMusic Removido(a)]");
 }
 //Lê arquivo de música
-bool Music::carregarArquivo(std::string arquivo) 
+bool Music::loadFromFile(std::string arquivo)
 {
     musica = Mix_LoadMUS(arquivo.c_str());
 
@@ -39,35 +39,35 @@ bool Music::carregarArquivo(std::string arquivo)
     }
 }
 //Toca Música de Fundo
-void Music::play() 
+void Music::play()
 {
     Mix_PlayMusic(musica, 0);
 }
 //Toca Música de Fundo de forma infinita
-void Music::playInfinity() 
+void Music::playInfinity()
 {
     playLoop(-1);
 }
 //Toca Música de Fundo várias vezes
-void Music::playLoop(int vezes) 
+void Music::playLoop(int vezes)
 {
 
 	Mix_PlayMusic(musica, vezes);
 
 }
 //Configura o volume da música
-//Obs.: Valor de 0 ate 128 
-void Music::setVolume(int valor) 
+//Obs.: Valor de 0 ate 128
+void Music::setVolume(int valor)
 {
     Mix_VolumeMusic(valor);
 }
 //Para a música
-void Music::stop() 
+void Music::stop()
 {
     Mix_HaltMusic();
 }
 //Construtor
-Music::Music() 
+Music::Music()
 {
 
 }

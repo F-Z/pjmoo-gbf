@@ -21,20 +21,20 @@ namespace Kernel {
 namespace Input {
 
 //Destrutor
-Cursor::~Cursor() 
+Cursor::~Cursor()
 {
       //UtilLog::subSistema("Removendo InputSystemMouseCursor");
 }
 
 //Carregar arquivo contendo a imagem do ponteiro
-bool Cursor::carregarArquivo(std::string arquivo) 
+bool Cursor::loadFromFile(std::string arquivo)
 {
       if (imagem){
           SDL_FreeSurface(imagem);
       }
-  
+
       imagem = IMG_Load(arquivo.c_str());
-  
+
       if (imagem){
           converterSurface();
           setColorKey(255, 0, 255);
@@ -43,23 +43,23 @@ bool Cursor::carregarArquivo(std::string arquivo)
           return true;
       } else {
           std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
-  
+
           return false;
       }
 }
 
 //Desenha o ponteiro na tela
-void Cursor::desenhar(int x, int y) 
+void Cursor::desenhar(int x, int y)
 {
       posicao.x=x - ponto.x;	posicao.y=y - ponto.y;
-  
+
       if (imagem){
           gsScreen->blitSurface(imagem,NULL,&posicao);
       }
 }
 
 //Construtor
-Cursor::Cursor() 
+Cursor::Cursor()
 {
       std::cout << "GBF::Kernel::Input::Cursor " << std::endl;
 }

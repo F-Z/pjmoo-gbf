@@ -1,9 +1,75 @@
-Modificando funcao para:
-create(int left, int top, int largura, int altura, GraphicSystemImageBuffer* gsiBuffer);
+24 setembro 2007
+   released version 0.7.0 of GBFramework (Beta)
 
-renomeando frame frameAtual
-frame_total frameTotla
-frame_rate frameRate
+     Change log:
+        -Updated: Oficialização utilização da IDE CodeBlocks;
+        -Updated: Removendo arquivos utilizados por outras ides (Kdevelop, DevCPP, Eclipse);
+        -Updated: Migração de repositório (agora no GoogleCode e SourceForge);
+        -Added: UserInterface - Criação do suporte para janelas de texto, com título e botão de "ok";
+        -Updated: FrameLayer - Preenchimento com um tile;
+        -Updated: WriteSystem - Suporte para determinar o tamanho de uma frase;
+        -Updated: ParticleSystem - Reestruturação;
+        -Updated: WriteSystem - Melhorias para simplificar a o uso;
+        -New: Diretório (raiz)/data/etc/mensagem - Renomeando;
+        -New: Estrutura de diretório para jogos;
+        -Updated: FrameLayer - Ajustes;
+        -Updated: GraphicSystem - Reestruturação;
+        -Updated: InputSystem - Reestruturação;
+        -Updated: GraphicSystemCore - Renomear sincronizar;
+        -Updated: SoundSystem - Reestruturação;
+        -Updated: Sprites - Reestruturação;
+        -Fixed: ParticleSystemSprite - Fixando erro na animação;
+        -New: SpriteItem - Seleção de quadro;
+        -Added: ObjetoBase - Criação de Hierarquia de Classes
 
-float frame -> int frameAtual
+21 maio 2007
+   released version 0.6.1 of GBFramework (Beta)
 
+     Change log:
+        -Added: Adicionando suporte para localização;
+        -Fixed: Melhorias no sistema de Personagens;
+        -New: Extendendo o modelo de máquinas de estado;
+        -Fixed: Ajustes nas classes de recordes;
+        -New: Adicionando classes para criação de menus;
+        -New: Ajustes na geração do código gerado pela ferramenta BoUML;
+        -Updated: Desenvolvimento primário passa a ser em ambiente GNU/Linux (Slackware);
+
+13 maio 2006
+   released version 0.5.1 of GBFramework (Beta)
+
+     Change log:
+        -Updated: Atualização da licença;
+        -Fixed: Ajustes para utilização da ferramenta BoUML;
+        -Fixed: Melhorias no sistema de log;
+        -Fixed: Melhorias no sistema de vídeo;
+        -Fixed: Melhorias no sistema de som;
+
+08 setembro 2005
+   released version 0.4.5 of GBFramework (Beta)
+
+     Change log:
+        -Fixed: Melhorias no suporte a bitmap font;
+        -Added: Adicionando suporte para salvar recordes;
+        -Fixed: Ajustes nas classes de sprite;
+        -Fixed: Ajustes no título quando executado em modo janela;
+
+29 junho 2005
+   released version 0.4.0 of GBFramework (Beta)
+
+     Change log:
+        -Added: Criação de Máquinas de Estado para controle do Menu;
+        -Added: Criação das classes séries GBFApplication, a qual prover uma estrutura para facilitar a criação de jogos (micro engine);
+        -Fixed: Otimização dos Containers dos personagens;
+        -Fixed: Melhorias no suporte a framelayer (tilemaps);
+        -Fixed: Melhorias no controle de FPS (Frames-Per-Secound);
+        -Fixed: Melhorias nas animações dos sprites;
+        -New: Suporte a obtenção do path da aplicação (obter o diretório corrente - em tempo de execução);
+        -Fixed: Melhorias no sistema de som;
+        -Added: Adicionando suporte a cronômetros;
+
+03 maio 2005
+   released version 0.3.0 of GBFramework (Beta)
+
+     Change log:
+        -Updated: Liberação do Primeiro Release Público;
+        -New: Otimizações ao acessar o buffer de vídeo;

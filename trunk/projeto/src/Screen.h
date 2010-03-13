@@ -35,16 +35,16 @@ class Screen
     //Desenha uma surface na surface de vídeo
     void blitSurface(SDL_Surface * origem, SDL_Rect * area, SDL_Rect * posicao);
 
-    //Retorna ponteiro para a surface de vídeo 
+    //Retorna ponteiro para a surface de vídeo
     SDL_Surface * getScreen();
 
     //Trava a surface para desenhar
-    bool travar();
+    bool lock();
 
     //Destrava a surface para desenhar
-    void destravar();
+    void unlock();
 
-    //Construtor 
+    //Construtor
     Screen();
 
 

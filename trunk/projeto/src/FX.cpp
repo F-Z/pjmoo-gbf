@@ -21,7 +21,7 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-FX::~FX() 
+FX::~FX()
 {
     if (efeito){
         Mix_FreeChunk(efeito);
@@ -30,7 +30,7 @@ FX::~FX()
 //UtilLog::getInstance()->status("[SoundFx Removido(a)]");
 }
 //Lê arquivo de efeito sonoro
-bool FX::carregarArquivo(std::string arquivo) 
+bool FX::loadFromFile(std::string arquivo)
 {
     efeito = Mix_LoadWAV(arquivo.c_str());
 
@@ -42,18 +42,18 @@ bool FX::carregarArquivo(std::string arquivo)
     }
 }
 //Toca Efeto sonoro
-int FX::play() 
+int FX::play()
 {
     return Mix_PlayChannel(-1,efeito,0);
 }
-//Configura o volume do efeito, 
+//Configura o volume do efeito,
 //Obs.: Valor de 0 ate 128
-void FX::setVolume(int valor) 
+void FX::setVolume(int valor)
 {
     Mix_VolumeChunk(efeito,valor);
 }
 //Construtor
-FX::FX() 
+FX::FX()
 {
     efeito = NULL;
 }

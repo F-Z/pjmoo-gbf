@@ -26,7 +26,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição: 
+//Descrição:
 //    Classe para representação do ponteiro do mouse
 //Motivação:
 //    Prover o gerenciamento do ponteiro do mouse
@@ -37,7 +37,7 @@ class Cursor : public GBF::Kernel::Graphic::ImageBase {
     virtual ~Cursor();
 
     //Carregar arquivo contendo a imagem do ponteiro
-    virtual bool carregarArquivo(std::string arquivo);
+    virtual bool loadFromFile(std::string arquivo);
 
 
   protected:

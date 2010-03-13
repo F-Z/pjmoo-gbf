@@ -21,22 +21,22 @@ namespace Kernel {
 namespace Graphic {
 
 //Destrutor
-Screen::~Screen() 
+Screen::~Screen()
 {
 //    UtilLog::subSistema("Removendo GraphicSystemScreen");
 }
 //Desenha uma surface na surface de vídeo
-void Screen::blitSurface(SDL_Surface * origem, SDL_Rect * area, SDL_Rect * posicao) 
+void Screen::blitSurface(SDL_Surface * origem, SDL_Rect * area, SDL_Rect * posicao)
 {
     SDL_BlitSurface(origem, area , pScreen, posicao);
 }
-//Retorna ponteiro para a surface de vídeo 
-SDL_Surface * Screen::getScreen() 
+//Retorna ponteiro para a surface de vídeo
+SDL_Surface * Screen::getScreen()
 {
     return pScreen;
 }
 //Trava a surface para desenhar
-bool Screen::travar() 
+bool Screen::lock()
 {
     if (SDL_MUSTLOCK(pScreen)) {
         if (SDL_LockSurface(pScreen)<0) {
@@ -46,19 +46,19 @@ bool Screen::travar()
     return true;
 }
 //Destrava a surface para desenhar
-void Screen::destravar() 
+void Screen::unlock()
 {
     if (SDL_MUSTLOCK(pScreen)) {
         SDL_UnlockSurface(pScreen);
     }
 }
-//Construtor 
-Screen::Screen() 
+//Construtor
+Screen::Screen()
 {
 //    UtilLog::subSistema("Instanciando GraphicSystemScreen");
 }
 //Informa qual a surface a ser usada e a configuração
-void Screen::setScreen(SDL_Surface * surface) 
+void Screen::setScreen(SDL_Surface * surface)
 {
     pScreen = surface;
 }

@@ -26,7 +26,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição: 
+//Descrição:
 //    Valores para indicação dos botões
 //Motivação:
 //    Fornecer um conjunto de valores para verificação dos botões do mouse
@@ -37,7 +37,7 @@ enum MouseBotao {
   MS_RIGHT
 
 };
-//Descrição: 
+//Descrição:
 //    Classe para controle do mouse
 //Motivação:
 //    Prover o controle de eventos por meio do Mouse
@@ -56,7 +56,7 @@ class Mouse {
     GBF::Ponto getPosicao();
 
     //Carrega o curso do mouse do arquivo
-    void carregarArquivo(std::string arquivo);
+    void loadFromFile(std::string arquivo);
 
     //Retorna o InputSystemMouseCursor para manipulação
     Cursor * getMouseCursor();

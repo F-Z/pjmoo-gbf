@@ -29,7 +29,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para gerenciamento de Música
 //Motivação:
 //    Fornecer mecanismos para gerenciamento de músicas de fundo
@@ -42,7 +42,7 @@ class MusicManager : public SoundManagerAbstract {
     virtual void apagar(std::string nome);
 
     //Carregar um arquivo de música para o gerenciador
-    virtual void carregar(std::string nome, std::string arquivo);
+    virtual void loadFromFile(std::string nome, std::string arquivo);
 
     //Pausa a música
     virtual void pause();

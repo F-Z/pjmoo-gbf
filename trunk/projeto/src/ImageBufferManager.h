@@ -38,10 +38,10 @@ class ImageBufferManager : public GBF::BaseManager
     // Retorna GraphicSystemImageBufferManager para manipulação
     ImageBuffer * getImageBuffer(std::string nome);
 
-    // Carregar ImageBuffer para o ImageBufferManager 
-    void carregar(std::string nome, std::string arquivo);
+    // Carregar ImageBuffer para o ImageBufferManager
+    void loadFromFile(std::string nome, std::string arquivo);
 
-    // Remove ImageBuffer 
+    // Remove ImageBuffer
     void apagar(std::string nome);
 
 

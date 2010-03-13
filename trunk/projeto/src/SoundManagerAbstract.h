@@ -26,7 +26,7 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de gerenciados de som
 //Motivação:
 //    Fornecer uma interface padrão para gerenciamento de som
@@ -42,7 +42,7 @@ class SoundManagerAbstract : public GBF::BaseManager {
     virtual void apagar(std::string nome) = 0;
 
     //Carrega no manager o arquivo de som
-    virtual void carregar(std::string nome, std::string arquivo) = 0;
+    virtual void loadFromFile(std::string nome, std::string arquivo) = 0;
 
     //Pausa o sistema de som
     virtual void pause() = 0;
