@@ -15,13 +15,13 @@
 #ifndef _PSSPRITE_H
 #define _PSSPRITE_H
 
-#include "PSEfeito.h"
+#include "PSEffect.h"
 #include <deque>
 #include "Sprite.h"
 
 namespace ParticleSystem {
 
-class PSSprite : public PSEfeito
+class PSSprite : public PSEffect
 {
   public:
     //Construtor
