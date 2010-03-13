@@ -49,7 +49,7 @@ void UIItemTexto::desenhar(int x, int y)
 }
 int UIItemTexto::getQuantidadeLetras()
 {
-    return wsManager->idioma->getTexto(texto).length();
+    return wsManager->idioma->getText(texto).length();
 }
 GBF::Dimensao UIItemTexto::getDimensaoLetra()
 {
