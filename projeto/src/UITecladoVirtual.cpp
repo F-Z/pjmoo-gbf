@@ -21,7 +21,7 @@ namespace Componente {
 //Efetua o controle sobre a navegação do cursor
 
 //Efetua o controle sobre a navegação do cursor
-void UITecladoVirtual::navegar() 
+void UITecladoVirtual::navegar()
 {
     if ((inputSystem->teclado->isKey(SDLK_LEFT))||(inputSystem->joystick->isAxeLeft())){
             selecao--;
@@ -51,7 +51,7 @@ void UITecladoVirtual::navegar()
         selecao=getTotalTeclas()-1;
     }
 }
-void UITecladoVirtual::desenharBackground() 
+void UITecladoVirtual::desenharBackground()
 {
     //desenhando caixa do teclado
     if (visual!=NULL){
@@ -90,7 +90,7 @@ void UITecladoVirtual::desenharBackground()
         }
     }
 }
-void UITecladoVirtual::desenharConteudo() 
+void UITecladoVirtual::desenharConteudo()
 {
     graphicSystem->gfx->setColor(corCursor.r,corCursor.g,corCursor.b);
 
@@ -122,7 +122,7 @@ void UITecladoVirtual::desenharConteudo()
         }
     }
 }
-void UITecladoVirtual::atualizar() 
+void UITecladoVirtual::atualizar()
 {
     tempoEspera.processar();
     tempoBlink.processar();
@@ -138,12 +138,12 @@ void UITecladoVirtual::atualizar()
         visual->aplicar(posicao,d);
     }
 }
-void UITecladoVirtual::desenhar() 
+void UITecladoVirtual::desenhar()
 {
     desenharBackground();
     desenharConteudo();
 }
-UITecladoVirtual::UITecladoVirtual() 
+UITecladoVirtual::UITecladoVirtual()
 {
     posicao.x = 0;
     posicao.y = 0;
@@ -160,42 +160,42 @@ UITecladoVirtual::UITecladoVirtual()
 UITecladoVirtual::~UITecladoVirtual(){
 }
 
-int UITecladoVirtual::getTotalCaracter() 
+int UITecladoVirtual::getTotalCaracter()
 {
     return strlen(caracter);
 }
-int UITecladoVirtual::getTotalControle() 
+int UITecladoVirtual::getTotalControle()
 {
     return 3;
 }
-int UITecladoVirtual::getTotalTeclas() 
+int UITecladoVirtual::getTotalTeclas()
 {
     return getTotalCaracter()+getTotalControle();
 }
-int UITecladoVirtual::getTamanhoControle() 
+int UITecladoVirtual::getTamanhoControle()
 {
    return tamanhoControle;
 }
-void UITecladoVirtual::setCaracter(std::string caracteres) 
+void UITecladoVirtual::setCaracter(std::string caracteres)
 {
     strcpy(caracter,caracteres.c_str());
 }
-void UITecladoVirtual::setControle(int index, std::string texto) 
+void UITecladoVirtual::setControle(int index, std::string texto)
 {
     controle[index]=texto;
 }
-char UITecladoVirtual::getCaracter() 
+char UITecladoVirtual::getCaracter()
 {
     return caracter[selecao];
 }
-int UITecladoVirtual::getIndex() 
+int UITecladoVirtual::getIndex()
 {
     return selecao;
 }
 //Define a fonte a ser usada pelo label
 
 //Define a fonte a ser usada pelo Controle
-void UITecladoVirtual::setFonteControle(std::string fonte) 
+void UITecladoVirtual::setFonteControle(std::string fonte)
 {
     fonteControle.nome=fonte;
     fonteControle.dimensao=wsManager->getFonte(fonteControle.nome)->getDimensao();
@@ -212,7 +212,7 @@ void UITecladoVirtual::setFonteControle(std::string fonte)
 //Define a fonte a ser usada pelo teclado virtual
 
 //Define a fonte a ser usada pelo teclado virtual
-void UITecladoVirtual::setFonteTeclado(std::string fonte) 
+void UITecladoVirtual::setFonteTeclado(std::string fonte)
 {
     fonteTeclado.nome=fonte;
     fonteTeclado.dimensao=wsManager->getFonte(fonteTeclado.nome)->getDimensao();
@@ -222,11 +222,11 @@ void UITecladoVirtual::setFonteTeclado(std::string fonte)
 }
 //Estilo Visual a ser Aplicado no Componente
 
-void UITecladoVirtual::setVisual(UserInterface::Visual::UIVisual * visual) 
+void UITecladoVirtual::setVisual(UserInterface::Visual::UIVisual * visual)
 {
     this->visual=visual;
 }
-void UITecladoVirtual::setCorCursor(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b) 
+void UITecladoVirtual::setCorCursor(const GBF::Color::CorPaleta & r, const GBF::Color::CorPaleta & g, const GBF::Color::CorPaleta & b)
 {
     corCursor.r=r;
     corCursor.g=g;

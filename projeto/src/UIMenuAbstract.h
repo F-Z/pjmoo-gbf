@@ -19,7 +19,7 @@
 #include <deque>
 #include "UIItemAbstract.h"
 #include "CronometroDecrescente.h"
-#include "Cor.h"
+#include "Color.h"
 #include "UserInterface.h"
 #include "InputSystemUtility.h"
 
@@ -27,7 +27,7 @@ namespace UserInterface {
 
 namespace Menu {
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de menus
 //Motivação:
 //    Fornecer uma interface padrão para criação de menus
@@ -54,9 +54,9 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
     void setEspacoVertical(int espaco);
 
-    void setCorBorda(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b);
+    void setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
-    void setCorFundo(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b);
+    void setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
     //Define a posição x,y do menu
     void setPosicao(int x, int y);
@@ -92,9 +92,9 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
     UserInterface::UIAlinhamento eAlinhamento;
 
-    GBF::Cor::RGB corBorda;
+    GBF::Color::RGB corBorda;
 
-    GBF::Cor::RGB corFundo;
+    GBF::Color::RGB corFundo;
 
 };
 

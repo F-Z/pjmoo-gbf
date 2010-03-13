@@ -16,7 +16,7 @@
 #define _UIVISUALSOLIDO_H
 
 #include "UIVisual.h"
-#include "Cor.h"
+#include "Color.h"
 
 namespace UserInterface {
 
@@ -31,7 +31,7 @@ class UIVisualSolido : public UIVisual
     //Destrutor
     virtual ~UIVisualSolido();
 
-    void setCorFundo(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b);
+    void setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
     //Desenha o EstiloVisual do Componente
     virtual void desenhar();
@@ -41,7 +41,7 @@ class UIVisualSolido : public UIVisual
 
 
   protected:
-    GBF::Cor::RGB corFundo;
+    GBF::Color::RGB corFundo;
 
 };
 

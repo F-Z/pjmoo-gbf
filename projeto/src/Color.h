@@ -28,7 +28,7 @@ namespace Color {
 typedef Uint32 Cor;
 //Estrutura para definição de paleta de cor.
 //Obs.: Representa um dos canais de cor (RGB)
-typedef Uint8 CorPaleta;
+typedef Uint8 Pallete;
 //Descrição:
 //    Estrutura para representar cores no sistema RGB (Red, Green, Blue),  com
 //    precisam de ponto flutuante.

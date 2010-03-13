@@ -19,14 +19,14 @@ namespace UserInterface {
 namespace Visual {
 
 //Construtor
-UIVisualSolido::UIVisualSolido() 
+UIVisualSolido::UIVisualSolido()
 {
 }
 //Destrutor
-UIVisualSolido::~UIVisualSolido() 
+UIVisualSolido::~UIVisualSolido()
 {
 }
-void UIVisualSolido::setCorFundo(const GBF::Cor::CorPaleta & r, const GBF::Cor::CorPaleta & g, const GBF::Cor::CorPaleta & b) 
+void UIVisualSolido::setCorFundo(const GBF::Color::CorPaleta & r, const GBF::Color::CorPaleta & g, const GBF::Color::CorPaleta & b)
 {
     corFundo.r=r;
     corFundo.g=g;
@@ -35,7 +35,7 @@ void UIVisualSolido::setCorFundo(const GBF::Cor::CorPaleta & r, const GBF::Cor::
 //Desenha o EstiloVisual do Componente
 
 //Desenha o EstiloVisual do Componente
-void UIVisualSolido::desenhar() 
+void UIVisualSolido::desenhar()
 {
     graphicSystem->gfx->setColor(corFundo.r,corFundo.g,corFundo.b);
     graphicSystem->gfx->retanguloPreenchido(posicao.x,posicao.y,dimensao.w,dimensao.h);
@@ -44,7 +44,7 @@ void UIVisualSolido::desenhar()
     graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
 }
 //Retorna uma copia do objeto
-UIVisual * UIVisualSolido::clone() 
+UIVisual * UIVisualSolido::clone()
 {
     UIVisualSolido * uivSolido = new UIVisualSolido();
     uivSolido->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
