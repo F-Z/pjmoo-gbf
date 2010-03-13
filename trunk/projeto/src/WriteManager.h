@@ -18,7 +18,7 @@
 #include <string>
 
 #include "Idioma.h"
-#include "FonteBitmap.h"
+#include "FontBitmap.h"
 #include <map>
 
 #include "BaseManager.h"
@@ -29,7 +29,7 @@ namespace Kernel {
 
 namespace Write {
 
-//Descrição: 
+//Descrição:
 //    Classe para gerenciamento do sistema de fontes (letras).
 //Motivação:
 //    Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita
@@ -46,7 +46,7 @@ class WriteManager : public GBF::BaseManager
 
     //Retorna uma fonte para manipulação direta
     //Obs.: Ideal para casos em que se deseja manipulações avançadas
-    FonteBitmap * getFonte(std::string nome);
+    FontBitmap * getFonte(std::string nome);
 
     //Pega uma Instância de FonteManager
     //Obs.: Esta classe é Singleton
@@ -72,7 +72,7 @@ class WriteManager : public GBF::BaseManager
 
 
   protected:
-    std::map<std::string,FonteBitmap*> objetomap;
+    std::map<std::string,FontBitmap*> objetomap;
 
 
   private:
