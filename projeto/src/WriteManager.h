@@ -17,7 +17,7 @@
 
 #include <string>
 
-#include "Idioma.h"
+#include "Language.h"
 #include "FontBitmap.h"
 #include <map>
 
@@ -39,7 +39,7 @@ class WriteManager : public GBF::BaseManager
     //Constante para representar a fonte padrão do GBF
     static const std::string defaultFont;
 
-    Idioma * idioma;
+    Language * idioma;
 
     //Destrutor
     virtual ~WriteManager();

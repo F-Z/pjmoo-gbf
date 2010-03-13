@@ -12,7 +12,7 @@
 ////        http://www.davidferreira.com.br
 ////////////////////////////////////////////////////////////////////////
 
-#include "Idioma.h"
+#include "Language.h"
 
 namespace GBF {
 
@@ -20,47 +20,47 @@ namespace Kernel {
 
 namespace Write {
 
-Idioma * Idioma::instance=NULL;
+Language * Language::instance=NULL;
 
-Idioma::~Idioma()
+Language::~Language()
 {
 //    UtilLog::sistema("Removendo UserInterfaceTexto");
 }
-Idioma * Idioma::getInstance()
+Language * Language::getInstance()
 {
     if (instance == NULL){
-        instance = new Idioma();
+        instance = new Language();
     }
 
     return instance;
 }
 //Configura um idioma
 //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
-bool Idioma::setIdioma(const std::string & codigo)
+bool Language::setLanguage(const std::string & codigo)
 {
     bool achou = false;
    // UtilLog::tracer("UserInterfaceTexto::setIdioma(%s)",codigo.c_str());
     std::cout << "\tIdioma: " << codigo << std::endl;
 
     if ((!codigo.empty())&&(idiomaSuportado.find(codigo)!=idiomaSuportado.end())){
-        idiomaPrefixo=idiomaSuportado[codigo];
+        prefix=idiomaSuportado[codigo];
         achou=true;
     }
 
-    if ((achou)&&(!arquivo.empty())){
-        atualizar();
+    if ((achou)&&(!fileName.empty())){
+        refresh();
     }
 
     return achou;
 }
-std::string Idioma::getIdioma()
+std::string Language::getLanguage()
 {
-    return idiomaPrefixo;
+    return prefix;
 }
 //Seleciona o idioma automaticamente de acordo com o ambiente
-void Idioma::detectarIdioma()
+void Language::autodetect()
 {
-    std::cout << "GBF::Kernel::Write::Idioma::detectarIdioma()" << std::endl;
+    std::cout << "GBF::Kernel::Write::Language::detectarIdioma()" << std::endl;
 #ifdef __gnu_linux__
 //Descobrindo o idioma do usuário no GNU/LINUX
     const char* idioma    = getenv("LC_ALL");
@@ -68,15 +68,15 @@ void Idioma::detectarIdioma()
 
     if (idioma==NULL){
         if (idiomaAux==NULL){
-            setIdioma("DEFAULT");
+            setLanguage("DEFAULT");
         } else {
-            if (!setIdioma(idiomaAux)){
-                setIdioma("DEFAULT");
+            if (!setLanguage(idiomaAux)){
+                setLanguage("DEFAULT");
             }
         }
     } else {
-        if (!setIdioma(idioma)){
-            setIdioma("DEFAULT");
+        if (!setLanguage(idioma)){
+            setLanguage("DEFAULT");
         }
     }
 #else
@@ -85,19 +85,19 @@ void Idioma::detectarIdioma()
     int id = GetUserDefaultLangID();
     sprintf(idioma,"%d",id & 0x3ff);
 
-    if (!setIdioma(idioma)){
-        setIdioma("DEFAULT");
+    if (!setLanguage(idioma)){
+        setLanguage("DEFAULT");
     }
 #endif
 }
-bool Idioma::atualizar()
+bool Language::refresh()
 {
     char str[256];
     bool retorno = false;
 
-    std::string fullpath=Kernel::Util::Path::getPath()+"data//etc//idioma//"+getIdioma()+"."+arquivo;
+    std::string fullpath=Kernel::Util::Path::getPath()+"data//etc//idioma//"+getLanguage()+"."+fileName;
 
-    if (!arquivo.empty()){
+    if (!fileName.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
 
         if (arquivoTexto!=NULL){
@@ -108,36 +108,36 @@ bool Idioma::atualizar()
             arquivoTexto.close();
             retorno = true;
         } else {
-            std::cerr << "[ERROR]Idioma: File Not Found : " << fullpath << std::endl;
+            std::cerr << "[ERROR]Language: File Not Found : " << fullpath << std::endl;
         }
     } else {
-        std::cerr << "[ERROR]Idioma: File Not Defined" << std::endl;
+        std::cerr << "[ERROR]Language: File Not Defined" << std::endl;
     }
 
     return retorno;
 }
-void Idioma::setArquivo(const std::string & arquivo)
+void Language::setFileName(const std::string & fileName)
 {
-   this->arquivo=arquivo;
+   this->fileName=fileName;
 }
-int Idioma::size()
+int Language::size()
 {
     return mapaTexto.size();
 }
-std::string Idioma::getTexto(const std::string & chave)
+std::string Language::getText(const std::string & key)
 {
-    if (mapaTexto.find(chave)!=mapaTexto.end()){
-        return mapaTexto[chave];
+    if (mapaTexto.find(key)!=mapaTexto.end()){
+        return mapaTexto[key];
     } else {
         return "ERRO";
     }
 }
 //Retorna se existe a chave de texto
-bool Idioma::isChaveTexto(const std::string & chave)
+bool Language::isKey(const std::string & key)
 {
-    return mapaTexto.find(chave)!=mapaTexto.end();
+    return mapaTexto.find(key)!=mapaTexto.end();
 }
-void Idioma::parser(char * info)
+void Language::parser(char * info)
 {
     int i = 0;
     std::string linha = info;
@@ -155,7 +155,7 @@ void Idioma::parser(char * info)
     }
 }
 //Carrega o mapeamento de idiomas e os arquivos de texto
-void Idioma::carregarIdioma()
+void Language::load()
 {
     char str[256];
 
@@ -163,7 +163,7 @@ void Idioma::carregarIdioma()
 
     std::cout << "\tCFG: " << fullpath << std::endl;
 
-    if (arquivo.empty()){
+    if (fileName.empty()){
         std::fstream arquivoTexto(fullpath.c_str(),std::ios::in);
 
         mapaTexto.clear();
@@ -171,22 +171,22 @@ void Idioma::carregarIdioma()
         if (arquivoTexto!=NULL){
             while(!arquivoTexto.eof()){
                 arquivoTexto.getline(str,256);
-                parserIdioma(str);
+                parserLanguage(str);
             }
             arquivoTexto.close();
 
             std::map<std::string,std::string>::iterator it;
 
             for (it=idiomaSuportado.begin();it!=idiomaSuportado.end(); it++){
-                std::cout << "\tIdioma: " <<  (std::string) it->second << "=" << (std::string) it->first << std::endl;;
+                std::cout << "\tLanguage: " <<  (std::string) it->second << "=" << (std::string) it->first << std::endl;;
             }
 
         } else {
-            std::cerr << "[ERROR]Idioma: File Not Found : " << fullpath << std::endl;
+            std::cerr << "[ERROR]Language: File Not Found : " << fullpath << std::endl;
         }
     }
 }
-void Idioma::parserIdioma(char * info)
+void Language::parserLanguage(char * info)
 {
     int i = 0;
     std::string linha = info;
@@ -204,14 +204,14 @@ void Idioma::parserIdioma(char * info)
         idiomaSuportado[linha.substr(0,i)]=linha.substr(i+1,tamanho);
     }
 }
-void Idioma::limpar()
+void Language::clear()
 {
 }
-Idioma::Idioma()
+Language::Language()
 {
-    std::cout << "GBF::Kernel::Write::Idioma" << std::endl;
+    std::cout << "GBF::Kernel::Write::Language" << std::endl;
 
-    carregarIdioma();
+    load();
 }
 
 } // namespace GBF::Kernel::Write

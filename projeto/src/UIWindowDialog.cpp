@@ -20,22 +20,22 @@ namespace Window {
 
 const int UIWindowDialog::BOTAO_OK=100;
 
-UIWindowDialog::UIWindowDialog() 
+UIWindowDialog::UIWindowDialog()
 {
     botao = NULL;
 }
-UIWindowDialog::~UIWindowDialog() 
+UIWindowDialog::~UIWindowDialog()
 {
     if (botao){
         delete(botao);
     }
 }
-void UIWindowDialog::adicionarBotao(UserInterface::Componente::UIBotao * novoBotao) 
+void UIWindowDialog::adicionarBotao(UserInterface::Componente::UIBotao * novoBotao)
 {
     botao=novoBotao;
 }
 //Retorna se a ação informada foi acionado
-bool UIWindowDialog::isAcao(int tipoAcao) 
+bool UIWindowDialog::isAcao(int tipoAcao)
 {
     if (confirmarSelecao()==tipoAcao){
         return true;
@@ -43,7 +43,7 @@ bool UIWindowDialog::isAcao(int tipoAcao)
         return false;
     }
 }
-int UIWindowDialog::confirmarSelecao() 
+int UIWindowDialog::confirmarSelecao()
 {
     int selecionado = -1;
 
@@ -59,7 +59,7 @@ int UIWindowDialog::confirmarSelecao()
 //Inicializa as configurações da caixa de texto
 
 //Inicializa as configurações da caixa de texto
-void UIWindowDialog::inicializar() 
+void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
     texto.setDimensaoLetra(wsManager->getFonte(texto.getFonte())->getDimensao());
@@ -67,7 +67,7 @@ void UIWindowDialog::inicializar()
 //Desenha o conteudo da janela
 
 //Desenha o conteudo da janela
-void UIWindowDialog::desenharConteudo() 
+void UIWindowDialog::desenharConteudo()
 {
     int numeroLinha=1;
     bool continuar = false;
@@ -80,7 +80,7 @@ void UIWindowDialog::desenharConteudo()
     do {
         sprintf(textoChave,texto.getChaveTexto().c_str(),numeroLinha);
 
-        continuar=uiTexto->isChaveTexto(textoChave);
+        continuar=uiTexto->isKey(textoChave);
 
         if (continuar){
 
@@ -102,14 +102,14 @@ void UIWindowDialog::desenharConteudo()
     } while(true);
 }
 //Desenha a camada de decoração da janela (botões)
-void UIWindowDialog::desenharForeground() 
+void UIWindowDialog::desenharForeground()
 {
     if ((botao!=NULL)&&(tempoEspera.isTerminou())){
         botao->executar();
     }
 }
 //atualiza as informações do componente (posicao, dimensao, estado)
-void UIWindowDialog::atualizar() 
+void UIWindowDialog::atualizar()
 {
     tempoEspera.processar();
 

@@ -12,8 +12,8 @@
 ////        http://www.davidferreira.com.br
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _IDIOMA_H
-#define _IDIOMA_H
+#ifndef _LANGUAGE_H
+#define _LANGUAGE_H
 
 #ifndef __gnu_linux__
 #include <windows.h>
@@ -40,7 +40,7 @@ namespace Write {
 //    Classe para carregar textos
 //Motivação:
 //    Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos
-class Idioma
+class Language
 {
   protected:
     //Lista com os códigos e textos correspondentes
@@ -52,56 +52,56 @@ class Idioma
 
     //Prefixo do idioma selecionado
 
-    std::string idiomaPrefixo;
+    std::string prefix;
 
-    static Idioma * instance;
+    static Language * instance;
 
 
   private:
     //arquivo de localização a ser carregado
 
-    std::string arquivo;
+    std::string fileName;
 
 
   public:
-    ~Idioma();
+    ~Language();
 
-    static Idioma * getInstance();
+    static Language * getInstance();
 
     //Configura um idioma
     //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
-    bool setIdioma(const std::string & codigo);
+    bool setLanguage(const std::string & codigo);
 
-    std::string getIdioma();
+    std::string getLanguage();
 
     //Seleciona o idioma automaticamente de acordo com o ambiente
-    void detectarIdioma();
+    void autodetect();
 
-    bool atualizar();
+    bool refresh();
 
-    void setArquivo(const std::string & arquivo);
+    void setFileName(const std::string & fileName);
 
     int size();
 
-    std::string getTexto(const std::string & chave);
+    std::string getText(const std::string & key);
 
     //Retorna se existe a chave de texto
-    bool isChaveTexto(const std::string & chave);
+    bool isKey(const std::string & key);
 
 
   protected:
     void parser(char * info);
 
     //Carrega o mapeamento de idiomas e os arquivos de texto
-    void carregarIdioma();
+    void load();
 
-    void parserIdioma(char * info);
+    void parserLanguage(char * info);
 
-    void limpar();
+    void clear();
 
 
   private:
-    Idioma();
+    Language();
 
 };
 

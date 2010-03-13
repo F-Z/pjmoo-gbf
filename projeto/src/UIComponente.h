@@ -15,7 +15,7 @@
 #ifndef _UICOMPONENTE_H
 #define _UICOMPONENTE_H
 
-#include "Idioma.h"
+#include "Language.h"
 #include "WriteManager.h"
 #include "GBF.h"
 
@@ -30,7 +30,7 @@ class UIComponente
 
 
   protected:
-    static GBF::Kernel::Write::Idioma * uiTexto;
+    static GBF::Kernel::Write::Language * uiTexto;
 
     static GBF::Kernel::Write::WriteManager * wsManager;
 

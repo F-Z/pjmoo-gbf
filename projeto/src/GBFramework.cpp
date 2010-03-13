@@ -91,7 +91,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
     //Detecta o idioma padrão do ambiente (Sistema Operacional)
-    writeSystem->idioma->detectarIdioma();
+    writeSystem->idioma->autodetect();
 
     //FPS
     fpsSystem = Kernel::FPS::FPSFactory::criar(fps);

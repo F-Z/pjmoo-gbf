@@ -93,7 +93,7 @@ void WriteManager::escreverLocalizado(const std::string & fonte, int x, int y, s
     va_list ap;
 
     va_start(ap, chave);
-    vsprintf(textoFormatado, idioma->getTexto(chave).c_str(), ap);
+    vsprintf(textoFormatado, idioma->getText(chave).c_str(), ap);
     va_end(ap);
 
     escrever(fonte,x,y,textoFormatado);
@@ -103,7 +103,7 @@ void WriteManager::escreverLocalizadoSubChave(const std::string fonte, int x, in
 {
     char textoFormatado[256];
 
-    sprintf(textoFormatado, idioma->getTexto(chave).c_str(), idioma->getTexto(subChave).c_str());
+    sprintf(textoFormatado, idioma->getText(chave).c_str(), idioma->getText(subChave).c_str());
     escrever(fonte,x,y,textoFormatado);
 }
 //Remove uma fonte (WriteSystemFontBitmap)
@@ -121,7 +121,7 @@ int WriteManager::getLarguraLinha(const std::string fonte, const std::string cha
 {
     //if (objetomap[fonte]){
     if (objetomap.find(fonte)!=objetomap.end()){
-        return objetomap[fonte]->getLarguraLinha(idioma->getTexto(chave).c_str());
+        return objetomap[fonte]->getLarguraLinha(idioma->getText(chave).c_str());
     } else {
         return 0;
     }
@@ -130,7 +130,7 @@ int WriteManager::getLarguraLinha(const std::string fonte, const std::string cha
 WriteManager::WriteManager()
 {
 //    UtilLog::subSistema("Instanciando WriteSystemManager");
-    idioma =  Idioma::getInstance();
+    idioma =  Language::getInstance();
 }
 WriteManager * WriteManager::instance;
 
