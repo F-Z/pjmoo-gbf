@@ -18,37 +18,37 @@ namespace Personagem {
 
 unsigned int Personagem::IDcontagem=0;
 
-//Destrutor 
-Personagem::~Personagem() 
+//Destrutor
+Personagem::~Personagem()
 {
 //  UtilLog::getInstance()->comentario("\tID:%d",ID);
 }
 //Desenha o sprite principal do personagem
-void Personagem::desenhar() 
+void Personagem::desenhar()
 {
     sprites["principal"]->desenhar(posicao.x,posicao.y);
 }
-void Personagem::setAtivo(bool valor) 
+void Personagem::setAtivo(bool valor)
 {
     ativo=valor;
 }
-void Personagem::setVivo(bool valor) 
+void Personagem::setVivo(bool valor)
 {
     vivo=valor;
 }
-bool Personagem::isAtivo() 
+bool Personagem::isAtivo()
 {
     return ativo;
 }
-bool Personagem::isVivo() 
+bool Personagem::isVivo()
 {
     return vivo;
 }
-bool Personagem::isColisao(Personagem * personagem) 
+bool Personagem::isColisao(Personagem * personagem)
 {
     return sprites["principal"]->isColisao(personagem->sprites["principal"]);
 }
-void Personagem::setPosicao(int x, int y) 
+void Personagem::setPosicao(int x, int y)
 {
     posicao.x=x;
     posicao.y=y;
@@ -57,21 +57,21 @@ void Personagem::setPosicao(int x, int y)
         sprites["principal"]->setPosicao(posicao.x,posicao.y);
     }
 }
-void Personagem::setPosicao(GBF::Ponto ponto) 
+void Personagem::setPosicao(GBF::Ponto ponto)
 {
     setPosicao(ponto.x,ponto.y);
 }
-GBF::Ponto Personagem::getPosicao() 
+GBF::Ponto Personagem::getPosicao()
 {
     return posicao;
 }
 //Adiciona o sprite principal do personagem
-bool Personagem::adicionarSpritePrincipal(GBF::Imagem::Sprite::SpritePersonagem * sprite) 
+bool Personagem::adicionarSpritePrincipal(GBF::Imagem::Sprite::SpriteCharacter * sprite)
 {
     return adicionarSprite(sprite,"principal");
 }
 //Adiciona o sprites extras do personagem
-bool Personagem::adicionarSprite(GBF::Imagem::Sprite::SpritePersonagem * sprite, const std::string & nome) 
+bool Personagem::adicionarSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite, const std::string & nome)
 {
     if (sprite){
         sprite->animacao.setAutomatico(true);
@@ -81,20 +81,20 @@ bool Personagem::adicionarSprite(GBF::Imagem::Sprite::SpritePersonagem * sprite,
         return false;
     }
 }
-GBF::Dimensao Personagem::getDimensao() 
+GBF::Dimensao Personagem::getDimensao()
 {
     return sprites["principal"]->getTamanho();
 }
-GBF::Imagem::Sprite::SpritePersonagem * Personagem::getSpritePrincipal() 
+GBF::Imagem::Sprite::SpriteCharacter * Personagem::getSpritePrincipal()
 {
     return sprites["principal"];
 }
-GBF::Imagem::Sprite::SpritePersonagem * Personagem::getSprite(const std::string & nome) 
+GBF::Imagem::Sprite::SpriteCharacter * Personagem::getSprite(const std::string & nome)
 {
     return sprites[nome];
 }
-//Construtor 
-Personagem::Personagem() 
+//Construtor
+Personagem::Personagem()
 {
     vivo  = true;
     ativo = true;
