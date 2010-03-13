@@ -15,28 +15,28 @@
 #ifndef _PSMANAGER_H
 #define _PSMANAGER_H
 
-#include "PSEfeito.h"
+#include "PSEffect.h"
 #include <deque>
 #include "BaseManager.h"
 
 namespace ParticleSystem {
 
-//Descrição: 
+//Descrição:
 //    Classe para gerenciamento do sistema de  particulas.
 //Motivação:
 //    Gerenciar o uso de vários sistemas de particulas
 class PSManager : public GBF::BaseManager {
   private:
-    //Construtor 
+    //Construtor
     PSManager();
 
 
   public:
-    //Destrutor 
+    //Destrutor
     ~PSManager();
 
     //Adiciona um Sistema de Particulas
-    void adicionar(PSEfeito * efeito);
+    void adicionar(PSEffect * efeito);
 
     //Desenha objetos que estao no container
     void desenhar();
@@ -44,7 +44,7 @@ class PSManager : public GBF::BaseManager {
     //Atualiza o Sistema
     void executar();
 
-    //Retorna a quantidade de elementos 
+    //Retorna a quantidade de elementos
     int size();
 
     //Limpa o gerenciador, removendo todos os elementos
@@ -57,7 +57,7 @@ class PSManager : public GBF::BaseManager {
   protected:
     static PSManager * instance;
 
-    std::deque<PSEfeito*> lista;
+    std::deque<PSEffect*> lista;
     //Remove os sistemas de particulas já finalizados
     void removerMorto();
 

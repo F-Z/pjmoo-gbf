@@ -16,23 +16,23 @@
 
 namespace ParticleSystem {
 
-//Construtor 
-PSManager::PSManager() 
+//Construtor
+PSManager::PSManager()
 {
 
 }
-//Destrutor 
-PSManager::~PSManager() 
+//Destrutor
+PSManager::~PSManager()
 {
     limpar();
 }
 //Adiciona um Sistema de Particulas
-void PSManager::adicionar(PSEfeito * efeito) 
+void PSManager::adicionar(PSEffect * efeito)
 {
     lista.push_back(efeito);
 }
 //Desenha objetos que estao no container
-void PSManager::desenhar() 
+void PSManager::desenhar()
 {
     if (!lista.empty()){
         for (unsigned int t=0; t<lista.size(); t++){
@@ -43,7 +43,7 @@ void PSManager::desenhar()
     }
 }
 //Atualiza o Sistema
-void PSManager::executar() 
+void PSManager::executar()
 {
     if (!lista.empty()){
         for (unsigned int t=0; t<lista.size(); t++){
@@ -54,13 +54,13 @@ void PSManager::executar()
         removerMorto();
     }
 }
-//Retorna a quantidade de elementos 
-int PSManager::size() 
+//Retorna a quantidade de elementos
+int PSManager::size()
 {
     return lista.size();
 }
 //Limpa o gerenciador, removendo todos os elementos
-void PSManager::limpar() 
+void PSManager::limpar()
 {
     for (unsigned int i=0; i<lista.size(); i++){
         try {
@@ -84,7 +84,7 @@ PSManager * PSManager::getInstance()
 PSManager * PSManager::instance=NULL;
 
 //Remove os sistemas de particulas já finalizados
-void PSManager::removerMorto() 
+void PSManager::removerMorto()
 {
     int total=size()-1;
 
