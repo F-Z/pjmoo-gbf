@@ -12,16 +12,16 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "PSEfeito.h"
+#include "PSEffect.h"
 
 namespace ParticleSystem {
 
 //Construtor
-PSEfeito::PSEfeito() 
+PSEffect::PSEffect()
 {
 }
 //Destrutor
-PSEfeito::~PSEfeito() 
+PSEffect::~PSEffect()
 {
 
 

@@ -17,7 +17,7 @@
 
 #include "GBF.h"
 #include "Color.h"
-#include "PSEfeito.h"
+#include "PSEffect.h"
 #include <deque>
 
 namespace ParticleSystem {
@@ -39,7 +39,7 @@ struct Particula
     bool ativa;
 
 };
-class PSPixel : public PSEfeito
+class PSPixel : public PSEffect
 {
   public:
     PSPixel();

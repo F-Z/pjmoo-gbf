@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _PSEFEITO_H
-#define _PSEFEITO_H
+#ifndef _PSEFFECT_H
+#define _PSEFFECT_H
 
 #include "GraphicSystemUtility.h"
 #include "Object.h"
@@ -24,13 +24,13 @@ namespace ParticleSystem {
 //    Classe abstrata que permite agrupamente de particulas
 //Motivação:
 //    Permitir gerenciar um grupo de unidades com ciclo de vida semelhantes
-class PSEfeito : public GBF::Kernel::Graphic::GraphicSystemUtility, public GBF::Object {
+class PSEffect : public GBF::Kernel::Graphic::GraphicSystemUtility, public GBF::Object {
   public:
     //Construtor
-    PSEfeito();
+    PSEffect();
 
     //Destrutor
-    virtual ~PSEfeito();
+    virtual ~PSEffect();
 
     //Desenha todas as unidades
     virtual void desenhar() = 0;

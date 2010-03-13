@@ -12,25 +12,25 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "PSEfeitoEsferico.h"
+#include "PSSphereEffect.h"
 
 namespace ParticleSystem {
 
 //Construtor
-PSEfeitoEsferico::PSEfeitoEsferico() 
+PSSphereEffect::PSSphereEffect()
 {
-    raio = 20;
+    radius = 20;
 }
 //Destrutor
-PSEfeitoEsferico::~PSEfeitoEsferico() 
+PSSphereEffect::~PSSphereEffect()
 {
 
 
 }
 //Configura o tamanho do raio de ação das particulas
-void PSEfeitoEsferico::setRaio(int raio) 
+void PSSphereEffect::setRadius(int radius)
 {
-    this->raio=raio;
+    this->radius=radius;
 }
 
 } // namespace ParticleSystem

@@ -12,32 +12,32 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _PSEFEITOESFERICO_H
-#define _PSEFEITOESFERICO_H
+#ifndef _PSSPHEREEFFECT_H
+#define _PSSPHEREEFFECT_H
 
 #include "GBF.h"
 #include "PSPixel.h"
 
 namespace ParticleSystem {
 
-//Descrição: 
+//Descrição:
 //    Classe abstrata que permite agrupamente de particulas esfericas
 //Motivação:
 //    Permitir gerenciar um grupo de unidades com movimento esferico
-class PSEfeitoEsferico : public PSPixel {
+class PSSphereEffect : public PSPixel {
   public:
     //Construtor
-    PSEfeitoEsferico();
+    PSSphereEffect();
 
     //Destrutor
-    virtual ~PSEfeitoEsferico();
+    virtual ~PSSphereEffect();
 
     //Configura o tamanho do raio de ação das particulas
-    void setRaio(int raio);
+    void setRadius(int radius);
 
 
   protected:
-    int raio;
+    int radius;
 
     GBF::Ponto origem;
 
