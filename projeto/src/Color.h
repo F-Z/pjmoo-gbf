@@ -22,15 +22,15 @@
 
 namespace GBF {
 
-namespace Cor {
+namespace Color {
 
 //Estrutura para definição de cor
 typedef Uint32 Cor;
 //Estrutura para definição de paleta de cor.
 //Obs.: Representa um dos canais de cor (RGB)
 typedef Uint8 CorPaleta;
-//Descrição: 
-//    Estrutura para representar cores no sistema RGB (Red, Green, Blue),  com 
+//Descrição:
+//    Estrutura para representar cores no sistema RGB (Red, Green, Blue),  com
 //    precisam de ponto flutuante.
 //Motivo:
 //    Usado para conversões entre sistemas de cores
@@ -43,7 +43,7 @@ struct RGBf
     float b;
 
 };
-//Descrição: 
+//Descrição:
 //    Estrutura para representar cores no sistema HSV (Hue,Saturation,Value).
 //Motivação:
 //    O sistema de cor HSV é mais próximo do entendimento humano
@@ -56,7 +56,7 @@ struct HSV
     float v;
 
 };
-//Descrição: 
+//Descrição:
 //    Estrutura para representar cores no sistema RGB (Red, Green, Blue).
 //Motivação:
 //    O sistema RGB é um sistema de cor nativo para computadores
@@ -69,7 +69,7 @@ struct RGB
     int b;
 
 };
-//Descrição: 
+//Descrição:
 //    Classe para conversão entre os sistemas de cores
 //Motivação:
 //     Converter cores de RGB para HSV
@@ -77,18 +77,18 @@ struct RGB
 class Converter
 {
   public:
-    //Transforma de RGB para HSV 
+    //Transforma de RGB para HSV
     static HSV forHSV(RGB cor);
 
-    //Transforma de HSV para RGB 
+    //Transforma de HSV para RGB
     static RGB forRGB(HSV cor);
 
 
   protected:
-    //Retorna o menor valor 
+    //Retorna o menor valor
     static int menor(int valor1, int valor2);
 
-    //Retorna o maior valor 
+    //Retorna o maior valor
     static int maior(int valor1, int valor2);
 
 };
