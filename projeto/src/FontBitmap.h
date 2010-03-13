@@ -30,13 +30,13 @@ namespace Write {
 //    Classe que representa fontes originadas de imagens (Font Bitmap).
 //Motivação:
 //    Permitir a personalização dos textos na tela por meio de fontes contidas em imagens
-class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
+class FontBitmap : public GBF::Kernel::Graphic::ImageBase
 {
   friend class WriteManager;
 
   public:
     //Destrutor
-    virtual ~FonteBitmap();
+    virtual ~FontBitmap();
 
     //Carrega arquivo de imagem contendo o desenho das letras.
     //Obs.: Se a imagem tiver arquivo de dimensão das letras este será carregado, caso contrario será utilizado um valor default tanto para largura como altura
@@ -72,7 +72,7 @@ class FonteBitmap : public GBF::Kernel::Graphic::ImageBase
     GBF::Dimensao dimensaoQuadro;
 
     //Construtor
-    FonteBitmap();
+    FontBitmap();
 
     //Define altura e largura padrão baseada na maior altura e largura utilizada.
     void checkar();

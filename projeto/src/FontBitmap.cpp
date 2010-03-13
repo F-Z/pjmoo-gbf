@@ -12,7 +12,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "FonteBitmap.h"
+#include "FontBitmap.h"
 
 namespace GBF {
 
@@ -21,13 +21,13 @@ namespace Kernel {
 namespace Write {
 
 //Destrutor
-FonteBitmap::~FonteBitmap()
+FontBitmap::~FontBitmap()
 {
     //UtilLog::getInstance()->status("[Fonte Removido(a)]");
 }
 //Carrega arquivo de imagem contendo o desenho das letras.
 //Obs.: Se a imagem tiver arquivo de dimensão das letras este será carregado, caso contrario será utilizado um valor default tanto para largura como altura
-bool FonteBitmap::loadFromFile(std::string ARQUIVO)
+bool FontBitmap::loadFromFile(std::string ARQUIVO)
 {
     FILE *ARQ_FONTE;
     std::string txt="";
@@ -64,7 +64,7 @@ bool FonteBitmap::loadFromFile(std::string ARQUIVO)
 }
 //Configura altura e largura padrão para todas as letras.
 //Obs.: A altura e largura devem ser suficientes para evitar que a letra seja desenhada cortada
-void FonteBitmap::setDimensao(int largura, int altura)
+void FontBitmap::setDimensao(int largura, int altura)
 {
     for (int i=0;i<256;i++){
         this->largura[i] = largura;
@@ -74,17 +74,17 @@ void FonteBitmap::setDimensao(int largura, int altura)
     dimensaoPadrao.h=altura;
 }
 //Retorna a altura padrão
-int FonteBitmap::getAltura()
+int FontBitmap::getAltura()
 {
     return dimensaoPadrao.h;
 }
 //Retorna a dimensão (altura e largura) padrão
-GBF::Dimensao FonteBitmap::getDimensao()
+GBF::Dimensao FontBitmap::getDimensao()
 {
     return dimensaoPadrao;
 }
 //Desenha o texto na tela
-void FonteBitmap::escrever(const char * PALAVRA, int X, int Y)
+void FontBitmap::escrever(const char * PALAVRA, int X, int Y)
 {
     int i,t=strlen(PALAVRA);
     unsigned char l;
@@ -105,7 +105,7 @@ void FonteBitmap::escrever(const char * PALAVRA, int X, int Y)
     }
 }
 //Retorna em pixel o tamanho da linha
-int FonteBitmap::getLarguraLinha(const char * palavra)
+int FontBitmap::getLarguraLinha(const char * palavra)
 {
     int tamanhoPixel=0;
     int t=strlen(palavra);
@@ -119,12 +119,12 @@ int FonteBitmap::getLarguraLinha(const char * palavra)
     return tamanhoPixel;
 }
 //Construtor
-FonteBitmap::FonteBitmap()
+FontBitmap::FontBitmap()
 {
 
 }
 //Define altura e largura padrão baseada na maior altura e largura utilizada.
-void FonteBitmap::checkar()
+void FontBitmap::checkar()
 {
     int maior=0;
     for (int i=0; i<256; i++){
@@ -137,7 +137,7 @@ void FonteBitmap::checkar()
     dimensaoPadrao.h=dimensaoQuadro.h;
 }
 //Converte Surface para formato na inicialização do GraphicSystem
-void FonteBitmap::converterSurface()
+void FontBitmap::converterSurface()
 {
     SDL_Surface *tmp = SDL_DisplayFormatAlpha(imagem);
     SDL_FreeSurface(imagem);

@@ -27,7 +27,7 @@ const std::string WriteManager::defaultFont="default";
 WriteManager::~WriteManager()
 {
 //    UtilLog::subSistema("Removendo WriteSystemManager");
-    std::map<std::string,FonteBitmap*>::iterator it;
+    std::map<std::string,FontBitmap*>::iterator it;
 
     for (it=objetomap.begin();it!=objetomap.end(); it++){
         try {
@@ -43,7 +43,7 @@ WriteManager::~WriteManager()
 }
 //Retorna uma fonte para manipulação direta
 //Obs.: Ideal para casos em que se deseja manipulações avançadas
-FonteBitmap * WriteManager::getFonte(std::string nome)
+FontBitmap * WriteManager::getFonte(std::string nome)
 {
     if (objetomap.find(nome)!=objetomap.end()){
         return objetomap[nome];
@@ -66,7 +66,7 @@ void WriteManager::carregar(std::string nome, std::string arquivo)
 {
     std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
 
-    FonteBitmap *f = new FonteBitmap();
+    FontBitmap *f = new FontBitmap();
 
     std::cout << "\tWriteManager: " << nome << "=" << fullpath << std::endl;
 
