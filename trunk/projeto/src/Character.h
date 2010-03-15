@@ -110,7 +110,7 @@ class Character : public GBF::Object
     //Construtor
     Character();
 
-  friend class ListPersonagem;
+  friend class ListCharacter;
 };
 
 } // namespace Personagem
