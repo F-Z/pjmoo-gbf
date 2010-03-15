@@ -13,7 +13,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include "FPSFactory.h"
-#include "FPSContador.h"
+#include "FPSCounter.h"
 #include "FPSLimitado.h"
 
 namespace GBF {
@@ -27,10 +27,12 @@ FPS * FPSFactory::criar(Tipo  tipo)
 {
     FPS * fps = NULL;
 
-    switch(tipo){
+    switch (tipo) {
+
         case FPS_CONTADOR:
-            fps = new FPSContador();
-        break;
+            fps = new FPSCounter();
+            break;
+
         default:
             fps = new FPSLimitado(tipo);
     }

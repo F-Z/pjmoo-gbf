@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _FPSCONTADOR_H
-#define _FPSCONTADOR_H
+#ifndef _FPSCOUNTER_H
+#define _FPSCOUNTER_H
 
 #include "FPS.h"
 
@@ -28,35 +28,36 @@ namespace FPS {
 //    Classe para controle da quantidade de quadros por segundo
 //Motivação:
 //    Fornecer um mecanismo para controlar a  velocidade de processamento da aplicação
-class FPSContador : public FPS
-{
-  private:
-    //Construtor
-    FPSContador();
+
+class FPSCounter : public FPS {
+
+    private:
+        //Construtor
+        FPSCounter();
 
 
-  public:
-    //Destrutor
-    virtual ~FPSContador();
+    public:
+        //Destrutor
+        virtual ~FPSCounter();
 
-    void processar();
+        void processar();
 
-    //Deve ser chamado antes do loop principal do jogo
-    void iniciar();
+        //Deve ser chamado antes do loop principal do jogo
+        void iniciar();
 
-    int getValor();
+        int getValor();
 
 
-  private:
-    Uint32 frametimelast;
+    private:
+        Uint32 frametimelast;
 
-    Uint32 frametimes[FRAME_VALUES];
+        Uint32 frametimes[FRAME_VALUES];
 
-    Uint32 framecount;
+        Uint32 framecount;
 
-    float framespersecond;
+        float framespersecond;
 
-  friend class FPSFactory;
+        friend class FPSFactory;
 };
 
 } // namespace GBF::Kernel::FPS
@@ -64,4 +65,5 @@ class FPSContador : public FPS
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif
