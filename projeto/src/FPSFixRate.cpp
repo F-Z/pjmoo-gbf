@@ -12,7 +12,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "FPSLimitado.h"
+#include "FPSFixRate.h"
 
 namespace GBF {
 
@@ -20,43 +20,44 @@ namespace Kernel {
 
 namespace FPS {
 
-FPSLimitado::FPSLimitado(int taxaFrames)
-{
-    std::cout << "GBF::Kernel::FPS::FPSLimitado" << std::endl;
+FPSFixRate::FPSFixRate(int frameRate) {
+    std::cout << "GBF::Kernel::FPS::FPSFixRate" << std::endl;
 
-    if (taxaFrames<30){
-        fpsConstante = 30;
-    } else {
-        fpsConstante = taxaFrames;
+    if (frameRate < 30) {
+        fixRate = 30;
+    }
+    else {
+        fixRate = frameRate;
     }
 
-    std::cout << "\tFPS: " << (float) fpsConstante << " fps" << std::endl;
+    std::cout << "\tFPS: " << (float) fixRate << " fps" << std::endl;
+
     iniciar();
 }
-FPSLimitado::~FPSLimitado()
-{
+
+FPSFixRate::~FPSFixRate() {
 
 }
-void FPSLimitado::processar()
-{
-    int delta = SDL_GetTicks() - frameStart;
 
-    if(delta < fpsConstante){
-        SDL_Delay(fpsConstante - delta);
+void FPSFixRate::processar() {
+    int delta = SDL_GetTicks() - time;
+
+    if (delta < fixRate) {
+        SDL_Delay(fixRate - delta);
     }
 
-    frameStart = SDL_GetTicks();
+    time = SDL_GetTicks();
 }
+
 //Deve ser chamado antes do loop principal do jogo
-void FPSLimitado::iniciar()
-{
+void FPSFixRate::iniciar() {
     std::cout << "\tSDL: ";
-    frameStart = SDL_GetTicks();
-    std::cout << (int) frameStart << " ticks" << std::endl;
+    time = SDL_GetTicks();
+    std::cout << (int) time << " ticks" << std::endl;
 }
-int FPSLimitado::getValor()
-{
-    return fpsConstante;
+
+int FPSFixRate::getValor() {
+    return fixRate;
 }
 
 } // namespace GBF::Kernel::FPS

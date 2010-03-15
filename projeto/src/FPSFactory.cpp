@@ -14,7 +14,7 @@
 
 #include "FPSFactory.h"
 #include "FPSCounter.h"
-#include "FPSLimitado.h"
+#include "FPSFixRate.h"
 
 namespace GBF {
 
@@ -34,7 +34,7 @@ FPS * FPSFactory::criar(Tipo  tipo)
             break;
 
         default:
-            fps = new FPSLimitado(tipo);
+            fps = new FPSFixRate(tipo);
     }
 
     return fps;
