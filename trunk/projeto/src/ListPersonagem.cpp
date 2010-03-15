@@ -14,21 +14,21 @@
 
 #include "ListPersonagem.h"
 
-namespace Personagem {
+namespace Character {
 
-//Construtor 
-ListPersonagem::ListPersonagem() 
+//Construtor
+ListPersonagem::ListPersonagem()
 {
 
 }
-//Destrutor 
-ListPersonagem::~ListPersonagem() 
+//Destrutor
+ListPersonagem::~ListPersonagem()
 {
 
     limpar();
 }
 //Desenha objetos que estao no container
-void ListPersonagem::desenhar() 
+void ListPersonagem::desenhar()
 {
     if (!lista.empty()){
         for (unsigned int t=0; t<lista.size(); t++){
@@ -38,13 +38,13 @@ void ListPersonagem::desenhar()
         }
     }
 }
-//Retorna a quantidade de elementos 
-int ListPersonagem::size() 
+//Retorna a quantidade de elementos
+int ListPersonagem::size()
 {
     return lista.size();
 }
 //Limpa o container, removendo todos os elementos
-void ListPersonagem::limpar() 
+void ListPersonagem::limpar()
 {
     for (unsigned int i=0; i<lista.size(); i++){
         try {
@@ -57,8 +57,8 @@ void ListPersonagem::limpar()
     }
     lista.clear();
 }
-//Executa as ações de cada elemento 
-void ListPersonagem::acao(GBF::Kernel::Input::InputSystem * input) 
+//Executa as ações de cada elemento
+void ListPersonagem::acao(GBF::Kernel::Input::InputSystem * input)
 {
     if (!lista.empty()){
         for (unsigned int t=0; t<lista.size(); t++){
@@ -68,11 +68,11 @@ void ListPersonagem::acao(GBF::Kernel::Input::InputSystem * input)
         }
     }
 }
-void ListPersonagem::adicionar(Personagem * personagem) 
+void ListPersonagem::adicionar(Character * personagem)
 {
     lista.push_back(personagem);
 }
-void ListPersonagem::remover(Personagem * personagem) 
+void ListPersonagem::remover(Character * personagem)
 {
     for (int i=lista.size()-1; i>=0; i--){
         if (lista[i]==personagem){
@@ -82,18 +82,18 @@ void ListPersonagem::remover(Personagem * personagem)
         }
     }
 }
-void ListPersonagem::colisao(ListPersonagem * objeto) 
+void ListPersonagem::colisao(ListPersonagem * objeto)
 {
-    Personagem *l=NULL;
-    Personagem *o=NULL;
+    Character *l=NULL;
+    Character *o=NULL;
 
     for (int i=0; i<size(); i++){
-        if (((l=getPersonagem(i))!=NULL)&&(l->isVivo())){
+        if (((l=getPersonagem(i))!=NULL)&&(l->isLife())){
             for (int ob=0; ob<objeto->size(); ob++){
-                if (((o=objeto->getPersonagem(ob))!=NULL)&&(o->isVivo())){
-                    if (l->isColisao(o)){
-                        l->setVivo(false);
-                        o->setVivo(false);
+                if (((o=objeto->getPersonagem(ob))!=NULL)&&(o->isActive())){
+                    if (l->isCollision(o)){
+                        l->setLife(false);
+                        o->setLife(false);
                         break;
                     }
                 }
@@ -101,33 +101,33 @@ void ListPersonagem::colisao(ListPersonagem * objeto)
         }
     }
 }
-void ListPersonagem::colisao(Personagem * objeto) 
+void ListPersonagem::colisao(Character * objeto)
 {
-    Personagem *l=NULL;
+    Character *l=NULL;
 
     for (int i=0; i<size(); i++){
         if((l=getPersonagem(i))!=NULL){
-            if ((l->isVivo())&&(objeto!=NULL)){
-                if ((objeto->isVivo())&&(l->isColisao(objeto))){
-                    l->setVivo(false);
-                    objeto->setVivo(false);
+            if ((l->isActive())&&(objeto!=NULL)){
+                if ((objeto->isActive())&&(l->isCollision(objeto))){
+                    l->setLife(false);
+                    objeto->setLife(false);
                     break;
                 }
             }
         }
     }
 }
-Personagem * ListPersonagem::getPersonagem(int indice) 
+Character * ListPersonagem::getPersonagem(int indice)
 {
     return lista[indice];
 }
-void ListPersonagem::ordenar() 
+void ListPersonagem::ordenar()
 {
-    Personagem *buffer;
+    Character *buffer;
 
     for (unsigned int t=0; t<lista.size()-1; t++){
         if ((lista[t]!=NULL) && (lista[t+1]!=NULL)){
-            if (lista[t]->posicao.y>lista[t+1]->posicao.y){
+            if (lista[t]->point.y>lista[t+1]->point.y){
                 buffer=lista[t+1];
                 lista.erase(lista.begin()+(t+1));
                 lista.insert(lista.begin(),buffer);

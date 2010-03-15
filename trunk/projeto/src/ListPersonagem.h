@@ -17,51 +17,51 @@
 
 #include "ListManager.h"
 #include "InputSystem.h"
-#include "Personagem.h"
+#include "Character.h"
 #include <deque>
 
-namespace Personagem {
+namespace Character {
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de gerenciadores de personagens
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores de personagens
 class ListPersonagem : public GBF::ListManager
 {
   public:
-    //Construtor 
+    //Construtor
     ListPersonagem();
 
-    //Destrutor 
+    //Destrutor
     virtual ~ListPersonagem();
 
     //Desenha objetos que estao no container
     virtual void desenhar();
 
-    //Retorna a quantidade de elementos 
+    //Retorna a quantidade de elementos
     virtual int size();
 
     //Limpa o container, removendo todos os elementos
     virtual void limpar();
 
-    //Executa as ações de cada elemento 
+    //Executa as ações de cada elemento
     virtual void acao(GBF::Kernel::Input::InputSystem * input = NULL);
 
-    void adicionar(Personagem * personagem);
+    void adicionar(Character * personagem);
 
-    virtual void remover(Personagem * personagem);
+    virtual void remover(Character * personagem);
 
     virtual void colisao(ListPersonagem * objeto);
 
-    virtual void colisao(Personagem * objeto);
+    virtual void colisao(Character * objeto);
 
-    virtual Personagem * getPersonagem(int indice);
+    virtual Character * getPersonagem(int indice);
 
 
   protected:
     virtual void ordenar();
 
-    std::deque<Personagem*> lista;
+    std::deque<Character*> lista;
 };
 
 } // namespace Personagem

@@ -1,5 +1,5 @@
-#ifndef _PERSONAGEM_H
-#define _PERSONAGEM_H
+#ifndef _CHARACTER_H
+#define _CHARACTER_H
 
 ////    GBF - Gamework's Brazilian Framework
 ////    Copyright (C) 2004-2008 David de Almeida Ferreira
@@ -24,20 +24,20 @@
 #include "InputSystem.h"
 #include "Object.h"
 
-namespace Personagem {
+namespace Character {
 
 //Definição de TypeDelay
 struct TypeDelay
 {
-    float acao;
+    float action;
 
-    float tiroA;
+    float slotA;
 
-    float tiroB;
+    float slotB;
 
-    float tiroC;
+    float slotC;
 
-    float tiroD;
+    float slotD;
 
 };
 //Descrição:
@@ -46,12 +46,12 @@ struct TypeDelay
 //    Fornecer uma interface padrão para criação de personagens
 //
 //
-class Personagem : public GBF::Object
+class Character : public GBF::Object
 {
   protected:
-    bool ativo;
+    bool active;
 
-    bool vivo;
+    bool life;
 
     unsigned int ID;
 
@@ -59,56 +59,56 @@ class Personagem : public GBF::Object
 
     TypeDelay delay;
 
-    GBF::Ponto posicao;
+    GBF::Ponto point;
 
 
   private:
-    static unsigned int IDcontagem;
+    static unsigned int IDCount;
 
-    GBF::Dimensao dimensao;
+    GBF::Dimensao dimension;
 
 
   public:
     //Destrutor
-    virtual ~Personagem();
+    virtual ~Character();
 
     //Desenha o sprite principal do personagem
     virtual void desenhar();
 
-    virtual void setAtivo(bool valor);
+    virtual void setActive(bool value);
 
-    virtual void setVivo(bool valor);
+    virtual void setLife(bool value);
 
-    virtual bool isAtivo();
+    virtual bool isActive();
 
-    virtual bool isVivo();
+    virtual bool isLife();
 
-    virtual bool isColisao(Personagem * personagem);
+    virtual bool isCollision(Character * character);
 
-    virtual void setPosicao(int x, int y);
+    virtual void setPoint(int x, int y);
 
-    virtual void setPosicao(GBF::Ponto ponto);
+    virtual void setPoint(GBF::Ponto point);
 
-    virtual GBF::Ponto getPosicao();
+    virtual GBF::Ponto getPoint();
 
     //Adiciona o sprite principal do personagem
-    bool adicionarSpritePrincipal(GBF::Imagem::Sprite::SpriteCharacter * sprite);
+    bool addMainSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite);
 
     //Adiciona o sprites extras do personagem
-    bool adicionarSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite, const std::string & nome);
+    bool addSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite, const std::string & name);
 
     virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
 
-    GBF::Dimensao getDimensao();
+    GBF::Dimensao getDimension();
 
-    GBF::Imagem::Sprite::SpriteCharacter * getSpritePrincipal();
+    GBF::Imagem::Sprite::SpriteCharacter * getMainSprite();
 
-    GBF::Imagem::Sprite::SpriteCharacter * getSprite(const std::string & nome);
+    GBF::Imagem::Sprite::SpriteCharacter * getSprite(const std::string & name);
 
 
   protected:
     //Construtor
-    Personagem();
+    Character();
 
   friend class ListPersonagem;
 };
