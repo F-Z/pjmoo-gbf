@@ -1,5 +1,5 @@
-#ifndef _LISTPERSONAGEM_H
-#define _LISTPERSONAGEM_H
+#ifndef _LISTCHARACTER_H
+#define _LISTCHARACTER_H
 
 ////    GBF - Gamework's Brazilian Framework
 ////    Copyright (C) 2004-2008 David de Almeida Ferreira
@@ -26,14 +26,14 @@ namespace Character {
 //    Classe para criação de gerenciadores de personagens
 //Motivação:
 //    Fornecer uma interface padrão para criação de gerenciadores de personagens
-class ListPersonagem : public GBF::ListManager
+class ListCharacter : public GBF::ListManager
 {
   public:
     //Construtor
-    ListPersonagem();
+    ListCharacter();
 
     //Destrutor
-    virtual ~ListPersonagem();
+    virtual ~ListCharacter();
 
     //Desenha objetos que estao no container
     virtual void desenhar();
@@ -47,22 +47,22 @@ class ListPersonagem : public GBF::ListManager
     //Executa as ações de cada elemento
     virtual void acao(GBF::Kernel::Input::InputSystem * input = NULL);
 
-    void adicionar(Character * personagem);
+    void add(Character * character);
 
-    virtual void remover(Character * personagem);
+    virtual void remove(Character * character);
 
-    virtual void colisao(ListPersonagem * objeto);
+    virtual void collision(ListCharacter * listCharacter);
 
-    virtual void colisao(Character * objeto);
+    virtual void collision(Character * character);
 
-    virtual Character * getPersonagem(int indice);
+    virtual Character * getCharacter(int index);
 
 
   protected:
     virtual void ordenar();
 
-    std::deque<Character*> lista;
+    std::deque<Character*> list;
 };
 
-} // namespace Personagem
+} // namespace Character
 #endif
