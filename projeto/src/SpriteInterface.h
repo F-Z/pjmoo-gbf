@@ -18,7 +18,7 @@
 #include "ImageBuffer.h"
 #include <SDL/SDL.h>
 
-#include "Animacao.h"
+#include "Animation.h"
 #include "Object.h"
 
 namespace GBF {
@@ -46,7 +46,7 @@ class SpriteInterface : public GBF::Object
 
 
   public:
-    GBF::Imagem::Sprite::Animacao animacao;
+    GBF::Imagem::Sprite::Animation animacao;
 
 };
 

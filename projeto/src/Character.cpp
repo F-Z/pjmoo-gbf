@@ -74,7 +74,7 @@ bool Character::addMainSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite)
 bool Character::addSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite, const std::string & name)
 {
     if (sprite){
-        sprite->animacao.setAutomatico(true);
+        sprite->animacao.setAutomatic(true);
         sprites[name]=sprite;
         return true;
     } else {
