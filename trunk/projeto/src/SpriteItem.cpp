@@ -20,25 +20,24 @@ namespace Imagem {
 
 namespace Sprite {
 
-//Construtor 
-SpriteItem::SpriteItem() 
-{
-    animacao.setAutomatico(false);
+//Construtor
+SpriteItem::SpriteItem() {
+    animacao.setAutomatic(false);
 }
-//Destrutor 
-SpriteItem::~SpriteItem() 
-{
+
+//Destrutor
+SpriteItem::~SpriteItem() {
 
 }
-void SpriteItem::desenhar(int x, int y) 
-{
-    animacao.ajustarCorte(0,tamanho.w);
 
-    Sprite::desenhar(x,y);
+void SpriteItem::desenhar(int x, int y) {
+    animacao.cutSet(0, tamanho.w);
+
+    Sprite::desenhar(x, y);
 }
+
 //Informa o quadro de animação
-void SpriteItem::setFrame(int quadro) 
-{
+void SpriteItem::setFrame(int quadro) {
     animacao.setFrame(quadro);
 }
 

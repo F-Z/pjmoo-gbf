@@ -21,73 +21,88 @@ namespace Imagem {
 namespace Sprite {
 
 //Destrutor
-SpriteCharacter::~SpriteCharacter()
-{
+SpriteCharacter::~SpriteCharacter() {
 
 }
-void SpriteCharacter::setDirection(Direcao DIR)
-{
-    switch (qtdDirecao){
+
+void SpriteCharacter::setDirection(Direcao DIR) {
+    switch (qtdDirecao) {
+
         case 8:
+
         case 4:
-                direction=DIR;
+            direction = DIR;
             break;
+
         case 3:
-                switch (DIR){
-                    case DR_ESQUERDA:
-                            direction=DR_BAIXO;
-                        break;
-                    case DR_BAIXO:
-                        break;
-                    default:
-                            direction=DIR;
-                        break;
-                }
-            break;
-        case 2:
-                switch (DIR){
-                    case DR_ESQUERDA:
-                    case DR_CIMA:
-                            direction=DR_CIMA;
-                        break;
-                    case DR_BAIXO:
-                    case DR_DIREITA:
-                            direction=DR_DIREITA;
-                        break;
-                    default:
-                            //Sem modificação da direção. Opção 'default' apenas
-                            //para respeitar a recomendação do compilador
-                        break;
+
+            switch (DIR) {
+
+                case DR_ESQUERDA:
+                    direction = DR_BAIXO;
+                    break;
+
+                case DR_BAIXO:
+                    break;
+
+                default:
+                    direction = DIR;
+                    break;
             }
+
+            break;
+
+        case 2:
+
+            switch (DIR) {
+
+                case DR_ESQUERDA:
+
+                case DR_CIMA:
+                    direction = DR_CIMA;
+                    break;
+
+                case DR_BAIXO:
+
+                case DR_DIREITA:
+                    direction = DR_DIREITA;
+                    break;
+
+                default:
+                    //Sem modificação da direção. Opção 'default' apenas
+                    //para respeitar a recomendação do compilador
+                    break;
+            }
+
             break;
     }
 
-    animacao.processarManual();
+    animacao.processManual();
 }
-void SpriteCharacter::setQtdDirecoes(int QTD)
-{
-    qtdDirecao=QTD;
-}
-void SpriteCharacter::desenhar(int x, int y)
-{
-    animacao.ajustarCorte(direction,tamanho.w);
 
-    Sprite::desenhar(x,y);
+void SpriteCharacter::setQtdDirecoes(int QTD) {
+    qtdDirecao = QTD;
 }
+
+void SpriteCharacter::desenhar(int x, int y) {
+    animacao.cutSet(direction, tamanho.w);
+
+    Sprite::desenhar(x, y);
+}
+
 //Retorna a quantidade de direções que o personagem possui
-int SpriteCharacter::getQtdDirecoes()
-{
+int SpriteCharacter::getQtdDirecoes() {
     return qtdDirecao;
 }
-Direcao SpriteCharacter::getDirection()
-{
+
+Direcao SpriteCharacter::getDirection() {
     return direction;
 }
+
 //Construtor
-SpriteCharacter::SpriteCharacter()
-{
-    direction=DR_CIMA;
-    qtdDirecao=4;
+SpriteCharacter::SpriteCharacter() {
+    direction = DR_CIMA;
+    qtdDirecao = 4;
 }
 
 } // namespace GBF::Imagem::Sprite

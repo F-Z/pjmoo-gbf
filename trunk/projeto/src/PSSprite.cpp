@@ -17,11 +17,11 @@
 namespace ParticleSystem {
 
 //Construtor
-PSSprite::PSSprite() 
+PSSprite::PSSprite()
 {
 }
 //Destrutor
-PSSprite::~PSSprite() 
+PSSprite::~PSSprite()
 {
     for (unsigned int i=0; i<lista.size(); i++){
         try {
@@ -35,22 +35,22 @@ PSSprite::~PSSprite()
     lista.clear();
 }
 //Desenha todas as unidades
-void PSSprite::desenhar() 
+void PSSprite::desenhar()
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size(); i++){
-            if (!lista[i]->animacao.isFim()){
+            if (!lista[i]->animacao.isEnd()){
                 lista[i]->desenhar();
             }
         }
     }
 }
 //Verifica se terminou a animação de todos os sprites
-bool PSSprite::isTerminou() 
+bool PSSprite::isTerminou()
 {
     if (!lista.empty()){
         for (unsigned int i=0; i<lista.size();i++){
-            if (!lista[i]->animacao.isFim()){
+            if (!lista[i]->animacao.isEnd()){
                 return false;
             }
         }
