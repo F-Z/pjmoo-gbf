@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _FPSLIMITADO_H
-#define _FPSLIMITADO_H
+#ifndef _FPSFIXRATE_H
+#define _FPSFIXRATE_H
 
 #include "FPS.h"
 
@@ -23,26 +23,26 @@ namespace Kernel {
 
 namespace FPS {
 
-class FPSLimitado : public FPS
-{
-  private:
-    int fpsConstante;
+class FPSFixRate : public FPS {
 
-    int frameStart;
+    private:
+        int fixRate;
 
-    FPSLimitado(int taxaFrames);
+        int time;
 
-  public:
-    virtual ~FPSLimitado();
+        FPSFixRate(int frameRate);
 
-    void processar();
+    public:
+        virtual ~FPSFixRate();
 
-    //Deve ser chamado antes do loop principal do jogo
-    void iniciar();
+        void processar();
 
-    int getValor();
+        //Deve ser chamado antes do loop principal do jogo
+        void iniciar();
 
-  friend class FPSFactory;
+        int getValor();
+
+        friend class FPSFactory;
 };
 
 } // namespace GBF::Kernel::FPS
@@ -50,4 +50,5 @@ class FPSLimitado : public FPS
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif
