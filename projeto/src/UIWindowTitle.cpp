@@ -12,44 +12,44 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "UIWindowTitulo.h"
+#include "UIWindowTitle.h"
 
 namespace UserInterface {
 
 namespace Window {
 
-UIWindowTitulo::UIWindowTitulo() 
+UIWindowTitle::UIWindowTitle()
 {
-    titulo.setAlinhamento(Texto::TEXTO_CENTRALIZADO);
+    title.setAlinhamento(Texto::TEXTO_CENTRALIZADO);
 }
-UIWindowTitulo::~UIWindowTitulo(){
+UIWindowTitle::~UIWindowTitle(){
 }
 
-void UIWindowTitulo::desenharConteudo() 
+void UIWindowTitle::desenharConteudo()
 {
     UIWindowDialog::desenharConteudo();
 
     int posicaoTextoHorizontal = 0;
-    int posicaoTextoVertical   = posicao.y+int(titulo.getDimensaoLetra().h*0.2);
+    int posicaoTextoVertical   = posicao.y+int(title.getDimensaoLetra().h*0.2);
 
-    if (titulo.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
-        int auxiliar = wsManager->getLarguraLinha(titulo.getFonte(),titulo.getChaveTexto());
+    if (title.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
+        int auxiliar = wsManager->getLarguraLinha(title.getFonte(),title.getChaveTexto());
         posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
     } else {
-        posicaoTextoHorizontal = posicao.x+titulo.getDimensaoLetra().w;
+        posicaoTextoHorizontal = posicao.x+title.getDimensaoLetra().w;
     }
 
-    wsManager->escreverLocalizado(titulo.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,titulo.getChaveTexto());
+    wsManager->escreverLocalizado(title.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,title.getChaveTexto());
 
 }
 //Inicializa as configurações da caixa de texto
 
 //Inicializa as configurações da caixa de texto
-void UIWindowTitulo::inicializar() 
+void UIWindowTitle::inicializar()
 {
     UIWindowDialog::inicializar();
-    titulo.setDimensaoLetra(wsManager->getFonte(titulo.getFonte())->getDimensao());
-    espacoAntesTexto=int(titulo.getDimensaoLetra().h*titulo.ENTRELINHA_UMA_MEIA);
+    title.setDimensaoLetra(wsManager->getFonte(title.getFonte())->getDimensao());
+    espacoAntesTexto=int(title.getDimensaoLetra().h*title.ENTRELINHA_UMA_MEIA);
 }
 
 } // namespace UserInterface::Window
