@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UIWINDOWTITULO_H
-#define _UIWINDOWTITULO_H
+#ifndef _UIWINDOWTITLE_H
+#define _UIWINDOWTITLE_H
 
 #include "UITexto.h"
 #include "UIWindowDialog.h"
@@ -22,12 +22,12 @@ namespace UserInterface {
 
 namespace Window {
 
-class UIWindowTitulo : public UIWindowDialog
+class UIWindowTitle : public UIWindowDialog
 {
   public:
-    UIWindowTitulo();
+    UIWindowTitle();
 
-    virtual ~UIWindowTitulo();
+    virtual ~UIWindowTitle();
 
 
   protected:
@@ -38,7 +38,7 @@ class UIWindowTitulo : public UIWindowDialog
     //Inicializa as configurações da caixa de texto
     virtual void inicializar();
 
-    UserInterface::Texto::UITexto titulo;
+    UserInterface::Texto::UITexto title;
 
 };
 
