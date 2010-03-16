@@ -18,39 +18,42 @@
 #include "InputSystem.h"
 #include "BaseManager.h"
 
-namespace GBF {
+namespace GBF
+{
 
-//Descrição: 
-//    Classe para criação de gerenciadores
-//Motivação:
-//    Fornecer uma interface padrão para criação de gerenciadores
+//DescriÃ§Ã£o:
+//    Classe para criaÃ§Ã£o de gerenciadores
+//MotivaÃ§Ã£o:
+//    Fornecer uma interface padrÃ£o para criaÃ§Ã£o de gerenciadores
+
 class ListManager : public BaseManager
 {
-  public:
-    //Construtor 
-    ListManager();
+    public:
+        //Construtor
+        ListManager();
 
-    //Destrutor 
-    virtual ~ListManager();
+        //Destrutor
+        virtual ~ListManager();
 
-    //Desenha objetos que estao no container
-    virtual void desenhar() = 0;
+        //Desenha objetos que estao no container
+        virtual void draw() = 0;
 
-    //Retorna a quantidade de elementos 
-    virtual int size() = 0;
+        //Retorna a quantidade de elementos
+        virtual int size() = 0;
 
-    //Limpa o container, removendo todos os elementos
-    virtual void limpar() = 0;
+        //Limpa o container, removendo todos os elementos
+        virtual void clear() = 0;
 
-    //Executa as ações de cada elemento 
-    virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
+        //Executa as aÃ§Ãµes de cada elemento
+        virtual void update(GBF::Kernel::Input::InputSystem * input) = 0;
 
 
-  protected:
-    //Ordena os elementos 
-    virtual void ordenar() = 0;
+    protected:
+        //Ordena os elementos
+        virtual void sort() = 0;
 
 };
 
 } // namespace GBF
+
 #endif
