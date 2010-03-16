@@ -16,41 +16,40 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 //Construtor
-SpriteFactory::SpriteFactory(std::string nomeImageBuffer)
-{
+SpriteFactory::SpriteFactory(std::string nomeImageBuffer) {
     GBF::Kernel::Graphic::GraphicSystem  *graphicSystem = GBF::Kernel::Graphic::GraphicSystem::getInstance();
 
-    imageBuffer=graphicSystem->imageBufferManager->getImageBuffer(nomeImageBuffer);
+    imageBuffer = graphicSystem->imageBufferManager->getImageBuffer(nomeImageBuffer);
 }
+
 //Destrutor
-SpriteFactory::~SpriteFactory()
-{
+SpriteFactory::~SpriteFactory() {
 }
-GBF::Imagem::Sprite::SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate)
-{
+
+GBF::Image::Sprite::SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) {
     Sprite::SpriteItem *sprite = new Sprite::SpriteItem();
-    sprite->criar(left,top,largura,altura,frameTotal,frameRate,imageBuffer);
+    sprite->criar(left, top, largura, altura, frameTotal, frameRate, imageBuffer);
 
     return sprite;
 }
-GBF::Imagem::Sprite::SpriteCharacter * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate)
-{
+
+GBF::Image::Sprite::SpriteCharacter * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate) {
     Sprite::SpriteCharacter *sprite = new Sprite::SpriteCharacter();
-    sprite->criar(left,top,largura,altura,frameTotal,frameRate,imageBuffer);
+    sprite->criar(left, top, largura, altura, frameTotal, frameRate, imageBuffer);
 
     return sprite;
 }
-GBF::Imagem::Layer::FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura)
-{
+
+GBF::Image::Layer::FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura) {
     Layer::FrameLayer *sprite = new Layer::FrameLayer();
-    sprite->criar(left,top,largura,altura,imageBuffer);
+    sprite->criar(left, top, largura, altura, imageBuffer);
 
     return sprite;
 }
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF

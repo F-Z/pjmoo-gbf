@@ -25,44 +25,45 @@ namespace UserInterface {
 namespace Visual {
 
 enum UIBackground {
-  BACKGROUND_LINES=0,
-  BACKGROUND_RINGS=1,
-  BACKGROUND_CHESS=2,
-  BACKGROUND_SQUARE=3
-,
-  BACKGROUND_LINES_BLACK=4,
-  BACKGROUND_CHESS_BLACK=5
+    BACKGROUND_LINES = 0,
+    BACKGROUND_RINGS = 1,
+    BACKGROUND_CHESS = 2,
+    BACKGROUND_SQUARE = 3
+    ,
+    BACKGROUND_LINES_BLACK = 4,
+    BACKGROUND_CHESS_BLACK = 5
 };
-class UIVisualImagem : public UIVisual
-{
-  public:
-    //Construtor
-    UIVisualImagem();
 
-    //Destrutor
-    virtual ~UIVisualImagem();
+class UIVisualImagem : public UIVisual {
+    public:
+        //Construtor
+        UIVisualImagem();
 
-    //Aplica o efeito visual
-    virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
+        //Destrutor
+        virtual ~UIVisualImagem();
 
-    //Desenha o EstiloVisual do Componente
-    virtual void desenhar();
+        //Aplica o efeito visual
+        virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
 
-    //Retorna uma copia do objeto
-    virtual UIVisual * clone();
+        //Desenha o EstiloVisual do Componente
+        virtual void desenhar();
 
-    //Define o estilo de background a ser utilizado
-    void setTipoBackground(UIBackground tipo);
+        //Retorna uma copia do objeto
+        virtual UIVisual * clone();
+
+        //Define o estilo de background a ser utilizado
+        void setTipoBackground(UIBackground tipo);
 
 
-  protected:
-    GBF::Imagem::Layer::FrameLayer * background;
+    protected:
+        GBF::Image::Layer::FrameLayer * background;
 
-    UIBackground tipoBackground;
+        UIBackground tipoBackground;
 
 };
 
 } // namespace UserInterface::Visual
 
 } // namespace UserInterface
+
 #endif

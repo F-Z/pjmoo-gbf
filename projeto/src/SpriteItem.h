@@ -17,31 +17,32 @@
 
 #include "Sprite.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
 class SpriteItem : public Sprite
 {
-  public:
-    //Construtor 
-    SpriteItem();
+    public:
+        //Construtor
+        SpriteItem();
 
-    //Destrutor 
-    virtual ~SpriteItem();
+        //Destrutor
+        virtual ~SpriteItem();
 
-    virtual void desenhar(int x, int y);
+        virtual void desenhar(int x, int y);
 
-    //Informa o quadro de animação
-    void setFrame(int quadro);
+        //Informa o quadro de animação
+        void setFrame(int quadro);
 
 };
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
 #endif

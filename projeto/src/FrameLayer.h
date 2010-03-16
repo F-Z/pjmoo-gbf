@@ -24,98 +24,99 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
 //Classe para Desenho de TileMaps
-class FrameLayer : public GBF::Imagem::SpriteInterface
-{
-  public:
-    LayerCamera camera;
 
-    //Construtor
-    FrameLayer();
+class FrameLayer : public GBF::Image::SpriteInterface {
+    public:
+        LayerCamera camera;
 
-    //Destrutor
-    virtual ~FrameLayer();
+        //Construtor
+        FrameLayer();
 
-    //Desenha o mapa
-    void desenhar();
+        //Destrutor
+        virtual ~FrameLayer();
 
-    //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-    GBF::Area getArea();
+        //Desenha o mapa
+        void desenhar();
 
-    //Distancia restante para finalizar Scrolling Vertical
-    int getDistanciaScrollVertical();
+        //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
+        GBF::Area getArea();
 
-    //Porcentagem percorrida do Scroll Horizontal
-    int getPorcentagemScrollHorizontal();
+        //Distancia restante para finalizar Scrolling Vertical
+        int getDistanciaScrollVertical();
 
-    //Porcentagem percorrida do Scroll Vertical
-    int getPorcentagemScrollVertical();
+        //Porcentagem percorrida do Scroll Horizontal
+        int getPorcentagemScrollHorizontal();
 
-    //Distancia total do Scrolling Vertical
-    int getTotalScrollVertical();
+        //Porcentagem percorrida do Scroll Vertical
+        int getPorcentagemScrollVertical();
 
-    //Inicializa tiles com valores do arquivo
-    void iniciarArquivo(std::string arquivo);
+        //Distancia total do Scrolling Vertical
+        int getTotalScrollVertical();
 
-    //Iniciar preenchendo apenas com o quadro informado
-    void iniciarCom(int quadro);
+        //Inicializa tiles com valores do arquivo
+        void iniciarArquivo(std::string arquivo);
 
-    //Iniciar ordenado até o quadro informado
-    void iniciarOrdenado(int quadroMaximo);
+        //Iniciar preenchendo apenas com o quadro informado
+        void iniciarCom(int quadro);
 
-    //Inicializa tiles de forma aleatória
-    void iniciarRandomico(int range);
+        //Iniciar ordenado até o quadro informado
+        void iniciarOrdenado(int quadroMaximo);
 
-    //Informa o posicionamento da area de desenho e as suas dimensões internas
-    void setFrame(int left, int top, int largura, int altura);
+        //Inicializa tiles de forma aleatória
+        void iniciarRandomico(int range);
 
-    //Informa o tamanho do mundo em tiles horizontais e verticais
-    void setTiles(int largura, int altura);
+        //Informa o posicionamento da area de desenho e as suas dimensões internas
+        void setFrame(int left, int top, int largura, int altura);
 
-    //Informa o tamanho em pixels dos tiles usados no layer
-    void setPixelTile(int largura, int altura);
+        //Informa o tamanho do mundo em tiles horizontais e verticais
+        void setTiles(int largura, int altura);
 
-    //Desenha a grade de tiles do mapa
-    void showGrade();
+        //Informa o tamanho em pixels dos tiles usados no layer
+        void setPixelTile(int largura, int altura);
 
-
-  protected:
-    int * mapa;
-
-    int * mapaColisao;
+        //Desenha a grade de tiles do mapa
+        void showGrade();
 
 
-  public:
-    LayerMundo mundo;
+    protected:
+        int * mapa;
+
+        int * mapaColisao;
 
 
-  protected:
-    GBF::Area screen_dimensao;
+    public:
+        LayerMundo mundo;
 
-  friend class LayerManager;
 
-  public:
-    //Carrega tilemap apartir de um vetor pré-alocado em memoria.
-    void carregarMapaMemoria(int vetor[]);
+    protected:
+        GBF::Area screen_dimensao;
 
-    //Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
-    void carregarColisaoMemoria(int vetor[]);
+        friend class LayerManager;
 
-    //Retorna o tipo de colisão usado no brick
-    int getTipoColisao(int indice);
+    public:
+        //Carrega tilemap apartir de um vetor pré-alocado em memoria.
+        void carregarMapaMemoria(int vetor[]);
 
-    //Retorna o tipo de imagem usado no brick
-    int getTipoImagem(int indice);
+        //Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
+        void carregarColisaoMemoria(int vetor[]);
+
+        //Retorna o tipo de colisão usado no brick
+        int getTipoColisao(int indice);
+
+        //Retorna o tipo de imagem usado no brick
+        int getTipoImagem(int indice);
 
 };
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
+
 #endif

@@ -21,36 +21,37 @@
 #include "Animation.h"
 #include "Object.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 class SpriteInterface : public GBF::Object
 {
-  public:
-    //Destrutor
-    virtual ~SpriteInterface();
+    public:
+        //Destrutor
+        virtual ~SpriteInterface();
 
-    void criar(int left, int top, int largura, int altura, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
-
-
-  protected:
-    //Construtor
-    SpriteInterface();
-
-    GBF::Kernel::Graphic::ImageBuffer * imagem;
-
-    SDL_Rect posicao;
-
-    SDL_Rect tamanho;
+        void criar(int left, int top, int largura, int altura, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
 
 
-  public:
-    GBF::Imagem::Sprite::Animation animacao;
+    protected:
+        //Construtor
+        SpriteInterface();
+
+        GBF::Kernel::Graphic::ImageBuffer * imagem;
+
+        SDL_Rect posicao;
+
+        SDL_Rect tamanho;
+
+
+    public:
+        GBF::Image::Sprite::Animation animacao;
 
 };
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
 #endif

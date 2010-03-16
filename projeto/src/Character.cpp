@@ -16,86 +16,86 @@
 
 namespace Character {
 
-unsigned int Character::IDCount=0;
+unsigned int Character::IDCount = 0;
 
 //Destrutor
-Character::~Character()
-{
+Character::~Character() {
 //  UtilLog::getInstance()->comentario("\tID:%d",ID);
 }
+
 //Desenha o sprite principal do personagem
-void Character::desenhar()
-{
-    sprites["main"]->desenhar(point.x,point.y);
+void Character::desenhar() {
+    sprites["main"]->desenhar(point.x, point.y);
 }
-void Character::setActive(bool value)
-{
-    active=value;
+
+void Character::setActive(bool value) {
+    active = value;
 }
-void Character::setLife(bool value)
-{
-    life=value;
+
+void Character::setLife(bool value) {
+    life = value;
 }
-bool Character::isActive()
-{
+
+bool Character::isActive() {
     return active;
 }
-bool Character::isLife()
-{
+
+bool Character::isLife() {
     return life;
 }
-bool Character::isCollision(Character * character)
-{
+
+bool Character::isCollision(Character * character) {
     return sprites["main"]->isColisao(character->sprites["main"]);
 }
-void Character::setPoint(int x, int y)
-{
-    point.x=x;
-    point.y=y;
 
-    if (sprites["main"]!=NULL){
-        sprites["main"]->setPosicao(point.x,point.y);
+void Character::setPoint(int x, int y) {
+    point.x = x;
+    point.y = y;
+
+    if (sprites["main"] != NULL) {
+        sprites["main"]->setPosicao(point.x, point.y);
     }
 }
-void Character::setPoint(GBF::Ponto point)
-{
-    setPoint(point.x,point.y);
+
+void Character::setPoint(GBF::Ponto point) {
+    setPoint(point.x, point.y);
 }
-GBF::Ponto Character::getPoint()
-{
+
+GBF::Ponto Character::getPoint() {
     return point;
 }
+
 //Adiciona o sprite principal do personagem
-bool Character::addMainSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite)
-{
-    return addSprite(sprite,"main");
+bool Character::addMainSprite(GBF::Image::Sprite::SpriteCharacter * sprite) {
+    return addSprite(sprite, "main");
 }
+
 //Adiciona o sprites extras do personagem
-bool Character::addSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite, const std::string & name)
-{
-    if (sprite){
+bool Character::addSprite(GBF::Image::Sprite::SpriteCharacter * sprite, const std::string & name) {
+    if (sprite) {
         sprite->animacao.setAutomatic(true);
-        sprites[name]=sprite;
+        sprites[name] = sprite;
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
-GBF::Dimensao Character::getDimension()
-{
+
+GBF::Dimensao Character::getDimension() {
     return sprites["main"]->getTamanho();
 }
-GBF::Imagem::Sprite::SpriteCharacter * Character::getMainSprite()
-{
+
+GBF::Image::Sprite::SpriteCharacter * Character::getMainSprite() {
     return sprites["main"];
 }
-GBF::Imagem::Sprite::SpriteCharacter * Character::getSprite(const std::string & name)
-{
+
+GBF::Image::Sprite::SpriteCharacter * Character::getSprite(const std::string & name) {
     return sprites[name];
 }
+
 //Construtor
-Character::Character()
-{
+Character::Character() {
     life  = true;
     active = true;
 
@@ -109,7 +109,7 @@ Character::Character()
     point.y   = 0;
 
     IDCount++;
-    ID=IDCount;
+    ID = IDCount;
 }
 
 } // namespace Personagem

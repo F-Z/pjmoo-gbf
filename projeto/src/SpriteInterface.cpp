@@ -14,16 +14,19 @@
 
 #include "SpriteInterface.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 //Destrutor
-SpriteInterface::~SpriteInterface() {
+SpriteInterface::~SpriteInterface()
+{
 
 }
 
-void SpriteInterface::criar(int left, int top, int largura, int altura, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer) {
+void SpriteInterface::criar(int left, int top, int largura, int altura, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer)
+{
     tamanho.w = largura;
     tamanho.h = altura;
     tamanho.x = left;
@@ -35,9 +38,10 @@ void SpriteInterface::criar(int left, int top, int largura, int altura, GBF::Ker
 }
 
 //Construtor
-SpriteInterface::SpriteInterface() {
+SpriteInterface::SpriteInterface()
+{
 }
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF

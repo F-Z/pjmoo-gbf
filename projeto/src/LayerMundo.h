@@ -19,57 +19,57 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
-class LayerMundo
-{
-  public:
-    //Destrutor
-    virtual ~LayerMundo();
+class LayerMundo {
+    public:
+        //Destrutor
+        virtual ~LayerMundo();
 
-    GBF::Dimensao getPixelTile();
+        GBF::Dimensao getPixelTile();
 
-    int getPixelTileHorizontal();
+        int getPixelTileHorizontal();
 
-    int getPixelTileVertical();
+        int getPixelTileVertical();
 
-    GBF::Dimensao getPixelVisivel();
+        GBF::Dimensao getPixelVisivel();
 
-    int getPixelVisivelHorizontal();
+        int getPixelVisivelHorizontal();
 
-    int getPixelVisivelVertical();
+        int getPixelVisivelVertical();
 
-    GBF::Dimensao getTiles();
+        GBF::Dimensao getTiles();
 
-    int getTilesHorizontal();
+        int getTilesHorizontal();
 
-    int getTilesVertical();
+        int getTilesVertical();
 
-    void setPixelTile(int largura, int altura);
+        void setPixelTile(int largura, int altura);
 
-    void setPixelVisivel(int largura, int altura);
+        void setPixelVisivel(int largura, int altura);
 
-    void setTiles(int largura, int altura);
+        void setTiles(int largura, int altura);
 
 
-  private:
-    GBF::Dimensao areaVisivel;
+    private:
+        GBF::Dimensao areaVisivel;
 
-    GBF::Dimensao quantidadeTiles;
+        GBF::Dimensao quantidadeTiles;
 
-    GBF::Dimensao tile;
+        GBF::Dimensao tile;
 
-    //Construtor
-    LayerMundo();
+        //Construtor
+        LayerMundo();
 
-  friend class FrameLayer;
+        friend class FrameLayer;
 };
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
+
 #endif

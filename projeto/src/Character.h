@@ -27,8 +27,8 @@
 namespace Character {
 
 //Definição de TypeDelay
-struct TypeDelay
-{
+
+struct TypeDelay {
     float action;
 
     float slotA;
@@ -40,78 +40,80 @@ struct TypeDelay
     float slotD;
 
 };
+
 //Descrição:
 //    Classe para criação de personagens genéricos
 //Motivação:
 //    Fornecer uma interface padrão para criação de personagens
 //
 //
-class Character : public GBF::Object
-{
-  protected:
-    bool active;
 
-    bool life;
+class Character : public GBF::Object {
+    protected:
+        bool active;
 
-    unsigned int ID;
+        bool life;
 
-    std::map<std::string,GBF::Imagem::Sprite::SpriteCharacter*> sprites;
+        unsigned int ID;
 
-    TypeDelay delay;
+        std::map<std::string, GBF::Image::Sprite::SpriteCharacter*> sprites;
 
-    GBF::Ponto point;
+        TypeDelay delay;
 
-
-  private:
-    static unsigned int IDCount;
-
-    GBF::Dimensao dimension;
+        GBF::Ponto point;
 
 
-  public:
-    //Destrutor
-    virtual ~Character();
+    private:
+        static unsigned int IDCount;
 
-    //Desenha o sprite principal do personagem
-    virtual void desenhar();
-
-    virtual void setActive(bool value);
-
-    virtual void setLife(bool value);
-
-    virtual bool isActive();
-
-    virtual bool isLife();
-
-    virtual bool isCollision(Character * character);
-
-    virtual void setPoint(int x, int y);
-
-    virtual void setPoint(GBF::Ponto point);
-
-    virtual GBF::Ponto getPoint();
-
-    //Adiciona o sprite principal do personagem
-    bool addMainSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite);
-
-    //Adiciona o sprites extras do personagem
-    bool addSprite(GBF::Imagem::Sprite::SpriteCharacter * sprite, const std::string & name);
-
-    virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
-
-    GBF::Dimensao getDimension();
-
-    GBF::Imagem::Sprite::SpriteCharacter * getMainSprite();
-
-    GBF::Imagem::Sprite::SpriteCharacter * getSprite(const std::string & name);
+        GBF::Dimensao dimension;
 
 
-  protected:
-    //Construtor
-    Character();
+    public:
+        //Destrutor
+        virtual ~Character();
 
-  friend class ListCharacter;
+        //Desenha o sprite principal do personagem
+        virtual void desenhar();
+
+        virtual void setActive(bool value);
+
+        virtual void setLife(bool value);
+
+        virtual bool isActive();
+
+        virtual bool isLife();
+
+        virtual bool isCollision(Character * character);
+
+        virtual void setPoint(int x, int y);
+
+        virtual void setPoint(GBF::Ponto point);
+
+        virtual GBF::Ponto getPoint();
+
+        //Adiciona o sprite principal do personagem
+        bool addMainSprite(GBF::Image::Sprite::SpriteCharacter * sprite);
+
+        //Adiciona o sprites extras do personagem
+        bool addSprite(GBF::Image::Sprite::SpriteCharacter * sprite, const std::string & name);
+
+        virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
+
+        GBF::Dimensao getDimension();
+
+        GBF::Image::Sprite::SpriteCharacter * getMainSprite();
+
+        GBF::Image::Sprite::SpriteCharacter * getSprite(const std::string & name);
+
+
+    protected:
+        //Construtor
+        Character();
+
+        friend class ListCharacter;
 };
 
 } // namespace Personagem
+
 #endif

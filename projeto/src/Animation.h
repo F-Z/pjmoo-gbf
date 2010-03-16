@@ -20,7 +20,7 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
@@ -87,9 +87,9 @@ class Animation {
         friend class SpriteItem;
 };
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
 

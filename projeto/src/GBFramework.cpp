@@ -14,18 +14,16 @@
 
 #include "GBFramework.h"
 
-namespace GBF
-{
+namespace GBF {
 
 //Destrutor
-GBFramework::~GBFramework()
-{
+GBFramework::~GBFramework() {
     std::cout << "[END].[Game Space]" << std::endl;
 
     delete(fpsSystem);
     delete(writeSystem);
 //    delete(GraphicSystemImageBufferManager::getInstance());
-    delete(Imagem::Layer::LayerManager::getInstance());
+    delete(Image::Layer::LayerManager::getInstance());
     delete(graphicSystemCore);
     delete(soundSystemCore);
     delete(inputSystemCore);
@@ -34,8 +32,7 @@ GBFramework::~GBFramework()
 }
 
 //Construtor
-GBFramework::GBFramework()
-{
+GBFramework::GBFramework() {
     numscreenshot = 0;
     fps           = false;
 }
@@ -43,8 +40,7 @@ GBFramework::GBFramework()
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
 //desenha na tela o conteúdo do backbuffer
 
-void GBFramework::atualizar()
-{
+void GBFramework::atualizar() {
     try {
         fpsSystem->update();
 
@@ -66,14 +62,12 @@ void GBFramework::atualizar()
 }
 
 //Retorna o diretório base da aplicação corrente
-std::string GBFramework::getPath()
-{
+std::string GBFramework::getPath() {
     return Kernel::Util::Path::getPath();
 }
 
 //Inicializa o Sistema, e configura o modo gráfico
-void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::FPSType fpsType)
-{
+void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::FPSType fpsType) {
     std::cout << "GBF::Kernel::GBFramework::iniciar()" << std::endl;
 
     Kernel::Graphic::VideoConfig config;
@@ -117,25 +111,21 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
 }
 
 //Informa se o mostrador de FPS está ativo
-bool GBFramework::isFPS()
-{
+bool GBFramework::isFPS() {
     return fps;
 }
 
 //Pausa o Sistema
-void GBFramework::pausar()
-{
+void GBFramework::pausar() {
 }
 
 //Mostra o Contador de FPS
-void GBFramework::setFPS(bool show)
-{
+void GBFramework::setFPS(bool show) {
     fps = show;
 }
 
 //Informa o caminho do diretório base da aplicação corrente
-void GBFramework::setPath(char * fullPath)
-{
+void GBFramework::setPath(char * fullPath) {
     std::string pathBase = Kernel::Util::StringExtract::extractPath(fullPath);
 
     // if (isDefaultPath()){
@@ -149,8 +139,7 @@ void GBFramework::setPath(char * fullPath)
 
 //Informação sobre o Autor e o Título da Aplicação.
 //Obs.: Usado para arquivo de log e título da janela
-void GBFramework::setTitulo(std::string titulo, std::string autor)
-{
+void GBFramework::setTitulo(std::string titulo, std::string autor) {
     std::cout << "[GAME - INFO]-------------------" << std::endl;
     std::cout << " Title: "   << titulo << std::endl;
     std::cout << " By: "      << autor  << std::endl;
@@ -161,8 +150,7 @@ void GBFramework::setTitulo(std::string titulo, std::string autor)
 }
 
 //Prepara o Ambiente para ser inicializado
-void GBFramework::carregar()
-{
+void GBFramework::carregar() {
     //Inicializando Gerador Randômico
     std::cout << "GBF::Kernel::GBFramework::carregar()" << std::endl;
     std::cout << "\tCPP: srand" << std::endl;
@@ -172,7 +160,7 @@ void GBFramework::carregar()
     //Inicializando Video
     std::cout << "GBF::Kernel::Graphic" << std::endl;
     graphicSystemCore = new Kernel::Graphic::GraphicCore();
-    Imagem::Layer::LayerManager::getInstance();
+    Image::Layer::LayerManager::getInstance();
 
     //Inicializando Gerenciador de Fontes
     std::cout << "GBF::Kernel::Write" << std::endl;
@@ -188,8 +176,7 @@ void GBFramework::carregar()
 }
 
 //Controle para ações internas
-void GBFramework::controleInterno()
-{
+void GBFramework::controleInterno() {
     //F10 = Alterna entre modo de controle exclusivo
     if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)) {
         inputSystemCore->alternarControleExclusivo();
@@ -215,8 +202,7 @@ void GBFramework::controleInterno()
 }
 
 //Define o Título para Janela
-void GBFramework::setTitulo(std::string titulo)
-{
+void GBFramework::setTitulo(std::string titulo) {
     SDL_WM_SetCaption(titulo.c_str(), NULL);
 }
 

@@ -21,26 +21,26 @@
 
 namespace ParticleSystem {
 
-class PSSprite : public PSEffect
-{
-  public:
-    //Construtor
-    PSSprite();
+class PSSprite : public PSEffect {
+    public:
+        //Construtor
+        PSSprite();
 
-    //Destrutor
-    virtual ~PSSprite();
+        //Destrutor
+        virtual ~PSSprite();
 
-    //Desenha todas as unidades
-    virtual void desenhar();
+        //Desenha todas as unidades
+        virtual void desenhar();
 
-    //Verifica se terminou a animação de todos os sprites
-    virtual bool isTerminou();
+        //Verifica se terminou a animação de todos os sprites
+        virtual bool isTerminou();
 
 
-  protected:
-    std::deque<GBF::Imagem::Sprite::Sprite *> lista;
+    protected:
+        std::deque<GBF::Image::Sprite::Sprite *> lista;
 
 };
 
 } // namespace ParticleSystem
+
 #endif

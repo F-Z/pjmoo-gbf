@@ -14,24 +14,28 @@
 
 #include "Sprite.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
 //Destrutor
-Sprite::~Sprite() {
+Sprite::~Sprite()
+{
 }
 
-void Sprite::criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer) {
+void Sprite::criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer)
+{
     //chama o metodo criar da classe superclasse - SpriteInterface
     SpriteInterface::criar(left, top, largura, altura, gsiBuffer);
     //configura as informações de animação
     animacao.configuration(quantitadeQuadro, repeticaoQuadro);
 }
 
-void Sprite::desenhar(int x, int y) {
+void Sprite::desenhar(int x, int y)
+{
     posicao.x = x;
     posicao.y = y;
     SDL_Rect pontoCorte = tamanho;
@@ -41,12 +45,14 @@ void Sprite::desenhar(int x, int y) {
 }
 
 //Desenha o sprite na tela, com base na última posição informada ou desenhada
-void Sprite::desenhar() {
+void Sprite::desenhar()
+{
     desenhar(posicao.x, posicao.y);
 }
 
 //Retorna a dimensão do sprite 'width' e 'height'
-GBF::Dimensao Sprite::getTamanho() {
+GBF::Dimensao Sprite::getTamanho()
+{
     Dimensao dimensao;
     dimensao.w = tamanho.w;
     dimensao.h = tamanho.h;
@@ -55,7 +61,8 @@ GBF::Dimensao Sprite::getTamanho() {
 }
 
 //Colisão baseada no tamanho dos Sprites
-bool Sprite::isColisao(Sprite * spriteColisao) {
+bool Sprite::isColisao(Sprite * spriteColisao)
+{
     if ((posicao.x + tamanho.w >= spriteColisao->posicao.x) &&
             (posicao.x <= spriteColisao->posicao.x + spriteColisao->tamanho.w) &&
             (posicao.y + tamanho.h >= spriteColisao->posicao.y) &&
@@ -68,26 +75,29 @@ bool Sprite::isColisao(Sprite * spriteColisao) {
 }
 
 //Posiciona o Sprite na tela
-void Sprite::setPosicao(GBF::Ponto ponto) {
+void Sprite::setPosicao(GBF::Ponto ponto)
+{
     setPosicao(ponto.x, ponto.y);
 }
 
 //Posiciona o Sprite na tela
-void Sprite::setPosicao(int x, int y) {
+void Sprite::setPosicao(int x, int y)
+{
     posicao.x = x;
     posicao.y = y;
 }
 
 //Construtor
-Sprite::Sprite() {
+Sprite::Sprite()
+{
     tamanho.x = tamanho.y = tamanho.h = tamanho.w = 0;
     posicao.x = posicao.y = posicao.h = posicao.w = 0;
 
     animacao.setAutomatic(true);
 }
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
