@@ -19,26 +19,26 @@
 #include "GBF.h"
 #include "SpriteInterface.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
 //Definição de direções
 enum Direcao {
-  DR_CIMA,
-  DR_DIREITA,
-  DR_BAIXO,
-  DR_ESQUERDA,
-  DR_CIMADIREITA,
-  DR_BAIXODIREITA,
-  DR_BAIXOESQUERDA,
-  DR_CIMAESQUERDA
+    DR_CIMA,
+    DR_DIREITA,
+    DR_BAIXO,
+    DR_ESQUERDA,
+    DR_CIMADIREITA,
+    DR_BAIXODIREITA,
+    DR_BAIXOESQUERDA,
+    DR_CIMAESQUERDA
 };
 //Definição de Status
-struct DirecaoStatus
-{
+struct DirecaoStatus {
     bool cima;
 
     bool direita;
@@ -56,41 +56,41 @@ struct DirecaoStatus
     bool cimaEsquerda;
 
 };
-class Sprite : public GBF::Imagem::SpriteInterface
+class Sprite : public GBF::Image::SpriteInterface
 {
-  public:
-    //Destrutor
-    virtual ~Sprite();
+    public:
+        //Destrutor
+        virtual ~Sprite();
 
-    void criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
+        void criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
 
-    virtual void desenhar(int x, int y);
+        virtual void desenhar(int x, int y);
 
-    //Desenha o sprite na tela, com base na última posição informada ou desenhada
-    virtual void desenhar();
+        //Desenha o sprite na tela, com base na última posição informada ou desenhada
+        virtual void desenhar();
 
-    //Retorna a dimensão do sprite 'width' e 'height' 
-    GBF::Dimensao getTamanho();
+        //Retorna a dimensão do sprite 'width' e 'height'
+        GBF::Dimensao getTamanho();
 
-    //Colisão baseada no tamanho dos Sprites 
-    bool isColisao(Sprite * spriteColisao);
+        //Colisão baseada no tamanho dos Sprites
+        bool isColisao(Sprite * spriteColisao);
 
-    //Posiciona o Sprite na tela 
-    void setPosicao(GBF::Ponto ponto);
+        //Posiciona o Sprite na tela
+        void setPosicao(GBF::Ponto ponto);
 
-    //Posiciona o Sprite na tela 
-    virtual void setPosicao(int x, int y);
+        //Posiciona o Sprite na tela
+        virtual void setPosicao(int x, int y);
 
 
-  protected:
-    //Construtor
-    Sprite();
+    protected:
+        //Construtor
+        Sprite();
 
 };
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
 #endif

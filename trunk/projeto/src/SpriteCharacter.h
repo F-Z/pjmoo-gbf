@@ -17,43 +17,44 @@
 
 #include "Sprite.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
 class SpriteCharacter : public Sprite
 {
-  public:
-    //Destrutor
-    virtual ~SpriteCharacter();
+    public:
+        //Destrutor
+        virtual ~SpriteCharacter();
 
-    void setDirection(Direcao DIR);
+        void setDirection(Direcao DIR);
 
-    void setQtdDirecoes(int QTD);
+        void setQtdDirecoes(int QTD);
 
-    virtual void desenhar(int x, int y);
+        virtual void desenhar(int x, int y);
 
-    //Retorna a quantidade de direções que o personagem possui
-    int getQtdDirecoes();
+        //Retorna a quantidade de direções que o personagem possui
+        int getQtdDirecoes();
 
-    Direcao getDirection();
+        Direcao getDirection();
 
-    //Construtor
-    SpriteCharacter();
+        //Construtor
+        SpriteCharacter();
 
 
-  protected:
-    Direcao direction;
+    protected:
+        Direcao direction;
 
-    int qtdDirecao;
+        int qtdDirecao;
 
 };
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
 #endif

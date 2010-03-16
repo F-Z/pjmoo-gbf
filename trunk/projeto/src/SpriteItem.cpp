@@ -14,35 +14,40 @@
 
 #include "SpriteItem.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
 //Construtor
-SpriteItem::SpriteItem() {
+SpriteItem::SpriteItem()
+{
     animacao.setAutomatic(false);
 }
 
 //Destrutor
-SpriteItem::~SpriteItem() {
+SpriteItem::~SpriteItem()
+{
 
 }
 
-void SpriteItem::desenhar(int x, int y) {
+void SpriteItem::desenhar(int x, int y)
+{
     animacao.cutSet(0, tamanho.w);
 
     Sprite::desenhar(x, y);
 }
 
 //Informa o quadro de animação
-void SpriteItem::setFrame(int quadro) {
+void SpriteItem::setFrame(int quadro)
+{
     animacao.setFrame(quadro);
 }
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF

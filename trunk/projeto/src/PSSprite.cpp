@@ -17,44 +17,46 @@
 namespace ParticleSystem {
 
 //Construtor
-PSSprite::PSSprite()
-{
+PSSprite::PSSprite() {
 }
+
 //Destrutor
-PSSprite::~PSSprite()
-{
-    for (unsigned int i=0; i<lista.size(); i++){
+PSSprite::~PSSprite() {
+    for (unsigned int i = 0; i < lista.size(); i++) {
         try {
-            if (lista[i]){
+            if (lista[i]) {
                 delete lista[i];
-                lista[i]=NULL;
+                lista[i] = NULL;
             }
-        } catch (...){
+        }
+        catch (...) {
         }
     }
+
     lista.clear();
 }
+
 //Desenha todas as unidades
-void PSSprite::desenhar()
-{
-    if (!lista.empty()){
-        for (unsigned int i=0; i<lista.size(); i++){
-            if (!lista[i]->animacao.isEnd()){
+void PSSprite::desenhar() {
+    if (!lista.empty()) {
+        for (unsigned int i = 0; i < lista.size(); i++) {
+            if (!lista[i]->animacao.isEnd()) {
                 lista[i]->desenhar();
             }
         }
     }
 }
+
 //Verifica se terminou a animação de todos os sprites
-bool PSSprite::isTerminou()
-{
-    if (!lista.empty()){
-        for (unsigned int i=0; i<lista.size();i++){
-            if (!lista[i]->animacao.isEnd()){
+bool PSSprite::isTerminou() {
+    if (!lista.empty()) {
+        for (unsigned int i = 0; i < lista.size();i++) {
+            if (!lista[i]->animacao.isEnd()) {
                 return false;
             }
         }
     }
+
     return true;
 }
 

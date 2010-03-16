@@ -16,72 +16,71 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
 //Destrutor
-LayerMundo::~LayerMundo() 
-{
+LayerMundo::~LayerMundo() {
 }
-GBF::Dimensao LayerMundo::getPixelTile() 
-{
+
+GBF::Dimensao LayerMundo::getPixelTile() {
     return tile;
 }
-int LayerMundo::getPixelTileHorizontal() 
-{
+
+int LayerMundo::getPixelTileHorizontal() {
     return tile.w;
 }
-int LayerMundo::getPixelTileVertical() 
-{
+
+int LayerMundo::getPixelTileVertical() {
     return tile.h;
 }
-GBF::Dimensao LayerMundo::getPixelVisivel() 
-{
+
+GBF::Dimensao LayerMundo::getPixelVisivel() {
     return areaVisivel;
 }
-int LayerMundo::getPixelVisivelHorizontal() 
-{
+
+int LayerMundo::getPixelVisivelHorizontal() {
     return areaVisivel.w;
 }
-int LayerMundo::getPixelVisivelVertical() 
-{
+
+int LayerMundo::getPixelVisivelVertical() {
     return areaVisivel.h;
 }
-GBF::Dimensao LayerMundo::getTiles() 
-{
+
+GBF::Dimensao LayerMundo::getTiles() {
     return quantidadeTiles;
 }
-int LayerMundo::getTilesHorizontal() 
-{
+
+int LayerMundo::getTilesHorizontal() {
     return quantidadeTiles.w;
 }
-int LayerMundo::getTilesVertical() 
-{
+
+int LayerMundo::getTilesVertical() {
     return quantidadeTiles.h;
 }
-void LayerMundo::setPixelTile(int largura, int altura) 
-{
-    tile.w=largura;
-    tile.h=altura;
+
+void LayerMundo::setPixelTile(int largura, int altura) {
+    tile.w = largura;
+    tile.h = altura;
 }
-void LayerMundo::setPixelVisivel(int largura, int altura) 
-{
-    areaVisivel.w=largura;
-    areaVisivel.h=altura;
+
+void LayerMundo::setPixelVisivel(int largura, int altura) {
+    areaVisivel.w = largura;
+    areaVisivel.h = altura;
 }
-void LayerMundo::setTiles(int largura, int altura) 
-{
-    quantidadeTiles.w=largura;
-    quantidadeTiles.h=altura;
+
+void LayerMundo::setTiles(int largura, int altura) {
+    quantidadeTiles.w = largura;
+    quantidadeTiles.h = altura;
 }
+
 //Construtor
-LayerMundo::LayerMundo() 
-{
+LayerMundo::LayerMundo() {
 }
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF

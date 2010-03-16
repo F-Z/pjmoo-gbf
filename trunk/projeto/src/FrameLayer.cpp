@@ -16,34 +16,33 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
 //Construtor
-FrameLayer::FrameLayer() 
-{
-    mapa=NULL;
-    mapaColisao=NULL;
+FrameLayer::FrameLayer() {
+    mapa = NULL;
+    mapaColisao = NULL;
 }
+
 //Destrutor
-FrameLayer::~FrameLayer() 
-{
-    if (mapa!=NULL){
+FrameLayer::~FrameLayer() {
+    if (mapa != NULL) {
         delete[] mapa;
     }
 
-    if (mapaColisao!=NULL){
+    if (mapaColisao != NULL) {
         delete[] mapaColisao;
     }
 }
+
 //Desenha o mapa
-void FrameLayer::desenhar() 
-{
-    int i,IMG,bloco_y,bloco_x;
+void FrameLayer::desenhar() {
+    int i, IMG, bloco_y, bloco_x;
     int offset_x, offset_y;
     int l_max, c_max;
-    SDL_Rect corte=tamanho;
+    SDL_Rect corte = tamanho;
 
     Ponto ponto           = camera.getPosicao();
     Dimensao pixelTile    = mundo.getPixelTile();
@@ -60,289 +59,310 @@ void FrameLayer::desenhar()
 
 
     // Linhas que cabem na tela
-    l_max    = (pixelVisivel.h/pixelTile.h);
-    if ((pixelVisivel.h % pixelTile.h>0)||(offset_y>0)){
+    l_max    = (pixelVisivel.h / pixelTile.h);
+
+    if ((pixelVisivel.h % pixelTile.h > 0) || (offset_y > 0)) {
         l_max++;
     }
+
     // Checa se a linha não ultrapassa o total
-    if (l_max>tilesMundo.h){   l_max=tilesMundo.h;   }
+    if (l_max > tilesMundo.h) {
+        l_max = tilesMundo.h;
+    }
 
     // Colunas que cabem na tela
-    c_max    = (pixelVisivel.w/pixelTile.w);
-    if ((pixelVisivel.w % pixelTile.w>0)||(offset_x>0)){
+    c_max    = (pixelVisivel.w / pixelTile.w);
+
+    if ((pixelVisivel.w % pixelTile.w > 0) || (offset_x > 0)) {
         c_max++;
     }
+
     // Checa se a coluna não ultrapassa o total
-    if (c_max>tilesMundo.w){   c_max=tilesMundo.w;   }
+    if (c_max > tilesMundo.w) {
+        c_max = tilesMundo.w;
+    }
 
     // Calcula a coordenada inicial de Y
-    posicao.y=screen_dimensao.top - offset_y;
+    posicao.y = screen_dimensao.top - offset_y;
 
-    for (int l=0; l<l_max; l++){
+    for (int l = 0; l < l_max; l++) {
         // Transforma linha em coordenada do vetor
-        i=((l + bloco_y) * tilesMundo.w) + bloco_x;
+        i = ((l + bloco_y) * tilesMundo.w) + bloco_x;
         // Verifica e corta a imagem da primeira linha
 
-        if (posicao.y<=screen_dimensao.top){
-            posicao.y=screen_dimensao.top;
-            corte.y=tamanho.y + offset_y;
-            corte.h=tamanho.h - offset_y;
-        // Verifica e corta a imagem da última linha
-        } else if (posicao.y+pixelTile.h>screen_dimensao.bottom){
-            corte.h-=(posicao.y+pixelTile.h)-(screen_dimensao.bottom);
+        if (posicao.y <= screen_dimensao.top) {
+            posicao.y = screen_dimensao.top;
+            corte.y = tamanho.y + offset_y;
+            corte.h = tamanho.h - offset_y;
+            // Verifica e corta a imagem da última linha
+        }
+        else if (posicao.y + pixelTile.h > screen_dimensao.bottom) {
+            corte.h -= (posicao.y + pixelTile.h) - (screen_dimensao.bottom);
         }
 
         // Calcula a coordenada inicial de X
-        posicao.x=screen_dimensao.left - offset_x;
-        for (int c=0; c<c_max; c++){
+        posicao.x = screen_dimensao.left - offset_x;
+
+        for (int c = 0; c < c_max; c++) {
             // Transforma coluna em coordenada do vetor
-            IMG=(i)+(c);
+            IMG = (i) + (c);
             // Verifica e corta a imagem da primeira coluna
-            if (posicao.x<=screen_dimensao.left){
-                posicao.x=screen_dimensao.left;
-                corte.x=tamanho.x + offset_x;
-                corte.w=tamanho.w - offset_x;
-            // Verifica e corta a imagem da última linha
-            } else if (posicao.x+pixelTile.w>screen_dimensao.right){
-                corte.w-=(posicao.x+pixelTile.w)-(screen_dimensao.right);
+
+            if (posicao.x <= screen_dimensao.left) {
+                posicao.x = screen_dimensao.left;
+                corte.x = tamanho.x + offset_x;
+                corte.w = tamanho.w - offset_x;
+                // Verifica e corta a imagem da última linha
+            }
+            else if (posicao.x + pixelTile.w > screen_dimensao.right) {
+                corte.w -= (posicao.x + pixelTile.w) - (screen_dimensao.right);
             }
 
             // Desenha a imagem na tela efetuando corte se necessário
-            imagem->desenhar(posicao,tamanho,mapa[IMG],corte);
+            imagem->desenhar(posicao, tamanho, mapa[IMG], corte);
+
             // Move x para a próxima posição
-            posicao.x+=corte.w;
+            posicao.x += corte.w;
+
             // Restaura informações de corte para coluna
-            corte.w=tamanho.w;
-            corte.x=tamanho.x;
+            corte.w = tamanho.w;
+
+            corte.x = tamanho.x;
         }
+
         // Move y para a próxima posição
-        posicao.y+=corte.h;
+        posicao.y += corte.h;
+
         // Restaura informações de corte para coluna
-        corte.y=tamanho.y;
-        corte.h=tamanho.h;
+        corte.y = tamanho.y;
+
+        corte.h = tamanho.h;
     }
 }
+
 //Retorna a area do layer relacionado com o ponto de desenho (x e y) e  o tamanho interno (w e h)
-GBF::Area FrameLayer::getArea() 
-{
+GBF::Area FrameLayer::getArea() {
     return screen_dimensao;
 }
+
 //Distancia restante para finalizar Scrolling Vertical
-int FrameLayer::getDistanciaScrollVertical() 
-{
+int FrameLayer::getDistanciaScrollVertical() {
     Ponto ponto = camera.getPosicao();
 
     return ponto.y;
 }
+
 //Porcentagem percorrida do Scroll Horizontal
-int FrameLayer::getPorcentagemScrollHorizontal() 
-{
+int FrameLayer::getPorcentagemScrollHorizontal() {
     return 0;
 }
+
 //Porcentagem percorrida do Scroll Vertical
-int FrameLayer::getPorcentagemScrollVertical() 
-{
+int FrameLayer::getPorcentagemScrollVertical() {
     Dimensao tilesMundo = mundo.getTiles();
     Ponto ponto         = camera.getPosicao();
 
     int total = tilesMundo.h * mundo.getPixelTileVertical();
-    total = 100-int((100*ponto.y)/total);
+    total = 100 - int((100 * ponto.y) / total);
     return total;
 }
+
 //Distancia total do Scrolling Vertical
-int FrameLayer::getTotalScrollVertical() 
-{
+int FrameLayer::getTotalScrollVertical() {
     Dimensao tilesMundo = mundo.getTiles();
     Ponto ponto         = camera.getPosicao();
 
     return int(tilesMundo.h * mundo.getPixelTileVertical());
 }
+
 //Inicializa tiles com valores do arquivo
-void FrameLayer::iniciarArquivo(std::string arquivo) 
-{
+void FrameLayer::iniciarArquivo(std::string arquivo) {
     FILE *handleArquivo;
-    handleArquivo = fopen(arquivo.c_str(),"rb");
+    handleArquivo = fopen(arquivo.c_str(), "rb");
     Dimensao tilesMundo = mundo.getTiles();
 
-    if (handleArquivo){
-        fread(mapa,sizeof(mapa),(tilesMundo.w*tilesMundo.h), handleArquivo);
+    if (handleArquivo) {
+        fread(mapa, sizeof(mapa), (tilesMundo.w*tilesMundo.h), handleArquivo);
     }
+
     fclose(handleArquivo);
 
     camera.setMundo(&mundo);
 }
-//Iniciar preenchendo apenas com o quadro informado
-void FrameLayer::iniciarCom(int quadro) 
-{
-    Dimensao tilesMundo   = mundo.getTiles();
-    int total = tilesMundo.w*tilesMundo.h;
 
-    for (int i=0; i<total; i++){
-        mapa[i]=quadro;
+//Iniciar preenchendo apenas com o quadro informado
+void FrameLayer::iniciarCom(int quadro) {
+    Dimensao tilesMundo   = mundo.getTiles();
+    int total = tilesMundo.w * tilesMundo.h;
+
+    for (int i = 0; i < total; i++) {
+        mapa[i] = quadro;
     }
 
     camera.setMundo(&mundo);
 }
-//Iniciar ordenado até o quadro informado
-void FrameLayer::iniciarOrdenado(int quadroMaximo) 
-{
-    Dimensao tilesMundo   = mundo.getTiles();
-    int total = tilesMundo.w*tilesMundo.h;
-    int contador=0;
 
-    for (int i=0; i<total; i++){
-        mapa[i]=contador;
+//Iniciar ordenado até o quadro informado
+void FrameLayer::iniciarOrdenado(int quadroMaximo) {
+    Dimensao tilesMundo   = mundo.getTiles();
+    int total = tilesMundo.w * tilesMundo.h;
+    int contador = 0;
+
+    for (int i = 0; i < total; i++) {
+        mapa[i] = contador;
         contador++;
-        if (contador>quadroMaximo){
-            contador=0;
+
+        if (contador > quadroMaximo) {
+            contador = 0;
         }
     }
 
     camera.setMundo(&mundo);
 }
-//Inicializa tiles de forma aleatória
-void FrameLayer::iniciarRandomico(int range) 
-{
-    Dimensao tilesMundo = mundo.getTiles();
-    int total = tilesMundo.w*tilesMundo.h;
 
-    for (int i=0; i<total; i++){
-        mapa[i]=rand()%range;
+//Inicializa tiles de forma aleatória
+void FrameLayer::iniciarRandomico(int range) {
+    Dimensao tilesMundo = mundo.getTiles();
+    int total = tilesMundo.w * tilesMundo.h;
+
+    for (int i = 0; i < total; i++) {
+        mapa[i] = rand() % range;
     }
 
     camera.setMundo(&mundo);
 }
+
 //Informa o posicionamento da area de desenho e as suas dimensões internas
-void FrameLayer::setFrame(int left, int top, int largura, int altura) 
-{
+void FrameLayer::setFrame(int left, int top, int largura, int altura) {
     screen_dimensao.top    = top;
     screen_dimensao.left   = left;
     screen_dimensao.bottom = top  + altura;
     screen_dimensao.right  = left + largura;
 
-    mundo.setPixelVisivel(largura,altura);
+    mundo.setPixelVisivel(largura, altura);
 }
-//Informa o tamanho do mundo em tiles horizontais e verticais
-void FrameLayer::setTiles(int largura, int altura) 
-{
-    mundo.setTiles(largura,altura);
 
-    if (mapa!=NULL){
+//Informa o tamanho do mundo em tiles horizontais e verticais
+void FrameLayer::setTiles(int largura, int altura) {
+    mundo.setTiles(largura, altura);
+
+    if (mapa != NULL) {
         delete[] mapa;
     }
+
     mapa = new int[largura*altura];
 }
+
 //Informa o tamanho em pixels dos tiles usados no layer
-void FrameLayer::setPixelTile(int largura, int altura) 
-{
-    mundo.setPixelTile(largura,altura);
+void FrameLayer::setPixelTile(int largura, int altura) {
+    mundo.setPixelTile(largura, altura);
 }
+
 //Desenha a grade de tiles do mapa
-void FrameLayer::showGrade() 
-{
-/*
-    int offset_x, offset_y;
-    int linha_x, linha_y;
-    int bloco_x,bloco_y;
-    int c_max,l_max;
+void FrameLayer::showGrade() {
+    /*
+        int offset_x, offset_y;
+        int linha_x, linha_y;
+        int bloco_x,bloco_y;
+        int c_max,l_max;
 
-    GraphicSystemGFX *gfx = GraphicSystemGFX::getInstance();
+        GraphicSystemGFX *gfx = GraphicSystemGFX::getInstance();
 
-    // Bloco vertical
-    bloco_y  = (int(ponto_virtual.y) / tile.h);
-    // Bloco horizontal
-    bloco_x  = (int(ponto_virtual.x) / tile.w);
-    // Calcula o Smooth de Y
-    offset_y = int(ponto_virtual.y) & (tile.h - 1);
-    // Calcula o Smooth de X
-    offset_x = int(ponto_virtual.x) & (tile.w - 1);
+        // Bloco vertical
+        bloco_y  = (int(ponto_virtual.y) / tile.h);
+        // Bloco horizontal
+        bloco_x  = (int(ponto_virtual.x) / tile.w);
+        // Calcula o Smooth de Y
+        offset_y = int(ponto_virtual.y) & (tile.h - 1);
+        // Calcula o Smooth de X
+        offset_x = int(ponto_virtual.x) & (tile.w - 1);
 
-    // Linhas que cabem na tela
-    l_max    = (area_visivel.h/tile.h);
-    if ((area_visivel.h % tile.h>0)||(offset_y>0)){
-        l_max++;
-    }
-    // Checa se a linha não ultrapassa o total
-    if (l_max>mundo.h){   l_max=mundo.h;   }
-
-    // Colunas que cabem na tela
-    c_max    = (area_visivel.w/tile.w);
-    if ((area_visivel.w % tile.w>0)||(offset_x>0)){
-        c_max++;
-    }
-    // Checa se a coluna não ultrapassa o total
-    if (c_max>mundo.w){   c_max=mundo.w;   }
-
-    gfx->setColor(0,255,0);
-    // Calcula a coordenada inicial de Y
-    linha_y=screen_dimensao.top - offset_y;
-    for (int l=0; l<l_max; l++){
-        // Verifica se a divisão das linhas está em área visivel
-        if ((linha_y>=screen_dimensao.top)&&(linha_y<=screen_dimensao.bottom)){
-            gfx->linha(screen_dimensao.left,linha_y,screen_dimensao.right,linha_y);
+        // Linhas que cabem na tela
+        l_max    = (area_visivel.h/tile.h);
+        if ((area_visivel.h % tile.h>0)||(offset_y>0)){
+            l_max++;
         }
-        // Move y para a próxima posição
-        linha_y+=tamanho.h;
-    }
+        // Checa se a linha não ultrapassa o total
+        if (l_max>mundo.h){   l_max=mundo.h;   }
 
-    linha_x=screen_dimensao.left - offset_x;
-    for (int c=0; c<c_max; c++){
-        // Verifica se a divisão das colunas está em área visivel
-        if ((linha_x>=screen_dimensao.left)&&(linha_x<=screen_dimensao.right)){
-            gfx->linha(linha_x,screen_dimensao.top,linha_x,screen_dimensao.bottom);
+        // Colunas que cabem na tela
+        c_max    = (area_visivel.w/tile.w);
+        if ((area_visivel.w % tile.w>0)||(offset_x>0)){
+            c_max++;
         }
-        // Move x para a próxima posição
-        linha_x+=tamanho.w;
-    }
-*/
+        // Checa se a coluna não ultrapassa o total
+        if (c_max>mundo.w){   c_max=mundo.w;   }
+
+        gfx->setColor(0,255,0);
+        // Calcula a coordenada inicial de Y
+        linha_y=screen_dimensao.top - offset_y;
+        for (int l=0; l<l_max; l++){
+            // Verifica se a divisão das linhas está em área visivel
+            if ((linha_y>=screen_dimensao.top)&&(linha_y<=screen_dimensao.bottom)){
+                gfx->linha(screen_dimensao.left,linha_y,screen_dimensao.right,linha_y);
+            }
+            // Move y para a próxima posição
+            linha_y+=tamanho.h;
+        }
+
+        linha_x=screen_dimensao.left - offset_x;
+        for (int c=0; c<c_max; c++){
+            // Verifica se a divisão das colunas está em área visivel
+            if ((linha_x>=screen_dimensao.left)&&(linha_x<=screen_dimensao.right)){
+                gfx->linha(linha_x,screen_dimensao.top,linha_x,screen_dimensao.bottom);
+            }
+            // Move x para a próxima posição
+            linha_x+=tamanho.w;
+        }
+    */
 }
+
 //Carrega tilemap apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarMapaMemoria(int vetor[]) 
-{
-    if (mapa!=NULL){
+void FrameLayer::carregarMapaMemoria(int vetor[]) {
+    if (mapa != NULL) {
         delete []mapa;
     }
 
     GBF::Dimensao tamanho = mundo.getTiles();
 
-    int total = tamanho.w*tamanho.h;
+    int total = tamanho.w * tamanho.h;
 
     mapa = new int[total];
 
-    for (int i=0; i<total; i++){
-        mapa[i]=vetor[i];
+    for (int i = 0; i < total; i++) {
+        mapa[i] = vetor[i];
     }
 }
+
 //Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarColisaoMemoria(int vetor[]) 
-{
-    if (mapaColisao!=NULL){
+void FrameLayer::carregarColisaoMemoria(int vetor[]) {
+    if (mapaColisao != NULL) {
         delete []mapaColisao;
     }
 
     GBF::Dimensao tamanho = mundo.getTiles();
 
-    int total = tamanho.w*tamanho.h;
+    int total = tamanho.w * tamanho.h;
 
     mapaColisao = new int[total];
 
-    for (int i=0; i<total; i++){
-        mapaColisao[i]=vetor[i];
+    for (int i = 0; i < total; i++) {
+        mapaColisao[i] = vetor[i];
     }
 }
+
 //Retorna o tipo de colisão usado no brick
-int FrameLayer::getTipoColisao(int indice) 
-{
+int FrameLayer::getTipoColisao(int indice) {
     return mapaColisao[indice];
 }
+
 //Retorna o tipo de imagem usado no brick
-int FrameLayer::getTipoImagem(int indice) 
-{
+int FrameLayer::getTipoImagem(int indice) {
     return mapa[indice];
 }
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF

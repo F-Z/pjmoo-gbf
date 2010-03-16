@@ -24,41 +24,41 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
 //Classe para Gerenciamento de FrameLayer
 
-class LayerManager : public GBF::BaseManager
-{
-  public:
-    //Destrutor
-    virtual ~LayerManager();
+class LayerManager : public GBF::BaseManager {
+    public:
+        //Destrutor
+        virtual ~LayerManager();
 
-    //Retorna uma instancia de FrameLayerManager 
-    static LayerManager * getInstance();
+        //Retorna uma instancia de FrameLayerManager
+        static LayerManager * getInstance();
 
-    //Retorna FrameLayer para manipulação 
-    FrameLayer * getFrameLayer(std::string nome);
+        //Retorna FrameLayer para manipulação
+        FrameLayer * getFrameLayer(std::string nome);
 
-    //Adiciona FrameLayer no FrameLayerManager 
-    void adicionar(std::string nome, FrameLayer * frameLayer);
+        //Adiciona FrameLayer no FrameLayerManager
+        void adicionar(std::string nome, FrameLayer * frameLayer);
 
 
-  protected:
-    //Construtor
-    LayerManager();
+    protected:
+        //Construtor
+        LayerManager();
 
-    static LayerManager * instance;
+        static LayerManager * instance;
 
-    std::map<std::string,FrameLayer*> objetomap;
+        std::map<std::string, FrameLayer*> objetomap;
 
 };
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
+
 #endif

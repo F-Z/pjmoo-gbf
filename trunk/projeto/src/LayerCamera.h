@@ -20,88 +20,88 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
-class LayerCamera
-{
-  public:
-    //Destrutor
-    virtual ~LayerCamera();
+class LayerCamera {
+    public:
+        //Destrutor
+        virtual ~LayerCamera();
 
-    //Retorna a Posição Atual da Camera 
-    GBF::Ponto getPosicao();
+        //Retorna a Posição Atual da Camera
+        GBF::Ponto getPosicao();
 
-    //Verifica se a Camera está no limite inferior do mapa 
-    bool isBottom();
+        //Verifica se a Camera está no limite inferior do mapa
+        bool isBottom();
 
-    //Verifica se a Camera está no limite esquerdo do mapa 
-    bool isLeft();
+        //Verifica se a Camera está no limite esquerdo do mapa
+        bool isLeft();
 
-    //Verifica se a Camera está no limite direito do mapa 
-    bool isRight();
+        //Verifica se a Camera está no limite direito do mapa
+        bool isRight();
 
-    //Verifica se a Camera está no limite superior do mapa
-    bool isTop();
+        //Verifica se a Camera está no limite superior do mapa
+        bool isTop();
 
-    //Movimenta camera para Baixo 
-    void runDown(float deslocamento);
+        //Movimenta camera para Baixo
+        void runDown(float deslocamento);
 
-    //Movimenta camera para Esquerda 
-    void runLeft(float deslocamento);
+        //Movimenta camera para Esquerda
+        void runLeft(float deslocamento);
 
-    //Movimenta camera para Direita 
-    void runRight(float deslocamento);
+        //Movimenta camera para Direita
+        void runRight(float deslocamento);
 
-    //Movimenta camera para Cima 
-    void runUp(float deslocamento);
+        //Movimenta camera para Cima
+        void runUp(float deslocamento);
 
-    //Posiciona a Camera no Final do mapa 
-    void setBottom();
+        //Posiciona a Camera no Final do mapa
+        void setBottom();
 
-    void setMundo(LayerMundo * mundo);
+        void setMundo(LayerMundo * mundo);
 
-    //Posiciona a Camera em um ponto do Mapa 
-    void setPosicao(int X, int Y);
+        //Posiciona a Camera em um ponto do Mapa
+        void setPosicao(int X, int Y);
 
-    //Posiciona a Camera no inicio do mapa 
-    void setTop();
+        //Posiciona a Camera no inicio do mapa
+        void setTop();
 
-    //Mostra o posicionamento da camera no mapa 
-    void show();
-
-
-  protected:
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado superior 
-    void limiteUp();
-
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado inferior 
-    void limiteDown();
-
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo 
-    void limiteLeft();
-
-    //Não permite que a camera ultrapasse o limite do mapa pelo lado direito 
-    void limiteRight();
+        //Mostra o posicionamento da camera no mapa
+        void show();
 
 
-  private:
-    LayerMundo * mundo;
+    protected:
+        //Não permite que a camera ultrapasse o limite do mapa pelo lado superior
+        void limiteUp();
 
-  friend class FrameLayer;
-    //Construtor
-    LayerCamera();
+        //Não permite que a camera ultrapasse o limite do mapa pelo lado inferior
+        void limiteDown();
+
+        //Não permite que a camera ultrapasse o limite do mapa pelo lado esquerdo
+        void limiteLeft();
+
+        //Não permite que a camera ultrapasse o limite do mapa pelo lado direito
+        void limiteRight();
 
 
-  protected:
-    GBF::PontoVirtual ponto;
+    private:
+        LayerMundo * mundo;
+
+        friend class FrameLayer;
+        //Construtor
+        LayerCamera();
+
+
+    protected:
+        GBF::PontoVirtual ponto;
 
 };
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
+
 #endif

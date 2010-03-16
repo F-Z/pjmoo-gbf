@@ -16,72 +16,76 @@
 
 namespace GBF {
 
-namespace Imagem {
+namespace Image {
 
 namespace Layer {
 
 //Destrutor
-LayerManager::~LayerManager() 
-{
+LayerManager::~LayerManager() {
     //UtilLog::subSistema("Removendo FrameLayerManager");
 
-    std::map<std::string,FrameLayer*>::iterator it;
+    std::map<std::string, FrameLayer*>::iterator it;
     std::string nome = "";
 
-    for (it=objetomap.begin();it!=objetomap.end(); it++){
+    for (it = objetomap.begin();it != objetomap.end(); it++) {
 
         nome = (*it).first;
 
         try {
-            delete ((*it).second);
-            (*it).second=NULL;
+            delete((*it).second);
+            (*it).second = NULL;
             //util::Log::tracer("Removido: %s [Ok] ",nome.c_str());
-        } catch (...){
+        }
+        catch (...) {
             //util::Log::tracer("Tentando Remover: %s [Falhou]",nome.c_str());
         }
     }
+
     objetomap.clear();
 }
-//Retorna uma instancia de FrameLayerManager 
-LayerManager * LayerManager::getInstance()
-{
-    if (instance == NULL){
+
+//Retorna uma instancia de FrameLayerManager
+LayerManager * LayerManager::getInstance() {
+    if (instance == NULL) {
         instance = new LayerManager();
     }
 
     return instance;
 }
-//Retorna FrameLayer para manipulação 
-FrameLayer * LayerManager::getFrameLayer(std::string nome) 
-{
-    if (objetomap.find(nome)!=objetomap.end()){
+
+//Retorna FrameLayer para manipulação
+FrameLayer * LayerManager::getFrameLayer(std::string nome) {
+    if (objetomap.find(nome) != objetomap.end()) {
         return objetomap[nome];
-    } else {
+    }
+    else {
         //UtilLog::tracer("FrameLayer não encontrado: %s [Falhou]",nome.c_str());
         return NULL;
     }
 }
-//Adiciona FrameLayer no FrameLayerManager 
-void LayerManager::adicionar(std::string nome, FrameLayer * frameLayer) 
-{
+
+//Adiciona FrameLayer no FrameLayerManager
+void LayerManager::adicionar(std::string nome, FrameLayer * frameLayer) {
     std::cout << "\tLayerManager: " << nome << std::endl;
 
-    if ((nome!="")&&(frameLayer!=NULL)){
-        objetomap[nome]=frameLayer;
-    } else {
+    if ((nome != "") && (frameLayer != NULL)) {
+        objetomap[nome] = frameLayer;
+    }
+    else {
         std::cerr << "[ERROR]LayerManager: Is Null or Undefined" << nome << std::endl;
     }
 }
+
 //Construtor
-LayerManager::LayerManager() 
-{
+LayerManager::LayerManager() {
     std::cout << "GBF::Imagem::Layer::LayerManager" << std::endl;
 }
+
 LayerManager * LayerManager::instance;
 
 
-} // namespace GBF::Imagem::Layer
+} // namespace GBF::Image::Layer
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF

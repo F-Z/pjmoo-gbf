@@ -14,18 +14,21 @@
 
 #include "SpriteCharacter.h"
 
-namespace GBF {
+namespace GBF
+{
 
-namespace Imagem {
+namespace Image {
 
 namespace Sprite {
 
 //Destrutor
-SpriteCharacter::~SpriteCharacter() {
+SpriteCharacter::~SpriteCharacter()
+{
 
 }
 
-void SpriteCharacter::setDirection(Direcao DIR) {
+void SpriteCharacter::setDirection(Direcao DIR)
+{
     switch (qtdDirecao) {
 
         case 8:
@@ -80,33 +83,38 @@ void SpriteCharacter::setDirection(Direcao DIR) {
     animacao.processManual();
 }
 
-void SpriteCharacter::setQtdDirecoes(int QTD) {
+void SpriteCharacter::setQtdDirecoes(int QTD)
+{
     qtdDirecao = QTD;
 }
 
-void SpriteCharacter::desenhar(int x, int y) {
+void SpriteCharacter::desenhar(int x, int y)
+{
     animacao.cutSet(direction, tamanho.w);
 
     Sprite::desenhar(x, y);
 }
 
 //Retorna a quantidade de direções que o personagem possui
-int SpriteCharacter::getQtdDirecoes() {
+int SpriteCharacter::getQtdDirecoes()
+{
     return qtdDirecao;
 }
 
-Direcao SpriteCharacter::getDirection() {
+Direcao SpriteCharacter::getDirection()
+{
     return direction;
 }
 
 //Construtor
-SpriteCharacter::SpriteCharacter() {
+SpriteCharacter::SpriteCharacter()
+{
     direction = DR_CIMA;
     qtdDirecao = 4;
 }
 
-} // namespace GBF::Imagem::Sprite
+} // namespace GBF::Image::Sprite
 
-} // namespace GBF::Imagem
+} // namespace GBF::Image
 
 } // namespace GBF
