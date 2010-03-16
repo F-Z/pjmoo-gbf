@@ -24,7 +24,7 @@ namespace FPS {
 
 //Construtor
 FPSCounter::FPSCounter() {
-    std::cout << "GBF::Kernel::FPS::FPSContador" << std::endl;
+    std::cout << "GBF::Kernel::FPS::FPSCounter" << std::endl;
 }
 
 //Destrutor
@@ -34,7 +34,7 @@ FPSCounter::~FPSCounter() {
 //    UtilLog::sistema("Removendo FPS[%i]",fpsMax);
 }
 
-void FPSCounter::processar() {
+void FPSCounter::update() {
 
     Uint32 frametimesindex;
     Uint32 getticks;
@@ -94,7 +94,7 @@ void FPSCounter::processar() {
 //Deve ser chamado antes do loop principal do jogo
 
 //Deve ser chamado antes do loop principal do jogo
-void FPSCounter::iniciar() {
+void FPSCounter::start() {
     std::cout << "\tSDL: " << std::endl;
 
     // Set all frame times to 0ms.
@@ -106,7 +106,7 @@ void FPSCounter::iniciar() {
     std::cout << (double) frametimelast << " ticks" << std::endl;
 }
 
-int FPSCounter::getValor() {
+int FPSCounter::getValue() {
     return framespersecond;
 }
 

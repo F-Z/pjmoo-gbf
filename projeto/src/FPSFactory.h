@@ -16,53 +16,33 @@
 #define _FPSFACTORY_H
 
 #include "FPS.h"
+#include "FPSCounter.h"
+#include "FPSFixRate.h"
 
-namespace GBF {
-
-namespace Kernel {
-
-namespace FPS {
-
-class FPSCounter;
-}
-}
-}
-
-namespace GBF {
+namespace GBF
+{
 
 namespace Kernel {
 
 namespace FPS {
 
-class FPSLimitado;
-}
-}
-}
-
-namespace GBF {
-
-namespace Kernel {
-
-namespace FPS {
-
-enum Tipo {
-    //Frame n„o limitado, exibe apenas o contador em seu m·ximo processamento
-    FPS_CONTADOR = 0,
+enum FPSType {
+    //Frame n√£o limitado, exibe apenas o contador em seu m√°ximo processamento
+    FPS_COUNTER = 0,
     //Limitado a 30 frames por segundo
-    FPS_LIMITADO = 33,
+    FPS_30 = 33,
     //Limitado a 40 frames por segundo
-    FPS_LIMITADO_40 = 25,
+    FPS_40 = 25,
     //Limitado a 50 frames por segundo
-    FPS_LIMITADO_50 = 20,
+    FPS_50 = 20,
     //Limitado a aproximadamente 60 frames por segundo
-    FPS_LIMITADO_60 = 16
+    FPS_60 = 16
 };
 
-class FPSFactory {
-
+class FPSFactory
+{
     public:
-        static FPS * criar(Tipo  tipo);
-
+        static FPS * create(FPSType type);
 };
 
 } // namespace GBF::Kernel::FPS

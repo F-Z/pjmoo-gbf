@@ -25,25 +25,26 @@ namespace Kernel {
 
 namespace FPS {
 
-//Descrição: 
+//Descrição:
 //    Classe para controle da quantidade de quadros por segundo
 //Motivação:
 //    Fornecer um mecanismo para controlar a  velocidade de processamento da aplicação
+
 class FPS {
-  public:
-    //Construtor
-    FPS();
+    public:
+        //Construtor
+        FPS();
 
-    //Destrutor
-    virtual ~FPS();
+        //Destrutor
+        virtual ~FPS();
 
-    virtual void processar() = 0;
+        virtual void update() = 0;
 
-    //Deve ser chamado antes do loop principal do jogo
-    virtual void iniciar() = 0;
+        //Deve ser chamado antes do loop principal do jogo
+        virtual void start() = 0;
 
-    //Retorna o valor do FPS
-    virtual int getValor() = 0;
+        //Retorna o valor do FPS
+        virtual int getValue() = 0;
 
 };
 
@@ -52,4 +53,5 @@ class FPS {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

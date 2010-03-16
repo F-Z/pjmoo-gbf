@@ -14,7 +14,8 @@
 
 #include "GBFramework.h"
 
-namespace GBF {
+namespace GBF
+{
 
 //Destrutor
 GBFramework::~GBFramework()
@@ -31,41 +32,47 @@ GBFramework::~GBFramework()
 
     SDL_Quit();
 }
+
 //Construtor
 GBFramework::GBFramework()
 {
     numscreenshot = 0;
     fps           = false;
 }
+
 //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
-//desenha na tela o conte˙do do backbuffer
+//desenha na tela o conte√∫do do backbuffer
 
 void GBFramework::atualizar()
 {
     try {
-        fpsSystem->processar();
+        fpsSystem->update();
 
-        if (isFPS()){
+        if (isFPS()) {
             //writeSystem->getFonte(Kernel::Write::WriteManager::defaultFont)->setAlpha(180);
-            writeSystem->escrever(Kernel::Write::WriteManager::defaultFont,0,0,"FPS: %d",fpsSystem->getValor());
+            writeSystem->escrever(Kernel::Write::WriteManager::defaultFont, 0, 0, "FPS: %d", fpsSystem->getValue());
             //writeSystem->escrever(Kernel::Write::WriteManager::defaultFont,0,0,"FPS: %d",fpsSystem->getFPS());
             //writeSystem->getFonte(Kernel::Write::WriteManager::defaultFont)->setAlpha(255);
         }
 
         controleInterno();
+
         inputSystemCore->processar();
         graphicSystemCore->flip();
-    } catch(...){
-        std::cerr << " Error durante a execuÁ„o do Jogo " << SDL_GetError() << std::endl;
+    }
+    catch (...) {
+        std::cerr << " Error durante a execu√ß√£o do Jogo " << SDL_GetError() << std::endl;
     }
 }
-//Retorna o diretÛrio base da aplicaÁ„o corrente
+
+//Retorna o diret√≥rio base da aplica√ß√£o corrente
 std::string GBFramework::getPath()
 {
     return Kernel::Util::Path::getPath();
 }
-//Inicializa o Sistema, e configura o modo gr·fico
-void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::Tipo fps)
+
+//Inicializa o Sistema, e configura o modo gr√°fico
+void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::FPSType fpsType)
 {
     std::cout << "GBF::Kernel::GBFramework::iniciar()" << std::endl;
 
@@ -76,9 +83,10 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
     config.full  = full;
     graphicSystemCore->gsMode.setConfig(config);
 
-    if (config.full){
+    if (config.full) {
         graphicSystemCore->gsMode.setModeFullScreen();
-    } else {
+    }
+    else {
         graphicSystemCore->gsMode.setModeWindowScreen();
     }
 
@@ -86,56 +94,61 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
 
     inputSystemCore->iniciar();
 
-    soundSystemCore->iniciar(22050,AUDIO_S16SYS,Kernel::Sound::CANAL_STEREO,2048,16);
+    soundSystemCore->iniciar(22050, AUDIO_S16SYS, Kernel::Sound::CANAL_STEREO, 2048, 16);
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 
-    //Detecta o idioma padr„o do ambiente (Sistema Operacional)
+    //Detecta o idioma padr√£o do ambiente (Sistema Operacional)
     writeSystem->idioma->autodetect();
 
     //FPS
-    fpsSystem = Kernel::FPS::FPSFactory::criar(fps);
+    fpsSystem = Kernel::FPS::FPSFactory::create(fpsType);
     //FPS primeira chamada
-    fpsSystem->iniciar();
+    fpsSystem->start();
 
 
-    //Carregando Fontes Padrıes
+    //Carregando Fontes Padr√µes
     std::cout << "[*]Load Default" << std::endl;
-    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont,"data//kernel//fonte//default.png");
+    writeSystem->carregar(Kernel::Write::WriteManager::defaultFont, "data//kernel//fonte//default.png");
 
-    graphicSystemCore->graphicSystem->imageBufferManager->loadFromFile("gbf-window-background","data//kernel//imagem//window-background.png");
+    graphicSystemCore->graphicSystem->imageBufferManager->loadFromFile("gbf-window-background", "data//kernel//imagem//window-background.png");
 
     std::cout << "[BGN].[Game Space]" << std::endl;
 }
-//Informa se o mostrador de FPS est· ativo
+
+//Informa se o mostrador de FPS est√° ativo
 bool GBFramework::isFPS()
 {
     return fps;
 }
+
 //Pausa o Sistema
 void GBFramework::pausar()
 {
 }
+
 //Mostra o Contador de FPS
 void GBFramework::setFPS(bool show)
 {
-    fps=show;
+    fps = show;
 }
-//Informa o caminho do diretÛrio base da aplicaÁ„o corrente
+
+//Informa o caminho do diret√≥rio base da aplica√ß√£o corrente
 void GBFramework::setPath(char * fullPath)
 {
-    std::string pathBase=Kernel::Util::StringExtract::extractPath(fullPath);
+    std::string pathBase = Kernel::Util::StringExtract::extractPath(fullPath);
 
-   // if (isDefaultPath()){
-        Kernel::Util::Path::setPath(pathBase);
-        //UtilLog::setArquivo(fullPath);
-        //Kernel::Graphic::ImageBufferManager::setPathBase(pathBase);
-        //Kernel::Sound::SoundManagerAbstract::setPathBase(pathBase);
-        //Kernel::Write::Idioma::setPathBase(pathBase);
+    // if (isDefaultPath()){
+    Kernel::Util::Path::setPath(pathBase);
+    //UtilLog::setArquivo(fullPath);
+    //Kernel::Graphic::ImageBufferManager::setPathBase(pathBase);
+    //Kernel::Sound::SoundManagerAbstract::setPathBase(pathBase);
+    //Kernel::Write::Idioma::setPathBase(pathBase);
     //}
 }
-//InformaÁ„o sobre o Autor e o TÌtulo da AplicaÁ„o.
-//Obs.: Usado para arquivo de log e tÌtulo da janela
+
+//Informa√ß√£o sobre o Autor e o T√≠tulo da Aplica√ß√£o.
+//Obs.: Usado para arquivo de log e t√≠tulo da janela
 void GBFramework::setTitulo(std::string titulo, std::string autor)
 {
     std::cout << "[GAME - INFO]-------------------" << std::endl;
@@ -146,10 +159,11 @@ void GBFramework::setTitulo(std::string titulo, std::string autor)
     carregar();
     setTitulo(titulo);
 }
+
 //Prepara o Ambiente para ser inicializado
 void GBFramework::carregar()
 {
-    //Inicializando Gerador RandÙmico
+    //Inicializando Gerador Rand√¥mico
     std::cout << "GBF::Kernel::GBFramework::carregar()" << std::endl;
     std::cout << "\tCPP: srand" << std::endl;
     srand(time(NULL));
@@ -172,32 +186,38 @@ void GBFramework::carregar()
     std::cout << "GBF::Kernel::Sound" << std::endl;
     soundSystemCore = new Kernel::Sound::SoundCore();
 }
-//Controle para aÁıes internas
+
+//Controle para a√ß√µes internas
 void GBFramework::controleInterno()
 {
     //F10 = Alterna entre modo de controle exclusivo
-    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)){
+    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)) {
         inputSystemCore->alternarControleExclusivo();
-    //F11 = Alterna entre modo tela Cheia e Janela
-    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)){
-        if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen())==0){
+        //F11 = Alterna entre modo tela Cheia e Janela
+    }
+    else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)) {
+        if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen()) == 0) {
             std::cout << "SDL: SDL_WM_ToggleFullScreen nao suportado" << std::endl;
         }
-    //F12 = Salva um screen do jogo
-    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)){
+
+        //F12 = Salva um screen do jogo
+    }
+    else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)) {
         char tela[255];
         numscreenshot++;
-        sprintf(tela,"%s//data//screen//screen%03d.bmp",getPath().c_str(),numscreenshot);
+        sprintf(tela, "%s//data//screen//screen%03d.bmp", getPath().c_str(), numscreenshot);
         graphicSystemCore->salvarScreenShot(tela);
-    //F5 = Tira o Som
-    } else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)){
+        //F5 = Tira o Som
+    }
+    else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)) {
         //audio.Mute();
     }
 }
-//Define o TÌtulo para Janela
+
+//Define o T√≠tulo para Janela
 void GBFramework::setTitulo(std::string titulo)
 {
-    SDL_WM_SetCaption(titulo.c_str(),NULL);
+    SDL_WM_SetCaption(titulo.c_str(), NULL);
 }
 
 } // namespace GBF

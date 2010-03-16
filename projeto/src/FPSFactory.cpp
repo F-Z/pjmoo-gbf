@@ -13,28 +13,27 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include "FPSFactory.h"
-#include "FPSCounter.h"
-#include "FPSFixRate.h"
 
-namespace GBF {
+
+namespace GBF
+{
 
 namespace Kernel {
 
 namespace FPS {
 
-FPS * FPSFactory::criar(Tipo  tipo)
-
+FPS * FPSFactory::create(FPSType  type)
 {
     FPS * fps = NULL;
 
-    switch (tipo) {
+    switch (type) {
 
-        case FPS_CONTADOR:
+        case FPS_COUNTER:
             fps = new FPSCounter();
             break;
 
         default:
-            fps = new FPSFixRate(tipo);
+            fps = new FPSFixRate(type);
     }
 
     return fps;
