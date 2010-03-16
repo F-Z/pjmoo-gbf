@@ -16,14 +16,13 @@
 
 namespace GBF {
 
-//Construtor 
-ListManager::ListManager() 
-{
+//Construtor
+ListManager::ListManager() {
 
 }
-//Destrutor 
-ListManager::~ListManager() 
-{
+
+//Destrutor
+ListManager::~ListManager() {
 
 }
 

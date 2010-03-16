@@ -20,49 +20,52 @@
 #include "Character.h"
 #include <deque>
 
-namespace Character {
+namespace Character
+{
 
-//Descrição:
-//    Classe para criação de gerenciadores de personagens
-//Motivação:
-//    Fornecer uma interface padrão para criação de gerenciadores de personagens
+//DescriÃ§Ã£o:
+//    Classe para criaÃ§Ã£o de gerenciadores de personagens
+//MotivaÃ§Ã£o:
+//    Fornecer uma interface padrÃ£o para criaÃ§Ã£o de gerenciadores de personagens
+
 class ListCharacter : public GBF::ListManager
 {
-  public:
-    //Construtor
-    ListCharacter();
+    public:
+        //Construtor
+        ListCharacter();
 
-    //Destrutor
-    virtual ~ListCharacter();
+        //Destrutor
+        virtual ~ListCharacter();
 
-    //Desenha objetos que estao no container
-    virtual void desenhar();
+        //Desenha objetos que estao no container
+        virtual void draw();
 
-    //Retorna a quantidade de elementos
-    virtual int size();
+        //Retorna a quantidade de elementos
+        virtual int size();
 
-    //Limpa o container, removendo todos os elementos
-    virtual void limpar();
+        //Limpa o container, removendo todos os elementos
+        virtual void clear();
 
-    //Executa as ações de cada elemento
-    virtual void acao(GBF::Kernel::Input::InputSystem * input = NULL);
+        //Executa as aÃ§Ãµes de cada elemento
+        virtual void update(GBF::Kernel::Input::InputSystem * input = NULL);
 
-    void add(Character * character);
+        void add(Character * character);
 
-    virtual void remove(Character * character);
+        virtual void remove(Character * character);
 
-    virtual void collision(ListCharacter * listCharacter);
+        virtual void collision(ListCharacter * listCharacter);
 
-    virtual void collision(Character * character);
+        virtual void collision(Character * character);
 
-    virtual Character * getCharacter(int index);
+        virtual Character * getCharacter(int index);
 
 
-  protected:
-    virtual void ordenar();
+    protected:
+        virtual void sort();
 
-    std::deque<Character*> list;
+        std::deque<Character*> list;
 };
 
 } // namespace Character
+
 #endif
