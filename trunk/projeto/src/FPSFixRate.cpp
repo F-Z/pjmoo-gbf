@@ -14,32 +14,35 @@
 
 #include "FPSFixRate.h"
 
-namespace GBF {
+namespace GBF
+{
 
 namespace Kernel {
 
 namespace FPS {
 
-FPSFixRate::FPSFixRate(int frameRate) {
+FPSFixRate::FPSFixRate(int frameRate)
+{
     std::cout << "GBF::Kernel::FPS::FPSFixRate" << std::endl;
 
     if (frameRate < 30) {
         fixRate = 30;
-    }
-    else {
+    } else {
         fixRate = frameRate;
     }
 
     std::cout << "\tFPS: " << (float) fixRate << " fps" << std::endl;
 
-    iniciar();
+    start();
 }
 
-FPSFixRate::~FPSFixRate() {
+FPSFixRate::~FPSFixRate()
+{
 
 }
 
-void FPSFixRate::processar() {
+void FPSFixRate::update()
+{
     int delta = SDL_GetTicks() - time;
 
     if (delta < fixRate) {
@@ -50,13 +53,15 @@ void FPSFixRate::processar() {
 }
 
 //Deve ser chamado antes do loop principal do jogo
-void FPSFixRate::iniciar() {
+void FPSFixRate::start()
+{
     std::cout << "\tSDL: ";
     time = SDL_GetTicks();
     std::cout << (int) time << " ticks" << std::endl;
 }
 
-int FPSFixRate::getValor() {
+int FPSFixRate::getValue()
+{
     return fixRate;
 }
 

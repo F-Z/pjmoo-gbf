@@ -35,12 +35,12 @@ class FPSFixRate : public FPS {
     public:
         virtual ~FPSFixRate();
 
-        void processar();
+        void update();
 
         //Deve ser chamado antes do loop principal do jogo
-        void iniciar();
+        void start();
 
-        int getValor();
+        int getValue();
 
         friend class FPSFactory;
 };

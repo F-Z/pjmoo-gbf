@@ -40,12 +40,12 @@ class FPSCounter : public FPS {
         //Destrutor
         virtual ~FPSCounter();
 
-        void processar();
+        void update();
 
         //Deve ser chamado antes do loop principal do jogo
-        void iniciar();
+        void start();
 
-        int getValor();
+        int getValue();
 
 
     private:

@@ -13,20 +13,21 @@
 
 #include "FPS.h"
 
-namespace GBF {
+namespace GBF
+{
 
 namespace Kernel {
 
 namespace FPS {
 
 //Construtor
-FPS::FPS() 
+FPS::FPS()
 {
 //    UtilLog::sistema("Instanciando FPS");
-
 }
+
 //Destrutor
-FPS::~FPS() 
+FPS::~FPS()
 {
 //    UtilLog::sistema("Removendo FPS[%i]",fpsMax);
 }
