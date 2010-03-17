@@ -52,7 +52,7 @@ class UIWindowRecord : public UIWindow
 
 
   protected:
-    void atualizar();
+    void update();
 
     //Desenha o botão de ação da janela
     void desenharForeground();

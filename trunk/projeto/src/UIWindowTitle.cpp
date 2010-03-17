@@ -30,16 +30,16 @@ void UIWindowTitle::desenharConteudo()
     UIWindowDialog::desenharConteudo();
 
     int posicaoTextoHorizontal = 0;
-    int posicaoTextoVertical   = posicao.y+int(title.getDimensaoLetra().h*0.2);
+    int posicaoTextoVertical   = position.y+int(title.getDimensaoLetra().h*0.2);
 
     if (title.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
-        int auxiliar = wsManager->getLarguraLinha(title.getFonte(),title.getChaveTexto());
-        posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
+        int auxiliar = writeManager->getLarguraLinha(title.getFonte(),title.getChaveTexto());
+        posicaoTextoHorizontal=int (position.x+(dimension.w/2)-(auxiliar/2));
     } else {
-        posicaoTextoHorizontal = posicao.x+title.getDimensaoLetra().w;
+        posicaoTextoHorizontal = position.x+title.getDimensaoLetra().w;
     }
 
-    wsManager->escreverLocalizado(title.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,title.getChaveTexto());
+    writeManager->escreverLocalizado(title.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,title.getChaveTexto());
 
 }
 //Inicializa as configurações da caixa de texto
@@ -48,7 +48,7 @@ void UIWindowTitle::desenharConteudo()
 void UIWindowTitle::inicializar()
 {
     UIWindowDialog::inicializar();
-    title.setDimensaoLetra(wsManager->getFonte(title.getFonte())->getDimensao());
+    title.setDimensaoLetra(writeManager->getFonte(title.getFonte())->getDimensao());
     espacoAntesTexto=int(title.getDimensaoLetra().h*title.ENTRELINHA_UMA_MEIA);
 }
 

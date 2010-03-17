@@ -14,31 +14,36 @@
 
 #include "UIBotao.h"
 
-namespace UserInterface {
+namespace UserInterface
+{
 
-namespace Componente {
+namespace Componente
+{
 
-UIBotao::UIBotao(std::string fonte, std::string chaveTexto, const SDLKey & tecla){
+UIBotao::UIBotao(std::string fonte, std::string chaveTexto, const SDLKey & tecla)
+{
     botao.setFonte(fonte);
     botao.setChaveTexto(chaveTexto);
-    this->tecla=tecla;
+    this->tecla = tecla;
 
-    dimensao   = wsManager->getFonte(botao.getFonte())->getDimensao();
-    dimensao.w = wsManager->getLarguraLinha(botao.getFonte(),botao.getChaveTexto());
+    dimension   = writeManager->getFonte(botao.getFonte())->getDimensao();
+    dimension.w = writeManager->getLarguraLinha(botao.getFonte(), botao.getChaveTexto());
 }
 
-UIBotao::~UIBotao(){
+UIBotao::~UIBotao()
+{
 }
 
 //Retorna a tecla correspondente ao botão
-SDLKey UIBotao::getTecla() 
+SDLKey UIBotao::getTecla()
 {
     return tecla;
 }
+
 //Desenha os componentes visuais
-void UIBotao::desenhar() 
+void UIBotao::draw()
 {
-    wsManager->escreverLocalizado(botao.getFonte(),posicao.x,posicao.y,botao.getChaveTexto());
+    writeManager->escreverLocalizado(botao.getFonte(), position.x, position.y, botao.getChaveTexto());
 }
 
 } // namespace UserInterface::Componente

@@ -61,12 +61,12 @@ void UITecladoVirtual::desenharBackground()
     int letra=0;
 
     GBF::Ponto tecla;
-    tecla.x=posicao.x + (fonteTeclado.dimensao.w/4);
-    tecla.y=posicao.y;
+    tecla.x=position.x + (fonteTeclado.dimensao.w/4);
+    tecla.y=position.y;
 
     GBF::Ponto cursor;
-    cursor.x=posicao.x + (fonteTeclado.dimensao.w * 0.2);
-    cursor.y=posicao.y + (fonteTeclado.dimensao.h * 0.1);
+    cursor.x=position.x + (fonteTeclado.dimensao.w * 0.2);
+    cursor.y=position.y + (fonteTeclado.dimensao.h * 0.1);
 
     GBF::Dimensao cursorDimensao;
     cursorDimensao.w=fonteTeclado.dimensao.w;
@@ -80,7 +80,7 @@ void UITecladoVirtual::desenharBackground()
     //Painel do teclado
     for (int l=0;l<5;l++){
         for (int c=0;c<10;c++){
-            wsManager->escrever(fonteTeclado.nome, tecla.x +(espacoHorizontal*c),tecla.y+(espacoVertical*l),"%c",caracter[letra]);
+            writeManager->escrever(fonteTeclado.nome, tecla.x +(espacoHorizontal*c),tecla.y+(espacoVertical*l),"%c",caracter[letra]);
 
             //Desenhando cursor da selecao de tecla
             if ((selecao==letra)&&(tempoBlink.getTempo()%2==0)){
@@ -95,11 +95,11 @@ void UITecladoVirtual::desenharConteudo()
     graphicSystem->gfx->setColor(corCursor.r,corCursor.g,corCursor.b);
 
     GBF::Ponto tecla;
-    tecla.x=posicao.x + (fonteTeclado.dimensao.w/4);
-    tecla.y=posicao.y;
+    tecla.x=position.x + (fonteTeclado.dimensao.w/4);
+    tecla.y=position.y;
 
-    tecla.x=posicao.x + (10 * (fonteTeclado.dimensao.w + fonteTeclado.dimensao.w*0.3));
-    tecla.y=posicao.y + dimensao.h - (getTotalControle() * fonteControle.dimensao.h);
+    tecla.x=position.x + (10 * (fonteTeclado.dimensao.w + fonteTeclado.dimensao.w*0.3));
+    tecla.y=position.y + dimension.h - (getTotalControle() * fonteControle.dimensao.h);
 
     GBF::Ponto cursor;
     cursor.x=tecla.x - int(fonteControle.dimensao.w*0.25);
@@ -111,7 +111,7 @@ void UITecladoVirtual::desenharConteudo()
 
    //Painel das teclas de controles
     for (int ic=getTotalControle()-1;ic>=0;ic--){
-        wsManager->escreverLocalizado(fonteControle.nome, tecla.x,tecla.y+(fonteControle.dimensao.h*ic),controle[ic].c_str());
+        writeManager->escreverLocalizado(fonteControle.nome, tecla.x,tecla.y+(fonteControle.dimensao.h*ic),controle[ic].c_str());
     }
 
     //Desenhando cursor das teclas de controle
@@ -122,7 +122,7 @@ void UITecladoVirtual::desenharConteudo()
         }
     }
 }
-void UITecladoVirtual::atualizar()
+void UITecladoVirtual::update()
 {
     tempoEspera.processar();
     tempoBlink.processar();
@@ -132,21 +132,21 @@ void UITecladoVirtual::atualizar()
     }
 
     if (visual!=NULL){
-        GBF::Dimensao d  = dimensao;
-        d.w=dimensao.w+getTamanhoControle()+(fonteTeclado.dimensao.w);
+        GBF::Dimensao d  = dimension;
+        d.w=dimension.w+getTamanhoControle()+(fonteTeclado.dimensao.w);
 
-        visual->aplicar(posicao,d);
+        visual->aplicar(position,d);
     }
 }
-void UITecladoVirtual::desenhar()
+void UITecladoVirtual::draw()
 {
     desenharBackground();
     desenharConteudo();
 }
 UITecladoVirtual::UITecladoVirtual()
 {
-    posicao.x = 0;
-    posicao.y = 0;
+    position.x = 0;
+    position.y = 0;
     selecao   = 0;
 
     tempoEspera.setTempoOriginal(1);
@@ -198,12 +198,12 @@ int UITecladoVirtual::getIndex()
 void UITecladoVirtual::setFonteControle(std::string fonte)
 {
     fonteControle.nome=fonte;
-    fonteControle.dimensao=wsManager->getFonte(fonteControle.nome)->getDimensao();
+    fonteControle.dimensao=writeManager->getFonte(fonteControle.nome)->getDimensao();
 
     tamanhoControle  = 0;
     int tmp=0;
     for (int i=0; i<getTotalControle();i++){
-        tmp = wsManager->getLarguraLinha(fonteControle.nome,controle[i].c_str());
+        tmp = writeManager->getLarguraLinha(fonteControle.nome,controle[i].c_str());
         if (tmp>getTamanhoControle()){
             tamanhoControle=tmp;
         }
@@ -215,10 +215,10 @@ void UITecladoVirtual::setFonteControle(std::string fonte)
 void UITecladoVirtual::setFonteTeclado(std::string fonte)
 {
     fonteTeclado.nome=fonte;
-    fonteTeclado.dimensao=wsManager->getFonte(fonteTeclado.nome)->getDimensao();
+    fonteTeclado.dimensao=writeManager->getFonte(fonteTeclado.nome)->getDimensao();
 
-    dimensao.w=10 * (fonteTeclado.dimensao.w + int(fonteTeclado.dimensao.w/4));
-    dimensao.h=5  * (fonteTeclado.dimensao.h + int(fonteTeclado.dimensao.h/4));
+    dimension.w=10 * (fonteTeclado.dimensao.w + int(fonteTeclado.dimensao.w/4));
+    dimension.h=5  * (fonteTeclado.dimensao.h + int(fonteTeclado.dimensao.h/4));
 }
 //Estilo Visual a ser Aplicado no Componente
 

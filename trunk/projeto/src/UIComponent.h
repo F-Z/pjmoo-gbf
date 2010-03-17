@@ -12,51 +12,53 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UICOMPONENTE_H
-#define _UICOMPONENTE_H
+#ifndef _UICOMPONENT_H
+#define _UICOMPONENT_H
 
 #include "Language.h"
 #include "WriteManager.h"
 #include "GBF.h"
 
-namespace UserInterface {
-
-class UIComponente
+namespace UserInterface
 {
-  public:
-    UIComponente();
 
-    virtual ~UIComponente();
+class UIComponent
+{
+    public:
+        UIComponent();
 
-
-  protected:
-    static GBF::Kernel::Write::Language * uiTexto;
-
-    static GBF::Kernel::Write::WriteManager * wsManager;
+        virtual ~UIComponent();
 
 
-  public:
-    //Posicao do Componente na Tela
-    virtual void setPosicao(int x, int y);
+    protected:
+        static GBF::Kernel::Write::Language * text;
 
-    GBF::Dimensao getDimensao();
-
-    //Executa o componente (atualizando,desenhando)
-    virtual void executar();
+        static GBF::Kernel::Write::WriteManager * writeManager;
 
 
-  protected:
-    //Desenha os componentes visuais
-    virtual void desenhar() = 0;
+    public:
+        //Posicao do Componente na Tela
+        virtual void setPosition(int x, int y);
 
-    //atualiza as informações do componente (posicao, dimensao, estado)
-    virtual void atualizar();
+        GBF::Dimensao getDimension();
 
-    GBF::Ponto posicao;
+        //Executa o componente (atualizando,desenhando)
+        virtual void execute();
 
-    GBF::Dimensao dimensao;
+
+    protected:
+        //Desenha os componentes visuais
+        virtual void draw() = 0;
+
+        //atualiza as informações do componente (posicao, dimensao, estado)
+        virtual void update();
+
+        GBF::Ponto position;
+
+        GBF::Dimensao dimension;
 
 };
 
 } // namespace UserInterface
+
 #endif

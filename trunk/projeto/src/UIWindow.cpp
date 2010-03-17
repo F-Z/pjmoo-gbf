@@ -19,7 +19,7 @@ namespace UserInterface {
 namespace Window {
 
 //Construtor
-UIWindow::UIWindow() 
+UIWindow::UIWindow()
 {
     espacoAntesTexto=0;
 
@@ -28,38 +28,38 @@ UIWindow::UIWindow()
     tempoEspera.setResetar();
 }
 //Destrutor
-UIWindow::~UIWindow() 
+UIWindow::~UIWindow()
 {
     if (visual){
         delete(visual);
     }
 }
-void UIWindow::setDimensao(int largura, int altura) 
+void UIWindow::setDimensao(int largura, int altura)
 {
-    dimensao.w=largura;
-    dimensao.h=altura;
+    dimension.w=largura;
+    dimension.h=altura;
 }
 //Inicializa as configurações da caixa de texto
 
 //Inicializa as configurações da caixa de texto
-void UIWindow::inicializar() 
+void UIWindow::inicializar()
 {
     if (visual!=NULL){
-        visual->aplicar(posicao,dimensao);
+        visual->aplicar(position,dimension);
     }
 }
 //Estilo Visual a ser Aplicado no Componente
-void UIWindow::setVisual(UserInterface::Visual::UIVisual * visual) 
+void UIWindow::setVisual(UserInterface::Visual::UIVisual * visual)
 {
     this->visual=visual;
 }
 //atualiza as informações do componente (posicao, dimensao, estado)
-void UIWindow::atualizar() 
+void UIWindow::atualizar()
 {
     tempoEspera.processar();
 }
 //desenha os componentes vistuais
-void UIWindow::desenhar() 
+void UIWindow::desenhar()
 {
     desenharBackground();
 
@@ -70,7 +70,7 @@ void UIWindow::desenhar()
 //Desenha o background da caixa de texto
 
 //Desenha o background da caixa de texto
-void UIWindow::desenharBackground() 
+void UIWindow::desenharBackground()
 {
     if (visual!=NULL){
         visual->desenhar();
@@ -79,7 +79,7 @@ void UIWindow::desenharBackground()
 //Desenha o botão de ação da janela
 
 //Desenha a camada de decoração da janela (botões)
-void UIWindow::desenharForeground() 
+void UIWindow::desenharForeground()
 {
 }
 

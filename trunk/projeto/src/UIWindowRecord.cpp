@@ -18,7 +18,7 @@ namespace UserInterface {
 
 namespace Window {
 
-void UIWindowRecord::atualizar()
+void UIWindowRecord::update()
 {
     tempoEspera.processar();
 
@@ -31,7 +31,7 @@ void UIWindowRecord::atualizar()
 void UIWindowRecord::desenharForeground()
 {
     if (showErro){
-        wsManager->escreverLocalizado(fontNotice.nome, fontNotice.posicao.x,fontNotice.posicao.y,"GBF_UIRecorde_warning");
+        writeManager->escreverLocalizado(fontNotice.nome, fontNotice.posicao.x,fontNotice.posicao.y,"GBF_UIRecorde_warning");
     }
 }
 //Desenha o conteudo da janela
@@ -40,11 +40,11 @@ void UIWindowRecord::desenharForeground()
 void UIWindowRecord::desenharConteudo()
 {
     //escrevendo titulo centralizado
-    wsManager->escreverLocalizado(fontTitle.nome,fontTitle.posicao.x,fontTitle.posicao.y,"GBF_UIRecorde_title");
+    writeManager->escreverLocalizado(fontTitle.nome,fontTitle.posicao.x,fontTitle.posicao.y,"GBF_UIRecorde_title");
 
-    keyboard.executar();
-    textName.executar();
-    textScore.executar();
+    keyboard.execute();
+    textName.execute();
+    textScore.execute();
 }
 //Efetua as ações de acordo com a posição do cursor
 
@@ -95,26 +95,26 @@ void UIWindowRecord::inicializar()
 {
     UIWindow::inicializar();
 
-    GBF::Dimensao d = keyboard.getDimensao();
+    GBF::Dimensao d = keyboard.getDimension();
 
-    int pX=(posicao.x+dimensao.w)/2-(d.w/2);
-    int pY=(posicao.y+dimensao.h)/2;
+    int pX=(position.x+dimension.w)/2-(d.w/2);
+    int pY=(position.y+dimension.h)/2;
 
-    keyboard.setPosicao(pX,pY);
+    keyboard.setPosition(pX,pY);
 
 
-    pY=pY+keyboard.getDimensao().h;
+    pY=pY+keyboard.getDimension().h;
     fontNotice.posicao.x=pX;
     fontNotice.posicao.y=pY;
 
-    pX=posicao.x+fontTitle.dimensao.h;
-    pY=posicao.y+(fontTitle.dimensao.h*1.5);
+    pX=position.x+fontTitle.dimensao.h;
+    pY=position.y+(fontTitle.dimensao.h*1.5);
 
-    textName.setPosicao(pX,pY);
+    textName.setPosition(pX,pY);
 
-    pX=posicao.x+dimensao.w - textScore.getDimensao().w - fontTitle.dimensao.h;
+    pX=position.x+dimension.w - textScore.getDimension().w - fontTitle.dimensao.h;
 
-    textScore.setPosicao(pX,pY);
+    textScore.setPosition(pX,pY);
 }
 UIWindowRecord::UIWindowRecord()
 {
@@ -131,8 +131,8 @@ UIWindowRecord::UIWindowRecord()
     textScore.maxLength(8);
 
     nameIndex = 0;
-    posicao.x = 0;
-    posicao.y = 0;
+    position.x = 0;
+    position.y = 0;
 
     tempoEspera.setTempoOriginal(1);
     tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
@@ -162,11 +162,11 @@ void UIWindowRecord::setVisualComponentes(UserInterface::Visual::UIVisualSolido 
 void UIWindowRecord::setFontTitle(std::string font)
 {
     fontTitle.nome=font;
-    fontTitle.dimensao=wsManager->getFonte(fontTitle.nome)->getDimensao();
+    fontTitle.dimensao=writeManager->getFonte(fontTitle.nome)->getDimensao();
 
-    int tamanho = wsManager->getLarguraLinha(fontTitle.nome,"GBF_UIRecorde_title");
-    fontTitle.posicao.x=posicao.x+(dimensao.w/2)-(tamanho/2);
-    fontTitle.posicao.y=posicao.y;
+    int tamanho = writeManager->getLarguraLinha(fontTitle.nome,"GBF_UIRecorde_title");
+    fontTitle.posicao.x=position.x+(dimension.w/2)-(tamanho/2);
+    fontTitle.posicao.y=position.y;
 }
 void UIWindowRecord::setFontVirtualKeyboard(std::string keyFont, std::string controlFont)
 {

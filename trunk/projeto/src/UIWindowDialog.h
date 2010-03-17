@@ -63,7 +63,7 @@ class UIWindowDialog : public UIWindow
     virtual void desenharForeground();
 
     //atualiza as informações do componente (posicao, dimensao, estado)
-    virtual void atualizar();
+    virtual void update();
 
 };
 
