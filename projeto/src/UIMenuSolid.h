@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UIMENU_H
-#define _UIMENU_H
+#ifndef _UIMENUSOLID_H
+#define _UIMENUSOLID_H
 
 #include "UIMenuAbstract.h"
 #include "GraphicSystemUtility.h"
@@ -22,18 +22,18 @@ namespace UserInterface {
 
 namespace Menu {
 
-//Descrição: 
+//Descrição:
 //    Implementação da Classe MenuAbstract
 //Motivação:
 //    Fornecer um classe básica para criação de menus em texto
-class UIMenu : public UIMenuAbstract, public GBF::Kernel::Graphic::GraphicSystemUtility
+class UIMenuSolid : public UIMenuAbstract, public GBF::Kernel::Graphic::GraphicSystemUtility
 {
   public:
     //Construtor
-    UIMenu();
+    UIMenuSolid();
 
     //Destrutor
-    virtual ~UIMenu();
+    virtual ~UIMenuSolid();
 
 
   protected:
@@ -41,9 +41,9 @@ class UIMenu : public UIMenuAbstract, public GBF::Kernel::Graphic::GraphicSystem
 
     virtual bool navegar();
 
-    virtual void itemAvancar();
+    virtual void next();
 
-    virtual void itemAnterior();
+    virtual void previous();
 
 };
 

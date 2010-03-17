@@ -12,21 +12,21 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "UIMenu.h"
+#include "UIMenuSolid.h"
 
 namespace UserInterface {
 
 namespace Menu {
 
 //Construtor
-UIMenu::UIMenu()
+UIMenuSolid::UIMenuSolid()
 {
 }
 //Destrutor
-UIMenu::~UIMenu()
+UIMenuSolid::~UIMenuSolid()
 {
 }
-void UIMenu::desenhar()
+void UIMenuSolid::desenhar()
 {
     if (!item.empty()){
         GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
@@ -56,30 +56,30 @@ void UIMenu::desenhar()
         }
     }
 }
-bool UIMenu::navegar()
+bool UIMenuSolid::navegar()
 {
     bool navegou = false;
 
     if ((inputSystem->teclado->isKey(SDLK_UP))||(inputSystem->joystick->isAxeUp())){
-        itemAnterior();
+        previous();
         delayNavegacao.setResetar();
         navegou=true;
     } else if ((inputSystem->teclado->isKey(SDLK_DOWN))||(inputSystem->joystick->isAxeDown())){
-        itemAvancar();
+        next();
         delayNavegacao.setResetar();
         navegou=true;
     }
 
     return navegou;
 }
-void UIMenu::itemAvancar()
+void UIMenuSolid::next()
 {
     itemSelecionado++;
     if (itemSelecionado>=int(item.size())){
         itemSelecionado=item.size()-1;
     }
 }
-void UIMenu::itemAnterior()
+void UIMenuSolid::previous()
 {
     itemSelecionado--;
     if (itemSelecionado<0){
