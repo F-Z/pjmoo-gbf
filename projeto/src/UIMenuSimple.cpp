@@ -41,7 +41,7 @@ void UIMenuSimple::draw()
         for (unsigned int i=0; i<item.size(); i++){
             if (item[i]!=NULL){
                 int dtmp=item[i]->getQuantidadeLetras();
-                item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
+                item[i]->draw(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
             }
             pontoY+=verticalSpace;
         }

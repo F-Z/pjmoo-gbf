@@ -53,7 +53,7 @@ void UIMenuSolid::draw()
                 //item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
                 quantidadeLetras = item[i]->getQuantidadeLetras();
                 pontoX = t.x + meioHorizontal - (quantidadeLetras * dimensao.w) / 2;
-                item[i]->desenhar(pontoX, pontoY);
+                item[i]->draw(pontoX, pontoY);
             }
 
             pontoY += verticalSpace;

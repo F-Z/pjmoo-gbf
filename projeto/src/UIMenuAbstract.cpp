@@ -173,11 +173,11 @@ void UIMenuAbstract::selection()
     if (!item.empty()){
         for (unsigned int i = 0; i < item.size(); i++){
             if (item[i] != NULL){
-                item[i]->setAtivo(false);
+                item[i]->setActive(false);
             }
         }
 
-        item[selectedItem]->setAtivo(true);
+        item[selectedItem]->setActive(true);
     }
 }
 
