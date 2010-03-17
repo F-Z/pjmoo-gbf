@@ -15,13 +15,13 @@
 #ifndef _UIMENUTRANSPARENTE_H
 #define _UIMENUTRANSPARENTE_H
 
-#include "UIMenu.h"
+#include "UIMenuSolid.h"
 
 namespace UserInterface {
 
 namespace Menu {
 
-class UIMenuTransparente : public UIMenu
+class UIMenuTransparente : public UIMenuSolid
 {
   public:
     //Construtor
