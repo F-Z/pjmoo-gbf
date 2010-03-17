@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UIMENUTRANSPARENTE_H
-#define _UIMENUTRANSPARENTE_H
+#ifndef _UIMENUSIMPLE_H
+#define _UIMENUSIMPLE_H
 
 #include "UIMenuSolid.h"
 
@@ -21,14 +21,14 @@ namespace UserInterface {
 
 namespace Menu {
 
-class UIMenuTransparente : public UIMenuSolid
+class UIMenuSimple : public UIMenuSolid
 {
   public:
     //Construtor
-    UIMenuTransparente();
+    UIMenuSimple();
 
     //Destrutor
-    virtual ~UIMenuTransparente();
+    virtual ~UIMenuSimple();
 
 
   protected:

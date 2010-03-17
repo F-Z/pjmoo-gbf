@@ -12,21 +12,21 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "UIMenuTransparente.h"
+#include "UIMenuSimple.h"
 
 namespace UserInterface {
 
 namespace Menu {
 
 //Construtor
-UIMenuTransparente::UIMenuTransparente() 
+UIMenuSimple::UIMenuSimple()
 {
 }
 //Destrutor
-UIMenuTransparente::~UIMenuTransparente() 
+UIMenuSimple::~UIMenuSimple()
 {
 }
-void UIMenuTransparente::desenhar() 
+void UIMenuSimple::desenhar()
 {
     if (!item.empty()){
         GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
