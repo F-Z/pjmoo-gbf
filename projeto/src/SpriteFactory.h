@@ -28,6 +28,7 @@ namespace GBF {
 namespace Image {
 
 class SpriteFactory {
+
     public:
         //Construtor
         SpriteFactory(std::string nomeImageBuffer);
@@ -35,11 +36,11 @@ class SpriteFactory {
         //Destrutor
         virtual ~SpriteFactory();
 
-        GBF::Image::Sprite::SpriteItem * criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+        GBF::Image::Sprite::SpriteItem * createSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-        GBF::Image::Sprite::SpriteCharacter * criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate);
+        GBF::Image::Sprite::SpriteCharacter * createSpriteCharacter(int left, int top, int largura, int altura, int frameTotal, int frameRate);
 
-        GBF::Image::Layer::FrameLayer * criarFrameLayer(int left, int top, int largura, int altura);
+        GBF::Image::Layer::FrameLayer * createFrameLayer(int left, int top, int largura, int altura);
 
 
     protected:

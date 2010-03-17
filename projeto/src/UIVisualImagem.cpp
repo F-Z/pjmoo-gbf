@@ -23,7 +23,7 @@ UIVisualImagem::UIVisualImagem() {
     tipoBackground = BACKGROUND_LINES;
 
     GBF::Image::SpriteFactory *spriteFactory = new GBF::Image::SpriteFactory("gbf-window-background");
-    background = spriteFactory->criarFrameLayer(0, 0, 10, 10);
+    background = spriteFactory->createFrameLayer(0, 0, 10, 10);
 
     delete(spriteFactory);
 }
