@@ -29,21 +29,21 @@ SpriteFactory::SpriteFactory(std::string nomeImageBuffer) {
 SpriteFactory::~SpriteFactory() {
 }
 
-GBF::Image::Sprite::SpriteItem * SpriteFactory::criarSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) {
+GBF::Image::Sprite::SpriteItem * SpriteFactory::createSpriteItem(int left, int top, int largura, int altura, int frameTotal, int frameRate) {
     Sprite::SpriteItem *sprite = new Sprite::SpriteItem();
     sprite->criar(left, top, largura, altura, frameTotal, frameRate, imageBuffer);
 
     return sprite;
 }
 
-GBF::Image::Sprite::SpriteCharacter * SpriteFactory::criarSpritePersonagem(int left, int top, int largura, int altura, int frameTotal, int frameRate) {
+GBF::Image::Sprite::SpriteCharacter * SpriteFactory::createSpriteCharacter(int left, int top, int largura, int altura, int frameTotal, int frameRate) {
     Sprite::SpriteCharacter *sprite = new Sprite::SpriteCharacter();
     sprite->criar(left, top, largura, altura, frameTotal, frameRate, imageBuffer);
 
     return sprite;
 }
 
-GBF::Image::Layer::FrameLayer * SpriteFactory::criarFrameLayer(int left, int top, int largura, int altura) {
+GBF::Image::Layer::FrameLayer * SpriteFactory::createFrameLayer(int left, int top, int largura, int altura) {
     Layer::FrameLayer *sprite = new Layer::FrameLayer();
     sprite->criar(left, top, largura, altura, imageBuffer);
 
