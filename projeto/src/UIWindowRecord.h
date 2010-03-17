@@ -16,7 +16,7 @@
 #define _UIWINDOWRECORD_H
 
 #include "UserInterface.h"
-#include "UITecladoVirtual.h"
+#include "UIKeyboard.h"
 #include "UITextField.h"
 #include "UINumberField.h"
 #include "RSRecorde.h"
@@ -31,72 +31,74 @@ namespace Window {
 
 class UIWindowRecord : public UIWindow
 {
-  private:
-    UserInterface::UIFonteExtendida fontTitle;
 
-    UserInterface::UIFonteExtendida fontNotice;
+    private:
+        UserInterface::UIFonteExtendida fontTitle;
 
-    UserInterface::Componente::UITecladoVirtual keyboard;
+        UserInterface::UIFonteExtendida fontNotice;
 
-    UserInterface::Componente::UITextField textName;
+        UserInterface::Component::UIKeyboard keyboard;
 
-    UserInterface::Componente::UINumberField textScore;
+        UserInterface::Componente::UITextField textName;
 
-    RankingSystem::RSRecorde record;
+        UserInterface::Componente::UINumberField textScore;
 
-    UserInterface::Visual::UIVisualSolido * uiVisualComponentes;
+        RankingSystem::RSRecorde record;
 
-    int nameIndex;
+        UserInterface::Visual::UIVisualSolido * uiVisualComponentes;
 
-    bool showErro;
+        int nameIndex;
 
-
-  protected:
-    void update();
-
-    //Desenha o botão de ação da janela
-    void desenharForeground();
-
-    //Desenha o conteudo da janela
-    void desenharConteudo();
-
-    //Efetua as ações de acordo com a posição do cursor
-    int confirmSelection();
+        bool showErro;
 
 
-  public:
-    static const int BUTTON_SAVE;
+    protected:
+        void update();
 
-    //Inicializa as configurações da caixa de texto
-    virtual void inicializar();
+        //Desenha o botão de ação da janela
+        void desenharForeground();
 
-    UIWindowRecord();
+        //Desenha o conteudo da janela
+        void desenharConteudo();
 
-    //Destrutor
-    ~UIWindowRecord();
+        //Efetua as ações de acordo com a posição do cursor
+        int confirmSelection();
 
-    //Estilo Visual a ser Aplicado no Componente
-    void setVisualComponentes(UserInterface::Visual::UIVisualSolido * visual);
 
-    //Define a fonte a ser usada pelo Titulo
-    void setFontTitle(std::string font);
+    public:
+        static const int BUTTON_SAVE;
 
-    void setFontVirtualKeyboard(std::string keyFont, std::string controlFont);
+        //Inicializa as configurações da caixa de texto
+        virtual void inicializar();
 
-    void setFontEdition(std::string fontLabel, std::string fontValue);
+        UIWindowRecord();
 
-    //Retorna o TopSystemRecorde
-    RankingSystem::RSRecorde getRecord();
+        //Destrutor
+        ~UIWindowRecord();
 
-    //Atribui um RSRecorde para complementar os dados
-    void setRecord(RankingSystem::RSRecorde record);
+        //Estilo Visual a ser Aplicado no Componente
+        void setVisualComponentes(UserInterface::Visual::UIVisualSolido * visual);
 
-    //Gerencia o controle do cursor (navegação) e as opções selecionadas
-    bool isAction(int action);
+        //Define a fonte a ser usada pelo Titulo
+        void setFontTitle(std::string font);
+
+        void setFontKeyboard(std::string keyFont, std::string controlFont);
+
+        void setFontEdition(std::string fontLabel, std::string fontValue);
+
+        //Retorna o TopSystemRecorde
+        RankingSystem::RSRecorde getRecord();
+
+        //Atribui um RSRecorde para complementar os dados
+        void setRecord(RankingSystem::RSRecorde record);
+
+        //Gerencia o controle do cursor (navegação) e as opções selecionadas
+        bool isAction(int action);
 
 };
 
 } // namespace UserInterface::Window
 
 } // namespace UserInterface
+
 #endif

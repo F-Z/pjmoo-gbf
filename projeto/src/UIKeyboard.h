@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UITECLADOVIRTUAL_H
-#define _UITECLADOVIRTUAL_H
+#ifndef _UIKEYBOARD_H
+#define _UIKEYBOARD_H
 
 #include "Color.h"
 #include <string>
@@ -29,14 +29,15 @@
 namespace UserInterface
 {
 
-namespace Componente
+namespace Component
 {
 
-class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
+class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
 {
+
     private:
         //Efetua o controle sobre a navegação do cursor
-        void navegar();
+        void browse();
 
         GBF::Color::RGB corCursor;
 
@@ -46,9 +47,9 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
 
         std::string controle[3];
 
-        UserInterface::UIFonteReferencia fonteTeclado;
+        UserInterface::UIFonteReferencia fontKey;
 
-        UserInterface::UIFonteReferencia fonteControle;
+        UserInterface::UIFonteReferencia fontControl;
 
         int selecao;
 
@@ -56,9 +57,9 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
 
         UserInterface::Visual::UIVisual * visual;
 
-        void desenharBackground();
+        void drawBackground();
 
-        void desenharConteudo();
+        void drawContent();
 
         void update();
 
@@ -66,9 +67,9 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
 
 
     public:
-        UITecladoVirtual();
+        UIKeyboard();
 
-        virtual ~UITecladoVirtual();
+        virtual ~UIKeyboard();
 
         int getTotalCaracter();
 
@@ -80,21 +81,21 @@ class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, publ
 
         void setCaracter(std::string caracteres);
 
-        void setControle(int index, std::string texto);
+        void addControl(int index, std::string text);
 
         char getCaracter();
 
         int getIndex();
 
         //Define a fonte a ser usada pelo Controle
-        void setFonteControle(std::string fonte);
+        void setFontControl(std::string fonte);
 
         //Define a fonte a ser usada pelo teclado virtual
-        void setFonteTeclado(std::string fonte);
+        void setFontKey(std::string fonte);
 
         void setVisual(UserInterface::Visual::UIVisual * visual);
 
-        void setCorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
+        void setColorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
 
     protected:
