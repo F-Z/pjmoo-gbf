@@ -32,7 +32,7 @@ class UIMenuSimple : public UIMenuSolid
 
 
   protected:
-    void desenhar();
+    void draw();
 
 };
 

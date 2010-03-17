@@ -22,68 +22,77 @@ namespace Menu {
 UIMenuSolid::UIMenuSolid()
 {
 }
+
 //Destrutor
 UIMenuSolid::~UIMenuSolid()
 {
 }
-void UIMenuSolid::desenhar()
+
+void UIMenuSolid::draw()
 {
     if (!item.empty()){
         GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
-        int offsetY=(dimensao.w/4);
-        int totalVertical   = (int(item.size()) * espacoVertical)+offsetY;
-        int totalHorizontal = (maiorPalavra+2) * dimensao.w;
-        int meioHorizontal  = totalHorizontal/2;
+        int offsetY = (dimensao.w / 4);
+        int totalVertical   = (int(item.size()) * verticalSpace) + offsetY;
+        int totalHorizontal = (maxCharItem + 2) * dimensao.w;
+        int meioHorizontal  = totalHorizontal / 2;
 
-        GBF::Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
+        GBF::Ponto t = calcularAlinhamento(totalHorizontal, totalVertical);
 
-        graphicSystem->gfx->setColor(corFundo.r,corFundo.g,corFundo.b);
-        graphicSystem->gfx->retanguloPreenchido(t.x,t.y,totalHorizontal,totalVertical);
-        graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
-        graphicSystem->gfx->retangulo(t.x,t.y,totalHorizontal,totalVertical);
+        graphicSystem->gfx->setColor(corFundo.r, corFundo.g, corFundo.b);
+        graphicSystem->gfx->retanguloPreenchido(t.x, t.y, totalHorizontal, totalVertical);
+        graphicSystem->gfx->setColor(corBorda.r, corBorda.g, corBorda.b);
+        graphicSystem->gfx->retangulo(t.x, t.y, totalHorizontal, totalVertical);
 
-        int pontoY=t.y+offsetY;
-        int pontoX=0;
+        int pontoY = t.y + offsetY;
+        int pontoX = 0;
         int quantidadeLetras = 0;
-        for (unsigned int i=0; i<item.size(); i++){
-            if (item[i]!=NULL){
+
+        for (unsigned int i = 0; i < item.size(); i++){
+            if (item[i] != NULL){
                 //item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
                 quantidadeLetras = item[i]->getQuantidadeLetras();
-                pontoX = t.x + meioHorizontal - (quantidadeLetras*dimensao.w)/2;
-                item[i]->desenhar(pontoX,pontoY);
+                pontoX = t.x + meioHorizontal - (quantidadeLetras * dimensao.w) / 2;
+                item[i]->desenhar(pontoX, pontoY);
             }
-            pontoY+=espacoVertical;
+
+            pontoY += verticalSpace;
         }
     }
 }
-bool UIMenuSolid::navegar()
+
+bool UIMenuSolid::browse()
 {
     bool navegou = false;
 
-    if ((inputSystem->teclado->isKey(SDLK_UP))||(inputSystem->joystick->isAxeUp())){
+    if ((inputSystem->teclado->isKey(SDLK_UP)) || (inputSystem->joystick->isAxeUp())){
         previous();
-        delayNavegacao.setResetar();
-        navegou=true;
-    } else if ((inputSystem->teclado->isKey(SDLK_DOWN))||(inputSystem->joystick->isAxeDown())){
+        browseDelay.setResetar();
+        navegou = true;
+    } else if ((inputSystem->teclado->isKey(SDLK_DOWN)) || (inputSystem->joystick->isAxeDown())){
         next();
-        delayNavegacao.setResetar();
-        navegou=true;
+        browseDelay.setResetar();
+        navegou = true;
     }
 
     return navegou;
 }
+
 void UIMenuSolid::next()
 {
-    itemSelecionado++;
-    if (itemSelecionado>=int(item.size())){
-        itemSelecionado=item.size()-1;
+    selectedItem++;
+
+    if (selectedItem >= int(item.size())){
+        selectedItem = item.size() - 1;
     }
 }
+
 void UIMenuSolid::previous()
 {
-    itemSelecionado--;
-    if (itemSelecionado<0){
-        itemSelecionado=0;
+    selectedItem--;
+
+    if (selectedItem < 0){
+        selectedItem = 0;
     }
 }
 
