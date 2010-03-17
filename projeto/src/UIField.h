@@ -19,73 +19,76 @@
 
 #include "UIVisual.h"
 #include "UserInterface.h"
-#include "UIComponente.h"
+#include "UIComponent.h"
 #include "GraphicSystemUtility.h"
 #include "CronometroCrescente.h"
 
-namespace UserInterface {
-
-namespace Componente {
-
-class UIField : public UserInterface::UIComponente, public GBF::Kernel::Graphic::GraphicSystemUtility
+namespace UserInterface
 {
-  public:
-    UIField();
 
-    virtual ~UIField();
+namespace Componente
+{
 
-    void setLabel(std::string label);
+class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::GraphicSystemUtility
+{
+    public:
+        UIField();
 
-    //Define a fonte a ser usada pelo label
-    void setFonteLabel(std::string fonte);
+        virtual ~UIField();
 
-    //Define a fonte a ser usada pelo Campo
-    void setFonteCampo(std::string fonte);
+        void setLabel(std::string label);
 
-    void maxLength(int length);
+        //Define a fonte a ser usada pelo label
+        void setFonteLabel(std::string fonte);
 
-    void showCursor(bool show);
+        //Define a fonte a ser usada pelo Campo
+        void setFonteCampo(std::string fonte);
 
-    void setCursorPosicao(int posicao);
+        void maxLength(int length);
 
-    void setVisual(UserInterface::Visual::UIVisual * visual);
+        void showCursor(bool show);
 
+        void setCursorPosicao(int posicao);
 
-  protected:
-    UserInterface::UIFonteExtendida fonteLabel;
-
-    UserInterface::UIFonteExtendida fonteCampo;
-
-    UserInterface::UICursor cursor;
-
-    int indice;
-
-    //Desenha o conteudo da janela
-    void desenharBackground();
-
-    virtual void desenharConteudo() = 0;
-
-    void desenharForeground();
-
-    void atualizar();
-
-    void desenhar();
-
-    UserInterface::Visual::UIVisual * visual;
+        void setVisual(UserInterface::Visual::UIVisual * visual);
 
 
-  private:
-    std::string label;
+    protected:
+        UserInterface::UIFonteExtendida fonteLabel;
 
-    int length;
+        UserInterface::UIFonteExtendida fonteCampo;
+
+        UserInterface::UICursor cursor;
+
+        int indice;
+
+        //Desenha o conteudo da janela
+        void desenharBackground();
+
+        virtual void desenharConteudo() = 0;
+
+        void desenharForeground();
+
+        void update();
+
+        void draw();
+
+        UserInterface::Visual::UIVisual * visual;
 
 
-  protected:
-    GBF::Kernel::Timer::CronometroCrescente tempoBlink;
+    private:
+        std::string label;
+
+        int length;
+
+
+    protected:
+        GBF::Kernel::Timer::CronometroCrescente tempoBlink;
 
 };
 
 } // namespace UserInterface::Componente
 
 } // namespace UserInterface
+
 #endif

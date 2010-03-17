@@ -12,45 +12,51 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "UIComponente.h"
+#include "UIComponent.h"
 
-namespace UserInterface {
-
-UIComponente::UIComponente()
+namespace UserInterface
 {
-    if (wsManager==NULL){
-        wsManager = GBF::Kernel::Write::WriteManager::getInstance();
+
+UIComponent::UIComponent()
+{
+    if (writeManager == NULL){
+        writeManager = GBF::Kernel::Write::WriteManager::getInstance();
     }
 
-    if (uiTexto==NULL){
-        uiTexto = GBF::Kernel::Write::Language::getInstance();
+    if (text == NULL){
+        text = GBF::Kernel::Write::Language::getInstance();
     }
 }
-UIComponente::~UIComponente(){
+
+UIComponent::~UIComponent()
+{
 }
 
-GBF::Kernel::Write::Language * UIComponente::uiTexto=NULL;
+GBF::Kernel::Write::Language * UIComponent::text = NULL;
 
-GBF::Kernel::Write::WriteManager * UIComponente::wsManager=NULL;
+GBF::Kernel::Write::WriteManager * UIComponent::writeManager = NULL;
 
 //Posicao do Componente na Tela
-void UIComponente::setPosicao(int x, int y)
+void UIComponent::setPosition(int x, int y)
 {
-    posicao.x=x;
-    posicao.y=y;
+    position.x = x;
+    position.y = y;
 }
-GBF::Dimensao UIComponente::getDimensao()
+
+GBF::Dimensao UIComponent::getDimension()
 {
-    return dimensao;
+    return dimension;
 }
+
 //Executa o componente (atualizando,desenhando)
-void UIComponente::executar()
+void UIComponent::execute()
 {
-    atualizar();
-    desenhar();
+    update();
+    draw();
 }
+
 //atualiza as informações do componente (posicao, dimensao, estado)
-void UIComponente::atualizar()
+void UIComponent::update()
 {
 }
 

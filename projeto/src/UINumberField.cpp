@@ -26,13 +26,13 @@ UINumberField::~UINumberField(){
     //dtor
 }
 
-void UINumberField::setValue(unsigned int value) 
+void UINumberField::setValue(unsigned int value)
 {
     this->value=value;
 }
-void UINumberField::desenharConteudo() 
+void UINumberField::desenharConteudo()
 {
-    wsManager->escrever(fonteCampo.nome, fonteCampo.posicao.x, fonteCampo.posicao.y,"%08d",value);
+    writeManager->escrever(fonteCampo.nome, fonteCampo.posicao.x, fonteCampo.posicao.y,"%08d",value);
 }
 
 } // namespace UserInterface::Componente

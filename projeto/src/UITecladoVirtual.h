@@ -21,88 +21,91 @@
 #include "UserInterface.h"
 #include "UIVisual.h"
 #include "GraphicSystemUtility.h"
-#include "UIComponente.h"
+#include "UIComponent.h"
 #include "InputSystemUtility.h"
 #include "CronometroDecrescente.h"
 #include "CronometroCrescente.h"
 
-namespace UserInterface {
-
-namespace Componente {
-
-class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, public UserInterface::UIComponente, public GBF::Kernel::Input::InputSystemUtility
+namespace UserInterface
 {
-  private:
-    //Efetua o controle sobre a navegação do cursor
-    void navegar();
 
-    GBF::Color::RGB corCursor;
+namespace Componente
+{
 
+class UITecladoVirtual : public GBF::Kernel::Graphic::GraphicSystemUtility, public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
+{
+    private:
+        //Efetua o controle sobre a navegação do cursor
+        void navegar();
 
-  protected:
-    char caracter[50];
-
-    std::string controle[3];
-
-    UserInterface::UIFonteReferencia fonteTeclado;
-
-    UserInterface::UIFonteReferencia fonteControle;
-
-    int selecao;
-
-    int tamanhoControle;
-
-    UserInterface::Visual::UIVisual * visual;
-
-    void desenharBackground();
-
-    void desenharConteudo();
-
-    void atualizar();
-
-    void desenhar();
+        GBF::Color::RGB corCursor;
 
 
-  public:
-    UITecladoVirtual();
+    protected:
+        char caracter[50];
 
-    virtual ~UITecladoVirtual();
+        std::string controle[3];
 
-    int getTotalCaracter();
+        UserInterface::UIFonteReferencia fonteTeclado;
 
-    int getTotalControle();
+        UserInterface::UIFonteReferencia fonteControle;
 
-    int getTotalTeclas();
+        int selecao;
 
-    int getTamanhoControle();
+        int tamanhoControle;
 
-    void setCaracter(std::string caracteres);
+        UserInterface::Visual::UIVisual * visual;
 
-    void setControle(int index, std::string texto);
+        void desenharBackground();
 
-    char getCaracter();
+        void desenharConteudo();
 
-    int getIndex();
+        void update();
 
-    //Define a fonte a ser usada pelo Controle
-    void setFonteControle(std::string fonte);
-
-    //Define a fonte a ser usada pelo teclado virtual
-    void setFonteTeclado(std::string fonte);
-
-    void setVisual(UserInterface::Visual::UIVisual * visual);
-
-    void setCorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
+        void draw();
 
 
-  protected:
-    GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
+    public:
+        UITecladoVirtual();
 
-    GBF::Kernel::Timer::CronometroCrescente tempoBlink;
+        virtual ~UITecladoVirtual();
+
+        int getTotalCaracter();
+
+        int getTotalControle();
+
+        int getTotalTeclas();
+
+        int getTamanhoControle();
+
+        void setCaracter(std::string caracteres);
+
+        void setControle(int index, std::string texto);
+
+        char getCaracter();
+
+        int getIndex();
+
+        //Define a fonte a ser usada pelo Controle
+        void setFonteControle(std::string fonte);
+
+        //Define a fonte a ser usada pelo teclado virtual
+        void setFonteTeclado(std::string fonte);
+
+        void setVisual(UserInterface::Visual::UIVisual * visual);
+
+        void setCorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
+
+
+    protected:
+        GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
+
+        GBF::Kernel::Timer::CronometroCrescente tempoBlink;
 
 };
 
 } // namespace UserInterface::Componente
 
 } // namespace UserInterface
+
 #endif

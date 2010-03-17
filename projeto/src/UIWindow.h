@@ -15,61 +15,64 @@
 #ifndef _UIWINDOW_H
 #define _UIWINDOW_H
 
-#include "UIComponente.h"
+#include "UIComponent.h"
 #include "InputSystemUtility.h"
 #include "UIVisual.h"
 #include "CronometroDecrescente.h"
 
-namespace UserInterface {
-
-namespace Window {
-
-class UIWindow : public UserInterface::UIComponente, public GBF::Kernel::Input::InputSystemUtility
+namespace UserInterface
 {
-  public:
-    //Construtor
-    UIWindow();
 
-    //Destrutor
-    virtual ~UIWindow();
+namespace Window
+{
 
-    void setDimensao(int largura, int altura);
+class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
+{
+    public:
+        //Construtor
+        UIWindow();
 
-    //Inicializa as configurações da caixa de texto
-    virtual void inicializar();
+        //Destrutor
+        virtual ~UIWindow();
 
-    //Estilo Visual a ser Aplicado no Componente
-    void setVisual(UserInterface::Visual::UIVisual * visual);
+        void setDimensao(int largura, int altura);
 
-    //Retorna se a ação informada foi acionado
-    virtual bool isAcao(int tipoAcao) = 0;
+        //Inicializa as configurações da caixa de texto
+        virtual void inicializar();
+
+        //Estilo Visual a ser Aplicado no Componente
+        void setVisual(UserInterface::Visual::UIVisual * visual);
+
+        //Retorna se a ação informada foi acionado
+        virtual bool isAcao(int tipoAcao) = 0;
 
 
-  protected:
-    int espacoAntesTexto;
+    protected:
+        int espacoAntesTexto;
 
-    GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
+        GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
 
-    //atualiza as informações do componente (posicao, dimensao, estado)
-    virtual void atualizar();
+        //atualiza as informações do componente (posicao, dimensao, estado)
+        virtual void atualizar();
 
-    //desenha os componentes vistuais
-    void desenhar();
+        //desenha os componentes vistuais
+        void desenhar();
 
-    //Desenha o background da caixa de texto
-    virtual void desenharBackground();
+        //Desenha o background da caixa de texto
+        virtual void desenharBackground();
 
-    //Desenha o conteudo da janela
-    virtual void desenharConteudo() = 0;
+        //Desenha o conteudo da janela
+        virtual void desenharConteudo() = 0;
 
-    //Desenha a camada de decoração da janela (botões)
-    virtual void desenharForeground();
+        //Desenha a camada de decoração da janela (botões)
+        virtual void desenharForeground();
 
-    UserInterface::Visual::UIVisual * visual;
+        UserInterface::Visual::UIVisual * visual;
 
 };
 
 } // namespace UserInterface::Window
 
 } // namespace UserInterface
+
 #endif

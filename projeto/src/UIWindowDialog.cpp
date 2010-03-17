@@ -62,7 +62,7 @@ int UIWindowDialog::confirmarSelecao()
 void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
-    texto.setDimensaoLetra(wsManager->getFonte(texto.getFonte())->getDimensao());
+    texto.setDimensaoLetra(writeManager->getFonte(texto.getFonte())->getDimensao());
 }
 //Desenha o conteudo da janela
 
@@ -73,26 +73,26 @@ void UIWindowDialog::desenharConteudo()
     bool continuar = false;
     char textoChave[30];
 
-    int posicaoTextoVertical   = posicao.y+espacoAntesTexto;
+    int posicaoTextoVertical   = position.y+espacoAntesTexto;
     int posicaoTextoHorizontal = 0;
     int auxiliar=0;
 
     do {
         sprintf(textoChave,texto.getChaveTexto().c_str(),numeroLinha);
 
-        continuar=uiTexto->isKey(textoChave);
+        continuar=text->isKey(textoChave);
 
         if (continuar){
 
             if (texto.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
-                auxiliar = wsManager->getLarguraLinha(texto.getFonte(),textoChave);
-                posicaoTextoHorizontal=int (posicao.x+(dimensao.w/2)-(auxiliar/2));
+                auxiliar = writeManager->getLarguraLinha(texto.getFonte(),textoChave);
+                posicaoTextoHorizontal=int (position.x+(dimension.w/2)-(auxiliar/2));
             } else {
-                posicaoTextoHorizontal = posicao.x+texto.getDimensaoLetra().w;
+                posicaoTextoHorizontal = position.x+texto.getDimensaoLetra().w;
             }
 
-            wsManager->escreverLocalizado(texto.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
-            posicaoTextoVertical=posicao.y+espacoAntesTexto+(texto.getEspacoEntreLinhas()*numeroLinha);
+            writeManager->escreverLocalizado(texto.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
+            posicaoTextoVertical=position.y+espacoAntesTexto+(texto.getEspacoEntreLinhas()*numeroLinha);
             numeroLinha++;
 
         } else {
@@ -105,20 +105,20 @@ void UIWindowDialog::desenharConteudo()
 void UIWindowDialog::desenharForeground()
 {
     if ((botao!=NULL)&&(tempoEspera.isTerminou())){
-        botao->executar();
+        botao->execute();
     }
 }
 //atualiza as informações do componente (posicao, dimensao, estado)
-void UIWindowDialog::atualizar()
+void UIWindowDialog::update()
 {
     tempoEspera.processar();
 
     if (botao!=NULL){
-        GBF::Ponto pontoAux = posicao;
-        GBF::Dimensao d= botao->getDimensao();
-        pontoAux.x = (posicao.x+dimensao.w)-d.w;
-        pontoAux.y = (posicao.y+dimensao.h)-d.h;
-        botao->setPosicao(pontoAux.x,pontoAux.y);
+        GBF::Ponto pontoAux = position;
+        GBF::Dimensao d= botao->getDimension();
+        pontoAux.x = (position.x+dimension.w)-d.w;
+        pontoAux.y = (position.y+dimension.h)-d.h;
+        botao->setPosition(pontoAux.x,pontoAux.y);
     }
 }
 
