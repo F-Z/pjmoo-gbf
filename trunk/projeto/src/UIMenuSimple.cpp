@@ -26,13 +26,13 @@ UIMenuSimple::UIMenuSimple()
 UIMenuSimple::~UIMenuSimple()
 {
 }
-void UIMenuSimple::desenhar()
+void UIMenuSimple::draw()
 {
     if (!item.empty()){
         GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
         int offsetY=(dimensao.w/4);
-        int totalVertical   = (int(item.size()) * espacoVertical)+offsetY;
-        int totalHorizontal = (maiorPalavra) * dimensao.w;
+        int totalVertical   = (int(item.size()) * verticalSpace)+offsetY;
+        int totalHorizontal = (maxCharItem) * dimensao.w;
         int meioHorizontal  = totalHorizontal/2;
 
         GBF::Ponto t=calcularAlinhamento(totalHorizontal,totalVertical);
@@ -43,7 +43,7 @@ void UIMenuSimple::desenhar()
                 int dtmp=item[i]->getQuantidadeLetras();
                 item[i]->desenhar(t.x+(meioHorizontal-((dtmp*dimensao.w)/2)),pontoY);
             }
-            pontoY+=espacoVertical;
+            pontoY+=verticalSpace;
         }
     }
 }

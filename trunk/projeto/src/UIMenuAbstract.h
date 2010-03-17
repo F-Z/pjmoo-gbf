@@ -31,74 +31,77 @@ namespace Menu {
 //    Classe para criação de menus
 //Motivação:
 //    Fornecer uma interface padrão para criação de menus
+
 class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 {
-  protected:
-    int itemSelecionado;
 
-    int espacoVertical;
+    protected:
+        int selectedItem;
 
-    GBF::Ponto posicao;
+        int verticalSpace;
 
-    std::deque<UIItemAbstract *> item;
+        GBF::Ponto position;
 
-    GBF::Kernel::Timer::CronometroDecrescente delayNavegacao;
+        std::deque<UIItemAbstract *> item;
 
-
-  public:
-    //Construtor
-    UIMenuAbstract();
-
-    //Destrutor
-    virtual ~UIMenuAbstract();
-
-    void setEspacoVertical(int espaco);
-
-    void setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
-
-    void setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
-
-    //Define a posição x,y do menu
-    void setPosicao(int x, int y);
-
-    //Centraliza o menu na tela de acordo com as coordenadas passadas
-    //Obs.: Caso o parâmetro de alinhamento seja HORIZONTAL ou VERTICAL ele usará o parâmetro
-    //referente a outra posição para posicionar o menu na tela
-    void centralizarTela(int x, int y, UserInterface::UIAlinhamento alinhamento);
-
-    bool executar();
-
-    //Adiciona um item ao menu
-    void adicionar(UIItemAbstract * item);
-
-    //Retorna o índice da opção selecionada
-    virtual int confirmarSelecao();
+        GBF::Kernel::Timer::CronometroDecrescente browseDelay;
 
 
-  protected:
-    GBF::Ponto calcularAlinhamento(int caixaLargura, int caixaAltura);
+    public:
+        //Construtor
+        UIMenuAbstract();
 
-    //desenha o menu na tela
-    virtual void desenhar() = 0;
+        //Destrutor
+        virtual ~UIMenuAbstract();
 
-    //remove todos os itens do menu
-    void limparLista();
+        void setVerticalSpace(int space);
 
-    virtual void selecao();
+        void setBorderColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
-    virtual bool navegar() = 0;
+        void setBackgroundColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
-    int maiorPalavra;
+        //Define a posição x,y do menu
+        void setPosition(int x, int y);
 
-    UserInterface::UIAlinhamento eAlinhamento;
+        //Centraliza o menu na tela de acordo com as coordenadas passadas
+        //Obs.: Caso o parâmetro de alinhamento seja HORIZONTAL ou VERTICAL ele usará o parâmetro
+        //referente a outra posição para posicionar o menu na tela
+        void center(int x, int y, UserInterface::UIAlinhamento alinhamento);
 
-    GBF::Color::RGB corBorda;
+        bool execute();
 
-    GBF::Color::RGB corFundo;
+        //Adiciona um item ao menu
+        void add(UIItemAbstract * item);
+
+        //Retorna o índice da opção selecionada
+        virtual int confirmSelection();
+
+
+    protected:
+        GBF::Ponto calcularAlinhamento(int caixaLargura, int caixaAltura);
+
+        //desenha o menu na tela
+        virtual void draw() = 0;
+
+        //remove todos os itens do menu
+        void clear();
+
+        virtual void selection();
+
+        virtual bool browse() = 0;
+
+        int maxCharItem;
+
+        UserInterface::UIAlinhamento eAlinhamento;
+
+        GBF::Color::RGB corBorda;
+
+        GBF::Color::RGB corFundo;
 
 };
 
 } // namespace UserInterface::Menu
 
 } // namespace UserInterface
+
 #endif

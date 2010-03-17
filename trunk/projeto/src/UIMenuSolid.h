@@ -37,9 +37,9 @@ class UIMenuSolid : public UIMenuAbstract, public GBF::Kernel::Graphic::GraphicS
 
 
   protected:
-    void desenhar();
+    void draw();
 
-    virtual bool navegar();
+    virtual bool browse();
 
     virtual void next();
 
