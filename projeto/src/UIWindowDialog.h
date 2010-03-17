@@ -17,57 +17,60 @@
 
 #include "UIBotao.h"
 #include "UIWindow.h"
-#include "UITexto.h"
+#include "UIText.h"
 
-namespace UserInterface {
+namespace UserInterface
+{
 
-namespace Window {
+namespace Window
+{
 
 class UIWindowDialog : public UIWindow
 {
-  public:
-    static const int BOTAO_OK;
+    public:
+        static const int BOTAO_OK;
 
-    UIWindowDialog();
+        UIWindowDialog();
 
-    virtual ~UIWindowDialog();
+        virtual ~UIWindowDialog();
 
-    void adicionarBotao(UserInterface::Componente::UIBotao * novoBotao);
+        void adicionarBotao(UserInterface::Componente::UIBotao * novoBotao);
 
-    //Retorna se a ação informada foi acionado
-    virtual bool isAcao(int tipoAcao);
-
-
-  protected:
-    int confirmarSelecao();
+        //Retorna se a ação informada foi acionado
+        virtual bool isAcao(int tipoAcao);
 
 
-  public:
-    UserInterface::Texto::UITexto texto;
+    protected:
+        int confirmarSelecao();
 
 
-  protected:
-    UserInterface::Componente::UIBotao * botao;
+    public:
+        UserInterface::Text::UIText texto;
 
 
-  public:
-    //Inicializa as configurações da caixa de texto
-    virtual void inicializar();
+    protected:
+        UserInterface::Componente::UIBotao * botao;
 
 
-  protected:
-    //Desenha o conteudo da janela
-    virtual void desenharConteudo();
+    public:
+        //Inicializa as configurações da caixa de texto
+        virtual void inicializar();
 
-    //Desenha a camada de decoração da janela (botões)
-    virtual void desenharForeground();
 
-    //atualiza as informações do componente (posicao, dimensao, estado)
-    virtual void update();
+    protected:
+        //Desenha o conteudo da janela
+        virtual void desenharConteudo();
+
+        //Desenha a camada de decoração da janela (botões)
+        virtual void desenharForeground();
+
+        //atualiza as informações do componente (posicao, dimensao, estado)
+        virtual void update();
 
 };
 
 } // namespace UserInterface::Window
 
 } // namespace UserInterface
+
 #endif

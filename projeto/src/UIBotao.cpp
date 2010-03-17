@@ -22,12 +22,12 @@ namespace Componente
 
 UIBotao::UIBotao(std::string fonte, std::string chaveTexto, const SDLKey & tecla)
 {
-    botao.setFonte(fonte);
-    botao.setChaveTexto(chaveTexto);
+    botao.setFont(fonte);
+    botao.setKeyText(chaveTexto);
     this->tecla = tecla;
 
-    dimension   = writeManager->getFonte(botao.getFonte())->getDimensao();
-    dimension.w = writeManager->getLarguraLinha(botao.getFonte(), botao.getChaveTexto());
+    dimension   = writeManager->getFonte(botao.getFont())->getDimensao();
+    dimension.w = writeManager->getLarguraLinha(botao.getFont(), botao.getKeyText());
 }
 
 UIBotao::~UIBotao()
@@ -43,7 +43,7 @@ SDLKey UIBotao::getTecla()
 //Desenha os componentes visuais
 void UIBotao::draw()
 {
-    writeManager->escreverLocalizado(botao.getFonte(), position.x, position.y, botao.getChaveTexto());
+    writeManager->escreverLocalizado(botao.getFont(), position.x, position.y, botao.getKeyText());
 }
 
 } // namespace UserInterface::Componente

@@ -15,34 +15,37 @@
 #ifndef _UIWINDOWTITLE_H
 #define _UIWINDOWTITLE_H
 
-#include "UITexto.h"
+#include "UIText.h"
 #include "UIWindowDialog.h"
 
-namespace UserInterface {
+namespace UserInterface
+{
 
-namespace Window {
+namespace Window
+{
 
 class UIWindowTitle : public UIWindowDialog
 {
-  public:
-    UIWindowTitle();
+    public:
+        UIWindowTitle();
 
-    virtual ~UIWindowTitle();
-
-
-  protected:
-    virtual void desenharConteudo();
+        virtual ~UIWindowTitle();
 
 
-  public:
-    //Inicializa as configurações da caixa de texto
-    virtual void inicializar();
+    protected:
+        virtual void desenharConteudo();
 
-    UserInterface::Texto::UITexto title;
+
+    public:
+        //Inicializa as configurações da caixa de texto
+        virtual void inicializar();
+
+        UserInterface::Text::UIText title;
 
 };
 
 } // namespace UserInterface::Window
 
 } // namespace UserInterface
+
 #endif

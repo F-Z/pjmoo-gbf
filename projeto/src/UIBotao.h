@@ -18,7 +18,7 @@
 #include "UIComponent.h"
 #include <string>
 
-#include "UITexto.h"
+#include "UIText.h"
 
 namespace UserInterface
 {
@@ -40,7 +40,7 @@ class UIBotao : public UserInterface::UIComponent
     protected:
         SDLKey tecla;
 
-        UserInterface::Texto::UITexto botao;
+        UserInterface::Text::UIText botao;
 
         //Desenha os componentes visuais
         virtual void draw();
