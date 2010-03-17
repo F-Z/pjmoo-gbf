@@ -23,13 +23,13 @@ namespace Component {
 //Efetua o controle sobre a navegação do cursor
 void UIKeyboard::browse()
 {
-    if ((inputSystem->teclado->isKey(SDLK_LEFT)) || (inputSystem->joystick->isAxeLeft())){
+    if ((inputSystem->keyboard->isKey(SDLK_LEFT)) || (inputSystem->joystick->isAxeLeft())){
         selecao--;
         tempoEspera.setResetar();
-    } else if ((inputSystem->teclado->isKey(SDLK_RIGHT)) || (inputSystem->joystick->isAxeRight())){
+    } else if ((inputSystem->keyboard->isKey(SDLK_RIGHT)) || (inputSystem->joystick->isAxeRight())){
         selecao++;
         tempoEspera.setResetar();
-    } else if ((inputSystem->teclado->isKey(SDLK_DOWN)) || (inputSystem->joystick->isAxeDown())){
+    } else if ((inputSystem->keyboard->isKey(SDLK_DOWN)) || (inputSystem->joystick->isAxeDown())){
         if (selecao < 40){
             selecao += 10;
         } else {//if (selecao>=teclado.getTotalTeclas()){
@@ -37,7 +37,7 @@ void UIKeyboard::browse()
         }
 
         tempoEspera.setResetar();
-    } else if ((inputSystem->teclado->isKey(SDLK_UP)) || (inputSystem->joystick->isAxeUp())){
+    } else if ((inputSystem->keyboard->isKey(SDLK_UP)) || (inputSystem->joystick->isAxeUp())){
         if ((selecao >= 10) && (selecao < getTotalCaracter())){
             selecao -= 10;
         } else {

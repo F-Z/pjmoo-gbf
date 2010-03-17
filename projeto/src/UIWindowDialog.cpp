@@ -53,7 +53,7 @@ int UIWindowDialog::confirmarSelecao()
 {
     int selecionado = -1;
 
-    if (((botao == NULL) || (((inputSystem->teclado->isKey(botao->getKey())) || (inputSystem->joystick->isButtonA()))))
+    if (((botao == NULL) || (((inputSystem->keyboard->isKey(botao->getKey())) || (inputSystem->joystick->isButtonA()))))
             && (tempoEspera.isTerminou())) {
         tempoEspera.setResetar();
         selecionado = BOTAO_OK;

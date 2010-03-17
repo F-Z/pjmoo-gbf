@@ -24,7 +24,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição: 
+//Descrição:
 //    Classe para controle do teclado
 //Motivação:
 //    Prover o controle de eventos por meio do Teclado
@@ -43,7 +43,7 @@ class Keyboard {
     Keyboard();
 
     //Processa os eventos do teclado
-    void processar();
+    void update();
 
     //Limpa o estado das teclas
     void limparEstado();

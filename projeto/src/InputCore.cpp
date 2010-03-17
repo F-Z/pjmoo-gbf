@@ -21,51 +21,58 @@ namespace Kernel {
 namespace Input {
 
 //Destrutor
-InputCore::~InputCore() 
+InputCore::~InputCore()
 {
 //    UtilLog::sistema("Removendo InputSystem");
 
     delete(inputSystem);
 }
+
 //Alterna entre input exclusivo e compartilhado
-void InputCore::alternarControleExclusivo() 
+void InputCore::alternarControleExclusivo()
 {
     SDL_GrabMode inputmode = getControleExclusivo();
     setControleExclusivo(inputmode ? SDL_GRAB_OFF : SDL_GRAB_ON);
 }
+
 //Retorna como está configurado o modo de input
-SDL_GrabMode InputCore::getControleExclusivo() 
+SDL_GrabMode InputCore::getControleExclusivo()
 {
     return controleExclusivo;
 }
+
 //Retorna o evento lançado para o SubSistema de Input
-SDL_Event * InputCore::getEvento() 
+SDL_Event * InputCore::getEvento()
 {
     return &evento;
 }
-void InputCore::iniciar() 
+
+void InputCore::start()
 {
-    std::cout << "GBF::Kernel::Input::InputCore::iniciar()" << std::endl;
+    std::cout << "GBF::Kernel::Input::InputCore::start()" << std::endl;
     inputSystem = InputSystem::getInstance();
 
     InputSystemUtility::setInputSystem(inputSystem);
 }
+
 //Processa os eventos referentes aos mouse, teclado e joystick
-void InputCore::processar() 
+void InputCore::update()
 {
-    inputSystem->processar();
+    inputSystem->update();
 
     SDL_PollEvent(&evento);
 }
+
 //Configura o controle do teclado, mouse e joystick como exclusivo da aplicação
-void InputCore::setControleExclusivo(SDL_GrabMode valor) 
+void InputCore::setControleExclusivo(SDL_GrabMode valor)
 {
-    controleExclusivo=valor;
+    controleExclusivo = valor;
     std::cout << "\tSDL: SDL_WM_GrabInput: " << (bool)controleExclusivo << std::endl;
     SDL_WM_GrabInput(controleExclusivo);
 }
+
 //Construtor
-InputCore::InputCore() 
+InputCore::InputCore()
 {
 }
 

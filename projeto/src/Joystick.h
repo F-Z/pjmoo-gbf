@@ -26,78 +26,80 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição: 
+//Descrição:
 //    Valores para indicação dos eixos
 //Motivação:
 //    Fornecer um conjunto de valores para verificação dos eixos do joystick
 enum JoystickAxe {
-  AXE_STOP,
-  AXE_LEFT,
-  AXE_RIGHT,
-  AXE_UP,
-  AXE_DOWN
+    AXE_STOP,
+    AXE_LEFT,
+    AXE_RIGHT,
+    AXE_UP,
+    AXE_DOWN
 
 };
-//Descrição: 
+//Descrição:
 //    Valores para indicação dos botões
 //Motivação:
 //    Fornecer um conjunto de valores para verificação dos botões do joystick
 enum JoystickBotao {
-  JB_A,
-  JB_B,
-  JB_C,
-  JB_D
+    JB_A,
+    JB_B,
+    JB_C,
+    JB_D
 
 };
-//Descrição: 
+//Descrição:
 //    Classe para controle do joystick
 //Motivação:
 //    Prover o controle de eventos por meio do Joystick
+
 class Joystick
 {
-  public:
-    //Destrutor
-    virtual ~Joystick();
 
-    //Retorna se o direcional foi movido para o lado esquerdo
-    bool isAxeLeft();
+    public:
+        //Destrutor
+        virtual ~Joystick();
 
-    //Retorna se o direcional foi movido para o lado direito
-    bool isAxeRight();
+        //Retorna se o direcional foi movido para o lado esquerdo
+        bool isAxeLeft();
 
-    //* Retorna se o direcional foi movido para cima 
-    bool isAxeUp();
+        //Retorna se o direcional foi movido para o lado direito
+        bool isAxeRight();
 
-    //Retorna se o direcional foi movido para baixo
-    bool isAxeDown();
+        //* Retorna se o direcional foi movido para cima
+        bool isAxeUp();
 
-    //Retorna se o botão A foi pressionado
-    bool isButtonA();
+        //Retorna se o direcional foi movido para baixo
+        bool isAxeDown();
 
-    //Retorna se o botão B foi pressionado
-    bool isButtonB();
+        //Retorna se o botão A foi pressionado
+        bool isButtonA();
 
-    //Retorna se o botão C foi pressionado (caso exista)
-    bool isButtonC();
+        //Retorna se o botão B foi pressionado
+        bool isButtonB();
 
-    //Retorna se o botão D foi pressionado (caso exista)
-    bool isButtonD();
+        //Retorna se o botão C foi pressionado (caso exista)
+        bool isButtonC();
+
+        //Retorna se o botão D foi pressionado (caso exista)
+        bool isButtonD();
 
 
-  private:
-    //Construtor
-    Joystick();
+    private:
+        //Construtor
+        Joystick();
 
-    //Processa os eventos do joystick
-    void processar();
+        //Processa os eventos do joystick
+        void update();
 
-    SDL_Joystick * joystick;
+        SDL_Joystick * joystick;
 
-    JoystickAxe axe_horizontal;
+        JoystickAxe axe_horizontal;
 
-    JoystickAxe axe_vertical;
+        JoystickAxe axe_vertical;
 
-  friend class InputSystem;
+        friend class InputSystem;
 };
 
 } // namespace GBF::Kernel::Input
@@ -105,4 +107,5 @@ class Joystick
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif
