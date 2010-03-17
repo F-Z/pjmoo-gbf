@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UIWINDOWRECORDE_H
-#define _UIWINDOWRECORDE_H
+#ifndef _UIWINDOWRECORD_H
+#define _UIWINDOWRECORD_H
 
 #include "UserInterface.h"
 #include "UITecladoVirtual.h"
@@ -29,24 +29,24 @@ namespace UserInterface {
 
 namespace Window {
 
-class UIWindowRecorde : public UIWindow
+class UIWindowRecord : public UIWindow
 {
   private:
-    UserInterface::UIFonteExtendida fonteTitulo;
+    UserInterface::UIFonteExtendida fontTitle;
 
-    UserInterface::UIFonteExtendida fonteAviso;
+    UserInterface::UIFonteExtendida fontNotice;
 
-    UserInterface::Componente::UITecladoVirtual teclado;
+    UserInterface::Componente::UITecladoVirtual keyboard;
 
-    UserInterface::Componente::UITextField textNome;
+    UserInterface::Componente::UITextField textName;
 
-    UserInterface::Componente::UINumberField textPonto;
+    UserInterface::Componente::UINumberField textScore;
 
-    RankingSystem::RSRecorde recorde;
+    RankingSystem::RSRecorde record;
 
     UserInterface::Visual::UIVisualSolido * uiVisualComponentes;
 
-    int nomePosicao;
+    int nameIndex;
 
     bool showErro;
 
@@ -61,38 +61,38 @@ class UIWindowRecorde : public UIWindow
     void desenharConteudo();
 
     //Efetua as ações de acordo com a posição do cursor
-    int confirmarSelecao();
+    int confirmSelection();
 
 
   public:
-    static const int BOTAO_SALVAR;
+    static const int BUTTON_SAVE;
 
     //Inicializa as configurações da caixa de texto
     virtual void inicializar();
 
-    UIWindowRecorde();
+    UIWindowRecord();
 
     //Destrutor
-    ~UIWindowRecorde();
+    ~UIWindowRecord();
 
     //Estilo Visual a ser Aplicado no Componente
     void setVisualComponentes(UserInterface::Visual::UIVisualSolido * visual);
 
     //Define a fonte a ser usada pelo Titulo
-    void setFonteTitulo(std::string fonte);
+    void setFontTitle(std::string font);
 
-    void setFonteTecladoVirtual(std::string fonteTeclado, std::string fonteControle);
+    void setFontVirtualKeyboard(std::string keyFont, std::string controlFont);
 
-    void setFonteEdit(std::string fonteLabel, std::string fonteValue);
+    void setFontEdition(std::string fontLabel, std::string fontValue);
 
     //Retorna o TopSystemRecorde
-    RankingSystem::RSRecorde getRecorde();
+    RankingSystem::RSRecorde getRecord();
 
     //Atribui um RSRecorde para complementar os dados
-    void setRecorde(RankingSystem::RSRecorde recorde);
+    void setRecord(RankingSystem::RSRecorde record);
 
     //Gerencia o controle do cursor (navegação) e as opções selecionadas
-    bool isAcao(int tipoAcao);
+    bool isAction(int action);
 
 };
 

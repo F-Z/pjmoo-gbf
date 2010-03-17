@@ -19,7 +19,7 @@
 #include "GTMenu.h"
 #include "GTJogo.h"
 #include "GBFramework.h"
-#include "UIWindowRecorde.h"
+#include "UIWindowRecord.h"
 #include "RSManager.h"
 #include "UIMenuAbstract.h"
 #include "CronometroCrescente.h"
@@ -32,7 +32,7 @@ class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJ
   protected:
     GBF::GBFramework * frameworkGBF;
 
-    UserInterface::Window::UIWindowRecorde * uiRecordeNovo;
+    UserInterface::Window::UIWindowRecord * uiRecordeNovo;
 
     RankingSystem::RSManager * recordeManager;
 
