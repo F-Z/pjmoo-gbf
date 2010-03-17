@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UIITEMTEXTO_H
-#define _UIITEMTEXTO_H
+#ifndef _UIITEMTEXT_H
+#define _UIITEMTEXT_H
 
 #include <string>
 
@@ -26,36 +26,39 @@ namespace UserInterface {
 
 namespace Menu {
 
-//Descrição: 
+//Descrição:
 //    Implementação da Classe MenuItemAbstract
 //Motivação:
 //    Fornecer um classe básica para criação de itens de menus em texto
-class UIItemTexto : public UIItemAbstract
+
+class UIItemText : public UIItemAbstract
 {
-  protected:
-    std::string texto;
 
-    std::string fonteTexto;
+    protected:
+        std::string text;
 
-    GBF::Kernel::Timer::CronometroCrescente tempo;
+        std::string font;
 
-    static GBF::Kernel::Write::WriteManager * wsManager;
+        GBF::Kernel::Timer::CronometroCrescente time;
+
+        static GBF::Kernel::Write::WriteManager * writeManager;
 
 
-  public:
-    UIItemTexto(const std::string & texto, const std::string & fonteTexto);
+    public:
+        UIItemText(const std::string & text, const std::string & font);
 
-    virtual ~UIItemTexto();
+        virtual ~UIItemText();
 
-    virtual void desenhar(int x, int y);
+        virtual void draw(int x, int y);
 
-    virtual int getQuantidadeLetras();
+        virtual int getQuantidadeLetras();
 
-    virtual GBF::Dimensao getDimensaoLetra();
+        virtual GBF::Dimensao getDimensaoLetra();
 
 };
 
 } // namespace UserInterface::Menu
 
 } // namespace UserInterface
+
 #endif

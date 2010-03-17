@@ -21,36 +21,39 @@ namespace UserInterface {
 
 namespace Menu {
 
-//Descrição: 
+//Descrição:
 //    Classe para criação de itens de menus
 //Motivação:
 //    Fornecer uma interface padrão para criação de itens de menus
+
 class UIItemAbstract
 {
-  private:
-    bool ativo;
+
+    private:
+        bool active;
 
 
-  public:
-    UIItemAbstract();
+    public:
+        UIItemAbstract();
 
-    virtual ~UIItemAbstract();
+        virtual ~UIItemAbstract();
 
-    virtual void desenhar(int x, int y) = 0;
+        virtual void draw(int x, int y) = 0;
 
-    void setAtivo(bool ativo);
+        void setActive(bool active);
 
-    virtual int getQuantidadeLetras() = 0;
+        virtual int getQuantidadeLetras() = 0;
 
-    virtual GBF::Dimensao getDimensaoLetra() = 0;
+        virtual GBF::Dimensao getDimensaoLetra() = 0;
 
 
-  protected:
-    bool isAtivo();
+    protected:
+        bool isActive();
 
 };
 
 } // namespace UserInterface::Menu
 
 } // namespace UserInterface
+
 #endif

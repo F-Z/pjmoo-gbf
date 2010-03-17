@@ -18,20 +18,23 @@ namespace UserInterface {
 
 namespace Menu {
 
-UIItemAbstract::UIItemAbstract() 
+UIItemAbstract::UIItemAbstract()
 {
-    ativo=false;
+    active = false;
 }
-UIItemAbstract::~UIItemAbstract() 
+
+UIItemAbstract::~UIItemAbstract()
 {
 }
-void UIItemAbstract::setAtivo(bool ativo) 
+
+void UIItemAbstract::setActive(bool active)
 {
-    this->ativo=ativo;
+    this->active = active;
 }
-bool UIItemAbstract::isAtivo() 
+
+bool UIItemAbstract::isActive()
 {
-    return ativo;
+    return active;
 }
 
 } // namespace UserInterface::Menu
