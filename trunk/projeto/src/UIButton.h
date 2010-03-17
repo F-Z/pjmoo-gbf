@@ -12,8 +12,8 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _UIBOTAO_H
-#define _UIBOTAO_H
+#ifndef _UIBUTTON_H
+#define _UIBUTTON_H
 
 #include "UIComponent.h"
 #include <string>
@@ -23,24 +23,24 @@
 namespace UserInterface
 {
 
-namespace Componente
+namespace Component
 {
 
-class UIBotao : public UserInterface::UIComponent
+class UIButton : public UserInterface::UIComponent
 {
     public:
-        UIBotao(std::string fonte, std::string chaveTexto, const SDLKey & tecla);
+        UIButton(std::string font, std::string keyText, const SDLKey & tecla);
 
-        virtual ~UIBotao();
+        virtual ~UIButton();
 
         //Retorna a tecla correspondente ao botão
-        SDLKey getTecla();
+        SDLKey getKey();
 
 
     protected:
-        SDLKey tecla;
+        SDLKey key;
 
-        UserInterface::Text::UIText botao;
+        UserInterface::Text::UIText button;
 
         //Desenha os componentes visuais
         virtual void draw();

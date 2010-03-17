@@ -12,38 +12,38 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "UIBotao.h"
+#include "UIButton.h"
 
 namespace UserInterface
 {
 
-namespace Componente
+namespace Component
 {
 
-UIBotao::UIBotao(std::string fonte, std::string chaveTexto, const SDLKey & tecla)
+UIButton::UIButton(std::string font, std::string keyText, const SDLKey & key)
 {
-    botao.setFont(fonte);
-    botao.setKeyText(chaveTexto);
-    this->tecla = tecla;
+    button.setFont(font);
+    button.setKeyText(keyText);
+    this->key = key;
 
-    dimension   = writeManager->getFonte(botao.getFont())->getDimensao();
-    dimension.w = writeManager->getLarguraLinha(botao.getFont(), botao.getKeyText());
+    dimension   = writeManager->getFonte(button.getFont())->getDimensao();
+    dimension.w = writeManager->getLarguraLinha(button.getFont(), button.getKeyText());
 }
 
-UIBotao::~UIBotao()
+UIButton::~UIButton()
 {
 }
 
 //Retorna a tecla correspondente ao botão
-SDLKey UIBotao::getTecla()
+SDLKey UIButton::getKey()
 {
-    return tecla;
+    return key;
 }
 
 //Desenha os componentes visuais
-void UIBotao::draw()
+void UIButton::draw()
 {
-    writeManager->escreverLocalizado(botao.getFont(), position.x, position.y, botao.getKeyText());
+    writeManager->escreverLocalizado(button.getFont(), position.x, position.y, button.getKeyText());
 }
 
 } // namespace UserInterface::Componente
