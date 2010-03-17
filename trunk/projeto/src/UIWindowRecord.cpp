@@ -56,7 +56,7 @@ int UIWindowRecord::confirmSelection()
 {
     int opcao = false;
 
-    if ((inputSystem->teclado->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())){
+    if ((inputSystem->keyboard->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())){
 
         showErro = false;
 

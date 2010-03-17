@@ -30,7 +30,7 @@ class InputSystem
   public:
     Joystick * joystick;
 
-    Keyboard * teclado;
+    Keyboard * keyboard;
 
     Mouse * mouse;
 
@@ -49,7 +49,7 @@ class InputSystem
 
   private:
     //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
+    void update();
 
   friend class InputCore;
 };

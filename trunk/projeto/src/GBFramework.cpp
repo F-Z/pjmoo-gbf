@@ -53,7 +53,7 @@ void GBFramework::atualizar() {
 
         controleInterno();
 
-        inputSystemCore->processar();
+        inputSystemCore->update();
         graphicSystemCore->flip();
     }
     catch (...) {
@@ -86,7 +86,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
 
     graphicSystemCore->iniciar();
 
-    inputSystemCore->iniciar();
+    inputSystemCore->start();
 
     soundSystemCore->iniciar(22050, AUDIO_S16SYS, Kernel::Sound::CANAL_STEREO, 2048, 16);
 
@@ -178,25 +178,25 @@ void GBFramework::carregar() {
 //Controle para ações internas
 void GBFramework::controleInterno() {
     //F10 = Alterna entre modo de controle exclusivo
-    if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F10)) {
+    if (inputSystemCore->inputSystem->keyboard->isKey(SDLK_F10)) {
         inputSystemCore->alternarControleExclusivo();
         //F11 = Alterna entre modo tela Cheia e Janela
     }
-    else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F11)) {
+    else if (inputSystemCore->inputSystem->keyboard->isKey(SDLK_F11)) {
         if (SDL_WM_ToggleFullScreen(graphicSystemCore->gsMode.getScreen()) == 0) {
             std::cout << "SDL: SDL_WM_ToggleFullScreen nao suportado" << std::endl;
         }
 
         //F12 = Salva um screen do jogo
     }
-    else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F12)) {
+    else if (inputSystemCore->inputSystem->keyboard->isKey(SDLK_F12)) {
         char tela[255];
         numscreenshot++;
         sprintf(tela, "%s//data//screen//screen%03d.bmp", getPath().c_str(), numscreenshot);
         graphicSystemCore->salvarScreenShot(tela);
         //F5 = Tira o Som
     }
-    else if (inputSystemCore->inputSystem->teclado->isKey(SDLK_F5)) {
+    else if (inputSystemCore->inputSystem->keyboard->isKey(SDLK_F5)) {
         //audio.Mute();
     }
 }

@@ -31,73 +31,75 @@ namespace Input {
 //Motivação:
 //    Fornecer um conjunto de valores para verificação dos botões do mouse
 enum MouseBotao {
-  MS_NULL,
-  MS_LEFT,
-  MS_MIDDLE,
-  MS_RIGHT
+    MS_NULL,
+    MS_LEFT,
+    MS_MIDDLE,
+    MS_RIGHT
 
 };
 //Descrição:
 //    Classe para controle do mouse
 //Motivação:
 //    Prover o controle de eventos por meio do Mouse
+
 class Mouse {
-  public:
-    //Destrutor
-    virtual ~Mouse();
 
-    //Retorna a posição do mouse no eixo X
-    int getX();
+    public:
+        //Destrutor
+        virtual ~Mouse();
 
-    //Retorna a posição do mouse no eixo Y
-    int getY();
+        //Retorna a posição do mouse no eixo X
+        int getX();
 
-    //Retorna a posição do mouse
-    GBF::Ponto getPosicao();
+        //Retorna a posição do mouse no eixo Y
+        int getY();
 
-    //Carrega o curso do mouse do arquivo
-    void loadFromFile(std::string arquivo);
+        //Retorna a posição do mouse
+        GBF::Ponto getPosicao();
 
-    //Retorna o InputSystemMouseCursor para manipulação
-    Cursor * getMouseCursor();
+        //Carrega o curso do mouse do arquivo
+        void loadFromFile(std::string arquivo);
 
-    //Configura se exibe ou não o cursor do mouse
-    void setMouse(bool show);
+        //Retorna o InputSystemMouseCursor para manipulação
+        Cursor * getMouseCursor();
 
-    //Retorna se o ponteiro está ativo na tela
-    bool isMouse();
+        //Configura se exibe ou não o cursor do mouse
+        void setMouse(bool show);
 
-    //Verifica se o botão esquerdo foi pressionado
-    bool isButtonLeft();
+        //Retorna se o ponteiro está ativo na tela
+        bool isMouse();
 
-    //Verifica se o botão do meio foi pressionado
-    bool isButtonMiddle();
+        //Verifica se o botão esquerdo foi pressionado
+        bool isButtonLeft();
 
-    //Verifica se o botão direito foi pressionado
-    bool isButtonRight();
+        //Verifica se o botão do meio foi pressionado
+        bool isButtonMiddle();
 
-    //Verifica se a combinação de botões foi pressionada
-    bool isButton(bool left, bool middle, bool right);
+        //Verifica se o botão direito foi pressionado
+        bool isButtonRight();
 
-
-  protected:
-    Cursor * cursor;
+        //Verifica se a combinação de botões foi pressionada
+        bool isButton(bool left, bool middle, bool right);
 
 
-  private:
-    //Construtor
-    Mouse();
+    protected:
+        Cursor * cursor;
 
-    //Processa os eventos do mouse
-    void processar();
 
-    GBF::Ponto ponto;
+    private:
+        //Construtor
+        Mouse();
 
-    Uint8 botao;
+        //Processa os eventos do mouse
+        void update();
 
-    bool mouse;
+        GBF::Ponto ponto;
 
-  friend class InputSystem;
+        Uint8 botao;
+
+        bool mouse;
+
+        friend class InputSystem;
 };
 
 } // namespace GBF::Kernel::Input
@@ -105,4 +107,5 @@ class Mouse {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

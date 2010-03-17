@@ -26,31 +26,36 @@ Mouse::~Mouse()
 //    UtilLog::subSistema("Removendo InputSystemMouse");
     try {
         if (cursor){
-            delete (cursor);
-        //Comentado por causar falha em ambiente Linux
-        //motivo ainda desconhecido
+            delete(cursor);
+            //Comentado por causar falha em ambiente Linux
+            //motivo ainda desconhecido
         }
     } catch (...){
         //UtilLog::getInstance()->status("[Falhou]");
     }
+
     SDL_ShowCursor(SDL_ENABLE);
 }
+
 //Retorna a posição do mouse no eixo X
 int Mouse::getX()
 {
 
-	return ponto.x;
+    return ponto.x;
 }
+
 //Retorna a posição do mouse no eixo Y
 int Mouse::getY()
 {
     return ponto.y;
 }
+
 //Retorna a posição do mouse
 GBF::Ponto Mouse::getPosicao()
 {
     return ponto;
 }
+
 //Carrega o curso do mouse do arquivo
 void Mouse::loadFromFile(std::string arquivo)
 {
@@ -62,21 +67,25 @@ void Mouse::loadFromFile(std::string arquivo)
         setMouse(false);
     }
 }
+
 //Retorna o InputSystemMouseCursor para manipulação
 Cursor * Mouse::getMouseCursor()
 {
     return cursor;
 }
+
 //Configura se exibe ou não o cursor do mouse
 void Mouse::setMouse(bool show)
 {
-    mouse=show;
+    mouse = show;
 }
+
 //Retorna se o ponteiro está ativo na tela
 bool Mouse::isMouse()
 {
     return mouse;
 }
+
 //Verifica se o botão esquerdo foi pressionado
 bool Mouse::isButtonLeft()
 {
@@ -86,6 +95,7 @@ bool Mouse::isButtonLeft()
         return false;
     }
 }
+
 //Verifica se o botão do meio foi pressionado
 bool Mouse::isButtonMiddle()
 {
@@ -95,6 +105,7 @@ bool Mouse::isButtonMiddle()
         return false;
     }
 }
+
 //Verifica se o botão direito foi pressionado
 bool Mouse::isButtonRight()
 {
@@ -104,37 +115,39 @@ bool Mouse::isButtonRight()
         return false;
     }
 }
+
 //Verifica se a combinação de botões foi pressionada
 bool Mouse::isButton(bool left, bool middle, bool right)
 {
-    bool e,m,d;
+    bool e, m, d;
 
-    e=isButtonLeft();
+    e = isButtonLeft();
 
-    if (left==e){
-        e=true;
+    if (left == e){
+        e = true;
     } else {
-        e=false;
+        e = false;
     }
 
-    m=isButtonMiddle();
+    m = isButtonMiddle();
 
-    if (middle==m){
-        m=true;
+    if (middle == m){
+        m = true;
     } else {
-        m=false;
+        m = false;
     }
 
-    d=isButtonRight();
+    d = isButtonRight();
 
-    if (right==d){
-        d=true;
+    if (right == d){
+        d = true;
     } else {
-        d=false;
+        d = false;
     }
 
-    return (e&&m&&d);
+    return (e && m && d);
 }
+
 //Construtor
 Mouse::Mouse()
 {
@@ -143,13 +156,14 @@ Mouse::Mouse()
     setMouse(false);
     cursor = new Cursor();
 }
+
 //Processa os eventos do mouse
-void Mouse::processar()
+void Mouse::update()
 {
     SDL_GetMouseState(&ponto.x, &ponto.y);
 
-    if ((isMouse())&&(cursor!=NULL)){
-        cursor->desenhar(ponto.x,ponto.y);
+    if ((isMouse()) && (cursor != NULL)){
+        cursor->desenhar(ponto.x, ponto.y);
     }
 }
 

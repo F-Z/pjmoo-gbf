@@ -27,7 +27,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição: 
+//Descrição:
 //    Classe para inicialização e gerenciamento do sistema de controle de interação do usuário
 //Motivação:
 //    Gerenciar o uso dos eventos do usuário
@@ -46,10 +46,10 @@ class InputCore : public GBF::BaseSystem {
     //Retorna o evento lançado para o SubSistema de Input
     SDL_Event * getEvento();
 
-    void iniciar();
+    void start();
 
     //Processa os eventos referentes aos mouse, teclado e joystick
-    void processar();
+    void update();
 
     //Configura o controle do teclado, mouse e joystick como exclusivo da aplicação
     void setControleExclusivo(SDL_GrabMode valor);

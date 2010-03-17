@@ -16,18 +16,19 @@
 namespace GAT {
 
 //Construtor
-GAT::GAT(int argc, char * argv[]) 
+GAT::GAT(int argc, char * argv[])
 {
     fullscreen = true;
     looping    = true;
 
-    for (int i=1; i<argc; i++){
-        if (strcmp(argv[i], "--window") == 0 ){
-            fullscreen=false;
+    for (int i = 1; i < argc; i++){
+        if (strcmp(argv[i], "--window") == 0){
+            fullscreen = false;
         }
     }
 
     frameworkGBF    = new GBF::GBFramework();
+
     recordeManager  = new RankingSystem::RSManager();
     uiRecordeNovo   = NULL;
     uiMenuPrincipal = NULL;
@@ -38,164 +39,199 @@ GAT::GAT(int argc, char * argv[])
 
     frameworkGBF->setPath(argv[0]);
 }
+
 //Destrutor
-GAT::~GAT() 
+GAT::~GAT()
 {
     if (uiRecordeNovo){
         delete(uiRecordeNovo);
     }
+
     if (recordeManager){
         delete(recordeManager);
     }
+
     if (uiMenuPrincipal){
         delete(uiMenuPrincipal);
     }
+
     if (frameworkGBF){
         delete(frameworkGBF);
     }
 }
-bool GAT::isFullScreen() 
+
+bool GAT::isFullScreen()
 {
     return fullscreen;
 }
-void GAT::executar() 
+
+void GAT::executar()
 {
-    //Inicialização de classes extras 
+    //Inicialização de classes extras
     RankingSystem::RSManager::setPathBase(frameworkGBF->getPath());
 
-    while(looping) {
+    while (looping) {
         escutar();
         interpretadorGlobal();
     }
 }
-void GAT::interpretadorGlobal() 
+
+void GAT::interpretadorGlobal()
 {
-    if (frameworkGBF->inputSystemCore->inputSystem->teclado->isKey(SDLK_ESCAPE)){
+    if (frameworkGBF->inputSystemCore->inputSystem->keyboard->isKey(SDLK_ESCAPE)){
         setMenu();
     }
-//TODO: Criar mecanismo para aumetar/diminuir ciclo do FPS  
+
+//TODO: Criar mecanismo para aumetar/diminuir ciclo do FPS
 }
-void GAT::escutar() 
+
+void GAT::escutar()
 {
     executarTempo();
 
-    switch(processarEstadoGeral()){
+    switch (processarEstadoGeral()){
+
         case GAT_EG_JOGO:
-                jogo();
+            jogo();
             break;
+
         case GAT_EG_MENU:
-                menu();
+            menu();
             break;
+
         case GAT_EG_APRESENTACAO:
-                apresentacao();
+            apresentacao();
             break;
+
         case GAT_EG_TOPGALERIA:
-                topGaleria();
+            topGaleria();
             break;
+
         case GAT_EG_SAIR:
-                sair();
+            sair();
             break;
+
         case GAT_EG_INICIO:
+
         default:
-                inicializarRecursos();
-                setApresentacao();
+            inicializarRecursos();
+            setApresentacao();
             break;
     }
 
     frameworkGBF->atualizar();
 }
+
 //Apresentação do jogo
-void GAT::apresentacao() 
+void GAT::apresentacao()
 {
     setMenu();
 }
+
 //Tela para entrada de Novo Recorde
-void GAT::topGaleriaNovo() 
+void GAT::topGaleriaNovo()
 {
     setMenu();
 }
+
 //Tela para Salvar Novo Recorde
-void GAT::topGaleriaSalvar() 
+void GAT::topGaleriaSalvar()
 {
     setMenu();
 }
+
 //Tela para Exibição dos Recordes
-void GAT::topGaleriaExibir() 
+void GAT::topGaleriaExibir()
 {
     setMenu();
 }
-bool GAT::setJogo() 
+
+bool GAT::setJogo()
 {
     bool mudou = false;
 
     if (GTEstadoGeral::setJogo()){
         setJogoInicio();
-        mudou=true;
+        mudou = true;
     }
 
     return mudou;
 }
-bool GAT::setMenu() 
+
+bool GAT::setMenu()
 {
     bool mudou = false;
 
     if (GTEstadoGeral::setMenu()){
         setMenuInicio();
-        mudou=true;
+        mudou = true;
     }
 
     return mudou;
 }
-bool GAT::setTopGaleria() 
+
+bool GAT::setTopGaleria()
 {
     bool mudou = false;
 
     if (GTEstadoGeral::setTopGaleria()){
         setTopGaleriaInicio();
-        mudou=true;
+        mudou = true;
     }
 
     return mudou;
 }
-void GAT::menu() 
+
+void GAT::menu()
 {
-    switch(processarEstadoMenu()){
+    switch (processarEstadoMenu()){
+
         case GAT_EM_PRINCIPAL:
-                menuPrincipal();
-                tempoInativo.processar();
-                if (tempoInativo.getTempo()>10){
-                    tempoInativo.setResetar();
-                    setApresentacao();
-                }
+            menuPrincipal();
+            tempoInativo.processar();
+
+            if (tempoInativo.getTempo() > 10){
+                tempoInativo.setResetar();
+                setApresentacao();
+            }
+
             break;
+
         case GAT_EM_AJUDA:
-                menuAjuda();
+            menuAjuda();
             break;
+
         case GAT_EM_CREDITO:
-                menuCredito();
+            menuCredito();
             break;
+
         case GAT_EM_SOBRE:
-                menuSobre();
+            menuSobre();
             break;
+
         case GAT_EM_CONFIGURACAO:
-                menuConfiguracao();
+            menuConfiguracao();
             break;
+
         case GAT_EM_INICIO:
-                setMenuPrincipal();
+            setMenuPrincipal();
             break;
     }
 }
-void GAT::jogo() 
+
+void GAT::jogo()
 {
     loopJogo();
 }
-void GAT::topGaleria() 
+
+void GAT::topGaleria()
 {
     loopTopGaleria();
 }
-void GAT::sair() 
+
+void GAT::sair()
 {
-    looping=false;
+    looping = false;
 }
 
 } // namespace GAT

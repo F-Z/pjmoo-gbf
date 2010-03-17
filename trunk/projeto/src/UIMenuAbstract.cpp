@@ -117,7 +117,7 @@ int UIMenuAbstract::confirmSelection()
 {
     int selecionado = -1;
 
-    if (((inputSystem->teclado->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())) &&
+    if (((inputSystem->keyboard->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())) &&
             (browseDelay.isTerminou())){
         browseDelay.setResetar();
         selecionado = selectedItem;

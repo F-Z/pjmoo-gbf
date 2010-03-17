@@ -21,32 +21,32 @@ namespace Kernel {
 namespace Input {
 
 //Destrutor
-Keyboard::~Keyboard() 
+Keyboard::~Keyboard()
 {
 //    UtilLog::subSistema("Removendo InputSystemKeyboard");
 }
 //Verifica se a tecla foi pressionada
-bool Keyboard::isKey(SDLKey tecla) 
+bool Keyboard::isKey(SDLKey key)
 {
-   if (ptecla[tecla]){
+   if (ptecla[key]){
         return true;
    } else {
         return false;
    }
 }
 //Construtor
-Keyboard::Keyboard() 
+Keyboard::Keyboard()
 {
 //    UtilLog::subSistema("Instanciando InputSystemKeyboard");
-    processar();
+    update();
 }
 //Processa os eventos do teclado
-void Keyboard::processar() 
+void Keyboard::update()
 {
    ptecla = SDL_GetKeyState(NULL);
 }
 //Limpa o estado das teclas
-void Keyboard::limparEstado() 
+void Keyboard::limparEstado()
 {
     for (int i=0; i<SDLK_LAST; i++){
         ptecla[i]=SDL_RELEASED;

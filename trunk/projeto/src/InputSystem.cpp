@@ -21,10 +21,10 @@ namespace Kernel {
 namespace Input {
 
 //Destrutor
-InputSystem::~InputSystem() 
+InputSystem::~InputSystem()
 {
-    if (teclado){
-        delete(teclado);
+    if (keyboard){
+        delete(keyboard);
     }
 
     if (joystick){
@@ -35,28 +35,32 @@ InputSystem::~InputSystem()
         delete(mouse);
     }
 }
+
 //Retorna uma instancia de InputSystem
 InputSystem * InputSystem::getInstance()
 {
     if (instance == NULL){
         instance = new InputSystem();
     }
+
     return instance;
 }
+
 InputSystem * InputSystem::instance;
 
-InputSystem::InputSystem() 
+InputSystem::InputSystem()
 {
-    teclado  = new Keyboard();
+    keyboard = new Keyboard();
     mouse    = new Mouse();
     joystick = new Joystick();
 }
+
 //Processa os eventos referentes aos mouse, teclado e joystick
-void InputSystem::processar() 
+void InputSystem::update()
 {
-    joystick->processar();
-    teclado->processar();
-    mouse->processar();
+    joystick->update();
+    keyboard->update();
+    mouse->update();
 }
 
 } // namespace GBF::Kernel::Input
