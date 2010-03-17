@@ -15,7 +15,7 @@
 #ifndef _UIWINDOWDIALOG_H
 #define _UIWINDOWDIALOG_H
 
-#include "UIBotao.h"
+#include "UIButton.h"
 #include "UIWindow.h"
 #include "UIText.h"
 
@@ -34,7 +34,7 @@ class UIWindowDialog : public UIWindow
 
         virtual ~UIWindowDialog();
 
-        void adicionarBotao(UserInterface::Componente::UIBotao * novoBotao);
+        void adicionarBotao(UserInterface::Component::UIButton * novoBotao);
 
         //Retorna se a ação informada foi acionado
         virtual bool isAcao(int tipoAcao);
@@ -49,7 +49,7 @@ class UIWindowDialog : public UIWindow
 
 
     protected:
-        UserInterface::Componente::UIBotao * botao;
+        UserInterface::Component::UIButton * botao;
 
 
     public:

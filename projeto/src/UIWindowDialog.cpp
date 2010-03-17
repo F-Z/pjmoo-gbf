@@ -14,111 +14,121 @@
 
 #include "UIWindowDialog.h"
 
-namespace UserInterface {
+namespace UserInterface
+{
 
-namespace Window {
+namespace Window
+{
 
-const int UIWindowDialog::BOTAO_OK=100;
+const int UIWindowDialog::BOTAO_OK = 100;
 
 UIWindowDialog::UIWindowDialog()
 {
     botao = NULL;
 }
+
 UIWindowDialog::~UIWindowDialog()
 {
-    if (botao){
+    if (botao) {
         delete(botao);
     }
 }
-void UIWindowDialog::adicionarBotao(UserInterface::Componente::UIBotao * novoBotao)
+
+void UIWindowDialog::adicionarBotao(UserInterface::Component::UIButton * novoBotao)
 {
-    botao=novoBotao;
+    botao = novoBotao;
 }
-//Retorna se a ação informada foi acionado
+
+//Retorna se a aÃ§Ã£o informada foi acionado
 bool UIWindowDialog::isAcao(int tipoAcao)
 {
-    if (confirmarSelecao()==tipoAcao){
+    if (confirmarSelecao() == tipoAcao) {
         return true;
     } else {
         return false;
     }
 }
+
 int UIWindowDialog::confirmarSelecao()
 {
     int selecionado = -1;
 
-    if (((botao==NULL)
-        ||(((inputSystem->teclado->isKey(botao->getTecla()))||(inputSystem->joystick->isButtonA()))))
-        &&(tempoEspera.isTerminou())){
+    if (((botao == NULL) || (((inputSystem->teclado->isKey(botao->getKey())) || (inputSystem->joystick->isButtonA()))))
+            && (tempoEspera.isTerminou())) {
         tempoEspera.setResetar();
-        selecionado=BOTAO_OK;
+        selecionado = BOTAO_OK;
     }
 
     return selecionado;
 }
-//Inicializa as configurações da caixa de texto
 
-//Inicializa as configurações da caixa de texto
+//Inicializa as configuraÃ§Ãµes da caixa de texto
+
+//Inicializa as configuraÃ§Ãµes da caixa de texto
 void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
     texto.setLetterDimension(writeManager->getFonte(texto.getFont())->getDimensao());
 }
+
 //Desenha o conteudo da janela
 
 //Desenha o conteudo da janela
 void UIWindowDialog::desenharConteudo()
 {
-    int numeroLinha=1;
+    int numeroLinha = 1;
     bool continuar = false;
     char textoChave[30];
 
-    int posicaoTextoVertical   = position.y+espacoAntesTexto;
+    int posicaoTextoVertical   = position.y + espacoAntesTexto;
     int posicaoTextoHorizontal = 0;
-    int auxiliar=0;
+    int auxiliar = 0;
 
     do {
-        sprintf(textoChave,texto.getKeyText().c_str(),numeroLinha);
+        sprintf(textoChave, texto.getKeyText().c_str(), numeroLinha);
 
-        continuar=text->isKey(textoChave);
+        continuar = text->isKey(textoChave);
 
-        if (continuar){
+        if (continuar) {
 
-            if (texto.getAlignment()==Text::TEXT_CENTRAL){
-                auxiliar = writeManager->getLarguraLinha(texto.getFont(),textoChave);
-                posicaoTextoHorizontal=int (position.x+(dimension.w/2)-(auxiliar/2));
+            if (texto.getAlignment() == Text::TEXT_CENTRAL) {
+                auxiliar = writeManager->getLarguraLinha(texto.getFont(), textoChave);
+                posicaoTextoHorizontal = int (position.x + (dimension.w / 2) - (auxiliar / 2));
             } else {
-                posicaoTextoHorizontal = position.x+texto.getLetterDimension().w;
+                posicaoTextoHorizontal = position.x + texto.getLetterDimension().w;
             }
 
-            writeManager->escreverLocalizado(texto.getFont(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
-            posicaoTextoVertical=position.y+espacoAntesTexto+(texto.getLineSpace()*numeroLinha);
+            writeManager->escreverLocalizado(texto.getFont(), posicaoTextoHorizontal, posicaoTextoVertical, textoChave);
+
+            posicaoTextoVertical = position.y + espacoAntesTexto + (texto.getLineSpace() * numeroLinha);
             numeroLinha++;
 
         } else {
             break;
         }
 
-    } while(true);
+    } while (true);
 }
-//Desenha a camada de decoração da janela (botões)
+
+//Desenha a camada de decoraÃ§Ã£o da janela (botÃµes)
 void UIWindowDialog::desenharForeground()
 {
-    if ((botao!=NULL)&&(tempoEspera.isTerminou())){
+    if ((botao != NULL) && (tempoEspera.isTerminou())) {
         botao->execute();
     }
 }
-//atualiza as informações do componente (posicao, dimensao, estado)
+
+//atualiza as informaÃ§Ãµes do componente (posicao, dimensao, estado)
 void UIWindowDialog::update()
 {
     tempoEspera.processar();
 
-    if (botao!=NULL){
+    if (botao != NULL) {
         GBF::Ponto pontoAux = position;
-        GBF::Dimensao d= botao->getDimension();
-        pontoAux.x = (position.x+dimension.w)-d.w;
-        pontoAux.y = (position.y+dimension.h)-d.h;
-        botao->setPosition(pontoAux.x,pontoAux.y);
+        GBF::Dimensao d = botao->getDimension();
+        pontoAux.x = (position.x + dimension.w) - d.w;
+        pontoAux.y = (position.y + dimension.h) - d.h;
+        botao->setPosition(pontoAux.x, pontoAux.y);
     }
 }
 
