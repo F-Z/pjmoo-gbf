@@ -62,7 +62,7 @@ int UIWindowDialog::confirmarSelecao()
 void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
-    texto.setDimensaoLetra(writeManager->getFonte(texto.getFonte())->getDimensao());
+    texto.setLetterDimension(writeManager->getFonte(texto.getFont())->getDimensao());
 }
 //Desenha o conteudo da janela
 
@@ -78,21 +78,21 @@ void UIWindowDialog::desenharConteudo()
     int auxiliar=0;
 
     do {
-        sprintf(textoChave,texto.getChaveTexto().c_str(),numeroLinha);
+        sprintf(textoChave,texto.getKeyText().c_str(),numeroLinha);
 
         continuar=text->isKey(textoChave);
 
         if (continuar){
 
-            if (texto.getAlinhamento()==Texto::TEXTO_CENTRALIZADO){
-                auxiliar = writeManager->getLarguraLinha(texto.getFonte(),textoChave);
+            if (texto.getAlignment()==Text::TEXT_CENTRAL){
+                auxiliar = writeManager->getLarguraLinha(texto.getFont(),textoChave);
                 posicaoTextoHorizontal=int (position.x+(dimension.w/2)-(auxiliar/2));
             } else {
-                posicaoTextoHorizontal = position.x+texto.getDimensaoLetra().w;
+                posicaoTextoHorizontal = position.x+texto.getLetterDimension().w;
             }
 
-            writeManager->escreverLocalizado(texto.getFonte(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
-            posicaoTextoVertical=position.y+espacoAntesTexto+(texto.getEspacoEntreLinhas()*numeroLinha);
+            writeManager->escreverLocalizado(texto.getFont(),posicaoTextoHorizontal,posicaoTextoVertical,textoChave);
+            posicaoTextoVertical=position.y+espacoAntesTexto+(texto.getLineSpace()*numeroLinha);
             numeroLinha++;
 
         } else {
