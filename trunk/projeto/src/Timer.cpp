@@ -12,7 +12,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "CronometroCrescente.h"
+#include "Timer.h"
 
 namespace GBF {
 
@@ -21,22 +21,24 @@ namespace Kernel {
 namespace Timer {
 
 //Executa este método quando o estado é CRONOMETRO_EXECUTAR
-void CronometroCrescente::executar() 
+void Timer::executar()
 {
     tempoAtual = SDL_GetTicks();
 
-    if (tempoAtual-tempoInicial>=tempoUnidade){
+    if (tempoAtual - tempoInicial >= tempoUnidade){
         tempoCorrente++;
         execTempoInicial();
     }
 }
+
 //Construtor
-CronometroCrescente::CronometroCrescente() 
+Timer::Timer()
 {
 
 }
+
 //Destrutor
-CronometroCrescente::~CronometroCrescente() 
+Timer::~Timer()
 {
 
 }

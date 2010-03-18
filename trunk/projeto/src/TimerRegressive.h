@@ -12,10 +12,10 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#ifndef _CRONOMETRODECRESCENTE_H
-#define _CRONOMETRODECRESCENTE_H
+#ifndef _TIMERREGRESSIVE_H
+#define _TIMERREGRESSIVE_H
 
-#include "CronometroAbstract.h"
+#include "TimerAbstract.h"
 
 namespace GBF {
 
@@ -23,22 +23,24 @@ namespace Kernel {
 
 namespace Timer {
 
-//Descrição: 
+//Descrição:
 //    Classe para marcação de tempo decrecente
 //Motivação:
 //    Fornecer uma marcação de tempo decrescente
-class CronometroDecrescente : public CronometroAbstract {
-  protected:
-    //Executa este método quando o estado é CRONOMETRO_EXECUTAR
-    void executar();
+
+class TimerRegressive : public TimerAbstract {
+
+    protected:
+        //Executa este método quando o estado é CRONOMETRO_EXECUTAR
+        void executar();
 
 
-  public:
-    //Construtor
-    CronometroDecrescente();
+    public:
+        //Construtor
+        TimerRegressive();
 
-    //Destrutor
-    virtual ~CronometroDecrescente();
+        //Destrutor
+        virtual ~TimerRegressive();
 
 };
 
@@ -47,4 +49,5 @@ class CronometroDecrescente : public CronometroAbstract {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

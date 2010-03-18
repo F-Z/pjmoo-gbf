@@ -17,7 +17,7 @@
 
 #include <string>
 
-#include "CronometroCrescente.h"
+#include "Timer.h"
 #include "WriteManager.h"
 #include "GBF.h"
 #include "UIItemAbstract.h"
@@ -39,7 +39,7 @@ class UIItemText : public UIItemAbstract
 
         std::string font;
 
-        GBF::Kernel::Timer::CronometroCrescente time;
+        GBF::Kernel::Timer::Timer time;
 
         static GBF::Kernel::Write::WriteManager * writeManager;
 

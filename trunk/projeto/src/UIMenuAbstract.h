@@ -18,7 +18,7 @@
 #include "GBF.h"
 #include <deque>
 #include "UIItemAbstract.h"
-#include "CronometroDecrescente.h"
+#include "TimerRegressive.h"
 #include "Color.h"
 #include "UserInterface.h"
 #include "InputSystemUtility.h"
@@ -44,7 +44,7 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
         std::deque<UIItemAbstract *> item;
 
-        GBF::Kernel::Timer::CronometroDecrescente browseDelay;
+        GBF::Kernel::Timer::TimerRegressive browseDelay;
 
 
     public:

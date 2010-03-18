@@ -22,80 +22,83 @@
 #include "UIWindowRecord.h"
 #include "RSManager.h"
 #include "UIMenuAbstract.h"
-#include "CronometroCrescente.h"
+#include "Timer.h"
 
 namespace GAT {
 
 //GAT - GBF Application Template
+
 class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJogo
 {
-  protected:
-    GBF::GBFramework * frameworkGBF;
 
-    UserInterface::Window::UIWindowRecord * uiRecordeNovo;
+    protected:
+        GBF::GBFramework * frameworkGBF;
 
-    RankingSystem::RSManager * recordeManager;
+        UserInterface::Window::UIWindowRecord * uiRecordeNovo;
 
-    UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
+        RankingSystem::RSManager * recordeManager;
 
-    GBF::Kernel::Timer::CronometroCrescente tempoInativo;
+        UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
 
-
-  private:
-    bool looping;
-
-    bool fullscreen;
+        GBF::Kernel::Timer::Timer tempoInativo;
 
 
-  public:
-    //Construtor
-    GAT(int argc, char * argv[]);
+    private:
+        bool looping;
 
-    //Destrutor
-    virtual ~GAT();
-
-    bool isFullScreen();
-
-    void executar();
-
-    virtual void interpretadorGlobal();
+        bool fullscreen;
 
 
-  private:
-    void escutar();
+    public:
+        //Construtor
+        GAT(int argc, char * argv[]);
+
+        //Destrutor
+        virtual ~GAT();
+
+        bool isFullScreen();
+
+        void executar();
+
+        virtual void interpretadorGlobal();
 
 
-  protected:
-    //Apresentação do jogo
-    virtual void apresentacao();
-
-    //Tela para entrada de Novo Recorde
-    virtual void topGaleriaNovo();
-
-    //Tela para Salvar Novo Recorde
-    virtual void topGaleriaSalvar();
-
-    //Tela para Exibição dos Recordes
-    virtual void topGaleriaExibir();
-
-    bool setJogo();
-
-    bool setMenu();
-
-    bool setTopGaleria();
+    private:
+        void escutar();
 
 
-  private:
-    void menu();
+    protected:
+        //Apresentação do jogo
+        virtual void apresentacao();
 
-    void jogo();
+        //Tela para entrada de Novo Recorde
+        virtual void topGaleriaNovo();
 
-    void topGaleria();
+        //Tela para Salvar Novo Recorde
+        virtual void topGaleriaSalvar();
 
-    void sair();
+        //Tela para Exibição dos Recordes
+        virtual void topGaleriaExibir();
+
+        bool setJogo();
+
+        bool setMenu();
+
+        bool setTopGaleria();
+
+
+    private:
+        void menu();
+
+        void jogo();
+
+        void topGaleria();
+
+        void sair();
 
 
 };
 
 } // namespace GAT
+
 #endif

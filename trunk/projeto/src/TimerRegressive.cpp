@@ -12,7 +12,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "CronometroDecrescente.h"
+#include "TimerRegressive.h"
 
 namespace GBF {
 
@@ -21,28 +21,30 @@ namespace Kernel {
 namespace Timer {
 
 //Executa este método quando o estado é CRONOMETRO_EXECUTAR
-void CronometroDecrescente::executar() 
+void TimerRegressive::executar()
 {
     tempoAtual = SDL_GetTicks();
 
-    if (tempoAtual-tempoInicial>=tempoUnidade){
+    if (tempoAtual - tempoInicial >= tempoUnidade){
         tempoCorrente--;
 
-        if (tempoCorrente<=0){
-            tempoCorrente=0;
+        if (tempoCorrente <= 0){
+            tempoCorrente = 0;
             setTerminar();
         }
 
         execTempoInicial();
     }
 }
+
 //Construtor
-CronometroDecrescente::CronometroDecrescente() 
+TimerRegressive::TimerRegressive()
 {
 
 }
+
 //Destrutor
-CronometroDecrescente::~CronometroDecrescente() 
+TimerRegressive::~TimerRegressive()
 {
 
 }

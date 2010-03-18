@@ -18,7 +18,7 @@
 #include "UIComponent.h"
 #include "InputSystemUtility.h"
 #include "UIVisual.h"
-#include "CronometroDecrescente.h"
+#include "TimerRegressive.h"
 
 namespace UserInterface
 {
@@ -50,7 +50,7 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
     protected:
         int espacoAntesTexto;
 
-        GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
+        GBF::Kernel::Timer::TimerRegressive tempoEspera;
 
         //atualiza as informações do componente (posicao, dimensao, estado)
         virtual void atualizar();
