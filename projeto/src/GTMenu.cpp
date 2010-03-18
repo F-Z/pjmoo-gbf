@@ -17,72 +17,83 @@
 namespace GAT {
 
 //Construtor
-GTMenu::GTMenu() 
+GTMenu::GTMenu()
 {
     setMenuInicio();
 }
+
 //Destrutor
-GTMenu::~GTMenu() 
+GTMenu::~GTMenu()
 {
 }
-EstadoMenu GTMenu::processarEstadoMenu() 
+
+EstadoMenu GTMenu::processarEstadoMenu()
 {
     return estado;
 }
-void GTMenu::setMenuPrincipal() 
+
+void GTMenu::setMenuPrincipal()
 {
-    if ((estado==GAT_EM_INICIO)
-        || ((estado!=GAT_EM_PRINCIPAL)
-        && (isTempoEspera()))){
-            estado=GAT_EM_PRINCIPAL;
-            gatilhoMenuPrincipal();
-            reiniciarTempo();
-    }
-}
-void GTMenu::setMenuAjuda() 
-{
-    if ((estado!=GAT_EM_AJUDA)&&(isTempoEspera())){
-        estado=GAT_EM_AJUDA;
+    if ((estado == GAT_EM_INICIO)
+            || ((estado != GAT_EM_PRINCIPAL)
+                && (isTempoEspera()))){
+        estado = GAT_EM_PRINCIPAL;
+        gatilhoMenuPrincipal();
         reiniciarTempo();
     }
 }
-void GTMenu::setMenuCredito() 
+
+void GTMenu::setMenuAjuda()
 {
-    if ((estado!=GAT_EM_CREDITO)&&(isTempoEspera())){
-        estado=GAT_EM_CREDITO;
-        reiniciarTempo();        
-    }
-}
-void GTMenu::setMenuSobre() 
-{
-    if ((estado!=GAT_EM_SOBRE)&&(isTempoEspera())){
-        estado=GAT_EM_SOBRE;
+    if ((estado != GAT_EM_AJUDA) && (isTempoEspera())){
+        estado = GAT_EM_AJUDA;
         reiniciarTempo();
     }
 }
-void GTMenu::setMenuConfiguracao() 
+
+void GTMenu::setMenuCredito()
 {
-    if ((estado!=GAT_EM_CONFIGURACAO)&&(isTempoEspera())){
-        estado=GAT_EM_CONFIGURACAO;
+    if ((estado != GAT_EM_CREDITO) && (isTempoEspera())){
+        estado = GAT_EM_CREDITO;
+        reiniciarTempo();
+    }
+}
+
+void GTMenu::setMenuSobre()
+{
+    if ((estado != GAT_EM_SOBRE) && (isTempoEspera())){
+        estado = GAT_EM_SOBRE;
+        reiniciarTempo();
+    }
+}
+
+void GTMenu::setMenuConfiguracao()
+{
+    if ((estado != GAT_EM_CONFIGURACAO) && (isTempoEspera())){
+        estado = GAT_EM_CONFIGURACAO;
         gatilhoMenuConfiguracao();
         reiniciarTempo();
     }
 }
-void GTMenu::menuConfiguracao() 
+
+void GTMenu::menuConfiguracao()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTMenu::gatilhoMenuPrincipal() 
+
+void GTMenu::gatilhoMenuPrincipal()
 {
-//opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTMenu::gatilhoMenuConfiguracao() 
+
+void GTMenu::gatilhoMenuConfiguracao()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTMenu::setMenuInicio() 
+
+void GTMenu::setMenuInicio()
 {
-    estado=GAT_EM_INICIO;
+    estado = GAT_EM_INICIO;
 }
 
 } // namespace GAT

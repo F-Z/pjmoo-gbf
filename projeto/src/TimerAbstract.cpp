@@ -12,7 +12,7 @@
 ////        http://davidferreira-fz.blogspot.com
 ////////////////////////////////////////////////////////////////////////
 
-#include "CronometroAbstract.h"
+#include "TimerAbstract.h"
 
 namespace GBF {
 
@@ -21,130 +21,153 @@ namespace Kernel {
 namespace Timer {
 
 //Executa este método quando o estado é CRONOMETRO_RESETAR
-void CronometroAbstract::resetar() 
+void TimerAbstract::resetar()
 {
-    tempoCorrente=tempoOriginal;
+    tempoCorrente = tempoOriginal;
     setIniciar();
 }
+
 //Executa este método quando o estado é CRONOMETRO_INICIAR
-void CronometroAbstract::iniciar() 
+void TimerAbstract::iniciar()
 {
     //resetar();
     setExecutar();
     execTempoInicial();
 }
+
 //Executa este método quando o estado é CRONOMETRO_CONTINUAR
-void CronometroAbstract::continuar() 
+void TimerAbstract::continuar()
 {
     setExecutar();
     execTempoInicial();
 }
+
 //Inicia o contado de tempo
-void CronometroAbstract::execTempoInicial() 
+void TimerAbstract::execTempoInicial()
 {
     tempoInicial = SDL_GetTicks();
 }
+
 //Muda o estado para CRONOMETRO_EXECUTAR
-void CronometroAbstract::setExecutar() 
+void TimerAbstract::setExecutar()
 {
-    if ((eCronometro==CRONOMETRO_INICIAR)||(eCronometro==CRONOMETRO_CONTINUAR)){
-        eCronometro=CRONOMETRO_EXECUTAR;
+    if ((eCronometro == CRONOMETRO_INICIAR) || (eCronometro == CRONOMETRO_CONTINUAR)){
+        eCronometro = CRONOMETRO_EXECUTAR;
     }
 }
+
 //Muda o estado para CRONOMETRO_TERMINAR
-void CronometroAbstract::setTerminar() 
+void TimerAbstract::setTerminar()
 {
-    if (eCronometro==CRONOMETRO_EXECUTAR){
-        eCronometro=CRONOMETRO_TERMINAR;
+    if (eCronometro == CRONOMETRO_EXECUTAR){
+        eCronometro = CRONOMETRO_TERMINAR;
     }
 }
-//Construtor 
-CronometroAbstract::CronometroAbstract() 
+
+//Construtor
+TimerAbstract::TimerAbstract()
 {
     tempoInicial  = 0;
     tempoAtual    = 0;
     tempoCorrente = 0;
     tempoOriginal = 0;
     setUnidade(TEMPO_SEGUNDO);
-    eCronometro=CRONOMETRO_RESETAR;
+    eCronometro = CRONOMETRO_RESETAR;
 }
-//Destrutor 
-CronometroAbstract::~CronometroAbstract() 
+
+//Destrutor
+TimerAbstract::~TimerAbstract()
 {
 
 }
+
 //Configura a unidade de tempo a ser usada
-void CronometroAbstract::setUnidade(Tempo eTempo) 
+void TimerAbstract::setUnidade(Tempo eTempo)
 {
     tempoUnidade = int(eTempo);
 }
+
 //Muda o estado para CRONOMETRO_RESETAR
-void CronometroAbstract::setResetar() 
+void TimerAbstract::setResetar()
 {
-    if ((eCronometro==CRONOMETRO_EXECUTAR)||(eCronometro==CRONOMETRO_TERMINAR)){
-        eCronometro=CRONOMETRO_RESETAR;
+    if ((eCronometro == CRONOMETRO_EXECUTAR) || (eCronometro == CRONOMETRO_TERMINAR)){
+        eCronometro = CRONOMETRO_RESETAR;
     }
 }
+
 //Muda o estado para CRONOMETRO_INICIAR
-void CronometroAbstract::setIniciar() 
+void TimerAbstract::setIniciar()
 {
-    if (eCronometro==CRONOMETRO_RESETAR){
-        eCronometro=CRONOMETRO_INICIAR;
+    if (eCronometro == CRONOMETRO_RESETAR){
+        eCronometro = CRONOMETRO_INICIAR;
     }
 }
+
 //Muda o estado para CRONOMETRO_PAUSAR
-void CronometroAbstract::setPausar() 
+void TimerAbstract::setPausar()
 {
-    if (eCronometro==CRONOMETRO_EXECUTAR){
-        eCronometro=CRONOMETRO_PAUSAR;
+    if (eCronometro == CRONOMETRO_EXECUTAR){
+        eCronometro = CRONOMETRO_PAUSAR;
     }
 }
+
 //Muda o estado para CRONOMETRO_CONTINUAR
-void CronometroAbstract::setContinuar() 
+void TimerAbstract::setContinuar()
 {
-    if (eCronometro==CRONOMETRO_PAUSAR){
-        eCronometro=CRONOMETRO_CONTINUAR;
+    if (eCronometro == CRONOMETRO_PAUSAR){
+        eCronometro = CRONOMETRO_CONTINUAR;
     }
 }
+
 //Centro de processamento de estados
-void CronometroAbstract::processar() 
+void TimerAbstract::processar()
 {
-    switch(eCronometro){
+    switch (eCronometro){
+
         case CRONOMETRO_EXECUTAR:
-                executar();
+            executar();
             break;
+
         case CRONOMETRO_CONTINUAR:
-                continuar();
+            continuar();
             break;
+
         case CRONOMETRO_INICIAR:
-                iniciar();
+            iniciar();
             break;
+
         case CRONOMETRO_PAUSAR:
-                //sem implementacao
+            //sem implementacao
             break;
+
         case CRONOMETRO_TERMINAR:
-                //sem implementacao
+            //sem implementacao
             break;
+
         case CRONOMETRO_RESETAR:
+
         default:
-                resetar();
+            resetar();
             break;
     }
 }
+
 //Retorna a contagem de tempo corrente
-int CronometroAbstract::getTempo() 
+int TimerAbstract::getTempo()
 {
     return tempoCorrente;
 }
+
 //Adiciona o marcador de tempo inicial
-void CronometroAbstract::setTempoOriginal(int tempo) 
+void TimerAbstract::setTempoOriginal(int tempo)
 {
-    tempoOriginal=tempo;
+    tempoOriginal = tempo;
 }
+
 //Informa se o tempo já terminou
-bool CronometroAbstract::isTerminou() 
+bool TimerAbstract::isTerminou()
 {
-    if (eCronometro==CRONOMETRO_TERMINAR){
+    if (eCronometro == CRONOMETRO_TERMINAR){
         return true;
     } else {
         return false;

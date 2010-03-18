@@ -16,17 +16,17 @@
 
 namespace GAT {
 
-GBF::Kernel::Timer::CronometroDecrescente GTMaquinaEstado::tempoEspera;
+GBF::Kernel::Timer::TimerRegressive GTMaquinaEstado::tempoEspera;
 
 //Construtor
-GTMaquinaEstado::GTMaquinaEstado() 
+GTMaquinaEstado::GTMaquinaEstado()
 {
     tempoEspera.setTempoOriginal(1);
     tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_MEIO);
     tempoEspera.setResetar();
 }
 //Destrutor
-GTMaquinaEstado::~GTMaquinaEstado() 
+GTMaquinaEstado::~GTMaquinaEstado()
 {
 }
 bool GTMaquinaEstado::isTempoEspera()

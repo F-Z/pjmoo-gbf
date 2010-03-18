@@ -21,7 +21,7 @@
 #include "UserInterface.h"
 #include "UIComponent.h"
 #include "GraphicSystemUtility.h"
-#include "CronometroCrescente.h"
+#include "Timer.h"
 
 namespace UserInterface
 {
@@ -83,7 +83,7 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
 
     protected:
-        GBF::Kernel::Timer::CronometroCrescente tempoBlink;
+        GBF::Kernel::Timer::Timer tempoBlink;
 
 };
 

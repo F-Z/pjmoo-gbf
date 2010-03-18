@@ -23,8 +23,8 @@
 #include "GraphicSystemUtility.h"
 #include "UIComponent.h"
 #include "InputSystemUtility.h"
-#include "CronometroDecrescente.h"
-#include "CronometroCrescente.h"
+#include "TimerRegressive.h"
+#include "Timer.h"
 
 namespace UserInterface
 {
@@ -99,9 +99,9 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
 
 
     protected:
-        GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
+        GBF::Kernel::Timer::TimerRegressive tempoEspera;
 
-        GBF::Kernel::Timer::CronometroCrescente tempoBlink;
+        GBF::Kernel::Timer::Timer tempoBlink;
 
 };
 

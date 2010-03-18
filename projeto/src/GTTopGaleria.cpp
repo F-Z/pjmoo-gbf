@@ -17,80 +17,95 @@
 namespace GAT {
 
 //Construtor
-GTTopGaleria::GTTopGaleria() 
+GTTopGaleria::GTTopGaleria()
 {
     setTopGaleriaInicio();
 }
+
 //Destrutor
-GTTopGaleria::~GTTopGaleria() 
+GTTopGaleria::~GTTopGaleria()
 {
 }
-EstadoTopGaleria GTTopGaleria::processarEstadoTopGaleria() 
+
+EstadoTopGaleria GTTopGaleria::processarEstadoTopGaleria()
 {
     return estado;
 }
-void GTTopGaleria::loopTopGaleria() 
+
+void GTTopGaleria::loopTopGaleria()
 {
-    switch(processarEstadoTopGaleria()){
+    switch (processarEstadoTopGaleria()){
+
         case GAT_ET_EXIBIR:
-                topGaleriaExibir();
+            topGaleriaExibir();
             break;
+
         case GAT_ET_NOVO:
-                topGaleriaNovo();
+            topGaleriaNovo();
             break;
+
         case GAT_ET_SALVAR:
-                topGaleriaSalvar();
+            topGaleriaSalvar();
             break;
+
         case GAT_ET_INICIO:
+
         default:
-                setTopGaleriaExibir();
+            setTopGaleriaExibir();
             break;
     }
 }
-void GTTopGaleria::setTopGaleriaNovo() 
+
+void GTTopGaleria::setTopGaleriaNovo()
 {
-    if ((estado!=GAT_ET_NOVO)&&(gatilhoTopGaleriaNovo())){
-        estado=GAT_ET_NOVO;
-//		reiniciarTempo();
+    if ((estado != GAT_ET_NOVO) && (gatilhoTopGaleriaNovo())){
+        estado = GAT_ET_NOVO;
+//  reiniciarTempo();
 //      tempoEspera.setIniciar();
     }
 }
-void GTTopGaleria::setTopGaleriaSalvar() 
+
+void GTTopGaleria::setTopGaleriaSalvar()
 {
 //    if ((estado!=GAT_ET_SALVAR)&&(isTempoEspera())){
-    if (estado!=GAT_ET_SALVAR){
-        estado=GAT_ET_SALVAR;
-//        reiniciarTempo();            
-//        gatilhoTopGaleriaSalvar();            
+    if (estado != GAT_ET_SALVAR){
+        estado = GAT_ET_SALVAR;
+//        reiniciarTempo();
+//        gatilhoTopGaleriaSalvar();
     }
 }
-void GTTopGaleria::setTopGaleriaExibir() 
+
+void GTTopGaleria::setTopGaleriaExibir()
 {
-    if ((estado==GAT_ET_INICIO)||
-        ((estado!=GAT_ET_EXIBIR)&&(isTempoEspera()))){
+    if ((estado == GAT_ET_INICIO) ||
+            ((estado != GAT_ET_EXIBIR) && (isTempoEspera()))){
         gatilhoTopGaleriaExibir();
-        estado=GAT_ET_EXIBIR;
-		reiniciarTempo();
+        estado = GAT_ET_EXIBIR;
+        reiniciarTempo();
     }
 }
-bool GTTopGaleria::gatilhoTopGaleriaNovo() 
+
+bool GTTopGaleria::gatilhoTopGaleriaNovo()
 {
 //opicional implementação de acordo com a necessidade
     return true;
 }
-bool GTTopGaleria::gatilhoTopGaleriaSalvar() 
+
+bool GTTopGaleria::gatilhoTopGaleriaSalvar()
 {
-//opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
     return true;
 }
-bool GTTopGaleria::gatilhoTopGaleriaExibir() 
+
+bool GTTopGaleria::gatilhoTopGaleriaExibir()
 {
-//opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
     return true;
 }
-void GTTopGaleria::setTopGaleriaInicio() 
+
+void GTTopGaleria::setTopGaleriaInicio()
 {
-    estado=GAT_ET_INICIO;
+    estado = GAT_ET_INICIO;
 }
 
 } // namespace GAT

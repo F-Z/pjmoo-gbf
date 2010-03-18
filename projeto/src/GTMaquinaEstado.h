@@ -15,33 +15,35 @@
 #ifndef _GTMAQUINAESTADO_H
 #define _GTMAQUINAESTADO_H
 
-#include "CronometroDecrescente.h"
+#include "TimerRegressive.h"
 
 namespace GAT {
 
 class GTMaquinaEstado
 {
-  private:
-    static GBF::Kernel::Timer::CronometroDecrescente tempoEspera;
+
+    private:
+        static GBF::Kernel::Timer::TimerRegressive tempoEspera;
 
 
-  public:
-    //Construtor
-    GTMaquinaEstado();
+    public:
+        //Construtor
+        GTMaquinaEstado();
 
-    //Destrutor
-    virtual ~GTMaquinaEstado();
+        //Destrutor
+        virtual ~GTMaquinaEstado();
 
 
-  protected:
-    static bool isTempoEspera();
+    protected:
+        static bool isTempoEspera();
 
-    static void reiniciarTempo();
+        static void reiniciarTempo();
 
-    static void executarTempo();
+        static void executarTempo();
 
 
 };
 
 } // namespace GAT
+
 #endif

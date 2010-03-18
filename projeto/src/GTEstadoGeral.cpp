@@ -17,65 +17,73 @@
 namespace GAT {
 
 //Construtor
-GTEstadoGeral::GTEstadoGeral() 
+GTEstadoGeral::GTEstadoGeral()
 {
     setInicio();
 }
+
 //Destrutor
-GTEstadoGeral::~GTEstadoGeral() 
+GTEstadoGeral::~GTEstadoGeral()
 {
 }
-EstadoGeral GTEstadoGeral::processarEstadoGeral() 
+
+EstadoGeral GTEstadoGeral::processarEstadoGeral()
 {
     return estado;
 }
-bool GTEstadoGeral::setMenu() 
+
+bool GTEstadoGeral::setMenu()
 {
     bool mudou = false;
     //if ((estado!=GAT_EG_MENU)&&(isTempoEspera())){
-    if (estado!=GAT_EG_MENU){
-        if ((estado==GAT_EG_APRESENTACAO)
-            ||(estado==GAT_EG_JOGO)
-            ||(estado==GAT_EG_TOPGALERIA)){
-                estado=GAT_EG_MENU;
-                mudou=true;
-                gatilhoMenu();
-                reiniciarTempo();
-        }
-    }
 
-    return mudou;
-}
-void GTEstadoGeral::setApresentacao() 
-{
-    if (estado!=GAT_EG_APRESENTACAO){
-        if ((estado==GAT_EG_MENU)
-            ||(estado==GAT_EG_INICIO)){
-                gatilhoApresentacao();
-                estado=GAT_EG_APRESENTACAO;
-        }
-    }
-}
-bool GTEstadoGeral::setJogo() 
-{
-    bool mudou = false;
-    if ((estado!=GAT_EG_JOGO)
-        //&&(estado==GAT_EG_MENU)&&(isTempoEspera())){
-        &&(estado==GAT_EG_MENU)){
-            estado=GAT_EG_JOGO;
+    if (estado != GAT_EG_MENU){
+        if ((estado == GAT_EG_APRESENTACAO)
+                || (estado == GAT_EG_JOGO)
+                || (estado == GAT_EG_TOPGALERIA)){
+            estado = GAT_EG_MENU;
             mudou = true;
-            gatilhoJogo();
-            //reiniciarTempo();
+            gatilhoMenu();
+            reiniciarTempo();
+        }
     }
 
     return mudou;
 }
-bool GTEstadoGeral::setTopGaleria() 
+
+void GTEstadoGeral::setApresentacao()
+{
+    if (estado != GAT_EG_APRESENTACAO){
+        if ((estado == GAT_EG_MENU)
+                || (estado == GAT_EG_INICIO)){
+            gatilhoApresentacao();
+            estado = GAT_EG_APRESENTACAO;
+        }
+    }
+}
+
+bool GTEstadoGeral::setJogo()
 {
     bool mudou = false;
 
-    if ((estado!=GAT_EG_TOPGALERIA)&&(isTempoEspera())){
-        estado=GAT_EG_TOPGALERIA;
+    if ((estado != GAT_EG_JOGO)
+            //&&(estado==GAT_EG_MENU)&&(isTempoEspera())){
+            && (estado == GAT_EG_MENU)){
+        estado = GAT_EG_JOGO;
+        mudou = true;
+        gatilhoJogo();
+        //reiniciarTempo();
+    }
+
+    return mudou;
+}
+
+bool GTEstadoGeral::setTopGaleria()
+{
+    bool mudou = false;
+
+    if ((estado != GAT_EG_TOPGALERIA) && (isTempoEspera())){
+        estado = GAT_EG_TOPGALERIA;
         gatilhoJogo();
         mudou = true;
         reiniciarTempo();
@@ -83,39 +91,46 @@ bool GTEstadoGeral::setTopGaleria()
 
     return mudou;
 }
-void GTEstadoGeral::setSair() 
+
+void GTEstadoGeral::setSair()
 {
 //    if ((eEstadoGeral!=GAT_EG_SAIR)&&
 //        (eEstadoGeral==GAT_EG_MENU)&&
 //        (isTempoEspera())){
-    if (estado!=GAT_EG_SAIR){ //provisorio
+    if (estado != GAT_EG_SAIR){ //provisorio
         gatilhoSair();
-        estado=GAT_EG_SAIR;
+        estado = GAT_EG_SAIR;
     }
 }
-void GTEstadoGeral::gatilhoMenu() 
+
+void GTEstadoGeral::gatilhoMenu()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTEstadoGeral::gatilhoApresentacao() 
+
+void GTEstadoGeral::gatilhoApresentacao()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTEstadoGeral::gatilhoJogo() 
+
+void GTEstadoGeral::gatilhoJogo()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTEstadoGeral::gatilhoTopGaleria() 
+
+void GTEstadoGeral::gatilhoTopGaleria()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTEstadoGeral::gatilhoSair() 
+
+void GTEstadoGeral::gatilhoSair()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
-void GTEstadoGeral::setInicio() 
+
+void GTEstadoGeral::setInicio()
 {
-    estado=GAT_EG_INICIO;
+    estado = GAT_EG_INICIO;
 }
 
 } // namespace GAT
