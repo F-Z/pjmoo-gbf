@@ -1,0 +1,45 @@
+Updated	ImageBase, renomeando método carregarArquivo para loadFromFile
+Updated	Mouse, renomeando método carregarArquivo para loadFromFile
+Updated	Cursor, renomeando método carregarArquivo para loadFromFile
+Updated	FonteBitmap, renomeando método carregarArquivo para loadFromFile
+Updated	Screen, renomeando métodos travar e destravar para lock e unlock
+Updated	ImageBufferManager, renomeando método carregar para loadFromFile
+Updated	FX, renomeando método carregarArquivo para loadFromFile
+Updated	SoundManagerAbstract, renomeando método carregar para loadFromFile
+Updated	MusicManager, renomeando método carregar para loadFromFile
+Updated	FXManager, renomeando método carregar para loadFromFile
+Updated	Music, renomeando método carregarArquivo para loadFromFile
+Updated	RSManager, renomeando método setArquivo para setFileName
+Updated	RSManager, renomeando métodos salvar e carregar para save e load
+Updated	FonteBitmap, renomeando nome da classe para FontBitmap
+Updated	Cor, renomeando namespace para Color
+Updated	ObjetoBase, renomeando nome da classe para Object
+Updated	CorPaleta, renomeando para Pallete
+Updated	PSEfeito, renomeando para PSEffect
+Updated	PSEfeitoEsferico, renomeando para PSShereEffect
+Updated	Idioma, renomeado para Language
+Updated	SpritePersonagem, renomeado para SpriteCharacter
+Updated	Personagem, refatorando classe para Character, adaptando métodos e variáveis
+Updated	ListPersonagem, refatorando classe para ListCharacter, adaptando métodos e variáveis
+Updated	Animacao, refatorando classe para Animation, adaptando métodos e variáveis
+Updated	FPSContador refatorando classe para FPSCounter, adaptando métodos e variáveis
+Updated	FPSLimitado refatorando classe para FPSFixRate, adaptando métodos e variáveis
+Updated	FPS, refatorando métodos e variáveis
+Updated	GBF::Imagem(namespace) refatorado para GBF::Image
+Updated	ListManager, refatorando métodos e variáveis
+Updated	UIWindowTitulo refatorando classe para UIWindowTitle, adaptando métodos e variáveis
+Updated	UIWindowRecorde refatorando classe para UIWindowRecord, adaptando métodos e variáveis
+Updated	UIComponente refatorando classe para UIComponent, adaptando métodos e variáveis
+Updated	UITexto refatorando classe para UIText, adaptando métodos e variáveis
+Updated	UIBotao refatorando classe para UIButton, adaptando métodos e variáveis
+Updated	UIMenu refatorando classe para UIMenuSolid, adaptando métodos e variáveis
+Updated	UIMenuTransparente refatorando classe para UIMenuSimple, adaptando métodos e variáveis
+Updated	UIMenuAbstract, refatorando métodos e variáveis
+Updated	UIItemTexto refatorando classe para UIItemText, adaptando métodos e variáveis
+Updated	UITecladoVirtual refatorando classe para UIKeyboard, adaptando métodos e variáveis
+Updated	SpriteFactory, refatorando métodos e variáveis
+Updated	InputSystem, refatorando métodos e variáveis
+Updated	SoundSystem, refatorando métodos e variáveis
+Updated	GraphicSystem, refatorando métodos e variáveis
+Updated	Ponto, PontoVirtual e Dimensao, refatorados para Point, PointFloat e Dimension
+Updated	TimerSystem, refatorando classes, métodos e variáveis
