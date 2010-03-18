@@ -40,7 +40,7 @@ MusicManager::~MusicManager()
     objetomap.clear();
 }
 //Remove uma música do gerenciador
-void MusicManager::apagar(std::string nome)
+void MusicManager::remove(std::string nome)
 {
     if (objetomap[nome]){
         delete(objetomap[nome]);
@@ -56,7 +56,7 @@ void MusicManager::loadFromFile(std::string nome, std::string arquivo)
     Music *som = new Music();
 
     std::cout << "\tMusicManager: " << nome << "=" << fullpath << std::endl;
-    if ((status->isAtivo())&&(som->loadFromFile(fullpath))){
+    if ((status->isActive())&&(som->loadFromFile(fullpath))){
         objetomap[nome]=som;
     } else {
         delete(som);
@@ -65,7 +65,7 @@ void MusicManager::loadFromFile(std::string nome, std::string arquivo)
 //Pausa a música
 void MusicManager::pause()
 {
-    if (status->isAtivo()){
+    if (status->isActive()){
         Mix_PauseMusic();
     }
 }
@@ -99,7 +99,7 @@ void MusicManager::playLoop(const std::string & nome, int vezes)
 //Continuar a tocar a música
 void MusicManager::resume()
 {
-    if (status->isAtivo()){
+    if (status->isActive()){
         Mix_ResumeMusic();
     }
 }

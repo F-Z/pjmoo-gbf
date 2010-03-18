@@ -55,14 +55,14 @@ void FXManager::loadFromFile(std::string nome, std::string arquivo)
     FX *som = new FX();
 
     std::cout << "\tFXManager: " << nome << "=" << fullpath << std::endl;
-    if ((status->isAtivo())&&(som->loadFromFile(fullpath))){
+    if ((status->isActive())&&(som->loadFromFile(fullpath))){
         objetomap[nome]=som;
     } else {
         delete(som);
     }
 }
 //Remove um efeito sonoro do gerenciador
-void FXManager::apagar(std::string nome)
+void FXManager::remove(std::string nome)
 {
     if (objetomap[nome]){
         delete(objetomap[nome]);
@@ -73,14 +73,14 @@ void FXManager::apagar(std::string nome)
 //Pausa o efeito sonoro
 void FXManager::pause()
 {
-    if (status->isAtivo()){
+    if (status->isActive()){
         Mix_Pause(-1);
     }
 }
 //Continuar a tocar o efeito sonoro
 void FXManager::resume()
 {
-    if (status->isAtivo()){
+    if (status->isActive()){
         Mix_Resume(-1);
     }
 }

@@ -28,40 +28,42 @@ namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Valores para indicação dos canais de audio
 //Motivação:
 //    Fornecer um conjunto de valores para configuração do modo de audio
 enum Canal {
-  CANAL_MONO= 1,
-  CANAL_STEREO=2
+    CANAL_MONO = 1,
+    CANAL_STEREO = 2
 
 };
-//Descrição: 
+//Descrição:
 //    Classe para inicialização e gerenciamento do sistema de som
 //Motivação:
 //    Gerenciar o uso do sistema de som
+
 class SoundCore : public GBF::BaseSystem {
-  public:
-    //Destrutor
-    virtual ~SoundCore();
 
-    //Inicializa o sistema de som
-    void iniciar(int frequencia, Uint16 formato, Canal canal, Uint16 cache, int quantidadeCanais);
+    public:
+        //Destrutor
+        virtual ~SoundCore();
 
-    //Configura sistema sonoro para parar o som
-    void setMute(bool mute);
+        //Inicializa o sistema de som
+        void start(int frequencia, Uint16 formato, Canal canal, Uint16 cache, int quantidadeCanais);
 
-    SoundSystem * soundSystem;
+        //Configura sistema sonoro para parar o som
+        void setMute(bool mute);
 
-
-  protected:
-    SoundStatus * status;
+        SoundSystem * soundSystem;
 
 
-  public:
-    //Construtor
-    SoundCore();
+    protected:
+        SoundStatus * status;
+
+
+    public:
+        //Construtor
+        SoundCore();
 
 };
 
@@ -70,4 +72,5 @@ class SoundCore : public GBF::BaseSystem {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif
