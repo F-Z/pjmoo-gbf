@@ -30,109 +30,118 @@ namespace Graphic {
 
 class GFX
 {
-  public:
-    //Destrutor
-    virtual ~GFX();
 
-    //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
-    void setColor(GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B);
+    public:
+        //Destrutor
+        virtual ~GFX();
 
-    //Seta a cor a ser usada (Usar somente se a cor já estiver sido mapeada para RGB)
-    void setColor(GBF::Color::Cor cor);
+        //Seta a cor a ser usada (Usado normalmente para transformar código r,g,b em uma cor)
+        void setColor(GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B);
 
-    //Desenha um pixel na tela (Usando cor padrão selecionada)
-    inline void putPixel(int x, int y);
+        //Seta a cor a ser usada (Usar somente se a cor já estiver sido mapeada para RGB)
+        void setColor(GBF::Color::Cor cor);
 
-    //Desenha um pixel na tela (Usado para cores em formado decimal)
-    void putPixel(int x, int y, GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B);
+        //Desenha um pixel na tela (Usando cor padrão selecionada)
+        inline void putPixel(int x, int y);
 
-    //Desenha um pixel na tela (Usado apenas se a cor já estiver em formato RGB)
-    void putPixel(int x, int y, GBF::Color::Cor cor);
+        //Desenha um pixel na tela (Usado para cores em formado decimal)
+        void putPixel(int x, int y, GBF::Color::Pallete R, GBF::Color::Pallete G, GBF::Color::Pallete B);
 
-    //Pegar a cor de um pixel na tela
-    GBF::Color::Cor getPixel(int x, int y);
+        //Desenha um pixel na tela (Usado apenas se a cor já estiver em formato RGB)
+        void putPixel(int x, int y, GBF::Color::Cor cor);
 
-    //Desenha uma linha na tela
-    void linha(int XI, int YI, int XF, int YF);
+        //Pegar a cor de um pixel na tela
+        GBF::Color::Cor getPixel(int x, int y);
 
-    //Desenha um circulo
-    void circulo(int X, int Y, int RAIO);
+        //Desenha uma linha na tela
+        void linha(int XI, int YI, int XF, int YF);
 
-    //Desenha um circulo preenchido
-    void circuloPreenchido(int X, int Y, int RAIO);
+        //Desenha um circulo
+        void circulo(int X, int Y, int RAIO);
 
-    //Desenha um retangulo
-    void retangulo(int X, int Y, int W, int H);
+        //Desenha um circulo preenchido
+        void circuloPreenchido(int X, int Y, int RAIO);
 
-    //Desenha um retangulo preenchido
-    void retanguloPreenchido(int X, int Y, int W, int H);
+        //Desenha um retangulo
+        void retangulo(int X, int Y, int W, int H);
 
-    //Desenha cruzamentos com fechamento na parte superior (rever utilidade)
-    void gradeSuperior(int X, int Y, int W, int H);
+        //Desenha um retangulo preenchido
+        void retanguloPreenchido(int X, int Y, int W, int H);
 
-    //Desenha cruzamentos com fechamento na parte inferior (rever utilidade)
-    void gradeInferior(int X, int Y, int W, int H);
+        //Desenha cruzamentos com fechamento na parte superior (rever utilidade)
+        void gradeSuperior(int X, int Y, int W, int H);
 
-
-  protected:
-    //Inicializa informações básicas
-    void inicializar();
-
-    //Verifica se o ponto (x,y) está dentro dos limites
-    bool offSetLimite(int x, int y);
-
-    SDL_Surface * pScreen;
-
-    GBF::Color::Cor color;
+        //Desenha cruzamentos com fechamento na parte inferior (rever utilidade)
+        void gradeInferior(int X, int Y, int W, int H);
 
 
-  private:
-    static Screen * gsScreen;
+    protected:
+        //Inicializa informações básicas
+        void start();
 
-    static void setGraphicSystemScreen(Screen * screen);
+        //Verifica se o ponto (x,y) está dentro dos limites
+        bool offSetLimite(int x, int y);
 
-    //Construtor
-    GFX();
+        SDL_Surface * pScreen;
 
-    int bpp;
+        GBF::Color::Cor color;
 
-  friend class GraphicCore;
-  friend class GraphicSystem;
 
-  public:
-    //Realiza um lock na surface
-    bool travar();
+    private:
+        static Screen * gsScreen;
 
-    //Realiza um unlock na surface
-    void destravar();
+        static void setGraphicSystemScreen(Screen * screen);
+
+        //Construtor
+        GFX();
+
+        int bpp;
+
+        friend class GraphicCore;
+
+        friend class GraphicSystem;
+
+    public:
+        //Realiza um lock na surface
+        bool travar();
+
+        //Realiza um unlock na surface
+        void destravar();
 
 };
+
 //Desenha um pixel na tela (Usando cor padrão selecionada)
 inline void GFX::putPixel(int x, int y)
 {
-    if (offSetLimite(x,y)){
+    if (offSetLimite(x, y)){
         Uint8 *pixel = (Uint8 *)pScreen->pixels + y * pScreen->pitch + x * bpp;
 
-        switch(bpp) {
+        switch (bpp) {
+
             case 1:
-                    *pixel = color;
+                *pixel = color;
                 break;
+
             case 2:
-                    *(Uint16 *)pixel = color;
+                *(Uint16 *)pixel = color;
                 break;
+
             case 3:
-                    if (SDL_BYTEORDER == SDL_BIG_ENDIAN) {
-                        pixel[0] = (color >> 16) & 0xff;
-                        pixel[1] = (color >> 8) & 0xff;
-                        pixel[2] = color & 0xff;
-                    } else {
-                        pixel[0] = color & 0xff;
-                        pixel[1] = (color >> 8) & 0xff;
-                        pixel[2] = (color >> 16) & 0xff;
-                    }
+
+                if (SDL_BYTEORDER == SDL_BIG_ENDIAN) {
+                    pixel[0] = (color >> 16) & 0xff;
+                    pixel[1] = (color >> 8) & 0xff;
+                    pixel[2] = color & 0xff;
+                } else {
+                    pixel[0] = color & 0xff;
+                    pixel[1] = (color >> 8) & 0xff;
+                    pixel[2] = (color >> 16) & 0xff;
+                }
+
                 break;
+
             case 4:
-                    *(Uint32 *)pixel = color;
+                *(Uint32 *)pixel = color;
                 break;
         }
     }
@@ -143,4 +152,5 @@ inline void GFX::putPixel(int x, int y)
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif
