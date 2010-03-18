@@ -53,7 +53,7 @@ class UIItemText : public UIItemAbstract
 
         virtual int getQuantidadeLetras();
 
-        virtual GBF::Dimensao getDimensaoLetra();
+        virtual GBF::Dimension getDimensaoLetra();
 
 };
 

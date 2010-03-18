@@ -35,7 +35,7 @@ void UIVisual::setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pall
 //Aplica o efeito visual
 
 //Aplica o efeito visual
-void UIVisual::aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao)
+void UIVisual::aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao)
 {
     this->dimensao=dimensao;
     this->posicao=posicao;

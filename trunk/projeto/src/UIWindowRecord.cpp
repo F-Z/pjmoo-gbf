@@ -101,7 +101,7 @@ void UIWindowRecord::inicializar()
 {
     UIWindow::inicializar();
 
-    GBF::Dimensao d = keyboard.getDimension();
+    GBF::Dimension d = keyboard.getDimension();
 
     int pX = (position.x + dimension.w) / 2 - (d.w / 2);
     int pY = (position.y + dimension.h) / 2;

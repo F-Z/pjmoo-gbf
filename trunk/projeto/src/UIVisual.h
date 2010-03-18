@@ -35,7 +35,7 @@ class UIVisual : public GBF::Kernel::Graphic::GraphicSystemUtility
     void setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
     //Aplica o efeito visual
-    virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
+    virtual void aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao);
 
     //Desenha o EstiloVisual do Componente
     virtual void desenhar() = 0;
@@ -46,9 +46,9 @@ class UIVisual : public GBF::Kernel::Graphic::GraphicSystemUtility
   protected:
     GBF::Color::RGB corBorda;
 
-    GBF::Ponto posicao;
+    GBF::Point posicao;
 
-    GBF::Dimensao dimensao;
+    GBF::Dimension dimensao;
 
 };
 

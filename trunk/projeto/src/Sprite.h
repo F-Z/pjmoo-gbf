@@ -70,13 +70,13 @@ class Sprite : public GBF::Image::SpriteInterface
         virtual void desenhar();
 
         //Retorna a dimensão do sprite 'width' e 'height'
-        GBF::Dimensao getTamanho();
+        GBF::Dimension getTamanho();
 
         //Colisão baseada no tamanho dos Sprites
         bool isColisao(Sprite * spriteColisao);
 
         //Posiciona o Sprite na tela
-        void setPosicao(GBF::Ponto ponto);
+        void setPosicao(GBF::Point ponto);
 
         //Posiciona o Sprite na tela
         virtual void setPosicao(int x, int y);

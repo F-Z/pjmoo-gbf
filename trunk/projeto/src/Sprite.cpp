@@ -51,9 +51,9 @@ void Sprite::desenhar()
 }
 
 //Retorna a dimensão do sprite 'width' e 'height'
-GBF::Dimensao Sprite::getTamanho()
+GBF::Dimension Sprite::getTamanho()
 {
-    Dimensao dimensao;
+    Dimension dimensao;
     dimensao.w = tamanho.w;
     dimensao.h = tamanho.h;
 
@@ -75,7 +75,7 @@ bool Sprite::isColisao(Sprite * spriteColisao)
 }
 
 //Posiciona o Sprite na tela
-void Sprite::setPosicao(GBF::Ponto ponto)
+void Sprite::setPosicao(GBF::Point ponto)
 {
     setPosicao(ponto.x, ponto.y);
 }

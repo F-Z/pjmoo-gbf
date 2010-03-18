@@ -53,7 +53,7 @@ class FontBitmap : public GBF::Kernel::Graphic::ImageBase
     int getAltura();
 
     //Retorna a dimensão (altura e largura) padrão
-    GBF::Dimensao getDimensao();
+    GBF::Dimension getDimensao();
 
 
   protected:
@@ -67,9 +67,9 @@ class FontBitmap : public GBF::Kernel::Graphic::ImageBase
   private:
     char largura[256];
 
-    GBF::Dimensao dimensaoPadrao;
+    GBF::Dimension dimensaoPadrao;
 
-    GBF::Dimensao dimensaoQuadro;
+    GBF::Dimension dimensaoQuadro;
 
     //Construtor
     FontBitmap();

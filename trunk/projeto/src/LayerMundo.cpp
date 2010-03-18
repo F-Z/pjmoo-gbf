@@ -24,7 +24,7 @@ namespace Layer {
 LayerMundo::~LayerMundo() {
 }
 
-GBF::Dimensao LayerMundo::getPixelTile() {
+GBF::Dimension LayerMundo::getPixelTile() {
     return tile;
 }
 
@@ -36,7 +36,7 @@ int LayerMundo::getPixelTileVertical() {
     return tile.h;
 }
 
-GBF::Dimensao LayerMundo::getPixelVisivel() {
+GBF::Dimension LayerMundo::getPixelVisivel() {
     return areaVisivel;
 }
 
@@ -48,7 +48,7 @@ int LayerMundo::getPixelVisivelVertical() {
     return areaVisivel.h;
 }
 
-GBF::Dimensao LayerMundo::getTiles() {
+GBF::Dimension LayerMundo::getTiles() {
     return quantidadeTiles;
 }
 

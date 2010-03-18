@@ -39,7 +39,7 @@ class PSSphereEffect : public PSPixel {
   protected:
     int radius;
 
-    GBF::Ponto origem;
+    GBF::Point origem;
 
 };
 

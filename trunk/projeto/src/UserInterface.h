@@ -23,29 +23,33 @@ namespace UserInterface {
 
 //Alinhamento dos itens do menu e dos itens
 enum UIAlinhamento {
-  CENTRO=0,
-  HORIZONTAL=1,
-  VERTICAL=2
+    CENTRO = 0,
+    HORIZONTAL = 1,
+    VERTICAL = 2
 };
+
 struct UICursor
 {
     bool show;
 
-    GBF::Ponto posicao;
+    GBF::Point posicao;
 
 };
+
 struct UIFonteReferencia
 {
     std::string nome;
 
-    GBF::Dimensao dimensao;
+    GBF::Dimension dimensao;
 
 };
+
 struct UIFonteExtendida : public UIFonteReferencia
 {
-    GBF::Ponto posicao;
+    GBF::Point posicao;
 
 };
 
 } // namespace UserInterface
+
 #endif

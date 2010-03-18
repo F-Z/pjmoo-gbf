@@ -60,13 +60,13 @@ class Character : public GBF::Object {
 
         TypeDelay delay;
 
-        GBF::Ponto point;
+        GBF::Point point;
 
 
     private:
         static unsigned int IDCount;
 
-        GBF::Dimensao dimension;
+        GBF::Dimension dimension;
 
 
     public:
@@ -88,9 +88,9 @@ class Character : public GBF::Object {
 
         virtual void setPoint(int x, int y);
 
-        virtual void setPoint(GBF::Ponto point);
+        virtual void setPoint(GBF::Point point);
 
-        virtual GBF::Ponto getPoint();
+        virtual GBF::Point getPoint();
 
         //Adiciona o sprite principal do personagem
         bool addMainSprite(GBF::Image::Sprite::SpriteCharacter * sprite);
@@ -100,7 +100,7 @@ class Character : public GBF::Object {
 
         virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
 
-        GBF::Dimensao getDimension();
+        GBF::Dimension getDimension();
 
         GBF::Image::Sprite::SpriteCharacter * getMainSprite();
 

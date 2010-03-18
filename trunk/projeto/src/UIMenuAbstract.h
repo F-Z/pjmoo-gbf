@@ -40,7 +40,7 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
         int verticalSpace;
 
-        GBF::Ponto position;
+        GBF::Point position;
 
         std::deque<UIItemAbstract *> item;
 
@@ -78,7 +78,7 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
 
     protected:
-        GBF::Ponto calcularAlinhamento(int caixaLargura, int caixaAltura);
+        GBF::Point calcularAlinhamento(int caixaLargura, int caixaAltura);
 
         //desenha o menu na tela
         virtual void draw() = 0;

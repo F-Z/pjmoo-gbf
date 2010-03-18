@@ -36,7 +36,7 @@ UIVisualImagem::~UIVisualImagem() {
 }
 
 //Aplica o efeito visual
-void UIVisualImagem::aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao) {
+void UIVisualImagem::aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao) {
     UIVisual::aplicar(posicao, dimensao);
 
     if (background != NULL) {

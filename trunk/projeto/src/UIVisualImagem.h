@@ -43,7 +43,7 @@ class UIVisualImagem : public UIVisual {
         virtual ~UIVisualImagem();
 
         //Aplica o efeito visual
-        virtual void aplicar(const GBF::Ponto & posicao, const GBF::Dimensao & dimensao);
+        virtual void aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao);
 
         //Desenha o EstiloVisual do Componente
         virtual void desenhar();

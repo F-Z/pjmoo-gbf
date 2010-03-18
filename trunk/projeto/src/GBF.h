@@ -22,7 +22,7 @@
 namespace GBF {
 
 //Estrutura para posicionamento na tela
-struct Ponto
+struct Point
 {
     int x;
 
@@ -30,7 +30,7 @@ struct Ponto
 
 };
 //Estrutura para representar dimensões
-struct Dimensao
+struct Dimension
 {
     int w;
 
@@ -38,7 +38,7 @@ struct Dimensao
 
 };
 //Estrutura para posicionamento virtual na tela
-struct PontoVirtual
+struct PointFloat
 {
     float x;
 

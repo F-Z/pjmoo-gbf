@@ -28,19 +28,19 @@ class LayerMundo {
         //Destrutor
         virtual ~LayerMundo();
 
-        GBF::Dimensao getPixelTile();
+        GBF::Dimension getPixelTile();
 
         int getPixelTileHorizontal();
 
         int getPixelTileVertical();
 
-        GBF::Dimensao getPixelVisivel();
+        GBF::Dimension getPixelVisivel();
 
         int getPixelVisivelHorizontal();
 
         int getPixelVisivelVertical();
 
-        GBF::Dimensao getTiles();
+        GBF::Dimension getTiles();
 
         int getTilesHorizontal();
 
@@ -54,11 +54,11 @@ class LayerMundo {
 
 
     private:
-        GBF::Dimensao areaVisivel;
+        GBF::Dimension areaVisivel;
 
-        GBF::Dimensao quantidadeTiles;
+        GBF::Dimension quantidadeTiles;
 
-        GBF::Dimensao tile;
+        GBF::Dimension tile;
 
         //Construtor
         LayerMundo();

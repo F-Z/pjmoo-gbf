@@ -43,7 +43,7 @@ void UIComponent::setPosition(int x, int y)
     position.y = y;
 }
 
-GBF::Dimensao UIComponent::getDimension()
+GBF::Dimension UIComponent::getDimension()
 {
     return dimension;
 }

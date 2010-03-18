@@ -69,9 +69,9 @@ class UIText
 
         std::string getKeyText();
 
-        void setLetterDimension(const GBF::Dimensao & dimension);
+        void setLetterDimension(const GBF::Dimension & dimension);
 
-        GBF::Dimensao getLetterDimension();
+        GBF::Dimension getLetterDimension();
 
         //Informa o Estilo de entrelinhas a ser utilizado
         void setLineStyle(float style);
@@ -89,7 +89,7 @@ class UIText
     protected:
         UITextAlignment alignment;
 
-        GBF::Dimensao letterDimension;
+        GBF::Dimension letterDimension;
 
 };
 

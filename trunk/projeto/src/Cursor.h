@@ -49,7 +49,7 @@ class Cursor : public GBF::Kernel::Graphic::ImageBase {
     //Construtor
     Cursor();
 
-    GBF::Ponto ponto;
+    GBF::Point ponto;
 
   friend class Mouse;
 };

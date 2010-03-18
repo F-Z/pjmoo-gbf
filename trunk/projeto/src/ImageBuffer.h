@@ -28,25 +28,26 @@ namespace Graphic {
 
 class ImageBuffer : public ImageBase
 {
-  public:
-    //Construtor
-    ImageBuffer();
 
-    //Destrutor
-    virtual ~ImageBuffer();
+    public:
+        //Construtor
+        ImageBuffer();
 
-    virtual bool loadFromFile(std::string arquivo);
+        //Destrutor
+        virtual ~ImageBuffer();
 
-    //Desenha um sprite simples na tela
-    void desenhar(GBF::Ponto POSICAO);
+        virtual bool loadFromFile(std::string arquivo);
 
-    //Permite desenhar sprites animados
-    void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME);
+        //Desenha um sprite simples na tela
+        void desenhar(GBF::Point point);
 
-    //Permite desenhar sprites animados com corte
-    void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME, SDL_Rect CORTE);
+        //Permite desenhar sprites animados
+        void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME);
 
-  friend class ImageBufferManager;
+        //Permite desenhar sprites animados com corte
+        void desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME, SDL_Rect CORTE);
+
+        friend class ImageBufferManager;
 };
 
 } // namespace GBF::Kernel::Graphic
@@ -54,4 +55,5 @@ class ImageBuffer : public ImageBase
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

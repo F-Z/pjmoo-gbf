@@ -63,15 +63,15 @@ void UIKeyboard::drawBackground()
 
     int letra = 0;
 
-    GBF::Ponto tecla;
+    GBF::Point tecla;
     tecla.x = position.x + (fontKey.dimensao.w / 4);
     tecla.y = position.y;
 
-    GBF::Ponto cursor;
+    GBF::Point cursor;
     cursor.x = position.x + (fontKey.dimensao.w * 0.2);
     cursor.y = position.y + (fontKey.dimensao.h * 0.1);
 
-    GBF::Dimensao cursorDimensao;
+    GBF::Dimension cursorDimensao;
     cursorDimensao.w = fontKey.dimensao.w;
     cursorDimensao.h = fontKey.dimensao.h;
 
@@ -101,18 +101,18 @@ void UIKeyboard::drawContent()
 {
     graphicSystem->gfx->setColor(corCursor.r, corCursor.g, corCursor.b);
 
-    GBF::Ponto tecla;
+    GBF::Point tecla;
     tecla.x = position.x + (fontKey.dimensao.w / 4);
     tecla.y = position.y;
 
     tecla.x = position.x + (10 * (fontKey.dimensao.w + fontKey.dimensao.w * 0.3));
     tecla.y = position.y + dimension.h - (getTotalControle() * fontControl.dimensao.h);
 
-    GBF::Ponto cursor;
+    GBF::Point cursor;
     cursor.x = tecla.x - int(fontControl.dimensao.w * 0.25);
     cursor.y = tecla.y;
 
-    GBF::Dimensao cursorDimensao;
+    GBF::Dimension cursorDimensao;
     cursorDimensao.w = getTamanhoControle() + (fontControl.dimensao.w * 0.5);
     cursorDimensao.h = fontControl.dimensao.h;
 
@@ -141,7 +141,7 @@ void UIKeyboard::update()
     }
 
     if (visual != NULL){
-        GBF::Dimensao d  = dimension;
+        GBF::Dimension d  = dimension;
         d.w = dimension.w + getTamanhoControle() + (fontKey.dimensao.w);
 
         visual->aplicar(position, d);
