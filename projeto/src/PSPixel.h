@@ -28,9 +28,9 @@ namespace ParticleSystem {
 //    Permitir representar uma unidade com caracteristicas e ciclo de vida próprios
 struct Particula
 {
-    GBF::PontoVirtual velocidade;
+    GBF::PointFloat velocidade;
 
-    GBF::PontoVirtual posicao;
+    GBF::PointFloat posicao;
 
     int energia;
 

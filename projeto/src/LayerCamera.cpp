@@ -26,8 +26,8 @@ LayerCamera::~LayerCamera() {
 }
 
 //Retorna a Posição Atual da Camera
-GBF::Ponto LayerCamera::getPosicao() {
-    Ponto p;
+GBF::Point LayerCamera::getPosicao() {
+    Point p;
 
     p.x = (int)ponto.x;
     p.y = (int)ponto.y;

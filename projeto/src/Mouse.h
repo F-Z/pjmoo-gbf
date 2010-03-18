@@ -55,7 +55,7 @@ class Mouse {
         int getY();
 
         //Retorna a posição do mouse
-        GBF::Ponto getPosicao();
+        GBF::Point getPosicao();
 
         //Carrega o curso do mouse do arquivo
         void loadFromFile(std::string arquivo);
@@ -93,7 +93,7 @@ class Mouse {
         //Processa os eventos do mouse
         void update();
 
-        GBF::Ponto ponto;
+        GBF::Point ponto;
 
         Uint8 botao;
 

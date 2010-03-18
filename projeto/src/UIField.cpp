@@ -121,9 +121,9 @@ void UIField::update()
     cursor.posicao.y = fonteCampo.posicao.y + fonteCampo.dimensao.h;
 
     if (visual != NULL){
-        GBF::Dimensao d  = dimension;
+        GBF::Dimension d  = dimension;
 
-        GBF::Ponto  p  = position;
+        GBF::Point  p  = position;
         p.y = fonteLabel.posicao.y + (fonteLabel.dimensao.h * 1.2) - 1;
 
         visual->aplicar(p, dimension);

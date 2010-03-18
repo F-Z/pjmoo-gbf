@@ -44,10 +44,10 @@ void FrameLayer::desenhar() {
     int l_max, c_max;
     SDL_Rect corte = tamanho;
 
-    Ponto ponto           = camera.getPosicao();
-    Dimensao pixelTile    = mundo.getPixelTile();
-    Dimensao pixelVisivel = mundo.getPixelVisivel();
-    Dimensao tilesMundo   = mundo.getTiles();
+    Point ponto            = camera.getPosicao();
+    Dimension pixelTile    = mundo.getPixelTile();
+    Dimension pixelVisivel = mundo.getPixelVisivel();
+    Dimension tilesMundo   = mundo.getTiles();
 
     // Tamanho do Bloco
     bloco_y  = ponto.y / pixelTile.h;
@@ -147,7 +147,7 @@ GBF::Area FrameLayer::getArea() {
 
 //Distancia restante para finalizar Scrolling Vertical
 int FrameLayer::getDistanciaScrollVertical() {
-    Ponto ponto = camera.getPosicao();
+    Point ponto = camera.getPosicao();
 
     return ponto.y;
 }
@@ -159,8 +159,8 @@ int FrameLayer::getPorcentagemScrollHorizontal() {
 
 //Porcentagem percorrida do Scroll Vertical
 int FrameLayer::getPorcentagemScrollVertical() {
-    Dimensao tilesMundo = mundo.getTiles();
-    Ponto ponto         = camera.getPosicao();
+    Dimension tilesMundo = mundo.getTiles();
+    Point ponto         = camera.getPosicao();
 
     int total = tilesMundo.h * mundo.getPixelTileVertical();
     total = 100 - int((100 * ponto.y) / total);
@@ -169,8 +169,8 @@ int FrameLayer::getPorcentagemScrollVertical() {
 
 //Distancia total do Scrolling Vertical
 int FrameLayer::getTotalScrollVertical() {
-    Dimensao tilesMundo = mundo.getTiles();
-    Ponto ponto         = camera.getPosicao();
+    Dimension tilesMundo = mundo.getTiles();
+    Point ponto          = camera.getPosicao();
 
     return int(tilesMundo.h * mundo.getPixelTileVertical());
 }
@@ -179,7 +179,7 @@ int FrameLayer::getTotalScrollVertical() {
 void FrameLayer::iniciarArquivo(std::string arquivo) {
     FILE *handleArquivo;
     handleArquivo = fopen(arquivo.c_str(), "rb");
-    Dimensao tilesMundo = mundo.getTiles();
+    Dimension tilesMundo = mundo.getTiles();
 
     if (handleArquivo) {
         fread(mapa, sizeof(mapa), (tilesMundo.w*tilesMundo.h), handleArquivo);
@@ -192,7 +192,7 @@ void FrameLayer::iniciarArquivo(std::string arquivo) {
 
 //Iniciar preenchendo apenas com o quadro informado
 void FrameLayer::iniciarCom(int quadro) {
-    Dimensao tilesMundo   = mundo.getTiles();
+    Dimension tilesMundo   = mundo.getTiles();
     int total = tilesMundo.w * tilesMundo.h;
 
     for (int i = 0; i < total; i++) {
@@ -204,7 +204,7 @@ void FrameLayer::iniciarCom(int quadro) {
 
 //Iniciar ordenado até o quadro informado
 void FrameLayer::iniciarOrdenado(int quadroMaximo) {
-    Dimensao tilesMundo   = mundo.getTiles();
+    Dimension tilesMundo   = mundo.getTiles();
     int total = tilesMundo.w * tilesMundo.h;
     int contador = 0;
 
@@ -222,7 +222,7 @@ void FrameLayer::iniciarOrdenado(int quadroMaximo) {
 
 //Inicializa tiles de forma aleatória
 void FrameLayer::iniciarRandomico(int range) {
-    Dimensao tilesMundo = mundo.getTiles();
+    Dimension tilesMundo = mundo.getTiles();
     int total = tilesMundo.w * tilesMundo.h;
 
     for (int i = 0; i < total; i++) {
@@ -323,7 +323,7 @@ void FrameLayer::carregarMapaMemoria(int vetor[]) {
         delete []mapa;
     }
 
-    GBF::Dimensao tamanho = mundo.getTiles();
+    GBF::Dimension tamanho = mundo.getTiles();
 
     int total = tamanho.w * tamanho.h;
 
@@ -340,7 +340,7 @@ void FrameLayer::carregarColisaoMemoria(int vetor[]) {
         delete []mapaColisao;
     }
 
-    GBF::Dimensao tamanho = mundo.getTiles();
+    GBF::Dimension tamanho = mundo.getTiles();
 
     int total = tamanho.w * tamanho.h;
 

@@ -44,7 +44,7 @@ class UIItemAbstract
 
         virtual int getQuantidadeLetras() = 0;
 
-        virtual GBF::Dimensao getDimensaoLetra() = 0;
+        virtual GBF::Dimension getDimensaoLetra() = 0;
 
 
     protected:

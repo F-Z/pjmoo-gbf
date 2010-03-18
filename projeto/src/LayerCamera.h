@@ -30,7 +30,7 @@ class LayerCamera {
         virtual ~LayerCamera();
 
         //Retorna a Posição Atual da Camera
-        GBF::Ponto getPosicao();
+        GBF::Point getPosicao();
 
         //Verifica se a Camera está no limite inferior do mapa
         bool isBottom();
@@ -94,7 +94,7 @@ class LayerCamera {
 
 
     protected:
-        GBF::PontoVirtual ponto;
+        GBF::PointFloat ponto;
 
 };
 

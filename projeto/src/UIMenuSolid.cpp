@@ -31,13 +31,13 @@ UIMenuSolid::~UIMenuSolid()
 void UIMenuSolid::draw()
 {
     if (!item.empty()){
-        GBF::Dimensao dimensao = item[0]->getDimensaoLetra();
+        GBF::Dimension dimensao = item[0]->getDimensaoLetra();
         int offsetY = (dimensao.w / 4);
         int totalVertical   = (int(item.size()) * verticalSpace) + offsetY;
         int totalHorizontal = (maxCharItem + 2) * dimensao.w;
         int meioHorizontal  = totalHorizontal / 2;
 
-        GBF::Ponto t = calcularAlinhamento(totalHorizontal, totalVertical);
+        GBF::Point t = calcularAlinhamento(totalHorizontal, totalVertical);
 
         graphicSystem->gfx->setColor(corFundo.r, corFundo.g, corFundo.b);
         graphicSystem->gfx->retanguloPreenchido(t.x, t.y, totalHorizontal, totalVertical);

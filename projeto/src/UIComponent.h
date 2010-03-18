@@ -40,7 +40,7 @@ class UIComponent
         //Posicao do Componente na Tela
         virtual void setPosition(int x, int y);
 
-        GBF::Dimensao getDimension();
+        GBF::Dimension getDimension();
 
         //Executa o componente (atualizando,desenhando)
         virtual void execute();
@@ -53,9 +53,9 @@ class UIComponent
         //atualiza as informações do componente (posicao, dimensao, estado)
         virtual void update();
 
-        GBF::Ponto position;
+        GBF::Point position;
 
-        GBF::Dimensao dimension;
+        GBF::Dimension dimension;
 
 };
 

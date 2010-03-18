@@ -51,7 +51,7 @@ int Mouse::getY()
 }
 
 //Retorna a posição do mouse
-GBF::Ponto Mouse::getPosicao()
+GBF::Point Mouse::getPosicao()
 {
     return ponto;
 }

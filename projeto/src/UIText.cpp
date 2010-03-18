@@ -65,13 +65,13 @@ std::string UIText::getKeyText()
     return keyText;
 }
 
-void UIText::setLetterDimension(const GBF::Dimensao & dimension)
+void UIText::setLetterDimension(const GBF::Dimension & dimension)
 {
     letterDimension = dimension;
     lineSpace = int(letterDimension.w * lineStyle);
 }
 
-GBF::Dimensao UIText::getLetterDimension()
+GBF::Dimension UIText::getLetterDimension()
 {
     return letterDimension;
 }

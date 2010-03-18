@@ -57,11 +57,11 @@ void Character::setPoint(int x, int y) {
     }
 }
 
-void Character::setPoint(GBF::Ponto point) {
+void Character::setPoint(GBF::Point point) {
     setPoint(point.x, point.y);
 }
 
-GBF::Ponto Character::getPoint() {
+GBF::Point Character::getPoint() {
     return point;
 }
 
@@ -82,7 +82,7 @@ bool Character::addSprite(GBF::Image::Sprite::SpriteCharacter * sprite, const st
     }
 }
 
-GBF::Dimensao Character::getDimension() {
+GBF::Dimension Character::getDimension() {
     return sprites["main"]->getTamanho();
 }
 

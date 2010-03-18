@@ -56,7 +56,7 @@ int UIItemText::getQuantidadeLetras()
     return writeManager->idioma->getText(text).length();
 }
 
-GBF::Dimensao UIItemText::getDimensaoLetra()
+GBF::Dimension UIItemText::getDimensaoLetra()
 {
     return writeManager->getFonte(font)->getDimensao();
 }
