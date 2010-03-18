@@ -30,42 +30,44 @@ namespace Sound {
 //    Classe para criação de gerenciados de som
 //Motivação:
 //    Fornecer uma interface padrão para gerenciamento de som
+
 class SoundManagerAbstract : public GBF::BaseManager {
-  public:
-    //Destrutor
-    virtual ~SoundManagerAbstract();
 
-    //Construtor
-    SoundManagerAbstract();
+    public:
+        //Destrutor
+        virtual ~SoundManagerAbstract();
 
-    //Apaga o arquivo de som do gerenciador
-    virtual void apagar(std::string nome) = 0;
+        //Construtor
+        SoundManagerAbstract();
 
-    //Carrega no manager o arquivo de som
-    virtual void loadFromFile(std::string nome, std::string arquivo) = 0;
+        //Apaga o arquivo de som do gerenciador
+        virtual void remove(std::string nome) = 0;
 
-    //Pausa o sistema de som
-    virtual void pause() = 0;
+        //Carrega no manager o arquivo de som
+        virtual void loadFromFile(std::string nome, std::string arquivo) = 0;
 
-    //Toca um som
-    virtual void play(std::string nome) = 0;
+        //Pausa o sistema de som
+        virtual void pause() = 0;
 
-    //Continua a tocar o som
-    virtual void resume() = 0;
+        //Toca um som
+        virtual void play(std::string nome) = 0;
 
-    //Configura o volume do som
-    //Obs.: Valor do volume de 0 ate 128
-    virtual void setVolume(std::string nome, int volume) = 0;
+        //Continua a tocar o som
+        virtual void resume() = 0;
 
-
-  private:
-    static void setStatus(SoundStatus * instance);
+        //Configura o volume do som
+        //Obs.: Valor do volume de 0 ate 128
+        virtual void setVolume(std::string nome, int volume) = 0;
 
 
-  protected:
-    static SoundStatus * status;
+    private:
+        static void setStatus(SoundStatus * instance);
 
-  friend class SoundCore;
+
+    protected:
+        static SoundStatus * status;
+
+        friend class SoundCore;
 };
 
 } // namespace GBF::Kernel::Sound
@@ -73,4 +75,5 @@ class SoundManagerAbstract : public GBF::BaseManager {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

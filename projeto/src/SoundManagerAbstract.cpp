@@ -21,24 +21,27 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-SoundManagerAbstract::~SoundManagerAbstract() 
+SoundManagerAbstract::~SoundManagerAbstract()
 {
     status = NULL;
 }
+
 //Construtor
-SoundManagerAbstract::SoundManagerAbstract() 
+SoundManagerAbstract::SoundManagerAbstract()
 {
-    if (status->isAtivo()){
+    if (status->isActive()){
         //UtilLog::getInstance()->status("[Ok]");
     } else {
         //UtilLog::getInstance()->status("[Falhou]");
     }
 }
+
 void SoundManagerAbstract::setStatus(SoundStatus * instance)
 {
     status = instance;
 }
-SoundStatus * SoundManagerAbstract::status=NULL;
+
+SoundStatus * SoundManagerAbstract::status = NULL;
 
 
 } // namespace GBF::Kernel::Sound

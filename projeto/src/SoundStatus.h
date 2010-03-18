@@ -16,45 +16,48 @@
 #define _SOUNDSTATUS_H
 
 #include <string> // Adicionada para poder usar a palavra reservada NULL
+
 namespace GBF {
 
 namespace Kernel {
 
 namespace Sound {
 
-//Descrição: 
+//Descrição:
 //    Classe para controle do estado do sistema de som
 //Motivação:
 //    Fornecer um conjunto de controles básicos para o sistema de som
+
 class SoundStatus {
-  public:
-    //Destrutor
-    virtual ~SoundStatus();
 
-    //Verifica se sistema de som está funcionando
-    bool isAtivo();
+    public:
+        //Destrutor
+        virtual ~SoundStatus();
 
-    //Verifica se o som está desligado
-    bool isMute();
+        //Verifica se sistema de som está funcionando
+        bool isActive();
 
-    //Configurar se o sistema de som está funcionando
-    void setAtivo(bool ativo);
+        //Verifica se o som está desligado
+        bool isMute();
 
-    //Configura o sistema de som
-    void setMute(bool mute);
+        //Configurar se o sistema de som está funcionando
+        void setActive(bool active);
 
-
-  protected:
-    bool ativo;
-
-    bool mute;
+        //Configura o sistema de som
+        void setMute(bool mute);
 
 
-  private:
-    //Construtor
-    SoundStatus();
+    protected:
+        bool active;
 
-  friend class SoundCore;
+        bool mute;
+
+
+    private:
+        //Construtor
+        SoundStatus();
+
+        friend class SoundCore;
 };
 
 } // namespace GBF::Kernel::Sound
@@ -62,4 +65,5 @@ class SoundStatus {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

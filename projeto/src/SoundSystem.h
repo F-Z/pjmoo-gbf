@@ -26,30 +26,31 @@ namespace Sound {
 
 class SoundSystem
 {
-  public:
-    //Destrutor
-    ~SoundSystem();
 
-    //Retorna uma instância de SoundSystem
-    static SoundSystem * getInstance();
+    public:
+        //Destrutor
+        ~SoundSystem();
 
-
-  private:
-    SoundSystem();
+        //Retorna uma instância de SoundSystem
+        static SoundSystem * getInstance();
 
 
-  public:
-    FXManager * fxManager;
+    private:
+        SoundSystem();
 
 
-  protected:
-    static SoundSystem * instance;
+    public:
+        FXManager * fxManager;
 
 
-  public:
-    MusicManager * musicManager;
+    protected:
+        static SoundSystem * instance;
 
-  friend class SoundCore;
+
+    public:
+        MusicManager * musicManager;
+
+        friend class SoundCore;
 };
 
 } // namespace GBF::Kernel::Sound
@@ -57,4 +58,5 @@ class SoundSystem
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

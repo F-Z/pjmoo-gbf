@@ -88,7 +88,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
 
     inputSystemCore->start();
 
-    soundSystemCore->iniciar(22050, AUDIO_S16SYS, Kernel::Sound::CANAL_STEREO, 2048, 16);
+    soundSystemCore->start(22050, AUDIO_S16SYS, Kernel::Sound::CANAL_STEREO, 2048, 16);
 
     //input.mouse.Carregar(&pacote,"cursor.bmp");
 

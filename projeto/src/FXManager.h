@@ -45,7 +45,7 @@ class FXManager : public SoundManagerAbstract {
     virtual void loadFromFile(std::string nome, std::string arquivo);
 
     //Remove um efeito sonoro do gerenciador
-    virtual void apagar(std::string nome);
+    virtual void remove(std::string nome);
 
     //Pausa o efeito sonoro
     virtual void pause();

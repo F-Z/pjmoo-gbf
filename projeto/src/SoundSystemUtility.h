@@ -25,14 +25,15 @@ namespace Sound {
 
 class SoundSystemUtility
 {
-  protected:
-    static SoundSystem * soundSystem;
+
+    protected:
+        static SoundSystem * soundSystem;
 
 
-  private:
-    static void setSoundSystem(SoundSystem * instance);
+    private:
+        static void setSoundSystem(SoundSystem * instance);
 
-  friend class SoundCore;
+        friend class SoundCore;
 };
 
 } // namespace GBF::Kernel::Sound
@@ -40,4 +41,5 @@ class SoundSystemUtility
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

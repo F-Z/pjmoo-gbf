@@ -20,11 +20,11 @@ namespace Kernel {
 
 namespace Sound {
 
-SoundSystem * SoundSystemUtility::soundSystem=NULL;
+SoundSystem * SoundSystemUtility::soundSystem = NULL;
 
 void SoundSystemUtility::setSoundSystem(SoundSystem * instance)
 {
-    soundSystem=instance;
+    soundSystem = instance;
 }
 
 } // namespace GBF::Kernel::Sound

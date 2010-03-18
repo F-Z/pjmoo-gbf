@@ -21,42 +21,46 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-SoundStatus::~SoundStatus() 
+SoundStatus::~SoundStatus()
 {
 
 }
+
 //Verifica se sistema de som está funcionando
-bool SoundStatus::isAtivo() 
+bool SoundStatus::isActive()
 {
-
-    return ativo;
+    return active;
 }
+
 //Verifica se o som está desligado
-bool SoundStatus::isMute() 
+bool SoundStatus::isMute()
 {
     return mute;
 }
-//Configurar se o sistema de som está funcionando
-void SoundStatus::setAtivo(bool ativo) 
-{
-    this->ativo=ativo;
 
-    if (!ativo){
-        mute=true;
+//Configurar se o sistema de som está funcionando
+void SoundStatus::setActive(bool active)
+{
+    this->active = active;
+
+    if (!active){
+        mute = true;
     }
 }
+
 //Configura o sistema de som
-void SoundStatus::setMute(bool mute) 
+void SoundStatus::setMute(bool mute)
 {
-    if (ativo){
-        this->mute=mute;
+    if (active){
+        this->mute = mute;
     }
 }
+
 //Construtor
-SoundStatus::SoundStatus() 
+SoundStatus::SoundStatus()
 {
-    ativo = false;
-    mute  = false;
+    active = false;
+    mute   = false;
 }
 
 } // namespace GBF::Kernel::Sound

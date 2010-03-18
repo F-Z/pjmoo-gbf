@@ -33,50 +33,52 @@ namespace Sound {
 //    Classe para gerenciamento de Música
 //Motivação:
 //    Fornecer mecanismos para gerenciamento de músicas de fundo
+
 class MusicManager : public SoundManagerAbstract {
-  public:
-    //Destrutor
-    virtual ~MusicManager();
 
-    //Remove uma música do gerenciador
-    virtual void apagar(std::string nome);
+    public:
+        //Destrutor
+        virtual ~MusicManager();
 
-    //Carregar um arquivo de música para o gerenciador
-    virtual void loadFromFile(std::string nome, std::string arquivo);
+        //Remove uma música do gerenciador
+        virtual void remove(std::string nome);
 
-    //Pausa a música
-    virtual void pause();
+        //Carregar um arquivo de música para o gerenciador
+        virtual void loadFromFile(std::string nome, std::string arquivo);
 
-    //Toca uma música
-    virtual void play(std::string nome);
+        //Pausa a música
+        virtual void pause();
 
-    //Toca uma música de repetitiva
-    void playInfinity(const std::string & nome);
+        //Toca uma música
+        virtual void play(std::string nome);
 
-    //Toca uma música uma certa quantidade de vezes
-    void playLoop(const std::string & nome, int vezes);
+        //Toca uma música de repetitiva
+        void playInfinity(const std::string & nome);
 
-    //Continuar a tocar a música
-    virtual void resume();
+        //Toca uma música uma certa quantidade de vezes
+        void playLoop(const std::string & nome, int vezes);
 
-    //Configura o volume do som
-    virtual void setVolume(std::string nome, int volume);
+        //Continuar a tocar a música
+        virtual void resume();
 
-    //Para uma música
-    void stop(const std::string & nome);
+        //Configura o volume do som
+        virtual void setVolume(std::string nome, int volume);
 
-
-  protected:
-    std::map<std::string,Music*> objetomap;
+        //Para uma música
+        void stop(const std::string & nome);
 
 
-  private:
-    std::string musicaTocando;
+    protected:
+        std::map<std::string, Music*> objetomap;
 
-    //Construtor
-    MusicManager();
 
-  friend class SoundSystem;
+    private:
+        std::string musicaTocando;
+
+        //Construtor
+        MusicManager();
+
+        friend class SoundSystem;
 };
 
 } // namespace GBF::Kernel::Sound
@@ -84,4 +86,5 @@ class MusicManager : public SoundManagerAbstract {
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

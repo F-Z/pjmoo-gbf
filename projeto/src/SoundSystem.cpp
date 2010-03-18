@@ -21,15 +21,17 @@ namespace Kernel {
 namespace Sound {
 
 //Destrutor
-SoundSystem::~SoundSystem() 
+SoundSystem::~SoundSystem()
 {
     if (musicManager){
         delete(musicManager);
     }
+
     if (fxManager){
         delete(fxManager);
     }
 }
+
 //Retorna uma instância de SoundSystem
 SoundSystem * SoundSystem::getInstance()
 {
@@ -39,12 +41,14 @@ SoundSystem * SoundSystem::getInstance()
 
     return instance;
 }
-SoundSystem::SoundSystem() 
+
+SoundSystem::SoundSystem()
 {
     std::cout << "GBF::Kernel::Sound::SoundSystem" << std::endl;
     musicManager = new MusicManager();
     fxManager    = new FXManager();
 }
+
 SoundSystem * SoundSystem::instance;
 
 
