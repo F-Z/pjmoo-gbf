@@ -84,7 +84,7 @@ void GBFramework::iniciar(int width, int height, int bpp_color, bool full, GBF::
         graphicSystemCore->gsMode.setModeWindowScreen();
     }
 
-    graphicSystemCore->iniciar();
+    graphicSystemCore->start();
 
     inputSystemCore->start();
 

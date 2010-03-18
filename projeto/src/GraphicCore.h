@@ -32,29 +32,30 @@ namespace Graphic {
 
 class GraphicCore : public GBF::BaseSystem
 {
-  public:
-    //Limpa a tela 
-    void clear();
 
-    //Salva uma imagem da tela 
-    void salvarScreenShot(std::string arquivo);
+    public:
+        //Limpa a tela
+        void clear();
 
-    //Destrutor 
-    virtual ~GraphicCore();
+        //Salva uma imagem da tela
+        void salvarScreenShot(std::string arquivo);
 
-    void iniciar();
+        //Destrutor
+        virtual ~GraphicCore();
 
-    //Realiza o flip(troca) entre os buffers de vídeo 
-    void flip();
+        void start();
 
-    GraphicMode gsMode;
+        //Realiza o flip(troca) entre os buffers de vídeo
+        void flip();
 
-    Screen * gsScreen;
+        GraphicMode gsMode;
 
-    //Inicializa SubSistema de suporte a Video 
-    GraphicCore();
+        Screen * gsScreen;
 
-    GraphicSystem * graphicSystem;
+        //Inicializa SubSistema de suporte a Video
+        GraphicCore();
+
+        GraphicSystem * graphicSystem;
 
 };
 
@@ -63,4 +64,5 @@ class GraphicCore : public GBF::BaseSystem
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

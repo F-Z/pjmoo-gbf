@@ -25,11 +25,13 @@ void GraphicCore::clear()
 {
     SDL_FillRect(gsMode.getScreen(), NULL, 0);
 }
+
 //Salva uma imagem da tela
 void GraphicCore::salvarScreenShot(std::string arquivo)
 {
-    SDL_SaveBMP(gsMode.getScreen(),arquivo.c_str());
+    SDL_SaveBMP(gsMode.getScreen(), arquivo.c_str());
 }
+
 //Destrutor
 GraphicCore::~GraphicCore()
 {
@@ -41,7 +43,8 @@ GraphicCore::~GraphicCore()
 
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
 }
-void GraphicCore::iniciar()
+
+void GraphicCore::start()
 {
     std::cout << "GBF::Kernel::Graphic::GraphicCore::iniciar()" << std::endl;
     gsScreen->setScreen(gsMode.getScreen());
@@ -50,14 +53,16 @@ void GraphicCore::iniciar()
     GFX::setGraphicSystemScreen(gsScreen);
 
     graphicSystem = GraphicSystem::getInstance();
-    graphicSystem->gfx->inicializar();
+    graphicSystem->gfx->start();
     GraphicSystemUtility::setGraphicSystem(graphicSystem);
 }
+
 //Realiza o flip(troca) entre os buffers de vídeo
 void GraphicCore::flip()
 {
     SDL_Flip(gsMode.getScreen());
 }
+
 //Inicializa SubSistema de suporte a Video
 GraphicCore::GraphicCore()
 {
@@ -68,13 +73,13 @@ GraphicCore::GraphicCore()
     std::cout << "\tSDL: " << (int) v->major << "." << (int) v->minor << "." << (int) v->patch << " version" << std::endl;
 
 
-    if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0) {
         std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
         SDL_putenv("SDL_VIDEO_CENTERED=true");
         char videodriver[10];
-        SDL_VideoDriverName(videodriver,10);
+        SDL_VideoDriverName(videodriver, 10);
 
         std::cout << "\tSDL: driver " << videodriver << std::endl;
 
