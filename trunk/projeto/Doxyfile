@@ -31,7 +31,7 @@ PROJECT_NAME           = GBFramework
 # This could be handy for archiving the generated documentation or 
 # if some version control system is used.
 
-PROJECT_NUMBER         = "0.9.5 (Release Candidate 2)"
+PROJECT_NUMBER         = "0.9.149 (Release Candidate)"
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
 # base path where the generated documentation will be put. 
@@ -60,7 +60,7 @@ CREATE_SUBDIRS         = YES
 # Polish, Portuguese, Romanian, Russian, Serbian, Serbian-Cyrilic, Slovak, 
 # Slovene, Spanish, Swedish, Ukrainian, and Vietnamese.
 
-OUTPUT_LANGUAGE        = Portuguese
+OUTPUT_LANGUAGE        = Brazilian
 
 # If the BRIEF_MEMBER_DESC tag is set to YES (the default) Doxygen will 
 # include brief member descriptions after the members that are listed in 
@@ -102,7 +102,7 @@ ABBREVIATE_BRIEF       = "The $name class" \
 # Doxygen will generate a detailed section even if there is only a brief 
 # description.
 
-ALWAYS_DETAILED_SEC    = NO
+ALWAYS_DETAILED_SEC    = YES
 
 # If the INLINE_INHERITED_MEMB tag is set to YES, doxygen will show all 
 # inherited members of a class in the documentation of that class as if those 
@@ -147,7 +147,7 @@ SHORT_NAMES            = YES
 # comments will behave just like regular Qt-style comments 
 # (thus requiring an explicit @brief command for a brief description.)
 
-JAVADOC_AUTOBRIEF      = NO
+JAVADOC_AUTOBRIEF      = YES
 
 # If the QT_AUTOBRIEF tag is set to YES then Doxygen will 
 # interpret the first line (until the first dot) of a Qt-style 
@@ -271,7 +271,7 @@ DISTRIBUTE_GROUP_DOC   = NO
 # NO to prevent subgrouping. Alternatively, this can be done per class using 
 # the \nosubgrouping command.
 
-SUBGROUPING            = YES
+SUBGROUPING            = NO
 
 # When TYPEDEF_HIDES_STRUCT is enabled, a typedef of a struct, union, or enum 
 # is documented as struct, union, or enum with the name of the typedef. So 
@@ -313,12 +313,12 @@ EXTRACT_ALL            = YES
 # If the EXTRACT_PRIVATE tag is set to YES all private members of a class 
 # will be included in the documentation.
 
-EXTRACT_PRIVATE        = NO
+EXTRACT_PRIVATE        = YES
 
 # If the EXTRACT_STATIC tag is set to YES all static members of a file 
 # will be included in the documentation.
 
-EXTRACT_STATIC         = NO
+EXTRACT_STATIC         = YES
 
 # If the EXTRACT_LOCAL_CLASSES tag is set to YES classes (and structs) 
 # defined locally in source files will be included in the documentation. 
@@ -413,7 +413,7 @@ INLINE_INFO            = YES
 # alphabetically by member name. If set to NO the members will appear in 
 # declaration order.
 
-SORT_MEMBER_DOCS       = YES
+SORT_MEMBER_DOCS       = NO
 
 # If the SORT_BRIEF_DOCS tag is set to YES then doxygen will sort the 
 # brief documentation of file, namespace and class members alphabetically 
@@ -436,7 +436,7 @@ SORT_MEMBERS_CTORS_1ST = NO
 # hierarchy of group names into alphabetical order. If set to NO (the default) 
 # the group names will appear in their defined order.
 
-SORT_GROUP_NAMES       = NO
+SORT_GROUP_NAMES       = YES
 
 # If the SORT_BY_SCOPE_NAME tag is set to YES, the class list will be 
 # sorted by fully-qualified names, including namespaces. If set to 
@@ -446,7 +446,7 @@ SORT_GROUP_NAMES       = NO
 # Note: This option applies only to the class list, not to the 
 # alphabetical list.
 
-SORT_BY_SCOPE_NAME     = NO
+SORT_BY_SCOPE_NAME     = YES
 
 # The GENERATE_TODOLIST tag can be used to enable (YES) or 
 # disable (NO) the todo list. This list is created by putting \todo 
@@ -738,7 +738,7 @@ SOURCE_BROWSER         = YES
 # Setting the INLINE_SOURCES tag to YES will include the body 
 # of functions and classes directly in the documentation.
 
-INLINE_SOURCES         = NO
+INLINE_SOURCES         = YES
 
 # Setting the STRIP_CODE_COMMENTS tag to YES (the default) will instruct 
 # doxygen to hide any special comment blocks from generated source code 
@@ -750,13 +750,13 @@ STRIP_CODE_COMMENTS    = YES
 # then for each documented function all documented 
 # functions referencing it will be listed.
 
-REFERENCED_BY_RELATION = NO
+REFERENCED_BY_RELATION = YES
 
 # If the REFERENCES_RELATION tag is set to YES 
 # then for each documented function all documented entities 
 # called/used by that function will be listed.
 
-REFERENCES_RELATION    = NO
+REFERENCES_RELATION    = YES
 
 # If the REFERENCES_LINK_SOURCE tag is set to YES (the default) 
 # and SOURCE_BROWSER tag is set to YES, then the hyperlinks from 
@@ -862,7 +862,7 @@ HTML_ALIGN_MEMBERS     = YES
 # JavaScript and DHTML is required (for instance Mozilla 1.0+, Firefox 
 # Netscape 6.0+, Internet explorer 5.0+, Konqueror, or Safari).
 
-HTML_DYNAMIC_SECTIONS  = NO
+HTML_DYNAMIC_SECTIONS  = YES
 
 # If the GENERATE_DOCSET tag is set to YES, additional index files 
 # will be generated that can be used as input for Apple's Xcode 3 
@@ -1058,7 +1058,7 @@ SEARCHENGINE           = YES
 # full text search. The disadvances is that it is more difficult to setup 
 # and does not have live searching capabilities.
 
-SERVER_BASED_SEARCH    = NO
+SERVER_BASED_SEARCH    = YES
 
 #---------------------------------------------------------------------------
 # configuration options related to the LaTeX output
@@ -1261,7 +1261,7 @@ XML_PROGRAMLISTING     = YES
 # documentation. Note that this feature is still experimental 
 # and incomplete at the moment.
 
-GENERATE_AUTOGEN_DEF   = NO
+GENERATE_AUTOGEN_DEF   = YES
 
 #---------------------------------------------------------------------------
 # configuration options related to the Perl module output
@@ -1416,7 +1416,7 @@ PERL_PATH              = /usr/bin/perl
 # fallback. It is recommended to install and use dot, since it yields more 
 # powerful graphs.
 
-CLASS_DIAGRAMS         = NO
+CLASS_DIAGRAMS         = YES
 
 # You can define message sequence charts within doxygen comments using the \msc 
 # command. Doxygen will then run the mscgen tool (see 
@@ -1491,21 +1491,21 @@ UML_LOOK               = YES
 # If set to YES, the inheritance and collaboration graphs will show the 
 # relations between templates and their instances.
 
-TEMPLATE_RELATIONS     = NO
+TEMPLATE_RELATIONS     = YES
 
 # If the ENABLE_PREPROCESSING, SEARCH_INCLUDES, INCLUDE_GRAPH, and HAVE_DOT 
 # tags are set to YES then doxygen will generate a graph for each documented 
 # file showing the direct and indirect include dependencies of the file with 
 # other documented files.
 
-INCLUDE_GRAPH          = NO
+INCLUDE_GRAPH          = YES
 
 # If the ENABLE_PREPROCESSING, SEARCH_INCLUDES, INCLUDED_BY_GRAPH, and 
 # HAVE_DOT tags are set to YES then doxygen will generate a graph for each 
 # documented header file showing the documented files that directly or 
 # indirectly include this file.
 
-INCLUDED_BY_GRAPH      = NO
+INCLUDED_BY_GRAPH      = YES
 
 # If the CALL_GRAPH and HAVE_DOT options are set to YES then 
 # doxygen will generate a call dependency graph for every global function 
@@ -1513,7 +1513,7 @@ INCLUDED_BY_GRAPH      = NO
 # the time of a run. So in most cases it will be better to enable call graphs 
 # for selected functions only using the \callgraph command.
 
-CALL_GRAPH             = NO
+CALL_GRAPH             = YES
 
 # If the CALLER_GRAPH and HAVE_DOT tags are set to YES then 
 # doxygen will generate a caller dependency graph for every global function 
@@ -1521,7 +1521,7 @@ CALL_GRAPH             = NO
 # the time of a run. So in most cases it will be better to enable caller 
 # graphs for selected functions only using the \callergraph command.
 
-CALLER_GRAPH           = NO
+CALLER_GRAPH           = YES
 
 # If the GRAPHICAL_HIERARCHY and HAVE_DOT tags are set to YES then doxygen 
 # will graphical hierarchy of all classes instead of a textual one.
@@ -1591,7 +1591,7 @@ DOT_MULTI_TARGETS      = NO
 # generate a legend page explaining the meaning of the various boxes and 
 # arrows in the dot generated graphs.
 
-GENERATE_LEGEND        = NO
+GENERATE_LEGEND        = YES
 
 # If the DOT_CLEANUP tag is set to YES (the default) Doxygen will 
 # remove the intermediate dot files that are used to generate 
