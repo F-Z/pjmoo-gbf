@@ -52,7 +52,7 @@ void UIVisualImagem::aplicar(const GBF::Point & posicao, const GBF::Dimension & 
 //Desenha o EstiloVisual do Componente
 void UIVisualImagem::desenhar() {
     if (background != NULL) {
-        background->desenhar();
+        background->draw();
     }
 
     graphicSystem->gfx->setColor(corBorda.r, corBorda.g, corBorda.b);

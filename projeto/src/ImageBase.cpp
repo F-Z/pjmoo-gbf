@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "ImageBase.h"
 
@@ -20,58 +18,57 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Construtor
-ImageBase::ImageBase() 
+/** Construtor */
+ImageBase::ImageBase()
 {
-    imagem=NULL;
-
+    image = NULL;
 }
-//Destrutor
-ImageBase::~ImageBase() 
+/** Destrutor */
+ImageBase::~ImageBase()
 {
-    if (imagem!=NULL){
-        SDL_FreeSurface(imagem);
+    if (image != NULL){
+        SDL_FreeSurface(image);
         //UtilLog::getInstance()->status("Removendo Surfaces");
     }
 }
-//Seta nível de transparência 
-void ImageBase::setAlpha(Uint8 ALPHA) 
+/** Seta nível de transparência  */
+void ImageBase::setAlpha(Uint8 ALPHA)
 {
-    SDL_SetAlpha(imagem,SDL_SRCALPHA,ALPHA);
+    SDL_SetAlpha(image, SDL_SRCALPHA, ALPHA);
 }
-//Seta cor transparente
-void ImageBase::setColorKey(Uint8 R, Uint8 G, Uint8 B) 
+/** Seta cor transparente */
+void ImageBase::setColorKey(Uint8 R, Uint8 G, Uint8 B)
 {
-    SDL_SetColorKey(imagem,SDL_SRCCOLORKEY|SDL_RLEACCEL,SDL_MapRGB(imagem->format,R,G,B));
+    SDL_SetColorKey(image, SDL_SRCCOLORKEY | SDL_RLEACCEL, SDL_MapRGB(image->format, R, G, B));
 }
-double ImageBase::getTimer() 
+double ImageBase::getTimer()
 {
     return time;
 }
-SDL_Rect ImageBase::getTamanho() 
+GBF::Area ImageBase::getTamanho()
 {
     return tamanho;
 }
-double ImageBase::time=0.0f;
+double ImageBase::time = 0.0f;
 
-//Converte Surface para formato na inicialização do GraphicSystem 
-void ImageBase::converterSurface() 
+/** Converte Surface para formato na inicialização do GraphicSystem */
+void ImageBase::converterSurface()
 {
-    SDL_Surface *tmp = SDL_DisplayFormat(imagem);
-    SDL_FreeSurface(imagem);
-    imagem=tmp;
+    SDL_Surface *tmp = SDL_DisplayFormat(image);
+    SDL_FreeSurface(image);
+    image = tmp;
 }
 void ImageBase::setGraphicSystemScreen(Screen * screen)
 {
-    gsScreen = screen;
+    ImageBase::screen = screen;
 }
 
-void ImageBase::setTimer(double TEMPO)
+void ImageBase::setTimer(double time)
 {
-    time=TEMPO;
+    ImageBase::time = time;
 }
 
-Screen * ImageBase::gsScreen;
+Screen * ImageBase::screen;
 
 
 } // namespace GBF::Kernel::Graphic

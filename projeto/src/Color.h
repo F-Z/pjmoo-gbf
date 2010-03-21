@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #ifndef _COR_H
 #define _COR_H
@@ -22,12 +20,13 @@
 
 namespace GBF {
 
+/** Para representação e transformação de cores */
 namespace Color {
 
-//Estrutura para definição de cor
+/** Estrutura para definição de cor */
 typedef Uint32 Cor;
-//Estrutura para definição de paleta de cor.
-//Obs.: Representa um dos canais de cor (RGB)
+/** Estrutura para definição de paleta de cor.
+Obs.: Representa um dos canais de cor (RGB) */
 typedef Uint8 Pallete;
 //Descrição:
 //    Estrutura para representar cores no sistema RGB (Red, Green, Blue),  com
@@ -41,7 +40,6 @@ struct RGBf
     float g;
 
     float b;
-
 };
 //Descrição:
 //    Estrutura para representar cores no sistema HSV (Hue,Saturation,Value).
@@ -54,6 +52,7 @@ struct HSV
     float s;
 
     float v;
+
 
 };
 //Descrição:
@@ -77,18 +76,18 @@ struct RGB
 class Converter
 {
   public:
-    //Transforma de RGB para HSV
+    /** Transforma de RGB para HSV */
     static HSV forHSV(RGB cor);
 
-    //Transforma de HSV para RGB
+    /** Transforma de HSV para RGB */
     static RGB forRGB(HSV cor);
 
 
   protected:
-    //Retorna o menor valor
+    /** Retorna o menor valor */
     static int menor(int valor1, int valor2);
 
-    //Retorna o maior valor
+    /** Retorna o maior valor */
     static int maior(int valor1, int valor2);
 
 };

@@ -33,7 +33,7 @@ class SpriteItem : public Sprite
         //Destrutor
         virtual ~SpriteItem();
 
-        virtual void desenhar(int x, int y);
+        virtual void draw(int x, int y);
 
         //Informa o quadro de animação
         void setFrame(int quadro);

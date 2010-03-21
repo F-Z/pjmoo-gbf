@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "TimerRegressive.h"
 
@@ -20,8 +18,8 @@ namespace Kernel {
 
 namespace Timer {
 
-//Executa este método quando o estado é CRONOMETRO_EXECUTAR
-void TimerRegressive::executar()
+/** Executa este método quando o estado é CRONOMETRO_EXECUTAR */
+void TimerRegressive::execute()
 {
     tempoAtual = SDL_GetTicks();
 
@@ -30,23 +28,21 @@ void TimerRegressive::executar()
 
         if (tempoCorrente <= 0){
             tempoCorrente = 0;
-            setTerminar();
+            setFinish();
         }
 
-        execTempoInicial();
+        initialTick();
     }
 }
 
-//Construtor
+/** Construtor */
 TimerRegressive::TimerRegressive()
 {
-
 }
 
-//Destrutor
+/** Destrutor */
 TimerRegressive::~TimerRegressive()
 {
-
 }
 
 } // namespace GBF::Kernel::Timer

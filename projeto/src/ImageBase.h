@@ -1,19 +1,17 @@
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+
 #ifndef _IMAGEBASE_H
 #define _IMAGEBASE_H
-
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
 
 #include <string>
 
@@ -31,49 +29,49 @@ namespace Graphic {
 
 class ImageBase
 {
-  public:
-    //Construtor
-    ImageBase();
+    public:
+        /** Construtor */
+        ImageBase();
 
-    //Destrutor
-    virtual ~ImageBase();
+        /** Destrutor */
+        virtual ~ImageBase();
 
-    //Seta nível de transparência
-    void setAlpha(Uint8 ALPHA);
+        /** Seta nível de transparência */
+        void setAlpha(Uint8 ALPHA);
 
-    //Seta cor transparente
-    void setColorKey(Uint8 R, Uint8 G, Uint8 B);
+        /** Seta cor transparente */
+        void setColorKey(Uint8 R, Uint8 G, Uint8 B);
 
-    virtual bool loadFromFile(std::string arquivo) = 0;
+        virtual bool loadFromFile(std::string fileName) = 0;
 
-    double getTimer();
+        double getTimer();
 
-    SDL_Rect getTamanho();
-
-
-  protected:
-    SDL_Surface * imagem;
-
-    static double time;
-
-    SDL_Rect tamanho;
-
-    SDL_Rect posicao;
-
-    //Converte Surface para formato na inicialização do GraphicSystem
-    virtual void converterSurface();
+        GBF::Area getTamanho();
 
 
-  public:
-    static void setGraphicSystemScreen(Screen * screen);
+    protected:
+        SDL_Surface * image;
+
+        static double time;
+
+        GBF::Area tamanho;
+
+        GBF::Point point;
+
+        /** Converte Surface para formato na inicialização do GraphicSystem */
+        virtual void converterSurface();
 
 
-  private:
-    static void setTimer(double TEMPO);
+    public:
+        static void setGraphicSystemScreen(Screen * screen);
 
 
-  protected:
-    static Screen * gsScreen;
+    private:
+        static void setTimer(double time);
+
+
+    protected:
+        static Screen * screen;
 
 };
 

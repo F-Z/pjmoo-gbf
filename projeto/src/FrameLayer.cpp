@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
-////        http://pjmoo.sourceforge.net
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "FrameLayer.h"
 
@@ -38,13 +36,13 @@ FrameLayer::~FrameLayer() {
 }
 
 //Desenha o mapa
-void FrameLayer::desenhar() {
+void FrameLayer::draw() {
     int i, IMG, bloco_y, bloco_x;
     int offset_x, offset_y;
     int l_max, c_max;
-    SDL_Rect corte = tamanho;
+    GBF::Area corte = tamanho;
 
-    Point ponto            = camera.getPosicao();
+    Point ponto            = camera.getPoint();
     Dimension pixelTile    = mundo.getPixelTile();
     Dimension pixelVisivel = mundo.getPixelVisivel();
     Dimension tilesMundo   = mundo.getTiles();
@@ -83,60 +81,59 @@ void FrameLayer::desenhar() {
     }
 
     // Calcula a coordenada inicial de Y
-    posicao.y = screen_dimensao.top - offset_y;
+    point.y = screen_dimensao.top - offset_y;
 
     for (int l = 0; l < l_max; l++) {
         // Transforma linha em coordenada do vetor
         i = ((l + bloco_y) * tilesMundo.w) + bloco_x;
         // Verifica e corta a imagem da primeira linha
 
-        if (posicao.y <= screen_dimensao.top) {
-            posicao.y = screen_dimensao.top;
-            corte.y = tamanho.y + offset_y;
-            corte.h = tamanho.h - offset_y;
+        if (point.y <= screen_dimensao.top) {
+            point.y = screen_dimensao.top;
+            corte.top = tamanho.top + offset_y;
+            corte.bottom = tamanho.bottom - offset_y;
             // Verifica e corta a imagem da última linha
         }
-        else if (posicao.y + pixelTile.h > screen_dimensao.bottom) {
-            corte.h -= (posicao.y + pixelTile.h) - (screen_dimensao.bottom);
+        else if (point.y + pixelTile.h > screen_dimensao.bottom) {
+            corte.bottom -= (point.y + pixelTile.h) - (screen_dimensao.bottom);
         }
 
         // Calcula a coordenada inicial de X
-        posicao.x = screen_dimensao.left - offset_x;
+        point.x = screen_dimensao.left - offset_x;
 
         for (int c = 0; c < c_max; c++) {
             // Transforma coluna em coordenada do vetor
             IMG = (i) + (c);
             // Verifica e corta a imagem da primeira coluna
 
-            if (posicao.x <= screen_dimensao.left) {
-                posicao.x = screen_dimensao.left;
-                corte.x = tamanho.x + offset_x;
-                corte.w = tamanho.w - offset_x;
+            if (point.x <= screen_dimensao.left) {
+                point.x = screen_dimensao.left;
+                corte.left = tamanho.left + offset_x;
+                corte.right = tamanho.right - offset_x;
                 // Verifica e corta a imagem da última linha
-            }
-            else if (posicao.x + pixelTile.w > screen_dimensao.right) {
-                corte.w -= (posicao.x + pixelTile.w) - (screen_dimensao.right);
+            } else if (point.x + pixelTile.w > screen_dimensao.right) {
+                corte.right -= (point.x + pixelTile.w) - (screen_dimensao.right);
             }
 
             // Desenha a imagem na tela efetuando corte se necessário
-            imagem->desenhar(posicao, tamanho, mapa[IMG], corte);
+            image->draw(point, tamanho, mapa[IMG], corte);
 
             // Move x para a próxima posição
-            posicao.x += corte.w;
+            point.x += corte.right;
 
             // Restaura informações de corte para coluna
-            corte.w = tamanho.w;
+            corte.right = tamanho.right;
 
-            corte.x = tamanho.x;
+            corte.left = tamanho.left;
         }
 
         // Move y para a próxima posição
-        posicao.y += corte.h;
+        point.y += corte.bottom;
 
         // Restaura informações de corte para coluna
-        corte.y = tamanho.y;
+        corte.top = tamanho.top;
 
-        corte.h = tamanho.h;
+        corte.bottom = tamanho.bottom;
     }
 }
 
@@ -147,7 +144,7 @@ GBF::Area FrameLayer::getArea() {
 
 //Distancia restante para finalizar Scrolling Vertical
 int FrameLayer::getDistanciaScrollVertical() {
-    Point ponto = camera.getPosicao();
+    Point ponto = camera.getPoint();
 
     return ponto.y;
 }
@@ -160,7 +157,7 @@ int FrameLayer::getPorcentagemScrollHorizontal() {
 //Porcentagem percorrida do Scroll Vertical
 int FrameLayer::getPorcentagemScrollVertical() {
     Dimension tilesMundo = mundo.getTiles();
-    Point ponto         = camera.getPosicao();
+    Point ponto         = camera.getPoint();
 
     int total = tilesMundo.h * mundo.getPixelTileVertical();
     total = 100 - int((100 * ponto.y) / total);
@@ -170,7 +167,7 @@ int FrameLayer::getPorcentagemScrollVertical() {
 //Distancia total do Scrolling Vertical
 int FrameLayer::getTotalScrollVertical() {
     Dimension tilesMundo = mundo.getTiles();
-    Point ponto          = camera.getPosicao();
+    Point ponto          = camera.getPoint();
 
     return int(tilesMundo.h * mundo.getPixelTileVertical());
 }
@@ -318,7 +315,7 @@ void FrameLayer::showGrade() {
 }
 
 //Carrega tilemap apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarMapaMemoria(int vetor[]) {
+void FrameLayer::loadMapFromMemory(int vetor[]) {
     if (mapa != NULL) {
         delete []mapa;
     }
@@ -335,7 +332,7 @@ void FrameLayer::carregarMapaMemoria(int vetor[]) {
 }
 
 //Carrega mapa de colisão apartir de um vetor pré-alocado em memoria.
-void FrameLayer::carregarColisaoMemoria(int vetor[]) {
+void FrameLayer::loadCollisionFromMemory(int vetor[]) {
     if (mapaColisao != NULL) {
         delete []mapaColisao;
     }
@@ -352,13 +349,15 @@ void FrameLayer::carregarColisaoMemoria(int vetor[]) {
 }
 
 //Retorna o tipo de colisão usado no brick
-int FrameLayer::getTipoColisao(int indice) {
-    return mapaColisao[indice];
+int FrameLayer::getCollisionType(int index)
+{
+    return mapaColisao[index];
 }
 
 //Retorna o tipo de imagem usado no brick
-int FrameLayer::getTipoImagem(int indice) {
-    return mapa[indice];
+int FrameLayer::getImageType(int index)
+{
+    return mapa[index];
 }
 
 } // namespace GBF::Image::Layer

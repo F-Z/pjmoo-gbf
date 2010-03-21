@@ -1,19 +1,17 @@
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+
 #ifndef _LAYERMANAGER_H
 #define _LAYERMANAGER_H
-
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
-////        http://pjmoo.sourceforge.net
-////////////////////////////////////////////////////////////////////////
 
 #include "FrameLayer.h"
 #include <string>
@@ -28,25 +26,24 @@ namespace Image {
 
 namespace Layer {
 
-//Classe para Gerenciamento de FrameLayer
-
+/** Classe para Gerenciamento de FrameLayer */
 class LayerManager : public GBF::BaseManager {
     public:
-        //Destrutor
+        /** Destrutor */
         virtual ~LayerManager();
 
-        //Retorna uma instancia de FrameLayerManager
+        /** Retorna uma instancia de FrameLayerManager */
         static LayerManager * getInstance();
 
-        //Retorna FrameLayer para manipulação
-        FrameLayer * getFrameLayer(std::string nome);
+        /** Retorna FrameLayer para manipulação */
+        FrameLayer * getFrameLayer(std::string name);
 
-        //Adiciona FrameLayer no FrameLayerManager
-        void adicionar(std::string nome, FrameLayer * frameLayer);
+        /** Adiciona FrameLayer no FrameLayerManager */
+        void add(std::string name, FrameLayer * frameLayer);
 
 
     protected:
-        //Construtor
+        /** Construtor */
         LayerManager();
 
         static LayerManager * instance;

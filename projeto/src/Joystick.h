@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #ifndef _JOYSTICK_H
 #define _JOYSTICK_H
@@ -26,10 +24,8 @@ namespace Kernel {
 
 namespace Input {
 
-//Descrição:
-//    Valores para indicação dos eixos
-//Motivação:
-//    Fornecer um conjunto de valores para verificação dos eixos do joystick
+/**Valores para indicação dos eixos
+ Motivação: Fornecer um conjunto de valores para verificação dos eixos do joystick */
 enum JoystickAxe {
     AXE_STOP,
     AXE_LEFT,
@@ -38,59 +34,55 @@ enum JoystickAxe {
     AXE_DOWN
 
 };
-//Descrição:
-//    Valores para indicação dos botões
-//Motivação:
-//    Fornecer um conjunto de valores para verificação dos botões do joystick
-enum JoystickBotao {
+/** Valores para indicação dos botões
+ Motivação: Fornecer um conjunto de valores para verificação dos botões do joystick */
+enum JoystickButton {
     JB_A,
     JB_B,
     JB_C,
     JB_D
 
 };
-//Descrição:
-//    Classe para controle do joystick
-//Motivação:
-//    Prover o controle de eventos por meio do Joystick
+/** Classe para controle do joystick
+Motivação:  Prover o controle de eventos por meio do Joystick */
 
 class Joystick
 {
 
     public:
-        //Destrutor
+        /** Destrutor */
         virtual ~Joystick();
 
-        //Retorna se o direcional foi movido para o lado esquerdo
+        /** Retorna se o direcional foi movido para o lado esquerdo */
         bool isAxeLeft();
 
-        //Retorna se o direcional foi movido para o lado direito
+        /** Retorna se o direcional foi movido para o lado direito */
         bool isAxeRight();
 
-        //* Retorna se o direcional foi movido para cima
+        /** Retorna se o direcional foi movido para cima */
         bool isAxeUp();
 
-        //Retorna se o direcional foi movido para baixo
+        /** Retorna se o direcional foi movido para baixo */
         bool isAxeDown();
 
-        //Retorna se o botão A foi pressionado
+        /** Retorna se o botão A foi pressionado */
         bool isButtonA();
 
-        //Retorna se o botão B foi pressionado
+        /** Retorna se o botão B foi pressionado */
         bool isButtonB();
 
-        //Retorna se o botão C foi pressionado (caso exista)
+        /** Retorna se o botão C foi pressionado (caso exista) */
         bool isButtonC();
 
-        //Retorna se o botão D foi pressionado (caso exista)
+        /** Retorna se o botão D foi pressionado (caso exista) */
         bool isButtonD();
 
 
     private:
-        //Construtor
+        /** Construtor */
         Joystick();
 
-        //Processa os eventos do joystick
+        /** Processa os eventos do joystick */
         void update();
 
         SDL_Joystick * joystick;

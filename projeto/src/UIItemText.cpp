@@ -25,9 +25,9 @@ UIItemText::UIItemText(const std::string & text, const std::string & font)
     this->text = text;
     this->font = font;
 
-    time.setTempoOriginal(0);
-    time.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
-    time.setResetar();
+    time.setInitialTime(0);
+    time.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
+    time.setReset();
 
     if (writeManager == NULL){
         writeManager = GBF::Kernel::Write::WriteManager::getInstance();
@@ -41,24 +41,24 @@ UIItemText::~UIItemText()
 void UIItemText::draw(int x, int y)
 {
     if (isActive()){
-        time.processar();
+        time.update();
 
-        if (time.getTempo() % 2 == 0){
-            writeManager->escreverLocalizado(font, x, y, text.c_str());
+        if (time.getTime() % 2 == 0){
+            writeManager->writeKeyText(font, x, y, text.c_str());
         }
     } else {
-        writeManager->escreverLocalizado(font, x, y, text.c_str());
+        writeManager->writeKeyText(font, x, y, text.c_str());
     }
 }
 
 int UIItemText::getQuantidadeLetras()
 {
-    return writeManager->idioma->getText(text).length();
+    return writeManager->language->getText(text).length();
 }
 
 GBF::Dimension UIItemText::getDimensaoLetra()
 {
-    return writeManager->getFonte(font)->getDimensao();
+    return writeManager->getFont(font)->getDimensao();
 }
 
 } // namespace UserInterface::Menu

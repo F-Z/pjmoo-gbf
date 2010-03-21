@@ -1,35 +1,33 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "ListCharacter.h"
 
 namespace Character
 {
 
-//Construtor
+/** Construtor */
 ListCharacter::ListCharacter()
 {
 
 }
 
-//Destrutor
+/** Destrutor */
 ListCharacter::~ListCharacter()
 {
     clear();
 }
 
-//Desenha objetos que estao no container
+/** Desenha objetos que estao no container */
 void ListCharacter::draw()
 {
     if (!list.empty())
@@ -38,19 +36,19 @@ void ListCharacter::draw()
         {
             if (list[t])
             {
-                list[t]->desenhar();
+                list[t]->draw();
             }
         }
     }
 }
 
-//Retorna a quantidade de elementos
+/** Retorna a quantidade de elementos */
 int ListCharacter::size()
 {
     return list.size();
 }
 
-//Limpa o container, removendo todos os elementos
+/** Limpa o container, removendo todos os elementos */
 void ListCharacter::clear()
 {
     for (unsigned int i = 0; i < list.size(); i++)
@@ -71,7 +69,7 @@ void ListCharacter::clear()
     list.clear();
 }
 
-//Executa as ações de cada elemento
+/** Executa as ações de cada elemento */
 void ListCharacter::update(GBF::Kernel::Input::InputSystem * input)
 {
     if (!list.empty())
@@ -80,7 +78,7 @@ void ListCharacter::update(GBF::Kernel::Input::InputSystem * input)
         {
             if (list[t] != NULL)
             {
-                list[t]->acao(input);
+                list[t]->update(input);
             }
         }
     }

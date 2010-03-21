@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "WriteManager.h"
 
@@ -20,40 +18,40 @@ namespace Kernel {
 
 namespace Write {
 
-//Constante para representar a fonte padrão do GBF
-const std::string WriteManager::defaultFont="default";
+/** Constante para representar a fonte padrão do GBF */
+const std::string WriteManager::defaultFont = "default";
 
-//Destrutor
+/** Destrutor */
 WriteManager::~WriteManager()
 {
 //    UtilLog::subSistema("Removendo WriteSystemManager");
-    std::map<std::string,FontBitmap*>::iterator it;
+    std::map<std::string, FontBitmap*>::iterator it;
 
-    for (it=objetomap.begin();it!=objetomap.end(); it++){
+    for (it = objetomap.begin();it != objetomap.end(); it++){
         try {
             //UtilLog::tracer("Fonte=%s",((*it).first).c_str());
-        } catch(...){
+        } catch (...){
             //UtilLog::tracer("Fonte=Desconhecido(a)");
         }
         delete((*it).second);
-        (*it).second=NULL;
-       // UtilLog::comentario("[Ok]");
+        (*it).second = NULL;
+        // UtilLog::comentario("[Ok]");
     }
     objetomap.clear();
 }
-//Retorna uma fonte para manipulação direta
-//Obs.: Ideal para casos em que se deseja manipulações avançadas
-FontBitmap * WriteManager::getFonte(std::string nome)
+/** Retorna uma fonte para manipulação direta
+Obs.: Ideal para casos em que se deseja manipulações avançadas */
+FontBitmap * WriteManager::getFont(std::string name)
 {
-    if (objetomap.find(nome)!=objetomap.end()){
-        return objetomap[nome];
+    if (objetomap.find(name) != objetomap.end()){
+        return objetomap[name];
     } else {
-       // UtilLog::tracer("WriteSystemManager::getFonte(%s) - [* ERRO *]",nome.c_str());
+        // UtilLog::tracer("WriteSystemManager::getFonte(%s) - [* ERRO *]",nome.c_str());
         return objetomap[WriteManager::defaultFont];
     }
 }
-//Pega uma Instância de FonteManager
-//Obs.: Esta classe é Singleton
+/** Pega uma Instância de FonteManager
+Obs.: Esta classe é Singleton */
 WriteManager * WriteManager::getInstance()
 {
     if (instance == NULL){
@@ -61,76 +59,76 @@ WriteManager * WriteManager::getInstance()
     }
     return instance;
 }
-//Carrega e adiciona uma fonte (WriteSystemBitmap)
-void WriteManager::carregar(std::string nome, std::string arquivo)
+/** Carrega e adiciona uma fonte (WriteSystemBitmap) */
+void WriteManager::loadFromFile(std::string name, std::string fileName)
 {
-    std::string fullpath=Kernel::Util::Path::getPath()+arquivo;
+    std::string fullpath = Kernel::Util::Path::getPath() + fileName;
 
     FontBitmap *f = new FontBitmap();
 
-    std::cout << "\tWriteManager: " << nome << "=" << fullpath << std::endl;
+    std::cout << "\tWriteManager: " << name << "=" << fullpath << std::endl;
 
     if (f->loadFromFile(fullpath)){
-        objetomap[nome]=f;
+        objetomap[name] = f;
     }
 }
-//Escreve um texto na tela
-void WriteManager::escrever(std::string fonte, int x, int y, const char * texto, ...)
+/** Escreve um texto na tela */
+void WriteManager::write(std::string font, int x, int y, const char * text, ...)
 {
     char texto_aux[256];
     va_list ap;
 
-    va_start(ap, texto);
-    vsprintf(texto_aux, texto, ap);
+    va_start(ap, text);
+    vsprintf(texto_aux, text, ap);
     va_end(ap);
 
-    getFonte(fonte)->escrever(texto_aux,x,y);
+    getFont(font)->write(texto_aux, x, y);
 }
-//Escreve um texto na tela usando recursos de Localização (Tradução)
-void WriteManager::escreverLocalizado(const std::string & fonte, int x, int y, std::string chave, ...)
+/** Escreve um texto na tela usando recursos de Localização (Tradução) */
+void WriteManager::writeKeyText(const std::string font, int x, int y, std::string keyText, ...)
 {
     char textoFormatado[256];
     va_list ap;
 
-    va_start(ap, chave);
-    vsprintf(textoFormatado, idioma->getText(chave).c_str(), ap);
+    va_start(ap, keyText);
+    vsprintf(textoFormatado, language->getText(keyText).c_str(), ap);
     va_end(ap);
 
-    escrever(fonte,x,y,textoFormatado);
+    write(font, x, y, textoFormatado);
 }
-//Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização
-void WriteManager::escreverLocalizadoSubChave(const std::string fonte, int x, int y, const std::string chave, const std::string subChave)
+/** Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização @deprecated */
+void WriteManager::escreverLocalizadoSubChave(const std::string font, int x, int y, const std::string keyText, const std::string subKeyText)
 {
     char textoFormatado[256];
 
-    sprintf(textoFormatado, idioma->getText(chave).c_str(), idioma->getText(subChave).c_str());
-    escrever(fonte,x,y,textoFormatado);
+    sprintf(textoFormatado, language->getText(keyText).c_str(), language->getText(subKeyText).c_str());
+    write(font, x, y, textoFormatado);
 }
-//Remove uma fonte (WriteSystemFontBitmap)
-void WriteManager::apagar(std::string nome)
+/** Remove uma fonte (WriteSystemFontBitmap) */
+void WriteManager::remove(std::string name)
 {
-   // if (objetomap[nome]){
-    if (objetomap.find(nome)!=objetomap.end()){
-        delete (objetomap[nome]);
-        objetomap[nome]=NULL;
-        objetomap.erase(nome);
+    // if (objetomap[nome]){
+    if (objetomap.find(name) != objetomap.end()){
+        delete(objetomap[name]);
+        objetomap[name] = NULL;
+        objetomap.erase(name);
     }
 }
-//Retorna em Pixel o tamanho total da linha
-int WriteManager::getLarguraLinha(const std::string fonte, const std::string chave)
+/** Retorna em Pixel o tamanho total da linha */
+int WriteManager::getLineWidth(const std::string font, const std::string key)
 {
     //if (objetomap[fonte]){
-    if (objetomap.find(fonte)!=objetomap.end()){
-        return objetomap[fonte]->getLarguraLinha(idioma->getText(chave).c_str());
+    if (objetomap.find(font) != objetomap.end()){
+        return objetomap[font]->getLarguraLinha(language->getText(key).c_str());
     } else {
         return 0;
     }
 }
-//Construtor
+/** Construtor */
 WriteManager::WriteManager()
 {
 //    UtilLog::subSistema("Instanciando WriteSystemManager");
-    idioma =  Language::getInstance();
+    language =  Language::getInstance();
 }
 WriteManager * WriteManager::instance;
 

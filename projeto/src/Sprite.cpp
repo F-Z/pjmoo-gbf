@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
-////        http://pjmoo.sourceforge.net
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "Sprite.h"
 
@@ -21,52 +19,51 @@ namespace Image {
 
 namespace Sprite {
 
-//Destrutor
+/** Destrutor */
 Sprite::~Sprite()
 {
 }
 
-void Sprite::criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer)
+void Sprite::create(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer)
 {
     //chama o metodo criar da classe superclasse - SpriteInterface
-    SpriteInterface::criar(left, top, largura, altura, gsiBuffer);
+    SpriteInterface::create(left, top, largura, altura, gsiBuffer);
     //configura as informações de animação
-    animacao.configuration(quantitadeQuadro, repeticaoQuadro);
+    animation.configuration(quantitadeQuadro, repeticaoQuadro);
 }
-
-void Sprite::desenhar(int x, int y)
+/** Desenha o sprite na tela, com base na última posição informada ou desenhada */
+void Sprite::draw(int x, int y)
 {
-    posicao.x = x;
-    posicao.y = y;
-    SDL_Rect pontoCorte = tamanho;
-    pontoCorte.x += animacao.getFrameSize().x;
+    point.x = x;
+    point.y = y;
+    GBF::Area pontoCorte = tamanho;
+    pontoCorte.left += animation.getFrameSize().left;
 
-    imagem->desenhar(posicao, pontoCorte, animacao.process());
+    image->draw(point, pontoCorte, animation.process());
 }
-
-//Desenha o sprite na tela, com base na última posição informada ou desenhada
-void Sprite::desenhar()
+/** Desenha o sprite na tela, com base na última posição informada ou desenhada */
+void Sprite::draw()
 {
-    desenhar(posicao.x, posicao.y);
+    draw(point.x, point.y);
 }
 
-//Retorna a dimensão do sprite 'width' e 'height'
+/** Retorna a dimensão do sprite 'width' e 'height' */
 GBF::Dimension Sprite::getTamanho()
 {
     Dimension dimensao;
-    dimensao.w = tamanho.w;
-    dimensao.h = tamanho.h;
+    dimensao.w = tamanho.right;
+    dimensao.h = tamanho.bottom;
 
     return  dimensao;
 }
 
-//Colisão baseada no tamanho dos Sprites
-bool Sprite::isColisao(Sprite * spriteColisao)
+/** Colisão baseada no tamanho dos Sprites */
+bool Sprite::isCollision(Sprite * sprite)
 {
-    if ((posicao.x + tamanho.w >= spriteColisao->posicao.x) &&
-            (posicao.x <= spriteColisao->posicao.x + spriteColisao->tamanho.w) &&
-            (posicao.y + tamanho.h >= spriteColisao->posicao.y) &&
-            (posicao.y <= spriteColisao->posicao.y + spriteColisao->tamanho.h)) {
+    if ((point.x + tamanho.right >= sprite->point.x) &&
+            (point.x <= sprite->point.x + sprite->tamanho.right) &&
+            (point.y + tamanho.bottom >= sprite->point.y) &&
+            (point.y <= sprite->point.y + sprite->tamanho.bottom)) {
         return true;
     }
     else {
@@ -74,26 +71,26 @@ bool Sprite::isColisao(Sprite * spriteColisao)
     }
 }
 
-//Posiciona o Sprite na tela
-void Sprite::setPosicao(GBF::Point ponto)
+/** Posiciona o Sprite na tela */
+void Sprite::setPoint(GBF::Point point)
 {
-    setPosicao(ponto.x, ponto.y);
+    setPoint(point.x, point.y);
 }
 
-//Posiciona o Sprite na tela
-void Sprite::setPosicao(int x, int y)
+/** Posiciona o Sprite na tela */
+void Sprite::setPoint(int x, int y)
 {
-    posicao.x = x;
-    posicao.y = y;
+    point.x = x;
+    point.y = y;
 }
 
-//Construtor
+/** Construtor */
 Sprite::Sprite()
 {
-    tamanho.x = tamanho.y = tamanho.h = tamanho.w = 0;
-    posicao.x = posicao.y = posicao.h = posicao.w = 0;
+    tamanho.left = tamanho.top = tamanho.bottom = tamanho.right = 0;
+    point.x = point.y = 0;
 
-    animacao.setAutomatic(true);
+    animation.setAutomatic(true);
 }
 
 } // namespace GBF::Image::Sprite

@@ -33,9 +33,9 @@ GAT::GAT(int argc, char * argv[])
     uiRecordeNovo   = NULL;
     uiMenuPrincipal = NULL;
 
-    tempoInativo.setTempoOriginal(0);
-    tempoInativo.setUnidade(GBF::Kernel::Timer::TEMPO_SEGUNDO);
-    tempoInativo.setResetar();
+    tempoInativo.setInitialTime(0);
+    tempoInativo.setUnit(GBF::Kernel::Timer::TIME_SECOND_ONE);
+    tempoInativo.setReset();
 
     frameworkGBF->setPath(argv[0]);
 }
@@ -119,7 +119,7 @@ void GAT::escutar()
             break;
     }
 
-    frameworkGBF->atualizar();
+    frameworkGBF->update();
 }
 
 //Apresentação do jogo
@@ -188,10 +188,10 @@ void GAT::menu()
 
         case GAT_EM_PRINCIPAL:
             menuPrincipal();
-            tempoInativo.processar();
+            tempoInativo.update();
 
-            if (tempoInativo.getTempo() > 10){
-                tempoInativo.setResetar();
+            if (tempoInativo.getTime() > 10){
+                tempoInativo.setReset();
                 setApresentacao();
             }
 

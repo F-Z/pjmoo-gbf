@@ -30,7 +30,8 @@
 #include "SoundManagerAbstract.h"
 #include "Path.h"
 
-namespace GBF {
+namespace GBF
+{
 
 //Descrição:
 //     Classe central do framework
@@ -39,68 +40,91 @@ namespace GBF {
 //
 class GBFramework
 {
-  public:
-    //GraphicSystemCore, núcleo do sistema gráfico
-    GBF::Kernel::Graphic::GraphicCore * graphicSystemCore;
+    public:
+        /** GraphicSystemCore, núcleo do sistema gráfico */
+        GBF::Kernel::Graphic::GraphicCore * graphicSystemCore;
 
-    GBF::Kernel::Input::InputCore * inputSystemCore;
+        GBF::Kernel::Input::InputCore * inputSystemCore;
 
-    GBF::Kernel::Sound::SoundCore * soundSystemCore;
+        GBF::Kernel::Sound::SoundCore * soundSystemCore;
 
-    GBF::Kernel::Write::WriteManager * writeSystem;
+        GBF::Kernel::Write::WriteManager * writeSystem;
 
-    //Destrutor
-    virtual ~GBFramework();
+        /** Destrutor */
+        virtual ~GBFramework();
 
-    //Construtor
-    GBFramework();
+        /** Construtor */
+        GBFramework();
 
-    //Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick),
-    //desenha na tela o conteúdo do backbuffer
+        /** Atualiza o Sistema de processamento de eventos (teclado,mouse,joystick), desenha na tela o conteúdo do backbuffer */
 
-    void atualizar();
+        void update();
 
-    //Retorna o diretório base da aplicação corrente
-    std::string getPath();
+        /** Retorna o diretório base da aplicação corrente */
+        std::string getPath();
 
-    //Inicializa o Sistema, e configura o modo gráfico
-    void iniciar(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::FPSType fps);
+        /** Inicializa o Sistema, e configura o modo gráfico */
+        void start(int width, int height, int bpp_color, bool full, GBF::Kernel::FPS::FPSType fps);
 
-    //Informa se o mostrador de FPS está ativo
-    bool isFPS();
+        /** Informa se o mostrador de FPS está ativo */
+        bool isFPS();
 
-    //Pausa o Sistema
-    void pausar();
+        /** Pausa o Sistema */
+        void pause();
 
-    //Mostra o Contador de FPS
-    void setFPS(bool show);
+        /** Mostra o Contador de FPS */
+        void setFPS(bool show);
 
-    //Informa o caminho do diretório base da aplicação corrente
-    void setPath(char * fullPath);
+        /** Informa o caminho do diretório base da aplicação corrente*/
+        void setPath(char * fullPath);
 
-    //Informação sobre o Autor e o Título da Aplicação.
-    //Obs.: Usado para arquivo de log e título da janela
-    void setTitulo(std::string titulo, std::string autor);
-
-
-  protected:
-    //Prepara o Ambiente para ser inicializado
-    void carregar();
-
-    //Controle para ações internas
-    void controleInterno();
-
-    //Define o Título para Janela
-    void setTitulo(std::string titulo);
+        //Informação sobre o Autor e o Título da Aplicação.
+        //Obs.: Usado para arquivo de log e título da janela
+        void setTitle(std::string titlo, std::string autor);
 
 
-  private:
-    bool fps;
+    protected:
+        /**Prepara o Ambiente para ser inicializado*/
+        void load();
 
-    GBF::Kernel::FPS::FPS * fpsSystem;
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF1();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF2();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF3();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF4();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF5();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF6();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF7();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF8();
+        /** Not implemented. Free for your implementation. */
+        virtual void hookF9();
+        /** F10 = Alterna entre modo de controle de teclado e mouse exclusivo*/
+        virtual void hookF10();
+        /**F11 = Alterna entre modo tela Cheia e Janela */
+        virtual void hookF11();
+        /**F12 = Salva um screen do jogo */
+        virtual void hookF12();
 
-    int numscreenshot;
+        /** Define o Título para Janela*/
+        void setTitle(std::string title);
 
+
+    private:
+        bool fps;
+
+        GBF::Kernel::FPS::FPS * fpsSystem;
+
+        int screenShotCounter;
+
+        /** Controle para ações internas */
+        void internalControl();
 };
 
 } // namespace GBF

@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "UIWindowRecord.h"
 
@@ -20,38 +18,32 @@ namespace Window {
 
 void UIWindowRecord::update()
 {
-    tempoEspera.processar();
+    tempoEspera.update();
 
     textName.setValue(record.nome);
     textScore.setValue(record.pontos);
 }
 
-//Desenha o botão de ação da janela
-
-//Desenha o botão de ação da janela
-void UIWindowRecord::desenharForeground()
+/** Desenha o botão de ação da janela */
+void UIWindowRecord::drawForeground()
 {
     if (showErro){
-        writeManager->escreverLocalizado(fontNotice.nome, fontNotice.posicao.x, fontNotice.posicao.y, "GBF_UIRecorde_warning");
+        writeManager->writeKeyText(fontNotice.nome, fontNotice.posicao.x, fontNotice.posicao.y, "GBF_UIRecorde_warning");
     }
 }
 
-//Desenha o conteudo da janela
-
-//Desenha o conteudo da janela
-void UIWindowRecord::desenharConteudo()
+/** Desenha o conteudo da janela */
+void UIWindowRecord::drawContent()
 {
-    //escrevendo titulo centralizado
-    writeManager->escreverLocalizado(fontTitle.nome, fontTitle.posicao.x, fontTitle.posicao.y, "GBF_UIRecorde_title");
+    // escrevendo titulo centralizado
+    writeManager->writeKeyText(fontTitle.nome, fontTitle.posicao.x, fontTitle.posicao.y, "GBF_UIRecorde_title");
 
     keyboard.execute();
     textName.execute();
     textScore.execute();
 }
 
-//Efetua as ações de acordo com a posição do cursor
-
-//Efetua as ações de acordo com a posição do cursor
+/** Efetua as ações de acordo com a posição do cursor */
 int UIWindowRecord::confirmSelection()
 {
     int opcao = false;
@@ -78,7 +70,7 @@ int UIWindowRecord::confirmSelection()
             }
         }
 
-        tempoEspera.setResetar();
+        tempoEspera.setReset();
     }
 
     if (nameIndex < 0){
@@ -94,33 +86,31 @@ int UIWindowRecord::confirmSelection()
 
 const int UIWindowRecord::BUTTON_SAVE = 200;
 
-//Inicializa as configurações da caixa de texto
-
-//Inicializa as configurações da caixa de texto
+/** Inicializa as configurações da caixa de texto */
 void UIWindowRecord::inicializar()
 {
     UIWindow::inicializar();
 
     GBF::Dimension d = keyboard.getDimension();
 
-    int pX = (position.x + dimension.w) / 2 - (d.w / 2);
-    int pY = (position.y + dimension.h) / 2;
+    int pX = (point.x + dimension.w) / 2 - (d.w / 2);
+    int pY = (point.y + dimension.h) / 2;
 
-    keyboard.setPosition(pX, pY);
+    keyboard.setPoint(pX, pY);
 
 
     pY = pY + keyboard.getDimension().h;
     fontNotice.posicao.x = pX;
     fontNotice.posicao.y = pY;
 
-    pX = position.x + fontTitle.dimensao.h;
-    pY = position.y + (fontTitle.dimensao.h * 1.5);
+    pX = point.x + fontTitle.dimensao.h;
+    pY = point.y + (fontTitle.dimensao.h * 1.5);
 
-    textName.setPosition(pX, pY);
+    textName.setPoint(pX, pY);
 
-    pX = position.x + dimension.w - textScore.getDimension().w - fontTitle.dimensao.h;
+    pX = point.x + dimension.w - textScore.getDimension().w - fontTitle.dimensao.h;
 
-    textScore.setPosition(pX, pY);
+    textScore.setPoint(pX, pY);
 }
 
 UIWindowRecord::UIWindowRecord()
@@ -138,24 +128,23 @@ UIWindowRecord::UIWindowRecord()
     textScore.maxLength(8);
 
     nameIndex = 0;
-    position.x = 0;
-    position.y = 0;
+    point.x = 0;
+    point.y = 0;
 
-    tempoEspera.setTempoOriginal(1);
-    tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
-    tempoEspera.setResetar();
+    tempoEspera.setInitialTime(1);
+    tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
+    tempoEspera.setReset();
 
     showErro = false;
 }
 
-//Destrutor
-UIWindowRecord::~UIWindowRecord(){
+/** Destrutor */
+UIWindowRecord::~UIWindowRecord()
+{
     delete(uiVisualComponentes);
 }
 
-//Estilo Visual a ser Aplicado no Componente
-
-//Estilo Visual a ser Aplicado no Componente
+/** Estilo Visual a ser Aplicado no Componente */
 void UIWindowRecord::setVisualComponentes(UserInterface::Visual::UIVisualSolido * visual)
 {
     uiVisualComponentes = visual;
@@ -167,15 +156,15 @@ void UIWindowRecord::setVisualComponentes(UserInterface::Visual::UIVisualSolido 
     keyboard.setColorCursor(255, 255, 0);
 }
 
-//Define a fonte a ser usada pelo Titulo
+/** Define a fonte a ser usada pelo Titulo */
 void UIWindowRecord::setFontTitle(std::string font)
 {
     fontTitle.nome = font;
-    fontTitle.dimensao = writeManager->getFonte(fontTitle.nome)->getDimensao();
+    fontTitle.dimensao = writeManager->getFont(fontTitle.nome)->getDimensao();
 
-    int tamanho = writeManager->getLarguraLinha(fontTitle.nome, "GBF_UIRecorde_title");
-    fontTitle.posicao.x = position.x + (dimension.w / 2) - (tamanho / 2);
-    fontTitle.posicao.y = position.y;
+    int tamanho = writeManager->getLineWidth(fontTitle.nome, "GBF_UIRecorde_title");
+    fontTitle.posicao.x = point.x + (dimension.w / 2) - (tamanho / 2);
+    fontTitle.posicao.y = point.y;
 }
 
 void UIWindowRecord::setFontKeyboard(std::string keyFont, std::string controlFont)
@@ -184,45 +173,40 @@ void UIWindowRecord::setFontKeyboard(std::string keyFont, std::string controlFon
     keyboard.setFontControl(controlFont);
 }
 
-void UIWindowRecord::setFontEdition(std::string fontLabel, std::string fontValue)
+void UIWindowRecord::setFontInput(std::string fontLabel, std::string fontValue)
 {
-    textName.setFonteLabel(fontLabel);
-    textName.setFonteCampo(fontValue);
+    textName.setFont(fontLabel);
+    textName.setFontInput(fontValue);
 
-    textScore.setFonteLabel(fontLabel);
-    textScore.setFonteCampo(fontValue);
+    textScore.setFont(fontLabel);
+    textScore.setFontInput(fontValue);
 
     textScore.showCursor(false);
 
     fontNotice.nome = fontLabel;
 }
 
-//Retorna o TopSystemRecorde
+/** Retorna o TopSystemRecorde */
 RankingSystem::RSRecorde UIWindowRecord::getRecord()
 {
     return record;
 }
 
-//Atribui um TopSystemRecorde para complementar os dados
-
-//Atribui um RSRecorde para complementar os dados
+/** Atribui um RSRecorde para complementar os dados */
 void UIWindowRecord::setRecord(RankingSystem::RSRecorde record)
 {
     this->record  = record;
     nameIndex    = 0;
-    tempoEspera.setResetar();
+    tempoEspera.setReset();
 }
 
-//Gerencia o controle do cursor (navegação) e as opções selecionadas
-
-//Gerencia o controle do cursor (navegação) e as opções selecionadas
+/** Gerencia o controle do cursor (navegação) e as opções selecionadas */
 bool UIWindowRecord::isAction(int action)
 {
     bool salva = false;
 
-    if (tempoEspera.isTerminou()){
-        if (confirmSelection() == action)
-        {
+    if (tempoEspera.isFinish()){
+        if (confirmSelection() == action) {
             salva = true;
         }
     }

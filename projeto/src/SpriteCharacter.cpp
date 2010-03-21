@@ -80,7 +80,7 @@ void SpriteCharacter::setDirection(Direcao DIR)
             break;
     }
 
-    animacao.processManual();
+    animation.processManual();
 }
 
 void SpriteCharacter::setQtdDirecoes(int QTD)
@@ -88,11 +88,11 @@ void SpriteCharacter::setQtdDirecoes(int QTD)
     qtdDirecao = QTD;
 }
 
-void SpriteCharacter::desenhar(int x, int y)
+void SpriteCharacter::draw(int x, int y)
 {
-    animacao.cutSet(direction, tamanho.w);
+    animation.cutSet(direction, tamanho.right);
 
-    Sprite::desenhar(x, y);
+    Sprite::draw(x, y);
 }
 
 //Retorna a quantidade de direções que o personagem possui

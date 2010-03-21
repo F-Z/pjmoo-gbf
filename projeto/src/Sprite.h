@@ -1,19 +1,17 @@
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+
 #ifndef _SPRITE_H
 #define _SPRITE_H
-
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
-////        http://pjmoo.sourceforge.net
-////////////////////////////////////////////////////////////////////////
 
 #include "ImageBuffer.h"
 #include "GBF.h"
@@ -59,31 +57,32 @@ struct DirecaoStatus {
 class Sprite : public GBF::Image::SpriteInterface
 {
     public:
-        //Destrutor
+        /** Destrutor */
         virtual ~Sprite();
 
-        void criar(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
+        void create(int left, int top, int largura, int altura, int quantitadeQuadro, int repeticaoQuadro, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer);
 
-        virtual void desenhar(int x, int y);
+        /** Desenha o sprite na tela, com base na última posição informada ou desenhada */
+        virtual void draw(int x, int y);
 
-        //Desenha o sprite na tela, com base na última posição informada ou desenhada
-        virtual void desenhar();
+        /** Desenha o sprite na tela, com base na última posição informada ou desenhada */
+        virtual void draw();
 
-        //Retorna a dimensão do sprite 'width' e 'height'
+        /** Retorna a dimensão do sprite 'width' e 'height' */
         GBF::Dimension getTamanho();
 
-        //Colisão baseada no tamanho dos Sprites
-        bool isColisao(Sprite * spriteColisao);
+        /** Colisão baseada no tamanho dos Sprites */
+        bool isCollision(Sprite * sprite);
 
-        //Posiciona o Sprite na tela
-        void setPosicao(GBF::Point ponto);
+        /** Posiciona o Sprite na tela */
+        void setPoint(GBF::Point point);
 
-        //Posiciona o Sprite na tela
-        virtual void setPosicao(int x, int y);
+        /** Posiciona o Sprite na tela */
+        virtual void setPoint(int x, int y);
 
 
     protected:
-        //Construtor
+        /** Construtor */
         Sprite();
 
 };

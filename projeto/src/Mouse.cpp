@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "Mouse.h"
 
@@ -20,7 +18,7 @@ namespace Kernel {
 
 namespace Input {
 
-//Destrutor
+/** Destrutor */
 Mouse::~Mouse()
 {
 //    UtilLog::subSistema("Removendo InputSystemMouse");
@@ -37,56 +35,55 @@ Mouse::~Mouse()
     SDL_ShowCursor(SDL_ENABLE);
 }
 
-//Retorna a posição do mouse no eixo X
+/** Retorna a posição do mouse no eixo X */
 int Mouse::getX()
 {
-
-    return ponto.x;
+    return point.x;
 }
 
-//Retorna a posição do mouse no eixo Y
+/** Retorna a posição do mouse no eixo Y */
 int Mouse::getY()
 {
-    return ponto.y;
+    return point.y;
 }
 
-//Retorna a posição do mouse
-GBF::Point Mouse::getPosicao()
+/** Retorna a posição do mouse */
+GBF::Point Mouse::getPoint()
 {
-    return ponto;
+    return point;
 }
 
-//Carrega o curso do mouse do arquivo
-void Mouse::loadFromFile(std::string arquivo)
+/** Carrega o curso do mouse do arquivo */
+void Mouse::loadFromFile(std::string fileName)
 {
-    std::cout << "\tMouse: " << arquivo << std::endl;
+    std::cout << "\tMouse: " << fileName << std::endl;
 
-    if (cursor->loadFromFile(arquivo)){
+    if (cursor->loadFromFile(fileName)){
         setMouse(true);
     } else {
         setMouse(false);
     }
 }
 
-//Retorna o InputSystemMouseCursor para manipulação
+/** Retorna o InputSystemMouseCursor para manipulação */
 Cursor * Mouse::getMouseCursor()
 {
     return cursor;
 }
 
-//Configura se exibe ou não o cursor do mouse
+/** Configura se exibe ou não o cursor do mouse */
 void Mouse::setMouse(bool show)
 {
     mouse = show;
 }
 
-//Retorna se o ponteiro está ativo na tela
+/** Retorna se o ponteiro está ativo na tela */
 bool Mouse::isMouse()
 {
     return mouse;
 }
 
-//Verifica se o botão esquerdo foi pressionado
+/** Verifica se o botão esquerdo foi pressionado */
 bool Mouse::isButtonLeft()
 {
     if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(MS_LEFT)){
@@ -96,7 +93,7 @@ bool Mouse::isButtonLeft()
     }
 }
 
-//Verifica se o botão do meio foi pressionado
+/** Verifica se o botão do meio foi pressionado */
 bool Mouse::isButtonMiddle()
 {
     if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(MS_MIDDLE)){
@@ -106,7 +103,7 @@ bool Mouse::isButtonMiddle()
     }
 }
 
-//Verifica se o botão direito foi pressionado
+/** Verifica se o botão direito foi pressionado */
 bool Mouse::isButtonRight()
 {
     if (SDL_GetMouseState(NULL, NULL)&SDL_BUTTON(MS_RIGHT)){
@@ -116,7 +113,7 @@ bool Mouse::isButtonRight()
     }
 }
 
-//Verifica se a combinação de botões foi pressionada
+/** Verifica se a combinação de botões foi pressionada */
 bool Mouse::isButton(bool left, bool middle, bool right)
 {
     bool e, m, d;
@@ -148,7 +145,7 @@ bool Mouse::isButton(bool left, bool middle, bool right)
     return (e && m && d);
 }
 
-//Construtor
+/** Construtor */
 Mouse::Mouse()
 {
     std::cout << "GBF::Kernel::Input::Mouse" << std::endl;
@@ -157,13 +154,13 @@ Mouse::Mouse()
     cursor = new Cursor();
 }
 
-//Processa os eventos do mouse
+/** Processa os eventos do mouse */
 void Mouse::update()
 {
-    SDL_GetMouseState(&ponto.x, &ponto.y);
+    SDL_GetMouseState(&point.x, &point.y);
 
     if ((isMouse()) && (cursor != NULL)){
-        cursor->desenhar(ponto.x, ponto.y);
+        cursor->draw(point.x, point.y);
     }
 }
 

@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #ifndef _PSMANAGER_H
 #define _PSMANAGER_H
@@ -21,46 +19,42 @@
 
 namespace ParticleSystem {
 
-//Descrição:
-//    Classe para gerenciamento do sistema de  particulas.
-//Motivação:
-//    Gerenciar o uso de vários sistemas de particulas
-class PSManager : public GBF::BaseManager {
-  private:
-    //Construtor
-    PSManager();
+/** Classe para gerenciamento do sistema de  particulas.
+    Gerenciar o uso de vários sistemas de particulas */
+class PSManager : public GBF::BaseManager
+{
+    public:
+        /** Destrutor */
+        ~PSManager();
 
+        /** Adiciona um Sistema de Particulas */
+        void add(PSEffect * efeito);
 
-  public:
-    //Destrutor
-    ~PSManager();
+        /** Desenha objetos que estao no container */
+        void draw();
 
-    //Adiciona um Sistema de Particulas
-    void adicionar(PSEffect * efeito);
+        /** Atualiza o Sistema */
+        void update();
 
-    //Desenha objetos que estao no container
-    void desenhar();
+        /** Retorna a quantidade de elementos */
+        int size();
 
-    //Atualiza o Sistema
-    void executar();
+        /** Limpa o gerenciador, removendo todos os elementos */
+        void clear();
 
-    //Retorna a quantidade de elementos
-    int size();
+        /** Pega uma Instância de ParticleSystemManager */
+        static PSManager * getInstance();
 
-    //Limpa o gerenciador, removendo todos os elementos
-    void limpar();
+    protected:
+        static PSManager * instance;
 
-    //Pega uma Instância de ParticleSystemManager
-    static PSManager * getInstance();
+        std::deque<PSEffect*> lista;
+        /** Remove os sistemas de particulas já finalizados */
+        void remove();
 
-
-  protected:
-    static PSManager * instance;
-
-    std::deque<PSEffect*> lista;
-    //Remove os sistemas de particulas já finalizados
-    void removerMorto();
-
+    private:
+        /** Construtor */
+        PSManager();
 };
 
 } // namespace ParticleSystem

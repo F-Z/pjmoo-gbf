@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 #include <SDL/SDL.h>
-
+#include "GBF.h"
 
 namespace GBF {
 
@@ -33,7 +33,10 @@ class Screen
     virtual ~Screen();
 
     //Desenha uma surface na surface de vídeo
-    void blitSurface(SDL_Surface * origem, SDL_Rect * area, SDL_Rect * posicao);
+    void blitSurface(SDL_Surface * origem, GBF::Point posicao);
+
+    //Desenha uma surface na surface de vídeo
+    void blitSurface(SDL_Surface * origem, GBF::Area area, GBF::Point posicao);
 
     //Retorna ponteiro para a surface de vídeo
     SDL_Surface * getScreen();
@@ -51,6 +54,9 @@ class Screen
   private:
     SDL_Surface * pScreen;
 
+    SDL_Rect toRect(GBF::Area area);
+
+    SDL_Rect toRect(GBF::Point point);
 
   public:
     //Informa qual a surface a ser usada e a configuração

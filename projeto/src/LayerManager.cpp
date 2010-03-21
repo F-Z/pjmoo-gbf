@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
-////        http://pjmoo.sourceforge.net
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "LayerManager.h"
 
@@ -20,23 +18,21 @@ namespace Image {
 
 namespace Layer {
 
-//Destrutor
-LayerManager::~LayerManager() {
+/** Destrutor */
+LayerManager::~LayerManager()
+{
     //UtilLog::subSistema("Removendo FrameLayerManager");
 
     std::map<std::string, FrameLayer*>::iterator it;
     std::string nome = "";
 
     for (it = objetomap.begin();it != objetomap.end(); it++) {
-
         nome = (*it).first;
-
         try {
             delete((*it).second);
             (*it).second = NULL;
             //util::Log::tracer("Removido: %s [Ok] ",nome.c_str());
-        }
-        catch (...) {
+        } catch (...) {
             //util::Log::tracer("Tentando Remover: %s [Falhou]",nome.c_str());
         }
     }
@@ -44,8 +40,9 @@ LayerManager::~LayerManager() {
     objetomap.clear();
 }
 
-//Retorna uma instancia de FrameLayerManager
-LayerManager * LayerManager::getInstance() {
+/** Retorna uma instancia de FrameLayerManager */
+LayerManager * LayerManager::getInstance()
+{
     if (instance == NULL) {
         instance = new LayerManager();
     }
@@ -53,32 +50,34 @@ LayerManager * LayerManager::getInstance() {
     return instance;
 }
 
-//Retorna FrameLayer para manipulação
-FrameLayer * LayerManager::getFrameLayer(std::string nome) {
-    if (objetomap.find(nome) != objetomap.end()) {
-        return objetomap[nome];
-    }
-    else {
+/** Retorna FrameLayer para manipulação */
+FrameLayer * LayerManager::getFrameLayer(std::string name)
+{
+    if (objetomap.find(name) != objetomap.end()) {
+        return objetomap[name];
+    } else {
         //UtilLog::tracer("FrameLayer não encontrado: %s [Falhou]",nome.c_str());
         return NULL;
     }
 }
 
-//Adiciona FrameLayer no FrameLayerManager
-void LayerManager::adicionar(std::string nome, FrameLayer * frameLayer) {
-    std::cout << "\tLayerManager: " << nome << std::endl;
+/** Adiciona FrameLayer no FrameLayerManager */
+void LayerManager::add(std::string name, FrameLayer * frameLayer)
+{
+    std::cout << "\tLayerManager: " << name << std::endl;
 
-    if ((nome != "") && (frameLayer != NULL)) {
-        objetomap[nome] = frameLayer;
+    if ((name != "") && (frameLayer != NULL)) {
+        objetomap[name] = frameLayer;
     }
     else {
-        std::cerr << "[ERROR]LayerManager: Is Null or Undefined" << nome << std::endl;
+        std::cerr << "[ERROR]LayerManager: Is Null or Undefined" << name << std::endl;
     }
 }
 
-//Construtor
-LayerManager::LayerManager() {
-    std::cout << "GBF::Imagem::Layer::LayerManager" << std::endl;
+/** Construtor */
+LayerManager::LayerManager()
+{
+    std::cout << "GBF::Image::Layer::LayerManager" << std::endl;
 }
 
 LayerManager * LayerManager::instance;
