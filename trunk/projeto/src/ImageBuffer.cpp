@@ -33,9 +33,9 @@ ImageBuffer::~ImageBuffer()
 
 bool ImageBuffer::loadFromFile(std::string arquivo)
 {
-    imagem = IMG_Load(arquivo.c_str());
+    image = IMG_Load(arquivo.c_str());
 
-    if (imagem){
+    if (image){
         converterSurface();
         setColorKey(255, 0, 255);
         return true;
@@ -47,59 +47,59 @@ bool ImageBuffer::loadFromFile(std::string arquivo)
 }
 
 //Desenha um sprite simples na tela
-void ImageBuffer::desenhar(GBF::Point point)
+void ImageBuffer::draw(GBF::Point point)
 {
-    SDL_Rect rect, pos;
+    GBF::Area rect, pos;
 
     rect  = this->tamanho;
-    pos.x = point.x;
-    pos.y = point.y;
-    pos.w = 0;
-    pos.h = 0;
+    pos.left   = point.x;
+    pos.top    = point.y;
+    pos.right  = 0;
+    pos.bottom = 0;
 
-    gsScreen->blitSurface(imagem, &rect, &pos);
+   screen->blitSurface(image, rect, point);
 }
 
 //Permite desenhar sprites animados
-void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME)
+void ImageBuffer::draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME)
 {
-    SDL_Rect rect;
+    GBF::Area rect;
 
-    rect.x = (TAMANHO.x) + (FRAME * TAMANHO.w);
-    rect.y = TAMANHO.y;
-    rect.h = TAMANHO.h;
-    rect.w = TAMANHO.w;
+    rect.left   = (TAMANHO.left) + (FRAME * TAMANHO.right);
+    rect.top    = TAMANHO.top;
+    rect.bottom = TAMANHO.bottom;
+    rect.right  = TAMANHO.right;
 
-    gsScreen->blitSurface(imagem, &rect, &POSICAO);
+    screen->blitSurface(image, rect, POSICAO);
 }
 
 //Permite desenhar sprites animados com corte
-void ImageBuffer::desenhar(SDL_Rect POSICAO, SDL_Rect TAMANHO, int FRAME, SDL_Rect CORTE)
+void ImageBuffer::draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME, GBF::Area CORTE)
 {
-    SDL_Rect rect;
+    GBF::Area rect;
 
-    rect.x = (TAMANHO.x) + (FRAME * TAMANHO.w);
-    rect.y = TAMANHO.y;
-    rect.h = TAMANHO.h;
-    rect.w = TAMANHO.w;
+    rect.left   = (TAMANHO.left) + (FRAME * TAMANHO.right);
+    rect.top    = TAMANHO.top;
+    rect.bottom = TAMANHO.bottom;
+    rect.right  = TAMANHO.right;
 
-    if (CORTE.x > 0){
-        rect.x += CORTE.x;
+    if (CORTE.left > 0){
+        rect.left += CORTE.left;
     }
 
-    if (CORTE.y > 0){
-        rect.y = CORTE.y;
+    if (CORTE.top > 0){
+        rect.top = CORTE.top;
     }
 
-    if (CORTE.w > 0){
-        rect.w = CORTE.w;
+    if (CORTE.right > 0){
+        rect.right = CORTE.right;
     }
 
-    if (CORTE.h > 0){
-        rect.h = CORTE.h;
+    if (CORTE.bottom > 0){
+        rect.bottom = CORTE.bottom;
     }
 
-    gsScreen->blitSurface(imagem, &rect, &POSICAO);
+    screen->blitSurface(image, rect, POSICAO);
 }
 
 } // namespace GBF::Kernel::Graphic

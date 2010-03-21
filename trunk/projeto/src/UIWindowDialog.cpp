@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "UIWindowDialog.h"
 
@@ -20,87 +18,83 @@ namespace UserInterface
 namespace Window
 {
 
-const int UIWindowDialog::BOTAO_OK = 100;
+const int UIWindowDialog::BUTTON_OK = 100;
 
 UIWindowDialog::UIWindowDialog()
 {
-    botao = NULL;
+    button = NULL;
 }
 
 UIWindowDialog::~UIWindowDialog()
 {
-    if (botao) {
-        delete(botao);
+    if (button) {
+        delete(button);
     }
 }
 
-void UIWindowDialog::adicionarBotao(UserInterface::Component::UIButton * novoBotao)
+void UIWindowDialog::addButton(UserInterface::Component::UIButton * button)
 {
-    botao = novoBotao;
+    this->button = button;
 }
 
-//Retorna se a ação informada foi acionado
-bool UIWindowDialog::isAcao(int tipoAcao)
+/** Retorna se a ação informada foi acionado */
+bool UIWindowDialog::isAction(int action)
 {
-    if (confirmarSelecao() == tipoAcao) {
+    if (confirmSelection() == action) {
         return true;
     } else {
         return false;
     }
 }
 
-int UIWindowDialog::confirmarSelecao()
+int UIWindowDialog::confirmSelection()
 {
     int selecionado = -1;
 
-    if (((botao == NULL) || (((inputSystem->keyboard->isKey(botao->getKey())) || (inputSystem->joystick->isButtonA()))))
-            && (tempoEspera.isTerminou())) {
-        tempoEspera.setResetar();
-        selecionado = BOTAO_OK;
+    if (((button == NULL) || (((inputSystem->keyboard->isKey(button->getKey())) || (inputSystem->joystick->isButtonA()))))
+            && (tempoEspera.isFinish())) {
+        tempoEspera.setReset();
+        selecionado = BUTTON_OK;
     }
 
     return selecionado;
 }
 
-//Inicializa as configurações da caixa de texto
-
-//Inicializa as configurações da caixa de texto
+/** Inicializa as configurações da caixa de texto */
 void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
-    texto.setLetterDimension(writeManager->getFonte(texto.getFont())->getDimensao());
+    text.setLetterDimension(writeManager->getFont(text.getFont())->getDimensao());
 }
 
-//Desenha o conteudo da janela
-
-//Desenha o conteudo da janela
-void UIWindowDialog::desenharConteudo()
+/** Desenha o conteudo da janela */
+void UIWindowDialog::drawContent()
 {
     int numeroLinha = 1;
     bool continuar = false;
     char textoChave[30];
 
-    int posicaoTextoVertical   = position.y + espacoAntesTexto;
+    int posicaoTextoVertical   = point.y + espacoAntesTexto;
     int posicaoTextoHorizontal = 0;
     int auxiliar = 0;
 
     do {
-        sprintf(textoChave, texto.getKeyText().c_str(), numeroLinha);
+        sprintf(textoChave, text.getKeyText().c_str(), numeroLinha);
 
-        continuar = text->isKey(textoChave);
+        continuar = language->isKey(textoChave);
 
         if (continuar) {
 
-            if (texto.getAlignment() == Text::TEXT_CENTRAL) {
-                auxiliar = writeManager->getLarguraLinha(texto.getFont(), textoChave);
-                posicaoTextoHorizontal = int (position.x + (dimension.w / 2) - (auxiliar / 2));
+            if (text.getAlignment() == Text::TEXT_CENTRAL) {
+                auxiliar = writeManager->getLineWidth(text.getFont(), textoChave);
+                posicaoTextoHorizontal = int (point.x + (dimension.w / 2) - (auxiliar / 2));
             } else {
-                posicaoTextoHorizontal = position.x + texto.getLetterDimension().w;
+                posicaoTextoHorizontal = point.x + text.getLetterDimension().w;
             }
 
-            writeManager->escreverLocalizado(texto.getFont(), posicaoTextoHorizontal, posicaoTextoVertical, textoChave);
+            writeManager->writeKeyText(text.getFont(), posicaoTextoHorizontal, posicaoTextoVertical, textoChave);
 
-            posicaoTextoVertical = position.y + espacoAntesTexto + (texto.getLineSpace() * numeroLinha);
+            posicaoTextoVertical = point.y + espacoAntesTexto + (text.getLineSpace() * numeroLinha);
             numeroLinha++;
 
         } else {
@@ -110,25 +104,25 @@ void UIWindowDialog::desenharConteudo()
     } while (true);
 }
 
-//Desenha a camada de decoração da janela (botões)
-void UIWindowDialog::desenharForeground()
+/** Desenha a camada de decoração da janela (botões) */
+void UIWindowDialog::drawForeground()
 {
-    if ((botao != NULL) && (tempoEspera.isTerminou())) {
-        botao->execute();
+    if ((button != NULL) && (tempoEspera.isFinish())) {
+        button->execute();
     }
 }
 
-//atualiza as informações do componente (posicao, dimensao, estado)
+/** atualiza as informações do componente (posicao, dimensao, estado) */
 void UIWindowDialog::update()
 {
-    tempoEspera.processar();
+    tempoEspera.update();
 
-    if (botao != NULL) {
-        GBF::Point pontoAux = position;
-        GBF::Dimension d = botao->getDimension();
-        pontoAux.x = (position.x + dimension.w) - d.w;
-        pontoAux.y = (position.y + dimension.h) - d.h;
-        botao->setPosition(pontoAux.x, pontoAux.y);
+    if (button != NULL) {
+        GBF::Point pontoAux = point;
+        GBF::Dimension d = button->getDimension();
+        pontoAux.x = (point.x + dimension.w) - d.w;
+        pontoAux.y = (point.y + dimension.h) - d.h;
+        button->setPoint(pontoAux.x, pontoAux.y);
     }
 }
 

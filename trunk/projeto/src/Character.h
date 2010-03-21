@@ -1,19 +1,17 @@
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+
 #ifndef _CHARACTER_H
 #define _CHARACTER_H
-
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
 
 #include <map>
 
@@ -24,10 +22,11 @@
 #include "InputSystem.h"
 #include "Object.h"
 
+#define MAIN_SPRITE "main"
+
 namespace Character {
 
-//Definição de TypeDelay
-
+/** Definição de TypeDelay */
 struct TypeDelay {
     float action;
 
@@ -41,40 +40,17 @@ struct TypeDelay {
 
 };
 
-//Descrição:
-//    Classe para criação de personagens genéricos
-//Motivação:
-//    Fornecer uma interface padrão para criação de personagens
-//
-//
-
+/**  Classe para criação de personagens genéricos
+Motivação:
+    Fornecer uma interface padrão para criação de personagens */
 class Character : public GBF::Object {
-    protected:
-        bool active;
-
-        bool life;
-
-        unsigned int ID;
-
-        std::map<std::string, GBF::Image::Sprite::SpriteCharacter*> sprites;
-
-        TypeDelay delay;
-
-        GBF::Point point;
-
-
-    private:
-        static unsigned int IDCount;
-
-        GBF::Dimension dimension;
-
 
     public:
-        //Destrutor
+        /** Destrutor */
         virtual ~Character();
 
-        //Desenha o sprite principal do personagem
-        virtual void desenhar();
+        /** Desenha o sprite principal do personagem */
+        virtual void draw();
 
         virtual void setActive(bool value);
 
@@ -92,13 +68,13 @@ class Character : public GBF::Object {
 
         virtual GBF::Point getPoint();
 
-        //Adiciona o sprite principal do personagem
+        /** Adiciona o sprite principal do personagem */
         bool addMainSprite(GBF::Image::Sprite::SpriteCharacter * sprite);
 
-        //Adiciona o sprites extras do personagem
+        /** Adiciona o sprites extras do personagem */
         bool addSprite(GBF::Image::Sprite::SpriteCharacter * sprite, const std::string & name);
 
-        virtual void acao(GBF::Kernel::Input::InputSystem * input) = 0;
+        virtual void update(GBF::Kernel::Input::InputSystem * input) = 0;
 
         GBF::Dimension getDimension();
 
@@ -108,10 +84,28 @@ class Character : public GBF::Object {
 
 
     protected:
-        //Construtor
+        /** Construtor */
         Character();
 
         friend class ListCharacter;
+
+        bool active;
+
+        bool life;
+
+        unsigned int ID;
+
+        std::map<std::string, GBF::Image::Sprite::SpriteCharacter*> sprites;
+
+        TypeDelay delay;
+
+        GBF::Point point;
+
+
+    private:
+        static unsigned int IDCount;
+
+        GBF::Dimension dimension;
 };
 
 } // namespace Personagem

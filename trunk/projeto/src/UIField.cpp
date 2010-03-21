@@ -1,30 +1,28 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "UIField.h"
 
 namespace UserInterface
 {
 
-namespace Componente
+namespace Component
 {
 
 UIField::UIField()
 {
-    tempoBlink.setTempoOriginal(0);
-    tempoBlink.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
-    tempoBlink.setResetar();
+    tempoBlink.setInitialTime(0);
+    tempoBlink.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
+    tempoBlink.setReset();
 
     cursor.show = false;
     indice = 0;
@@ -34,7 +32,6 @@ UIField::UIField()
 
 UIField::~UIField()
 {
-    //dtor
 }
 
 void UIField::setLabel(std::string label)
@@ -42,20 +39,18 @@ void UIField::setLabel(std::string label)
     this->label = label;
 }
 
-//Define a fonte a ser usada pelo label
-
-//Define a fonte a ser usada pelo label
-void UIField::setFonteLabel(std::string fonte)
+/** Define a fonte a ser usada pelo label */
+void UIField::setFont(std::string font)
 {
-    fonteLabel.nome = fonte;
-    fonteLabel.dimensao = writeManager->getFonte(fonteLabel.nome)->getDimensao();
+    fonteLabel.nome = font;
+    fonteLabel.dimensao = writeManager->getFont(fonteLabel.nome)->getDimensao();
 }
 
-//Define a fonte a ser usada pelo Campo
-void UIField::setFonteCampo(std::string fonte)
+/** Define a fonte a ser usada pelo Campo */
+void UIField::setFontInput(std::string font)
 {
-    fonteCampo.nome = fonte;
-    fonteCampo.dimensao = writeManager->getFonte(fonteCampo.nome)->getDimensao();
+    fonteCampo.nome = font;
+    fonteCampo.dimensao = writeManager->getFont(fonteCampo.nome)->getDimensao();
 
     dimension.w = (length * fonteCampo.dimensao.w) + (fonteCampo.dimensao.w * 0.2);
     dimension.h = (fonteCampo.dimensao.h) * 1.6;
@@ -69,7 +64,7 @@ void UIField::maxLength(int length)
 void UIField::showCursor(bool show)
 {
     cursor.show = show;
-    tempoBlink.setResetar();
+    tempoBlink.setReset();
 }
 
 void UIField::setCursorPosicao(int posicao)
@@ -77,18 +72,17 @@ void UIField::setCursorPosicao(int posicao)
     indice = posicao;
 }
 
-//Estilo Visual a ser Aplicado no Componente
-
+/** Estilo Visual a ser Aplicado no Componente */
 void UIField::setVisual(UserInterface::Visual::UIVisual * visual)
 {
     this->visual = visual;
 }
 
-//Desenha o conteudo da janela
-void UIField::desenharBackground()
+/** Desenha o conteudo da janela */
+void UIField::drawBackground()
 {
     //escrevendo label (Jogador - Pontos)
-    writeManager->escreverLocalizado(fonteLabel.nome, fonteLabel.posicao.x, fonteLabel.posicao.y, label);
+    writeManager->writeKeyText(fonteLabel.nome, fonteLabel.posicao.x, fonteLabel.posicao.y, label);
 
     if (visual != NULL)
     {
@@ -96,34 +90,34 @@ void UIField::desenharBackground()
     }
 }
 
-void UIField::desenharForeground()
+void UIField::drawForeground()
 {
     //desenhando cursor
     if (cursor.show) {
-        if (tempoBlink.getTempo() % 2 != 0) {
+        if (tempoBlink.getTime() % 2 != 0) {
             graphicSystem->gfx->setColor(250, 250, 250);
-            graphicSystem->gfx->retanguloPreenchido(cursor.posicao.x, cursor.posicao.y, fonteCampo.dimensao.w, 2);
+            graphicSystem->gfx->retanguloPreenchido(cursor.point.x, cursor.point.y, fonteCampo.dimensao.w, 2);
         }
     }
 }
 
 void UIField::update()
 {
-    tempoBlink.processar();
+    tempoBlink.update();
 
-    fonteLabel.posicao.x = position.x;
-    fonteLabel.posicao.y = position.y;
+    fonteLabel.posicao.x = point.x;
+    fonteLabel.posicao.y = point.y;
 
-    fonteCampo.posicao.x = position.x + (fonteCampo.dimensao.w * 0.2);
+    fonteCampo.posicao.x = point.x + (fonteCampo.dimensao.w * 0.2);
     fonteCampo.posicao.y = fonteLabel.posicao.y + (fonteLabel.dimensao.h * 1.2) + 1;
 
-    cursor.posicao.x = fonteCampo.posicao.x + (indice * fonteCampo.dimensao.w);
-    cursor.posicao.y = fonteCampo.posicao.y + fonteCampo.dimensao.h;
+    cursor.point.x = fonteCampo.posicao.x + (indice * fonteCampo.dimensao.w);
+    cursor.point.y = fonteCampo.posicao.y + fonteCampo.dimensao.h;
 
     if (visual != NULL){
         GBF::Dimension d  = dimension;
 
-        GBF::Point  p  = position;
+        GBF::Point  p  = point;
         p.y = fonteLabel.posicao.y + (fonteLabel.dimensao.h * 1.2) - 1;
 
         visual->aplicar(p, dimension);
@@ -132,11 +126,11 @@ void UIField::update()
 
 void UIField::draw()
 {
-    desenharBackground();
+    drawBackground();
 
-    desenharConteudo();
+    drawContent();
 
-    desenharForeground();
+    drawForeground();
 }
 
 } // namespace UserInterface::Componente

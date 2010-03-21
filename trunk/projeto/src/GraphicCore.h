@@ -1,19 +1,17 @@
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+
 #ifndef _GRAPHICCORE_H
 #define _GRAPHICCORE_H
-
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
 
 #include <string>
 
@@ -34,25 +32,25 @@ class GraphicCore : public GBF::BaseSystem
 {
 
     public:
-        //Limpa a tela
+        /** Limpa a tela */
         void clear();
 
-        //Salva uma imagem da tela
-        void salvarScreenShot(std::string arquivo);
+        /** Salva uma imagem da tela */
+        void saveScreenshot(std::string fileName);
 
-        //Destrutor
+        /** Destrutor */
         virtual ~GraphicCore();
 
         void start();
 
-        //Realiza o flip(troca) entre os buffers de vídeo
+        /** Realiza o flip(troca) entre os buffers de vídeo */
         void flip();
 
-        GraphicMode gsMode;
+        GraphicMode mode;
 
-        Screen * gsScreen;
+        Screen * screen;
 
-        //Inicializa SubSistema de suporte a Video
+        /** Inicializa SubSistema de suporte a Video */
         GraphicCore();
 
         GraphicSystem * graphicSystem;

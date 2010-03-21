@@ -1,17 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
-
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 #ifndef _UIWINDOW_H
 #define _UIWINDOW_H
 
@@ -29,22 +26,22 @@ namespace Window
 class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
 {
     public:
-        //Construtor
+        /** Construtor */
         UIWindow();
 
-        //Destrutor
+        /** Destrutor */
         virtual ~UIWindow();
 
-        void setDimensao(int largura, int altura);
+        void setDimension(int largura, int altura);
 
-        //Inicializa as configurações da caixa de texto
+        /** Inicializa as configurações da caixa de texto */
         virtual void inicializar();
 
-        //Estilo Visual a ser Aplicado no Componente
+        /** Estilo Visual a ser Aplicado no Componente */
         void setVisual(UserInterface::Visual::UIVisual * visual);
 
-        //Retorna se a ação informada foi acionado
-        virtual bool isAcao(int tipoAcao) = 0;
+        /** Retorna se a ação informada foi acionado */
+        virtual bool isAction(int tipoAcao) = 0;
 
 
     protected:
@@ -52,27 +49,27 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
 
         GBF::Kernel::Timer::TimerRegressive tempoEspera;
 
-        //atualiza as informações do componente (posicao, dimensao, estado)
-        virtual void atualizar();
+        /** atualiza as informações do componente (posicao, dimensao, estado) */
+        virtual void update();
 
-        //desenha os componentes vistuais
-        void desenhar();
+        /** desenha os componentes vistuais */
+        void draw();
 
-        //Desenha o background da caixa de texto
-        virtual void desenharBackground();
+        /** Desenha o background da caixa de texto */
+        virtual void drawBackground();
 
-        //Desenha o conteudo da janela
-        virtual void desenharConteudo() = 0;
+        /** Desenha o conteudo da janela */
+        virtual void drawContent() = 0;
 
-        //Desenha a camada de decoração da janela (botões)
-        virtual void desenharForeground();
+        /** Desenha a camada de decoração da janela (botões) */
+        virtual void drawForeground();
 
         UserInterface::Visual::UIVisual * visual;
 
 };
 
-} // namespace UserInterface::Window
+} //  namespace UserInterface::Window
 
-} // namespace UserInterface
+} //  namespace UserInterface
 
 #endif

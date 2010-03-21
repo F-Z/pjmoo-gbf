@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "UIWindow.h"
 
@@ -18,68 +16,62 @@ namespace UserInterface {
 
 namespace Window {
 
-//Construtor
+/** Construtor */
 UIWindow::UIWindow()
 {
-    espacoAntesTexto=0;
+    espacoAntesTexto = 0;
 
-    tempoEspera.setTempoOriginal(1);
-    tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
-    tempoEspera.setResetar();
+    tempoEspera.setInitialTime(1);
+    tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
+    tempoEspera.setReset();
 }
-//Destrutor
+/** Destrutor */
 UIWindow::~UIWindow()
 {
     if (visual){
         delete(visual);
     }
 }
-void UIWindow::setDimensao(int largura, int altura)
+void UIWindow::setDimension(int largura, int altura)
 {
-    dimension.w=largura;
-    dimension.h=altura;
+    dimension.w = largura;
+    dimension.h = altura;
 }
-//Inicializa as configurações da caixa de texto
-
-//Inicializa as configurações da caixa de texto
+/** Inicializa as configurações da caixa de texto */
 void UIWindow::inicializar()
 {
-    if (visual!=NULL){
-        visual->aplicar(position,dimension);
+    if (visual != NULL){
+        visual->aplicar(point, dimension);
     }
 }
-//Estilo Visual a ser Aplicado no Componente
+/** Estilo Visual a ser Aplicado no Componente */
 void UIWindow::setVisual(UserInterface::Visual::UIVisual * visual)
 {
-    this->visual=visual;
+    this->visual = visual;
 }
-//atualiza as informações do componente (posicao, dimensao, estado)
-void UIWindow::atualizar()
+/** atualiza as informações do componente (posicao, dimensao, estado) */
+void UIWindow::update()
 {
-    tempoEspera.processar();
+    tempoEspera.update();
 }
-//desenha os componentes vistuais
-void UIWindow::desenhar()
+/** desenha os componentes vistuais */
+void UIWindow::draw()
 {
-    desenharBackground();
+    drawBackground();
 
-    desenharConteudo();
+    drawContent();
 
-    desenharForeground();
+    drawForeground();
 }
-//Desenha o background da caixa de texto
-
-//Desenha o background da caixa de texto
-void UIWindow::desenharBackground()
+/** Desenha o background da caixa de texto */
+void UIWindow::drawBackground()
 {
-    if (visual!=NULL){
+    if (visual != NULL){
         visual->desenhar();
     }
 }
-//Desenha o botão de ação da janela
-
-//Desenha a camada de decoração da janela (botões)
-void UIWindow::desenharForeground()
+/** Desenha a camada de decoração da janela (botões) */
+void UIWindow::drawForeground()
 {
 }
 

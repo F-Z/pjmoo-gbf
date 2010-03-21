@@ -15,8 +15,7 @@
 #ifndef _ANIMATION_H
 #define _ANIMATION_H
 
-#include <SDL/SDL.h>
-
+#include "GBF.h"
 
 namespace GBF {
 
@@ -50,7 +49,7 @@ class Animation {
         bool isBegin();
 
         //Retorna a dimensão do quadro
-        SDL_Rect getFrameSize();
+        GBF::Area getFrameSize();
 
         int process();
 
@@ -61,7 +60,7 @@ class Animation {
         void setAutomatic(bool automatic);
 
         //Define a dimensão do quadro
-        void setFrameSize(const SDL_Rect & area);
+        void setFrameSize(GBF::Area area);
 
         //Coloca a animação no primeiro frame
         void setBegin();
@@ -70,7 +69,7 @@ class Animation {
     protected:
         bool automatic;
 
-        SDL_Rect cutArea;
+        GBF::Area cutArea;
 
         Frame frame;
 

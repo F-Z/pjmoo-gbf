@@ -30,7 +30,7 @@ class LayerCamera {
         virtual ~LayerCamera();
 
         //Retorna a Posição Atual da Camera
-        GBF::Point getPosicao();
+        GBF::Point getPoint();
 
         //Verifica se a Camera está no limite inferior do mapa
         bool isBottom();
@@ -62,7 +62,7 @@ class LayerCamera {
         void setMundo(LayerMundo * mundo);
 
         //Posiciona a Camera em um ponto do Mapa
-        void setPosicao(int X, int Y);
+        void setPoint(int X, int Y);
 
         //Posiciona a Camera no inicio do mapa
         void setTop();
@@ -94,7 +94,7 @@ class LayerCamera {
 
 
     protected:
-        GBF::PointFloat ponto;
+        GBF::PointFloat point;
 
 };
 

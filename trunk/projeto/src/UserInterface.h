@@ -32,7 +32,7 @@ struct UICursor
 {
     bool show;
 
-    GBF::Point posicao;
+    GBF::Point point;
 
 };
 

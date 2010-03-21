@@ -26,9 +26,20 @@ Screen::~Screen()
 //    UtilLog::subSistema("Removendo GraphicSystemScreen");
 }
 //Desenha uma surface na surface de vídeo
-void Screen::blitSurface(SDL_Surface * origem, SDL_Rect * area, SDL_Rect * posicao)
+void Screen::blitSurface(SDL_Surface * origem, GBF::Point posicao)
 {
-    SDL_BlitSurface(origem, area , pScreen, posicao);
+    SDL_Rect rPosicao = toRect(posicao);
+    SDL_BlitSurface(origem, NULL , pScreen, &rPosicao);
+}
+
+//Desenha uma surface na surface de vídeo
+void Screen::blitSurface(SDL_Surface * origem, GBF::Area area, GBF::Point posicao)
+{
+    SDL_Rect rArea    = toRect(area);
+    SDL_Rect rPosicao = toRect(posicao);
+
+
+    SDL_BlitSurface(origem, &rArea , pScreen, &rPosicao);
 }
 //Retorna ponteiro para a surface de vídeo
 SDL_Surface * Screen::getScreen()
@@ -39,7 +50,7 @@ SDL_Surface * Screen::getScreen()
 bool Screen::lock()
 {
     if (SDL_MUSTLOCK(pScreen)) {
-        if (SDL_LockSurface(pScreen)<0) {
+        if (SDL_LockSurface(pScreen) < 0) {
             return false;
         }
     }
@@ -61,6 +72,30 @@ Screen::Screen()
 void Screen::setScreen(SDL_Surface * surface)
 {
     pScreen = surface;
+}
+
+SDL_Rect Screen::toRect(GBF::Area area)
+{
+    SDL_Rect rect;
+
+    rect.y = area.top;
+    rect.x = area.left;
+    rect.w = area.right;
+    rect.h = area.bottom;
+
+    return rect;
+}
+
+SDL_Rect Screen::toRect(GBF::Point point)
+{
+    SDL_Rect rect;
+
+    rect.y = point.y;
+    rect.x = point.x;
+    rect.w = 0;
+    rect.h = 0;
+
+    return rect;
 }
 
 } // namespace GBF::Kernel::Graphic

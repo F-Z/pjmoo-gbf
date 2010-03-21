@@ -34,7 +34,7 @@ class SpriteCharacter : public Sprite
 
         void setQtdDirecoes(int QTD);
 
-        virtual void desenhar(int x, int y);
+        virtual void draw(int x, int y);
 
         //Retorna a quantidade de direções que o personagem possui
         int getQtdDirecoes();

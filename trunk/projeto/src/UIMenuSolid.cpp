@@ -67,11 +67,11 @@ bool UIMenuSolid::browse()
 
     if ((inputSystem->keyboard->isKey(SDLK_UP)) || (inputSystem->joystick->isAxeUp())){
         previous();
-        browseDelay.setResetar();
+        browseDelay.setReset();
         navegou = true;
     } else if ((inputSystem->keyboard->isKey(SDLK_DOWN)) || (inputSystem->joystick->isAxeDown())){
         next();
-        browseDelay.setResetar();
+        browseDelay.setReset();
         navegou = true;
     }
 

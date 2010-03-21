@@ -33,7 +33,7 @@ Animation::Animation() {
 
 //Ajusta a area de corte do sprite - posicionamento nos frames
 void Animation::cutSet(int direction, int width) {
-    cutArea.x = (direction) * (width * frame.total);
+    cutArea.left = (direction) * (width * frame.total);
 }
 
 //Informa a quantidade de quadros e a taxa de repetição
@@ -64,7 +64,7 @@ bool Animation::isBegin() {
 }
 
 //Retorna a dimensão do quadro
-SDL_Rect Animation::getFrameSize() {
+GBF::Area Animation::getFrameSize() {
     return cutArea;
 }
 
@@ -87,7 +87,7 @@ void Animation::setAutomatic(bool automatic) {
 }
 
 //Define a dimensão do quadro
-void Animation::setFrameSize(const SDL_Rect & area) {
+void Animation::setFrameSize(GBF::Area area) {
     cutArea = area;
 }
 

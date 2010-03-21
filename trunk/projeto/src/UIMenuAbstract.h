@@ -40,7 +40,7 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
 
         int verticalSpace;
 
-        GBF::Point position;
+        GBF::Point point;
 
         std::deque<UIItemAbstract *> item;
 
@@ -61,7 +61,7 @@ class UIMenuAbstract : public GBF::Kernel::Input::InputSystemUtility
         void setBackgroundColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
         //Define a posição x,y do menu
-        void setPosition(int x, int y);
+        void setPoint(int x, int y);
 
         //Centraliza o menu na tela de acordo com as coordenadas passadas
         //Obs.: Caso o parâmetro de alinhamento seja HORIZONTAL ou VERTICAL ele usará o parâmetro

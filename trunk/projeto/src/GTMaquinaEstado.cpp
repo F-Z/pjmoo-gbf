@@ -21,9 +21,9 @@ GBF::Kernel::Timer::TimerRegressive GTMaquinaEstado::tempoEspera;
 //Construtor
 GTMaquinaEstado::GTMaquinaEstado()
 {
-    tempoEspera.setTempoOriginal(1);
-    tempoEspera.setUnidade(GBF::Kernel::Timer::TEMPO_MEIO);
-    tempoEspera.setResetar();
+    tempoEspera.setInitialTime(1);
+    tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_HALF);
+    tempoEspera.setReset();
 }
 //Destrutor
 GTMaquinaEstado::~GTMaquinaEstado()
@@ -31,15 +31,15 @@ GTMaquinaEstado::~GTMaquinaEstado()
 }
 bool GTMaquinaEstado::isTempoEspera()
 {
-	return tempoEspera.isTerminou();
+	return tempoEspera.isFinish();
 }
 void GTMaquinaEstado::reiniciarTempo()
 {
-    tempoEspera.setResetar();
+    tempoEspera.setReset();
 }
 void GTMaquinaEstado::executarTempo()
 {
-    tempoEspera.processar();
+    tempoEspera.update();
 }
 
 } // namespace GAT

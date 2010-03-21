@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "Joystick.h"
 
@@ -20,22 +18,21 @@ namespace Kernel {
 
 namespace Input {
 
-//Destrutor
+/** Destrutor */
 Joystick::~Joystick()
 {
     //    UtilLog::subSistema("Removendo InputSystemJoystick");
     SDL_JoystickClose(joystick);
 
-    /*Finaliza o subsistema de joystick*/
+    // Finaliza o subsistema de joystick
     SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
 
     joystick = NULL;
 }
 
-//Retorna se o direcional foi movido para o lado esquerdo
+/** Retorna se o direcional foi movido para o lado esquerdo */
 bool Joystick::isAxeLeft()
 {
-
     if ((joystick) && (axe_horizontal == AXE_LEFT)){
         return true;
     } else {
@@ -43,10 +40,9 @@ bool Joystick::isAxeLeft()
     }
 }
 
-//Retorna se o direcional foi movido para o lado direito
+/** Retorna se o direcional foi movido para o lado direito */
 bool Joystick::isAxeRight()
 {
-
     if ((joystick) && (axe_horizontal == AXE_RIGHT)){
         return true;
     } else {
@@ -54,8 +50,9 @@ bool Joystick::isAxeRight()
     }
 }
 
-//* Retorna se o direcional foi movido para cima
-bool Joystick::isAxeUp() {
+/** Retorna se o direcional foi movido para cima */
+bool Joystick::isAxeUp()
+{
 
     if ((joystick) && (axe_vertical == AXE_UP)){
         return true;
@@ -64,10 +61,9 @@ bool Joystick::isAxeUp() {
     }
 }
 
-//Retorna se o direcional foi movido para baixo
+/** Retorna se o direcional foi movido para baixo */
 bool Joystick::isAxeDown()
 {
-
     if ((joystick) && (axe_vertical == AXE_DOWN)){
         return true;
     } else {
@@ -75,10 +71,9 @@ bool Joystick::isAxeDown()
     }
 }
 
-//Retorna se o botão A foi pressionado
+/** Retorna se o botão A foi pressionado */
 bool Joystick::isButtonA()
 {
-
     if ((joystick) && (SDL_JoystickGetButton(joystick, JB_A))){
         return true;
     } else {
@@ -86,10 +81,9 @@ bool Joystick::isButtonA()
     }
 }
 
-//Retorna se o botão B foi pressionado
+/** Retorna se o botão B foi pressionado */
 bool Joystick::isButtonB()
 {
-
     if ((joystick) && (SDL_JoystickGetButton(joystick, JB_B))){
         return true;
     } else {
@@ -97,10 +91,9 @@ bool Joystick::isButtonB()
     }
 }
 
-//Retorna se o botão C foi pressionado (caso exista)
+/** Retorna se o botão C foi pressionado (caso exista) */
 bool Joystick::isButtonC()
 {
-
     if ((joystick) && (SDL_JoystickGetButton(joystick, JB_C))){
         return true;
     } else {
@@ -108,10 +101,9 @@ bool Joystick::isButtonC()
     }
 }
 
-//Retorna se o botão D foi pressionado (caso exista)
+/** Retorna se o botão D foi pressionado (caso exista) */
 bool Joystick::isButtonD()
 {
-
     if ((joystick) && (SDL_JoystickGetButton(joystick, JB_D))){
         return true;
     } else {
@@ -119,7 +111,7 @@ bool Joystick::isButtonD()
     }
 }
 
-//Construtor
+/** Construtor */
 Joystick::Joystick()
 {
     std::cout << "GBF::Kernel::Input::Joystick" << std::endl;
@@ -141,10 +133,9 @@ Joystick::Joystick()
     }
 }
 
-//Processa os eventos do joystick
+/** Processa os eventos do joystick */
 void Joystick::update()
 {
-
     int x = 0, y = 0;
     axe_horizontal = AXE_STOP;
     axe_vertical  = AXE_STOP;

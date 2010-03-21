@@ -24,7 +24,7 @@ namespace Sprite {
 //Construtor
 SpriteItem::SpriteItem()
 {
-    animacao.setAutomatic(false);
+    animation.setAutomatic(false);
 }
 
 //Destrutor
@@ -33,17 +33,17 @@ SpriteItem::~SpriteItem()
 
 }
 
-void SpriteItem::desenhar(int x, int y)
+void SpriteItem::draw(int x, int y)
 {
-    animacao.cutSet(0, tamanho.w);
+    animation.cutSet(0, tamanho.right);
 
-    Sprite::desenhar(x, y);
+    Sprite::draw(x, y);
 }
 
 //Informa o quadro de animação
 void SpriteItem::setFrame(int quadro)
 {
-    animacao.setFrame(quadro);
+    animation.setFrame(quadro);
 }
 
 } // namespace GBF::Image::Sprite

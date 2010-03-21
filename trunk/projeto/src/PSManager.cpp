@@ -1,79 +1,76 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "PSManager.h"
 
 namespace ParticleSystem {
 
-//Construtor
+/** Construtor */
 PSManager::PSManager()
 {
-
 }
-//Destrutor
+/** Destrutor */
 PSManager::~PSManager()
 {
-    limpar();
+    clear();
 }
-//Adiciona um Sistema de Particulas
-void PSManager::adicionar(PSEffect * efeito)
+/** Adiciona um Sistema de Particulas */
+void PSManager::add(PSEffect * efeito)
 {
     lista.push_back(efeito);
 }
-//Desenha objetos que estao no container
-void PSManager::desenhar()
+/** Desenha objetos que estao no container */
+void PSManager::draw()
 {
     if (!lista.empty()){
-        for (unsigned int t=0; t<lista.size(); t++){
+        for (unsigned int t = 0; t < lista.size(); t++){
             if (lista[t]){
-                lista[t]->desenhar();
+                lista[t]->draw();
             }
         }
     }
 }
-//Atualiza o Sistema
-void PSManager::executar()
+/** Atualiza o Sistema */
+void PSManager::update()
 {
     if (!lista.empty()){
-        for (unsigned int t=0; t<lista.size(); t++){
+        for (unsigned int t = 0; t < lista.size(); t++){
             if (lista[t]){
-                lista[t]->executar();
+                lista[t]->execute();
             }
         }
-        removerMorto();
+        remove();
     }
 }
-//Retorna a quantidade de elementos
+/** Retorna a quantidade de elementos */
 int PSManager::size()
 {
     return lista.size();
 }
-//Limpa o gerenciador, removendo todos os elementos
-void PSManager::limpar()
+/** Limpa o gerenciador, removendo todos os elementos */
+void PSManager::clear()
 {
-    for (unsigned int i=0; i<lista.size(); i++){
+    for (unsigned int i = 0; i < lista.size(); i++){
         try {
             if (lista[i]){
                 delete lista[i];
-                lista[i]=NULL;
+                lista[i] = NULL;
             }
         } catch (...){
         }
     }
     lista.clear();
 }
-//Pega uma Instância de ParticleSystemManager
+/** Pega uma Instância de ParticleSystemManager */
 PSManager * PSManager::getInstance()
 {
     if (instance == NULL){
@@ -81,19 +78,18 @@ PSManager * PSManager::getInstance()
     }
     return instance;
 }
-PSManager * PSManager::instance=NULL;
-
-//Remove os sistemas de particulas já finalizados
-void PSManager::removerMorto()
+PSManager * PSManager::instance = NULL;
+/** Remove os sistemas de particulas já finalizados */
+void PSManager::remove()
 {
-    int total=size()-1;
+    int total = size() - 1;
 
-    for (int i=total; i>=0; i--){
-        if (lista[i]!=NULL){
-            if (lista[i]->isTerminou()){
+    for (int i = total; i >= 0; i--){
+        if (lista[i] != NULL){
+            if (lista[i]->isFinish()){
                 delete lista[i];
-                lista[i]=NULL;
-                lista.erase(lista.begin()+i);
+                lista[i] = NULL;
+                lista.erase(lista.begin() + i);
             }
         }
     }

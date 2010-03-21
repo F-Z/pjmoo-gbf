@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "GraphicCore.h"
 
@@ -20,25 +18,25 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Limpa a tela
+/** Limpa a tela */
 void GraphicCore::clear()
 {
-    SDL_FillRect(gsMode.getScreen(), NULL, 0);
+    SDL_FillRect(mode.getScreen(), NULL, 0);
 }
 
-//Salva uma imagem da tela
-void GraphicCore::salvarScreenShot(std::string arquivo)
+/** Salva uma imagem da tela */
+void GraphicCore::saveScreenshot(std::string fileName)
 {
-    SDL_SaveBMP(gsMode.getScreen(), arquivo.c_str());
+    SDL_SaveBMP(mode.getScreen(), fileName.c_str());
 }
 
-//Destrutor
+/** Destrutor */
 GraphicCore::~GraphicCore()
 {
 //    UtilLog::sistema("Removendo GraphicSystem");
 
     delete(graphicSystem);
-    delete(gsScreen);
+    delete(screen);
 
 
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
@@ -46,44 +44,44 @@ GraphicCore::~GraphicCore()
 
 void GraphicCore::start()
 {
-    std::cout << "GBF::Kernel::Graphic::GraphicCore::iniciar()" << std::endl;
-    gsScreen->setScreen(gsMode.getScreen());
+    std::cout << "GBF::Kernel::Graphic::GraphicCore::start()" << std::endl;
+    screen->setScreen(mode.getScreen());
 
-    ImageBase::setGraphicSystemScreen(gsScreen);
-    GFX::setGraphicSystemScreen(gsScreen);
+    ImageBase::setGraphicSystemScreen(screen);
+    GFX::setGraphicSystemScreen(screen);
 
     graphicSystem = GraphicSystem::getInstance();
     graphicSystem->gfx->start();
     GraphicSystemUtility::setGraphicSystem(graphicSystem);
 }
 
-//Realiza o flip(troca) entre os buffers de vídeo
+/** Realiza o flip(troca) entre os buffers de vídeo */
 void GraphicCore::flip()
 {
-    SDL_Flip(gsMode.getScreen());
+    SDL_Flip(mode.getScreen());
 }
 
-//Inicializa SubSistema de suporte a Video
+/** Inicializa SubSistema de suporte a Video */
 GraphicCore::GraphicCore()
 {
-    const SDL_version *v = SDL_Linked_Version();
-
     std::cout << "GBF::Kernel::Graphic::GraphicCore" << std::endl;
 
-    std::cout << "\tSDL: " << (int) v->major << "." << (int) v->minor << "." << (int) v->patch << " version" << std::endl;
-
+    const SDL_version *v = SDL_Linked_Version();
+    std::cout << "\tSDL version: " << (int) v->major << "." << (int) v->minor << "." << (int) v->patch << std::endl;
 
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0) {
         std::cerr << "[ERROR]SDL: " << SDL_GetError() << std::endl;
         exit(-1);
     } else {
-        SDL_putenv("SDL_VIDEO_CENTERED=true");
         char videodriver[10];
         SDL_VideoDriverName(videodriver, 10);
+        std::cout << "\tSDL video driver: " << videodriver << std::endl;
 
-        std::cout << "\tSDL: driver " << videodriver << std::endl;
+        const char * videoCentred = "SDL_VIDEO_CENTERED=true\0";
+        SDL_putenv((char*)videoCentred);
+        std::cout << "\tSDL options: " << videoCentred << std::endl;
 
-        gsScreen = new Screen();
+        screen = new Screen();
     }
 }
 

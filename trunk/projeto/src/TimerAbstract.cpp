@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "TimerAbstract.h"
 
@@ -20,154 +18,152 @@ namespace Kernel {
 
 namespace Timer {
 
-//Executa este método quando o estado é CRONOMETRO_RESETAR
-void TimerAbstract::resetar()
+/** Executa este método quando o estado é CRONOMETRO_RESETAR */
+void TimerAbstract::reset()
 {
     tempoCorrente = tempoOriginal;
-    setIniciar();
+    setStart();
 }
 
-//Executa este método quando o estado é CRONOMETRO_INICIAR
-void TimerAbstract::iniciar()
+/** Executa este método quando o estado é CRONOMETRO_INICIAR */
+void TimerAbstract::start()
 {
-    //resetar();
-    setExecutar();
-    execTempoInicial();
+    setExecute();
+    initialTick();
 }
 
-//Executa este método quando o estado é CRONOMETRO_CONTINUAR
+/** Executa este método quando o estado é CRONOMETRO_CONTINUAR */
 void TimerAbstract::continuar()
 {
-    setExecutar();
-    execTempoInicial();
+    setExecute();
+    initialTick();
 }
 
-//Inicia o contado de tempo
-void TimerAbstract::execTempoInicial()
+/** Inicia o contado de tempo */
+void TimerAbstract::initialTick()
 {
     tempoInicial = SDL_GetTicks();
 }
 
-//Muda o estado para CRONOMETRO_EXECUTAR
-void TimerAbstract::setExecutar()
+/** Muda o estado para CRONOMETRO_EXECUTAR */
+void TimerAbstract::setExecute()
 {
-    if ((eCronometro == CRONOMETRO_INICIAR) || (eCronometro == CRONOMETRO_CONTINUAR)){
-        eCronometro = CRONOMETRO_EXECUTAR;
+    if ((state == TIMER_START) || (state == TIMER_CONTINUE)){
+        state = TIMER_EXECUTE;
     }
 }
 
-//Muda o estado para CRONOMETRO_TERMINAR
-void TimerAbstract::setTerminar()
+/** Muda o estado para CRONOMETRO_TERMINAR */
+void TimerAbstract::setFinish()
 {
-    if (eCronometro == CRONOMETRO_EXECUTAR){
-        eCronometro = CRONOMETRO_TERMINAR;
+    if (state == TIMER_EXECUTE){
+        state = TIMER_FINISH;
     }
 }
 
-//Construtor
+/** Construtor */
 TimerAbstract::TimerAbstract()
 {
     tempoInicial  = 0;
     tempoAtual    = 0;
     tempoCorrente = 0;
     tempoOriginal = 0;
-    setUnidade(TEMPO_SEGUNDO);
-    eCronometro = CRONOMETRO_RESETAR;
+    setUnit(TIME_SECOND_ONE);
+    state = TIMER_RESET;
 }
 
-//Destrutor
+/** Destrutor */
 TimerAbstract::~TimerAbstract()
 {
-
 }
 
-//Configura a unidade de tempo a ser usada
-void TimerAbstract::setUnidade(Tempo eTempo)
+/** Configura a unidade de tempo a ser usada */
+void TimerAbstract::setUnit(TimeUnit unit)
 {
-    tempoUnidade = int(eTempo);
+    tempoUnidade = int(unit);
 }
 
-//Muda o estado para CRONOMETRO_RESETAR
-void TimerAbstract::setResetar()
+/** Muda o estado para CRONOMETRO_RESETAR */
+void TimerAbstract::setReset()
 {
-    if ((eCronometro == CRONOMETRO_EXECUTAR) || (eCronometro == CRONOMETRO_TERMINAR)){
-        eCronometro = CRONOMETRO_RESETAR;
+    if ((state == TIMER_EXECUTE) || (state == TIMER_FINISH)){
+        state = TIMER_RESET;
     }
 }
 
-//Muda o estado para CRONOMETRO_INICIAR
-void TimerAbstract::setIniciar()
+/** Muda o estado para CRONOMETRO_INICIAR */
+void TimerAbstract::setStart()
 {
-    if (eCronometro == CRONOMETRO_RESETAR){
-        eCronometro = CRONOMETRO_INICIAR;
+    if (state == TIMER_RESET){
+        state = TIMER_START;
     }
 }
 
-//Muda o estado para CRONOMETRO_PAUSAR
-void TimerAbstract::setPausar()
+/** Muda o estado para CRONOMETRO_PAUSAR */
+void TimerAbstract::setPause()
 {
-    if (eCronometro == CRONOMETRO_EXECUTAR){
-        eCronometro = CRONOMETRO_PAUSAR;
+    if (state == TIMER_EXECUTE){
+        state = TIMER_PAUSE;
     }
 }
 
-//Muda o estado para CRONOMETRO_CONTINUAR
+/** Muda o estado para CRONOMETRO_CONTINUAR */
 void TimerAbstract::setContinuar()
 {
-    if (eCronometro == CRONOMETRO_PAUSAR){
-        eCronometro = CRONOMETRO_CONTINUAR;
+    if (state == TIMER_PAUSE){
+        state = TIMER_CONTINUE;
     }
 }
 
-//Centro de processamento de estados
-void TimerAbstract::processar()
+/** Centro de processamento de estados */
+void TimerAbstract::update()
 {
-    switch (eCronometro){
+    switch (state){
 
-        case CRONOMETRO_EXECUTAR:
-            executar();
+        case TIMER_EXECUTE:
+            execute();
             break;
 
-        case CRONOMETRO_CONTINUAR:
+        case TIMER_CONTINUE:
             continuar();
             break;
 
-        case CRONOMETRO_INICIAR:
-            iniciar();
+        case TIMER_START:
+            start();
             break;
 
-        case CRONOMETRO_PAUSAR:
+        case TIMER_PAUSE:
             //sem implementacao
             break;
 
-        case CRONOMETRO_TERMINAR:
+        case TIMER_FINISH:
             //sem implementacao
             break;
 
-        case CRONOMETRO_RESETAR:
+        case TIMER_RESET:
 
         default:
-            resetar();
+            reset();
             break;
     }
 }
 
-//Retorna a contagem de tempo corrente
-int TimerAbstract::getTempo()
+/** Retorna a contagem de tempo corrente */
+int TimerAbstract::getTime()
 {
     return tempoCorrente;
 }
 
-//Adiciona o marcador de tempo inicial
-void TimerAbstract::setTempoOriginal(int tempo)
+/** Adiciona o marcador de tempo inicial */
+void TimerAbstract::setInitialTime(int time)
 {
-    tempoOriginal = tempo;
+    tempoOriginal = time;
 }
 
-//Informa se o tempo já terminou
-bool TimerAbstract::isTerminou()
+/** Informa se o tempo já terminou */
+bool TimerAbstract::isFinish()
 {
-    if (eCronometro == CRONOMETRO_TERMINAR){
+    if (state == TIMER_FINISH){
         return true;
     } else {
         return false;

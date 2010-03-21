@@ -25,9 +25,9 @@ UIMenuAbstract::UIMenuAbstract()
     maxCharItem = 0;
     verticalSpace = 0;
 
-    browseDelay.setTempoOriginal(2);
-    browseDelay.setUnidade(GBF::Kernel::Timer::TEMPO_DECIMO);
-    browseDelay.setResetar();
+    browseDelay.setInitialTime(2);
+    browseDelay.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
+    browseDelay.setReset();
 }
 
 //Destrutor
@@ -55,10 +55,10 @@ void UIMenuAbstract::setBackgroundColor(const GBF::Color::Pallete & r, const GBF
 }
 
 //Define a posição x,y do menu
-void UIMenuAbstract::setPosition(int x, int y)
+void UIMenuAbstract::setPoint(int x, int y)
 {
-    position.x = x;
-    position.y = y;
+    point.x = x;
+    point.y = y;
 }
 
 //Centraliza o menu na tela de acordo com as coordenadas passadas
@@ -69,15 +69,15 @@ void UIMenuAbstract::center(int x, int y, UserInterface::UIAlinhamento alinhamen
     switch (alinhamento){
 
         case CENTRO:
-            setPosition(x / 2, y / 2);
+            setPoint(x / 2, y / 2);
             break;
 
         case HORIZONTAL:
-            setPosition(x / 2, y);
+            setPoint(x / 2, y);
             break;
 
         case VERTICAL:
-            setPosition(x, y / 2);
+            setPoint(x, y / 2);
             break;
     }
 
@@ -87,9 +87,9 @@ void UIMenuAbstract::center(int x, int y, UserInterface::UIAlinhamento alinhamen
 bool UIMenuAbstract::execute()
 {
     bool navegou = false;
-    browseDelay.processar();
+    browseDelay.update();
 
-    if (browseDelay.isTerminou()){
+    if (browseDelay.isFinish()){
         navegou = browse();
         selection();
     }
@@ -118,8 +118,8 @@ int UIMenuAbstract::confirmSelection()
     int selecionado = -1;
 
     if (((inputSystem->keyboard->isKey(SDLK_RETURN)) || (inputSystem->joystick->isButtonA())) &&
-            (browseDelay.isTerminou())){
-        browseDelay.setResetar();
+            (browseDelay.isFinish())){
+        browseDelay.setReset();
         selecionado = selectedItem;
     }
 
@@ -134,18 +134,18 @@ GBF::Point UIMenuAbstract::calcularAlinhamento(int caixaLargura, int caixaAltura
     {
 
         case CENTRO:
-            ponto.x = position.x - (caixaLargura / 2);
-            ponto.y = position.y - (caixaAltura / 2);
+            ponto.x = point.x - (caixaLargura / 2);
+            ponto.y = point.y - (caixaAltura / 2);
             break;
 
         case HORIZONTAL:
-            ponto.x = position.x - (caixaLargura / 2);
-            ponto.y = position.y;
+            ponto.x = point.x - (caixaLargura / 2);
+            ponto.y = point.y;
             break;
 
         case VERTICAL:
-            ponto.x = position.x;
-            ponto.y = position.y - (caixaAltura / 2);
+            ponto.x = point.x;
+            ponto.y = point.y - (caixaAltura / 2);
             break;
     }
 
