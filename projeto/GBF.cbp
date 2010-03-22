@@ -98,9 +98,6 @@
 			<Option virtualFolder="GBF/Color/" />
 		</Unit>
 		<Unit filename="src/Color.h" />
-		<Unit filename="src/CronometroAbstract.h" />
-		<Unit filename="src/CronometroCrescente.h" />
-		<Unit filename="src/CronometroDecrescente.h" />
 		<Unit filename="src/Cursor.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
@@ -133,17 +130,25 @@
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
 		<Unit filename="src/FXManager.h" />
+		<Unit filename="src/FontBitmap.cpp">
+			<Option virtualFolder="GBF/Kernel/Write/" />
+		</Unit>
+		<Unit filename="src/FontBitmap.h" />
 		<Unit filename="src/FrameLayer.cpp">
 			<Option virtualFolder="GBF/Image/Layer/" />
 		</Unit>
 		<Unit filename="src/FrameLayer.h" />
 		<Unit filename="src/GAT.cpp" />
 		<Unit filename="src/GAT.h" />
-		<Unit filename="src/GBF.h" />
+		<Unit filename="src/GBF.h">
+			<Option virtualFolder="GBF/" />
+		</Unit>
 		<Unit filename="src/GBFramework.cpp">
 			<Option virtualFolder="GBF/" />
 		</Unit>
-		<Unit filename="src/GBFramework.h" />
+		<Unit filename="src/GBFramework.h">
+			<Option virtualFolder="GBF/" />
+		</Unit>
 		<Unit filename="src/GFX.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
@@ -311,7 +316,7 @@
 		</Unit>
 		<Unit filename="src/SpriteFactory.h" />
 		<Unit filename="src/SpriteInterface.cpp">
-			<Option virtualFolder="GBF/Image/Sprite/" />
+			<Option virtualFolder="GBF/Image/" />
 		</Unit>
 		<Unit filename="src/SpriteInterface.h" />
 		<Unit filename="src/SpriteItem.cpp">
@@ -410,7 +415,9 @@
 			<Option virtualFolder="UserInterface/" />
 		</Unit>
 		<Unit filename="src/UIWindowTitle.h" />
-		<Unit filename="src/UserInterface.h" />
+		<Unit filename="src/UserInterface.h">
+			<Option virtualFolder="UserInterface/" />
+		</Unit>
 		<Unit filename="src/WriteManager.cpp">
 			<Option virtualFolder="GBF/Kernel/Write/" />
 		</Unit>

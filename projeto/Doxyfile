@@ -20,7 +20,7 @@
 # iconv built into libc) for the transcoding. See 
 # http://www.gnu.org/software/libiconv for the list of possible encodings.
 
-DOXYFILE_ENCODING      = UTF-8
+DOXYFILE_ENCODING      = ISO_8859-1
 
 # The PROJECT_NAME tag is a single word (or a sequence of words surrounded 
 # by quotes) that should identify the project.
@@ -31,7 +31,7 @@ PROJECT_NAME           = GBFramework
 # This could be handy for archiving the generated documentation or 
 # if some version control system is used.
 
-PROJECT_NUMBER         = "0.9.149 (Release Candidate)"
+PROJECT_NUMBER         = "0.9.660 (Release Candidate)"
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
 # base path where the generated documentation will be put. 
@@ -331,7 +331,7 @@ EXTRACT_LOCAL_CLASSES  = YES
 # the interface are included in the documentation. 
 # If set to NO (the default) only methods in the interface are included.
 
-EXTRACT_LOCAL_METHODS  = NO
+EXTRACT_LOCAL_METHODS  = YES
 
 # If this flag is set to YES, the members of anonymous namespaces will be 
 # extracted and appear in the documentation as a namespace called 
@@ -598,7 +598,7 @@ INPUT                  = /home/desenvolvimento/pjmoo-gbf/trunk/projeto/src
 # into libc) for the transcoding. See http://www.gnu.org/software/libiconv for 
 # the list of possible encodings.
 
-INPUT_ENCODING         = UTF-8
+INPUT_ENCODING         = ISO_8859-1
 
 # If the value of the INPUT tag contains directories, you can use the 
 # FILE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp 
@@ -827,7 +827,7 @@ HTML_FILE_EXTENSION    = .html
 # each generated HTML page. If it is left blank doxygen will generate a 
 # standard header.
 
-HTML_HEADER            = 
+HTML_HEADER            = ../doc/doxygen/header.html
 
 # The HTML_FOOTER tag can be used to specify a personal HTML footer for 
 # each generated HTML page. If it is left blank doxygen will generate a 
@@ -1019,7 +1019,7 @@ ENUM_VALUES_PER_LINE   = 4
 # JavaScript, DHTML, CSS and frames is required (i.e. any modern browser). 
 # Windows users are probably better off using the HTML help feature.
 
-GENERATE_TREEVIEW      = YES
+GENERATE_TREEVIEW      = NO
 
 # By enabling USE_INLINE_TREES, doxygen will generate the Groups, Directories, 
 # and Class Hierarchy pages using a tree view instead of an ordered list.

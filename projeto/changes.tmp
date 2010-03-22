@@ -43,3 +43,9 @@ Updated	SoundSystem, refatorando métodos e variáveis
 Updated	GraphicSystem, refatorando métodos e variáveis
 Updated	Ponto, PontoVirtual e Dimensao, refatorados para Point, PointFloat e Dimension
 Updated	TimerSystem, refatorando classes, métodos e variáveis
+Updated	GBFramework, refatorando métodos e variáveis
+Added	GBFramework, adicionando mecanismo de hook do framework para teclas de Função (F1 ... F12)
+Updated	WriteManager, refatorando métodos e variáveis
+Updated	ParticleSystem, refatorando métodos e variáveis
+Updated	InputSystem, refatorando métodos e variáveis
+Updated	Timer, refatorando métodos e variáveis
