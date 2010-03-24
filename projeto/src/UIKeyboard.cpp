@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #include "UIKeyboard.h"
 
@@ -18,9 +16,7 @@ namespace UserInterface {
 
 namespace Component {
 
-//Efetua o controle sobre a navegação do cursor
-
-//Efetua o controle sobre a navegação do cursor
+/** Efetua o controle sobre a navegação do cursor */
 void UIKeyboard::browse()
 {
     if ((inputSystem->keyboard->isKey(SDLK_LEFT)) || (inputSystem->joystick->isAxeLeft())){
@@ -57,8 +53,8 @@ void UIKeyboard::browse()
 void UIKeyboard::drawBackground()
 {
     //desenhando caixa do teclado
-    if (visual != NULL){
-        visual->desenhar();
+    if (background != NULL){
+        background->draw();
     }
 
     int letra = 0;
@@ -81,13 +77,11 @@ void UIKeyboard::drawBackground()
     graphicSystem->gfx->setColor(corCursor.r, corCursor.g, corCursor.b);
 
     //Painel do teclado
-
     for (int l = 0;l < 5;l++){
         for (int c = 0;c < 10;c++){
             writeManager->write(fontKey.nome, tecla.x + (espacoHorizontal*c), tecla.y + (espacoVertical*l), "%c", caracter[letra]);
 
             //Desenhando cursor da selecao de tecla
-
             if ((selecao == letra) && (tempoBlink.getTime() % 2 == 0)){
                 graphicSystem->gfx->retangulo(cursor.x + (espacoHorizontal*c), cursor.y + (espacoVertical*l), cursorDimensao.w, cursorDimensao.h);
             }
@@ -117,7 +111,6 @@ void UIKeyboard::drawContent()
     cursorDimensao.h = fontControl.dimensao.h;
 
     //Painel das teclas de controles
-
     for (int ic = getTotalControle() - 1;ic >= 0;ic--){
         writeManager->writeKeyText(fontControl.nome, tecla.x, tecla.y + (fontControl.dimensao.h*ic), controle[ic].c_str());
     }
@@ -140,11 +133,11 @@ void UIKeyboard::update()
         browse();
     }
 
-    if (visual != NULL){
+    if (background != NULL){
         GBF::Dimension d  = dimension;
         d.w = dimension.w + getTamanhoControle() + (fontKey.dimensao.w);
 
-        visual->aplicar(point, d);
+        background->apply(point, d);
     }
 }
 
@@ -158,7 +151,8 @@ UIKeyboard::UIKeyboard()
 {
     point.x = 0;
     point.y = 0;
-    selecao   = 0;
+    selecao = 0;
+    background = NULL;
 
     tempoEspera.setInitialTime(1);
     tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
@@ -169,7 +163,8 @@ UIKeyboard::UIKeyboard()
     tempoBlink.setReset();
 }
 
-UIKeyboard::~UIKeyboard(){
+UIKeyboard::~UIKeyboard()
+{
 }
 
 int UIKeyboard::getTotalCaracter()
@@ -212,9 +207,7 @@ int UIKeyboard::getIndex()
     return selecao;
 }
 
-//Define a fonte a ser usada pelo label
-
-//Define a fonte a ser usada pelo Controle
+/** Define a fonte a ser usada pelo Controle */
 void UIKeyboard::setFontControl(std::string font)
 {
     fontControl.nome = font;
@@ -232,9 +225,7 @@ void UIKeyboard::setFontControl(std::string font)
     }
 }
 
-//Define a fonte a ser usada pelo teclado virtual
-
-//Define a fonte a ser usada pelo teclado virtual
+/** Define a fonte a ser usada pelo teclado virtual */
 void UIKeyboard::setFontKey(std::string font)
 {
     fontKey.nome = font;
@@ -244,11 +235,10 @@ void UIKeyboard::setFontKey(std::string font)
     dimension.h = 5  * (fontKey.dimensao.h + int(fontKey.dimensao.h / 4));
 }
 
-//Estilo Visual a ser Aplicado no Componente
-
-void UIKeyboard::setVisual(UserInterface::Look::UIBackground * visual)
+/** Estilo Visual a ser Aplicado no Componente */
+void UIKeyboard::setBackground(UserInterface::Look::UIBackground * background)
 {
-    this->visual = visual;
+    this->background = background;
 }
 
 void UIKeyboard::setColorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
@@ -258,6 +248,6 @@ void UIKeyboard::setColorCursor(const GBF::Color::Pallete & r, const GBF::Color:
     corCursor.b = b;
 }
 
-} // namespace UserInterface::Componente
+} // namespace UserInterface::Component
 
 } // namespace UserInterface

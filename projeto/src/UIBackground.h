@@ -25,33 +25,33 @@ class UIBackground : public GBF::Kernel::Graphic::GraphicSystemUtility
 {
 
     public:
-        //Construtor
+        /** Construtor */
         UIBackground();
 
-        //Destrutor
+        /** Destrutor */
         virtual ~UIBackground();
 
-        void setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
+        void setBorderColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
-        //Aplica o efeito visual
-        virtual void aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao);
+        /** Aplica o efeito visual */
+        virtual void apply(const GBF::Point & point, const GBF::Dimension & dimension);
 
-        //Desenha o EstiloVisual do Componente
-        virtual void desenhar() = 0;
+        /** Desenha o EstiloVisual do Componente */
+        virtual void draw() = 0;
 
         virtual UIBackground * clone() = 0;
 
 
     protected:
-        GBF::Color::RGB corBorda;
+        GBF::Color::RGB borderColor;
 
-        GBF::Point posicao;
+        GBF::Point point;
 
-        GBF::Dimension dimensao;
+        GBF::Dimension dimension;
 
 };
 
-} // namespace UserInterface::Visual
+} // namespace UserInterface::Look
 
 } // namespace UserInterface
 

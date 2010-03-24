@@ -22,28 +22,30 @@ namespace Look {
 
 class UIBackgroundColor : public UIBackground
 {
-  public:
-    //Construtor
-    UIBackgroundColor();
 
-    //Destrutor
-    virtual ~UIBackgroundColor();
+    public:
+        /** Construtor */
+        UIBackgroundColor();
 
-    void setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
+        /** Destrutor */
+        virtual ~UIBackgroundColor();
 
-    //Desenha o EstiloVisual do Componente
-    virtual void desenhar();
+        void setColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
-    //Retorna uma copia do objeto
-    virtual UIBackground * clone();
+        /** Desenha o EstiloVisual do Componente */
+        virtual void draw();
+
+        /** Retorna uma copia do objeto */
+        virtual UIBackground * clone();
 
 
-  protected:
-    GBF::Color::RGB corFundo;
+    protected:
+        GBF::Color::RGB color;
 
 };
 
-} // namespace UserInterface::Visual
+} // namespace UserInterface::Look
 
 } // namespace UserInterface
+
 #endif

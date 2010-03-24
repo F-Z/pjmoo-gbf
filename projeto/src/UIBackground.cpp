@@ -16,30 +16,30 @@ namespace UserInterface {
 
 namespace Look {
 
-//Construtor
-UIBackground::UIBackground(){
-}
-
-//Destrutor
-UIBackground::~UIBackground(){
-}
-
-void UIBackground::setCorBorda(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
+/** Construtor */
+UIBackground::UIBackground()
 {
-    corBorda.r = r;
-    corBorda.g = g;
-    corBorda.b = b;
 }
 
-//Aplica o efeito visual
-
-//Aplica o efeito visual
-void UIBackground::aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao)
+/** Destrutor */
+UIBackground::~UIBackground()
 {
-    this->dimensao = dimensao;
-    this->posicao = posicao;
 }
 
-} // namespace UserInterface::Visual
+void UIBackground::setBorderColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
+{
+    borderColor.r = r;
+    borderColor.g = g;
+    borderColor.b = b;
+}
+
+/** Aplica o efeito visual*/
+void UIBackground::apply(const GBF::Point & point, const GBF::Dimension & dimension)
+{
+    this->dimension = dimension;
+    this->point = point;
+}
+
+} // namespace UserInterface::Look
 
 } // namespace UserInterface

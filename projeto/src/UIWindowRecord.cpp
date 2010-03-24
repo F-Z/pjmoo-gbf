@@ -130,6 +130,7 @@ UIWindowRecord::UIWindowRecord()
     nameIndex = 0;
     point.x = 0;
     point.y = 0;
+    background = NULL;
 
     tempoEspera.setInitialTime(1);
     tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
@@ -141,17 +142,19 @@ UIWindowRecord::UIWindowRecord()
 /** Destrutor */
 UIWindowRecord::~UIWindowRecord()
 {
-    delete(uiVisualComponentes);
+    if (background != NULL){
+        delete(background);
+    }
 }
 
 /** Estilo Visual a ser Aplicado no Componente */
-void UIWindowRecord::setVisualComponentes(UserInterface::Look::UIBackgroundColor * visual)
+void UIWindowRecord::setBackground(UserInterface::Look::UIBackgroundColor * background)
 {
-    uiVisualComponentes = visual;
+    this->background = background;
 
-    textName.setVisual(uiVisualComponentes);
-    textScore.setVisual(uiVisualComponentes);
-    keyboard.setVisual(uiVisualComponentes);
+    textName.setBackground(background);
+    textScore.setBackground(background);
+    keyboard.setBackground(background);
 
     keyboard.setColorCursor(255, 255, 0);
 }

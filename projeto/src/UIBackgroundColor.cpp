@@ -15,41 +15,39 @@ namespace UserInterface {
 
 namespace Look {
 
-//Construtor
+/** Construtor */
 UIBackgroundColor::UIBackgroundColor()
 {
 }
-//Destrutor
+/** Destrutor */
 UIBackgroundColor::~UIBackgroundColor()
 {
 }
-void UIBackgroundColor::setCorFundo(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
+void UIBackgroundColor::setColor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b)
 {
-    corFundo.r=r;
-    corFundo.g=g;
-    corFundo.b=b;
+    color.r=r;
+    color.g=g;
+    color.b=b;
 }
-//Desenha o EstiloVisual do Componente
-
-//Desenha o EstiloVisual do Componente
-void UIBackgroundColor::desenhar()
+/** Desenha o EstiloVisual do Componente */
+void UIBackgroundColor::draw()
 {
-    graphicSystem->gfx->setColor(corFundo.r,corFundo.g,corFundo.b);
-    graphicSystem->gfx->retanguloPreenchido(posicao.x,posicao.y,dimensao.w,dimensao.h);
+    graphicSystem->gfx->setColor(color.r,color.g,color.b);
+    graphicSystem->gfx->retanguloPreenchido(point.x,point.y,dimension.w,dimension.h);
 
-    graphicSystem->gfx->setColor(corBorda.r,corBorda.g,corBorda.b);
-    graphicSystem->gfx->retangulo(posicao.x,posicao.y,dimensao.w,dimensao.h);
+    graphicSystem->gfx->setColor(borderColor.r,borderColor.g,borderColor.b);
+    graphicSystem->gfx->retangulo(point.x,point.y,dimension.w,dimension.h);
 }
-//Retorna uma copia do objeto
+/** Retorna uma cópia do objeto */
 UIBackground * UIBackgroundColor::clone()
 {
-    UIBackgroundColor * uivSolido = new UIBackgroundColor();
-    uivSolido->setCorBorda(corBorda.r,corBorda.g,corBorda.b);
-    uivSolido->setCorFundo(corFundo.r,corFundo.g,corFundo.b);
+    UIBackgroundColor * clone = new UIBackgroundColor();
+    clone->setBorderColor(borderColor.r,borderColor.g,borderColor.b);
+    clone->setColor(color.r,color.g,color.b);
 
-    return uivSolido;
+    return clone;
 }
 
-} // namespace UserInterface::Visual
+} // namespace UserInterface::Look
 
 } // namespace UserInterface
