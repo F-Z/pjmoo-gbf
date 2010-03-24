@@ -15,7 +15,7 @@
 
 #include <string>
 
-#include "UIVisual.h"
+#include "UIBackground.h"
 #include "UserInterface.h"
 #include "UIComponent.h"
 #include "GraphicSystemUtility.h"
@@ -48,7 +48,7 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
         void setCursorPosicao(int posicao);
 
-        void setVisual(UserInterface::Visual::UIVisual * visual);
+        void setVisual(UserInterface::Look::UIBackground * visual);
 
 
     protected:
@@ -71,7 +71,7 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
         void draw();
 
-        UserInterface::Visual::UIVisual * visual;
+        UserInterface::Look::UIBackground * visual;
 
 
     private:

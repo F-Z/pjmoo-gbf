@@ -246,7 +246,7 @@ void UIKeyboard::setFontKey(std::string font)
 
 //Estilo Visual a ser Aplicado no Componente
 
-void UIKeyboard::setVisual(UserInterface::Visual::UIVisual * visual)
+void UIKeyboard::setVisual(UserInterface::Look::UIBackground * visual)
 {
     this->visual = visual;
 }

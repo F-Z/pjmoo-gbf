@@ -14,7 +14,7 @@
 
 #include "UIComponent.h"
 #include "InputSystemUtility.h"
-#include "UIVisual.h"
+#include "UIBackground.h"
 #include "TimerRegressive.h"
 
 namespace UserInterface
@@ -38,7 +38,7 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
         virtual void inicializar();
 
         /** Estilo Visual a ser Aplicado no Componente */
-        void setVisual(UserInterface::Visual::UIVisual * visual);
+        void setVisual(UserInterface::Look::UIBackground * visual);
 
         /** Retorna se a ação informada foi acionado */
         virtual bool isAction(int tipoAcao) = 0;
@@ -64,7 +64,7 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
         /** Desenha a camada de decoração da janela (botões) */
         virtual void drawForeground();
 
-        UserInterface::Visual::UIVisual * visual;
+        UserInterface::Look::UIBackground * visual;
 
 };
 

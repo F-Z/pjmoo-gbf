@@ -18,7 +18,7 @@
 #include "UITextField.h"
 #include "UINumberField.h"
 #include "RSRecorde.h"
-#include "UIVisualSolido.h"
+#include "UIBackgroundColor.h"
 #include <string>
 
 #include "UIWindow.h"
@@ -43,7 +43,7 @@ class UIWindowRecord : public UIWindow
 
         RankingSystem::RSRecorde record;
 
-        UserInterface::Visual::UIVisualSolido * uiVisualComponentes;
+        UserInterface::Look::UIBackgroundColor * uiVisualComponentes;
 
         int nameIndex;
 
@@ -75,7 +75,7 @@ class UIWindowRecord : public UIWindow
         ~UIWindowRecord();
 
         /** Estilo Visual a ser Aplicado no Componente */
-        void setVisualComponentes(UserInterface::Visual::UIVisualSolido * visual);
+        void setVisualComponentes(UserInterface::Look::UIBackgroundColor * visual);
 
         /** Define a fonte a ser usada pelo Titulo */
         void setFontTitle(std::string font);

@@ -19,7 +19,7 @@
 #include <string>
 
 #include "UserInterface.h"
-#include "UIVisual.h"
+#include "UIBackground.h"
 #include "GraphicSystemUtility.h"
 #include "UIComponent.h"
 #include "InputSystemUtility.h"
@@ -55,7 +55,7 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
 
         int tamanhoControle;
 
-        UserInterface::Visual::UIVisual * visual;
+        UserInterface::Look::UIBackground * visual;
 
         void drawBackground();
 
@@ -93,7 +93,7 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
         //Define a fonte a ser usada pelo teclado virtual
         void setFontKey(std::string fonte);
 
-        void setVisual(UserInterface::Visual::UIVisual * visual);
+        void setVisual(UserInterface::Look::UIBackground * visual);
 
         void setColorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
