@@ -20,6 +20,7 @@ namespace Window {
 UIWindow::UIWindow()
 {
     espacoAntesTexto = 0;
+    background = NULL;
 
     tempoEspera.setInitialTime(1);
     tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
@@ -28,8 +29,8 @@ UIWindow::UIWindow()
 /** Destrutor */
 UIWindow::~UIWindow()
 {
-    if (visual){
-        delete(visual);
+    if (background){
+        delete(background);
     }
 }
 void UIWindow::setDimension(int largura, int altura)
@@ -40,14 +41,14 @@ void UIWindow::setDimension(int largura, int altura)
 /** Inicializa as configurações da caixa de texto */
 void UIWindow::inicializar()
 {
-    if (visual != NULL){
-        visual->aplicar(point, dimension);
+    if (background != NULL){
+        background->apply(point, dimension);
     }
 }
 /** Estilo Visual a ser Aplicado no Componente */
-void UIWindow::setVisual(UserInterface::Look::UIBackground * visual)
+void UIWindow::setBackground(UserInterface::Look::UIBackground * background)
 {
-    this->visual = visual;
+    this->background = background;
 }
 /** atualiza as informações do componente (posicao, dimensao, estado) */
 void UIWindow::update()
@@ -66,8 +67,8 @@ void UIWindow::draw()
 /** Desenha o background da caixa de texto */
 void UIWindow::drawBackground()
 {
-    if (visual != NULL){
-        visual->desenhar();
+    if (background != NULL){
+        background->draw();
     }
 }
 /** Desenha a camada de decoração da janela (botões) */

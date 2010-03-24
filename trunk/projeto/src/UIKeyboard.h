@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #ifndef _UIKEYBOARD_H
 #define _UIKEYBOARD_H
@@ -26,17 +24,15 @@
 #include "TimerRegressive.h"
 #include "Timer.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Component
-{
+namespace Component {
 
 class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
 {
 
     private:
-        //Efetua o controle sobre a navegação do cursor
+        /** Efetua o controle sobre a navegação do cursor */
         void browse();
 
         GBF::Color::RGB corCursor;
@@ -55,7 +51,7 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
 
         int tamanhoControle;
 
-        UserInterface::Look::UIBackground * visual;
+        UserInterface::Look::UIBackground * background;
 
         void drawBackground();
 
@@ -87,13 +83,13 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
 
         int getIndex();
 
-        //Define a fonte a ser usada pelo Controle
+        /** Define a fonte a ser usada pelo Controle */
         void setFontControl(std::string fonte);
 
-        //Define a fonte a ser usada pelo teclado virtual
+        /** Define a fonte a ser usada pelo teclado virtual */
         void setFontKey(std::string fonte);
 
-        void setVisual(UserInterface::Look::UIBackground * visual);
+        void setBackground(UserInterface::Look::UIBackground * background);
 
         void setColorCursor(const GBF::Color::Pallete & r, const GBF::Color::Pallete & g, const GBF::Color::Pallete & b);
 
@@ -105,7 +101,7 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
 
 };
 
-} // namespace UserInterface::Componente
+} // namespace UserInterface::Component
 
 } // namespace UserInterface
 

@@ -17,14 +17,13 @@
 #include "UIBackground.h"
 #include "TimerRegressive.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Window
-{
+namespace Window {
 
 class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::InputSystemUtility
 {
+
     public:
         /** Construtor */
         UIWindow();
@@ -38,7 +37,7 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
         virtual void inicializar();
 
         /** Estilo Visual a ser Aplicado no Componente */
-        void setVisual(UserInterface::Look::UIBackground * visual);
+        void setBackground(UserInterface::Look::UIBackground * background);
 
         /** Retorna se a ação informada foi acionado */
         virtual bool isAction(int tipoAcao) = 0;
@@ -64,7 +63,7 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
         /** Desenha a camada de decoração da janela (botões) */
         virtual void drawForeground();
 
-        UserInterface::Look::UIBackground * visual;
+        UserInterface::Look::UIBackground * background;
 
 };
 

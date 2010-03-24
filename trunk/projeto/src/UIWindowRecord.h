@@ -43,7 +43,7 @@ class UIWindowRecord : public UIWindow
 
         RankingSystem::RSRecorde record;
 
-        UserInterface::Look::UIBackgroundColor * uiVisualComponentes;
+        UserInterface::Look::UIBackgroundColor * background;
 
         int nameIndex;
 
@@ -75,7 +75,7 @@ class UIWindowRecord : public UIWindow
         ~UIWindowRecord();
 
         /** Estilo Visual a ser Aplicado no Componente */
-        void setVisualComponentes(UserInterface::Look::UIBackgroundColor * visual);
+        void setBackground(UserInterface::Look::UIBackgroundColor * background);
 
         /** Define a fonte a ser usada pelo Titulo */
         void setFontTitle(std::string font);

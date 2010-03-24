@@ -27,7 +27,7 @@ UIField::UIField()
     cursor.show = false;
     indice = 0;
 
-    visual = NULL;
+    background = NULL;
 }
 
 UIField::~UIField()
@@ -73,9 +73,9 @@ void UIField::setCursorPosicao(int posicao)
 }
 
 /** Estilo Visual a ser Aplicado no Componente */
-void UIField::setVisual(UserInterface::Look::UIBackground * visual)
+void UIField::setBackground(UserInterface::Look::UIBackground * background)
 {
-    this->visual = visual;
+    this->background = background;
 }
 
 /** Desenha o conteudo da janela */
@@ -84,9 +84,9 @@ void UIField::drawBackground()
     //escrevendo label (Jogador - Pontos)
     writeManager->writeKeyText(fonteLabel.nome, fonteLabel.posicao.x, fonteLabel.posicao.y, label);
 
-    if (visual != NULL)
+    if (background != NULL)
     {
-        visual->desenhar();
+        background->draw();
     }
 }
 
@@ -114,13 +114,13 @@ void UIField::update()
     cursor.point.x = fonteCampo.posicao.x + (indice * fonteCampo.dimensao.w);
     cursor.point.y = fonteCampo.posicao.y + fonteCampo.dimensao.h;
 
-    if (visual != NULL){
+    if (background != NULL){
         GBF::Dimension d  = dimension;
 
         GBF::Point  p  = point;
         p.y = fonteLabel.posicao.y + (fonteLabel.dimensao.h * 1.2) - 1;
 
-        visual->aplicar(p, dimension);
+        background->apply(p, dimension);
     }
 }
 
@@ -133,6 +133,6 @@ void UIField::draw()
     drawForeground();
 }
 
-} // namespace UserInterface::Componente
+} // namespace UserInterface::Component
 
 } // namespace UserInterface

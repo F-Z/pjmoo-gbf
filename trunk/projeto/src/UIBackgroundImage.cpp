@@ -16,9 +16,10 @@ namespace UserInterface {
 
 namespace Look {
 
-//Construtor
-UIBackgroundImage::UIBackgroundImage() {
-    tipoBackground = BACKGROUND_LINES;
+/** Construtor */
+UIBackgroundImage::UIBackgroundImage()
+{
+    imageType = BACKGROUND_LINES;
 
     GBF::Image::SpriteFactory *spriteFactory = new GBF::Image::SpriteFactory("gbf-window-background");
     background = spriteFactory->createFrameLayer(0, 0, 10, 10);
@@ -26,56 +27,55 @@ UIBackgroundImage::UIBackgroundImage() {
     delete(spriteFactory);
 }
 
-//Destrutor
-UIBackgroundImage::~UIBackgroundImage() {
+/** Destrutor */
+UIBackgroundImage::~UIBackgroundImage()
+{
     if (background) {
         delete(background);
     }
 }
 
-//Aplica o efeito visual
-void UIBackgroundImage::aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao) {
-    UIBackground::aplicar(posicao, dimensao);
+/** Aplica o efeito visual */
+void UIBackgroundImage::apply(const GBF::Point & point, const GBF::Dimension & dimension)
+{
+    UIBackground::apply(point, dimension);
 
     if (background != NULL) {
-        background->setFrame(posicao.x, posicao.y, dimensao.w, dimensao.h);
-        background->setTiles((dimensao.w / 10), (dimensao.h / 10));
+        background->setFrame(point.x, point.y, dimension.w, dimension.h);
+        background->setTiles((dimension.w / 10), (dimension.h / 10));
         background->setPixelTile(10, 10);
-        background->iniciarCom(tipoBackground);
+        background->iniciarCom(imageType);
     }
 }
 
-//Desenha o EstiloVisual do Componente
-
-//Desenha o EstiloVisual do Componente
-void UIBackgroundImage::desenhar()
+/** Desenha o EstiloVisual do Componente */
+void UIBackgroundImage::draw()
 {
     if (background != NULL) {
         background->draw();
     }
 
-    graphicSystem->gfx->setColor(corBorda.r, corBorda.g, corBorda.b);
+    graphicSystem->gfx->setColor(borderColor.r, borderColor.g, borderColor.b);
 
-    graphicSystem->gfx->retangulo(posicao.x, posicao.y, dimensao.w, dimensao.h);
+    graphicSystem->gfx->retangulo(point.x, point.y, dimension.w, dimension.h);
 }
 
-//Retorna uma copia do objeto
+/** Retorna uma copia do objeto */
 UIBackground * UIBackgroundImage::clone()
 {
-    UIBackgroundImage * uivImagem = new UIBackgroundImage();
-    uivImagem->setCorBorda(corBorda.r, corBorda.g, corBorda.b);
-    uivImagem->setTipoBackground(tipoBackground);
+    UIBackgroundImage * clone = new UIBackgroundImage();
+    clone->setBorderColor(borderColor.r, borderColor.g, borderColor.b);
+    clone->setImageType(imageType);
 
-    return uivImagem;
+    return clone;
 }
 
-//Define o estilo de background a ser utilizado
-
-//Define o estilo de background a ser utilizado
-void UIBackgroundImage::setTipoBackground(UIBackgroundImageType tipo) {
-    tipoBackground = tipo;
+/** Define o estilo de background a ser utilizado */
+void UIBackgroundImage::setImageType(UIBackgroundImageType imageType)
+{
+    this->imageType = imageType;
 }
 
-} // namespace UserInterface::Visual
+} // namespace UserInterface::Look
 
 } // namespace UserInterface

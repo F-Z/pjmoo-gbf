@@ -21,11 +21,9 @@
 #include "GraphicSystemUtility.h"
 #include "Timer.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Component
-{
+namespace Component {
 
 class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::GraphicSystemUtility
 {
@@ -48,7 +46,7 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
         void setCursorPosicao(int posicao);
 
-        void setVisual(UserInterface::Look::UIBackground * visual);
+        void setBackground(UserInterface::Look::UIBackground * background);
 
 
     protected:
@@ -71,7 +69,7 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
         void draw();
 
-        UserInterface::Look::UIBackground * visual;
+        UserInterface::Look::UIBackground * background;
 
 
     private:
@@ -85,7 +83,7 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
 };
 
-} // namespace UserInterface::Componente
+} // namespace UserInterface::Component
 
 } // namespace UserInterface
 

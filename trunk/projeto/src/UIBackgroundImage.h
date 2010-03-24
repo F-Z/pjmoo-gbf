@@ -22,45 +22,47 @@ namespace UserInterface {
 
 namespace Look {
 
-enum UIBackgroundImageType {
+enum UIBackgroundImageType
+{
     BACKGROUND_LINES = 0,
     BACKGROUND_RINGS = 1,
     BACKGROUND_CHESS = 2,
-    BACKGROUND_SQUARE = 3
-    ,
+    BACKGROUND_SQUARE = 3,
     BACKGROUND_LINES_BLACK = 4,
     BACKGROUND_CHESS_BLACK = 5
 };
 
-class UIBackgroundImage : public UIBackground {
+class UIBackgroundImage : public UIBackground
+{
+
     public:
-        //Construtor
+        /** Construtor */
         UIBackgroundImage();
 
-        //Destrutor
+        /** Destrutor */
         virtual ~UIBackgroundImage();
 
-        //Aplica o efeito visual
-        virtual void aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao);
+        /** Aplica o efeito visual */
+        virtual void apply(const GBF::Point & point, const GBF::Dimension & dimension);
 
-        //Desenha o EstiloVisual do Componente
-        virtual void desenhar();
+        /** Desenha o EstiloVisual do Componente */
+        virtual void draw();
 
-        //Retorna uma copia do objeto
+        /** Retorna uma copia do objeto */
         virtual UIBackground * clone();
 
-        //Define o estilo de background a ser utilizado
-        void setTipoBackground(UIBackgroundImageType tipo);
+        /** Define o estilo de background a ser utilizado */
+        void setImageType(UIBackgroundImageType imageType);
 
 
     protected:
         GBF::Image::Layer::FrameLayer * background;
 
-        UIBackgroundImageType tipoBackground;
+        UIBackgroundImageType imageType;
 
 };
 
-} // namespace UserInterface::Visual
+} // namespace UserInterface::Look
 
 } // namespace UserInterface
 
