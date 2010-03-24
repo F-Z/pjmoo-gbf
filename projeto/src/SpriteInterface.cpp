@@ -11,15 +11,16 @@
 **************************************************************************/
 #include "SpriteInterface.h"
 
-namespace GBF
-{
+namespace GBF {
 
 namespace Image {
 
-//Destrutor
+SpriteInterface::SpriteInterface()
+{
+}
+
 SpriteInterface::~SpriteInterface()
 {
-
 }
 
 void SpriteInterface::create(int left, int top, int largura, int altura, GBF::Kernel::Graphic::ImageBuffer * gsiBuffer)
@@ -32,11 +33,6 @@ void SpriteInterface::create(int left, int top, int largura, int altura, GBF::Ke
     image = gsiBuffer;
 
     animation.setFrameSize(tamanho);
-}
-
-//Construtor
-SpriteInterface::SpriteInterface()
-{
 }
 
 } // namespace GBF::Image

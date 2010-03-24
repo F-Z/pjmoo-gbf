@@ -24,7 +24,7 @@ UIButton::UIButton(std::string font, std::string keyText, const SDLKey & key)
     button.setKeyText(keyText);
     this->key = key;
 
-    dimension   = writeManager->getFont(button.getFont())->getDimensao();
+    dimension   = writeManager->getFont(button.getFont())->getDimension();
     dimension.w = writeManager->getLineWidth(button.getFont(), button.getKeyText());
 }
 

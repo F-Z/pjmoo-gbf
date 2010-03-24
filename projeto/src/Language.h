@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2009 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://www.davidferreira.com.br
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
 #ifndef _LANGUAGE_H
 #define _LANGUAGE_H
@@ -36,72 +34,66 @@ namespace Kernel {
 
 namespace Write {
 
-//Descrição:
-//    Classe para carregar textos
-//Motivação:
-//    Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos
+/** Classe para carregar textos
+   Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos */
+
 class Language
 {
-  protected:
-    //Lista com os códigos e textos correspondentes
 
-    std::map<std::string,std::string> mapaTexto;
+    public:
+        /** Destrutor */
+        ~Language();
 
-    //Lista com os idiomas suportados
-    std::map<std::string,std::string> idiomaSuportado;
+        static Language * getInstance();
 
-    //Prefixo do idioma selecionado
+        /** Configura um idioma.
+        Obs.: O idioma é configurado de acordo com a lista de idiomas suportado */
+        bool setLanguage(const std::string & codigo);
 
-    std::string prefix;
+        std::string getLanguage();
 
-    static Language * instance;
+        /** Seleciona o idioma automaticamente de acordo com o ambiente */
+        void autodetect();
 
+        bool refresh();
 
-  private:
-    //arquivo de localização a ser carregado
+        void setFileName(const std::string & fileName);
 
-    std::string fileName;
+        int size();
 
+        std::string getText(const std::string & key);
 
-  public:
-    ~Language();
-
-    static Language * getInstance();
-
-    //Configura um idioma
-    //Obs.: O idioma é configurado de acordo com a lista de idiomas suportado
-    bool setLanguage(const std::string & codigo);
-
-    std::string getLanguage();
-
-    //Seleciona o idioma automaticamente de acordo com o ambiente
-    void autodetect();
-
-    bool refresh();
-
-    void setFileName(const std::string & fileName);
-
-    int size();
-
-    std::string getText(const std::string & key);
-
-    //Retorna se existe a chave de texto
-    bool isKey(const std::string & key);
+        /** Retorna se existe a chave de texto */
+        bool isKey(const std::string & key);
 
 
-  protected:
-    void parser(char * info);
+    protected:
+        void parser(char * info);
 
-    //Carrega o mapeamento de idiomas e os arquivos de texto
-    void load();
+        /** Carrega o mapeamento de idiomas e os arquivos de texto */
+        void load();
 
-    void parserLanguage(char * info);
+        void parserLanguage(char * info);
 
-    void clear();
+        void clear();
 
+        /** Lista com os códigos e textos correspondentes */
+        std::map<std::string, std::string> mapaTexto;
 
-  private:
-    Language();
+        /** Lista com os idiomas suportados */
+        std::map<std::string, std::string> idiomaSuportado;
+
+        /** Prefixo do idioma selecionado */
+        std::string prefix;
+
+        static Language * instance;
+
+    private:
+        /** Construtor */
+        Language();
+
+        /** arquivo de localização a ser carregado */
+        std::string fileName;
 
 };
 
@@ -110,4 +102,5 @@ class Language
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

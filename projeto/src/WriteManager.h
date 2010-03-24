@@ -30,12 +30,13 @@ namespace Kernel
 namespace Write
 {
 /**
-    Classe para gerenciamento do sistema de fontes (letras).
-@brief
+   Classe para gerenciamento do sistema de fontes (letras).
     Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita
 */
+
 class WriteManager : public GBF::BaseManager
 {
+
     public:
         /** Constante para representar a fonte padrão do GBF */
         static const std::string defaultFont;
@@ -49,7 +50,8 @@ class WriteManager : public GBF::BaseManager
          Obs.: Ideal para casos em que se deseja manipulações avançadas */
         FontBitmap * getFont(std::string name);
 
-        /** Pega uma Instância de FonteManager Obs.: Esta classe é Singleton */
+        /** Pega uma Instância de FonteManager
+        Obs.: Esta classe é Singleton */
         static WriteManager * getInstance();
 
         /** Carrega e adiciona uma fonte (WriteSystemBitmap) */
@@ -85,4 +87,5 @@ class WriteManager : public GBF::BaseManager
 } // namespace GBF::Kernel
 
 } // namespace GBF
+
 #endif

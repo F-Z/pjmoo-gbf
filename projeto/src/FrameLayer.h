@@ -24,13 +24,15 @@ namespace GBF {
 
 namespace Image {
 
+/** Representação de Imagens(Tiles) para composição das telas  */
+
 namespace Layer {
 
-//Classe para Desenho de TileMaps
+/** Classe para Desenho de TileMaps */
 
 class FrameLayer : public GBF::Image::SpriteInterface {
+
     public:
-        LayerCamera camera;
 
         /** Construtor */
         FrameLayer();
@@ -80,23 +82,6 @@ class FrameLayer : public GBF::Image::SpriteInterface {
         /** Desenha a grade de tiles do mapa */
         void showGrade();
 
-
-    protected:
-        int * mapa;
-
-        int * mapaColisao;
-
-
-    public:
-        LayerMundo mundo;
-
-
-    protected:
-        GBF::Area screen_dimensao;
-
-        friend class LayerManager;
-
-    public:
         /** Carrega tilemap apartir de um vetor pré-alocado em memoria. */
         void loadMapFromMemory(int vetor[]);
 
@@ -108,6 +93,21 @@ class FrameLayer : public GBF::Image::SpriteInterface {
 
         /** Retorna o tipo de imagem usado no brick */
         int getImageType(int index);
+
+        LayerMundo mundo;
+
+        LayerCamera camera;
+
+    protected:
+
+        int * mapa;
+
+        int * mapaColisao;
+
+        GBF::Area screen_dimensao;
+
+        friend class LayerManager;
+
 
 };
 

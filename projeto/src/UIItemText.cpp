@@ -58,7 +58,7 @@ int UIItemText::getQuantidadeLetras()
 
 GBF::Dimension UIItemText::getDimensaoLetra()
 {
-    return writeManager->getFont(font)->getDimensao();
+    return writeManager->getFont(font)->getDimension();
 }
 
 } // namespace UserInterface::Menu

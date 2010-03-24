@@ -43,14 +43,14 @@ void UIField::setLabel(std::string label)
 void UIField::setFont(std::string font)
 {
     fonteLabel.nome = font;
-    fonteLabel.dimensao = writeManager->getFont(fonteLabel.nome)->getDimensao();
+    fonteLabel.dimensao = writeManager->getFont(fonteLabel.nome)->getDimension();
 }
 
 /** Define a fonte a ser usada pelo Campo */
 void UIField::setFontInput(std::string font)
 {
     fonteCampo.nome = font;
-    fonteCampo.dimensao = writeManager->getFont(fonteCampo.nome)->getDimensao();
+    fonteCampo.dimensao = writeManager->getFont(fonteCampo.nome)->getDimension();
 
     dimension.w = (length * fonteCampo.dimensao.w) + (fonteCampo.dimensao.w * 0.2);
     dimension.h = (fonteCampo.dimensao.h) * 1.6;

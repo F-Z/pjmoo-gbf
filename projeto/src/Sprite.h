@@ -17,14 +17,15 @@
 #include "GBF.h"
 #include "SpriteInterface.h"
 
-namespace GBF
-{
+namespace GBF {
 
 namespace Image {
 
+/** Representação de Imagens (Sprites) para personagens e objetos */
+
 namespace Sprite {
 
-//Definição de direções
+/** Definição de direções */
 enum Direcao {
     DR_CIMA,
     DR_DIREITA,
@@ -35,7 +36,9 @@ enum Direcao {
     DR_BAIXOESQUERDA,
     DR_CIMAESQUERDA
 };
-//Definição de Status
+
+/** Definição de Status */
+
 struct DirecaoStatus {
     bool cima;
 
@@ -54,8 +57,12 @@ struct DirecaoStatus {
     bool cimaEsquerda;
 
 };
+
+/** Classe para representação básica de um Sprite */
+
 class Sprite : public GBF::Image::SpriteInterface
 {
+
     public:
         /** Destrutor */
         virtual ~Sprite();
@@ -92,4 +99,5 @@ class Sprite : public GBF::Image::SpriteInterface
 } // namespace GBF::Image
 
 } // namespace GBF
+
 #endif

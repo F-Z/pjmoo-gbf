@@ -12,14 +12,21 @@
 
 #include "Sprite.h"
 
-namespace GBF
-{
+namespace GBF {
 
 namespace Image {
 
 namespace Sprite {
 
-/** Destrutor */
+
+Sprite::Sprite()
+{
+    tamanho.left = tamanho.top = tamanho.bottom = tamanho.right = 0;
+    point.x = point.y = 0;
+
+    animation.setAutomatic(true);
+}
+
 Sprite::~Sprite()
 {
 }
@@ -31,7 +38,7 @@ void Sprite::create(int left, int top, int largura, int altura, int quantitadeQu
     //configura as informações de animação
     animation.configuration(quantitadeQuadro, repeticaoQuadro);
 }
-/** Desenha o sprite na tela, com base na última posição informada ou desenhada */
+
 void Sprite::draw(int x, int y)
 {
     point.x = x;
@@ -41,13 +48,13 @@ void Sprite::draw(int x, int y)
 
     image->draw(point, pontoCorte, animation.process());
 }
-/** Desenha o sprite na tela, com base na última posição informada ou desenhada */
+
 void Sprite::draw()
 {
     draw(point.x, point.y);
 }
 
-/** Retorna a dimensão do sprite 'width' e 'height' */
+
 GBF::Dimension Sprite::getTamanho()
 {
     Dimension dimensao;
@@ -57,7 +64,7 @@ GBF::Dimension Sprite::getTamanho()
     return  dimensao;
 }
 
-/** Colisão baseada no tamanho dos Sprites */
+
 bool Sprite::isCollision(Sprite * sprite)
 {
     if ((point.x + tamanho.right >= sprite->point.x) &&
@@ -65,32 +72,20 @@ bool Sprite::isCollision(Sprite * sprite)
             (point.y + tamanho.bottom >= sprite->point.y) &&
             (point.y <= sprite->point.y + sprite->tamanho.bottom)) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
 
-/** Posiciona o Sprite na tela */
 void Sprite::setPoint(GBF::Point point)
 {
     setPoint(point.x, point.y);
 }
 
-/** Posiciona o Sprite na tela */
 void Sprite::setPoint(int x, int y)
 {
     point.x = x;
     point.y = y;
-}
-
-/** Construtor */
-Sprite::Sprite()
-{
-    tamanho.left = tamanho.top = tamanho.bottom = tamanho.right = 0;
-    point.x = point.y = 0;
-
-    animation.setAutomatic(true);
 }
 
 } // namespace GBF::Image::Sprite

@@ -49,3 +49,7 @@ Updated	WriteManager, refatorando métodos e variáveis
 Updated	ParticleSystem, refatorando métodos e variáveis
 Updated	InputSystem, refatorando métodos e variáveis
 Updated	Timer, refatorando métodos e variáveis
+Updated	UIVisual, refatorando classe para UIBackground
+Updated	UIVisualSolido, refatorando classe para UIBackgroundColor
+Updated	UIVisualImagem, refatorando classe para UIBackgroundImage
+Updated	UIBackground, UIBackgrounColor e UIBackgroundImage refatorando métodos e variáveis

@@ -211,7 +211,7 @@ int UIKeyboard::getIndex()
 void UIKeyboard::setFontControl(std::string font)
 {
     fontControl.nome = font;
-    fontControl.dimensao = writeManager->getFont(fontControl.nome)->getDimensao();
+    fontControl.dimensao = writeManager->getFont(fontControl.nome)->getDimension();
 
     tamanhoControle  = 0;
     int tmp = 0;
@@ -229,7 +229,7 @@ void UIKeyboard::setFontControl(std::string font)
 void UIKeyboard::setFontKey(std::string font)
 {
     fontKey.nome = font;
-    fontKey.dimensao = writeManager->getFont(fontKey.nome)->getDimensao();
+    fontKey.dimensao = writeManager->getFont(fontKey.nome)->getDimension();
 
     dimension.w = 10 * (fontKey.dimensao.w + int(fontKey.dimensao.w / 4));
     dimension.h = 5  * (fontKey.dimensao.h + int(fontKey.dimensao.h / 4));

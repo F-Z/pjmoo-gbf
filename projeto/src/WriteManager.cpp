@@ -33,12 +33,16 @@ WriteManager::~WriteManager()
         } catch (...){
             //UtilLog::tracer("Fonte=Desconhecido(a)");
         }
+
         delete((*it).second);
+
         (*it).second = NULL;
         // UtilLog::comentario("[Ok]");
     }
+
     objetomap.clear();
 }
+
 /** Retorna uma fonte para manipulação direta
 Obs.: Ideal para casos em que se deseja manipulações avançadas */
 FontBitmap * WriteManager::getFont(std::string name)
@@ -50,6 +54,7 @@ FontBitmap * WriteManager::getFont(std::string name)
         return objetomap[WriteManager::defaultFont];
     }
 }
+
 /** Pega uma Instância de FonteManager
 Obs.: Esta classe é Singleton */
 WriteManager * WriteManager::getInstance()
@@ -57,8 +62,10 @@ WriteManager * WriteManager::getInstance()
     if (instance == NULL){
         instance = new WriteManager();
     }
+
     return instance;
 }
+
 /** Carrega e adiciona uma fonte (WriteSystemBitmap) */
 void WriteManager::loadFromFile(std::string name, std::string fileName)
 {
@@ -72,6 +79,7 @@ void WriteManager::loadFromFile(std::string name, std::string fileName)
         objetomap[name] = f;
     }
 }
+
 /** Escreve um texto na tela */
 void WriteManager::write(std::string font, int x, int y, const char * text, ...)
 {
@@ -84,6 +92,7 @@ void WriteManager::write(std::string font, int x, int y, const char * text, ...)
 
     getFont(font)->write(texto_aux, x, y);
 }
+
 /** Escreve um texto na tela usando recursos de Localização (Tradução) */
 void WriteManager::writeKeyText(const std::string font, int x, int y, std::string keyText, ...)
 {
@@ -96,7 +105,10 @@ void WriteManager::writeKeyText(const std::string font, int x, int y, std::strin
 
     write(font, x, y, textoFormatado);
 }
-/** Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização @deprecated */
+
+/** Escreve na tela usando recursos de Localização (Tradução), baseado na junção de dois segmentos de localização
+    @deprecated
+ */
 void WriteManager::escreverLocalizadoSubChave(const std::string font, int x, int y, const std::string keyText, const std::string subKeyText)
 {
     char textoFormatado[256];
@@ -104,32 +116,34 @@ void WriteManager::escreverLocalizadoSubChave(const std::string font, int x, int
     sprintf(textoFormatado, language->getText(keyText).c_str(), language->getText(subKeyText).c_str());
     write(font, x, y, textoFormatado);
 }
+
 /** Remove uma fonte (WriteSystemFontBitmap) */
 void WriteManager::remove(std::string name)
 {
-    // if (objetomap[nome]){
     if (objetomap.find(name) != objetomap.end()){
         delete(objetomap[name]);
         objetomap[name] = NULL;
         objetomap.erase(name);
     }
 }
+
 /** Retorna em Pixel o tamanho total da linha */
 int WriteManager::getLineWidth(const std::string font, const std::string key)
 {
-    //if (objetomap[fonte]){
     if (objetomap.find(font) != objetomap.end()){
-        return objetomap[font]->getLarguraLinha(language->getText(key).c_str());
+        return objetomap[font]->getLineWidth(language->getText(key).c_str());
     } else {
         return 0;
     }
 }
+
 /** Construtor */
 WriteManager::WriteManager()
 {
 //    UtilLog::subSistema("Instanciando WriteSystemManager");
     language =  Language::getInstance();
 }
+
 WriteManager * WriteManager::instance;
 
 
