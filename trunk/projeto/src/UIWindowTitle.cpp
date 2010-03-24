@@ -45,7 +45,7 @@ void UIWindowTitle::drawContent()
 void UIWindowTitle::inicializar()
 {
     UIWindowDialog::inicializar();
-    title.setLetterDimension(writeManager->getFont(title.getFont())->getDimensao());
+    title.setLetterDimension(writeManager->getFont(title.getFont())->getDimension());
     espacoAntesTexto = int(title.getLetterDimension().h * title.STYLE_SINGLE_AND_HALF_LINE);
 }
 

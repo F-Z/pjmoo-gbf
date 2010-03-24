@@ -89,8 +89,6 @@ class Mouse {
 
         GBF::Point point;
 
-        Uint8 botao;
-
         bool mouse;
 
         friend class InputSystem;

@@ -163,7 +163,7 @@ void UIWindowRecord::setBackground(UserInterface::Look::UIBackgroundColor * back
 void UIWindowRecord::setFontTitle(std::string font)
 {
     fontTitle.nome = font;
-    fontTitle.dimensao = writeManager->getFont(fontTitle.nome)->getDimensao();
+    fontTitle.dimensao = writeManager->getFont(fontTitle.nome)->getDimension();
 
     int tamanho = writeManager->getLineWidth(fontTitle.nome, "GBF_UIRecorde_title");
     fontTitle.posicao.x = point.x + (dimension.w / 2) - (tamanho / 2);

@@ -5,7 +5,7 @@
 		<Option title="GBF Framework" />
 		<Option pch_mode="0" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Character/;GBF/;ParticleSystem/;GBF/Kernel/;GBF/Kernel/FPS/;GBF/Color/;GBF/Kernel/Sound/;GBF/Kernel/Timer/;GBF/Kernel/Util/;GBF/Kernel/Input/;GBF/Kernel/Graphic/;GBF/Kernel/Write/;UserInterface/;GBF/Image/;GBF/Image/Sprite/;GBF/Image/Layer/;" />
+		<Option virtualFolders="Character/;GBF/;ParticleSystem/;GBF/Kernel/;GBF/Kernel/FPS/;GBF/Color/;GBF/Kernel/Sound/;GBF/Kernel/Timer/;GBF/Kernel/Util/;GBF/Kernel/Input/;GBF/Kernel/Graphic/;GBF/Kernel/Write/;UserInterface/;GBF/Image/;GBF/Image/Sprite/;GBF/Image/Layer/;UserInterface/Look/;UserInterface/Component/;UserInterface/Text/;UserInterface/Window/;UserInterface/Menu/;" />
 		<Build>
 			<Target title="linux - release">
 				<Option output="bin/linux/release/libGBF.a" prefix_auto="0" extension_auto="0" />
@@ -81,63 +81,93 @@
 		<Unit filename="src/Animation.cpp">
 			<Option virtualFolder="GBF/Image/Sprite/" />
 		</Unit>
-		<Unit filename="src/Animation.h" />
+		<Unit filename="src/Animation.h">
+			<Option virtualFolder="GBF/Image/Sprite/" />
+		</Unit>
 		<Unit filename="src/BaseManager.cpp">
 			<Option virtualFolder="GBF/" />
 		</Unit>
-		<Unit filename="src/BaseManager.h" />
+		<Unit filename="src/BaseManager.h">
+			<Option virtualFolder="GBF/" />
+		</Unit>
 		<Unit filename="src/BaseSystem.cpp">
 			<Option virtualFolder="GBF/" />
 		</Unit>
-		<Unit filename="src/BaseSystem.h" />
+		<Unit filename="src/BaseSystem.h">
+			<Option virtualFolder="GBF/" />
+		</Unit>
 		<Unit filename="src/Character.cpp">
 			<Option virtualFolder="Character/" />
 		</Unit>
-		<Unit filename="src/Character.h" />
+		<Unit filename="src/Character.h">
+			<Option virtualFolder="Character/" />
+		</Unit>
 		<Unit filename="src/Color.cpp">
 			<Option virtualFolder="GBF/Color/" />
 		</Unit>
-		<Unit filename="src/Color.h" />
+		<Unit filename="src/Color.h">
+			<Option virtualFolder="GBF/Color/" />
+		</Unit>
 		<Unit filename="src/Cursor.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/Cursor.h" />
+		<Unit filename="src/Cursor.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/Date.cpp">
 			<Option virtualFolder="GBF/Kernel/Util/" />
 		</Unit>
-		<Unit filename="src/Date.h" />
+		<Unit filename="src/Date.h">
+			<Option virtualFolder="GBF/Kernel/Util/" />
+		</Unit>
 		<Unit filename="src/FPS.cpp">
 			<Option virtualFolder="GBF/Kernel/FPS/" />
 		</Unit>
-		<Unit filename="src/FPS.h" />
+		<Unit filename="src/FPS.h">
+			<Option virtualFolder="GBF/Kernel/FPS/" />
+		</Unit>
 		<Unit filename="src/FPSCounter.cpp">
 			<Option virtualFolder="GBF/Kernel/FPS/" />
 		</Unit>
-		<Unit filename="src/FPSCounter.h" />
+		<Unit filename="src/FPSCounter.h">
+			<Option virtualFolder="GBF/Kernel/FPS/" />
+		</Unit>
 		<Unit filename="src/FPSFactory.cpp">
 			<Option virtualFolder="GBF/Kernel/FPS/" />
 		</Unit>
-		<Unit filename="src/FPSFactory.h" />
+		<Unit filename="src/FPSFactory.h">
+			<Option virtualFolder="GBF/Kernel/FPS/" />
+		</Unit>
 		<Unit filename="src/FPSFixRate.cpp">
 			<Option virtualFolder="GBF/Kernel/FPS/" />
 		</Unit>
-		<Unit filename="src/FPSFixRate.h" />
+		<Unit filename="src/FPSFixRate.h">
+			<Option virtualFolder="GBF/Kernel/FPS/" />
+		</Unit>
 		<Unit filename="src/FX.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/FX.h" />
+		<Unit filename="src/FX.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/FXManager.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/FXManager.h" />
+		<Unit filename="src/FXManager.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/FontBitmap.cpp">
 			<Option virtualFolder="GBF/Kernel/Write/" />
 		</Unit>
-		<Unit filename="src/FontBitmap.h" />
+		<Unit filename="src/FontBitmap.h">
+			<Option virtualFolder="GBF/Kernel/Write/" />
+		</Unit>
 		<Unit filename="src/FrameLayer.cpp">
 			<Option virtualFolder="GBF/Image/Layer/" />
 		</Unit>
-		<Unit filename="src/FrameLayer.h" />
+		<Unit filename="src/FrameLayer.h">
+			<Option virtualFolder="GBF/Image/Layer/" />
+		</Unit>
 		<Unit filename="src/GAT.cpp" />
 		<Unit filename="src/GAT.h" />
 		<Unit filename="src/GBF.h">
@@ -152,7 +182,9 @@
 		<Unit filename="src/GFX.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/GFX.h" />
+		<Unit filename="src/GFX.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/GTEstadoGeral.cpp" />
 		<Unit filename="src/GTEstadoGeral.h" />
 		<Unit filename="src/GTJogo.cpp" />
@@ -166,113 +198,171 @@
 		<Unit filename="src/GraphicCore.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/GraphicCore.h" />
+		<Unit filename="src/GraphicCore.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/GraphicMode.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/GraphicMode.h" />
+		<Unit filename="src/GraphicMode.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/GraphicSystem.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/GraphicSystem.h" />
+		<Unit filename="src/GraphicSystem.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/GraphicSystemUtility.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/GraphicSystemUtility.h" />
+		<Unit filename="src/GraphicSystemUtility.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/ImageBase.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/ImageBase.h" />
+		<Unit filename="src/ImageBase.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/ImageBuffer.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/ImageBuffer.h" />
+		<Unit filename="src/ImageBuffer.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/ImageBufferManager.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/ImageBufferManager.h" />
+		<Unit filename="src/ImageBufferManager.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/InputCore.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/InputCore.h" />
+		<Unit filename="src/InputCore.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/InputSystem.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/InputSystem.h" />
+		<Unit filename="src/InputSystem.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/InputSystemUtility.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/InputSystemUtility.h" />
+		<Unit filename="src/InputSystemUtility.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/Joystick.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/Joystick.h" />
+		<Unit filename="src/Joystick.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/Keyboard.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/Keyboard.h" />
+		<Unit filename="src/Keyboard.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/Language.cpp">
 			<Option virtualFolder="GBF/Kernel/Write/" />
 		</Unit>
-		<Unit filename="src/Language.h" />
+		<Unit filename="src/Language.h">
+			<Option virtualFolder="GBF/Kernel/Write/" />
+		</Unit>
 		<Unit filename="src/LayerCamera.cpp">
 			<Option virtualFolder="GBF/Image/Layer/" />
 		</Unit>
-		<Unit filename="src/LayerCamera.h" />
+		<Unit filename="src/LayerCamera.h">
+			<Option virtualFolder="GBF/Image/Layer/" />
+		</Unit>
 		<Unit filename="src/LayerManager.cpp">
 			<Option virtualFolder="GBF/Image/Layer/" />
 		</Unit>
-		<Unit filename="src/LayerManager.h" />
+		<Unit filename="src/LayerManager.h">
+			<Option virtualFolder="GBF/Image/Layer/" />
+		</Unit>
 		<Unit filename="src/LayerMundo.cpp">
 			<Option virtualFolder="GBF/Image/Layer/" />
 		</Unit>
-		<Unit filename="src/LayerMundo.h" />
+		<Unit filename="src/LayerMundo.h">
+			<Option virtualFolder="GBF/Image/Layer/" />
+		</Unit>
 		<Unit filename="src/ListCharacter.cpp">
 			<Option virtualFolder="Character/" />
 		</Unit>
-		<Unit filename="src/ListCharacter.h" />
-		<Unit filename="src/ListManager.cpp" />
-		<Unit filename="src/ListManager.h" />
+		<Unit filename="src/ListCharacter.h">
+			<Option virtualFolder="Character/" />
+		</Unit>
+		<Unit filename="src/ListManager.cpp">
+			<Option virtualFolder="GBF/" />
+		</Unit>
+		<Unit filename="src/ListManager.h">
+			<Option virtualFolder="GBF/" />
+		</Unit>
 		<Unit filename="src/Mouse.cpp">
 			<Option virtualFolder="GBF/Kernel/Input/" />
 		</Unit>
-		<Unit filename="src/Mouse.h" />
+		<Unit filename="src/Mouse.h">
+			<Option virtualFolder="GBF/Kernel/Input/" />
+		</Unit>
 		<Unit filename="src/Music.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/Music.h" />
+		<Unit filename="src/Music.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/MusicManager.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/MusicManager.h" />
+		<Unit filename="src/MusicManager.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/Object.cpp">
 			<Option virtualFolder="GBF/" />
 		</Unit>
-		<Unit filename="src/Object.h" />
+		<Unit filename="src/Object.h">
+			<Option virtualFolder="GBF/" />
+		</Unit>
 		<Unit filename="src/PSEffect.cpp">
 			<Option virtualFolder="ParticleSystem/" />
 		</Unit>
-		<Unit filename="src/PSEffect.h" />
+		<Unit filename="src/PSEffect.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
 		<Unit filename="src/PSManager.cpp">
 			<Option virtualFolder="ParticleSystem/" />
 		</Unit>
-		<Unit filename="src/PSManager.h" />
+		<Unit filename="src/PSManager.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
 		<Unit filename="src/PSPixel.cpp">
 			<Option virtualFolder="ParticleSystem/" />
 		</Unit>
-		<Unit filename="src/PSPixel.h" />
+		<Unit filename="src/PSPixel.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
 		<Unit filename="src/PSSphereEffect.cpp">
 			<Option virtualFolder="ParticleSystem/" />
 		</Unit>
-		<Unit filename="src/PSSphereEffect.h" />
+		<Unit filename="src/PSSphereEffect.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
 		<Unit filename="src/PSSprite.cpp">
 			<Option virtualFolder="ParticleSystem/" />
 		</Unit>
-		<Unit filename="src/PSSprite.h" />
+		<Unit filename="src/PSSprite.h">
+			<Option virtualFolder="ParticleSystem/" />
+		</Unit>
 		<Unit filename="src/Path.cpp">
 			<Option virtualFolder="GBF/Kernel/Util/" />
 		</Unit>
-		<Unit filename="src/Path.h" />
+		<Unit filename="src/Path.h">
+			<Option virtualFolder="GBF/Kernel/Util/" />
+		</Unit>
 		<Unit filename="src/RSLista.cpp" />
 		<Unit filename="src/RSLista.h" />
 		<Unit filename="src/RSManager.cpp" />
@@ -282,146 +372,216 @@
 		<Unit filename="src/Screen.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/Screen.h" />
+		<Unit filename="src/Screen.h">
+			<Option virtualFolder="GBF/Kernel/Graphic/" />
+		</Unit>
 		<Unit filename="src/SoundCore.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/SoundCore.h" />
+		<Unit filename="src/SoundCore.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/SoundManagerAbstract.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/SoundManagerAbstract.h" />
+		<Unit filename="src/SoundManagerAbstract.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/SoundStatus.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/SoundStatus.h" />
+		<Unit filename="src/SoundStatus.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/SoundSystem.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/SoundSystem.h" />
+		<Unit filename="src/SoundSystem.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/SoundSystemUtility.cpp">
 			<Option virtualFolder="GBF/Kernel/Sound/" />
 		</Unit>
-		<Unit filename="src/SoundSystemUtility.h" />
+		<Unit filename="src/SoundSystemUtility.h">
+			<Option virtualFolder="GBF/Kernel/Sound/" />
+		</Unit>
 		<Unit filename="src/Sprite.cpp">
 			<Option virtualFolder="GBF/Image/Sprite/" />
 		</Unit>
-		<Unit filename="src/Sprite.h" />
+		<Unit filename="src/Sprite.h">
+			<Option virtualFolder="GBF/Image/Sprite/" />
+		</Unit>
 		<Unit filename="src/SpriteCharacter.cpp">
 			<Option virtualFolder="GBF/Image/Sprite/" />
 		</Unit>
-		<Unit filename="src/SpriteCharacter.h" />
+		<Unit filename="src/SpriteCharacter.h">
+			<Option virtualFolder="GBF/Image/Sprite/" />
+		</Unit>
 		<Unit filename="src/SpriteFactory.cpp">
 			<Option virtualFolder="GBF/Image/Sprite/" />
 		</Unit>
-		<Unit filename="src/SpriteFactory.h" />
+		<Unit filename="src/SpriteFactory.h">
+			<Option virtualFolder="GBF/Image/Sprite/" />
+		</Unit>
 		<Unit filename="src/SpriteInterface.cpp">
 			<Option virtualFolder="GBF/Image/" />
 		</Unit>
-		<Unit filename="src/SpriteInterface.h" />
+		<Unit filename="src/SpriteInterface.h">
+			<Option virtualFolder="GBF/Image/" />
+		</Unit>
 		<Unit filename="src/SpriteItem.cpp">
 			<Option virtualFolder="GBF/Image/Sprite/" />
 		</Unit>
-		<Unit filename="src/SpriteItem.h" />
+		<Unit filename="src/SpriteItem.h">
+			<Option virtualFolder="GBF/Image/Sprite/" />
+		</Unit>
 		<Unit filename="src/StringExtract.cpp">
 			<Option virtualFolder="GBF/Kernel/Util/" />
 		</Unit>
-		<Unit filename="src/StringExtract.h" />
+		<Unit filename="src/StringExtract.h">
+			<Option virtualFolder="GBF/Kernel/Util/" />
+		</Unit>
 		<Unit filename="src/Timer.cpp">
 			<Option virtualFolder="GBF/Kernel/Timer/" />
 		</Unit>
-		<Unit filename="src/Timer.h" />
+		<Unit filename="src/Timer.h">
+			<Option virtualFolder="GBF/Kernel/Timer/" />
+		</Unit>
 		<Unit filename="src/TimerAbstract.cpp">
 			<Option virtualFolder="GBF/Kernel/Timer/" />
 		</Unit>
-		<Unit filename="src/TimerAbstract.h" />
+		<Unit filename="src/TimerAbstract.h">
+			<Option virtualFolder="GBF/Kernel/Timer/" />
+		</Unit>
 		<Unit filename="src/TimerRegressive.cpp">
 			<Option virtualFolder="GBF/Kernel/Timer/" />
 		</Unit>
-		<Unit filename="src/TimerRegressive.h" />
+		<Unit filename="src/TimerRegressive.h">
+			<Option virtualFolder="GBF/Kernel/Timer/" />
+		</Unit>
+		<Unit filename="src/UIBackground.cpp">
+			<Option virtualFolder="UserInterface/Look/" />
+		</Unit>
+		<Unit filename="src/UIBackground.h">
+			<Option virtualFolder="UserInterface/Look/" />
+		</Unit>
+		<Unit filename="src/UIBackgroundColor.cpp">
+			<Option virtualFolder="UserInterface/Look/" />
+		</Unit>
+		<Unit filename="src/UIBackgroundColor.h">
+			<Option virtualFolder="UserInterface/Look/" />
+		</Unit>
+		<Unit filename="src/UIBackgroundImage.cpp">
+			<Option virtualFolder="UserInterface/Look/" />
+		</Unit>
+		<Unit filename="src/UIBackgroundImage.h">
+			<Option virtualFolder="UserInterface/Look/" />
+		</Unit>
 		<Unit filename="src/UIButton.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UIButton.h" />
+		<Unit filename="src/UIButton.h">
+			<Option virtualFolder="UserInterface/Component/" />
+		</Unit>
 		<Unit filename="src/UIComponent.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UIComponent.h" />
+		<Unit filename="src/UIComponent.h">
+			<Option virtualFolder="UserInterface/Component/" />
+		</Unit>
 		<Unit filename="src/UIField.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UIField.h" />
+		<Unit filename="src/UIField.h">
+			<Option virtualFolder="UserInterface/Component/" />
+		</Unit>
 		<Unit filename="src/UIItemAbstract.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Menu/" />
 		</Unit>
-		<Unit filename="src/UIItemAbstract.h" />
+		<Unit filename="src/UIItemAbstract.h">
+			<Option virtualFolder="UserInterface/Menu/" />
+		</Unit>
 		<Unit filename="src/UIItemText.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Menu/" />
 		</Unit>
-		<Unit filename="src/UIItemText.h" />
+		<Unit filename="src/UIItemText.h">
+			<Option virtualFolder="UserInterface/Menu/" />
+		</Unit>
 		<Unit filename="src/UIKeyboard.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UIKeyboard.h" />
+		<Unit filename="src/UIKeyboard.h">
+			<Option virtualFolder="UserInterface/Component/" />
+		</Unit>
 		<Unit filename="src/UIMenuAbstract.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Menu/" />
 		</Unit>
-		<Unit filename="src/UIMenuAbstract.h" />
+		<Unit filename="src/UIMenuAbstract.h">
+			<Option virtualFolder="UserInterface/Menu/" />
+		</Unit>
 		<Unit filename="src/UIMenuSimple.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Menu/" />
 		</Unit>
-		<Unit filename="src/UIMenuSimple.h" />
+		<Unit filename="src/UIMenuSimple.h">
+			<Option virtualFolder="UserInterface/Menu/" />
+		</Unit>
 		<Unit filename="src/UIMenuSolid.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Menu/" />
 		</Unit>
-		<Unit filename="src/UIMenuSolid.h" />
+		<Unit filename="src/UIMenuSolid.h">
+			<Option virtualFolder="UserInterface/Menu/" />
+		</Unit>
 		<Unit filename="src/UINumberField.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UINumberField.h" />
+		<Unit filename="src/UINumberField.h">
+			<Option virtualFolder="UserInterface/Component/" />
+		</Unit>
 		<Unit filename="src/UIText.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Text/" />
 		</Unit>
-		<Unit filename="src/UIText.h" />
+		<Unit filename="src/UIText.h">
+			<Option virtualFolder="UserInterface/Text/" />
+		</Unit>
 		<Unit filename="src/UITextField.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UITextField.h" />
-		<Unit filename="src/UIVisual.cpp">
-			<Option virtualFolder="UserInterface/" />
+		<Unit filename="src/UITextField.h">
+			<Option virtualFolder="UserInterface/Component/" />
 		</Unit>
-		<Unit filename="src/UIVisual.h" />
-		<Unit filename="src/UIVisualImagem.cpp">
-			<Option virtualFolder="UserInterface/" />
-		</Unit>
-		<Unit filename="src/UIVisualImagem.h" />
-		<Unit filename="src/UIVisualSolido.cpp">
-			<Option virtualFolder="UserInterface/" />
-		</Unit>
-		<Unit filename="src/UIVisualSolido.h" />
 		<Unit filename="src/UIWindow.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Window/" />
 		</Unit>
-		<Unit filename="src/UIWindow.h" />
+		<Unit filename="src/UIWindow.h">
+			<Option virtualFolder="UserInterface/Window/" />
+		</Unit>
 		<Unit filename="src/UIWindowDialog.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Window/" />
 		</Unit>
-		<Unit filename="src/UIWindowDialog.h" />
+		<Unit filename="src/UIWindowDialog.h">
+			<Option virtualFolder="UserInterface/Window/" />
+		</Unit>
 		<Unit filename="src/UIWindowRecord.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Window/" />
 		</Unit>
-		<Unit filename="src/UIWindowRecord.h" />
+		<Unit filename="src/UIWindowRecord.h">
+			<Option virtualFolder="UserInterface/Window/" />
+		</Unit>
 		<Unit filename="src/UIWindowTitle.cpp">
-			<Option virtualFolder="UserInterface/" />
+			<Option virtualFolder="UserInterface/Window/" />
 		</Unit>
-		<Unit filename="src/UIWindowTitle.h" />
+		<Unit filename="src/UIWindowTitle.h">
+			<Option virtualFolder="UserInterface/Window/" />
+		</Unit>
 		<Unit filename="src/UserInterface.h">
 			<Option virtualFolder="UserInterface/" />
 		</Unit>
 		<Unit filename="src/WriteManager.cpp">
 			<Option virtualFolder="GBF/Kernel/Write/" />
 		</Unit>
-		<Unit filename="src/WriteManager.h" />
+		<Unit filename="src/WriteManager.h">
+			<Option virtualFolder="GBF/Kernel/Write/" />
+		</Unit>
 		<Unit filename="src/version.h" />
 		<Extensions>
 			<code_completion />

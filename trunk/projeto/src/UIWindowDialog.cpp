@@ -64,7 +64,7 @@ int UIWindowDialog::confirmSelection()
 void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
-    text.setLetterDimension(writeManager->getFont(text.getFont())->getDimensao());
+    text.setLetterDimension(writeManager->getFont(text.getFont())->getDimension());
 }
 
 /** Desenha o conteudo da janela */
