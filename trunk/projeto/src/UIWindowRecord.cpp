@@ -145,7 +145,7 @@ UIWindowRecord::~UIWindowRecord()
 }
 
 /** Estilo Visual a ser Aplicado no Componente */
-void UIWindowRecord::setVisualComponentes(UserInterface::Visual::UIVisualSolido * visual)
+void UIWindowRecord::setVisualComponentes(UserInterface::Look::UIBackgroundColor * visual)
 {
     uiVisualComponentes = visual;
 

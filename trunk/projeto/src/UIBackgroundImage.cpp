@@ -1,25 +1,23 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 
-#include "UIVisualImagem.h"
+#include "UIBackgroundImage.h"
 
 namespace UserInterface {
 
-namespace Visual {
+namespace Look {
 
 //Construtor
-UIVisualImagem::UIVisualImagem() {
+UIBackgroundImage::UIBackgroundImage() {
     tipoBackground = BACKGROUND_LINES;
 
     GBF::Image::SpriteFactory *spriteFactory = new GBF::Image::SpriteFactory("gbf-window-background");
@@ -29,15 +27,15 @@ UIVisualImagem::UIVisualImagem() {
 }
 
 //Destrutor
-UIVisualImagem::~UIVisualImagem() {
+UIBackgroundImage::~UIBackgroundImage() {
     if (background) {
         delete(background);
     }
 }
 
 //Aplica o efeito visual
-void UIVisualImagem::aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao) {
-    UIVisual::aplicar(posicao, dimensao);
+void UIBackgroundImage::aplicar(const GBF::Point & posicao, const GBF::Dimension & dimensao) {
+    UIBackground::aplicar(posicao, dimensao);
 
     if (background != NULL) {
         background->setFrame(posicao.x, posicao.y, dimensao.w, dimensao.h);
@@ -50,7 +48,8 @@ void UIVisualImagem::aplicar(const GBF::Point & posicao, const GBF::Dimension & 
 //Desenha o EstiloVisual do Componente
 
 //Desenha o EstiloVisual do Componente
-void UIVisualImagem::desenhar() {
+void UIBackgroundImage::desenhar()
+{
     if (background != NULL) {
         background->draw();
     }
@@ -61,8 +60,9 @@ void UIVisualImagem::desenhar() {
 }
 
 //Retorna uma copia do objeto
-UIVisual * UIVisualImagem::clone() {
-    UIVisualImagem * uivImagem = new UIVisualImagem();
+UIBackground * UIBackgroundImage::clone()
+{
+    UIBackgroundImage * uivImagem = new UIBackgroundImage();
     uivImagem->setCorBorda(corBorda.r, corBorda.g, corBorda.b);
     uivImagem->setTipoBackground(tipoBackground);
 
@@ -72,7 +72,7 @@ UIVisual * UIVisualImagem::clone() {
 //Define o estilo de background a ser utilizado
 
 //Define o estilo de background a ser utilizado
-void UIVisualImagem::setTipoBackground(UIBackground tipo) {
+void UIBackgroundImage::setTipoBackground(UIBackgroundImageType tipo) {
     tipoBackground = tipo;
 }
 

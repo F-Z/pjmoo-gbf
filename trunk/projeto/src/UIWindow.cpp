@@ -45,7 +45,7 @@ void UIWindow::inicializar()
     }
 }
 /** Estilo Visual a ser Aplicado no Componente */
-void UIWindow::setVisual(UserInterface::Visual::UIVisual * visual)
+void UIWindow::setVisual(UserInterface::Look::UIBackground * visual)
 {
     this->visual = visual;
 }

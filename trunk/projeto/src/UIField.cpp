@@ -73,7 +73,7 @@ void UIField::setCursorPosicao(int posicao)
 }
 
 /** Estilo Visual a ser Aplicado no Componente */
-void UIField::setVisual(UserInterface::Visual::UIVisual * visual)
+void UIField::setVisual(UserInterface::Look::UIBackground * visual)
 {
     this->visual = visual;
 }
