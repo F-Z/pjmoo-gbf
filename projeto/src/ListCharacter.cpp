@@ -69,7 +69,7 @@ void ListCharacter::clear()
     list.clear();
 }
 
-/** Executa as aÃ§Ãµes de cada elemento */
+/** Executa as ações de cada elemento */
 void ListCharacter::update(GBF::Kernel::Input::InputSystem * input)
 {
     if (!list.empty())

@@ -38,7 +38,7 @@ void UIBackgroundColor::draw()
     graphicSystem->gfx->setColor(borderColor.r,borderColor.g,borderColor.b);
     graphicSystem->gfx->retangulo(point.x,point.y,dimension.w,dimension.h);
 }
-/** Retorna uma cÃ³pia do objeto */
+/** Retorna uma cópia do objeto */
 UIBackground * UIBackgroundColor::clone()
 {
     UIBackgroundColor * clone = new UIBackgroundColor();

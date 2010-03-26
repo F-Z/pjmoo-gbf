@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _BASESYSTEM_H
 #define _BASESYSTEM_H
 
@@ -17,14 +16,16 @@
 
 namespace GBF {
 
-class BaseSystem : public Object
-{
+/** Representacao dos Sistemas do Framework. */
+class BaseSystem : public Object {
     public:
+        /** Construtor */
         BaseSystem();
 
+        /** Destrutor */
         virtual ~BaseSystem();
-
 };
 
 } // namespace GBF
+
 #endif

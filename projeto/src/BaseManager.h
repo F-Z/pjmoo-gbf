@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _BASEMANAGER_H
 #define _BASEMANAGER_H
 

@@ -20,7 +20,7 @@
 # iconv built into libc) for the transcoding. See 
 # http://www.gnu.org/software/libiconv for the list of possible encodings.
 
-DOXYFILE_ENCODING      = ISO_8859-1
+DOXYFILE_ENCODING      = UTF-8
 
 # The PROJECT_NAME tag is a single word (or a sequence of words surrounded 
 # by quotes) that should identify the project.
@@ -430,7 +430,7 @@ SORT_BRIEF_DOCS        = NO
 # This tag will be ignored for brief docs if SORT_BRIEF_DOCS is set to NO
 # and ignored for detailed docs if SORT_MEMBER_DOCS is set to NO.
 
-SORT_MEMBERS_CTORS_1ST = NO
+SORT_MEMBERS_CTORS_1ST = YES
 
 # If the SORT_GROUP_NAMES tag is set to YES then doxygen will sort the 
 # hierarchy of group names into alphabetical order. If set to NO (the default) 
@@ -598,7 +598,7 @@ INPUT                  = /home/desenvolvimento/pjmoo-gbf/trunk/projeto/src
 # into libc) for the transcoding. See http://www.gnu.org/software/libiconv for 
 # the list of possible encodings.
 
-INPUT_ENCODING         = ISO_8859-1
+INPUT_ENCODING         = ISO-8859-1
 
 # If the value of the INPUT tag contains directories, you can use the 
 # FILE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp 
@@ -607,37 +607,8 @@ INPUT_ENCODING         = ISO_8859-1
 # *.c *.cc *.cxx *.cpp *.c++ *.java *.ii *.ixx *.ipp *.i++ *.inl *.h *.hh *.hxx 
 # *.hpp *.h++ *.idl *.odl *.cs *.php *.php3 *.inc *.m *.mm *.py *.f90
 
-FILE_PATTERNS          = *.c \
-                         *.cc \
-                         *.cxx \
-                         *.cpp \
-                         *.c++ \
-                         *.d \
-                         *.java \
-                         *.ii \
-                         *.ixx \
-                         *.ipp \
-                         *.i++ \
-                         *.inl \
-                         *.h \
-                         *.hh \
-                         *.hxx \
-                         *.hpp \
-                         *.h++ \
-                         *.idl \
-                         *.odl \
-                         *.cs \
-                         *.php \
-                         *.php3 \
-                         *.inc \
-                         *.m \
-                         *.mm \
-                         *.dox \
-                         *.py \
-                         *.f90 \
-                         *.f \
-                         *.vhd \
-                         *.vhdl
+FILE_PATTERNS          = *.cpp \
+                         *.h
 
 # The RECURSIVE tag can be used to turn specify whether or not subdirectories 
 # should be searched for input files as well. Possible values are YES and NO. 
@@ -744,7 +715,7 @@ INLINE_SOURCES         = YES
 # doxygen to hide any special comment blocks from generated source code 
 # fragments. Normal C and C++ comments will always remain visible.
 
-STRIP_CODE_COMMENTS    = YES
+STRIP_CODE_COMMENTS    = NO
 
 # If the REFERENCED_BY_RELATION tag is set to YES 
 # then for each documented function all documented 
@@ -777,7 +748,7 @@ USE_HTAGS              = NO
 # will generate a verbatim copy of the header file for each class for 
 # which an include is specified. Set to NO to disable this.
 
-VERBATIM_HEADERS       = YES
+VERBATIM_HEADERS       = NO
 
 #---------------------------------------------------------------------------
 # configuration options related to the alphabetical class index
@@ -1261,7 +1232,7 @@ XML_PROGRAMLISTING     = YES
 # documentation. Note that this feature is still experimental 
 # and incomplete at the moment.
 
-GENERATE_AUTOGEN_DEF   = YES
+GENERATE_AUTOGEN_DEF   = NO
 
 #---------------------------------------------------------------------------
 # configuration options related to the Perl module output
@@ -1304,7 +1275,7 @@ PERLMOD_MAKEVAR_PREFIX =
 # evaluate all C-preprocessor directives found in the sources and include 
 # files.
 
-ENABLE_PREPROCESSING   = YES
+ENABLE_PREPROCESSING   = NO
 
 # If the MACRO_EXPANSION tag is set to YES Doxygen will expand all macro 
 # names in the source code. If set to NO (the default) only conditional 

@@ -18,8 +18,8 @@
 
 namespace GBF {
 
-/** Classe para criaÃ§Ã£o de gerenciadores
-  Fornecer uma interface padrÃ£o para criaÃ§Ã£o de gerenciadores */
+/** Classe para criação de gerenciadores
+  Fornecer uma interface padrão para criação de gerenciadores */
 
 class ListManager : public BaseManager
 {
@@ -40,7 +40,7 @@ class ListManager : public BaseManager
         /** Limpa o container, removendo todos os elementos */
         virtual void clear() = 0;
 
-        /** Executa as aÃ§Ãµes de cada elemento */
+        /** Executa as ações de cada elemento */
         virtual void update(GBF::Kernel::Input::InputSystem * input) = 0;
 
 

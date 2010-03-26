@@ -37,7 +37,7 @@ void UIWindowDialog::addButton(UserInterface::Component::UIButton * button)
     this->button = button;
 }
 
-/** Retorna se a aÃ§Ã£o informada foi acionado */
+/** Retorna se a ação informada foi acionado */
 bool UIWindowDialog::isAction(int action)
 {
     if (confirmSelection() == action) {
@@ -60,7 +60,7 @@ int UIWindowDialog::confirmSelection()
     return selecionado;
 }
 
-/** Inicializa as configuraÃ§Ãµes da caixa de texto */
+/** Inicializa as configurações da caixa de texto */
 void UIWindowDialog::inicializar()
 {
     UIWindow::inicializar();
@@ -104,7 +104,7 @@ void UIWindowDialog::drawContent()
     } while (true);
 }
 
-/** Desenha a camada de decoraÃ§Ã£o da janela (botÃµes) */
+/** Desenha a camada de decoração da janela (botões) */
 void UIWindowDialog::drawForeground()
 {
     if ((button != NULL) && (tempoEspera.isFinish())) {
@@ -112,7 +112,7 @@ void UIWindowDialog::drawForeground()
     }
 }
 
-/** atualiza as informaÃ§Ãµes do componente (posicao, dimensao, estado) */
+/** atualiza as informações do componente (posicao, dimensao, estado) */
 void UIWindowDialog::update()
 {
     tempoEspera.update();

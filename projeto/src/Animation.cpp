@@ -36,13 +36,13 @@ void Animation::cutSet(int direction, int width) {
     cutArea.left = (direction) * (width * frame.total);
 }
 
-//Informa a quantidade de quadros e a taxa de repetiÃ§Ã£o
+//Informa a quantidade de quadros e a taxa de repetição
 void Animation::configuration(int total, int repetitionRate) {
     frame.total = total;
     repetition.total = repetitionRate;
 }
 
-//Informa se animaÃ§Ã£o estÃ¡ no fim - Ãºltimo frame
+//Informa se animação está no fim - último frame
 bool Animation::isEnd() {
 //verificar se deve-se utilizar 'repeticao.total
     if ((frame.current == frame.total - 1) && (repetition.current == repetition.total)) {
@@ -53,7 +53,7 @@ bool Animation::isEnd() {
     }
 }
 
-//Informa se animaÃ§Ã£o estÃ¡ no inicio - primeiro frame
+//Informa se animação está no inicio - primeiro frame
 bool Animation::isBegin() {
     if (frame.current == 0) {
         return true;
@@ -63,7 +63,7 @@ bool Animation::isBegin() {
     }
 }
 
-//Retorna a dimensÃ£o do quadro
+//Retorna a dimensão do quadro
 GBF::Area Animation::getFrameSize() {
     return cutArea;
 }
@@ -81,23 +81,23 @@ void Animation::processManual() {
     animate();
 }
 
-//Define se a animaÃ§Ã£o Ã© automÃ¡tica ou manual
+//Define se a animação é automática ou manual
 void Animation::setAutomatic(bool automatic) {
     this->automatic = automatic;
 }
 
-//Define a dimensÃ£o do quadro
+//Define a dimensão do quadro
 void Animation::setFrameSize(GBF::Area area) {
     cutArea = area;
 }
 
-//Coloca a animaÃ§Ã£o no primeiro frame
+//Coloca a animação no primeiro frame
 void Animation::setBegin() {
     repetition.current = 0;
     frame.current     = 0;
 }
 
-//Informa o quadro a ser usado na animaÃ§Ã£o
+//Informa o quadro a ser usado na animação
 void Animation::setFrame(int quadro) {
     if (quadro >= 0) {
         if (quadro < frame.total) {
@@ -109,7 +109,7 @@ void Animation::setFrame(int quadro) {
     }
 }
 
-//Anima o Sprite de forma automÃ¡tica
+//Anima o Sprite de forma automática
 int Animation::animate() {
     repetition.current++;
 

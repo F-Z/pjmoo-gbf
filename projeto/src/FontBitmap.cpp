@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "FontBitmap.h"
 
 namespace GBF {
@@ -18,10 +17,12 @@ namespace Kernel {
 
 namespace Write {
 
-/** Destrutor */
+FontBitmap::FontBitmap()
+{
+}
+
 FontBitmap::~FontBitmap()
 {
-    //UtilLog::getInstance()->status("[Fonte Removido(a)]");
 }
 
 bool FontBitmap::loadFromFile(std::string fileName)
@@ -30,7 +31,7 @@ bool FontBitmap::loadFromFile(std::string fileName)
     std::string txt = "";
     image = IMG_Load(fileName.c_str());
 
-    if (image != NULL){
+    if (image != NULL) {
         converterSurface();
         //setColorKey(0,0,0);
 
@@ -39,11 +40,11 @@ bool FontBitmap::loadFromFile(std::string fileName)
 
         ARQ_FONTE = fopen(txt.c_str(), "rb");
 
-        if (ARQ_FONTE != NULL){
+        if (ARQ_FONTE != NULL) {
             fread(&largura, 256, 1, ARQ_FONTE);
             fclose(ARQ_FONTE);
         } else {
-            for (int l = 0;l < 256; l++){
+            for (int l = 0;l < 256; l++) {
                 largura[l] = image->w / 16;
             }
         }
@@ -62,7 +63,7 @@ bool FontBitmap::loadFromFile(std::string fileName)
 
 void FontBitmap::setDimension(int largura, int altura)
 {
-    for (int i = 0;i < 256;i++){
+    for (int i = 0;i < 256;i++) {
         this->largura[i] = largura;
     }
 
@@ -75,7 +76,8 @@ int FontBitmap::getHeight()
     return dimensaoPadrao.h;
 }
 
-int FontBitmap::getWidth(){
+int FontBitmap::getWidth()
+{
     return dimensaoPadrao.w;
 }
 
@@ -91,7 +93,7 @@ void FontBitmap::write(const char * words, int x, int y)
     point.x = x;
     point.y = y;
 
-    for (i = 0; i < t; i++){
+    for (i = 0; i < t; i++) {
         l = words[i];
 
         tamanho.left = (l % 16) * dimensaoQuadro.w;
@@ -111,7 +113,7 @@ int FontBitmap::getLineWidth(const char * palavra)
     int t = strlen(palavra);
     unsigned char l;
 
-    for (int i = 0; i < t; i++){
+    for (int i = 0; i < t; i++) {
         l = palavra[i];
         tamanhoPixel = tamanhoPixel + largura[l];
     }
@@ -119,16 +121,12 @@ int FontBitmap::getLineWidth(const char * palavra)
     return tamanhoPixel;
 }
 
-FontBitmap::FontBitmap()
-{
-}
-
 void FontBitmap::calculateSize()
 {
     int maior = 0;
 
-    for (int i = 0; i < 256; i++){
-        if (largura[i] > maior){
+    for (int i = 0; i < 256; i++) {
+        if (largura[i] > maior) {
             maior = largura[i];
         }
     }

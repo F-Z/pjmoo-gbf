@@ -39,16 +39,16 @@ class Animation {
         //Ajusta a area de corte do sprite - posicionamento nos frames
         void cutSet(int direction, int width);
 
-        //Informa a quantidade de quadros e a taxa de repeti√ß√£o
+        //Informa a quantidade de quadros e a taxa de repetiÁ„o
         void configuration(int total, int repetitionRate);
 
-        //Informa se anima√ß√£o est√° no fim - √∫ltimo frame
+        //Informa se animaÁ„o est· no fim - ˙ltimo frame
         bool isEnd();
 
-        //Informa se anima√ß√£o est√° no inicio - primeiro frame
+        //Informa se animaÁ„o est· no inicio - primeiro frame
         bool isBegin();
 
-        //Retorna a dimens√£o do quadro
+        //Retorna a dimens„o do quadro
         GBF::Area getFrameSize();
 
         int process();
@@ -56,13 +56,13 @@ class Animation {
         //Anima o sprite de forma manual, toda chamada a esse metodo anima o personagem
         void processManual();
 
-        //Define se a anima√ß√£o √© autom√°tica ou manual
+        //Define se a animaÁ„o È autom·tica ou manual
         void setAutomatic(bool automatic);
 
-        //Define a dimens√£o do quadro
+        //Define a dimens„o do quadro
         void setFrameSize(GBF::Area area);
 
-        //Coloca a anima√ß√£o no primeiro frame
+        //Coloca a animaÁ„o no primeiro frame
         void setBegin();
 
 
@@ -75,12 +75,12 @@ class Animation {
 
         Frame repetition;
 
-        //Informa o quadro a ser usado na anima√ß√£o
+        //Informa o quadro a ser usado na animaÁ„o
         void setFrame(int quadro);
 
 
     private:
-        //Anima o Sprite de forma autom√°tica
+        //Anima o Sprite de forma autom·tica
         int animate();
 
         friend class SpriteItem;
