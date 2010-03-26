@@ -9,15 +9,16 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "Object.h"
 
 namespace GBF {
 
-Object::Object(){
+Object::Object()
+{
 }
 
-Object::~Object(){
+Object::~Object()
+{
 }
 
 

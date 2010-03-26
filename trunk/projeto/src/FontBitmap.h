@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _FONTBITMAP_H
 #define _FONTBITMAP_H
 
@@ -24,43 +23,60 @@ namespace Kernel {
 
 namespace Write {
 
-/** Classe que representa fontes originadas de imagens (Font Bitmap).
-    Permitir a personaliza√ß√£o dos textos na tela por meio de fontes contidas em imagens */
-
-class FontBitmap : public GBF::Kernel::Graphic::ImageBase
-{
-
+/**
+ * Classe que representa fontes originadas de imagens (Font Bitmap).
+ * Permitir a personalizaÁ„o dos textos na tela por meio de fontes contidas em imagens
+ */
+class FontBitmap : public GBF::Kernel::Graphic::ImageBase {
     public:
-        /** Destrutor */
+        /**
+         * Destrutor
+         */
         virtual ~FontBitmap();
 
-        /** Carrega arquivo de imagem contendo o desenho das letras.
-        Se a imagem tiver arquivo de dimens√£o das letras este ser√° carregado,
-        caso contrario ser√° utilizado um valor default tanto para largura como altura */
+        /**
+         * Carrega arquivo de imagem contendo o desenho das letras.
+         * Se a imagem tiver arquivo de dimens„o das letras este ser· carregado,
+         * caso contrario ser· utilizado um valor default tanto para largura como altura
+         */
         virtual bool loadFromFile(std::string fileName);
 
-        /** Configura altura e largura padr√£o para todas as letras.
-        A altura e largura devem ser suficientes para evitar que a letra seja desenhada cortada */
+        /** Configura altura e largura padr„o para todas as letras.
+         * A altura e largura devem ser suficientes para evitar que a letra seja desenhada
+         * cortada
+         */
         void setDimension(int width, int height);
 
-        /** Retorna a largura padr√£o */
+        /**
+         * Retorna a largura padr„o
+         */
         int getWidth();
 
-        /** Retorna a altura padr√£o */
+        /**
+         * Retorna a altura padr„o
+         */
         int getHeight();
 
-        /** Retorna a dimens√£o (altura e largura) padr√£o */
+        /**
+         * Retorna a dimens„o (altura e largura) padr„o
+         */
         GBF::Dimension getDimension();
 
 
     protected:
-        /** Desenha o texto na tela */
+        /**
+         * Desenha o texto na tela
+         */
         void write(const char * words, int x, int y);
 
-        /** Retorna em pixel o tamanho da linha */
+        /**
+         * Retorna em pixel o tamanho da linha
+         */
         int getLineWidth(const char * words);
 
-        /** Converte Surface para formato na inicializa√ß√£o do GraphicSystem */
+        /**
+         * Converte Surface para formato na inicializaÁ„o do GraphicSystem
+         */
         virtual void convertSurface();
 
         friend class WriteManager;
@@ -72,10 +88,14 @@ class FontBitmap : public GBF::Kernel::Graphic::ImageBase
 
         GBF::Dimension dimensaoQuadro;
 
-        /** Construtor */
+        /**
+         * Construtor
+         */
         FontBitmap();
 
-        /** Define altura e largura padr√£o baseada na maior altura e largura utilizada. */
+        /**
+         * Define altura e largura padr„o baseada na maior altura e largura utilizada.
+         */
         void calculateSize();
 
 };

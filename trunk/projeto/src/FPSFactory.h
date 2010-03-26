@@ -27,7 +27,7 @@ namespace Kernel {
 namespace FPS {
 
 enum FPSType {
-    //Frame n√£o limitado, exibe apenas o contador em seu m√°ximo processamento
+    //Frame n„o limitado, exibe apenas o contador em seu m·ximo processamento
     FPS_COUNTER = 0,
     //Limitado a 30 frames por segundo
     FPS_30 = 33,

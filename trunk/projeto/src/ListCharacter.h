@@ -23,10 +23,10 @@
 namespace Character
 {
 
-//DescriÃ§Ã£o:
-//    Classe para criaÃ§Ã£o de gerenciadores de personagens
-//MotivaÃ§Ã£o:
-//    Fornecer uma interface padrÃ£o para criaÃ§Ã£o de gerenciadores de personagens
+//Descrição:
+//    Classe para criação de gerenciadores de personagens
+//Motivação:
+//    Fornecer uma interface padrão para criação de gerenciadores de personagens
 
 class ListCharacter : public GBF::ListManager
 {
@@ -46,7 +46,7 @@ class ListCharacter : public GBF::ListManager
         //Limpa o container, removendo todos os elementos
         virtual void clear();
 
-        //Executa as aÃ§Ãµes de cada elemento
+        //Executa as ações de cada elemento
         virtual void update(GBF::Kernel::Input::InputSystem * input = NULL);
 
         void add(Character * character);

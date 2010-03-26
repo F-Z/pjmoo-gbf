@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _OBJECT_H
 #define _OBJECT_H
 
@@ -18,16 +17,16 @@
 
 namespace GBF {
 
-class Object
-{
+class Object {
     public:
+        /** Construtor */
         Object();
-
+        /** Destrutor */
         virtual ~Object();
 
         template<class T>
         inline bool isInstance() {
-            if (dynamic_cast<T*>(this)){
+            if (dynamic_cast<T*>(this)) {
                 return true;
             } else {
                 return false;
@@ -36,7 +35,7 @@ class Object
 
         template<class T>
         inline bool isInstance(T) {
-            if (dynamic_cast<T*>(this)){
+            if (dynamic_cast<T*>(this)) {
                 return true;
             } else {
                 return false;
@@ -45,7 +44,7 @@ class Object
 
         template<class T>
         inline bool isInstance(T * t) {
-            if (dynamic_cast<T*>(this)){
+            if (dynamic_cast<T*>(this)) {
                 return true;
             } else {
                 return false;

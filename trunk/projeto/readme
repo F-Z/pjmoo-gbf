@@ -1,15 +1,15 @@
 GBF Gamework's Brazilian Framework
 
-É um framework C++ e SDL, criado para desenvolvimento de jogos em 2D, foi 
+É um framework C++ e SDL, criado para desenvolvimento de jogos em 2D, foi
 concebido para ter alta portabilidade entre Windows e Linux, permitindo assim
 que jogos criados com ele sejam compilados em qualquer uma das duas plataformas
 sem necessitar alterações no código.
 
 
 Atualmente conta com suporte para:
-    
+
     Video: Inicialização do Modo Gráfico e funções para flip e correlatos
-        Layer -> Criação de Tilemaps 
+        Layer -> Criação de Tilemaps
         GFX   -> Criação de Gráficos Primitivos (linhas, pontos)
         Image -> Armazenamento das imagens em memoria
         Write -> Criação de fontes (letras) para escrever na tela
@@ -18,12 +18,12 @@ Atualmente conta com suporte para:
         Keyboard -> Manipulação de eventos do Teclado
         Mouse    -> Manipulação de eventos do Mouse
     Sound: Inicialização do Dispositivo de Som
-        FX    -> Manipulação de Efeitos Sonoros 
+        FX    -> Manipulação de Efeitos Sonoros
         Music -> Manipulação de Músicas em Segundo plano
     Timer: Inicialização do Sistema de Temporização
         FPS       -> Contador de FPS (Frames Per Second)
         Movimento -> Movimento baseado em timers
-        
+
 Além do Suporte para:
     Personagem: Representação de personagens e objetos no jogo
         Abstract   -> Objeto base para os demais
@@ -32,6 +32,14 @@ Além do Suporte para:
         Estatico   -> (*)
     ListPersonagem: Gerenciador para Manipulação e agrupamento de personagens
         Abstract   -> Base para criação de outros gerenciadores para personagens
-        JogadorAbstract     -> Criado para agrupar os jogadores        
+        JogadorAbstract     -> Criado para agrupar os jogadores
         AutomaticoAbstract  -> Criado para agrupar os demais itens do jogo
+
+==============
+
+Converter arquivos:
+
+file -i nome.ext // informações sobre um arquivo
+
+iconv -f us-ascii -t utf-8 -o UITextField.cpp  UITextField.cpp
 

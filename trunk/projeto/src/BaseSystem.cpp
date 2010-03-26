@@ -15,9 +15,12 @@ namespace GBF {
 
 BaseSystem::BaseSystem()
 {
+    //empty. ignore
 }
+
 BaseSystem::~BaseSystem()
 {
+    //empty. ignore
 }
 
 } // namespace GBF

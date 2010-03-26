@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "BaseManager.h"
 
 namespace GBF {
