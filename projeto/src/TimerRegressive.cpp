@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "TimerRegressive.h"
 
 namespace GBF {
@@ -18,7 +17,18 @@ namespace Kernel {
 
 namespace Timer {
 
-/** Executa este método quando o estado é CRONOMETRO_EXECUTAR */
+
+/** Construtor */
+TimerRegressive::TimerRegressive()
+{
+}
+
+/** Destrutor */
+TimerRegressive::~TimerRegressive()
+{
+}
+
+/** Executa este método quando o estado é TIMER_EXECUTE */
 void TimerRegressive::execute()
 {
     tempoAtual = SDL_GetTicks();
@@ -33,16 +43,6 @@ void TimerRegressive::execute()
 
         initialTick();
     }
-}
-
-/** Construtor */
-TimerRegressive::TimerRegressive()
-{
-}
-
-/** Destrutor */
-TimerRegressive::~TimerRegressive()
-{
 }
 
 } // namespace GBF::Kernel::Timer

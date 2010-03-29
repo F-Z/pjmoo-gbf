@@ -9,11 +9,10 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _TIMERREGRESSIVE_H
 #define _TIMERREGRESSIVE_H
 
-#include "TimerAbstract.h"
+#include "Timer.h"
 
 namespace GBF {
 
@@ -21,10 +20,10 @@ namespace Kernel {
 
 namespace Timer {
 
-/** Classe para marcação de tempo decrecente
- Motivação: Fornecer uma marcação de tempo decrescente */
-
-class TimerRegressive : public TimerAbstract {
+/**
+ * Classe para marcação de tempo decrecente.
+ */
+class TimerRegressive : public Timer {
 
     public:
         /** Construtor */
@@ -34,7 +33,7 @@ class TimerRegressive : public TimerAbstract {
         virtual ~TimerRegressive();
 
     protected:
-        /** Executa este método quando o estado é CRONOMETRO_EXECUTAR */
+        /** Executa este método quando o estado é TIMER_EXECUTE */
         void execute();
 };
 

@@ -12,7 +12,7 @@
 #ifndef _TIMERPROGRESSIVE_H
 #define _TIMERPROGRESSIVE_H
 
-#include "TimerAbstract.h"
+#include "Timer.h"
 
 namespace GBF {
 
@@ -23,7 +23,7 @@ namespace Timer {
 /**
  * Classe para contagem do tempo (Contador Crescente).
  */
-class TimerProgressive : public TimerAbstract
+class TimerProgressive : public Timer
 {
 
     public:

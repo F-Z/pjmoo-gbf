@@ -9,9 +9,8 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
-#ifndef _TIMERABSTRACT_H
-#define _TIMERABSTRACT_H
+#ifndef _TIMER_H
+#define _TIMER_H
 
 #include <SDL/SDL.h>
 
@@ -62,9 +61,8 @@ enum TimerState
  * Classe abstrata para criação de cronometros.
  * Fornecer um conjunto de métodos padrões para controle de tempo.
  */
-class TimerAbstract : public GBF::Object
+class Timer : public GBF::Object
 {
-
     public:
         /** Muda o estado para CRONOMETRO_PAUSAR */
         void setPause();
@@ -85,10 +83,10 @@ class TimerAbstract : public GBF::Object
         bool isFinish();
 
         /** Construtor */
-        TimerAbstract();
+        Timer();
 
         /** Destrutor */
-        virtual ~TimerAbstract();
+        virtual ~Timer();
 
         /** Configura a unidade de tempo a ser usada */
         void setUnit(TimeUnit unit);
