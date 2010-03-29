@@ -519,7 +519,7 @@ SHOW_NAMESPACES        = YES
 # provided by doxygen. Whatever the program writes to standard output 
 # is used as the file version. See the manual for examples.
 
-FILE_VERSION_FILTER    = 
+FILE_VERSION_FILTER    = ./get-revision.sh
 
 # The LAYOUT_FILE tag can be used to specify a layout file which will be parsed by 
 # doxygen. The layout file controls the global structure of the generated output files 
@@ -1357,7 +1357,7 @@ TAGFILES               =
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create 
 # a tag file that is based on the input files it reads.
 
-GENERATE_TAGFILE       = 
+GENERATE_TAGFILE       = ../doc/doxygen/GBFramework.tagfile
 
 # If the ALLEXTERNALS tag is set to YES all external classes will be listed 
 # in the class index. If set to NO only the inherited external classes 

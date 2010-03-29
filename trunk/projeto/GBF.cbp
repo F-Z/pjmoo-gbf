@@ -447,10 +447,10 @@
 		<Unit filename="src/Timer.h">
 			<Option virtualFolder="GBF/Kernel/Timer/" />
 		</Unit>
-		<Unit filename="src/TimerAbstract.cpp">
+		<Unit filename="src/TimerProgressive.cpp">
 			<Option virtualFolder="GBF/Kernel/Timer/" />
 		</Unit>
-		<Unit filename="src/TimerAbstract.h">
+		<Unit filename="src/TimerProgressive.h">
 			<Option virtualFolder="GBF/Kernel/Timer/" />
 		</Unit>
 		<Unit filename="src/TimerRegressive.cpp">
@@ -576,19 +576,19 @@
 		<Unit filename="src/UserInterface.h">
 			<Option virtualFolder="UserInterface/" />
 		</Unit>
+		<Unit filename="src/Version.h" />
 		<Unit filename="src/WriteManager.cpp">
 			<Option virtualFolder="GBF/Kernel/Write/" />
 		</Unit>
 		<Unit filename="src/WriteManager.h">
 			<Option virtualFolder="GBF/Kernel/Write/" />
 		</Unit>
-		<Unit filename="src/version.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
 			<AutoVersioning>
 				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="1000" />
-				<Settings autoincrement="1" date_declarations="0" do_auto_increment="1" ask_to_increment="0" language="C++" svn="1" svn_directory="/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/.svn" header_path="src/version.h" />
+				<Settings autoincrement="1" date_declarations="0" do_auto_increment="1" ask_to_increment="0" language="C++" svn="1" svn_directory="/home/desenvolvimento/pjmoo-gbf/trunk/projeto/src/.svn" header_path="src/Version.h" />
 				<Changes_Log show_changes_editor="1" app_title="released version %M.%m.%b of %p (%T)" changeslog_path="ChangesLog.txt" />
 			</AutoVersioning>
 			<envvars />
