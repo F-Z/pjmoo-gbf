@@ -27,6 +27,7 @@
 #include "StringExtract.h"
 #include "SoundManagerAbstract.h"
 #include "Path.h"
+#include "version.h"
 
 namespace GBF {
 

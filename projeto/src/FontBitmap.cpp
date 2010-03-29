@@ -32,7 +32,7 @@ bool FontBitmap::loadFromFile(std::string fileName)
     image = IMG_Load(fileName.c_str());
 
     if (image != NULL) {
-        converterSurface();
+        convertSurface();
         //setColorKey(0,0,0);
 
         txt = fileName.substr(0, fileName.length() - 4);

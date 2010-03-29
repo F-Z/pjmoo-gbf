@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _UIWINDOWRECORD_H
 #define _UIWINDOWRECORD_H
 
@@ -29,50 +28,18 @@ namespace Window {
 
 class UIWindowRecord : public UIWindow
 {
-
-    private:
-        UserInterface::UIFonteExtendida fontTitle;
-
-        UserInterface::UIFonteExtendida fontNotice;
-
-        UserInterface::Component::UIKeyboard keyboard;
-
-        UserInterface::Component::UITextField textName;
-
-        UserInterface::Component::UINumberField textScore;
-
-        RankingSystem::RSRecorde record;
-
-        UserInterface::Look::UIBackgroundColor * background;
-
-        int nameIndex;
-
-        bool showErro;
-
-
-    protected:
-        void update();
-
-        /** Desenha o botão de ação da janela */
-        void drawForeground();
-
-        /** Desenha o conteudo da janela */
-        void drawContent();
-
-        /** Efetua as ações de acordo com a posição do cursor */
-        int confirmSelection();
-
-
     public:
-        static const int BUTTON_SAVE;
 
-        /** Inicializa as configurações da caixa de texto */
-        virtual void inicializar();
-
+        /** Construtor */
         UIWindowRecord();
 
         /** Destrutor */
         ~UIWindowRecord();
+
+        static const int BUTTON_SAVE;
+
+        /** Inicializa as configurações da caixa de texto */
+        virtual void initialize();
 
         /** Estilo Visual a ser Aplicado no Componente */
         void setBackground(UserInterface::Look::UIBackgroundColor * background);
@@ -93,6 +60,37 @@ class UIWindowRecord : public UIWindow
         /** Gerencia o controle do cursor (navegação) e as opções selecionadas */
         bool isAction(int action);
 
+    protected:
+
+        void update();
+
+        /** Desenha o botão de ação da janela */
+        void drawForeground();
+
+        /** Desenha o conteudo da janela */
+        void drawContent();
+
+        /** Efetua as ações de acordo com a posição do cursor */
+        int confirmSelection();
+
+    private:
+        UserInterface::UIFontExtend fontTitle;
+
+        UserInterface::UIFontExtend fontNotice;
+
+        UserInterface::Component::UIKeyboard keyboard;
+
+        UserInterface::Component::UITextField textName;
+
+        UserInterface::Component::UINumberField textScore;
+
+        RankingSystem::RSRecorde record;
+
+        UserInterface::Look::UIBackgroundColor * background;
+
+        int nameIndex;
+
+        bool showErro;
 };
 
 } // namespace UserInterface::Window

@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _WRITEMANAGER_H
 #define _WRITEMANAGER_H
 
@@ -21,23 +20,20 @@
 
 #include "BaseManager.h"
 
-namespace GBF
-{
+namespace GBF {
 
-namespace Kernel
-{
+namespace Kernel {
 
-namespace Write
-{
+namespace Write {
+
 /**
-   Classe para gerenciamento do sistema de fontes (letras).
-    Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita
-*/
-
+ * Classe para gerenciamento do sistema de fontes (letras).
+ * Gerenciar o uso de fontes, facilitando o carregamento e acesso a escrita
+ */
 class WriteManager : public GBF::BaseManager
 {
-
     public:
+
         /** Constante para representar a fonte padrão do GBF */
         static const std::string defaultFont;
 
@@ -50,12 +46,14 @@ class WriteManager : public GBF::BaseManager
          Obs.: Ideal para casos em que se deseja manipulações avançadas */
         FontBitmap * getFont(std::string name);
 
-        /** Pega uma Instância de FonteManager
-        Obs.: Esta classe é Singleton */
+        /** Pega uma Referência para a instância de WriteManager */
         static WriteManager * getInstance();
 
-        /** Carrega e adiciona uma fonte (WriteSystemBitmap) */
+        /** Carrega e adiciona uma fonte (FontBitmap) */
         void loadFromFile(std::string name, std::string fileName);
+
+        /** Escreve um texto na tela usando a fonte padrão (defaultFont) */
+        void write(int x, int y, const char * text, ...);
 
         /** Escreve um texto na tela */
         void write(std::string font, int x, int y, const char * text, ...);
@@ -74,10 +72,13 @@ class WriteManager : public GBF::BaseManager
 
 
     protected:
+
         std::map<std::string, FontBitmap*> objetomap;
+
         static WriteManager * instance;
 
     private:
+
         /** Construtor */
         WriteManager();
 };

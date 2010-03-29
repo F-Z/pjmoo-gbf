@@ -1,19 +1,16 @@
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 #ifndef _IMAGEBUFFER_H
 #define _IMAGEBUFFER_H
-
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
 
 #include "ImageBase.h"
 #include <string>
@@ -30,21 +27,21 @@ class ImageBuffer : public ImageBase
 {
 
     public:
-        //Construtor
+        /** Construtor */
         ImageBuffer();
 
-        //Destrutor
+        /** Destrutor */
         virtual ~ImageBuffer();
 
-        virtual bool loadFromFile(std::string arquivo);
+        virtual bool loadFromFile(std::string fileName);
 
-        //Desenha um sprite simples na tela
+        /** Desenha um sprite simples na tela */
         void draw(GBF::Point point);
 
-        //Permite desenhar sprites animados
+        /** Permite desenhar sprites animados */
         void draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME);
 
-        //Permite desenhar sprites animados com corte
+        /** Permite desenhar sprites animados com corte */
         void draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME, GBF::Area CORTE);
 
         friend class ImageBufferManager;

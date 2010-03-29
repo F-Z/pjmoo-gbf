@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "WriteManager.h"
 
 namespace GBF {
@@ -55,8 +54,7 @@ FontBitmap * WriteManager::getFont(std::string name)
     }
 }
 
-/** Pega uma Instância de FonteManager
-Obs.: Esta classe é Singleton */
+/** Pega uma Referência para a instância de WriteManager */
 WriteManager * WriteManager::getInstance()
 {
     if (instance == NULL){
@@ -78,6 +76,19 @@ void WriteManager::loadFromFile(std::string name, std::string fileName)
     if (f->loadFromFile(fullpath)){
         objetomap[name] = f;
     }
+}
+
+/** Escreve um texto na tela usando a fonte padrão (defaultFont) */
+void WriteManager::write(int x, int y, const char * text, ...)
+{
+    char texto_aux[256];
+    va_list ap;
+
+    va_start(ap, text);
+    vsprintf(texto_aux, text, ap);
+    va_end(ap);
+
+    getFont(defaultFont)->write(texto_aux, x, y);
 }
 
 /** Escreve um texto na tela */

@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "Character.h"
 
 namespace Character {
@@ -125,4 +124,4 @@ Character::Character()
     ID = IDCount;
 }
 
-} // namespace Personagem
+} // namespace Character

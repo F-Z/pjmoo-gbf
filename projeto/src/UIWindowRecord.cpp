@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "UIWindowRecord.h"
 
 namespace UserInterface {
@@ -28,7 +27,7 @@ void UIWindowRecord::update()
 void UIWindowRecord::drawForeground()
 {
     if (showErro){
-        writeManager->writeKeyText(fontNotice.nome, fontNotice.posicao.x, fontNotice.posicao.y, "GBF_UIRecorde_warning");
+        writeManager->writeKeyText(fontNotice.name, fontNotice.point.x, fontNotice.point.y, "GBF_UIRecorde_warning");
     }
 }
 
@@ -36,7 +35,7 @@ void UIWindowRecord::drawForeground()
 void UIWindowRecord::drawContent()
 {
     // escrevendo titulo centralizado
-    writeManager->writeKeyText(fontTitle.nome, fontTitle.posicao.x, fontTitle.posicao.y, "GBF_UIRecorde_title");
+    writeManager->writeKeyText(fontTitle.name, fontTitle.point.x, fontTitle.point.y, "GBF_UIRecorde_title");
 
     keyboard.execute();
     textName.execute();
@@ -87,9 +86,9 @@ int UIWindowRecord::confirmSelection()
 const int UIWindowRecord::BUTTON_SAVE = 200;
 
 /** Inicializa as configurações da caixa de texto */
-void UIWindowRecord::inicializar()
+void UIWindowRecord::initialize()
 {
-    UIWindow::inicializar();
+    UIWindow::initialize();
 
     GBF::Dimension d = keyboard.getDimension();
 
@@ -100,15 +99,15 @@ void UIWindowRecord::inicializar()
 
 
     pY = pY + keyboard.getDimension().h;
-    fontNotice.posicao.x = pX;
-    fontNotice.posicao.y = pY;
+    fontNotice.point.x = pX;
+    fontNotice.point.y = pY;
 
-    pX = point.x + fontTitle.dimensao.h;
-    pY = point.y + (fontTitle.dimensao.h * 1.5);
+    pX = point.x + fontTitle.dimension.h;
+    pY = point.y + (fontTitle.dimension.h * 1.5);
 
     textName.setPoint(pX, pY);
 
-    pX = point.x + dimension.w - textScore.getDimension().w - fontTitle.dimensao.h;
+    pX = point.x + dimension.w - textScore.getDimension().w - fontTitle.dimension.h;
 
     textScore.setPoint(pX, pY);
 }
@@ -162,12 +161,12 @@ void UIWindowRecord::setBackground(UserInterface::Look::UIBackgroundColor * back
 /** Define a fonte a ser usada pelo Titulo */
 void UIWindowRecord::setFontTitle(std::string font)
 {
-    fontTitle.nome = font;
-    fontTitle.dimensao = writeManager->getFont(fontTitle.nome)->getDimension();
+    fontTitle.name = font;
+    fontTitle.dimension = writeManager->getFont(fontTitle.name)->getDimension();
 
-    int tamanho = writeManager->getLineWidth(fontTitle.nome, "GBF_UIRecorde_title");
-    fontTitle.posicao.x = point.x + (dimension.w / 2) - (tamanho / 2);
-    fontTitle.posicao.y = point.y;
+    int tamanho = writeManager->getLineWidth(fontTitle.name, "GBF_UIRecorde_title");
+    fontTitle.point.x = point.x + (dimension.w / 2) - (tamanho / 2);
+    fontTitle.point.y = point.y;
 }
 
 void UIWindowRecord::setFontKeyboard(std::string keyFont, std::string controlFont)
@@ -186,7 +185,7 @@ void UIWindowRecord::setFontInput(std::string fontLabel, std::string fontValue)
 
     textScore.showCursor(false);
 
-    fontNotice.nome = fontLabel;
+    fontNotice.name = fontLabel;
 }
 
 /** Retorna o TopSystemRecorde */

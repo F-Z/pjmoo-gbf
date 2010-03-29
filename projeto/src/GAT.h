@@ -1,16 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2007 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.codigolivre.org.br
-////////////////////////////////////////////////////////////////////////
-
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 #ifndef _GAT_H
 #define _GAT_H
 
@@ -22,38 +20,20 @@
 #include "UIWindowRecord.h"
 #include "RSManager.h"
 #include "UIMenuAbstract.h"
-#include "Timer.h"
+#include "TimerProgressive.h"
 
 namespace GAT {
 
-//GAT - GBF Application Template
-
+/**
+ * GAT - GBF Application Template
+ */
 class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJogo
 {
-
-    protected:
-        GBF::GBFramework * frameworkGBF;
-
-        UserInterface::Window::UIWindowRecord * uiRecordeNovo;
-
-        RankingSystem::RSManager * recordeManager;
-
-        UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
-
-        GBF::Kernel::Timer::Timer tempoInativo;
-
-
-    private:
-        bool looping;
-
-        bool fullscreen;
-
-
     public:
-        //Construtor
+        /** Construtor */
         GAT(int argc, char * argv[]);
 
-        //Destrutor
+        /** Destrutor */
         virtual ~GAT();
 
         bool isFullScreen();
@@ -62,22 +42,18 @@ class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJ
 
         virtual void interpretadorGlobal();
 
-
-    private:
-        void escutar();
-
-
     protected:
-        //Apresentação do jogo
+
+        /** Apresentação do jogo */
         virtual void apresentacao();
 
-        //Tela para entrada de Novo Recorde
+        /** Tela para entrada de Novo Recorde */
         virtual void topGaleriaNovo();
 
-        //Tela para Salvar Novo Recorde
+        /** Tela para Salvar Novo Recorde */
         virtual void topGaleriaSalvar();
 
-        //Tela para Exibição dos Recordes
+        /** Tela para Exibição dos Recordes */
         virtual void topGaleriaExibir();
 
         bool setJogo();
@@ -86,8 +62,24 @@ class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJ
 
         bool setTopGaleria();
 
+        GBF::GBFramework * frameworkGBF;
+
+        UserInterface::Window::UIWindowRecord * uiRecordeNovo;
+
+        RankingSystem::RSManager * recordeManager;
+
+        UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
+
+        GBF::Kernel::Timer::TimerProgressive tempoInativo;
 
     private:
+
+        bool looping;
+
+        bool fullscreen;
+
+        void escutar();
+
         void menu();
 
         void jogo();
@@ -95,7 +87,6 @@ class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJ
         void topGaleria();
 
         void sair();
-
 
 };
 

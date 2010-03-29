@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _UIWINDOWDIALOG_H
 #define _UIWINDOWDIALOG_H
 
@@ -17,15 +16,14 @@
 #include "UIWindow.h"
 #include "UIText.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Window
-{
+namespace Window {
 
 class UIWindowDialog : public UIWindow
 {
     public:
+
         static const int BUTTON_OK;
 
         UIWindowDialog();
@@ -37,25 +35,18 @@ class UIWindowDialog : public UIWindow
         /** Retorna se a ação informada foi acionado */
         virtual bool isAction(int action);
 
-
-    protected:
-        int confirmSelection();
-
-
-    public:
         UserInterface::Text::UIText text;
 
+        /** Inicializa as configurações da caixa de texto */
+        virtual void initialize();
+
 
     protected:
+
+        int confirmSelection();
+
         UserInterface::Component::UIButton * button;
 
-
-    public:
-        /** Inicializa as configurações da caixa de texto */
-        virtual void inicializar();
-
-
-    protected:
         /** Desenha o conteudo da janela */
         virtual void drawContent();
 

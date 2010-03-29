@@ -9,12 +9,11 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "UIComponent.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
+/** Construtor */
 UIComponent::UIComponent()
 {
     if (writeManager == NULL){
@@ -26,34 +25,38 @@ UIComponent::UIComponent()
     }
 }
 
+/** Destrutor */
 UIComponent::~UIComponent()
 {
 }
 
+/** Referência para o gerenciador de idioma */
 GBF::Kernel::Write::Language * UIComponent::language = NULL;
 
+/** Referência para o gerenciador de escrita */
 GBF::Kernel::Write::WriteManager * UIComponent::writeManager = NULL;
 
-/** Posicao do Componente na Tela */
+/** Posição do componente */
 void UIComponent::setPoint(int x, int y)
 {
     point.x = x;
     point.y = y;
 }
 
+/** Retorna a Dimensão (altura e largura) do componente */
 GBF::Dimension UIComponent::getDimension()
 {
     return dimension;
 }
 
-/** Executa o componente (atualizando,desenhando) */
+/** Executa o componente (update e draw) */
 void UIComponent::execute()
 {
     update();
     draw();
 }
 
-/** atualiza as informações do componente (posicao, dimensao, estado) */
+/** atualiza as informações do componente (posicao, dimensão, estado) */
 void UIComponent::update()
 {
 }

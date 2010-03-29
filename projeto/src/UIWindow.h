@@ -34,7 +34,7 @@ class UIWindow : public UserInterface::UIComponent, public GBF::Kernel::Input::I
         void setDimension(int largura, int altura);
 
         /** Inicializa as configurações da caixa de texto */
-        virtual void inicializar();
+        virtual void initialize();
 
         /** Estilo Visual a ser Aplicado no Componente */
         void setBackground(UserInterface::Look::UIBackground * background);

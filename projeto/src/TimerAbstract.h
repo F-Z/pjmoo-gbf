@@ -21,12 +21,15 @@ namespace GBF {
 
 namespace Kernel {
 
+/** Namespace para cronometros (timers) */
 namespace Timer {
 
-/** Valores para marcação da passagem do tempo
- Motivação: Fornecer um conjunto de valores para medição da passagem de tempo */
-
-enum TimeUnit {
+/**
+ *  Enumeração para marcação da passagem do tempo.
+ *  Fornecer um conjunto de valores para medição da passagem de tempo.
+ */
+enum TimeUnit
+{
     /** Tempo de um segundo */
     TIME_SECOND_ONE  = 1000,
     /** Tempo de meio segundo */
@@ -35,9 +38,12 @@ enum TimeUnit {
     TIME_SECOND_0100 = 100
 };
 
-/** Valores para  indicação de estado
-Motivação: Fornecer um conjunto de valores para definição da máquina de estados dos cronometros */
-enum TimerState {
+/**
+ * Enumeração para indicação de estado do tempo.
+ * Fornecer um conjunto de valores para definição da máquina de estados dos cronometros.
+ */
+enum TimerState
+{
     /** Restaura tempo original e passa para o estado de iniciar */
     TIMER_RESET,
     /** Inicio do cronometro */
@@ -45,23 +51,26 @@ enum TimerState {
     /** Pausa cronometro */
     TIMER_PAUSE,
     /** continua contagem do cronometro */
-    TIMER_CONTINUE,
+    TIMER_RESUME,
     /** Cronometro em execução */
     TIMER_EXECUTE,
     /** Cronometro finalizado */
     TIMER_FINISH
 };
-/** Classe abstrata para criação de cronometros
-Motivação:  Fornecer um conjunto de métodos padrões para controle de tempo */
 
-class TimerAbstract : public GBF::Object {
+/**
+ * Classe abstrata para criação de cronometros.
+ * Fornecer um conjunto de métodos padrões para controle de tempo.
+ */
+class TimerAbstract : public GBF::Object
+{
 
     public:
         /** Muda o estado para CRONOMETRO_PAUSAR */
         void setPause();
 
         /** Muda o estado para CRONOMETRO_CONTINUAR */
-        void setContinuar();
+        void setResume();
 
         /** Centro de processamento de estados */
         void update();
@@ -100,25 +109,25 @@ class TimerAbstract : public GBF::Object {
 
         TimerState state;
 
-        /** Executa este método quando o estado é CRONOMETRO_EXECUTAR */
+        /** Executa este método quando o estado é TIMER_EXECUTE */
         virtual void execute() = 0;
 
-        /** Executa este método quando o estado é CRONOMETRO_RESETAR */
+        /** Executa este método quando o estado é TIMER_RESET */
         virtual void reset();
 
-        /** Executa este método quando o estado é CRONOMETRO_INICIAR */
+        /** Executa este método quando o estado é TIMER_START */
         virtual void start();
 
-        /** Executa este método quando o estado é CRONOMETRO_CONTINUAR */
-        virtual void continuar();
+        /** Executa este método quando o estado é TIMER_RESUME */
+        virtual void resume();
 
-        /** Muda o estado para CRONOMETRO_EXECUTAR */
+        /** Muda o estado para TIMER_EXECUTE */
         void setExecute();
 
-        /** Muda o estado para CRONOMETRO_TERMINAR */
+        /** Muda o estado para TIMER_FINISH */
         void setFinish();
 
-        /** Muda o estado para CRONOMETRO_INICIAR */
+        /** Muda o estado para TIMER_START */
         void setStart();
 
         /** Inicia o contado de tempo */

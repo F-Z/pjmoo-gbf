@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _UIFIELD_H
 #define _UIFIELD_H
 
@@ -19,7 +18,7 @@
 #include "UserInterface.h"
 #include "UIComponent.h"
 #include "GraphicSystemUtility.h"
-#include "Timer.h"
+#include "TimerProgressive.h"
 
 namespace UserInterface {
 
@@ -50,9 +49,9 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
 
     protected:
-        UserInterface::UIFonteExtendida fonteLabel;
+        UserInterface::UIFontExtend fonteLabel;
 
-        UserInterface::UIFonteExtendida fonteCampo;
+        UserInterface::UIFontExtend fonteCampo;
 
         UserInterface::UICursor cursor;
 
@@ -71,15 +70,12 @@ class UIField : public UserInterface::UIComponent, public GBF::Kernel::Graphic::
 
         UserInterface::Look::UIBackground * background;
 
+        GBF::Kernel::Timer::TimerProgressive tempoBlink;
 
     private:
         std::string label;
 
         int length;
-
-
-    protected:
-        GBF::Kernel::Timer::Timer tempoBlink;
 
 };
 

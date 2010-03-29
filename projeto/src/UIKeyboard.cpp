@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "UIKeyboard.h"
 
 namespace UserInterface {
@@ -60,26 +59,26 @@ void UIKeyboard::drawBackground()
     int letra = 0;
 
     GBF::Point tecla;
-    tecla.x = point.x + (fontKey.dimensao.w / 4);
+    tecla.x = point.x + (fontKey.dimension.w / 4);
     tecla.y = point.y;
 
     GBF::Point cursor;
-    cursor.x = point.x + (fontKey.dimensao.w * 0.2);
-    cursor.y = point.y + (fontKey.dimensao.h * 0.1);
+    cursor.x = point.x + (fontKey.dimension.w * 0.2);
+    cursor.y = point.y + (fontKey.dimension.h * 0.1);
 
     GBF::Dimension cursorDimensao;
-    cursorDimensao.w = fontKey.dimensao.w;
-    cursorDimensao.h = fontKey.dimensao.h;
+    cursorDimensao.w = fontKey.dimension.w;
+    cursorDimensao.h = fontKey.dimension.h;
 
-    int espacoHorizontal = fontKey.dimensao.w + int(fontKey.dimensao.w / 4);
-    int espacoVertical   = fontKey.dimensao.h + int(fontKey.dimensao.h / 4);
+    int espacoHorizontal = fontKey.dimension.w + int(fontKey.dimension.w / 4);
+    int espacoVertical   = fontKey.dimension.h + int(fontKey.dimension.h / 4);
 
     graphicSystem->gfx->setColor(corCursor.r, corCursor.g, corCursor.b);
 
     //Painel do teclado
     for (int l = 0;l < 5;l++){
         for (int c = 0;c < 10;c++){
-            writeManager->write(fontKey.nome, tecla.x + (espacoHorizontal*c), tecla.y + (espacoVertical*l), "%c", caracter[letra]);
+            writeManager->write(fontKey.name, tecla.x + (espacoHorizontal*c), tecla.y + (espacoVertical*l), "%c", caracter[letra]);
 
             //Desenhando cursor da selecao de tecla
             if ((selecao == letra) && (tempoBlink.getTime() % 2 == 0)){
@@ -96,30 +95,30 @@ void UIKeyboard::drawContent()
     graphicSystem->gfx->setColor(corCursor.r, corCursor.g, corCursor.b);
 
     GBF::Point tecla;
-    tecla.x = point.x + (fontKey.dimensao.w / 4);
+    tecla.x = point.x + (fontKey.dimension.w / 4);
     tecla.y = point.y;
 
-    tecla.x = point.x + (10 * (fontKey.dimensao.w + fontKey.dimensao.w * 0.3));
-    tecla.y = point.y + dimension.h - (getTotalControle() * fontControl.dimensao.h);
+    tecla.x = point.x + (10 * (fontKey.dimension.w + fontKey.dimension.w * 0.3));
+    tecla.y = point.y + dimension.h - (getTotalControle() * fontControl.dimension.h);
 
     GBF::Point cursor;
-    cursor.x = tecla.x - int(fontControl.dimensao.w * 0.25);
+    cursor.x = tecla.x - int(fontControl.dimension.w * 0.25);
     cursor.y = tecla.y;
 
     GBF::Dimension cursorDimensao;
-    cursorDimensao.w = getTamanhoControle() + (fontControl.dimensao.w * 0.5);
-    cursorDimensao.h = fontControl.dimensao.h;
+    cursorDimensao.w = getTamanhoControle() + (fontControl.dimension.w * 0.5);
+    cursorDimensao.h = fontControl.dimension.h;
 
     //Painel das teclas de controles
     for (int ic = getTotalControle() - 1;ic >= 0;ic--){
-        writeManager->writeKeyText(fontControl.nome, tecla.x, tecla.y + (fontControl.dimensao.h*ic), controle[ic].c_str());
+        writeManager->writeKeyText(fontControl.name, tecla.x, tecla.y + (fontControl.dimension.h*ic), controle[ic].c_str());
     }
 
     //Desenhando cursor das teclas de controle
     if (tempoBlink.getTime() % 2 == 0){
         if (selecao >= getTotalCaracter()){
             int t = selecao - getTotalCaracter();
-            graphicSystem->gfx->retangulo(cursor.x, cursor.y + (fontControl.dimensao.h*t), cursorDimensao.w, cursorDimensao.h);
+            graphicSystem->gfx->retangulo(cursor.x, cursor.y + (fontControl.dimension.h*t), cursorDimensao.w, cursorDimensao.h);
         }
     }
 }
@@ -135,7 +134,7 @@ void UIKeyboard::update()
 
     if (background != NULL){
         GBF::Dimension d  = dimension;
-        d.w = dimension.w + getTamanhoControle() + (fontKey.dimensao.w);
+        d.w = dimension.w + getTamanhoControle() + (fontKey.dimension.w);
 
         background->apply(point, d);
     }
@@ -210,14 +209,14 @@ int UIKeyboard::getIndex()
 /** Define a fonte a ser usada pelo Controle */
 void UIKeyboard::setFontControl(std::string font)
 {
-    fontControl.nome = font;
-    fontControl.dimensao = writeManager->getFont(fontControl.nome)->getDimension();
+    fontControl.name = font;
+    fontControl.dimension = writeManager->getFont(fontControl.name)->getDimension();
 
     tamanhoControle  = 0;
     int tmp = 0;
 
     for (int i = 0; i < getTotalControle();i++){
-        tmp = writeManager->getLineWidth(fontControl.nome, controle[i].c_str());
+        tmp = writeManager->getLineWidth(fontControl.name, controle[i].c_str());
 
         if (tmp > getTamanhoControle()){
             tamanhoControle = tmp;
@@ -228,11 +227,11 @@ void UIKeyboard::setFontControl(std::string font)
 /** Define a fonte a ser usada pelo teclado virtual */
 void UIKeyboard::setFontKey(std::string font)
 {
-    fontKey.nome = font;
-    fontKey.dimensao = writeManager->getFont(fontKey.nome)->getDimension();
+    fontKey.name = font;
+    fontKey.dimension = writeManager->getFont(fontKey.name)->getDimension();
 
-    dimension.w = 10 * (fontKey.dimensao.w + int(fontKey.dimensao.w / 4));
-    dimension.h = 5  * (fontKey.dimensao.h + int(fontKey.dimensao.h / 4));
+    dimension.w = 10 * (fontKey.dimension.w + int(fontKey.dimension.w / 4));
+    dimension.h = 5  * (fontKey.dimension.h + int(fontKey.dimension.h / 4));
 }
 
 /** Estilo Visual a ser Aplicado no Componente */

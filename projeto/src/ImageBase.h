@@ -59,7 +59,7 @@ class ImageBase
         GBF::Point point;
 
         /** Converte Surface para formato na inicialização do GraphicSystem */
-        virtual void converterSurface();
+        virtual void convertSurface();
 
 
     public:

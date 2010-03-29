@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "UINumberField.h"
 
 namespace UserInterface {
@@ -30,9 +29,9 @@ void UINumberField::setValue(unsigned int value)
 }
 void UINumberField::drawContent()
 {
-    writeManager->write(fonteCampo.nome, fonteCampo.posicao.x, fonteCampo.posicao.y, "%08d", value);
+    writeManager->write(fonteCampo.name, fonteCampo.point.x, fonteCampo.point.y, "%08d", value);
 }
 
-} // namespace UserInterface::Componente
+} // namespace UserInterface::Component
 
 } // namespace UserInterface

@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "TimerAbstract.h"
 
 namespace GBF {
@@ -18,22 +17,22 @@ namespace Kernel {
 
 namespace Timer {
 
-/** Executa este método quando o estado é CRONOMETRO_RESETAR */
+/** Executa este método quando o estado é TIMER_RESET */
 void TimerAbstract::reset()
 {
     tempoCorrente = tempoOriginal;
     setStart();
 }
 
-/** Executa este método quando o estado é CRONOMETRO_INICIAR */
+/** Executa este método quando o estado é TIMER_START */
 void TimerAbstract::start()
 {
     setExecute();
     initialTick();
 }
 
-/** Executa este método quando o estado é CRONOMETRO_CONTINUAR */
-void TimerAbstract::continuar()
+/** Executa este método quando o estado é TIMER_RESUME */
+void TimerAbstract::resume()
 {
     setExecute();
     initialTick();
@@ -45,15 +44,15 @@ void TimerAbstract::initialTick()
     tempoInicial = SDL_GetTicks();
 }
 
-/** Muda o estado para CRONOMETRO_EXECUTAR */
+/** Muda o estado para TIMER_EXECUTE */
 void TimerAbstract::setExecute()
 {
-    if ((state == TIMER_START) || (state == TIMER_CONTINUE)){
+    if ((state == TIMER_START) || (state == TIMER_RESUME)){
         state = TIMER_EXECUTE;
     }
 }
 
-/** Muda o estado para CRONOMETRO_TERMINAR */
+/** Muda o estado para TIMER_FINISH */
 void TimerAbstract::setFinish()
 {
     if (state == TIMER_EXECUTE){
@@ -83,7 +82,7 @@ void TimerAbstract::setUnit(TimeUnit unit)
     tempoUnidade = int(unit);
 }
 
-/** Muda o estado para CRONOMETRO_RESETAR */
+/** Muda o estado para TIMER_RESET */
 void TimerAbstract::setReset()
 {
     if ((state == TIMER_EXECUTE) || (state == TIMER_FINISH)){
@@ -91,7 +90,7 @@ void TimerAbstract::setReset()
     }
 }
 
-/** Muda o estado para CRONOMETRO_INICIAR */
+/** Muda o estado para TIMER_START */
 void TimerAbstract::setStart()
 {
     if (state == TIMER_RESET){
@@ -99,7 +98,7 @@ void TimerAbstract::setStart()
     }
 }
 
-/** Muda o estado para CRONOMETRO_PAUSAR */
+/** Muda o estado para TIMER_PAUSE */
 void TimerAbstract::setPause()
 {
     if (state == TIMER_EXECUTE){
@@ -107,11 +106,11 @@ void TimerAbstract::setPause()
     }
 }
 
-/** Muda o estado para CRONOMETRO_CONTINUAR */
-void TimerAbstract::setContinuar()
+/** Muda o estado para TIMER_RESUME */
+void TimerAbstract::setResume()
 {
     if (state == TIMER_PAUSE){
-        state = TIMER_CONTINUE;
+        state = TIMER_RESUME;
     }
 }
 
@@ -124,8 +123,8 @@ void TimerAbstract::update()
             execute();
             break;
 
-        case TIMER_CONTINUE:
-            continuar();
+        case TIMER_RESUME:
+            resume();
             break;
 
         case TIMER_START:

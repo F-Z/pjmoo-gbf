@@ -9,30 +9,39 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-#include "UITextField.h"
+#include "TimerProgressive.h"
 
-namespace UserInterface {
+namespace GBF {
 
-namespace Component {
+namespace Kernel {
 
-UITextField::UITextField()
+namespace Timer {
+
+
+/** Construtor */
+TimerProgressive::TimerProgressive()
 {
 }
 
-UITextField::~UITextField()
+/** Destrutor */
+TimerProgressive::~TimerProgressive()
 {
 }
 
-void UITextField::setValue(std::string value)
+/** Executa este método quando o estado é TIMER_EXECUTE */
+void TimerProgressive::execute()
 {
-    this->value = value;
+    tempoAtual = SDL_GetTicks();
+
+    if (tempoAtual - tempoInicial >= tempoUnidade){
+        tempoCorrente++;
+        initialTick();
+    }
 }
 
-void UITextField::drawContent()
-{
-    writeManager->write(fonteCampo.name, fonteCampo.point.x, fonteCampo.point.y, "%s"  , value.c_str());
-}
 
-} // namespace UserInterface::Component
+} // namespace GBF::Kernel::Timer
 
-} // namespace UserInterface
+} // namespace GBF::Kernel
+
+} // namespace GBF

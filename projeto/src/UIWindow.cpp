@@ -26,6 +26,7 @@ UIWindow::UIWindow()
     tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_0100);
     tempoEspera.setReset();
 }
+
 /** Destrutor */
 UIWindow::~UIWindow()
 {
@@ -33,28 +34,33 @@ UIWindow::~UIWindow()
         delete(background);
     }
 }
+
 void UIWindow::setDimension(int largura, int altura)
 {
     dimension.w = largura;
     dimension.h = altura;
 }
+
 /** Inicializa as configurações da caixa de texto */
-void UIWindow::inicializar()
+void UIWindow::initialize()
 {
     if (background != NULL){
         background->apply(point, dimension);
     }
 }
+
 /** Estilo Visual a ser Aplicado no Componente */
 void UIWindow::setBackground(UserInterface::Look::UIBackground * background)
 {
     this->background = background;
 }
+
 /** atualiza as informações do componente (posicao, dimensao, estado) */
 void UIWindow::update()
 {
     tempoEspera.update();
 }
+
 /** desenha os componentes vistuais */
 void UIWindow::draw()
 {
@@ -64,6 +70,7 @@ void UIWindow::draw()
 
     drawForeground();
 }
+
 /** Desenha o background da caixa de texto */
 void UIWindow::drawBackground()
 {
@@ -71,6 +78,7 @@ void UIWindow::drawBackground()
         background->draw();
     }
 }
+
 /** Desenha a camada de decoração da janela (botões) */
 void UIWindow::drawForeground()
 {
