@@ -9,8 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
-
 #include "UIWindowTitle.h"
 
 namespace UserInterface {
@@ -21,7 +19,9 @@ UIWindowTitle::UIWindowTitle()
 {
     title.setAlignment(Text::TEXT_CENTRAL);
 }
-UIWindowTitle::~UIWindowTitle(){
+
+UIWindowTitle::~UIWindowTitle()
+{
 }
 
 void UIWindowTitle::drawContent()
@@ -41,10 +41,11 @@ void UIWindowTitle::drawContent()
     writeManager->writeKeyText(title.getFont(), posicaoTextoHorizontal, posicaoTextoVertical, title.getKeyText());
 
 }
+
 /** Inicializa as configurações da caixa de texto */
-void UIWindowTitle::inicializar()
+void UIWindowTitle::initialize()
 {
-    UIWindowDialog::inicializar();
+    UIWindowDialog::initialize();
     title.setLetterDimension(writeManager->getFont(title.getFont())->getDimension());
     espacoAntesTexto = int(title.getLetterDimension().h * title.STYLE_SINGLE_AND_HALF_LINE);
 }

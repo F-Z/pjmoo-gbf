@@ -39,7 +39,7 @@ class FontBitmap : public GBF::Kernel::Graphic::ImageBase {
          * Se a imagem tiver arquivo de dimensão das letras este será carregado,
          * caso contrario será utilizado um valor default tanto para largura como altura
          */
-        virtual bool loadFromFile(std::string fileName);
+        bool loadFromFile(std::string fileName);
 
         /** Configura altura e largura padrão para todas as letras.
          * A altura e largura devem ser suficientes para evitar que a letra seja desenhada

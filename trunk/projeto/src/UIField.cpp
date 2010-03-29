@@ -9,14 +9,11 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "UIField.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Component
-{
+namespace Component {
 
 UIField::UIField()
 {
@@ -42,18 +39,18 @@ void UIField::setLabel(std::string label)
 /** Define a fonte a ser usada pelo label */
 void UIField::setFont(std::string font)
 {
-    fonteLabel.nome = font;
-    fonteLabel.dimensao = writeManager->getFont(fonteLabel.nome)->getDimension();
+    fonteLabel.name = font;
+    fonteLabel.dimension = writeManager->getFont(fonteLabel.name)->getDimension();
 }
 
 /** Define a fonte a ser usada pelo Campo */
 void UIField::setFontInput(std::string font)
 {
-    fonteCampo.nome = font;
-    fonteCampo.dimensao = writeManager->getFont(fonteCampo.nome)->getDimension();
+    fonteCampo.name = font;
+    fonteCampo.dimension = writeManager->getFont(fonteCampo.name)->getDimension();
 
-    dimension.w = (length * fonteCampo.dimensao.w) + (fonteCampo.dimensao.w * 0.2);
-    dimension.h = (fonteCampo.dimensao.h) * 1.6;
+    dimension.w = (length * fonteCampo.dimension.w) + (fonteCampo.dimension.w * 0.2);
+    dimension.h = (fonteCampo.dimension.h) * 1.6;
 }
 
 void UIField::maxLength(int length)
@@ -82,7 +79,7 @@ void UIField::setBackground(UserInterface::Look::UIBackground * background)
 void UIField::drawBackground()
 {
     //escrevendo label (Jogador - Pontos)
-    writeManager->writeKeyText(fonteLabel.nome, fonteLabel.posicao.x, fonteLabel.posicao.y, label);
+    writeManager->writeKeyText(fonteLabel.name, fonteLabel.point.x, fonteLabel.point.y, label);
 
     if (background != NULL)
     {
@@ -96,7 +93,7 @@ void UIField::drawForeground()
     if (cursor.show) {
         if (tempoBlink.getTime() % 2 != 0) {
             graphicSystem->gfx->setColor(250, 250, 250);
-            graphicSystem->gfx->retanguloPreenchido(cursor.point.x, cursor.point.y, fonteCampo.dimensao.w, 2);
+            graphicSystem->gfx->retanguloPreenchido(cursor.point.x, cursor.point.y, fonteCampo.dimension.w, 2);
         }
     }
 }
@@ -105,20 +102,20 @@ void UIField::update()
 {
     tempoBlink.update();
 
-    fonteLabel.posicao.x = point.x;
-    fonteLabel.posicao.y = point.y;
+    fonteLabel.point.x = point.x;
+    fonteLabel.point.y = point.y;
 
-    fonteCampo.posicao.x = point.x + (fonteCampo.dimensao.w * 0.2);
-    fonteCampo.posicao.y = fonteLabel.posicao.y + (fonteLabel.dimensao.h * 1.2) + 1;
+    fonteCampo.point.x = point.x + (fonteCampo.dimension.w * 0.2);
+    fonteCampo.point.y = fonteLabel.point.y + (fonteLabel.dimension.h * 1.2) + 1;
 
-    cursor.point.x = fonteCampo.posicao.x + (indice * fonteCampo.dimensao.w);
-    cursor.point.y = fonteCampo.posicao.y + fonteCampo.dimensao.h;
+    cursor.point.x = fonteCampo.point.x + (indice * fonteCampo.dimension.w);
+    cursor.point.y = fonteCampo.point.y + fonteCampo.dimension.h;
 
     if (background != NULL){
         GBF::Dimension d  = dimension;
 
         GBF::Point  p  = point;
-        p.y = fonteLabel.posicao.y + (fonteLabel.dimensao.h * 1.2) - 1;
+        p.y = fonteLabel.point.y + (fonteLabel.dimension.h * 1.2) - 1;
 
         background->apply(p, dimension);
     }

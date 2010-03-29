@@ -52,7 +52,7 @@ GBF::Area ImageBase::getTamanho()
 double ImageBase::time = 0.0f;
 
 /** Converte Surface para formato na inicialização do GraphicSystem */
-void ImageBase::converterSurface()
+void ImageBase::convertSurface()
 {
     SDL_Surface *tmp = SDL_DisplayFormat(image);
     SDL_FreeSurface(image);

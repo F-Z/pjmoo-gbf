@@ -9,14 +9,11 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "UIWindowDialog.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Window
-{
+namespace Window {
 
 const int UIWindowDialog::BUTTON_OK = 100;
 
@@ -61,9 +58,9 @@ int UIWindowDialog::confirmSelection()
 }
 
 /** Inicializa as configurações da caixa de texto */
-void UIWindowDialog::inicializar()
+void UIWindowDialog::initialize()
 {
-    UIWindow::inicializar();
+    UIWindow::initialize();
     text.setLetterDimension(writeManager->getFont(text.getFont())->getDimension());
 }
 

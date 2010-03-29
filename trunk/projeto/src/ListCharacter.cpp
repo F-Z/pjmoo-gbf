@@ -9,16 +9,13 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "ListCharacter.h"
 
-namespace Character
-{
+namespace Character{
 
 /** Construtor */
 ListCharacter::ListCharacter()
 {
-
 }
 
 /** Destrutor */
@@ -42,13 +39,13 @@ void ListCharacter::draw()
     }
 }
 
-/** Retorna a quantidade de elementos */
+/** Retorna a quantidade de personagens */
 int ListCharacter::size()
 {
     return list.size();
 }
 
-/** Limpa o container, removendo todos os elementos */
+/** Limpa o container, removendo todos os personagens */
 void ListCharacter::clear()
 {
     for (unsigned int i = 0; i < list.size(); i++)
@@ -69,7 +66,7 @@ void ListCharacter::clear()
     list.clear();
 }
 
-/** Executa as ações de cada elemento */
+/** Executa as ações de cada personagem */
 void ListCharacter::update(GBF::Kernel::Input::InputSystem * input)
 {
     if (!list.empty())
@@ -84,11 +81,13 @@ void ListCharacter::update(GBF::Kernel::Input::InputSystem * input)
     }
 }
 
+/** Adiciona um personagem */
 void ListCharacter::add(Character * character)
 {
     list.push_back(character);
 }
 
+/** Remove um personagem */
 void ListCharacter::remove(Character * character)
 {
     for (int i = list.size() - 1; i >= 0; i--)
@@ -102,6 +101,7 @@ void ListCharacter::remove(Character * character)
     }
 }
 
+/** Verifica a colisão entre dois container de personagem */
 void ListCharacter::collision(ListCharacter * listCharacter)
 {
     Character *l = NULL;
@@ -127,6 +127,7 @@ void ListCharacter::collision(ListCharacter * listCharacter)
     }
 }
 
+/** Verifica a colisão de um personagem com o container */
 void ListCharacter::collision(Character * character)
 {
     Character *l = NULL;
@@ -148,11 +149,17 @@ void ListCharacter::collision(Character * character)
     }
 }
 
+/** Retorna um personagem */
 Character * ListCharacter::getCharacter(int index)
 {
     return list[index];
 }
 
+/**
+ * Ordena os personagens.
+ * Ordenação padrão baseada no eixo Y, ou seja quanto menor seu Y, mais próximo do inicio da lista,
+ * e consequentemente será atualizado(update) e desenhado (draw).
+ */
 void ListCharacter::sort()
 {
     Character *buffer;

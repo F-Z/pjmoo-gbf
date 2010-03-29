@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "Cursor.h"
 
 namespace GBF {
@@ -34,7 +33,7 @@ bool Cursor::loadFromFile(std::string fileName)
     image = IMG_Load(fileName.c_str());
 
     if (image){
-        converterSurface();
+        convertSurface();
         setColorKey(255, 0, 255);
         point.y = 0;
         point.x = 0;

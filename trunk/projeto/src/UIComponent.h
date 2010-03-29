@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _UICOMPONENT_H
 #define _UICOMPONENT_H
 
@@ -17,22 +16,24 @@
 #include "WriteManager.h"
 #include "GBF.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
 class UIComponent
 {
     public:
+        /** Construtor */
         UIComponent();
 
+        /** Destrutor */
         virtual ~UIComponent();
 
-        /** Posicao do Componente na Tela */
+        /** Posição do componente */
         virtual void setPoint(int x, int y);
 
+        /** Retorna a Dimensão (altura e largura) do componente */
         GBF::Dimension getDimension();
 
-        /** Executa o componente (atualizando,desenhando) */
+        /** Executa o componente (update e draw) */
         virtual void execute();
 
 
@@ -40,15 +41,19 @@ class UIComponent
         /** Desenha os componentes visuais */
         virtual void draw() = 0;
 
-        /** atualiza as informações do componente (posicao, dimensao, estado) */
+        /** atualiza as informações do componente (posicao, dimensão, estado) */
         virtual void update();
 
+        /** Posição (x e y) do componente */
         GBF::Point point;
 
+        /** Dimensão (largura e altura) do componente */
         GBF::Dimension dimension;
 
+        /** Referência para o gerenciador de idioma */
         static GBF::Kernel::Write::Language * language;
 
+        /** Referência para o gerenciador de escrita */
         static GBF::Kernel::Write::WriteManager * writeManager;
 
 };

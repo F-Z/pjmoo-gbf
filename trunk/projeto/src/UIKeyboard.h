@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _UIKEYBOARD_H
 #define _UIKEYBOARD_H
 
@@ -22,7 +21,7 @@
 #include "UIComponent.h"
 #include "InputSystemUtility.h"
 #include "TimerRegressive.h"
-#include "Timer.h"
+#include "TimerProgressive.h"
 
 namespace UserInterface {
 
@@ -43,9 +42,9 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
 
         std::string controle[3];
 
-        UserInterface::UIFonteReferencia fontKey;
+        UserInterface::UIFont fontKey;
 
-        UserInterface::UIFonteReferencia fontControl;
+        UserInterface::UIFont fontControl;
 
         int selecao;
 
@@ -97,7 +96,7 @@ class UIKeyboard : public GBF::Kernel::Graphic::GraphicSystemUtility, public Use
     protected:
         GBF::Kernel::Timer::TimerRegressive tempoEspera;
 
-        GBF::Kernel::Timer::Timer tempoBlink;
+        GBF::Kernel::Timer::TimerProgressive tempoBlink;
 
 };
 

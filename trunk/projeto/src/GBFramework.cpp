@@ -147,10 +147,14 @@ void GBFramework::setPath(char * fullPath)
 Obs.: Usado para arquivo de log e título da janela */
 void GBFramework::setTitle(std::string title, std::string autor)
 {
-    std::cout << "[GAME - INFO]-------------------" << std::endl;
+    std::cout << "[GAME - INFO]=================================" << std::endl;
     std::cout << " Title: "   << title  << std::endl;
     std::cout << " By: "      << autor  << std::endl;
-    std::cout << "--------------------------------" << std::endl;
+    std::cout << "==============================================" << std::endl;
+    std::cout << "GBFramework < pjmoo-gbf.googlecode.com >" << std::endl;
+    std::cout << " version : " << AutoVersion::FULLVERSION_STRING << "(" << AutoVersion::STATUS_SHORT << ")" << std::endl;
+    std::cout << " svn revision: " << AutoVersion::SVN_REVISION << std::endl;
+    std::cout << "----------------------------------------------" << std::endl;
 
     load();
     setTitle(title);

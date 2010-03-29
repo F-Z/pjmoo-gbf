@@ -1,17 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
-
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 #include "ImageBuffer.h"
 
 namespace GBF {
@@ -20,23 +17,23 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Construtor
+/** Construtor */
 ImageBuffer::ImageBuffer()
 {
 }
 
-//Destrutor
+/** Destrutor */
 ImageBuffer::~ImageBuffer()
 {
     //UtilLog::getInstance()->status("[GraphicSystemImageBuffer Removido(a)]");
 }
 
-bool ImageBuffer::loadFromFile(std::string arquivo)
+bool ImageBuffer::loadFromFile(std::string fileName)
 {
-    image = IMG_Load(arquivo.c_str());
+    image = IMG_Load(fileName.c_str());
 
     if (image){
-        converterSurface();
+        convertSurface();
         setColorKey(255, 0, 255);
         return true;
     } else {
@@ -46,7 +43,7 @@ bool ImageBuffer::loadFromFile(std::string arquivo)
     }
 }
 
-//Desenha um sprite simples na tela
+/** Desenha um sprite simples na tela */
 void ImageBuffer::draw(GBF::Point point)
 {
     GBF::Area rect, pos;
@@ -60,7 +57,7 @@ void ImageBuffer::draw(GBF::Point point)
    screen->blitSurface(image, rect, point);
 }
 
-//Permite desenhar sprites animados
+/** Permite desenhar sprites animados */
 void ImageBuffer::draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME)
 {
     GBF::Area rect;
@@ -73,7 +70,7 @@ void ImageBuffer::draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME)
     screen->blitSurface(image, rect, POSICAO);
 }
 
-//Permite desenhar sprites animados com corte
+/** Permite desenhar sprites animados com corte */
 void ImageBuffer::draw(GBF::Point POSICAO, GBF::Area TAMANHO, int FRAME, GBF::Area CORTE)
 {
     GBF::Area rect;

@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _CHARACTER_H
 #define _CHARACTER_H
 
@@ -22,12 +21,20 @@
 #include "InputSystem.h"
 #include "Object.h"
 
+/** Alias para nomeação interna do sprite principal (MainSprite) */
 #define MAIN_SPRITE "main"
 
+/** Namespace para personagens */
 namespace Character {
 
-/** Definição de TypeDelay */
-struct TypeDelay {
+/**
+ * Estrutura auxiliar genérica para armazenamento de definições extras.
+ * Pode ser usado para armazenar ou definir o intervalo entre tiros, pulos, corrida
+ * e outras ações que o personagem possa necessitar.
+ */
+struct TypeDelay
+{
+
     float action;
 
     float slotA;
@@ -40,16 +47,17 @@ struct TypeDelay {
 
 };
 
-/**  Classe para criação de personagens genéricos
-Motivação:
-    Fornecer uma interface padrão para criação de personagens */
+/**
+ *  Classe para criação de personagens genéricos.
+ *  Fornece uma interface padrão para criação de personagens.
+ */
 class Character : public GBF::Object {
 
     public:
         /** Destrutor */
         virtual ~Character();
 
-        /** Desenha o sprite principal do personagem */
+        /** Desenha o personagem */
         virtual void draw();
 
         virtual void setActive(bool value);
@@ -60,26 +68,37 @@ class Character : public GBF::Object {
 
         virtual bool isLife();
 
+        /** Verifica se houve colisão entre dois personagem */
         virtual bool isCollision(Character * character);
 
+        /** Posiciona o personagem */
         virtual void setPoint(int x, int y);
 
+        /** Posiciona o Character */
         virtual void setPoint(GBF::Point point);
 
+        /** Retorna a posição do personagem */
         virtual GBF::Point getPoint();
 
-        /** Adiciona o sprite principal do personagem */
+        /** Adiciona o sprite principal (MainSprite) do personagem */
         bool addMainSprite(GBF::Image::Sprite::SpriteCharacter * sprite);
 
         /** Adiciona o sprites extras do personagem */
         bool addSprite(GBF::Image::Sprite::SpriteCharacter * sprite, const std::string & name);
 
+        /** Atualiza o Personagem. Deve ser utilizado para mover ou fazer verificações do character */
         virtual void update(GBF::Kernel::Input::InputSystem * input) = 0;
 
+        /** Retorna a dimensão do personagem (largura e altura) */
         GBF::Dimension getDimension();
 
+        /** Retorna o sprite princial (MainSprite) do Personagem */
         GBF::Image::Sprite::SpriteCharacter * getMainSprite();
 
+        /** Retorna um sprite
+         * @param name Nome dado ao sprite do Personagem
+         * @return Sprite
+         */
         GBF::Image::Sprite::SpriteCharacter * getSprite(const std::string & name);
 
 
@@ -93,21 +112,25 @@ class Character : public GBF::Object {
 
         bool life;
 
+        /** Identificador do personagem */
         unsigned int ID;
 
         std::map<std::string, GBF::Image::Sprite::SpriteCharacter*> sprites;
 
         TypeDelay delay;
 
+        /** Posição do personagem */
         GBF::Point point;
 
 
     private:
+        /** Contador de identificadores dos personagens */
         static unsigned int IDCount;
 
+        /** Dimensão do personagem */
         GBF::Dimension dimension;
 };
 
-} // namespace Personagem
+} // namespace Character
 
 #endif

@@ -9,36 +9,34 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #ifndef _UIWINDOWTITLE_H
 #define _UIWINDOWTITLE_H
 
 #include "UIText.h"
 #include "UIWindowDialog.h"
 
-namespace UserInterface
-{
+namespace UserInterface {
 
-namespace Window
-{
+namespace Window {
 
 class UIWindowTitle : public UIWindowDialog
 {
     public:
+
+        /** Construtor */
         UIWindowTitle();
 
+        /** Destrutor */
         virtual ~UIWindowTitle();
 
-
-    protected:
-        virtual void drawContent();
-
-
-    public:
         /** Inicializa as configurações da caixa de texto */
-        virtual void inicializar();
+        virtual void initialize();
 
         UserInterface::Text::UIText title;
+
+    protected:
+
+        virtual void drawContent();
 
 };
 
