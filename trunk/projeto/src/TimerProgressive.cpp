@@ -39,7 +39,6 @@ void TimerProgressive::execute()
     }
 }
 
-
 } // namespace GBF::Kernel::Timer
 
 } // namespace GBF::Kernel
