@@ -12,10 +12,10 @@
 #ifndef _GAT_H
 #define _GAT_H
 
-#include "GTEstadoGeral.h"
-#include "GTTopGaleria.h"
+#include "GTState.h"
+#include "GTScore.h"
 #include "GTMenu.h"
-#include "GTJogo.h"
+#include "GTGame.h"
 #include "GBFramework.h"
 #include "UIWindowRecord.h"
 #include "ScoreManager.h"
@@ -27,7 +27,7 @@ namespace GAT {
 /**
  * GAT - GBF Application Template
  */
-class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJogo
+class GAT : public GTState, public GTScore, public GTMenu, public GTGame
 {
     public:
         /** Construtor */

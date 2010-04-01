@@ -1,35 +1,35 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
-
-#include "GTJogo.h"
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+#include "GTGame.h"
 
 namespace GAT {
 
 //Construtor
-GTJogo::GTJogo() 
+GTGame::GTGame()
 {
     setJogoInicio();
 }
+
 //Destrutor
-GTJogo::~GTJogo() 
+GTGame::~GTGame()
 {
 }
-EstadoJogo GTJogo::processarEstadoJogo() 
+
+StateGame GTGame::processarEstadoJogo()
 {
     return estado;
 }
-void GTJogo::loopJogo() 
+
+void GTGame::loopJogo()
 {
     switch(processarEstadoJogo()){
         case GAT_EJ_EXECUTANDO:
@@ -59,7 +59,8 @@ void GTJogo::loopJogo()
             break;
     }
 }
-void GTJogo::setJogoNovo() 
+
+void GTGame::setJogoNovo()
 {
     if ((estado==GAT_EJ_INICIO)||((estado!=GAT_EJ_NOVO)&&(isTempoEspera()))){
         estado=GAT_EJ_NOVO;
@@ -67,8 +68,9 @@ void GTJogo::setJogoNovo()
         reiniciarTempo();
     }
 }
+
 //Coloca o jogo em estado de execução imediata
-void GTJogo::setJogoExecutando() 
+void GTGame::setJogoExecutando()
 {
 //    if ((estado!=GAT_EJ_EXECUTANDO)&&(isTempoEspera())){
     if (estado!=GAT_EJ_EXECUTANDO){
@@ -77,7 +79,8 @@ void GTJogo::setJogoExecutando()
 //      reiniciarTempo();
     }
 }
-void GTJogo::setJogoPause() 
+
+void GTGame::setJogoPause()
 {
     if ((estado!=GAT_EJ_PAUSE)&&(isTempoEspera())){
         //gatilhoJogoExecutando();
@@ -85,7 +88,8 @@ void GTJogo::setJogoPause()
         reiniciarTempo();
     }
 }
-void GTJogo::setJogoFaseCarregar() 
+
+void GTGame::setJogoFaseCarregar()
 {
     if ((estado!=GAT_EJ_FASE_CARREGAR)&&(isTempoEspera())){
         if (gatilhoJogoFaseCarregar()){
@@ -94,7 +98,8 @@ void GTJogo::setJogoFaseCarregar()
         }
     }
 }
-void GTJogo::setJogoFaseFinalizada() 
+
+void GTGame::setJogoFaseFinalizada()
 {
     if (estado!=GAT_EJ_FASE_FINALIZADA){
         estado=GAT_EJ_FASE_FINALIZADA;
@@ -102,7 +107,8 @@ void GTJogo::setJogoFaseFinalizada()
         reiniciarTempo();
     }
 }
-void GTJogo::setJogoGameOver() 
+
+void GTGame::setJogoGameOver()
 {
     if ((estado!=GAT_EJ_GAMEOVER)&&(isTempoEspera())){
         //gatilhoJogoExecutando();
@@ -110,7 +116,8 @@ void GTJogo::setJogoGameOver()
         reiniciarTempo();
     }
 }
-void GTJogo::setJogoZerado() 
+
+void GTGame::setJogoZerado()
 {
     if (estado!=GAT_EJ_ZERADO){
         //gatilhoJogoExecutando();
@@ -118,25 +125,30 @@ void GTJogo::setJogoZerado()
         reiniciarTempo();
     }
 }
-void GTJogo::gatilhoJogoNovo() 
+
+void GTGame::gatilhoJogoNovo()
 {
     //opicional implementação de acordo com a necessidade
 }
-void GTJogo::gatilhoJogoExecutando() 
+
+void GTGame::gatilhoJogoExecutando()
 {
     //opicional implementação de acordo com a necessidade
 }
-bool GTJogo::gatilhoJogoFaseCarregar() 
+
+bool GTGame::gatilhoJogoFaseCarregar()
 {
     //opicional implementação de acordo com a necessidade
     return true;
 }
-bool GTJogo::gatilhoJogoFaseFinalizada() 
+
+bool GTGame::gatilhoJogoFaseFinalizada()
 {
     //opicional implementação de acordo com a necessidade
     return true;
 }
-void GTJogo::setJogoInicio() 
+
+void GTGame::setJogoInicio()
 {
     estado=GAT_EJ_INICIO;
 }
