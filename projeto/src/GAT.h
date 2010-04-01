@@ -18,7 +18,7 @@
 #include "GTJogo.h"
 #include "GBFramework.h"
 #include "UIWindowRecord.h"
-#include "RSManager.h"
+#include "ScoreManager.h"
 #include "UIMenuAbstract.h"
 #include "TimerProgressive.h"
 
@@ -66,7 +66,7 @@ class GAT : public GTEstadoGeral, public GTTopGaleria, public GTMenu, public GTJ
 
         UserInterface::Window::UIWindowRecord * uiRecordeNovo;
 
-        RankingSystem::RSManager * recordeManager;
+        Score::ScoreManager * recordeManager;
 
         UserInterface::Menu::UIMenuAbstract * uiMenuPrincipal;
 

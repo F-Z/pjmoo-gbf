@@ -29,7 +29,7 @@ GAT::GAT(int argc, char * argv[])
 
     frameworkGBF    = new GBF::GBFramework();
 
-    recordeManager  = new RankingSystem::RSManager();
+    recordeManager  = new Score::ScoreManager();
     uiRecordeNovo   = NULL;
     uiMenuPrincipal = NULL;
 
@@ -68,7 +68,7 @@ bool GAT::isFullScreen()
 void GAT::executar()
 {
     //Inicialização de classes extras
-    RankingSystem::RSManager::setPathBase(frameworkGBF->getPath());
+    Score::ScoreManager::setPathBase(frameworkGBF->getPath());
 
     while (looping) {
         escutar();

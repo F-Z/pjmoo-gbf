@@ -1,47 +1,44 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+#include "ScoreList.h"
 
-#include "RSLista.h"
+namespace Score {
 
-namespace RankingSystem {
-
-const int RSLista::tamanho;
+const int ScoreList::tamanho;
 
 //Construtor
-RSLista::RSLista() 
+ScoreList::ScoreList()
 {
     for (int i=0; i<tamanho; i++){
         recorde[i].inicializar();
     }
 }
 //Destrutor
-RSLista::~RSLista() 
+ScoreList::~ScoreList()
 {
 //não implementado
 }
 //Retorna o Primeiro recorde
-RSRecorde RSLista::getPrimeiro() 
+Score ScoreList::getPrimeiro()
 {
     return recorde[0];
 }
 //Retorna o Último recorde
-RSRecorde RSLista::getUltimo() 
+Score ScoreList::getUltimo()
 {
     return recorde[(tamanho-1)];
 }
 //Retorna um recorde
-RSRecorde RSLista::getRecorde(int indice) 
+Score ScoreList::getRecorde(int indice)
 {
     if ((indice<0)||(indice>=tamanho)){
         throw "Indice não existente";
@@ -50,7 +47,7 @@ RSRecorde RSLista::getRecorde(int indice)
     }
 }
 //Pesquisa se o recorde ja existe
-bool RSLista::pesquisar(RSRecorde pesquisa) 
+bool ScoreList::pesquisar(Score pesquisa)
 {
     bool retorno = false;
 
@@ -66,7 +63,7 @@ bool RSLista::pesquisar(RSRecorde pesquisa)
     return retorno;
 }
 //Adiciona um novo recorde
-bool RSLista::adicionar(RSRecorde novo) 
+bool ScoreList::adicionar(Score novo)
 {
     bool retorno = false;
 
@@ -79,10 +76,10 @@ bool RSLista::adicionar(RSRecorde novo)
     return retorno;
 }
 //Ordena os recorde, em ordem descrecente
-void RSLista::ordenar() 
+void ScoreList::ordenar()
 {
     int passo,Pi,j,indice;
-    RSRecorde recordeAuxiliar;
+    Score recordeAuxiliar;
     int Ppasso[4]={5,3,2,1};
 
     for (Pi=0; Pi<4; Pi++ ){
@@ -103,7 +100,7 @@ void RSLista::ordenar()
     }
 }
 //Adiciona um recorde no final da listagem
-bool RSLista::adicionarFinal(RSRecorde novo) 
+bool ScoreList::adicionarFinal(Score novo)
 {
     bool retorno = true;
 
@@ -118,12 +115,12 @@ bool RSLista::adicionarFinal(RSRecorde novo)
     return retorno;
 }
 //Retorna a lista de recordes (Utilizado para salvar a lista em arquivo)
-RSRecorde * RSLista::getLista() 
+Score * ScoreList::getLista()
 {
     return &recorde[0];
 }
 //Seta uma lista de recordes (Utilizado para carregar a lista de um arquivo)
-void RSLista::setLista(const RSRecorde lista[]) 
+void ScoreList::setLista(const Score lista[])
 {
     for (int i=0; i<tamanho; i++){
         recorde[i]=lista[i];

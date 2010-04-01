@@ -16,7 +16,7 @@
 #include "UIKeyboard.h"
 #include "UITextField.h"
 #include "UINumberField.h"
-#include "RSRecorde.h"
+#include "Score.h"
 #include "UIBackgroundColor.h"
 #include <string>
 
@@ -52,10 +52,10 @@ class UIWindowRecord : public UIWindow
         void setFontInput(std::string fontLabel, std::string fontValue);
 
         /** Retorna o TopSystemRecorde */
-        RankingSystem::RSRecorde getRecord();
+        Score::Score getRecord();
 
         /** Atribui um RSRecorde para complementar os dados */
-        void setRecord(RankingSystem::RSRecorde record);
+        void setRecord(Score::Score record);
 
         /** Gerencia o controle do cursor (navegação) e as opções selecionadas */
         bool isAction(int action);
@@ -84,7 +84,7 @@ class UIWindowRecord : public UIWindow
 
         UserInterface::Component::UINumberField textScore;
 
-        RankingSystem::RSRecorde record;
+        Score::Score record;
 
         UserInterface::Look::UIBackgroundColor * background;
 

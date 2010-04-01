@@ -189,13 +189,13 @@ void UIWindowRecord::setFontInput(std::string fontLabel, std::string fontValue)
 }
 
 /** Retorna o TopSystemRecorde */
-RankingSystem::RSRecorde UIWindowRecord::getRecord()
+Score::Score UIWindowRecord::getRecord()
 {
     return record;
 }
 
 /** Atribui um RSRecorde para complementar os dados */
-void UIWindowRecord::setRecord(RankingSystem::RSRecorde record)
+void UIWindowRecord::setRecord(Score::Score record)
 {
     this->record  = record;
     nameIndex    = 0;
