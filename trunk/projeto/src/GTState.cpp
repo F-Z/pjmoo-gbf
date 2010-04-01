@@ -1,38 +1,35 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
-
-#include "GTEstadoGeral.h"
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
+#include "GTState.h"
 
 namespace GAT {
 
 //Construtor
-GTEstadoGeral::GTEstadoGeral()
+GTState::GTState()
 {
     setInicio();
 }
 
 //Destrutor
-GTEstadoGeral::~GTEstadoGeral()
+GTState::~GTState()
 {
 }
 
-EstadoGeral GTEstadoGeral::processarEstadoGeral()
+State GTState::processarEstadoGeral()
 {
     return estado;
 }
 
-bool GTEstadoGeral::setMenu()
+bool GTState::setMenu()
 {
     bool mudou = false;
     //if ((estado!=GAT_EG_MENU)&&(isTempoEspera())){
@@ -51,7 +48,7 @@ bool GTEstadoGeral::setMenu()
     return mudou;
 }
 
-void GTEstadoGeral::setApresentacao()
+void GTState::setApresentacao()
 {
     if (estado != GAT_EG_APRESENTACAO){
         if ((estado == GAT_EG_MENU)
@@ -62,7 +59,7 @@ void GTEstadoGeral::setApresentacao()
     }
 }
 
-bool GTEstadoGeral::setJogo()
+bool GTState::setJogo()
 {
     bool mudou = false;
 
@@ -78,7 +75,7 @@ bool GTEstadoGeral::setJogo()
     return mudou;
 }
 
-bool GTEstadoGeral::setTopGaleria()
+bool GTState::setTopGaleria()
 {
     bool mudou = false;
 
@@ -92,7 +89,7 @@ bool GTEstadoGeral::setTopGaleria()
     return mudou;
 }
 
-void GTEstadoGeral::setSair()
+void GTState::setSair()
 {
 //    if ((eEstadoGeral!=GAT_EG_SAIR)&&
 //        (eEstadoGeral==GAT_EG_MENU)&&
@@ -103,32 +100,32 @@ void GTEstadoGeral::setSair()
     }
 }
 
-void GTEstadoGeral::gatilhoMenu()
+void GTState::gatilhoMenu()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTEstadoGeral::gatilhoApresentacao()
+void GTState::gatilhoApresentacao()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTEstadoGeral::gatilhoJogo()
+void GTState::gatilhoJogo()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTEstadoGeral::gatilhoTopGaleria()
+void GTState::gatilhoTopGaleria()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTEstadoGeral::gatilhoSair()
+void GTState::gatilhoSair()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTEstadoGeral::setInicio()
+void GTState::setInicio()
 {
     estado = GAT_EG_INICIO;
 }
