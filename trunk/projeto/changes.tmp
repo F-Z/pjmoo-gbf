@@ -66,3 +66,5 @@ Updated	GTTopGaleria, refatorando para GTScore;
 Updated	GTJogo, refatorando para GTGame;
 Updated	GTMaquinaEstado, refatorando para GTTime;
 Updated	GTEstadoGeral, refatorando para GTState;
+Updated	Score, refatorando métodos e variáveis;
+Updated	GAT, refatorando métodos e variáveis;
