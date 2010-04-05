@@ -15,6 +15,7 @@
 #include <string>
 #include <cstring>
 
+/** Namespace para Galeria de Recordes (Top 10). */
 namespace Score {
 
 /**
@@ -25,19 +26,20 @@ struct Score
 {
     unsigned int id;
 
-    char nome[11];
+    char name[11];
 
-    unsigned int pontos;
+    unsigned int score;
 
-    char dataPublicacao[11];
+    char date[11];
 
-    char tipo[6];
+    char type[6];
 
-    unsigned int fase;
+    unsigned int stage;
 
-    unsigned int tempo;
+    unsigned int time;
 
-    void inicializar();
+    /** Inicializa todos os atributos */
+    void initialize();
 
 };
 

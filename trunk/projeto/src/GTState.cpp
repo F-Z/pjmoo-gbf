@@ -13,13 +13,13 @@
 
 namespace GAT {
 
-//Construtor
+/** Construtor */
 GTState::GTState()
 {
-    setInicio();
+    setStateStart();
 }
 
-//Destrutor
+/** Destrutor */
 GTState::~GTState()
 {
 }
@@ -32,102 +32,93 @@ State GTState::processarEstadoGeral()
 bool GTState::setMenu()
 {
     bool mudou = false;
-    //if ((estado!=GAT_EG_MENU)&&(isTempoEspera())){
 
-    if (estado != GAT_EG_MENU){
-        if ((estado == GAT_EG_APRESENTACAO)
-                || (estado == GAT_EG_JOGO)
-                || (estado == GAT_EG_TOPGALERIA)){
-            estado = GAT_EG_MENU;
+    if ((estado == STATE_INTRODUCTION) || (estado == STATE_GAME) || (estado == STATE_SCORE)){
+        if (triggerMenu()){
+            estado = STATE_MENU;
             mudou = true;
-            gatilhoMenu();
-            reiniciarTempo();
+            reset();
         }
     }
 
     return mudou;
 }
 
-void GTState::setApresentacao()
+void GTState::setIntroduction()
 {
-    if (estado != GAT_EG_APRESENTACAO){
-        if ((estado == GAT_EG_MENU)
-                || (estado == GAT_EG_INICIO)){
-            gatilhoApresentacao();
-            estado = GAT_EG_APRESENTACAO;
+    if ((estado == STATE_MENU) || (estado == STATE_START)){
+        if (triggerIntroduction()){
+            estado = STATE_INTRODUCTION;
         }
     }
 }
 
-bool GTState::setJogo()
+bool GTState::setGame()
 {
     bool mudou = false;
 
-    if ((estado != GAT_EG_JOGO)
-            //&&(estado==GAT_EG_MENU)&&(isTempoEspera())){
-            && (estado == GAT_EG_MENU)){
-        estado = GAT_EG_JOGO;
-        mudou = true;
-        gatilhoJogo();
-        //reiniciarTempo();
+    if ((estado != STATE_GAME) && (estado == STATE_MENU)){
+        if (triggerGame()){
+            estado = STATE_GAME;
+            mudou = true;
+        }
     }
 
     return mudou;
 }
 
-bool GTState::setTopGaleria()
+bool GTState::setScore()
 {
     bool mudou = false;
 
-    if ((estado != GAT_EG_TOPGALERIA) && (isTempoEspera())){
-        estado = GAT_EG_TOPGALERIA;
-        gatilhoJogo();
-        mudou = true;
-        reiniciarTempo();
+    if ((estado != STATE_SCORE) && (isFinish())){
+        if (triggerScore()){
+            estado = STATE_SCORE;
+            mudou = true;
+            reset();
+        }
     }
 
     return mudou;
 }
 
-void GTState::setSair()
+void GTState::setQuit()
 {
-//    if ((eEstadoGeral!=GAT_EG_SAIR)&&
-//        (eEstadoGeral==GAT_EG_MENU)&&
-//        (isTempoEspera())){
-    if (estado != GAT_EG_SAIR){ //provisorio
-        gatilhoSair();
-        estado = GAT_EG_SAIR;
+    if (estado != STATE_QUIT){
+        if (triggerQuit()){
+            estado = STATE_QUIT;
+        }
     }
 }
 
-void GTState::gatilhoMenu()
+bool GTState::triggerMenu()
 {
-    //opcional implementação de acordo com a necessidade
+    return true;
 }
 
-void GTState::gatilhoApresentacao()
+bool GTState::triggerIntroduction()
 {
-    //opcional implementação de acordo com a necessidade
+    return true;
 }
 
-void GTState::gatilhoJogo()
+bool GTState::triggerGame()
 {
-    //opcional implementação de acordo com a necessidade
+    return true;
 }
 
-void GTState::gatilhoTopGaleria()
+bool GTState::triggerScore()
 {
-    //opcional implementação de acordo com a necessidade
+    return true;
 }
 
-void GTState::gatilhoSair()
+bool GTState::triggerQuit()
 {
-    //opcional implementação de acordo com a necessidade
+    return true;
 }
 
-void GTState::setInicio()
+void GTState::setStateStart()
 {
-    estado = GAT_EG_INICIO;
+    estado = STATE_START;
 }
 
 } // namespace GAT

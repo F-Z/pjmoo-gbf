@@ -13,30 +13,37 @@
 
 namespace GAT {
 
-GBF::Kernel::Timer::TimerRegressive GTTime::tempoEspera;
+GBF::Kernel::Timer::TimerRegressive GTTime::time;
 
-//Construtor
+/** Construtor */
 GTTime::GTTime()
 {
-    tempoEspera.setInitialTime(1);
-    tempoEspera.setUnit(GBF::Kernel::Timer::TIME_SECOND_HALF);
-    tempoEspera.setReset();
+    time.setInitialTime(1);
+    time.setUnit(GBF::Kernel::Timer::TIME_SECOND_HALF);
+    time.setReset();
 }
-//Destrutor
+
+/** Destrutor */
 GTTime::~GTTime()
 {
 }
-bool GTTime::isTempoEspera()
+
+/** Informa se o tempo já terminou. */
+bool GTTime::isFinish()
 {
-    return tempoEspera.isFinish();
+    return time.isFinish();
 }
-void GTTime::reiniciarTempo()
+
+/** Reseta a contagem do tempo. */
+void GTTime::reset()
 {
-    tempoEspera.setReset();
+    time.setReset();
 }
-void GTTime::executarTempo()
+
+/** Atualiza o processamento do tempo. */
+void GTTime::update()
 {
-    tempoEspera.update();
+    time.update();
 }
 
 } // namespace GAT

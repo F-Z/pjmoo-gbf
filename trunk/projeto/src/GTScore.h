@@ -16,52 +16,54 @@
 
 namespace GAT {
 
-enum StateScore {
-    GAT_ET_INICIO = 0,
-    GAT_ET_NOVO = 10,
-    GAT_ET_SALVAR = 20,
-    GAT_ET_EXIBIR = 30
+enum StateScore
+{
+    SCORE_VIEW =  0,
+    SCORE_NEW  = 10,
+    SCORE_SAVE = 20
 };
 
 class GTScore : public GTTime
 {
     public:
-        //Construtor
+
+        /** Construtor */
         GTScore();
 
-        //Destrutor
+        /** Destrutor */
         virtual ~GTScore();
 
-        StateScore processarEstadoTopGaleria();
-
+        /** Retorna o Estado do Score */
+        StateScore getScoreState();
 
     protected:
-        void loopTopGaleria();
 
-        void setTopGaleriaNovo();
+        void loopScore();
 
-        void setTopGaleriaSalvar();
+        void setScoreNew();
 
-        void setTopGaleriaExibir();
+        void setScoreSave();
 
-        virtual void topGaleriaNovo() = 0;
+        void setScoreView();
 
-        virtual void topGaleriaSalvar() = 0;
+        /** Tela para Entrada do Novo Recorde */
+        virtual void screenNewScore() = 0;
 
-        virtual void topGaleriaExibir() = 0;
+        /** Ação para Salvar o Novo Recorde */
+        virtual void actionSaveScore() = 0;
 
-        virtual bool gatilhoTopGaleriaNovo();
+        /** Tela para Visualização dos Recordes */
+        virtual void screenViewScore() = 0;
 
-        virtual bool gatilhoTopGaleriaSalvar();
+        virtual bool triggerNewScore();
 
-        virtual bool gatilhoTopGaleriaExibir();
+        virtual bool triggerSaveScore();
 
-        void setTopGaleriaInicio();
+        virtual bool triggerViewScore();
 
     private:
-        StateScore estado;
 
-
+        StateScore state;
 };
 
 } // namespace GAT

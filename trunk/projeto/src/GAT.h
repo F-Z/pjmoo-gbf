@@ -22,6 +22,7 @@
 #include "UIMenuAbstract.h"
 #include "TimerProgressive.h"
 
+/** Namespace para Template de Aplicação do framework */
 namespace GAT {
 
 /**
@@ -38,29 +39,26 @@ class GAT : public GTState, public GTScore, public GTMenu, public GTGame
 
         bool isFullScreen();
 
-        void executar();
-
-        virtual void interpretadorGlobal();
+        void execute();
 
     protected:
 
-        /** Apresentação do jogo */
-        virtual void apresentacao();
+        virtual void executeIntroduction();
 
         /** Tela para entrada de Novo Recorde */
-        virtual void topGaleriaNovo();
+        virtual void screenNewScore();
 
-        /** Tela para Salvar Novo Recorde */
-        virtual void topGaleriaSalvar();
+        /** Ação para Salvar o Novo Recorde */
+        virtual void actionSaveScore();
 
-        /** Tela para Exibição dos Recordes */
-        virtual void topGaleriaExibir();
+        /** Tela para Visualização dos Recordes */
+        virtual void screenViewScore();
 
-        bool setJogo();
+        bool setGame();
 
         bool setMenu();
 
-        bool setTopGaleria();
+        bool setScore();
 
         GBF::GBFramework * frameworkGBF;
 
@@ -72,21 +70,23 @@ class GAT : public GTState, public GTScore, public GTMenu, public GTGame
 
         GBF::Kernel::Timer::TimerProgressive tempoInativo;
 
+        virtual void hookGlobal();
+
     private:
 
         bool looping;
 
         bool fullscreen;
 
-        void escutar();
+        void loopGAT();
 
-        void menu();
+        void executeMenu();
 
-        void jogo();
+        void executeGame();
 
-        void topGaleria();
+        void executeScore();
 
-        void sair();
+        void quit();
 
 };
 

@@ -16,7 +16,7 @@ namespace GAT {
 //Construtor
 GTGame::GTGame()
 {
-    setJogoInicio();
+    setGameStart();
 }
 
 //Destrutor
@@ -29,128 +29,126 @@ StateGame GTGame::processarEstadoJogo()
     return estado;
 }
 
-void GTGame::loopJogo()
+void GTGame::loopGame()
 {
     switch(processarEstadoJogo()){
-        case GAT_EJ_EXECUTANDO:
-                jogoExecutando();
+        case GAME_ON:
+                actionOnGame();
             break;
-        case GAT_EJ_PAUSE:
-                jogoPause();
+        case GAME_PAUSE:
+                screenGamePause();
             break;
-        case GAT_EJ_FASE_CARREGAR:
-                jogoFaseCarregar();
+        case GAME_STAGE_LOAD:
+                screenLoadStage();
             break;
-        case GAT_EJ_FASE_FINALIZADA:
-                jogoFaseFinalizada();
+        case GAME_STAGE_FINISH:
+                screenFinishStage();
             break;
-        case GAT_EJ_GAMEOVER:
-                jogoGameOver();
+        case GAME_OVER:
+                screenGameOver();
             break;
-        case GAT_EJ_ZERADO:
-                jogoZerado();
+        case GAME_FINISH:
+                screenGameFinish();
             break;
-        case GAT_EJ_NOVO:
-                jogoNovo();
+        case GAME_NEW:
+                actionNewGame();
             break;
-        case GAT_EJ_INICIO:
+        case GAME_START:
         default:
-                setJogoNovo();
+                setNewGame();
             break;
     }
 }
 
-void GTGame::setJogoNovo()
+void GTGame::setNewGame()
 {
-    if ((estado==GAT_EJ_INICIO)||((estado!=GAT_EJ_NOVO)&&(isTempoEspera()))){
-        estado=GAT_EJ_NOVO;
-        gatilhoJogoNovo();
-        reiniciarTempo();
+    if ((estado==GAME_START)||((estado!=GAME_NEW)&&(isFinish()))){
+        estado=GAME_NEW;
+        triggerNewGame();
+        reset();
     }
 }
 
 //Coloca o jogo em estado de execução imediata
-void GTGame::setJogoExecutando()
+void GTGame::setOnGame()
 {
 //    if ((estado!=GAT_EJ_EXECUTANDO)&&(isTempoEspera())){
-    if (estado!=GAT_EJ_EXECUTANDO){
-        gatilhoJogoExecutando();
-        estado=GAT_EJ_EXECUTANDO;
+    if (estado!=GAME_ON){
+        triggerOnGame();
+        estado=GAME_ON;
 //      reiniciarTempo();
     }
 }
 
-void GTGame::setJogoPause()
+void GTGame::setGamePause()
 {
-    if ((estado!=GAT_EJ_PAUSE)&&(isTempoEspera())){
+    if ((estado!=GAME_PAUSE)&&(isFinish())){
         //gatilhoJogoExecutando();
-        estado=GAT_EJ_PAUSE;
-        reiniciarTempo();
+        estado=GAME_PAUSE;
+        reset();
     }
 }
 
-void GTGame::setJogoFaseCarregar()
+void GTGame::setLoadStage()
 {
-    if ((estado!=GAT_EJ_FASE_CARREGAR)&&(isTempoEspera())){
-        if (gatilhoJogoFaseCarregar()){
-            estado=GAT_EJ_FASE_CARREGAR;
-            reiniciarTempo();
+    if ((estado!=GAME_STAGE_LOAD)&&(isFinish())){
+        if (triggerLoadStage()){
+            estado=GAME_STAGE_LOAD;
+            reset();
         }
     }
 }
 
-void GTGame::setJogoFaseFinalizada()
+void GTGame::setFinishStage()
 {
-    if (estado!=GAT_EJ_FASE_FINALIZADA){
-        estado=GAT_EJ_FASE_FINALIZADA;
-        gatilhoJogoFaseFinalizada();
-        reiniciarTempo();
+    if (estado!=GAME_STAGE_FINISH){
+        estado=GAME_STAGE_FINISH;
+        triggerFinishStage();
+        reset();
     }
 }
 
-void GTGame::setJogoGameOver()
+void GTGame::setGameOver()
 {
-    if ((estado!=GAT_EJ_GAMEOVER)&&(isTempoEspera())){
+    if ((estado!=GAME_OVER)&&(isFinish())){
         //gatilhoJogoExecutando();
-        estado=GAT_EJ_GAMEOVER;
-        reiniciarTempo();
+        estado=GAME_OVER;
+        reset();
     }
 }
 
-void GTGame::setJogoZerado()
+void GTGame::setGameFinish()
 {
-    if (estado!=GAT_EJ_ZERADO){
+    if (estado!=GAME_FINISH){
         //gatilhoJogoExecutando();
-        estado=GAT_EJ_ZERADO;
-        reiniciarTempo();
+        estado=GAME_FINISH;
+        reset();
     }
 }
 
-void GTGame::gatilhoJogoNovo()
+void GTGame::triggerNewGame()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
 
-void GTGame::gatilhoJogoExecutando()
+void GTGame::triggerOnGame()
 {
-    //opicional implementação de acordo com a necessidade
+    //opcional implementação de acordo com a necessidade
 }
 
-bool GTGame::gatilhoJogoFaseCarregar()
+bool GTGame::triggerLoadStage()
 {
-    //opicional implementação de acordo com a necessidade
     return true;
 }
 
-bool GTGame::gatilhoJogoFaseFinalizada()
+bool GTGame::triggerFinishStage()
 {
-    //opicional implementação de acordo com a necessidade
     return true;
 }
 
-void GTGame::setJogoInicio()
+void GTGame::setGameStart()
 {
-    estado=GAT_EJ_INICIO;
+    estado=GAME_START;
 }
 
 } // namespace GAT

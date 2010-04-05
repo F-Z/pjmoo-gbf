@@ -19,23 +19,27 @@ namespace GAT {
 class GTTime
 {
     public:
-        //Construtor
+
+        /** Construtor */
         GTTime();
 
-        //Destrutor
+        /** Destrutor */
         virtual ~GTTime();
 
 
     protected:
-        static bool isTempoEspera();
+        /** Informa se o tempo já terminou. */
+        static bool isFinish();
 
-        static void reiniciarTempo();
+        /** Reseta a contagem do tempo. */
+        static void reset();
 
-        static void executarTempo();
+        /** Atualiza o processamento do tempo. */
+        static void update();
 
     private:
 
-        static GBF::Kernel::Timer::TimerRegressive tempoEspera;
+        static GBF::Kernel::Timer::TimerRegressive time;
 
 };
 

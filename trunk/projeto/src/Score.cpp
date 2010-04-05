@@ -13,15 +13,16 @@
 
 namespace Score {
 
-void Score::inicializar()
+/** Inicializa todos os atributos */
+void Score::initialize()
 {
     id = 0;
-    fase = 0;
-    tempo = 0;
-    pontos = 0;
-    strcpy(nome, "");
-    strcpy(dataPublicacao, "");
-    strcpy(tipo, "Local");
+    stage = 0;
+    time = 0;
+    score = 0;
+    strcpy(name, "");
+    strcpy(date, "");
+    strcpy(type, "Local");
 }
 
 } // namespace Score

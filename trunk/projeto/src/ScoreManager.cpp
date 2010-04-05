@@ -19,27 +19,29 @@ int ScoreManager::assCheck[assCheckSize] = {'N' + 'a' + 'o' + 'E' + 'V' + 'a' + 
 
 std::string ScoreManager::pathBase;
 
-//Construtor
+/** Construtor */
 ScoreManager::ScoreManager()
 {
-//não implementado
 }
-//Destrutor
+
+/** Destrutor */
 ScoreManager::~ScoreManager()
 {
-//não implementado
 }
-//Adiciona um recorde
-bool ScoreManager::adicionar(Score recorde)
+
+/** Adiciona um recorde */
+bool ScoreManager::add(Score recorde)
 {
-    return lista.adicionar(recorde);
+    return list.add(recorde);
 }
-//Retorna um recorde com base no indice
-Score ScoreManager::getRecorde(int indice)
+
+/** Retorna um recorde com base no indice */
+Score ScoreManager::getScore(int index)
 {
-    return lista.getRecorde(indice);
+    return list.getScore(index);
 }
-//Salva recordes em arquivo
+
+/** Salva recordes em arquivo */
 bool ScoreManager::save()
 {
     FILE *handleArquivo;
@@ -50,7 +52,7 @@ bool ScoreManager::save()
     if (handleArquivo != NULL){
         fwrite(assCheck, sizeof(int), assCheckSize, handleArquivo);
         //fwrite(&lista.recorde, sizeof(TopSystemRecorde[10]), 1, handleArquivo);
-        fwrite(lista.getLista(), sizeof(Score[10]), 1, handleArquivo);
+        fwrite(list.getArray(), sizeof(Score[10]), 1, handleArquivo);
         fclose(handleArquivo);
         retorno = true;
     } else {
@@ -65,7 +67,8 @@ bool ScoreManager::save()
 
     return retorno;
 }
-//Carrega recordes de um arquivo
+
+/** Carrega recordes de um arquivo */
 bool ScoreManager::load()
 {
     FILE *handleArquivo;
@@ -79,9 +82,9 @@ bool ScoreManager::load()
         fread(assLocal, sizeof(int), assCheckSize, handleArquivo);
         //fread(&lista.recorde, sizeof(TopSystemRecorde[10]), 1, handleArquivo);
 
-        Score recorde[10];
-        fread(&recorde, sizeof(Score[10]), 1, handleArquivo);
-        lista.setLista(recorde);
+        Score scores[10];
+        fread(&scores, sizeof(Score[10]), 1, handleArquivo);
+        list.setArray(scores);
 
         fclose(handleArquivo);
         retorno  = true;
@@ -104,34 +107,37 @@ bool ScoreManager::load()
 
     return retorno;
 }
-//Adiciona uma lista de recordes
-void ScoreManager::setRecordeLista(ScoreList lista)
+
+/** Adiciona uma lista de scores */
+void ScoreManager::setScoreList(ScoreList list)
 {
-    this->lista = lista;
+    this->list = list;
 }
-//Informa o arquivo para carregar e salvar os recordes
+
+/** Informa o arquivo para carregar e salvar os recordes */
 void ScoreManager::setFileName(std::string fileName)
 {
     this->fileName = pathBase;
     this->fileName += fileName;
 }
-//Configura o caminho do arquivo de recordes
+
+/** Configura o caminho do arquivo de recordes */
 void ScoreManager::setPathBase(std::string path)
 {
     pathBase = path;
 }
 
-//Configura a assinatura do arquivo de recordes
-void ScoreManager::setAssinatura(int jogoNome, int jogoSigla, int jogoVersao)
+/** Configura a assinatura do arquivo de recordes */
+void ScoreManager::setCheck(int gameName, int gameInfo, int gameVersion)
 {
-    assCheck[0] = jogoNome;
-    assCheck[1] = jogoSigla;
-    assCheck[2] = jogoVersao;
+    assCheck[0] = gameName;
+    assCheck[1] = gameInfo;
+    assCheck[2] = gameVersion;
 }
-//Verificar se um recorde já existe
-bool ScoreManager::pesquisar(Score pesquisa)
+/** Verificar se um recorde já existe */
+bool ScoreManager::search(Score score)
 {
-    return lista.pesquisar(pesquisa);
+    return list.isExist(score);
 }
 
 } // namespace RankingSystem

@@ -20,55 +20,50 @@ namespace Score {
  * Classe para gerenciamento de lista de recordes.
  * Gerenciar uma listagem de recordes.
  */
-class ScoreList {
-  public:
-    static const int tamanho=  10;
+class ScoreList
+{
+    public:
 
+        static const int size =  10;
 
-  protected:
-    Score recorde[10];
+        /** Construtor */
+        ScoreList();
 
+        /** Destrutor */
+        virtual ~ScoreList();
 
-  public:
-    //Construtor
-    ScoreList();
+        /** Retorna o Primeiro recorde */
+        Score getFirst();
 
-    //Destrutor
-    virtual ~ScoreList();
+        /** Retorna o Último recorde */
+        Score getLast();
 
-    //Retorna o Primeiro recorde
-    Score getPrimeiro();
+        /** Retorna um score */
+        Score getScore(int index);
 
-    //Retorna o Último recorde
-    Score getUltimo();
+        /** Pesquisa se o recorde ja existe */
+        bool isExist(Score score);
 
-    //Retorna um recorde
-    Score getRecorde(int indice);
+        /** Adiciona um novo recorde */
+        bool add(Score score);
 
-    //Pesquisa se o recorde ja existe
-    bool pesquisar(Score pesquisa);
+        /** Retorna a lista de recordes. Utilizado para salvar a lista em arquivo. */
+        Score * getArray();
 
-    //Adiciona um novo recorde
-    bool adicionar(Score novo);
+        /** Seta uma lista de recordes. Utilizado para carregar a lista de um arquivo. */
+        void setArray(const Score list[]);
 
+    protected:
 
-  protected:
-    //Ordena os recorde, em ordem descrecente
-    void ordenar();
+        Score scores[10];
 
+        /** Ordena os recorde, em ordem descrecente. */
+        void sort();
 
-  private:
-    //Adiciona um recorde no final da listagem
-    bool adicionarFinal(Score novo);
+    private:
 
-
-  public:
-    //Retorna a lista de recordes (Utilizado para salvar a lista em arquivo)
-    Score * getLista();
-
-    //Seta uma lista de recordes (Utilizado para carregar a lista de um arquivo)
-    void setLista(const Score lista[]);
-
+        /** Adiciona um recorde no final da listagem */
+        bool addLast(Score score);
 };
 
 } // namespace Score
