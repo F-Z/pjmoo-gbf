@@ -5,7 +5,7 @@
 		<Option title="GBF Framework" />
 		<Option pch_mode="0" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Character/;GBF/;ParticleSystem/;GBF/Kernel/;GBF/Kernel/FPS/;GBF/Color/;GBF/Kernel/Sound/;GBF/Kernel/Timer/;GBF/Kernel/Util/;GBF/Kernel/Input/;GBF/Kernel/Graphic/;GBF/Kernel/Write/;UserInterface/;GBF/Image/;GBF/Image/Sprite/;GBF/Image/Layer/;UserInterface/Look/;UserInterface/Component/;UserInterface/Text/;UserInterface/Window/;UserInterface/Menu/;Score/;" />
+		<Option virtualFolders="Character/;GBF/;ParticleSystem/;GBF/Kernel/;GBF/Kernel/FPS/;GBF/Color/;GBF/Kernel/Sound/;GBF/Kernel/Timer/;GBF/Kernel/Util/;GBF/Kernel/Input/;GBF/Kernel/Graphic/;GBF/Kernel/Write/;UserInterface/;GBF/Image/;GBF/Image/Sprite/;GBF/Image/Layer/;UserInterface/Look/;UserInterface/Component/;UserInterface/Text/;UserInterface/Window/;UserInterface/Menu/;Score/;GAT/;src/;" />
 		<Build>
 			<Target title="linux - release">
 				<Option output="bin/linux/release/libGBF.a" prefix_auto="0" extension_auto="0" />
@@ -168,8 +168,12 @@
 		<Unit filename="src/FrameLayer.h">
 			<Option virtualFolder="GBF/Image/Layer/" />
 		</Unit>
-		<Unit filename="src/GAT.cpp" />
-		<Unit filename="src/GAT.h" />
+		<Unit filename="src/GAT.cpp">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GAT.h">
+			<Option virtualFolder="GAT/" />
+		</Unit>
 		<Unit filename="src/GBF.h">
 			<Option virtualFolder="GBF/" />
 		</Unit>
@@ -185,20 +189,36 @@
 		<Unit filename="src/GFX.h">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
-		<Unit filename="src/GTEstadoGeral.h" />
-		<Unit filename="src/GTGame.cpp" />
-		<Unit filename="src/GTGame.h" />
-		<Unit filename="src/GTJogo.h" />
-		<Unit filename="src/GTMaquinaEstado.h" />
-		<Unit filename="src/GTMenu.cpp" />
-		<Unit filename="src/GTMenu.h" />
-		<Unit filename="src/GTScore.cpp" />
-		<Unit filename="src/GTScore.h" />
-		<Unit filename="src/GTState.cpp" />
-		<Unit filename="src/GTState.h" />
-		<Unit filename="src/GTTime.cpp" />
-		<Unit filename="src/GTTime.h" />
-		<Unit filename="src/GTTopGaleria.h" />
+		<Unit filename="src/GTGame.cpp">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTGame.h">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTMenu.cpp">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTMenu.h">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTScore.cpp">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTScore.h">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTState.cpp">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTState.h">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTTime.cpp">
+			<Option virtualFolder="GAT/" />
+		</Unit>
+		<Unit filename="src/GTTime.h">
+			<Option virtualFolder="GAT/" />
+		</Unit>
 		<Unit filename="src/GraphicCore.cpp">
 			<Option virtualFolder="GBF/Kernel/Graphic/" />
 		</Unit>
