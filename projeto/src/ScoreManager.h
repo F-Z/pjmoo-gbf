@@ -24,49 +24,52 @@ namespace Score {
  * Classe para gerenciamento da listagem de recordes.
  * Permitir carregar e salvar em disco a listagem de recordes
  */
-class ScoreManager {
-
+class ScoreManager
+{
     public:
-        //Construtor
+
+        /** Construtor */
         ScoreManager();
 
-        //Destrutor
+        /** Destrutor */
         ~ScoreManager();
 
-        //Adiciona um recorde
-        bool adicionar(Score recorde);
+        /** Adiciona um recorde */
+        bool add(Score score);
 
-        //Retorna um recorde com base no indice
-        Score getRecorde(int indice);
+        /** Retorna um recorde com base no indice */
+        Score getScore(int index);
 
-        //Salva recordes em arquivo
+        /** Salva recordes em arquivo */
         bool save();
 
-        //Carrega recordes de um arquivo
+        /** Carrega recordes de um arquivo */
         bool load();
 
-        //Adiciona uma lista de recordes
-        void setRecordeLista(ScoreList lista);
+        /** Adiciona uma lista de scores */
+        void setScoreList(ScoreList list);
 
-        //Informa o arquivo para carregar e salvar os recordes
+        /** Informa o arquivo para carregar e salvar os recordes */
         void setFileName(std::string fileName);
 
-        //Configura o caminho do arquivo de recordes
+        /** Configura o caminho do arquivo de recordes */
         static void setPathBase(std::string path);
 
-        //Configura a assinatura do arquivo de recordes
-        void setAssinatura(int jogoNome, int jogoSigla, int jogoVersao);
+        /** Configura a assinatura do arquivo de recordes */
+        void setCheck(int gameName, int gameInfo, int gameVersion);
 
-        //Verificar se um recorde já existe
-        bool pesquisar(Score pesquisa);
+        /** Verificar se um recorde já existe */
+        bool search(Score score);
 
     protected:
+
         std::string fileName;
 
-        ScoreList lista;
+        ScoreList list;
 
 
     private:
+
         static const int assCheckSize =  3;
 
         static int assCheck[assCheckSize];

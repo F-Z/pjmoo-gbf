@@ -13,100 +13,106 @@
 
 namespace Score {
 
-const int ScoreList::tamanho;
+const int ScoreList::size;
 
-//Construtor
+/** Construtor */
 ScoreList::ScoreList()
 {
-    for (int i=0; i<tamanho; i++){
-        recorde[i].inicializar();
+    for (int i = 0; i < size; i++){
+        scores[i].initialize();
     }
 }
-//Destrutor
+
+/** Destrutor */
 ScoreList::~ScoreList()
 {
-//não implementado
 }
-//Retorna o Primeiro recorde
-Score ScoreList::getPrimeiro()
+
+/** Retorna o Primeiro recorde */
+Score ScoreList::getFirst()
 {
-    return recorde[0];
+    return scores[0];
 }
-//Retorna o Último recorde
-Score ScoreList::getUltimo()
+
+/** Retorna o Último recorde */
+Score ScoreList::getLast()
 {
-    return recorde[(tamanho-1)];
+    return scores[(size-1)];
 }
-//Retorna um recorde
-Score ScoreList::getRecorde(int indice)
+
+/** Retorna um score */
+Score ScoreList::getScore(int index)
 {
-    if ((indice<0)||(indice>=tamanho)){
-        throw "Indice não existente";
+    if ((index < 0) || (index >= size)){
+        throw "ScoreList:: Indice não existente ";
     } else {
-        return recorde[indice];
+        return scores[index];
     }
 }
-//Pesquisa se o recorde ja existe
-bool ScoreList::pesquisar(Score pesquisa)
+
+/** Pesquisa se o recorde ja existe */
+bool ScoreList::isExist(Score score)
 {
     bool retorno = false;
 
-    for (int i=0; i<tamanho; i++){
-        if ((recorde[i].id==pesquisa.id) &&
-            (recorde[i].pontos==pesquisa.pontos) &&
-            (recorde[i].pontos==pesquisa.pontos) &&
-            (recorde[i].fase==pesquisa.fase)){
-            retorno=true;
+    for (int i = 0; i < size; i++){
+        if ((scores[i].id == score.id) &&
+                (scores[i].score == score.score) &&
+                (scores[i].stage == score.stage)){
+            retorno = true;
         }
     }
 
     return retorno;
 }
-//Adiciona um novo recorde
-bool ScoreList::adicionar(Score novo)
+
+/** Adiciona um novo recorde */
+bool ScoreList::add(Score score)
 {
     bool retorno = false;
 
-    if (!pesquisar(novo)){
-        if (novo.pontos > getUltimo().pontos){
-            retorno = adicionarFinal(novo);
+    if (!isExist(score)){
+        if (score.score > getLast().score){
+            retorno = addLast(score);
         }
     }
 
     return retorno;
 }
-//Ordena os recorde, em ordem descrecente
-void ScoreList::ordenar()
+
+/** Ordena os recorde, em ordem descrecente. */
+void ScoreList::sort()
 {
-    int passo,Pi,j,indice;
+    int passo, Pi, j, indice;
     Score recordeAuxiliar;
-    int Ppasso[4]={5,3,2,1};
+    int Ppasso[4] = {5, 3, 2, 1};
 
-    for (Pi=0; Pi<4; Pi++ ){
+    for (Pi = 0; Pi < 4; Pi++){
 
-        passo=Ppasso[Pi];
+        passo = Ppasso[Pi];
 
-        for (indice=passo; indice < tamanho; indice++){
+        for (indice = passo; indice < size; indice++){
 
-            recordeAuxiliar=recorde[indice];
+            recordeAuxiliar = scores[indice];
 
-            for (j=indice-passo; recordeAuxiliar.pontos > recorde[j].pontos &&
-                j >=0; j-=passo){
-                    recorde[j+passo] = recorde[j];
+            for (j = indice - passo; recordeAuxiliar.score > scores[j].score &&
+                    j >= 0; j -= passo){
+                scores[j+passo] = scores[j];
             }
 
-            recorde[j+passo] = recordeAuxiliar;
+            scores[j+passo] = recordeAuxiliar;
         }
     }
 }
-//Adiciona um recorde no final da listagem
-bool ScoreList::adicionarFinal(Score novo)
+
+/** Adiciona um recorde no final da listagem */
+bool ScoreList::addLast(Score score)
 {
     bool retorno = true;
 
     try {
-        recorde[tamanho-1]=novo;
-        ordenar();
+        scores[size-1] = score;
+        sort();
     } catch (std::exception& e){
         retorno = false;
         //log do exception = e.what();
@@ -114,16 +120,18 @@ bool ScoreList::adicionarFinal(Score novo)
 
     return retorno;
 }
-//Retorna a lista de recordes (Utilizado para salvar a lista em arquivo)
-Score * ScoreList::getLista()
+
+/** Retorna a lista de recordes. Utilizado para salvar a lista em arquivo. */
+Score * ScoreList::getArray()
 {
-    return &recorde[0];
+    return &scores[0];
 }
-//Seta uma lista de recordes (Utilizado para carregar a lista de um arquivo)
-void ScoreList::setLista(const Score lista[])
+
+/** Seta uma lista de recordes. Utilizado para carregar a lista de um arquivo. */
+void ScoreList::setArray(const Score list[])
 {
-    for (int i=0; i<tamanho; i++){
-        recorde[i]=lista[i];
+    for (int i = 0; i < size; i++){
+        scores[i] = list[i];
     }
 }
 

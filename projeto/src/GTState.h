@@ -9,77 +9,76 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-#ifndef _GTESTADOGERAL_H
-#define _GTESTADOGERAL_H
+#ifndef _GTSTATE_H
+#define _GTSTATE_H
 
 #include "GTTime.h"
 
 namespace GAT {
 
-enum State {
-  GAT_EG_INICIO=0,
-  GAT_EG_MENU=10,
-  GAT_EG_APRESENTACAO=20,
-  GAT_EG_JOGO=30,
-  GAT_EG_TOPGALERIA=40,
-  GAT_EG_SAIR=60
+enum State
+{
+    STATE_START        =  0,
+    STATE_QUIT         = 10,
+    STATE_MENU         = 20,
+    STATE_INTRODUCTION = 30,
+    STATE_GAME         = 40,
+    STATE_SCORE        = 50
 };
 
 class GTState : public GTTime
 {
-  private:
-    State estado;
+    public:
+        /** Construtor */
+        GTState();
 
-  public:
-    //Construtor
-    GTState();
+        /** Destrutor */
+        virtual ~GTState();
 
-    //Destrutor
-    virtual ~GTState();
-
-    State processarEstadoGeral();
+        State processarEstadoGeral();
 
 
-  protected:
-    virtual bool setMenu();
+    protected:
 
-    void setApresentacao();
+        virtual bool setMenu();
 
-    virtual bool setJogo();
+        virtual void setIntroduction();
 
-    virtual bool setTopGaleria();
+        virtual bool setGame();
 
-    void setSair();
+        virtual bool setScore();
 
-    //Inicializa os recursos utilizados no jogo.
-    //Ex.: Imagens, sons, fontes, configuração do modo gráfico e etc..
-    virtual void inicializarRecursos() = 0;
+        void setQuit();
 
-    virtual void menu() = 0;
+        /** Inicializa os recursos utilizados no jogo. Imagens, sons, fontes, configuração do modo gráfico e etc .. */
+        virtual void loadResources() = 0;
 
-    virtual void apresentacao() = 0;
+        virtual void executeMenu() = 0;
 
-    virtual void jogo() = 0;
+        virtual void executeIntroduction() = 0;
 
-    virtual void topGaleria() = 0;
+        virtual void executeGame() = 0;
 
-    virtual void sair() = 0;
+        virtual void executeScore() = 0;
 
-    virtual void gatilhoMenu();
+        virtual void quit() = 0;
 
-    virtual void gatilhoApresentacao();
+        virtual bool triggerMenu();
 
-    virtual void gatilhoJogo();
+        virtual bool triggerIntroduction();
 
-    virtual void gatilhoTopGaleria();
+        virtual bool triggerGame();
 
-    virtual void gatilhoSair();
+        virtual bool triggerScore();
 
-
-  private:
-    void setInicio();
+        virtual bool triggerQuit();
 
 
+    private:
+
+        void setStateStart();
+
+        State estado;
 };
 
 } // namespace GAT

@@ -13,93 +13,86 @@
 
 namespace GAT {
 
-//Construtor
+/** Construtor */
 GTScore::GTScore()
 {
-    setTopGaleriaInicio();
+    setScoreView();
 }
 
-//Destrutor
+/** Destrutor */
 GTScore::~GTScore()
 {
 }
 
-StateScore GTScore::processarEstadoTopGaleria()
+/** Retorna o Estado do Score */
+StateScore GTScore::getScoreState()
 {
-    return estado;
+    return state;
 }
 
-void GTScore::loopTopGaleria()
+void GTScore::loopScore()
 {
-    switch (processarEstadoTopGaleria()){
+    switch (getScoreState()){
 
-        case GAT_ET_EXIBIR:
-            topGaleriaExibir();
+        case SCORE_VIEW:
+            screenViewScore();
             break;
 
-        case GAT_ET_NOVO:
-            topGaleriaNovo();
+        case SCORE_NEW:
+            screenNewScore();
             break;
 
-        case GAT_ET_SALVAR:
-            topGaleriaSalvar();
+        case SCORE_SAVE:
+            actionSaveScore();
             break;
-
-        case GAT_ET_INICIO:
 
         default:
-            setTopGaleriaExibir();
+            setScoreView();
             break;
     }
 }
 
-void GTScore::setTopGaleriaNovo()
+void GTScore::setScoreNew()
 {
-    if ((estado != GAT_ET_NOVO) && (gatilhoTopGaleriaNovo())){
-        estado = GAT_ET_NOVO;
+    if ((state != SCORE_NEW) && (triggerNewScore())){
+        state = SCORE_NEW;
 //  reiniciarTempo();
 //      tempoEspera.setIniciar();
     }
 }
 
-void GTScore::setTopGaleriaSalvar()
+void GTScore::setScoreSave()
 {
 //    if ((estado!=GAT_ET_SALVAR)&&(isTempoEspera())){
-    if (estado != GAT_ET_SALVAR){
-        estado = GAT_ET_SALVAR;
+    if (state != SCORE_SAVE){
+        state = SCORE_SAVE;
 //        reiniciarTempo();
 //        gatilhoTopGaleriaSalvar();
     }
 }
 
-void GTScore::setTopGaleriaExibir()
+void GTScore::setScoreView()
 {
-    if ((estado == GAT_ET_INICIO) ||
-            ((estado != GAT_ET_EXIBIR) && (isTempoEspera()))){
-        gatilhoTopGaleriaExibir();
-        estado = GAT_ET_EXIBIR;
-        reiniciarTempo();
+    if ((state == SCORE_VIEW) || ((state != SCORE_VIEW) && (isFinish()))){
+        triggerViewScore();
+        state = SCORE_VIEW;
+        reset();
     }
 }
 
-bool GTScore::gatilhoTopGaleriaNovo()
+bool GTScore::triggerNewScore()
 {
     return true;
 }
 
-bool GTScore::gatilhoTopGaleriaSalvar()
+bool GTScore::triggerSaveScore()
 {
     return true;
 }
 
-bool GTScore::gatilhoTopGaleriaExibir()
+bool GTScore::triggerViewScore()
 {
     return true;
-}
-
-void GTScore::setTopGaleriaInicio()
-{
-    estado = GAT_ET_INICIO;
 }
 
 } // namespace GAT

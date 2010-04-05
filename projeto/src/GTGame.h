@@ -17,14 +17,14 @@
 namespace GAT {
 
 enum StateGame {
-    GAT_EJ_INICIO = 0,
-    GAT_EJ_NOVO = 10,
-    GAT_EJ_EXECUTANDO = 20,
-    GAT_EJ_PAUSE = 30,
-    GAT_EJ_FASE_CARREGAR = 40,
-    GAT_EJ_FASE_FINALIZADA = 50,
-    GAT_EJ_GAMEOVER = 60,
-    GAT_EJ_ZERADO = 70
+    GAME_START        =  0,
+    GAME_NEW          = 10,
+    GAME_ON           = 20,
+    GAME_PAUSE        = 30,
+    GAME_STAGE_LOAD   = 40,
+    GAME_STAGE_FINISH = 50,
+    GAME_OVER         = 60,
+    GAME_FINISH       = 70
 };
 
 class GTGame : public GTTime
@@ -40,47 +40,46 @@ class GTGame : public GTTime
 
 
     protected:
-        void loopJogo();
+        void loopGame();
 
-        void setJogoNovo();
+        void setNewGame();
+
+        void setGameStart();
 
         //Coloca o jogo em estado de execução imediata
-        void setJogoExecutando();
+        void setOnGame();
 
-        void setJogoPause();
+        void setGamePause();
 
-        void setJogoFaseCarregar();
+        void setLoadStage();
 
-        void setJogoFaseFinalizada();
+        void setFinishStage();
 
-        void setJogoGameOver();
+        void setGameOver();
 
-        void setJogoZerado();
+        void setGameFinish();
 
-        virtual void jogoNovo() = 0;
+        virtual void actionNewGame() = 0;
 
-        virtual void jogoExecutando() = 0;
+        virtual void actionOnGame() = 0;
 
-        virtual void jogoPause() = 0;
+        virtual void screenGamePause() = 0;
 
-        virtual void jogoFaseCarregar() = 0;
+        virtual void screenLoadStage() = 0;
 
-        virtual void jogoFaseFinalizada() = 0;
+        virtual void screenFinishStage() = 0;
 
-        virtual void jogoGameOver() = 0;
+        virtual void screenGameOver() = 0;
 
-        virtual void jogoZerado() = 0;
+        virtual void screenGameFinish() = 0;
 
-        virtual void gatilhoJogoNovo();
+        virtual void triggerNewGame();
 
-        virtual void gatilhoJogoExecutando();
+        virtual void triggerOnGame();
 
-        virtual bool gatilhoJogoFaseCarregar();
+        virtual bool triggerLoadStage();
 
-        virtual bool gatilhoJogoFaseFinalizada();
-
-        void setJogoInicio();
-
+        virtual bool triggerFinishStage();
 
     private:
 

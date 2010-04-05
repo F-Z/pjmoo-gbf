@@ -16,58 +16,58 @@
 
 namespace GAT {
 
-enum StateMenu {
-  GAT_EM_INICIO=0,
-  GAT_EM_PRINCIPAL=10,
-  GAT_EM_AJUDA=20,
-  GAT_EM_CREDITO=30,
-  GAT_EM_SOBRE=40,
-  GAT_EM_CONFIGURACAO=50
+enum StateMenu
+{
+    MENU_START  =  0,
+    MENU_MAIN   = 10,
+    MENU_HELP   = 20,
+    MENU_CREDIT = 30,
+    MENU_ABOUT  = 40,
+    MENU_CONFIG = 50
 };
 
 class GTMenu : public GTTime
 {
-  private:
-    StateMenu estado;
+    public:
+        /** Construtor */
+        GTMenu();
+
+        /** Destrutor */
+        virtual ~GTMenu();
+
+        StateMenu processarEstadoMenu();
 
 
-  public:
-    //Construtor
-    GTMenu();
+    protected:
 
-    //Destrutor
-    virtual ~GTMenu();
+        void setMenuStart();
 
-    StateMenu processarEstadoMenu();
+        void setMenuMain();
 
+        void setMenuHelp();
 
-  protected:
-    void setMenuPrincipal();
+        void setMenuCredit();
 
-    void setMenuAjuda();
+        void setMenuAbout();
 
-    void setMenuCredito();
+        void setMenuConfig();
 
-    void setMenuSobre();
+        virtual void screenMain() = 0;
 
-    void setMenuConfiguracao();
+        virtual void screenHelp() = 0;
 
-    virtual void menuPrincipal() = 0;
+        virtual void screenCredit() = 0;
 
-    virtual void menuAjuda() = 0;
+        virtual void screenAbout() = 0;
 
-    virtual void menuCredito() = 0;
+        virtual void screenConfig();
 
-    virtual void menuSobre() = 0;
+        virtual void triggerMain();
 
-    virtual void menuConfiguracao();
+        virtual void triggerConfig();
 
-    virtual void gatilhoMenuPrincipal();
-
-    virtual void gatilhoMenuConfiguracao();
-
-    void setMenuInicio();
-
+    private:
+        StateMenu state;
 
 };
 

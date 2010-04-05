@@ -19,8 +19,8 @@ void UIWindowRecord::update()
 {
     tempoEspera.update();
 
-    textName.setValue(record.nome);
-    textScore.setValue(record.pontos);
+    textName.setValue(record.name);
+    textScore.setValue(record.score);
 }
 
 /** Desenha o botão de ação da janela */
@@ -54,7 +54,7 @@ int UIWindowRecord::confirmSelection()
         int selecao = keyboard.getIndex();
 
         if ((selecao >= 0) && (selecao < keyboard.getTotalCaracter())){
-            record.nome[nameIndex] = keyboard.getCaracter();
+            record.name[nameIndex] = keyboard.getCaracter();
             nameIndex++;
         } else if (selecao == keyboard.getTotalCaracter()){//controle voltar
             nameIndex--;
@@ -62,7 +62,7 @@ int UIWindowRecord::confirmSelection()
             nameIndex++;
         } else if (selecao == keyboard.getTotalCaracter() + 2){//controle salvar
             //if (recorde.nome[0]!=' '){
-            if (strlen(record.nome) > 1){
+            if (strlen(record.name) > 1){
                 opcao = BUTTON_SAVE;
             } else {
                 showErro = true;

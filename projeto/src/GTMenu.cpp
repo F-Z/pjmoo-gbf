@@ -16,7 +16,7 @@ namespace GAT {
 //Construtor
 GTMenu::GTMenu()
 {
-    setMenuInicio();
+    setMenuStart();
 }
 
 //Destrutor
@@ -26,71 +26,69 @@ GTMenu::~GTMenu()
 
 StateMenu GTMenu::processarEstadoMenu()
 {
-    return estado;
+    return state;
 }
 
-void GTMenu::setMenuPrincipal()
+void GTMenu::setMenuMain()
 {
-    if ((estado == GAT_EM_INICIO)
-            || ((estado != GAT_EM_PRINCIPAL)
-                && (isTempoEspera()))){
-        estado = GAT_EM_PRINCIPAL;
-        gatilhoMenuPrincipal();
-        reiniciarTempo();
+    if ((state == MENU_START) || ((state != MENU_MAIN) && (isFinish()))){
+        state = MENU_MAIN;
+        triggerMain();
+        reset();
     }
 }
 
-void GTMenu::setMenuAjuda()
+void GTMenu::setMenuHelp()
 {
-    if ((estado != GAT_EM_AJUDA) && (isTempoEspera())){
-        estado = GAT_EM_AJUDA;
-        reiniciarTempo();
+    if ((state != MENU_HELP) && (isFinish())){
+        state = MENU_HELP;
+        reset();
     }
 }
 
-void GTMenu::setMenuCredito()
+void GTMenu::setMenuCredit()
 {
-    if ((estado != GAT_EM_CREDITO) && (isTempoEspera())){
-        estado = GAT_EM_CREDITO;
-        reiniciarTempo();
+    if ((state != MENU_CREDIT) && (isFinish())){
+        state = MENU_CREDIT;
+        reset();
     }
 }
 
-void GTMenu::setMenuSobre()
+void GTMenu::setMenuAbout()
 {
-    if ((estado != GAT_EM_SOBRE) && (isTempoEspera())){
-        estado = GAT_EM_SOBRE;
-        reiniciarTempo();
+    if ((state != MENU_ABOUT) && (isFinish())){
+        state = MENU_ABOUT;
+        reset();
     }
 }
 
-void GTMenu::setMenuConfiguracao()
+void GTMenu::setMenuConfig()
 {
-    if ((estado != GAT_EM_CONFIGURACAO) && (isTempoEspera())){
-        estado = GAT_EM_CONFIGURACAO;
-        gatilhoMenuConfiguracao();
-        reiniciarTempo();
+    if ((state != MENU_CONFIG) && (isFinish())){
+        state = MENU_CONFIG;
+        triggerConfig();
+        reset();
     }
 }
 
-void GTMenu::menuConfiguracao()
+void GTMenu::screenConfig()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTMenu::gatilhoMenuPrincipal()
+void GTMenu::triggerMain()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTMenu::gatilhoMenuConfiguracao()
+void GTMenu::triggerConfig()
 {
     //opcional implementação de acordo com a necessidade
 }
 
-void GTMenu::setMenuInicio()
+void GTMenu::setMenuStart()
 {
-    estado = GAT_EM_INICIO;
+    state = MENU_START;
 }
 
 } // namespace GAT
