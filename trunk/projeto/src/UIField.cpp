@@ -93,7 +93,7 @@ void UIField::drawForeground()
     if (cursor.show) {
         if (tempoBlink.getTime() % 2 != 0) {
             graphicSystem->gfx->setColor(250, 250, 250);
-            graphicSystem->gfx->retanguloPreenchido(cursor.point.x, cursor.point.y, fonteCampo.dimension.w, 2);
+            graphicSystem->gfx->rectangleFill(cursor.point.x, cursor.point.y, fonteCampo.dimension.w, 2);
         }
     }
 }

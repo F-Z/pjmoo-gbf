@@ -40,9 +40,9 @@ void UIMenuSolid::draw()
         GBF::Point t = calcularAlinhamento(totalHorizontal, totalVertical);
 
         graphicSystem->gfx->setColor(corFundo.r, corFundo.g, corFundo.b);
-        graphicSystem->gfx->retanguloPreenchido(t.x, t.y, totalHorizontal, totalVertical);
+        graphicSystem->gfx->rectangleFill(t.x, t.y, totalHorizontal, totalVertical);
         graphicSystem->gfx->setColor(corBorda.r, corBorda.g, corBorda.b);
-        graphicSystem->gfx->retangulo(t.x, t.y, totalHorizontal, totalVertical);
+        graphicSystem->gfx->rectangle(t.x, t.y, totalHorizontal, totalVertical);
 
         int pontoY = t.y + offsetY;
         int pontoX = 0;

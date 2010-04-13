@@ -30,7 +30,7 @@ void PSPixel::draw()
 
         GBF::Color::RGB tcor;
         graphicSystem->gfx->setColor(255, 255, 255);
-        graphicSystem->gfx->travar();
+        graphicSystem->gfx->lock();
 
         for (unsigned int i = 0; i < lista.size(); i++){
             if (lista[i].ativa){
@@ -42,7 +42,7 @@ void PSPixel::draw()
             }
         }
 
-        graphicSystem->gfx->destravar();
+        graphicSystem->gfx->unlock();
     }
 }
 /** Configura a quantidade de unidades que serão criadas */

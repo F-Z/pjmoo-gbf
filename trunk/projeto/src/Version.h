@@ -10,21 +10,21 @@ namespace AutoVersion{
 	//Standard Version Type
 	static const long MAJOR = 0;
 	static const long MINOR = 9;
-	static const long BUILD = 880;
-	static const long REVISION = 4973;
+	static const long BUILD = 904;
+	static const long REVISION = 5107;
 	
 	//Miscellaneous Version Types
-	static const long BUILDS_COUNT = 980;
-	#define RC_FILEVERSION 0,9,880,4973
-	#define RC_FILEVERSION_STRING "0, 9, 880, 4973\0"
-	static const char FULLVERSION_STRING[] = "0.9.880.4973";
+	static const long BUILDS_COUNT = 1008;
+	#define RC_FILEVERSION 0,9,904,5107
+	#define RC_FILEVERSION_STRING "0, 9, 904, 5107\0"
+	static const char FULLVERSION_STRING[] = "0.9.904.5107";
 	
 	//SVN Version
-	static const char SVN_REVISION[] = "208";
-	static const char SVN_DATE[] = "2010-04-01T01:31:59.387749Z";
+	static const char SVN_REVISION[] = "210";
+	static const char SVN_DATE[] = "2010-04-05T19:48:47.526032Z";
 	
 	//These values are to keep track of your versioning state, don't modify them.
-	static const long BUILD_HISTORY = 58;
+	static const long BUILD_HISTORY = 82;
 	
 
 }

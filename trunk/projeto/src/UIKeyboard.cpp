@@ -82,7 +82,7 @@ void UIKeyboard::drawBackground()
 
             //Desenhando cursor da selecao de tecla
             if ((selecao == letra) && (tempoBlink.getTime() % 2 == 0)){
-                graphicSystem->gfx->retangulo(cursor.x + (espacoHorizontal*c), cursor.y + (espacoVertical*l), cursorDimensao.w, cursorDimensao.h);
+                graphicSystem->gfx->rectangle(cursor.x + (espacoHorizontal*c), cursor.y + (espacoVertical*l), cursorDimensao.w, cursorDimensao.h);
             }
 
             letra++;
@@ -118,7 +118,7 @@ void UIKeyboard::drawContent()
     if (tempoBlink.getTime() % 2 == 0){
         if (selecao >= getTotalCaracter()){
             int t = selecao - getTotalCaracter();
-            graphicSystem->gfx->retangulo(cursor.x, cursor.y + (fontControl.dimension.h*t), cursorDimensao.w, cursorDimensao.h);
+            graphicSystem->gfx->rectangle(cursor.x, cursor.y + (fontControl.dimension.h*t), cursorDimensao.w, cursorDimensao.h);
         }
     }
 }
