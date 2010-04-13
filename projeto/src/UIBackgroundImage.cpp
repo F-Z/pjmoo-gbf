@@ -57,7 +57,7 @@ void UIBackgroundImage::draw()
 
     graphicSystem->gfx->setColor(borderColor.r, borderColor.g, borderColor.b);
 
-    graphicSystem->gfx->retangulo(point.x, point.y, dimension.w, dimension.h);
+    graphicSystem->gfx->rectangle(point.x, point.y, dimension.w, dimension.h);
 }
 
 /** Retorna uma copia do objeto */

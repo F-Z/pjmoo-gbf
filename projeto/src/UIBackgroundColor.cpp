@@ -33,10 +33,10 @@ void UIBackgroundColor::setColor(const GBF::Color::Pallete & r, const GBF::Color
 void UIBackgroundColor::draw()
 {
     graphicSystem->gfx->setColor(color.r,color.g,color.b);
-    graphicSystem->gfx->retanguloPreenchido(point.x,point.y,dimension.w,dimension.h);
+    graphicSystem->gfx->rectangleFill(point.x,point.y,dimension.w,dimension.h);
 
     graphicSystem->gfx->setColor(borderColor.r,borderColor.g,borderColor.b);
-    graphicSystem->gfx->retangulo(point.x,point.y,dimension.w,dimension.h);
+    graphicSystem->gfx->rectangle(point.x,point.y,dimension.w,dimension.h);
 }
 /** Retorna uma cópia do objeto */
 UIBackground * UIBackgroundColor::clone()
