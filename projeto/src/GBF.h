@@ -16,13 +16,10 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
-
 /** Representação do framework */
-
 namespace GBF {
 
 /** Estrutura para representar um ponto na tela */
-
 struct Point
 {
     int x;
@@ -32,7 +29,6 @@ struct Point
 };
 
 /** Estrutura para representar dimensões */
-
 struct Dimension
 {
     int w;
@@ -42,7 +38,6 @@ struct Dimension
 };
 
 /** Estrutura para representar um ponto (precisão flutuante) na tela */
-
 struct PointFloat
 {
     float x;
@@ -52,7 +47,6 @@ struct PointFloat
 };
 
 /** Definição de uma Área Virtual */
-
 struct Area
 {
     /** Representa um ponto no eixo y*/
@@ -68,7 +62,6 @@ struct Area
     int right;
 
 };
-
 
 
 } // namespace GBF

@@ -60,7 +60,7 @@ std::string Language::getLanguage()
 //Seleciona o idioma automaticamente de acordo com o ambiente
 void Language::autodetect()
 {
-    std::cout << "GBF::Kernel::Write::Language::detectarIdioma()" << std::endl;
+    std::cout << "GBF::Kernel::Write::Language::autodetect()" << std::endl;
 #ifdef __gnu_linux__
 //Descobrindo o idioma do usuário no GNU/LINUX
     const char* idioma    = getenv("LC_ALL");
@@ -150,7 +150,7 @@ void Language::parser(char * info)
             break;
         }
     }
-    if ((i>0)&&((i+1)<tamanho)){
+    if ((i>0)&&(tamanho>0)){
         mapaTexto[linha.substr(0,i)]=linha.substr(i+1,tamanho);
     }
 }
