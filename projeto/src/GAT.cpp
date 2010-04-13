@@ -205,7 +205,7 @@ void GAT::executeMenu()
             break;
 
         case MENU_START:
-            setMenu();
+            setMenuMain();
             break;
     }
 }
