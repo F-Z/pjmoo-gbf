@@ -1,17 +1,14 @@
-////    GBF - Gamework's Brazilian Framework
-////    Copyright (C) 2004-2008 David de Almeida Ferreira
-////
-////    This library is free software; you can redistribute it and/or
-////    modify it under the terms of the GNU Library General Public
-////    License as published by the Free Software Foundation; either
-////    version 2 of the License, or (at your option) any later version.
-////
-////    David de Almeida Ferreira (F-Z)
-////        davidferreira@uol.com.br or davidferreira.fz@gmail.com
-////        http://pjmoo.sourceforge.net
-////        http://davidferreira-fz.blogspot.com
-////////////////////////////////////////////////////////////////////////
-
+/* GBFramework - Gamework's Brazilian Framework
+ *  Copyright (C) 2004-2011 - David de Almeida Ferreira
+ *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
+**************************************************************************/
 #include "GraphicMode.h"
 
 namespace GBF {
@@ -20,18 +17,18 @@ namespace Kernel {
 
 namespace Graphic {
 
-//Construtor 
-GraphicMode::GraphicMode() 
+//Construtor
+GraphicMode::GraphicMode()
 {
     screen = NULL;
 }
-//Destrutor 
-GraphicMode::~GraphicMode() 
+//Destrutor
+GraphicMode::~GraphicMode()
 {
 //    SDL_FreeSurface(screen);
 }
-//Coloca o vídeo em modo de tela cheia 
-void GraphicMode::setModeFullScreen() 
+//Coloca o vídeo em modo de tela cheia
+void GraphicMode::setModeFullScreen()
 {
     std::cout << "GBF::Kernel::Graphic::GraphicMode::setModeFullScreen()" << std::endl;
     //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
@@ -47,8 +44,8 @@ void GraphicMode::setModeFullScreen()
         std::cout << "\tGraphicMode: FullScreen" << std::endl;
     }
 }
-//Coloca o vídeo em modo de janela 
-void GraphicMode::setModeWindowScreen() 
+//Coloca o vídeo em modo de janela
+void GraphicMode::setModeWindowScreen()
 {
     std::cout << "GBF::Kernel::Graphic::GraphicMode::setModeWindowScreen()" << std::endl;
     //Observar: SDL_SWSURFACE foi trocado para SDL_HWSURFACE
@@ -64,23 +61,23 @@ void GraphicMode::setModeWindowScreen()
         std::cout << "\tGraphicMode: Window" << std::endl;
     }
 }
-//Retorna se o jogo esta rodando em modo de Tela Cheia 
-bool GraphicMode::isFullScreen() 
+//Retorna se o jogo esta rodando em modo de Tela Cheia
+bool GraphicMode::isFullScreen()
 {
     return config.full;
 }
-//Configura a resolução do modo gráfico 
-void GraphicMode::setConfig(VideoConfig config) 
+//Configura a resolução do modo gráfico
+void GraphicMode::setConfig(VideoConfig config)
 {
     this->config=config;
 }
-//Pega a Configuração do modo gráfico 
-VideoConfig GraphicMode::getConfig() 
+//Pega a Configuração do modo gráfico
+VideoConfig GraphicMode::getConfig()
 {
     return config;
 }
-//Retorna a Surface Primaria de Vídeo (framebuffer) 
-SDL_Surface * GraphicMode::getScreen() 
+//Retorna a Surface Primaria de Vídeo (framebuffer)
+SDL_Surface * GraphicMode::getScreen()
 {
     return screen;
 }

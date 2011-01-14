@@ -1,5 +1,5 @@
 /* GBFramework - Gamework's Brazilian Framework
- *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  Copyright (C) 2004-2011 - David de Almeida Ferreira
  *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
  *
  *  This library is free software; you can redistribute it and/or
@@ -33,8 +33,10 @@ namespace Kernel {
 
 namespace Write {
 
-/** Classe para carregar textos
-   Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos */
+/**
+ * Classe para carregar textos.
+ * Possibilitar que os textos usados no jogo possam ser carregados de arquivos externos.
+ */
 
 class Language
 {
@@ -45,8 +47,7 @@ class Language
 
         static Language * getInstance();
 
-        /** Configura um idioma.
-        Obs.: O idioma é configurado de acordo com a lista de idiomas suportado */
+        /** Configura um idioma. O idioma é configurado de acordo com a lista de idiomas suportado */
         bool setLanguage(const std::string & codigo);
 
         std::string getLanguage();
