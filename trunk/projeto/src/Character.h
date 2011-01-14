@@ -21,11 +21,12 @@
 #include "InputSystem.h"
 #include "Object.h"
 
-/** Alias para nomeação interna do sprite principal (MainSprite) */
-#define MAIN_SPRITE "main"
 
 /** Namespace para personagens */
 namespace Character {
+
+/** Alias para nomeação interna do sprite principal (MainSprite) */
+#define GBF_CHARACTER_MAIN_SPRITE "main"
 
 /**
  * Estrutura auxiliar genérica para armazenamento de definições extras.
