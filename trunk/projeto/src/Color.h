@@ -1,5 +1,5 @@
 /* GBFramework - Gamework's Brazilian Framework
- *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  Copyright (C) 2004-2011 - David de Almeida Ferreira
  *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
  *
  *  This library is free software; you can redistribute it and/or
@@ -9,9 +9,8 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
-#ifndef _COR_H
-#define _COR_H
+#ifndef _COLOR_H
+#define _COLOR_H
 
 #include <math.h>
 
@@ -94,7 +93,7 @@ class Converter
 
 };
 
-} // namespace GBF::Cor
+} // namespace GBF::Color
 
 } // namespace GBF
 

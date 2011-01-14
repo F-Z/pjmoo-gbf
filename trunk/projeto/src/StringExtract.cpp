@@ -1,5 +1,5 @@
 /* GBFramework - Gamework's Brazilian Framework
- *  Copyright (C) 2004-2010 - David de Almeida Ferreira
+ *  Copyright (C) 2004-2011 - David de Almeida Ferreira
  *  < http://www.dukitan.com > - < davidferreira.fz@gmail.com >
  *
  *  This library is free software; you can redistribute it and/or
@@ -9,7 +9,6 @@
  *
  *  < http://pjmoo.sourceforge.net >  < http://pjmoo-gbf.googlecode.com >
 **************************************************************************/
-
 #include "StringExtract.h"
 
 namespace GBF {
