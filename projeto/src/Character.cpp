@@ -24,7 +24,7 @@ Character::~Character()
 /** Desenha o sprite principal do personagem */
 void Character::draw()
 {
-    sprites[MAIN_SPRITE]->draw(point.x, point.y);
+    sprites[GBF_CHARACTER_MAIN_SPRITE]->draw(point.x, point.y);
 }
 
 void Character::setActive(bool value)
@@ -49,7 +49,7 @@ bool Character::isLife()
 
 bool Character::isCollision(Character * character)
 {
-    return sprites[MAIN_SPRITE]->isCollision(character->sprites[MAIN_SPRITE]);
+    return sprites[GBF_CHARACTER_MAIN_SPRITE]->isCollision(character->sprites[GBF_CHARACTER_MAIN_SPRITE]);
 }
 
 void Character::setPoint(int x, int y)
@@ -57,8 +57,8 @@ void Character::setPoint(int x, int y)
     point.x = x;
     point.y = y;
 
-    if (sprites[MAIN_SPRITE] != NULL) {
-        sprites[MAIN_SPRITE]->setPoint(point.x, point.y);
+    if (sprites[GBF_CHARACTER_MAIN_SPRITE] != NULL) {
+        sprites[GBF_CHARACTER_MAIN_SPRITE]->setPoint(point.x, point.y);
     }
 }
 
@@ -75,7 +75,7 @@ GBF::Point Character::getPoint()
 /** Adiciona o sprite principal do personagem */
 bool Character::addMainSprite(GBF::Image::Sprite::SpriteCharacter * sprite)
 {
-    return addSprite(sprite, MAIN_SPRITE);
+    return addSprite(sprite, GBF_CHARACTER_MAIN_SPRITE);
 }
 
 /** Adiciona o sprites extras do personagem */
@@ -92,12 +92,12 @@ bool Character::addSprite(GBF::Image::Sprite::SpriteCharacter * sprite, const st
 
 GBF::Dimension Character::getDimension()
 {
-    return sprites[MAIN_SPRITE]->getTamanho();
+    return sprites[GBF_CHARACTER_MAIN_SPRITE]->getTamanho();
 }
 
 GBF::Image::Sprite::SpriteCharacter * Character::getMainSprite()
 {
-    return sprites[MAIN_SPRITE];
+    return sprites[GBF_CHARACTER_MAIN_SPRITE];
 }
 
 GBF::Image::Sprite::SpriteCharacter * Character::getSprite(const std::string & name)
